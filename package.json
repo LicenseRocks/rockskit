@@ -10,7 +10,7 @@
   "scripts": {
     "build": "rollup --config",
     "deploy-storybook": "storybook-to-ghpages -- --out=docs",
-    "start": "start-storybook"
+    "start": "start-storybook -s ./.storybook/static -p 9000 --quiet -c .storybook"
   },
   "author": "",
   "license": "ISC",
@@ -29,6 +29,7 @@
     "@rollup/plugin-node-resolve": "^8.1.0",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-knobs": "^5.3.19",
+    "@storybook/addon-viewport": "^5.3.19",
     "@storybook/cli": "^5.3.19",
     "@storybook/react": "^5.3.19",
     "@storybook/storybook-deployer": "^2.8.6",
