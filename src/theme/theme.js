@@ -32,8 +32,17 @@ theme.typography = {
   ...theme.typography,
   fontFamily: [KIT_FONTS.Inter.name, "sans-serif"].join(","),
   fontSize: 16,
+  fontWeightLight: 300,
+  fontWeightRegular: "normal",
+  fontWeightBold: 600,
   h1: KIT_TYPOGRAPHY.h1(theme),
   h2: KIT_TYPOGRAPHY.h2(theme),
   h3: KIT_TYPOGRAPHY.h3(theme),
-  h4: KIT_TYPOGRAPHY.h4(theme),
+  h4: KIT_TYPOGRAPHY.h4(),
+  h5: KIT_TYPOGRAPHY.h5(),
+  h6: KIT_TYPOGRAPHY.h6(),
+  body1: KIT_TYPOGRAPHY.body1(), // Paragraph
+  body2: KIT_TYPOGRAPHY.body2(), // Text
 };
+
+theme.spacing = (factor) => factor * 4;

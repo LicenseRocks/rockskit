@@ -1,11 +1,19 @@
-import { addDecorator, addParameters } from '@storybook/react'
+import { addDecorator, addParameters } from "@storybook/react";
+import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
 
-import { Container } from './decorators'
+import { Container } from "./decorators";
 
 addParameters({
   options: {
-    panelPosition: 'right'
-  }
-})
+    panelPosition: "right",
+  },
+});
 
-addDecorator(Container)
+addDecorator(Container);
+
+addParameters({
+  docs: {
+    container: DocsContainer,
+    page: DocsPage,
+  },
+});

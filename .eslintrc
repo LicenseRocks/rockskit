@@ -27,7 +27,7 @@
   },
   "overrides": [
     {
-      "files": ["stories.js"],
+      "files": ["**stories.js"],
       "rules": {
         "react/prop-types": "off"
       }
