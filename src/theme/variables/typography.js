@@ -2,6 +2,7 @@ import { KIT_FONTS } from "./fonts";
 
 export const KIT_TYPOGRAPHY = {
   h1: (theme) => ({
+    ...theme.typography.h1,
     fontFamily: KIT_FONTS.Galano.name,
     fontSize: "32px",
     lineHeight: "120%",
@@ -13,6 +14,7 @@ export const KIT_TYPOGRAPHY = {
     },
   }),
   h2: (theme) => ({
+    ...theme.typography.h2,
     fontFamily: KIT_FONTS.Galano.name,
     fontSize: "26px",
     lineHeight: "120%",
@@ -24,6 +26,7 @@ export const KIT_TYPOGRAPHY = {
     },
   }),
   h3: (theme) => ({
+    ...theme.typography.h3,
     fontFamily: KIT_FONTS.Galano.name,
     fontSize: "20px",
     lineHeight: "120%",
@@ -51,6 +54,26 @@ export const KIT_TYPOGRAPHY = {
   h6: () => ({
     fontFamily: KIT_FONTS.Galano.name,
     fontSize: "12px",
+    lineHeight: "120%",
+    textTransform: "initial",
+    letterSpacing: "unset",
+  }),
+  body1: () => ({
+    // Paragraph
+    fontFamily: KIT_FONTS.Inter.name,
+    fontSizeLg: "18px",
+    fontSize: "16px",
+    fontSizeSm: "14px",
+    lineHeight: "160%",
+    textTransform: "initial",
+    letterSpacing: "-0.01em",
+  }),
+  body2: () => ({
+    // Text
+    fontFamily: KIT_FONTS.Inter.name,
+    fontSizeLg: "16px",
+    fontSize: "14px",
+    fontSizeSm: "12px",
     lineHeight: "120%",
     textTransform: "initial",
     letterSpacing: "unset",
