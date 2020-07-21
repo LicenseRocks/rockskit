@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Typography from "@material-ui/core/Typography";
 
-import { BaseTextPropTypes, BaseTextDefaultProps } from "./props";
+import { TextBasePropTypes, TextBaseDefaultProps } from "./props";
 
 const StyledText = styled(Typography)`
   && {
@@ -34,10 +34,10 @@ const StyledText = styled(Typography)`
   }
 `;
 
-export const BaseText = ({ content, children, ...props }) => {
+export const TextBase = ({ content, children, ...props }) => {
   return <StyledText {...props}>{content || children}</StyledText>;
 };
 
-BaseText.propTypes = BaseTextPropTypes;
+TextBase.propTypes = TextBasePropTypes;
 
-BaseText.defaultProps = BaseTextDefaultProps;
+TextBase.defaultProps = TextBaseDefaultProps;
