@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export const BaseHeadingPropTypes = {
+export const HeadingBasePropTypes = {
   align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
   children: PropTypes.node,
   content: PropTypes.node,

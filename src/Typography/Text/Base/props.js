@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-export const BaseTextPropTypes = {
+export const TextBasePropTypes = {
   align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
   children: PropTypes.node,
   content: PropTypes.node,
@@ -21,7 +21,7 @@ export const BaseTextPropTypes = {
   noWrap: PropTypes.bool,
 };
 
-export const BaseTextDefaultProps = {
+export const TextBaseDefaultProps = {
   fontStyle: "normal",
   fontWeight: "regular",
   fontSize: "md",

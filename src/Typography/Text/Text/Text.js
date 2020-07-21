@@ -1,9 +1,9 @@
 import React from "react";
 
-import { BaseText, BaseTextPropTypes } from "../Base";
+import { TextBase, TextBasePropTypes } from "../Base";
 
 export const Text = (props) => {
-  return <BaseText component="span" variant="body2" {...props} />;
+  return <TextBase component="span" variant="body2" {...props} />;
 };
 
-Text.propTypes = BaseTextPropTypes;
+Text.propTypes = TextBasePropTypes;

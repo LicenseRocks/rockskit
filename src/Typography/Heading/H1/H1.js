@@ -1,9 +1,9 @@
 import React from "react";
 
-import { BaseHeading, BaseHeadingPropTypes } from "../Base";
+import { HeadingBase, HeadingBasePropTypes } from "../Base";
 
 export const H1 = (props) => {
-  return <BaseHeading variant="h1" {...props} />;
+  return <HeadingBase variant="h1" {...props} />;
 };
 
-H1.propTypes = BaseHeadingPropTypes;
+H1.propTypes = HeadingBasePropTypes;
