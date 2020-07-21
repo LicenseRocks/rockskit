@@ -50,8 +50,6 @@ jobs:
           yarn install
 
       - name: Build 🔧
-        env:
-          STORYBOOK_BASE_URL: ${{ secrets.STORYBOOK_BASE_URL }}
         run: |
           yarn build-storybook
 
