@@ -14,6 +14,7 @@ theme.palette = {
     primary: KIT_COLORS.gray.black,
     secondary: KIT_COLORS.gray.medium,
   },
+  gray: KIT_COLORS.gray,
   success: {
     main: KIT_COLORS.alert.darkGreen,
     light: KIT_COLORS.alert.lightGreen,
@@ -25,6 +26,13 @@ theme.palette = {
   error: {
     main: KIT_COLORS.alert.darkRed,
     light: KIT_COLORS.alert.lightRed,
+  },
+  common: {
+    white: KIT_COLORS.gray.white,
+    black: KIT_COLORS.gray.black,
+  },
+  background: {
+    default: KIT_COLORS.gray.light,
   },
 };
 
@@ -43,6 +51,11 @@ theme.typography = {
   h6: KIT_TYPOGRAPHY.h6(),
   body1: KIT_TYPOGRAPHY.body1(), // Paragraph
   body2: KIT_TYPOGRAPHY.body2(), // Text
+  button: KIT_TYPOGRAPHY.button(),
 };
 
 theme.spacing = (factor) => factor * 4;
+
+theme.overrides.MuiButtonBase = {
+  root: KIT_TYPOGRAPHY.button(),
+};

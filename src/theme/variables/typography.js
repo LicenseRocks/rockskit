@@ -78,4 +78,14 @@ export const KIT_TYPOGRAPHY = {
     textTransform: "initial",
     letterSpacing: "unset",
   }),
+  button: () => ({
+    fontFamily: KIT_FONTS.Inter.name,
+    fontSizeMd: "16px",
+    fontSizeSm: "14px",
+    fontSizeXs: "10px",
+    lineHeight: "120%",
+    textTransform: "uppercase",
+    letterSpacing: "unset",
+    fontWeight: "bold",
+  }),
 };
