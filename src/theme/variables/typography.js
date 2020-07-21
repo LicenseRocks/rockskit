@@ -43,14 +43,14 @@ export const KIT_TYPOGRAPHY = {
   }),
   h5: () => ({
     fontFamily: KIT_FONTS.Galano.name,
-    fontSize: "12px",
+    fontSize: "14px",
     lineHeight: "120%",
     textTransform: "initial",
     letterSpacing: "unset",
   }),
   h6: () => ({
     fontFamily: KIT_FONTS.Galano.name,
-    fontSize: "8px",
+    fontSize: "12px",
     lineHeight: "120%",
     textTransform: "initial",
     letterSpacing: "unset",

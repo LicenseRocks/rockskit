@@ -1,7 +1,7 @@
 import React from "react";
 import { withKnobs } from "@storybook/addon-knobs";
 
-import { H1, H2, H3, H4 } from ".";
+import { H1, H2, H3, H4, H5, H6 } from ".";
 
 export default {
   title: "Typography",
@@ -30,6 +30,10 @@ export const main = () => {
       <BaseComponent Component={H3} title="h3" />
 
       <BaseComponent Component={H4} title="h4" />
+
+      <BaseComponent Component={H5} title="h5" />
+
+      <BaseComponent Component={H6} title="h6" />
     </>
   );
 };

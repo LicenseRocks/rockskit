@@ -35,5 +35,7 @@ theme.typography = {
   h1: KIT_TYPOGRAPHY.h1(theme),
   h2: KIT_TYPOGRAPHY.h2(theme),
   h3: KIT_TYPOGRAPHY.h3(theme),
-  h4: KIT_TYPOGRAPHY.h4(theme),
+  h4: KIT_TYPOGRAPHY.h4(),
+  h5: KIT_TYPOGRAPHY.h5(),
+  h6: KIT_TYPOGRAPHY.h6(),
 };
