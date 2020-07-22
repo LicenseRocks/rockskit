@@ -1,0 +1,2 @@
+// DetailsTable
+export * from "./DetailsTable";

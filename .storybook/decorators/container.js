@@ -1,9 +1,10 @@
 import React from "react";
-import MuiThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
+import { ThemeProvider as MuiThemeProvider } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ThemeProvider } from "styled-components";
 
 import { theme } from "../../src/theme";
+import "../../src/theme/faLibrary";
 
 export const Container = (story) => {
   return (

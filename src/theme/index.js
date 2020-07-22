@@ -1,3 +1,5 @@
-export * from "./variables";
-export * from "./GlobalStyle";
+export * from "./kit";
+
 export * from "./theme";
+
+export * from "./variables";

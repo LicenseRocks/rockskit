@@ -10,6 +10,11 @@ theme.palette = {
     main: KIT_COLORS.primary.main,
     light: KIT_COLORS.primary.light,
   },
+  secondary: {
+    main: KIT_COLORS.gray.dark,
+    light: KIT_COLORS.gray.semiLight,
+    dark: KIT_COLORS.gray.black,
+  },
   text: {
     primary: KIT_COLORS.gray.black,
     secondary: KIT_COLORS.gray.medium,

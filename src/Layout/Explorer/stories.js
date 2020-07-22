@@ -2,9 +2,13 @@ import React from "react";
 
 // UI
 import { ExplorerLayout, H1, H4, OutlineButton } from "../..";
+import { main as DetailsTableStory } from "../../DetailsTable/stories";
 
 export default {
   title: "Layout/Explorer",
+  parameters: {
+    options: { showPanel: false },
+  },
 };
 
 const headerRight = (
@@ -20,5 +24,6 @@ export const main = () => (
     sidebar={sidebar}
   >
     <H1 content="Main content" />
+    <DetailsTableStory />
   </ExplorerLayout>
 );
