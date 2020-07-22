@@ -10,5 +10,5 @@ export default {
 };
 
 export const main = () => (
-  <Image alt="Majid Amiri" src="http://via.placeholder.com/350x150" />
+  <Image alt="Majid Amiri" src="https://via.placeholder.com/350x150" />
 );
