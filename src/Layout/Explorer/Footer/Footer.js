@@ -4,12 +4,16 @@ import styled from "styled-components";
 import { ExplorerLayoutFooterPropTypes } from "./props";
 
 const StyledFooter = styled.div`
-  height: 70px;
+  box-sizing: border-box;
+  height: 80px;
   text-align: center;
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  padding-top: ${({ theme }) => theme.spacing(2)}px;
+  ${({ theme }) => theme.breakpoints.up("lg")} {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
 `;
 
 export const ExplorerLayoutFooter = ({ action, ...props }) => {

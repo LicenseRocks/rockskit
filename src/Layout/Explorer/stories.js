@@ -7,14 +7,18 @@ export default {
   title: "Layout/Explorer",
 };
 
-const headerAction = (
+const headerRight = (
   <OutlineButton content="Action Button" color="secondary" size="sm" />
 );
 
 const sidebar = <H4>Sidebar</H4>;
 
 export const main = () => (
-  <ExplorerLayout headerAction={headerAction} sidebar={sidebar}>
+  <ExplorerLayout
+    headerLogoAction={() => {}}
+    headerRight={headerRight}
+    sidebar={sidebar}
+  >
     <H1 content="Main content" />
   </ExplorerLayout>
 );

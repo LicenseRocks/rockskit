@@ -14,6 +14,9 @@ const Content = styled(Grid).attrs(() => ({
   container: true,
 }))`
   padding-top: ${({ theme }) => theme.spacing(8)}px;
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    padding-top: ${({ theme }) => theme.spacing(2)}px;
+  }
 `;
 
 const poweredBy = (
@@ -29,13 +32,17 @@ const poweredBy = (
 export const ExplorerLayout = ({
   children,
   footerContent,
-  headerAction,
+  headerLogoAction,
+  headerRight,
   sidebar,
   ...props
 }) => {
   return (
     <MuiContainer {...props}>
-      <ExplorerLayoutHeader action={headerAction} />
+      <ExplorerLayoutHeader
+        logoAction={headerLogoAction}
+        headerRight={headerRight}
+      />
       <Content>
         <Grid item lg={9} xs={12}>
           {children}

@@ -26,14 +26,14 @@ const StyledLogo = styled(Image).attrs(() => ({
   }
 `;
 
-export const ExplorerLayoutHeader = ({ action, ...props }) => {
+export const ExplorerLayoutHeader = ({ headerRight, logoAction, ...props }) => {
   return (
     <StyledHeader {...props}>
       <Grid item lg={9} xs={6}>
-        <StyledLogo onClick={() => {}} />
+        <StyledLogo onClick={logoAction} />
       </Grid>
       <Grid container item justify="flex-end" lg={3} xs={6}>
-        {action}
+        {headerRight}
       </Grid>
     </StyledHeader>
   );
