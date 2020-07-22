@@ -1,11 +1,12 @@
 import React from "react";
 
-// UI
+import { StoryWrapper } from "../../.storybook/decorators";
 import { Image } from ".";
 
 export default {
   title: "Image",
   component: Image,
+  decorators: [StoryWrapper],
 };
 
 export const main = () => (
