@@ -54,6 +54,16 @@ theme.typography = {
   button: KIT_TYPOGRAPHY.button(),
 };
 
+theme.breakpoints = {
+  ...theme.breakpoints,
+  values: {
+    xs: 0,
+    sm: 576,
+    md: 768,
+    lg: 1200,
+  },
+};
+
 theme.spacing = (factor) => factor * 4;
 
 theme.overrides.MuiButtonBase = {

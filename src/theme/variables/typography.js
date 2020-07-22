@@ -2,9 +2,9 @@ import { KIT_FONTS } from "./fonts";
 
 export const KIT_TYPOGRAPHY = {
   h1: (theme) => ({
-    ...theme.typography.h1,
     fontFamily: KIT_FONTS.Galano.name,
     fontSize: "32px",
+    fontWeight: 500,
     lineHeight: "120%",
     textTransform: "initial",
     letterSpacing: "-0.03em",
@@ -14,8 +14,8 @@ export const KIT_TYPOGRAPHY = {
     },
   }),
   h2: (theme) => ({
-    ...theme.typography.h2,
     fontFamily: KIT_FONTS.Galano.name,
+    fontWeight: 500,
     fontSize: "26px",
     lineHeight: "120%",
     textTransform: "initial",
@@ -26,8 +26,8 @@ export const KIT_TYPOGRAPHY = {
     },
   }),
   h3: (theme) => ({
-    ...theme.typography.h3,
     fontFamily: KIT_FONTS.Galano.name,
+    fontWeight: 500,
     fontSize: "20px",
     lineHeight: "120%",
     textTransform: "initial",
@@ -39,6 +39,7 @@ export const KIT_TYPOGRAPHY = {
   }),
   h4: () => ({
     fontFamily: KIT_FONTS.Galano.name,
+    fontWeight: 500,
     fontSize: "16px",
     lineHeight: "120%",
     textTransform: "initial",
@@ -46,6 +47,7 @@ export const KIT_TYPOGRAPHY = {
   }),
   h5: () => ({
     fontFamily: KIT_FONTS.Galano.name,
+    fontWeight: 500,
     fontSize: "14px",
     lineHeight: "120%",
     textTransform: "initial",
@@ -53,6 +55,7 @@ export const KIT_TYPOGRAPHY = {
   }),
   h6: () => ({
     fontFamily: KIT_FONTS.Galano.name,
+    fontWeight: 500,
     fontSize: "12px",
     lineHeight: "120%",
     textTransform: "initial",

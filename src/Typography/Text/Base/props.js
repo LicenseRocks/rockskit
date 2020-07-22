@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 export const TextBasePropTypes = {
   align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
   children: PropTypes.node,
-  content: PropTypes.node,
+  content: PropTypes.string,
   color: PropTypes.oneOf([
     "initial",
     "inherit",

@@ -2,11 +2,12 @@ import React from "react";
 import { withKnobs, select, boolean } from "@storybook/addon-knobs";
 import styled from "styled-components";
 
+import { StoryWrapper } from "../../.storybook/decorators";
 import { Button, H3, OutlineButton, TextButton } from "..";
 
 export default {
   title: "Button",
-  decorators: [withKnobs],
+  decorators: [StoryWrapper, withKnobs],
 };
 
 const BaseComponent = ({ Component, title, ...props }) => {
