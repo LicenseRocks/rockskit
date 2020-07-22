@@ -7,7 +7,6 @@ import { ThemeProvider } from "styled-components";
 import { theme } from "../../src/theme";
 
 const StyledWrapper = styled.div`
-  padding: 16px;
   position: relative;
 `;
 
