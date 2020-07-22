@@ -49,8 +49,12 @@ const StyledButton = styled(MuiButtonBase)`
   }
 `;
 
-export const ButtonBase = ({ content, children, ...props }) => {
-  return <StyledButton {...props}>{content || children}</StyledButton>;
+export const ButtonBase = ({ content, children, href, ...props }) => {
+  return (
+    <StyledButton component={href ? "a" : "button"} href={href} {...props}>
+      {content || children}
+    </StyledButton>
+  );
 };
 
 ButtonBase.propTypes = ButtonBasePropTypes;
