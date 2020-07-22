@@ -5,4 +5,5 @@ export * from "./Form";
 export * from "./Icon";
 export * from "./Image";
 export * from "./Layout";
+export * from "./ShareModule";
 export * from "./Typography";

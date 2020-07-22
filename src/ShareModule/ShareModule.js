@@ -52,7 +52,11 @@ export const ShareModule = ({ link }) => {
 
         <ShareModuleButton icon="whatsapp" href={`whatsapp://send?${link}`} />
 
-        <ShareModuleButton icon="envelope" iconPrefix="far" />
+        <ShareModuleButton
+          icon="envelope"
+          iconPrefix="far"
+          href={`mailto:?body=${link}`}
+        />
       </ButtonsWrapper>
 
       <StyledText content="Or copy the link" />

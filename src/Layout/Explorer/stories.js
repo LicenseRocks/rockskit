@@ -1,7 +1,7 @@
 import React from "react";
 
 // UI
-import { ExplorerLayout, H1, H4, OutlineButton } from "../..";
+import { ExplorerLayout, H1, H4, OutlineButton, ShareModule } from "../..";
 import { main as DetailsTableStory } from "../../DetailsTable/stories";
 
 export default {
@@ -15,7 +15,12 @@ const headerRight = (
   <OutlineButton content="Action Button" color="secondary" size="sm" />
 );
 
-const sidebar = <H4>Sidebar</H4>;
+const sidebar = (
+  <>
+    <H4>Share this license</H4>
+    <ShareModule />
+  </>
+);
 
 export const main = () => (
   <ExplorerLayout
