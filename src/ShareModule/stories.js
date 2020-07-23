@@ -10,7 +10,9 @@ export default {
 };
 
 export const main = () => {
-  const defaultProps = {};
+  const defaultProps = {
+    url: "https://license.rocks/",
+  };
 
   return <ShareModule {...defaultProps} />;
 };

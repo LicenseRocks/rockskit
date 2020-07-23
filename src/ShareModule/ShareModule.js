@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css } from "styled-components";
+import copy from "copy-to-clipboard";
 
 import {
   ShareModuleButton,
@@ -31,37 +32,63 @@ const StyledText = styled(Text).attrs(() => ({
   }
 `;
 
-export const ShareModule = ({ link }) => {
+export const ShareModule = ({ copyText, shareOptions, url }) => {
   return (
     <Container>
       <ButtonsWrapper>
-        <ShareModuleButton
-          icon="twitter"
-          href={`https://twitter.com/intent/tweet?url=${link}`}
-        />
+        {shareOptions.includes("twitter") && (
+          <ShareModuleButton
+            icon="twitter"
+            href={`https://twitter.com/intent/tweet?url=${url}`}
+          />
+        )}
 
-        <ShareModuleButton
-          icon="facebook-f"
-          href={`https://www.facebook.com/sharer.php?u=${link}`}
-        />
+        {shareOptions.includes("facebook") && (
+          <ShareModuleButton
+            icon="facebook-f"
+            href={`https://www.facebook.com/sharer.php?u=${url}`}
+          />
+        )}
 
-        <ShareModuleButton
-          icon="telegram-plane"
-          href={`tg://msg?text=${link}`}
-        />
+        {shareOptions.includes("telegram") && (
+          <ShareModuleButton
+            icon="telegram-plane"
+            href={`tg://msg?text=${url}`}
+          />
+        )}
 
-        <ShareModuleButton icon="whatsapp" href={`whatsapp://send?${link}`} />
+        {shareOptions.includes("whatsapp") && (
+          <ShareModuleButton icon="whatsapp" href={`whatsapp://send?${url}`} />
+        )}
 
-        <ShareModuleButton
-          icon="envelope"
-          iconPrefix="far"
-          href={`mailto:?body=${link}`}
-        />
+        {shareOptions.includes("email") && (
+          <ShareModuleButton
+            icon="envelope"
+            iconPrefix="far"
+            href={`mailto:?body=${url}`}
+          />
+        )}
+
+        {shareOptions.includes("navigator") && navigator.share && (
+          <ShareModuleButton
+            icon="ellipsis-h"
+            iconPrefix="far"
+            onClick={() => navigator.share({ url })}
+          />
+        )}
       </ButtonsWrapper>
 
-      <StyledText content="Or copy the link" />
+      <StyledText content={copyText} />
 
-      <Input endIcon="copy" readOnly startIcon="link" value={link} />
+      <Input
+        endIcon="copy"
+        endIconColor="secondary"
+        endIconOnClick={() => copy(url)}
+        readOnly
+        selectable
+        startIcon="link"
+        value={url}
+      />
     </Container>
   );
 };

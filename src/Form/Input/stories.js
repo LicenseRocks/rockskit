@@ -14,8 +14,10 @@ export const main = () => {
   const defaultProps = {
     disabled: boolean("Disabled", false),
     endIcon: "box",
+    hasError: boolean("Has error", false),
     name: "textInput",
     placeholder: text("Placeholder", "Placeholder"),
+    readOnly: boolean("Read only", false),
     startIcon: "user",
   };
 

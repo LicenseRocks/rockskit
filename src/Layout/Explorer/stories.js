@@ -1,8 +1,9 @@
 import React from "react";
 
 // UI
-import { ExplorerLayout, H1, H4, OutlineButton, ShareModule } from "../..";
+import { ExplorerLayout, H1, H4, OutlineButton } from "../..";
 import { main as DetailsTableStory } from "../../DetailsTable/stories";
+import { main as ShareModuleStory } from "../../ShareModule/stories";
 
 export default {
   title: "Layout/Explorer",
@@ -18,7 +19,7 @@ const headerRight = (
 const sidebar = (
   <>
     <H4>Share this license</H4>
-    <ShareModule />
+    <ShareModuleStory />
   </>
 );
 

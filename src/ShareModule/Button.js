@@ -15,23 +15,34 @@ const Button = styled(ButtonBase)`
     svg {
       color: ${({ theme }) => theme.palette.text.primary};
     }
+
+    :hover {
+      background-color: ${({ theme }) => theme.palette.primary.light};
+
+      svg {
+        color: ${({ theme }) => theme.palette.primary.main};
+      }
+    }
   }
 `;
 
-export const ShareModuleButton = ({ href, icon, iconPrefix }) => {
+export const ShareModuleButton = ({ href, icon, iconPrefix, onClick }) => {
   return (
-    <Button href={href} target="_blank">
+    <Button href={href} onClick={onClick} target="_blank">
       <Icon icon={icon} prefix={iconPrefix} size="lg" />
     </Button>
   );
 };
 
 ShareModuleButton.propTypes = {
-  href: PropTypes.string.isRequired,
+  href: PropTypes.string,
   icon: PropTypes.string.isRequired,
   iconPrefix: PropTypes.string,
+  onClick: PropTypes.func,
 };
 
 ShareModuleButton.defaultProps = {
+  href: null,
   iconPrefix: "fab",
+  onClick: null,
 };
