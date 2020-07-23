@@ -16,7 +16,7 @@ const StyledChip = styled.div`
 
   ${({ color, theme }) =>
     css`
-      padding: ${theme.spacing(2)}px;
+      padding: ${theme.spacing(2)};
       background-color: ${theme.palette[color].light};
       color: ${theme.palette[color].main};
     `}
@@ -25,7 +25,7 @@ const StyledChip = styled.div`
 const StyledLabel = styled(Text).attrs(() => ({
   fontWeight: "bold",
 }))`
-  padding-left: ${({ theme }) => theme.spacing(2)}px;
+  padding-left: ${({ theme }) => theme.spacing(2)};
 `;
 
 export const ChipBadge = ({ color, icon, label, ...props }) => {

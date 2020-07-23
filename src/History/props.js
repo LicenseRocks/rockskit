@@ -1,23 +1,14 @@
 import PropTypes from "prop-types";
 
-export const ImagePropTypes = {
-  alt: PropTypes.string.isRequired,
-  className: PropTypes.any,
-  cover: PropTypes.bool,
-  fluid: PropTypes.bool,
-  height: PropTypes.number,
-  onClick: PropTypes.func,
-  rounded: PropTypes.bool,
-  roundedCircle: PropTypes.bool,
-  src: PropTypes.string.isRequired,
-  style: PropTypes.object,
-  thumbnail: PropTypes.bool,
-  width: PropTypes.number,
+export const HistoryPropTypes = {
+  rows: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    description: PropTypes.string,
+    moreInfo: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    iconColor: PropTypes.string,
+  }).isRequired,
 };
 
-export const ImageDefaultProps = {
-  fluid: false,
-  rounded: false,
-  roundedCircle: false,
-  thumbnail: false,
-};
+export const HistoryDefaultProps = {};

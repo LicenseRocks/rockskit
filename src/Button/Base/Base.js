@@ -8,7 +8,7 @@ const StyledButton = styled(MuiButtonBase)`
   && {
     box-sizing: border-box;
     border-radius: 12px;
-    padding: 0 ${({ theme }) => theme.spacing(4)}px;
+    padding: ${({ theme }) => theme.spacing(0, 4)};
     min-width: 40px;
     height: 40px;
     transition: all 100ms ease-in-out;
@@ -27,7 +27,7 @@ const StyledButton = styled(MuiButtonBase)`
       if (size === "xs") {
         return css`
           font-size: ${theme.typography.button.fontSizeXs};
-          padding: 0 ${theme.spacing(2)}px;
+          padding: ${theme.spacing(0, 2)};
           height: 24px;
           border-radius: 8px;
         `;
@@ -36,7 +36,7 @@ const StyledButton = styled(MuiButtonBase)`
       if (size === "sm") {
         return css`
           font-size: ${theme.typography.button.fontSizeSm};
-          padding: 0 ${theme.spacing(2)}px;
+          padding: ${theme.spacing(0, 2)};
           height: 32px;
           border-radius: 8px;
         `;

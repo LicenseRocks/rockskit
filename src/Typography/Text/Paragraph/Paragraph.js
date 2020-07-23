@@ -5,7 +5,7 @@ import { TextBase, TextBasePropTypes } from "../Base";
 
 const StyledParagraph = styled(TextBase)`
   && {
-    margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+    margin-bottom: ${({ theme }) => theme.spacing(2)};
   }
 `;
 

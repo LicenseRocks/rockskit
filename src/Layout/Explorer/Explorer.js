@@ -13,9 +13,9 @@ import {
 const Content = styled(Grid).attrs(() => ({
   container: true,
 }))`
-  padding-top: ${({ theme }) => theme.spacing(8)}px;
+  padding-top: ${({ theme }) => theme.spacing(8)};
   ${({ theme }) => theme.breakpoints.down("md")} {
-    padding-top: ${({ theme }) => theme.spacing(2)}px;
+    padding-top: ${({ theme }) => theme.spacing(2)};
   }
 `;
 

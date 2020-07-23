@@ -69,7 +69,13 @@ theme.breakpoints = {
   },
 };
 
-theme.spacing = (factor) => factor * 4;
+theme.spacing = (...nums) => {
+  const amount = 4;
+  return nums.reduce(
+    (output, n) => `${output}${n * amount}${n > 0 ? "px" : ""} `,
+    ""
+  );
+};
 
 theme.overrides.MuiButtonBase = {
   root: KIT_TYPOGRAPHY.button(),

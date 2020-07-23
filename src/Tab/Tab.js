@@ -6,7 +6,7 @@ import MuiTab from "@material-ui/core/Tab";
 import { TabPropTypes } from "./props";
 
 const Wrapper = styled.div`
-  margin-bottom: ${({ theme }) => theme.spacing(4)}px;
+  margin-bottom: ${({ theme }) => theme.spacing(4)};
 `;
 
 const StyledTabs = styled(MuiTabs)`
@@ -24,7 +24,7 @@ const StyledTabs = styled(MuiTabs)`
 
   button {
     min-width: fit-content;
-    margin-right: ${({ theme }) => theme.spacing(5)}px;
+    margin-right: ${({ theme }) => theme.spacing(5)};
     padding: 0;
     font-weight: normal;
     font-size: 14px;
