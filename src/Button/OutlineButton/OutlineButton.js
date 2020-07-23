@@ -10,17 +10,32 @@ const StyledButton = styled(ButtonBase)`
         return css`
           border: 1px solid ${theme.palette.gray.dark};
           color: ${theme.palette.gray.dark};
+
+          :hover {
+            background-color: ${theme.palette.gray.semiLight};
+            opacity: 1;
+          }
         `;
 
       if (color === "subtle")
         return css`
           border: 1px solid ${theme.palette.gray.regular};
           color: ${theme.palette.gray.medium};
+
+          :hover {
+            background-color: ${theme.palette.gray.semiLight};
+            opacity: 1;
+          }
         `;
 
       return css`
         border: 1px solid ${theme.palette.primary.main};
         color: ${theme.palette.primary.main};
+
+        :hover {
+          background-color: ${theme.palette.primary.light};
+          opacity: 1;
+        }
       `;
     }}
   }

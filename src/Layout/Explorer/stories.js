@@ -3,6 +3,7 @@ import React from "react";
 // UI
 import { ExplorerLayout, H1, H4, OutlineButton } from "../..";
 import { main as DetailsTableStory } from "../../DetailsTable/stories";
+import { main as ShareModuleStory } from "../../ShareModule/stories";
 
 export default {
   title: "Layout/Explorer",
@@ -15,7 +16,12 @@ const headerRight = (
   <OutlineButton content="Action Button" color="secondary" size="sm" />
 );
 
-const sidebar = <H4>Sidebar</H4>;
+const sidebar = (
+  <>
+    <H4>Share this license</H4>
+    <ShareModuleStory />
+  </>
+);
 
 export const main = () => (
   <ExplorerLayout

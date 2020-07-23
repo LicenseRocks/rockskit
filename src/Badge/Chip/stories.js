@@ -12,7 +12,7 @@ export default {
 
 export const main = () => {
   const defaultProps = {
-    color: select("Color", THEME_COLORS, "secondary"),
+    color: select("Color", THEME_COLORS, "primary"),
     icon: "check-circle",
     label: text("Chip label", "Label"),
   };

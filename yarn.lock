@@ -1096,6 +1096,13 @@
   dependencies:
     "@fortawesome/fontawesome-common-types" "^0.2.30"
 
+"@fortawesome/free-brands-svg-icons@^5.14.0":
+  version "5.14.0"
+  resolved "https://npm.fontawesome.com/@fortawesome/free-brands-svg-icons/-/5.14.0/free-brands-svg-icons-5.14.0.tgz#98555518ba41bdff82fbae2f4d1bc36cd3b1c043"
+  integrity sha512-WsqPFTvJFI7MYkcy0jeFE2zY+blC4OrnB9MJOcn1NxRXT/sSfEEhrI7CwzIkiYajLiVDBKWeErYOvpsMeodmCQ==
+  dependencies:
+    "@fortawesome/fontawesome-common-types" "^0.2.30"
+
 "@fortawesome/pro-regular-svg-icons@^5.14.0":
   version "5.14.0"
   resolved "https://npm.fontawesome.com/@fortawesome/pro-regular-svg-icons/-/5.14.0/pro-regular-svg-icons-5.14.0.tgz#3c5847396fee6591c1d1086548ba4dce4d8d6d66"
@@ -4302,7 +4309,7 @@ copy-descriptor@^0.1.0:
   resolved "https://registry.yarnpkg.com/copy-descriptor/-/copy-descriptor-0.1.1.tgz#676f6eb3c39997c2ee1ac3a924fd6124748f578d"
   integrity sha1-Z29us8OZl8LuGsOpJP1hJHSPV40=
 
-copy-to-clipboard@^3.0.8:
+copy-to-clipboard@^3.0.8, copy-to-clipboard@^3.3.1:
   version "3.3.1"
   resolved "https://registry.yarnpkg.com/copy-to-clipboard/-/copy-to-clipboard-3.3.1.tgz#115aa1a9998ffab6196f93076ad6da3b913662ae"
   integrity sha512-i13qo6kIHTTpCm8/Wup+0b1mVWETvu2kIMzKoK8FpkLkFxlt0znUAHcMzox+T8sPlqtZXq3CulEjQHsYiGFJUw==

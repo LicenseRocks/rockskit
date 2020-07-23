@@ -5,8 +5,10 @@ export const ButtonBasePropTypes = {
   content: PropTypes.string,
   children: PropTypes.node,
   disabled: PropTypes.bool,
+  href: PropTypes.string,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(["md", "sm", "xs"]),
+  target: PropTypes.string,
 };
 
 export const ButtonBaseDefaultProps = {
