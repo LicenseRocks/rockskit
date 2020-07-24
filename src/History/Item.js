@@ -47,7 +47,7 @@ const RowDetails = styled.div`
   justify-content: space-between;
   flex-wrap: nowrap;
   height: 100%;
-  border-bottom: 1px solid ${({ theme }) => theme.palette.gray.semiLight};
+  /* border-bottom: 1px solid ${({ theme }) => theme.palette.gray.semiLight}; */
 `;
 
 const Item = styled.div`

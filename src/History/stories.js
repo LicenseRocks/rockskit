@@ -38,7 +38,7 @@ const ROWS = [
   },
   {
     id: 2,
-    description: "",
+    description: "Some description",
     moreInfo: "2020-02-10",
     title: "Test 2",
     icon: "plus",
