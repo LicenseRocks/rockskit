@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { ExplorerLayout, H1, H4, OutlineButton } from "../..";
 import { main as DetailsTableStory } from "../../DetailsTable/stories";
 import { main as ShareModuleStory } from "../../ShareModule/stories";
+import { main as HistoryStory } from "../../History/stories";
 import { Tab } from "../../Tab";
 
 export default {
@@ -20,7 +21,7 @@ const TABS = [
     label: "Item History",
     showTab: true,
     showContent: true,
-    render: () => "Item History",
+    render: () => <HistoryStory />,
   },
   {
     index: 1,
@@ -55,6 +56,7 @@ export const main = () => {
       <H1 content="Main content" />
       <DetailsTableStory />
       <Tab currentTab={currentTab} onChange={setCurrentTab} tabs={TABS} />
+      {TABS[currentTab].render()}
     </ExplorerLayout>
   );
 };
