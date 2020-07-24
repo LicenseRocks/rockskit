@@ -2,10 +2,15 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 
 import {
   faCheckCircle,
+  faChevronDown,
+  faChevronLeft,
+  faChevronRight,
+  faChevronUp,
   faCopy,
   faEllipsisH,
   faEnvelope,
   faLink,
+  faPlus,
 } from "@fortawesome/pro-regular-svg-icons";
 
 import {
@@ -17,11 +22,16 @@ import {
 
 library.add(
   faCheckCircle,
+  faChevronDown,
+  faChevronLeft,
+  faChevronRight,
+  faChevronUp,
   faCopy,
   faEllipsisH,
   faEnvelope,
   fabFacebookF,
   faLink,
+  faPlus,
   fabTelegramPlane,
   fabTwitter,
   fabWhatsapp

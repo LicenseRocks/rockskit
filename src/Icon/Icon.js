@@ -5,6 +5,21 @@ import styled, { css } from "styled-components";
 import { KIT_ICON_SIZES } from "../theme";
 import { IconPropTypes, IconDefaultProps } from "./props";
 
+const Bordered = styled.div`
+  ${({ color, theme }) =>
+    css`
+      width: 32px;
+      height: 32px;
+      border: solid 2px ${theme.palette.gray.regular};
+      background-color: ${theme.palette[color].light};
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      box-sizing: border-box;
+      position: relative;
+    `}
+`;
 const StyledIcon = styled(({ icon, prefix, size, ...props }) => (
   <FontAwesomeIcon icon={[prefix, icon]} {...props} />
 ))`
@@ -24,8 +39,14 @@ const StyledIcon = styled(({ icon, prefix, size, ...props }) => (
     `}
 `;
 
-export const Icon = (props) => {
-  return <StyledIcon {...props} />;
+export const Icon = ({ bordered, className, color, ...props }) => {
+  return bordered ? (
+    <Bordered className={className} color={color} {...props}>
+      <StyledIcon color={color} {...props} />
+    </Bordered>
+  ) : (
+    <StyledIcon className={className} color={color} {...props} />
+  );
 };
 
 Icon.propTypes = IconPropTypes;

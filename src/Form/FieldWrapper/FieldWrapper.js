@@ -8,17 +8,17 @@ const StyledWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-radius: ${({ theme }) => theme.spacing(3)}px;
+  border-radius: ${({ theme }) => theme.spacing(3)};
   background-color: ${({ theme }) => theme.palette.common.white};
   border: 1px solid ${({ theme }) => theme.palette.gray.regular};
-  padding: 0 ${({ theme }) => theme.spacing(4)}px;
+  padding: ${({ theme }) => theme.spacing(0, 4)};
   outline: none;
   height: 40px;
   box-sizing: border-box;
   transition: all 100ms ease-in-out;
 
   :not(:last-child) {
-    margin-right: ${({ theme }) => theme.spacing(4)}px;
+    margin-right: ${({ theme }) => theme.spacing(4)};
   }
 
   &:focus-within {

@@ -10,7 +10,7 @@ const Row = styled.div`
   display: flex;
   align-items: center;
   height: 32px;
-  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+  margin-bottom: ${({ theme }) => theme.spacing(2)};
 `;
 
 const Label = styled(Text).attrs(() => ({

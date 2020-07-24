@@ -16,7 +16,7 @@ const ButtonsWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: ${({ theme }) => theme.spacing(2)}px;
+  margin-bottom: ${({ theme }) => theme.spacing(2)};
 `;
 
 const StyledText = styled(Text).attrs(() => ({
@@ -27,7 +27,7 @@ const StyledText = styled(Text).attrs(() => ({
 }))`
   && {
     ${({ theme: { spacing } }) => css`
-      margin: ${spacing(2)}px 0;
+      margin: ${spacing(2, 0)};
     `}
   }
 `;

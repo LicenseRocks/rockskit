@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { KIT_ICON_SIZES, THEME_COLORS } from "../theme";
 
 export const IconPropTypes = {
+  bordered: PropTypes.bool,
   color: PropTypes.oneOf(THEME_COLORS),
   icon: PropTypes.string.isRequired,
   onClick: PropTypes.func,
@@ -11,6 +12,7 @@ export const IconPropTypes = {
 };
 
 export const IconDefaultProps = {
+  bordered: false,
   color: "primary",
   prefix: "far",
   size: "md",

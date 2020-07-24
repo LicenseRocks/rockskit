@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
 // UI
 import { ExplorerLayout, H1, H4, OutlineButton } from "../..";
 import { main as DetailsTableStory } from "../../DetailsTable/stories";
 import { main as ShareModuleStory } from "../../ShareModule/stories";
+import { main as HistoryStory } from "../../History/stories";
+import { Tab } from "../../Tab";
 
 export default {
   title: "Layout/Explorer",
@@ -11,6 +13,25 @@ export default {
     options: { showPanel: false },
   },
 };
+
+const TABS = [
+  {
+    index: 0,
+    value: "itemHistory",
+    label: "Item History",
+    showTab: true,
+    showContent: true,
+    render: () => <HistoryStory />,
+  },
+  {
+    index: 1,
+    value: "files",
+    label: "Files",
+    showTab: true,
+    showContent: true,
+    render: () => "Files",
+  },
+];
 
 const headerRight = (
   <OutlineButton content="Action Button" color="secondary" size="sm" />
@@ -23,13 +44,19 @@ const sidebar = (
   </>
 );
 
-export const main = () => (
-  <ExplorerLayout
-    headerLogoAction={() => {}}
-    headerRight={headerRight}
-    sidebar={sidebar}
-  >
-    <H1 content="Main content" />
-    <DetailsTableStory />
-  </ExplorerLayout>
-);
+export const main = () => {
+  const [currentTab, setCurrentTab] = useState(0);
+
+  return (
+    <ExplorerLayout
+      headerLogoAction={() => {}}
+      headerRight={headerRight}
+      sidebar={sidebar}
+    >
+      <H1 content="Main content" />
+      <DetailsTableStory />
+      <Tab currentTab={currentTab} onChange={setCurrentTab} tabs={TABS} />
+      {TABS[currentTab].render()}
+    </ExplorerLayout>
+  );
+};
