@@ -5,6 +5,7 @@ import { ExplorerLayout, H1, H4, OutlineButton } from "../..";
 import { main as DetailsTableStory } from "../../DetailsTable/stories";
 import { main as ShareModuleStory } from "../../ShareModule/stories";
 import { main as HistoryStory } from "../../History/stories";
+import { main as FileManagerStory } from "../../FileManager/stories";
 import { Tab } from "../../Tab";
 
 export default {
@@ -29,7 +30,7 @@ const TABS = [
     label: "Files",
     showTab: true,
     showContent: true,
-    render: () => "Files",
+    render: () => <FileManagerStory />,
   },
 ];
 

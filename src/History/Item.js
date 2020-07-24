@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import Grid from "@material-ui/core/Grid";
 
 import { Text } from "..";
 import { Icon } from "../Icon";
@@ -40,17 +41,18 @@ const RowWrapper = styled.div`
   align-items: center;
 `;
 
-const RowDetails = styled.div`
+const RowDetails = styled(Grid).attrs(() => ({
+  container: true,
+}))`
   width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-wrap: nowrap;
   height: 100%;
-  border-bottom: 1px solid ${({ theme }) => theme.palette.gray.semiLight};
 `;
 
-const Item = styled.div`
+const Item = styled(Grid).attrs(({ lg }) => ({
+  item: true,
+  xs: 4,
+  lg: lg || 3,
+}))`
   display: flex;
   align-items: center;
 `;
@@ -90,15 +92,17 @@ export const HistoryItem = ({
         <StyledIcon bordered color={iconColor} icon={icon} />
 
         <RowDetails>
-          <Item>
+          <Item lg={5}>
             <Text fontWeight="bold">{title}</Text>
           </Item>
 
-          <Item>
-            <Text color="textSecondary">{description}</Text>
+          <Item lg={4}>
+            <Text color="textSecondary" noWrap>
+              {description}
+            </Text>
           </Item>
 
-          <Item>
+          <Item justify="flex-end">
             <Text color="textSecondary" fontStyle="italic">
               {moreInfo}
             </Text>
