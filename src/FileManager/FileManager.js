@@ -27,9 +27,10 @@ const Row = styled(Grid).attrs(() => ({
   height: 48px;
 `;
 
-const Item = styled(Grid).attrs(() => ({
+const Item = styled(Grid).attrs(({ lg }) => ({
   item: true,
   xs: 4,
+  lg: lg || 3,
 }))`
   display: flex;
   align-items: center;
@@ -44,7 +45,7 @@ export const FileManager = ({ data }) => {
 
           {files.map(({ date, description, id, name }) => (
             <Row key={id}>
-              <Item>
+              <Item lg={5}>
                 <Text
                   content={name}
                   color="textSecondary"
@@ -53,7 +54,7 @@ export const FileManager = ({ data }) => {
                 />
               </Item>
 
-              <Item justify="center">
+              <Item lg={4}>
                 <Text content={date} color="textSecondary" fontWeight="bold" />
               </Item>
 
@@ -62,6 +63,7 @@ export const FileManager = ({ data }) => {
                   content={description}
                   color="textSecondary"
                   fontWeight="bold"
+                  noWrap
                 />
               </Item>
             </Row>
