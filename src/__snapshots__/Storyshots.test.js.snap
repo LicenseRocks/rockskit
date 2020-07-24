@@ -419,6 +419,11 @@ exports[`Storyshots Form/Input Main 1`] = `
   padding: 16px;
 }
 
+.c2 {
+  font-size: 16px;
+  color: #CECDD9;
+}
+
 .c1 {
   display: -webkit-box;
   display: -webkit-flex;
@@ -454,7 +459,7 @@ exports[`Storyshots Form/Input Main 1`] = `
   border: 1px solid #AC00fC;
 }
 
-.c2 {
+.c3 {
   -webkit-flex: 1;
   -ms-flex: 1;
   flex: 1;
@@ -471,31 +476,31 @@ exports[`Storyshots Form/Input Main 1`] = `
   transition: all 100ms ease-in-out;
 }
 
-.c2::-webkit-input-placeholder {
+.c3::-webkit-input-placeholder {
   font-weight: normal;
 }
 
-.c2::-moz-placeholder {
+.c3::-moz-placeholder {
   font-weight: normal;
 }
 
-.c2:-ms-input-placeholder {
+.c3:-ms-input-placeholder {
   font-weight: normal;
 }
 
-.c2::placeholder {
+.c3::placeholder {
   font-weight: normal;
 }
 
-.c2:-moz-read-only {
+.c3:-moz-read-only {
   cursor: not-allowed;
 }
 
-.c2:read-only {
+.c3:read-only {
   cursor: not-allowed;
 }
 
-.c2:disabled {
+.c3:disabled {
   opacity: 0.3;
   cursor: not-allowed;
   pointer-events: none;
@@ -507,8 +512,26 @@ exports[`Storyshots Form/Input Main 1`] = `
   <div
     className="c1"
   >
+    <svg
+      aria-hidden="true"
+      className="svg-inline--fa fa-user fa-w-14 c2"
+      color="input"
+      data-icon="user"
+      data-prefix="far"
+      focusable="false"
+      role="img"
+      style={Object {}}
+      viewBox="0 0 448 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M313.6 304c-28.7 0-42.5 16-89.6 16-47.1 0-60.8-16-89.6-16C60.2 304 0 364.2 0 438.4V464c0 26.5 21.5 48 48 48h352c26.5 0 48-21.5 48-48v-25.6c0-74.2-60.2-134.4-134.4-134.4zM400 464H48v-25.6c0-47.6 38.8-86.4 86.4-86.4 14.6 0 38.3 16 89.6 16 51.7 0 74.9-16 89.6-16 47.6 0 86.4 38.8 86.4 86.4V464zM224 288c79.5 0 144-64.5 144-144S303.5 0 224 0 80 64.5 80 144s64.5 144 144 144zm0-240c52.9 0 96 43.1 96 96s-43.1 96-96 96-96-43.1-96-96 43.1-96 96-96z"
+        fill="currentColor"
+        style={Object {}}
+      />
+    </svg>
     <input
-      className="c2"
+      className="c3"
       disabled={false}
       hasError={false}
       name="textInput"
@@ -516,6 +539,24 @@ exports[`Storyshots Form/Input Main 1`] = `
       readOnly={false}
       type="text"
     />
+    <svg
+      aria-hidden="true"
+      className="svg-inline--fa fa-box fa-w-16 c2"
+      color="input"
+      data-icon="box"
+      data-prefix="far"
+      focusable="false"
+      role="img"
+      style={Object {}}
+      viewBox="0 0 512 512"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M509.5 184.6L458.9 32.8C452.4 13.2 434.1 0 413.4 0H98.6c-20.7 0-39 13.2-45.5 32.8L2.5 184.6c-1.6 4.9-2.5 10-2.5 15.2V464c0 26.5 21.5 48 48 48h416c26.5 0 48-21.5 48-48V199.8c0-5.2-.8-10.3-2.5-15.2zm-48.1 7.4H280V48h133.4l48 144zM98.6 48H232v144H50.6l48-144zM48 464V240h416v224H48z"
+        fill="currentColor"
+        style={Object {}}
+      />
+    </svg>
   </div>
 </div>
 `;

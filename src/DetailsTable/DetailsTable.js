@@ -22,10 +22,10 @@ const Label = styled(Text).attrs(() => ({
 export const DetailsTable = ({ rows }) => {
   return (
     <Wrapper>
-      {rows.map((row) => (
-        <Row>
-          <Label content={row.label} />
-          {row.value}
+      {rows.map(({ label, value }) => (
+        <Row key={`${label}:${value}`}>
+          <Label content={label} />
+          {value}
         </Row>
       ))}
     </Wrapper>

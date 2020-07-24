@@ -1,6 +1,7 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 import {
+  faBox,
   faCheckCircle,
   faChevronDown,
   faChevronLeft,
@@ -11,6 +12,7 @@ import {
   faEnvelope,
   faLink,
   faPlus,
+  faUser,
 } from "@fortawesome/pro-regular-svg-icons";
 
 import {
@@ -21,6 +23,7 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
+  faBox,
   faCheckCircle,
   faChevronDown,
   faChevronLeft,
@@ -34,5 +37,6 @@ library.add(
   faPlus,
   fabTelegramPlane,
   fabTwitter,
+  faUser,
   fabWhatsapp
 );
