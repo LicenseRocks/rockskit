@@ -2,18 +2,38 @@ import React, { useState } from 'react';
 import styled, { css } from 'styled-components';
 import PropTypes from 'prop-types';
 import { createMuiTheme } from '@material-ui/core/styles';
+import Typography from '@material-ui/core/Typography';
 import MuiButtonBase from '@material-ui/core/ButtonBase';
 import { Collapse as Collapse$1 } from 'react-collapse';
-import Typography from '@material-ui/core/Typography';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Grid from '@material-ui/core/Grid';
 import MuiContainer from '@material-ui/core/Container';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
 import copy from 'copy-to-clipboard';
 import MuiTabs from '@material-ui/core/Tabs';
 import MuiTab from '@material-ui/core/Tab';
 
+function createCommonjsModule(fn, basedir, module) {
+	return module = {
+	  path: basedir,
+	  exports: {},
+	  require: function (path, base) {
+      return commonjsRequire(path, (base === undefined || base === null) ? module.path : base);
+    }
+	}, fn(module, module.exports), module.exports;
+}
+
+function commonjsRequire () {
+	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
+}
+
+var _extends_1 = createCommonjsModule(function (module) {
 function _extends() {
-  _extends = Object.assign || function (target) {
+  module.exports = _extends = Object.assign || function (target) {
     for (var i = 1; i < arguments.length; i++) {
       var source = arguments[i];
 
@@ -30,6 +50,9 @@ function _extends() {
   return _extends.apply(this, arguments);
 }
 
+module.exports = _extends;
+});
+
 function _objectWithoutPropertiesLoose(source, excluded) {
   if (source == null) return {};
   var target = {};
@@ -45,9 +68,11 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   return target;
 }
 
+var objectWithoutPropertiesLoose = _objectWithoutPropertiesLoose;
+
 function _objectWithoutProperties(source, excluded) {
   if (source == null) return {};
-  var target = _objectWithoutPropertiesLoose(source, excluded);
+  var target = objectWithoutPropertiesLoose(source, excluded);
   var key, i;
 
   if (Object.getOwnPropertySymbols) {
@@ -63,6 +88,25 @@ function _objectWithoutProperties(source, excluded) {
 
   return target;
 }
+
+var objectWithoutProperties = _objectWithoutProperties;
+
+function _defineProperty(obj, key, value) {
+  if (key in obj) {
+    Object.defineProperty(obj, key, {
+      value: value,
+      enumerable: true,
+      configurable: true,
+      writable: true
+    });
+  } else {
+    obj[key] = value;
+  }
+
+  return obj;
+}
+
+var defineProperty = _defineProperty;
 
 var KIT_COLORS = {
   primary: {
@@ -103,24 +147,9 @@ var KIT_ICON_SIZES = {
   sm: 12
 };
 
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
 var KIT_TYPOGRAPHY = {
   h1: function h1(theme) {
-    return _defineProperty({
+    return defineProperty({
       fontFamily: KIT_FONTS.Galano.name,
       fontSize: "32px",
       fontWeight: 500,
@@ -133,7 +162,7 @@ var KIT_TYPOGRAPHY = {
     });
   },
   h2: function h2(theme) {
-    return _defineProperty({
+    return defineProperty({
       fontFamily: KIT_FONTS.Galano.name,
       fontWeight: 500,
       fontSize: "26px",
@@ -146,7 +175,7 @@ var KIT_TYPOGRAPHY = {
     });
   },
   h3: function h3(theme) {
-    return _defineProperty({
+    return defineProperty({
       fontFamily: KIT_FONTS.Galano.name,
       fontWeight: 500,
       fontSize: "20px",
@@ -216,7 +245,7 @@ var KIT_TYPOGRAPHY = {
     return {
       fontFamily: KIT_FONTS.Inter.name,
       fontSizeMd: "16px",
-      fontSizeSm: "14px",
+      fontSizeSm: "12px",
       fontSizeXs: "10px",
       lineHeight: "120%",
       textTransform: "uppercase",
@@ -228,7 +257,7 @@ var KIT_TYPOGRAPHY = {
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var theme = createMuiTheme();
 theme.palette = _objectSpread(_objectSpread({}, theme.palette), {}, {
   primary: {
@@ -308,24 +337,281 @@ theme.overrides.MuiButtonBase = {
   root: KIT_TYPOGRAPHY.button()
 };
 
+var DISPLAY_PROP_TYPES = {
+  dBlock: PropTypes.bool,
+  dFlex: PropTypes.bool,
+  dInline: PropTypes.bool,
+  dInlineBlock: PropTypes.bool,
+  dInlineFlex: PropTypes.bool,
+  dNone: PropTypes.bool
+};
+var DISPLAY = function DISPLAY(_ref) {
+  var dBlock = _ref.dBlock,
+      dFlex = _ref.dFlex,
+      dInline = _ref.dInline,
+      dInlineBlock = _ref.dInlineBlock,
+      dInlineFlex = _ref.dInlineFlex,
+      dNone = _ref.dNone;
+  var display = null;
+  if (dBlock) display = "block";
+  if (dFlex) display = "flex";
+  if (dInline) display = "inline";
+  if (dInlineBlock) display = "inline-block";
+  if (dInlineFlex) display = "inline-flex";
+  if (dNone) display = "none";
+  return display ? "display: ".concat(display, " !important;") : "";
+};
+
+var SPACER_FORMULA = function SPACER_FORMULA(factor) {
+  return factor * 4;
+};
+var SPACER_POSTFIX = function SPACER_POSTFIX(space) {
+  return "".concat(space > 0 ? "px" : "");
+};
+var SPACER_PROP_TYPES = {
+  m: PropTypes.number,
+  m0: PropTypes.bool,
+  mx: PropTypes.number,
+  my: PropTypes.number,
+  mt: PropTypes.number,
+  mb: PropTypes.number,
+  mr: PropTypes.number,
+  ml: PropTypes.number,
+  p: PropTypes.number,
+  p0: PropTypes.bool,
+  px: PropTypes.number,
+  py: PropTypes.number,
+  pt: PropTypes.number,
+  pb: PropTypes.number,
+  pr: PropTypes.number,
+  pl: PropTypes.number
+};
+var SPACER = function SPACER(_ref) {
+  var m = _ref.m,
+      m0 = _ref.m0,
+      mx = _ref.mx,
+      my = _ref.my,
+      mt = _ref.mt,
+      mb = _ref.mb,
+      mr = _ref.mr,
+      ml = _ref.ml,
+      p = _ref.p,
+      p0 = _ref.p0,
+      px = _ref.px,
+      py = _ref.py,
+      pt = _ref.pt,
+      pb = _ref.pb,
+      pr = _ref.pr,
+      pl = _ref.pl;
+  var temp = "";
+  if (m) temp += "margin: ".concat(SPACER_FORMULA(m), "px !important;");
+  if (m0) temp += "margin: 0 !important;";
+  if (mx) temp += "margin: 0 ".concat(SPACER_FORMULA(mx), "px !important;");
+  if (my) temp += "margin: ".concat(SPACER_FORMULA(my), "px 0 !important;");
+  if (mt) temp += "margin-top: ".concat(SPACER_FORMULA(mt), "px !important;");
+  if (mb) temp += "margin-bottom: ".concat(SPACER_FORMULA(mb), "px !important;");
+  if (mr) temp += "margin-right: ".concat(SPACER_FORMULA(mr), "px !important;");
+  if (ml) temp += "margin-left: ".concat(SPACER_FORMULA(ml), "px !important;");
+  if (p) temp += "padding: ".concat(SPACER_FORMULA(p), "px !important;");
+  if (p0) temp += "padding: 0 !important;";
+  if (px) temp += "padding: 0 ".concat(SPACER_FORMULA(px), "px !important;");
+  if (py) temp += "padding: ".concat(SPACER_FORMULA(py), "px 0 !important;");
+  if (pt) temp += "padding-top: ".concat(SPACER_FORMULA(pt), "px !important;");
+  if (pb) temp += "padding-bottom: ".concat(SPACER_FORMULA(pb), "px !important;");
+  if (pr) temp += "padding-right: ".concat(SPACER_FORMULA(pr), "px !important;");
+  if (pl) temp += "padding-left: ".concat(SPACER_FORMULA(pl), "px !important;");
+  return temp;
+};
+
 var THEME_COLORS = ["primary", "secondary", "success", "error", "warning"];
 
-var ChipBadgePropTypes = {
+function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var ChipBadgePropTypes = _objectSpread$1(_objectSpread$1({
   color: PropTypes.oneOf(THEME_COLORS),
   label: PropTypes.string,
   icon: PropTypes.string.isRequired
-};
+}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
 var ChipBadgeDefaultProps = {
   color: "primary"
 };
 
+function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var HeadingBasePropTypes = _objectSpread$2(_objectSpread$2({
+  align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
+  children: PropTypes.node,
+  content: PropTypes.string,
+  color: PropTypes.oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
+  display: PropTypes.oneOf(["initial", "block", "inline"]),
+  gutterBottom: PropTypes.bool,
+  noWrap: PropTypes.bool
+}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+
+var StyledHeading = styled(Typography).withConfig({
+  displayName: "Base__StyledHeading",
+  componentId: "cb64jp-0"
+})(["", " ", ""], function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
+var HeadingBase = function HeadingBase(_ref) {
+  var content = _ref.content,
+      children = _ref.children,
+      props = objectWithoutProperties(_ref, ["content", "children"]);
+
+  return /*#__PURE__*/React.createElement(StyledHeading, props, content || children);
+};
+HeadingBase.propTypes = HeadingBasePropTypes;
+
+var H1 = function H1(props) {
+  return /*#__PURE__*/React.createElement(HeadingBase, _extends_1({
+    variant: "h1"
+  }, props));
+};
+H1.propTypes = HeadingBasePropTypes;
+
+var H2 = function H2(props) {
+  return /*#__PURE__*/React.createElement(HeadingBase, _extends_1({
+    variant: "h2"
+  }, props));
+};
+H2.propTypes = HeadingBasePropTypes;
+
+var H3 = function H3(props) {
+  return /*#__PURE__*/React.createElement(HeadingBase, _extends_1({
+    variant: "h3"
+  }, props));
+};
+H3.propTypes = HeadingBasePropTypes;
+
+var H4 = function H4(props) {
+  return /*#__PURE__*/React.createElement(HeadingBase, _extends_1({
+    variant: "h4"
+  }, props));
+};
+H4.propTypes = HeadingBasePropTypes;
+
+var H5 = function H5(props) {
+  return /*#__PURE__*/React.createElement(HeadingBase, _extends_1({
+    variant: "h5"
+  }, props));
+};
+H5.propTypes = HeadingBasePropTypes;
+
+var H6 = function H6(props) {
+  return /*#__PURE__*/React.createElement(HeadingBase, _extends_1({
+    variant: "h6"
+  }, props));
+};
+H6.propTypes = HeadingBasePropTypes;
+
+function ownKeys$3(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$3(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$3(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$3(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var TextBasePropTypes = _objectSpread$3(_objectSpread$3({
+  align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
+  children: PropTypes.node,
+  content: PropTypes.string,
+  color: PropTypes.oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
+  display: PropTypes.oneOf(["initial", "block", "inline"]),
+  fontStyle: PropTypes.oneOf(["normal", "italic"]),
+  fontWeight: PropTypes.oneOf(["light", "regular", "bold"]),
+  fontSize: PropTypes.oneOf(["sm", "md", "lg"]),
+  gutterBottom: PropTypes.bool,
+  noWrap: PropTypes.bool
+}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+var TextBaseDefaultProps = {
+  fontStyle: "normal",
+  fontWeight: "regular",
+  fontSize: "md"
+};
+
+var StyledText = styled(Typography).withConfig({
+  displayName: "Base__StyledText",
+  componentId: "sc-1yx6bh1-0"
+})(["&&{", " ", " font-style:", ";", " ", "}"], function (_ref) {
+  var fontWeight = _ref.fontWeight,
+      theme = _ref.theme;
+
+  if (fontWeight === "light") {
+    return "font-weight: ".concat(theme.typography.fontWeightLight, ";");
+  }
+
+  if (fontWeight === "bold") {
+    return "font-weight: ".concat(theme.typography.fontWeightBold, ";");
+  }
+
+  return "font-weight: ".concat(theme.typography.fontWeightRegular, ";");
+}, function (_ref2) {
+  var fontSize = _ref2.fontSize,
+      theme = _ref2.theme,
+      variant = _ref2.variant;
+
+  if (fontSize === "sm") {
+    return "font-size: ".concat(theme.typography[variant].fontSizeSm, ";");
+  }
+
+  if (fontSize === "lg") {
+    return "font-size: ".concat(theme.typography[variant].fontSizeLg, ";");
+  }
+
+  return "font-size: ".concat(theme.typography[variant].fontSize, ";");
+}, function (_ref3) {
+  var fontStyle = _ref3.fontStyle;
+  return fontStyle;
+}, function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
+var TextBase = function TextBase(_ref4) {
+  var content = _ref4.content,
+      children = _ref4.children,
+      props = objectWithoutProperties(_ref4, ["content", "children"]);
+
+  return /*#__PURE__*/React.createElement(StyledText, props, content || children);
+};
+TextBase.propTypes = TextBasePropTypes;
+TextBase.defaultProps = TextBaseDefaultProps;
+
+var StyledParagraph = styled(TextBase).withConfig({
+  displayName: "Paragraph__StyledParagraph",
+  componentId: "sc-174p9te-0"
+})(["&&{margin-bottom:", ";}"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.spacing(2);
+});
+var Paragraph = function Paragraph(props) {
+  return /*#__PURE__*/React.createElement(StyledParagraph, _extends_1({
+    variant: "body1",
+    paragraph: true
+  }, props));
+};
+Paragraph.propTypes = TextBasePropTypes;
+
+var Text = function Text(props) {
+  return /*#__PURE__*/React.createElement(TextBase, _extends_1({
+    component: "div",
+    variant: "body2"
+  }, props));
+};
+Text.propTypes = TextBasePropTypes;
+
 var StyledChip = styled.div.withConfig({
   displayName: "Chip__StyledChip",
   componentId: "sc-492e0l-0"
-})(["box-sizing:border-box;display:flex;align-items:center;justify-content:center;border-radius:22px;min-width:32px;min-height:32px;width:max-content;", ""], function (_ref) {
+})(["box-sizing:border-box;display:flex;align-items:center;justify-content:center;border-radius:22px;min-width:32px;min-height:32px;width:max-content;", " ", " ", ""], function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
   return css(["padding:", ";background-color:", ";color:", ";"], theme.spacing(2), theme.palette[color].light, theme.palette[color].main);
+}, function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
 });
 var StyledLabel = styled(Text).attrs(function () {
   return {
@@ -342,9 +628,9 @@ var ChipBadge = function ChipBadge(_ref3) {
   var color = _ref3.color,
       icon = _ref3.icon,
       label = _ref3.label,
-      props = _objectWithoutProperties(_ref3, ["color", "icon", "label"]);
+      props = objectWithoutProperties(_ref3, ["color", "icon", "label"]);
 
-  return /*#__PURE__*/React.createElement(StyledChip, _extends({
+  return /*#__PURE__*/React.createElement(StyledChip, _extends_1({
     color: color
   }, props), /*#__PURE__*/React.createElement(Icon, {
     color: color,
@@ -354,7 +640,10 @@ var ChipBadge = function ChipBadge(_ref3) {
 ChipBadge.propTypes = ChipBadgePropTypes;
 ChipBadge.defaultProps = ChipBadgeDefaultProps;
 
-var ButtonBasePropTypes = {
+function ownKeys$4(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$4(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$4(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$4(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var ButtonBasePropTypes = _objectSpread$4(_objectSpread$4({
   color: PropTypes.oneOf(["primary", "secondary", "subtle"]),
   content: PropTypes.string,
   children: PropTypes.node,
@@ -363,7 +652,7 @@ var ButtonBasePropTypes = {
   onClick: PropTypes.func,
   size: PropTypes.oneOf(["md", "sm", "xs"]),
   target: PropTypes.string
-};
+}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
 var ButtonBaseDefaultProps = {
   color: "primary",
   size: "md"
@@ -372,7 +661,7 @@ var ButtonBaseDefaultProps = {
 var StyledButton = styled(MuiButtonBase).withConfig({
   displayName: "Base__StyledButton",
   componentId: "sc-12kghpw-0"
-})(["&&{box-sizing:border-box;border-radius:12px;padding:", ";min-width:40px;height:40px;transition:all 100ms ease-in-out;:hover{opacity:0.7;}:disabled{opacity:0.3;cursor:not-allowed;pointer-events:none;}", "}"], function (_ref) {
+})(["&&{box-sizing:border-box;border-radius:12px;padding:", ";min-width:40px;height:40px;transition:all 100ms ease-in-out;:hover{opacity:0.7;}:disabled{opacity:0.3;cursor:not-allowed;pointer-events:none;}", " ", " ", "}"], function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(0, 4);
 }, function (_ref2) {
@@ -388,14 +677,18 @@ var StyledButton = styled(MuiButtonBase).withConfig({
   }
 
   return css(["font-size:", ";"], theme.typography.button.fontSizeMd);
+}, function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
 });
 var ButtonBase = function ButtonBase(_ref3) {
   var content = _ref3.content,
       children = _ref3.children,
       href = _ref3.href,
-      props = _objectWithoutProperties(_ref3, ["content", "children", "href"]);
+      props = objectWithoutProperties(_ref3, ["content", "children", "href"]);
 
-  return /*#__PURE__*/React.createElement(StyledButton, _extends({
+  return /*#__PURE__*/React.createElement(StyledButton, _extends_1({
     component: href ? "a" : "button",
     href: href
   }, props), content || children);
@@ -463,9 +756,9 @@ Collapse.propTypes = CollapsePropTypes;
 
 var CollapseButton = function CollapseButton(_ref) {
   var isOpened = _ref.isOpened,
-      props = _objectWithoutProperties(_ref, ["isOpened"]);
+      props = objectWithoutProperties(_ref, ["isOpened"]);
 
-  return /*#__PURE__*/React.createElement(Icon, _extends({
+  return /*#__PURE__*/React.createElement(Icon, _extends_1({
     icon: isOpened ? "chevron-up" : "chevron-down"
   }, props));
 };
@@ -473,169 +766,26 @@ CollapseButton.propTypes = {
   isOpened: PropTypes.bool.isRequired
 };
 
-var DetailsTablePropTypes = {
+function ownKeys$5(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$5(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$5(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$5(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var DetailsTablePropTypes = _objectSpread$5(_objectSpread$5({
   rows: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
     value: PropTypes.node,
     expanded: PropTypes.bool
   }))
-};
+}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
 var DetailsTableDefaultProps = {};
-
-var HeadingBasePropTypes = {
-  align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
-  children: PropTypes.node,
-  content: PropTypes.string,
-  color: PropTypes.oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
-  display: PropTypes.oneOf(["initial", "block", "inline"]),
-  gutterBottom: PropTypes.bool,
-  noWrap: PropTypes.bool
-};
-
-var StyledHeading = styled(Typography).withConfig({
-  displayName: "Base__StyledHeading",
-  componentId: "cb64jp-0"
-})([""]);
-var HeadingBase = function HeadingBase(_ref) {
-  var content = _ref.content,
-      children = _ref.children,
-      props = _objectWithoutProperties(_ref, ["content", "children"]);
-
-  return /*#__PURE__*/React.createElement(StyledHeading, props, content || children);
-};
-HeadingBase.propTypes = HeadingBasePropTypes;
-
-var H1 = function H1(props) {
-  return /*#__PURE__*/React.createElement(HeadingBase, _extends({
-    variant: "h1"
-  }, props));
-};
-H1.propTypes = HeadingBasePropTypes;
-
-var H2 = function H2(props) {
-  return /*#__PURE__*/React.createElement(HeadingBase, _extends({
-    variant: "h2"
-  }, props));
-};
-H2.propTypes = HeadingBasePropTypes;
-
-var H3 = function H3(props) {
-  return /*#__PURE__*/React.createElement(HeadingBase, _extends({
-    variant: "h3"
-  }, props));
-};
-H3.propTypes = HeadingBasePropTypes;
-
-var H4 = function H4(props) {
-  return /*#__PURE__*/React.createElement(HeadingBase, _extends({
-    variant: "h4"
-  }, props));
-};
-H4.propTypes = HeadingBasePropTypes;
-
-var H5 = function H5(props) {
-  return /*#__PURE__*/React.createElement(HeadingBase, _extends({
-    variant: "h5"
-  }, props));
-};
-H5.propTypes = HeadingBasePropTypes;
-
-var H6 = function H6(props) {
-  return /*#__PURE__*/React.createElement(HeadingBase, _extends({
-    variant: "h6"
-  }, props));
-};
-H6.propTypes = HeadingBasePropTypes;
-
-var TextBasePropTypes = {
-  align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
-  children: PropTypes.node,
-  content: PropTypes.string,
-  color: PropTypes.oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
-  display: PropTypes.oneOf(["initial", "block", "inline"]),
-  fontStyle: PropTypes.oneOf(["normal", "italic"]),
-  fontWeight: PropTypes.oneOf(["light", "regular", "bold"]),
-  fontSize: PropTypes.oneOf(["sm", "md", "lg"]),
-  gutterBottom: PropTypes.bool,
-  noWrap: PropTypes.bool
-};
-var TextBaseDefaultProps = {
-  fontStyle: "normal",
-  fontWeight: "regular",
-  fontSize: "md"
-};
-
-var StyledText = styled(Typography).withConfig({
-  displayName: "Base__StyledText",
-  componentId: "sc-1yx6bh1-0"
-})(["&&{", " ", " font-style:", ";}"], function (_ref) {
-  var fontWeight = _ref.fontWeight,
-      theme = _ref.theme;
-
-  if (fontWeight === "light") {
-    return "font-weight: ".concat(theme.typography.fontWeightLight, ";");
-  }
-
-  if (fontWeight === "bold") {
-    return "font-weight: ".concat(theme.typography.fontWeightBold, ";");
-  }
-
-  return "font-weight: ".concat(theme.typography.fontWeightRegular, ";");
-}, function (_ref2) {
-  var fontSize = _ref2.fontSize,
-      theme = _ref2.theme,
-      variant = _ref2.variant;
-
-  if (fontSize === "sm") {
-    return "font-size: ".concat(theme.typography[variant].fontSizeSm, ";");
-  }
-
-  if (fontSize === "lg") {
-    return "font-size: ".concat(theme.typography[variant].fontSizeLg, ";");
-  }
-
-  return "font-size: ".concat(theme.typography[variant].fontSize, ";");
-}, function (_ref3) {
-  var fontStyle = _ref3.fontStyle;
-  return fontStyle;
-});
-var TextBase = function TextBase(_ref4) {
-  var content = _ref4.content,
-      children = _ref4.children,
-      props = _objectWithoutProperties(_ref4, ["content", "children"]);
-
-  return /*#__PURE__*/React.createElement(StyledText, props, content || children);
-};
-TextBase.propTypes = TextBasePropTypes;
-TextBase.defaultProps = TextBaseDefaultProps;
-
-var StyledParagraph = styled(TextBase).withConfig({
-  displayName: "Paragraph__StyledParagraph",
-  componentId: "sc-174p9te-0"
-})(["&&{margin-bottom:", ";}"], function (_ref) {
-  var theme = _ref.theme;
-  return theme.spacing(2);
-});
-var Paragraph = function Paragraph(props) {
-  return /*#__PURE__*/React.createElement(StyledParagraph, _extends({
-    variant: "body1",
-    paragraph: true
-  }, props));
-};
-Paragraph.propTypes = TextBasePropTypes;
-
-var Text = function Text(props) {
-  return /*#__PURE__*/React.createElement(TextBase, _extends({
-    component: "span",
-    variant: "body2"
-  }, props));
-};
-Text.propTypes = TextBasePropTypes;
 
 var Wrapper$1 = styled.div.withConfig({
   displayName: "DetailsTable__Wrapper",
   componentId: "hwx39-0"
-})([""]);
+})(["", " ", ""], function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
 var Row = styled.div.withConfig({
   displayName: "DetailsTable__Row",
   componentId: "hwx39-1"
@@ -652,8 +802,10 @@ var Label = styled(Text).attrs(function () {
   componentId: "hwx39-2"
 })(["flex:0 140px;"]);
 var DetailsTable = function DetailsTable(_ref2) {
-  var rows = _ref2.rows;
-  return /*#__PURE__*/React.createElement(Wrapper$1, null, rows.map(function (_ref3) {
+  var rows = _ref2.rows,
+      props = objectWithoutProperties(_ref2, ["rows"]);
+
+  return /*#__PURE__*/React.createElement(Wrapper$1, props, rows.map(function (_ref3) {
     var label = _ref3.label,
         value = _ref3.value;
     return /*#__PURE__*/React.createElement(Row, {
@@ -666,14 +818,17 @@ var DetailsTable = function DetailsTable(_ref2) {
 DetailsTable.propTypes = DetailsTablePropTypes;
 DetailsTable.defaultProps = DetailsTableDefaultProps;
 
-var IconPropTypes = {
+function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$6(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$6(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$6(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var IconPropTypes = _objectSpread$6(_objectSpread$6({
   bordered: PropTypes.bool,
   color: PropTypes.oneOf(THEME_COLORS),
   icon: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   prefix: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(KIT_ICON_SIZES))
-};
+}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
 var IconDefaultProps = {
   bordered: false,
   color: "primary",
@@ -693,15 +848,15 @@ var StyledIcon = styled(function (_ref2) {
   var icon = _ref2.icon,
       prefix = _ref2.prefix,
       size = _ref2.size,
-      props = _objectWithoutProperties(_ref2, ["icon", "prefix", "size"]);
+      props = objectWithoutProperties(_ref2, ["icon", "prefix", "size"]);
 
-  return /*#__PURE__*/React.createElement(FontAwesomeIcon, _extends({
+  return /*#__PURE__*/React.createElement(FontAwesomeIcon, _extends_1({
     icon: [prefix, icon]
   }, props));
 }).withConfig({
   displayName: "Icon__StyledIcon",
   componentId: "sc-1omhsb8-1"
-})(["font-size:", "px;", " ", ""], function (_ref3) {
+})(["font-size:", "px;", " ", " ", " ", ""], function (_ref3) {
   var size = _ref3.size;
   return KIT_ICON_SIZES[size];
 }, function (_ref4) {
@@ -712,19 +867,23 @@ var StyledIcon = styled(function (_ref2) {
 }, function (_ref5) {
   var onClick = _ref5.onClick;
   return onClick && css(["cursor:pointer;transition:all 0.1s ease-in-out;:hover{opacity:0.7;}"]);
+}, function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
 });
 var Icon = function Icon(_ref6) {
   var bordered = _ref6.bordered,
       className = _ref6.className,
       color = _ref6.color,
-      props = _objectWithoutProperties(_ref6, ["bordered", "className", "color"]);
+      props = objectWithoutProperties(_ref6, ["bordered", "className", "color"]);
 
-  return bordered ? /*#__PURE__*/React.createElement(Bordered, _extends({
+  return bordered ? /*#__PURE__*/React.createElement(Bordered, _extends_1({
     className: className,
     color: color
-  }, props), /*#__PURE__*/React.createElement(StyledIcon, _extends({
+  }, props), /*#__PURE__*/React.createElement(StyledIcon, _extends_1({
     color: color
-  }, props))) : /*#__PURE__*/React.createElement(StyledIcon, _extends({
+  }, props))) : /*#__PURE__*/React.createElement(StyledIcon, _extends_1({
     className: className,
     color: color
   }, props));
@@ -732,7 +891,10 @@ var Icon = function Icon(_ref6) {
 Icon.propTypes = IconPropTypes;
 Icon.defaultProps = IconDefaultProps;
 
-var FieldWrapperPropTypes = {
+function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var FieldWrapperPropTypes = _objectSpread$7(_objectSpread$7({
   block: PropTypes.bool,
   endIcon: PropTypes.string,
   endIconColor: PropTypes.oneOf(THEME_COLORS),
@@ -740,7 +902,7 @@ var FieldWrapperPropTypes = {
   startIcon: PropTypes.string,
   startIconColor: PropTypes.oneOf(THEME_COLORS),
   startIconOnClick: PropTypes.func
-};
+}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
 var FieldWrapperDefaultProps = {
   block: true,
   endIcon: "",
@@ -752,7 +914,7 @@ var FieldWrapperDefaultProps = {
 var StyledWrapper = styled.div.withConfig({
   displayName: "FieldWrapper__StyledWrapper",
   componentId: "sc-8caztj-0"
-})(["display:flex;align-items:center;justify-content:space-between;border-radius:", ";background-color:", ";border:1px solid ", ";padding:", ";outline:none;height:40px;box-sizing:border-box;transition:all 100ms ease-in-out;:not(:last-child){margin-right:", ";}&:focus-within{border:1px solid ", ";}", " ", ""], function (_ref) {
+})(["display:flex;align-items:center;justify-content:space-between;border-radius:", ";background-color:", ";border:1px solid ", ";padding:", ";outline:none;height:40px;box-sizing:border-box;transition:all 100ms ease-in-out;:not(:last-child){margin-right:", ";}&:focus-within{border:1px solid ", ";}", " ", " ", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(3);
 }, function (_ref2) {
@@ -779,6 +941,10 @@ var StyledWrapper = styled.div.withConfig({
 }, function (_ref9) {
   var block = _ref9.block;
   return block && css(["flex:1;"]);
+}, function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
 });
 var FieldWrapper = function FieldWrapper(_ref10) {
   var children = _ref10.children,
@@ -788,7 +954,7 @@ var FieldWrapper = function FieldWrapper(_ref10) {
       startIcon = _ref10.startIcon,
       startIconColor = _ref10.startIconColor,
       startIconOnClick = _ref10.startIconOnClick,
-      props = _objectWithoutProperties(_ref10, ["children", "endIcon", "endIconColor", "endIconOnClick", "startIcon", "startIconColor", "startIconOnClick"]);
+      props = objectWithoutProperties(_ref10, ["children", "endIcon", "endIconColor", "endIconOnClick", "startIcon", "startIconColor", "startIconOnClick"]);
 
   return /*#__PURE__*/React.createElement(StyledWrapper, props, startIcon && /*#__PURE__*/React.createElement(Icon, {
     color: startIconColor,
@@ -803,17 +969,17 @@ var FieldWrapper = function FieldWrapper(_ref10) {
 FieldWrapper.propTypes = FieldWrapperPropTypes;
 FieldWrapper.defaultProps = FieldWrapperDefaultProps;
 
-function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var FieldBasePropTypes = _objectSpread$1(_objectSpread$1({}, FieldWrapperPropTypes), {}, {
+function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var FieldBasePropTypes = _objectSpread$8(_objectSpread$8({}, FieldWrapperPropTypes), {}, {
   disabled: PropTypes.bool,
   hasError: PropTypes.bool,
   readOnly: PropTypes.bool,
   register: PropTypes.func,
   type: PropTypes.string
 });
-var FieldBaseDefaultProps = _objectSpread$1(_objectSpread$1({}, FieldWrapperDefaultProps), {}, {
+var FieldBaseDefaultProps = _objectSpread$8(_objectSpread$8({}, FieldWrapperDefaultProps), {}, {
   disabled: false,
   hasError: false,
   readOnly: false,
@@ -823,7 +989,7 @@ var FieldBaseDefaultProps = _objectSpread$1(_objectSpread$1({}, FieldWrapperDefa
 
 var StyledInput = styled(function (_ref) {
   var Component = _ref.component,
-      props = _objectWithoutProperties(_ref, ["component"]);
+      props = objectWithoutProperties(_ref, ["component"]);
 
   return /*#__PURE__*/React.createElement(Component, props);
 }).withConfig({
@@ -861,7 +1027,7 @@ var FieldBase = function FieldBase(_ref9) {
       startIcon = _ref9.startIcon,
       startIconColor = _ref9.startIconColor,
       startIconOnClick = _ref9.startIconOnClick,
-      props = _objectWithoutProperties(_ref9, ["block", "endIcon", "endIconColor", "endIconOnClick", "hasError", "register", "startIcon", "startIconColor", "startIconOnClick"]);
+      props = objectWithoutProperties(_ref9, ["block", "endIcon", "endIconColor", "endIconOnClick", "hasError", "register", "startIcon", "startIconColor", "startIconOnClick"]);
 
   return /*#__PURE__*/React.createElement(FieldWrapper, {
     endIcon: endIcon,
@@ -871,7 +1037,7 @@ var FieldBase = function FieldBase(_ref9) {
     startIcon: startIcon,
     startIconColor: startIconColor,
     startIconOnClick: startIconOnClick
-  }, /*#__PURE__*/React.createElement(StyledInput, _extends({
+  }, /*#__PURE__*/React.createElement(StyledInput, _extends_1({
     hasError: hasError,
     ref: register
   }, props)));
@@ -880,7 +1046,7 @@ FieldBase.propTypes = FieldBasePropTypes;
 FieldBase.defaultProps = FieldBaseDefaultProps;
 
 var Input = function Input(props) {
-  return /*#__PURE__*/React.createElement(FieldBase, _extends({
+  return /*#__PURE__*/React.createElement(FieldBase, _extends_1({
     component: "input"
   }, props));
 };
@@ -890,6 +1056,8 @@ Input.defaultProps = FieldBaseDefaultProps;
 function _arrayWithHoles(arr) {
   if (Array.isArray(arr)) return arr;
 }
+
+var arrayWithHoles = _arrayWithHoles;
 
 function _iterableToArrayLimit(arr, i) {
   if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
@@ -918,6 +1086,8 @@ function _iterableToArrayLimit(arr, i) {
   return _arr;
 }
 
+var iterableToArrayLimit = _iterableToArrayLimit;
+
 function _arrayLikeToArray(arr, len) {
   if (len == null || len > arr.length) len = arr.length;
 
@@ -928,22 +1098,30 @@ function _arrayLikeToArray(arr, len) {
   return arr2;
 }
 
+var arrayLikeToArray = _arrayLikeToArray;
+
 function _unsupportedIterableToArray(o, minLen) {
   if (!o) return;
-  if (typeof o === "string") return _arrayLikeToArray(o, minLen);
+  if (typeof o === "string") return arrayLikeToArray(o, minLen);
   var n = Object.prototype.toString.call(o).slice(8, -1);
   if (n === "Object" && o.constructor) n = o.constructor.name;
   if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);
+  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
 }
+
+var unsupportedIterableToArray = _unsupportedIterableToArray;
 
 function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }
 
+var nonIterableRest = _nonIterableRest;
+
 function _slicedToArray(arr, i) {
-  return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();
+  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
 }
+
+var slicedToArray = _slicedToArray;
 
 var ItemConnector = styled.div.withConfig({
   displayName: "Item__ItemConnector",
@@ -1014,7 +1192,7 @@ var HistoryItem = function HistoryItem(_ref7) {
       title = _ref7$data.title;
 
   var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
+      _useState2 = slicedToArray(_useState, 2),
       collapseOpen = _useState2[0],
       setCollapseOpen = _useState2[1];
 
@@ -1062,7 +1240,10 @@ HistoryItem.propTypes = {
   }).isRequired
 };
 
-var HistoryPropTypes = {
+function ownKeys$9(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$9(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$9(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$9(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var HistoryPropTypes = _objectSpread$9(_objectSpread$9({
   rows: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     description: PropTypes.string,
@@ -1071,20 +1252,33 @@ var HistoryPropTypes = {
     icon: PropTypes.string.isRequired,
     iconColor: PropTypes.string
   })).isRequired
-};
+}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
 
+var Container$1 = styled.div.withConfig({
+  displayName: "History__Container",
+  componentId: "wa0hqd-0"
+})(["", " ", ""], function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
 var History = function History(_ref) {
-  var rows = _ref.rows;
-  return rows.map(function (h) {
+  var rows = _ref.rows,
+      props = objectWithoutProperties(_ref, ["rows"]);
+
+  return /*#__PURE__*/React.createElement(Container$1, props, rows.map(function (h) {
     return /*#__PURE__*/React.createElement(HistoryItem, {
       key: h.id,
       data: h
     });
-  });
+  }));
 };
 History.propTypes = HistoryPropTypes;
 
-var ImagePropTypes = {
+function ownKeys$a(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$a(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$a(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$a(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var ImagePropTypes = _objectSpread$a(_objectSpread$a({
   alt: PropTypes.string.isRequired,
   className: PropTypes.any,
   cover: PropTypes.bool,
@@ -1097,7 +1291,7 @@ var ImagePropTypes = {
   style: PropTypes.object,
   thumbnail: PropTypes.bool,
   width: PropTypes.number
-};
+}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
 var ImageDefaultProps = {
   fluid: false,
   rounded: false,
@@ -1106,16 +1300,16 @@ var ImageDefaultProps = {
 };
 
 var Image = function Image(_ref) {
-  var props = _extends({}, _ref);
+  var props = _extends_1({}, _ref);
 
-  return /*#__PURE__*/React.createElement(StyledImg, _extends({
+  return /*#__PURE__*/React.createElement(StyledImg, _extends_1({
     itemProp: "contentUrl"
   }, props));
 };
 var StyledImg = styled.img.withConfig({
   displayName: "Image__StyledImg",
   componentId: "sc-1ta15p5-0"
-})(["", " ", " ", " ", " ", " ", " ", " ", ""], function (_ref2) {
+})(["", " ", " ", " ", " ", " ", ""], function (_ref2) {
   var width = _ref2.width;
   return width && "width: ".concat(width, ";");
 }, function (_ref3) {
@@ -1123,23 +1317,14 @@ var StyledImg = styled.img.withConfig({
   return height && "width: ".concat(height, ";");
 }, function (_ref4) {
   var cover = _ref4.cover;
-  return cover && css(["height:150px;object-fit:fill;width:100%;"]);
+  return cover && css(["height:100%;object-fit:fill;"]);
 }, function (_ref5) {
-  var fluid = _ref5.fluid;
-  return fluid && "\n    height: auto;\n    max-width: 100%;\n  ";
-}, function (_ref6) {
-  var rounded = _ref6.rounded;
-  return rounded && "\n    border-radius: .25rem;\n  ";
-}, function (_ref7) {
-  var roundedCircle = _ref7.roundedCircle;
-  return roundedCircle && "\n    border-radius: 50%;\n  ";
-}, function (_ref8) {
-  var onClick = _ref8.onClick;
+  var onClick = _ref5.onClick;
   return onClick && css(["transition:all 100ms ease-in-out;cursor:pointer;:hover{opacity:0.7;}"]);
-}, function (_ref9) {
-  var thumbnail = _ref9.thumbnail,
-      theme = _ref9.theme;
-  return thumbnail && css(["background-color:", ";border:1px solid ", ";border-radius:0.25rem;height:auto;max-width:100%;padding:0.65rem;"], theme.COLOUR.light, theme.COLOUR.dark);
+}, function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
 });
 Image.propTypes = ImagePropTypes;
 Image.defaultProps = ImageDefaultProps;
@@ -1160,7 +1345,7 @@ var StyledFooter = styled.div.withConfig({
 });
 var ExplorerLayoutFooter = function ExplorerLayoutFooter(_ref3) {
   var action = _ref3.action,
-      props = _objectWithoutProperties(_ref3, ["action"]);
+      props = objectWithoutProperties(_ref3, ["action"]);
 
   return /*#__PURE__*/React.createElement(StyledFooter, props);
 };
@@ -1200,7 +1385,7 @@ var StyledLogo = styled(Image).attrs(function () {
 var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
   var headerRight = _ref3.headerRight,
       logoAction = _ref3.logoAction,
-      props = _objectWithoutProperties(_ref3, ["headerRight", "logoAction"]);
+      props = objectWithoutProperties(_ref3, ["headerRight", "logoAction"]);
 
   return /*#__PURE__*/React.createElement(StyledHeader, props, /*#__PURE__*/React.createElement(Grid, {
     item: true,
@@ -1259,7 +1444,7 @@ var ExplorerLayout = function ExplorerLayout(_ref5) {
       headerLogoAction = _ref5.headerLogoAction,
       headerRight = _ref5.headerRight,
       sidebar = _ref5.sidebar,
-      props = _objectWithoutProperties(_ref5, ["children", "footerContent", "headerLogoAction", "headerRight", "sidebar"]);
+      props = objectWithoutProperties(_ref5, ["children", "footerContent", "headerLogoAction", "headerRight", "sidebar"]);
 
   return /*#__PURE__*/React.createElement(MuiContainer, props, /*#__PURE__*/React.createElement(ExplorerLayoutHeader, {
     logoAction: headerLogoAction,
@@ -1277,6 +1462,121 @@ var ExplorerLayout = function ExplorerLayout(_ref5) {
 ExplorerLayout.propTypes = ExplorerLayoutPropTypes;
 ExplorerLayout.defaultProps = {
   footerContent: poweredBy
+};
+
+var ContentWrapper = styled(DialogContent).attrs(function () {
+  return {
+    dividers: true
+  };
+}).withConfig({
+  displayName: "Modal__ContentWrapper",
+  componentId: "fzfza1-0"
+})(["&&{padding:0;&:first-child{padding-top:0;}}"]);
+var Title = styled(DialogTitle).attrs(function () {
+  return {
+    disableTypography: true
+  };
+}).withConfig({
+  displayName: "Modal__Title",
+  componentId: "fzfza1-1"
+})(["&&{font-size:16px;font-weight:500;color:", ";display:flex;align-items:center;justify-content:space-between;padding:", "px;}"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.darkIndigo;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.spacing(3, 5);
+});
+var CloseModalIcon = styled(Icon).attrs(function () {
+  return {
+    size: "lg"
+  };
+}).withConfig({
+  displayName: "Modal__CloseModalIcon",
+  componentId: "fzfza1-2"
+})(["cursor:pointer;background-color:white;&&{color:", ";}"], function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.palette.secondary.dark;
+});
+var Actions = styled(DialogActions).withConfig({
+  displayName: "Modal__Actions",
+  componentId: "fzfza1-3"
+})(["&&{justify-content:", ";}"], function (_ref4) {
+  var hasDesc = _ref4.hasDesc;
+  return hasDesc ? "space-between" : "flex-end";
+});
+var LoadingWrapper = styled.div.withConfig({
+  displayName: "Modal__LoadingWrapper",
+  componentId: "fzfza1-4"
+})(["position:absolute;top:0;right:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background-color:", ";z-index:1;"], function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.palette.secondary.dark;
+});
+var Modal = function Modal(_ref6) {
+  var action = _ref6.action,
+      actionDescription = _ref6.actionDescription,
+      actionLoading = _ref6.actionLoading,
+      actionTitle = _ref6.actionTitle,
+      dataCy = _ref6.dataCy,
+      fullScreen = _ref6.fullScreen,
+      isOpen = _ref6.isOpen,
+      loading = _ref6.loading,
+      onClose = _ref6.onClose,
+      children = _ref6.children,
+      maxWidth = _ref6.maxWidth,
+      title = _ref6.title,
+      disabled = _ref6.disabled,
+      props = objectWithoutProperties(_ref6, ["action", "actionDescription", "actionLoading", "actionTitle", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled"]);
+
+  return /*#__PURE__*/React.createElement(Dialog, _extends_1({
+    "data-cy": dataCy,
+    fullScreen: typeof fullScreen !== "undefined" ? fullScreen : typeof window !== "undefined" && window.screen.width < 768,
+    onClose: onClose,
+    open: isOpen,
+    maxWidth: maxWidth,
+    PaperProps: {
+      style: {
+        position: "relative"
+      }
+    }
+  }, props), loading && /*#__PURE__*/React.createElement(LoadingWrapper, null, /*#__PURE__*/React.createElement(CircularProgress, {
+    size: 60
+  })), title && /*#__PURE__*/React.createElement(Title, null, title, /*#__PURE__*/React.createElement(CloseModalIcon, {
+    icon: "times",
+    onClick: onClose
+  })), /*#__PURE__*/React.createElement(ContentWrapper, null, children), action && /*#__PURE__*/React.createElement(Actions, {
+    hasDesc: !!actionDescription
+  }, /*#__PURE__*/React.createElement("div", null, actionDescription), /*#__PURE__*/React.createElement(Button, {
+    disabled: disabled,
+    loading: actionLoading,
+    onClick: action
+  }, actionTitle)));
+};
+Modal.propTypes = {
+  action: PropTypes.func,
+  actionDescription: PropTypes.node,
+  actionLoading: PropTypes.bool,
+  actionTitle: PropTypes.string,
+  dataCy: PropTypes.string,
+  fullScreen: PropTypes.bool,
+  isOpen: PropTypes.bool.isRequired,
+  loading: PropTypes.bool,
+  onClose: PropTypes.func.isRequired,
+  children: PropTypes.oneOfType([PropTypes.any]).isRequired,
+  maxWidth: PropTypes.string,
+  title: PropTypes.string,
+  disabled: PropTypes.bool
+};
+Modal.defaultProps = {
+  action: undefined,
+  actionDescription: null,
+  actionLoading: false,
+  actionTitle: "Save",
+  dataCy: "modal",
+  fullScreen: undefined,
+  loading: false,
+  maxWidth: "md",
+  title: "",
+  disabled: false
 };
 
 var Button$1 = styled(ButtonBase).withConfig({
@@ -1324,21 +1624,28 @@ ShareModuleButton.defaultProps = {
 
 var SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "telegram", "whatsapp", "email", "navigator"];
 
-var ShareModulePropTypes = {
+function ownKeys$b(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$b(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$b(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$b(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var ShareModulePropTypes = _objectSpread$b(_objectSpread$b({
   copyText: PropTypes.string,
   shareOptions: PropTypes.arrayOf(PropTypes.oneOf(SHARE_MODULE_SHARE_OPTIONS)),
   url: PropTypes.string
-};
+}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
 var ShareModuleDefaultProps = {
   copyText: "Or copy the link",
   shareOptions: SHARE_MODULE_SHARE_OPTIONS,
   url: "#"
 };
 
-var Container$1 = styled.div.withConfig({
+var Container$2 = styled.div.withConfig({
   displayName: "ShareModule__Container",
   componentId: "sc-1s032sh-0"
-})([""]);
+})(["", " ", ""], function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
 var ButtonsWrapper = styled.div.withConfig({
   displayName: "ShareModule__ButtonsWrapper",
   componentId: "sc-1s032sh-1"
@@ -1363,8 +1670,10 @@ var StyledText$1 = styled(Text).attrs(function () {
 var ShareModule = function ShareModule(_ref3) {
   var copyText = _ref3.copyText,
       shareOptions = _ref3.shareOptions,
-      url = _ref3.url;
-  return /*#__PURE__*/React.createElement(Container$1, null, /*#__PURE__*/React.createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React.createElement(ShareModuleButton, {
+      url = _ref3.url,
+      props = objectWithoutProperties(_ref3, ["copyText", "shareOptions", "url"]);
+
+  return /*#__PURE__*/React.createElement(Container$2, props, /*#__PURE__*/React.createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "twitter",
     href: "https://twitter.com/intent/tweet?url=".concat(url)
   }), shareOptions.includes("facebook") && /*#__PURE__*/React.createElement(ShareModuleButton, {
@@ -1405,7 +1714,10 @@ var ShareModule = function ShareModule(_ref3) {
 ShareModule.propTypes = ShareModulePropTypes;
 ShareModule.defaultProps = ShareModuleDefaultProps;
 
-var TabPropTypes = {
+function ownKeys$c(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$c(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$c(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$c(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var TabPropTypes = _objectSpread$c(_objectSpread$c({
   currentTab: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   tabs: PropTypes.arrayOf(PropTypes.shape({
@@ -1414,14 +1726,18 @@ var TabPropTypes = {
     disabled: PropTypes.bool,
     showTab: PropTypes.bbol
   })).isRequired
-};
+}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
 
 var Wrapper$2 = styled.div.withConfig({
   displayName: "Tab__Wrapper",
   componentId: "cqsr0f-0"
-})(["margin-bottom:", ";"], function (_ref) {
+})(["margin-bottom:", ";", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
+}, function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
 });
 var StyledTabs = styled(MuiTabs).withConfig({
   displayName: "Tab__StyledTabs",
@@ -1441,7 +1757,7 @@ var Tab = function Tab(_ref4) {
   var tabs = _ref4.tabs,
       currentTab = _ref4.currentTab,
       _onChange = _ref4.onChange,
-      props = _objectWithoutProperties(_ref4, ["tabs", "currentTab", "onChange"]);
+      props = objectWithoutProperties(_ref4, ["tabs", "currentTab", "onChange"]);
 
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Wrapper$2, props, /*#__PURE__*/React.createElement(StyledTabs, {
     value: currentTab,
@@ -1464,5 +1780,129 @@ var Tab = function Tab(_ref4) {
 };
 Tab.propTypes = TabPropTypes;
 
-export { Button, ButtonBase, ChipBadge, Collapse, CollapseButton, DetailsTable, ExplorerLayout, FieldBase, FieldWrapper, H1, H2, H3, H4, H5, H6, HeadingBase, History, Icon, Image, Input, OutlineButton, Paragraph, ShareModule, Tab, Text, TextBase, TextButton };
-//# sourceMappingURL=index.js.map
+var CloseModalIcon$1 = styled(Icon).attrs(function () {
+  return {
+    size: "lg"
+  };
+}).withConfig({
+  displayName: "ImageModal__CloseModalIcon",
+  componentId: "sc-1grz9di-0"
+})(["position:absolute;top:0;right:0;border-radius:100%;&&{margin:", ";}"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.spacing(4);
+});
+var StyledImg$1 = styled(Image).withConfig({
+  displayName: "ImageModal__StyledImg",
+  componentId: "sc-1grz9di-1"
+})(["width:500px;max-width:500px;user-select:none;"]);
+var ImageModal = function ImageModal(_ref2) {
+  var isOpen = _ref2.isOpen,
+      onClose = _ref2.onClose,
+      imgSrc = _ref2.imgSrc;
+  return /*#__PURE__*/React.createElement(Modal, {
+    onClose: onClose,
+    isOpen: isOpen
+  }, /*#__PURE__*/React.createElement(CloseModalIcon$1, {
+    color: "secondary",
+    icon: "times",
+    onClick: onClose
+  }), /*#__PURE__*/React.createElement(StyledImg$1, {
+    src: imgSrc,
+    alt: "Attachment preview"
+  }));
+};
+ImageModal.propTypes = {
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  imgSrc: PropTypes.string
+};
+ImageModal.defaultProps = {
+  imgSrc: ""
+};
+
+function ownKeys$d(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$d(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$d(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$d(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var ThumbnailPropTypes = _objectSpread$d(_objectSpread$d({
+  hasPreview: PropTypes.bool,
+  imgSrc: PropTypes.string,
+  onClick: PropTypes.func
+}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+var ThumbnailDefaultProps = {
+  hasPreview: false,
+  onClick: function onClick() {},
+  imgSrc: ""
+};
+
+var Container$3 = styled.div.withConfig({
+  displayName: "Thumbnail__Container",
+  componentId: "cnapw-0"
+})(["position:relative;height:48px;width:48px;text-align:center;border-radius:8px;overflow:hidden;background-color:", ";display:flex;align-items:center;justify-content:center;flex-shrink:0;", " ", ""], function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.common.white;
+}, function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
+var IconWrapper = styled.div.withConfig({
+  displayName: "Thumbnail__IconWrapper",
+  componentId: "cnapw-1"
+})(["position:absolute;top:0;left:0;width:100%;height:100%;transition:all 0.1s ease-in-out;display:flex;align-items:center;justify-content:center;cursor:pointer;:hover{background-color:rgba(0,0,0,0.2);}"]);
+var StyledIcon$2 = styled(Icon).withConfig({
+  displayName: "Thumbnail__StyledIcon",
+  componentId: "cnapw-2"
+})(["color:", ";"], function (_ref2) {
+  var color = _ref2.color,
+      theme = _ref2.theme;
+  return !color && theme.palette.common.white;
+});
+var Thumbnail = function Thumbnail(_ref3) {
+  var hasPreview = _ref3.hasPreview,
+      imgSrc = _ref3.imgSrc,
+      onClick = _ref3.onClick,
+      props = objectWithoutProperties(_ref3, ["hasPreview", "imgSrc", "onClick"]);
+
+  var _useState = useState(false),
+      _useState2 = slicedToArray(_useState, 2),
+      loadError = _useState2[0],
+      setLoadError = _useState2[1];
+
+  var _useState3 = useState(false),
+      _useState4 = slicedToArray(_useState3, 2),
+      previewOpen = _useState4[0],
+      setPreviewOpen = _useState4[1];
+
+  var handleClick = function handleClick() {
+    if (hasPreview) setPreviewOpen(true);else onClick();
+  };
+
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Container$3, _extends_1({
+    onClick: handleClick
+  }, props), loadError ? /*#__PURE__*/React.createElement(StyledIcon$2, {
+    color: "secondary",
+    icon: "file",
+    size: "lg"
+  }) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(IconWrapper, null, /*#__PURE__*/React.createElement(StyledIcon$2, {
+    icon: "search-plus"
+  })), /*#__PURE__*/React.createElement(Image, {
+    cover: true,
+    src: imgSrc,
+    alt: "Thumbnail",
+    onError: function onError() {
+      return setLoadError(true);
+    },
+    width: "48px"
+  }))), hasPreview && /*#__PURE__*/React.createElement(ImageModal, {
+    imgSrc: imgSrc,
+    isOpen: previewOpen,
+    onClose: function onClose() {
+      return setPreviewOpen(false);
+    }
+  }));
+};
+Thumbnail.propTypes = ThumbnailPropTypes;
+Thumbnail.defaultProps = ThumbnailDefaultProps;
+
+export { Button, ButtonBase, ChipBadge, Collapse, CollapseButton, DISPLAY, DISPLAY_PROP_TYPES, DetailsTable, ExplorerLayout, FieldBase, FieldWrapper, H1, H2, H3, H4, H5, H6, HeadingBase, History, Icon, Image, ImageModal, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Modal, OutlineButton, Paragraph, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, ShareModule, THEME_COLORS, Tab, Text, TextBase, TextButton, Thumbnail, theme };
+//# sourceMappingURL=rockskit.es.js.map

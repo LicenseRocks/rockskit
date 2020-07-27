@@ -1,17 +1,13 @@
+import path from "path";
 import resolve from "@rollup/plugin-node-resolve";
 import babel from "@rollup/plugin-babel";
 import commonjs from "@rollup/plugin-commonjs";
-import peerDepsExternal from "rollup-plugin-peer-deps-external";
 import svg from "rollup-plugin-svg";
+import peerDepsExternal from "rollup-plugin-peer-deps-external";
+import pkg from "./package.json";
 
-export default {
-  input: "src/index.js",
-  output: {
-    dir: "dist",
-    format: "es",
-    sourcemap: true,
-    exports: "named",
-  },
+const baseConfig = {
+  input: path.resolve(__dirname, "src", "index.js"),
   plugins: [
     peerDepsExternal({
       includeDependencies: true,
@@ -25,3 +21,23 @@ export default {
     }),
   ],
 };
+
+const CommonJS = {
+  ...baseConfig,
+  output: {
+    file: pkg.main,
+    format: "cjs",
+    sourcemap: true,
+  },
+};
+
+const ESModules = {
+  ...baseConfig,
+  output: {
+    file: pkg.module,
+    format: "es",
+    sourcemap: true,
+  },
+};
+
+module.exports = [CommonJS, ESModules];

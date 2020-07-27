@@ -2,7 +2,8 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 import { ChipBadgePropTypes, ChipBadgeDefaultProps } from "./props";
-import { Icon, Text, DISPLAY, SPACER } from "../..";
+import { Icon, DISPLAY, SPACER } from "../..";
+import { Text } from "../../Typography";
 
 const StyledChip = styled.div`
   box-sizing: border-box;
