@@ -10,5 +10,6 @@ export * from "./Layout";
 export * from "./Modal";
 export * from "./ShareModule/ShareModule";
 export * from "./Tab";
+export * from "./theme";
 export * from "./Thumbnail";
 export * from "./Typography";
