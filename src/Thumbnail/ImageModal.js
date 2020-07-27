@@ -2,10 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { Icon, Modal } from "..";
+import { Icon, Image, Modal } from "..";
 
 const CloseModalIcon = styled(Icon).attrs(() => ({
-  iconSize: "lg",
+  size: "lg",
 }))`
   position: absolute;
   top: 0;
@@ -16,7 +16,7 @@ const CloseModalIcon = styled(Icon).attrs(() => ({
   }
 `;
 
-const StyledImg = styled.img`
+const StyledImg = styled(Image)`
   width: 500px;
   max-width: 500px;
   user-select: none;

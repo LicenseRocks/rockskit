@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
+import { DISPLAY, SPACER } from "../../theme";
 import { Icon } from "../../Icon";
 import { FieldWrapperDefaultProps, FieldWrapperPropTypes } from "./props";
 
@@ -36,6 +37,9 @@ const StyledWrapper = styled.div`
     css`
       flex: 1;
     `}
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 export const FieldWrapper = ({

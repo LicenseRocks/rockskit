@@ -37,7 +37,7 @@ const Title = styled(DialogTitle).attrs(() => ({
 `;
 
 const CloseModalIcon = styled(Icon).attrs(() => ({
-  iconSize: "lg",
+  size: "lg",
 }))`
   cursor: pointer;
   background-color: white;

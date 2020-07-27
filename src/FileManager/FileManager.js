@@ -3,8 +3,7 @@ import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 
 import { FileManagerPropTypes, FileManagerDefaultProps } from "./props";
-import { Text } from "../Typography";
-import { Thumbnail } from "..";
+import { DISPLAY, SPACER, Text, Thumbnail } from "..";
 
 const Container = styled.div``;
 
@@ -13,15 +12,9 @@ const Wrapper = styled.div`
   padding: ${({ theme }) => theme.spacing(4)};
   margin-bottom: ${({ theme }) => theme.spacing(2)};
   border-radius: 8px;
-`;
 
-const Label = styled(Text).attrs(() => ({
-  component: "div",
-  fontWeight: "bold",
-}))`
-  && {
-    margin-bottom: ${({ theme }) => theme.spacing(2)};
-  }
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 const Row = styled(Grid).attrs(() => ({
@@ -29,6 +22,7 @@ const Row = styled(Grid).attrs(() => ({
 }))`
   width: 100%;
   height: 48px;
+  margin-bottom: ${({ theme }) => theme.spacing(2)};
 `;
 
 const Item = styled(Grid).attrs(({ lg }) => ({
@@ -45,12 +39,12 @@ export const FileManager = ({ data }) => {
     <Container>
       {data.map(({ label, files }) => (
         <Wrapper key={label}>
-          <Label content={label} />
+          <Text content={label} fontWeight="bold" mb={2} />
 
           {files.map(({ date, description, id, name, previewUrl }) => (
             <Row key={id}>
               <Item lg={5} md={5}>
-                <Thumbnail imgSrc={previewUrl} hasPreview />
+                <Thumbnail imgSrc={previewUrl} hasPreview mr={4} />
                 <Text
                   content={name}
                   color="textSecondary"

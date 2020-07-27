@@ -1,6 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
+import { DISPLAY, SPACER } from "../theme";
 import { ImageDefaultProps, ImagePropTypes } from "./props";
 
 export const Image = ({ ...props }) => {
@@ -14,51 +15,23 @@ const StyledImg = styled.img`
   ${({ cover }) =>
     cover &&
     css`
-      height: 150px;
+      height: 100%;
       object-fit: fill;
-      width: 100%;
     `}
 
-  ${({ fluid }) =>
-    fluid &&
-    `
-    height: auto;
-    max-width: 100%;
-  `}
-
-  ${({ rounded }) =>
-    rounded &&
-    `
-    border-radius: .25rem;
-  `}
-
-  ${({ roundedCircle }) =>
-    roundedCircle &&
-    `
-    border-radius: 50%;
-  `}
-
-${({ onClick }) =>
-  onClick &&
-  css`
-    transition: all 100ms ease-in-out;
-    cursor: pointer;
-
-    :hover {
-      opacity: 0.7;
-    }
-  `}
-
-  ${({ thumbnail, theme }) =>
-    thumbnail &&
+  ${({ onClick }) =>
+    onClick &&
     css`
-      background-color: ${theme.COLOUR.light};
-      border: 1px solid ${theme.COLOUR.dark};
-      border-radius: 0.25rem;
-      height: auto;
-      max-width: 100%;
-      padding: 0.65rem;
+      transition: all 100ms ease-in-out;
+      cursor: pointer;
+
+      :hover {
+        opacity: 0.7;
+      }
     `}
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 Image.propTypes = ImagePropTypes;

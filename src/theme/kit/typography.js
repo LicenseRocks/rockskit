@@ -84,7 +84,7 @@ export const KIT_TYPOGRAPHY = {
   button: () => ({
     fontFamily: KIT_FONTS.Inter.name,
     fontSizeMd: "16px",
-    fontSizeSm: "14px",
+    fontSizeSm: "12px",
     fontSizeXs: "10px",
     lineHeight: "120%",
     textTransform: "uppercase",

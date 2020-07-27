@@ -4,9 +4,12 @@ import MuiTabs from "@material-ui/core/Tabs";
 import MuiTab from "@material-ui/core/Tab";
 
 import { TabPropTypes } from "./props";
+import { DISPLAY, SPACER } from "../theme";
 
 const Wrapper = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing(4)};
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 const StyledTabs = styled(MuiTabs)`

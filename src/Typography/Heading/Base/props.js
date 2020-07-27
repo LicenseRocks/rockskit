@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 
+import { DISPLAY_PROP_TYPES, SPACER_PROP_TYPES } from "../../../theme";
+
 export const HeadingBasePropTypes = {
   align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
   children: PropTypes.node,
@@ -16,4 +18,6 @@ export const HeadingBasePropTypes = {
   display: PropTypes.oneOf(["initial", "block", "inline"]),
   gutterBottom: PropTypes.bool,
   noWrap: PropTypes.bool,
+  ...SPACER_PROP_TYPES,
+  ...DISPLAY_PROP_TYPES,
 };

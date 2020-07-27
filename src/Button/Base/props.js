@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 
+import { DISPLAY_PROP_TYPES, SPACER_PROP_TYPES } from "../../theme";
+
 export const ButtonBasePropTypes = {
   color: PropTypes.oneOf(["primary", "secondary", "subtle"]),
   content: PropTypes.string,
@@ -9,6 +11,8 @@ export const ButtonBasePropTypes = {
   onClick: PropTypes.func,
   size: PropTypes.oneOf(["md", "sm", "xs"]),
   target: PropTypes.string,
+  ...SPACER_PROP_TYPES,
+  ...DISPLAY_PROP_TYPES,
 };
 
 export const ButtonBaseDefaultProps = {

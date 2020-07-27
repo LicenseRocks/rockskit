@@ -9,8 +9,12 @@ import {
 } from ".";
 import { Text } from "../Typography";
 import { Input } from "../Form";
+import { DISPLAY, SPACER } from "../theme";
 
-const Container = styled.div``;
+const Container = styled.div`
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
+`;
 
 const ButtonsWrapper = styled.div`
   display: flex;
@@ -32,9 +36,9 @@ const StyledText = styled(Text).attrs(() => ({
   }
 `;
 
-export const ShareModule = ({ copyText, shareOptions, url }) => {
+export const ShareModule = ({ copyText, shareOptions, url, ...props }) => {
   return (
-    <Container>
+    <Container {...props}>
       <ButtonsWrapper>
         {shareOptions.includes("twitter") && (
           <ShareModuleButton

@@ -10,7 +10,7 @@ export default {
   decorators: [StoryWrapper, withKnobs],
 };
 
-export const main = () => {
+export const main = (props) => {
   const defaultProps = {
     rows: [
       {
@@ -34,6 +34,7 @@ export const main = () => {
         value: <H3 content="100,00" color="primary" />,
       },
     ],
+    ...props,
   };
 
   return <DetailsTable {...defaultProps} />;

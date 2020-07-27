@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-import { Icon } from "..";
+import { DISPLAY, Icon, Image, SPACER } from "..";
 import { ImageModal } from "./ImageModal";
 import { ThumbnailPropTypes, ThumbnailDefaultProps } from "./props";
 
@@ -17,6 +17,9 @@ const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 const IconWrapper = styled.div`
@@ -36,18 +39,11 @@ const IconWrapper = styled.div`
   }
 `;
 
-const Image = styled.img`
-  height: 100%;
-  width: 48px;
-  object-fit: cover;
-  cursor: pointer;
-`;
-
 const StyledIcon = styled(Icon)`
   color: ${({ color, theme }) => !color && theme.palette.common.white};
 `;
 
-export const Thumbnail = ({ hasPreview, imgSrc, onClick }) => {
+export const Thumbnail = ({ hasPreview, imgSrc, onClick, ...props }) => {
   const [loadError, setLoadError] = useState(false);
   const [previewOpen, setPreviewOpen] = useState(false);
 
@@ -58,7 +54,7 @@ export const Thumbnail = ({ hasPreview, imgSrc, onClick }) => {
 
   return (
     <>
-      <Container onClick={handleClick}>
+      <Container onClick={handleClick} {...props}>
         {loadError ? (
           <StyledIcon color="secondary" icon="file" size="lg" />
         ) : (
@@ -67,9 +63,11 @@ export const Thumbnail = ({ hasPreview, imgSrc, onClick }) => {
               <StyledIcon icon="search-plus" />
             </IconWrapper>
             <Image
+              cover
               src={imgSrc}
               alt="Thumbnail"
               onError={() => setLoadError(true)}
+              width="48px"
             />
           </>
         )}
