@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 
 import { FileManagerPropTypes, FileManagerDefaultProps } from "./props";
 import { Text } from "../Typography";
+import { Thumbnail } from "..";
 
 const Container = styled.div``;
 
@@ -15,9 +16,12 @@ const Wrapper = styled.div`
 `;
 
 const Label = styled(Text).attrs(() => ({
+  component: "div",
   fontWeight: "bold",
 }))`
-  margin-bottom: ${({ theme }) => theme.spacing(2)};
+  && {
+    margin-bottom: ${({ theme }) => theme.spacing(2)};
+  }
 `;
 
 const Row = styled(Grid).attrs(() => ({
@@ -43,9 +47,10 @@ export const FileManager = ({ data }) => {
         <Wrapper key={label}>
           <Label content={label} />
 
-          {files.map(({ date, description, id, name }) => (
+          {files.map(({ date, description, id, name, previewUrl }) => (
             <Row key={id}>
-              <Item lg={5}>
+              <Item lg={5} md={5}>
+                <Thumbnail imgSrc={previewUrl} hasPreview />
                 <Text
                   content={name}
                   color="textSecondary"
@@ -54,7 +59,7 @@ export const FileManager = ({ data }) => {
                 />
               </Item>
 
-              <Item lg={4}>
+              <Item lg={4} md={3}>
                 <Text content={date} color="textSecondary" fontWeight="bold" />
               </Item>
 

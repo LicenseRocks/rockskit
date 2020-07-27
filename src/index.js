@@ -7,6 +7,8 @@ export * from "./History/History";
 export * from "./Icon";
 export * from "./Image";
 export * from "./Layout";
+export * from "./Modal";
 export * from "./ShareModule/ShareModule";
 export * from "./Tab";
+export * from "./Thumbnail";
 export * from "./Typography";

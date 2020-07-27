@@ -10,8 +10,11 @@ import {
   faCopy,
   faEllipsisH,
   faEnvelope,
+  faFile,
   faLink,
   faPlus,
+  faSearchPlus,
+  faTimes,
   faUser,
 } from "@fortawesome/pro-regular-svg-icons";
 
@@ -23,6 +26,10 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 library.add(
+  fabFacebookF,
+  fabTelegramPlane,
+  fabTwitter,
+  fabWhatsapp,
   faBox,
   faCheckCircle,
   faChevronDown,
@@ -32,11 +39,10 @@ library.add(
   faCopy,
   faEllipsisH,
   faEnvelope,
-  fabFacebookF,
+  faFile,
   faLink,
   faPlus,
-  fabTelegramPlane,
-  fabTwitter,
-  faUser,
-  fabWhatsapp
+  faSearchPlus,
+  faTimes,
+  faUser
 );

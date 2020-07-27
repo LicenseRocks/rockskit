@@ -20,6 +20,7 @@ export const main = () => {
             name: "license_273.pdf",
             date: "01/03/2020",
             description: "Certificate with QR Code",
+            previewUrl: "https://via.placeholder.com/500",
           },
         ],
       },
