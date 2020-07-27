@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import MuiButtonBase from "@material-ui/core/ButtonBase";
 
+import { DISPLAY, SPACER } from "../../theme";
 import { ButtonBasePropTypes, ButtonBaseDefaultProps } from "./props";
 
 const StyledButton = styled(MuiButtonBase)`
@@ -46,6 +47,9 @@ const StyledButton = styled(MuiButtonBase)`
         font-size: ${theme.typography.button.fontSizeMd};
       `;
     }}
+
+    ${(theme) => SPACER(theme)}
+    ${(theme) => DISPLAY(theme)}
   }
 `;
 

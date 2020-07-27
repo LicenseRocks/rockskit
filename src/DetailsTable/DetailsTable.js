@@ -3,8 +3,12 @@ import styled from "styled-components";
 
 import { DetailsTablePropTypes, DetailsTableDefaultProps } from "./props";
 import { Text } from "../Typography";
+import { DISPLAY, SPACER } from "../theme";
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
+`;
 
 const Row = styled.div`
   display: flex;
@@ -19,9 +23,9 @@ const Label = styled(Text).attrs(() => ({
   flex: 0 140px;
 `;
 
-export const DetailsTable = ({ rows }) => {
+export const DetailsTable = ({ rows, ...props }) => {
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       {rows.map(({ label, value }) => (
         <Row key={`${label}:${value}`}>
           <Label content={label} />

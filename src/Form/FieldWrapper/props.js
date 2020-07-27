@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 
-import { THEME_COLORS } from "../../theme";
+import {
+  DISPLAY_PROP_TYPES,
+  SPACER_PROP_TYPES,
+  THEME_COLORS,
+} from "../../theme";
 
 export const FieldWrapperPropTypes = {
   block: PropTypes.bool,
@@ -10,6 +14,8 @@ export const FieldWrapperPropTypes = {
   startIcon: PropTypes.string,
   startIconColor: PropTypes.oneOf(THEME_COLORS),
   startIconOnClick: PropTypes.func,
+  ...SPACER_PROP_TYPES,
+  ...DISPLAY_PROP_TYPES,
 };
 
 export const FieldWrapperDefaultProps = {

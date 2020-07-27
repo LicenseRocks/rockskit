@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 // UI
-import { ExplorerLayout, H1, H4, OutlineButton } from "../..";
+import { ExplorerLayout, H1, H4, OutlineButton, Text } from "../..";
 import { main as DetailsTableStory } from "../../DetailsTable/stories";
 import { main as ShareModuleStory } from "../../ShareModule/stories";
 import { main as HistoryStory } from "../../History/stories";
@@ -40,7 +40,7 @@ const headerRight = (
 
 const sidebar = (
   <>
-    <H4>Share this license</H4>
+    <H4 mb={6}>Share this license</H4>
     <ShareModuleStory />
   </>
 );
@@ -55,7 +55,22 @@ export const main = () => {
       sidebar={sidebar}
     >
       <H1 content="Main content" />
-      <DetailsTableStory />
+      <Text color="textSecondary" mb={2}>
+        Network:
+        <Text
+          color="textPrimary"
+          content=" Mainnet"
+          dInline
+          fontWeight="bold"
+        />
+      </Text>
+      <OutlineButton
+        color="secondary"
+        content="Visit Website of License"
+        size="sm"
+      />
+
+      <DetailsTableStory my={10} />
       <Tab currentTab={currentTab} onChange={setCurrentTab} tabs={TABS} />
       {TABS[currentTab].render()}
     </ExplorerLayout>

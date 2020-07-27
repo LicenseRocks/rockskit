@@ -1,6 +1,11 @@
 import PropTypes from "prop-types";
 
-import { KIT_ICON_SIZES, THEME_COLORS } from "../theme";
+import {
+  DISPLAY_PROP_TYPES,
+  KIT_ICON_SIZES,
+  SPACER_PROP_TYPES,
+  THEME_COLORS,
+} from "../theme";
 
 export const IconPropTypes = {
   bordered: PropTypes.bool,
@@ -9,6 +14,8 @@ export const IconPropTypes = {
   onClick: PropTypes.func,
   prefix: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(KIT_ICON_SIZES)),
+  ...SPACER_PROP_TYPES,
+  ...DISPLAY_PROP_TYPES,
 };
 
 export const IconDefaultProps = {

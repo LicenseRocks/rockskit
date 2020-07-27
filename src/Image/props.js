@@ -1,5 +1,7 @@
 import PropTypes from "prop-types";
 
+import { DISPLAY_PROP_TYPES, SPACER_PROP_TYPES } from "../theme";
+
 export const ImagePropTypes = {
   alt: PropTypes.string.isRequired,
   className: PropTypes.any,
@@ -13,6 +15,8 @@ export const ImagePropTypes = {
   style: PropTypes.object,
   thumbnail: PropTypes.bool,
   width: PropTypes.number,
+  ...SPACER_PROP_TYPES,
+  ...DISPLAY_PROP_TYPES,
 };
 
 export const ImageDefaultProps = {

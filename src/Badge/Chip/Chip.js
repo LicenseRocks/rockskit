@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 import { ChipBadgePropTypes, ChipBadgeDefaultProps } from "./props";
-import { Icon, Text } from "../..";
+import { Icon, Text, DISPLAY, SPACER } from "../..";
 
 const StyledChip = styled.div`
   box-sizing: border-box;
@@ -20,6 +20,10 @@ const StyledChip = styled.div`
       background-color: ${theme.palette[color].light};
       color: ${theme.palette[color].main};
     `}
+
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 const StyledLabel = styled(Text).attrs(() => ({

@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Typography from "@material-ui/core/Typography";
 
 import { TextBasePropTypes, TextBaseDefaultProps } from "./props";
+import { DISPLAY, SPACER } from "../../../theme";
 
 const StyledText = styled(Typography)`
   && {
@@ -31,6 +32,9 @@ const StyledText = styled(Typography)`
     }}
 
   font-style: ${({ fontStyle }) => fontStyle};
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
   }
 `;
 
