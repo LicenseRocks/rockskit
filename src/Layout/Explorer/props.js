@@ -1,7 +1,10 @@
 import PropTypes from "prop-types";
 
 export const ExplorerLayoutPropTypes = {
-  children: PropTypes.node.isRequired,
+  ads: PropTypes.node,
+  content: PropTypes.node.isRequired,
+  extraContent: PropTypes.node,
+  extraSidebar: PropTypes.node,
   footerContent: PropTypes.node,
   headerLogoAction: PropTypes.func,
   headerRight: PropTypes.node,

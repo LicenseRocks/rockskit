@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 import MuiContainer from "@material-ui/core/Container";
+import Hidden from "@material-ui/core/Hidden";
 
 import { Text } from "../../Typography";
 import {
@@ -31,7 +32,10 @@ const poweredBy = (
 );
 
 export const ExplorerLayout = ({
-  children,
+  ads,
+  content,
+  extraContent,
+  extraSidebar,
   footerContent,
   headerLogoAction,
   headerRight,
@@ -45,12 +49,46 @@ export const ExplorerLayout = ({
         headerRight={headerRight}
       />
       <Content>
-        <Grid item lg={9} xs={12}>
-          {children}
-        </Grid>
-        <Grid item lg={3} xs={12}>
-          {sidebar}
-        </Grid>
+        {/* Desktop */}
+        <Hidden mdDown>
+          <Grid item lg={9}>
+            {content}
+            {extraContent}
+          </Grid>
+
+          <Grid item lg={3}>
+            {sidebar}
+            {extraSidebar}
+            {ads}
+          </Grid>
+        </Hidden>
+
+        {/* Tablet and Mobile */}
+        <Hidden lgUp>
+          <Grid item xs={12}>
+            {content}
+          </Grid>
+
+          <Grid
+            container
+            alignItems="center"
+            justify="space-between"
+            spacing={4}
+          >
+            <Grid item md={6} xs={12}>
+              {sidebar}
+            </Grid>
+
+            <Grid item md={6} xs={12}>
+              {extraSidebar}
+            </Grid>
+          </Grid>
+
+          <Grid item xs={12}>
+            {extraContent}
+            {ads}
+          </Grid>
+        </Hidden>
       </Content>
       {footerContent && (
         <ExplorerLayoutFooter>

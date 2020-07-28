@@ -2,7 +2,8 @@
   "name": "rockskit",
   "version": "1.0.0",
   "description": "",
-  "main": "dist/index.js",
+  "main": "dist/rockskit.js",
+  "module": "dist/rockskit.es.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/LicenseRocks/rockskit"
@@ -17,12 +18,14 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@babel/runtime": "^7.10.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
     "@fortawesome/pro-regular-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@material-ui/core": "^4.11.0",
     "copy-to-clipboard": "^3.3.1",
+    "qrcode.react": "^1.0.0",
     "react-collapse": "^5.0.1",
     "styled-components": "^5.1.1"
   },
@@ -35,6 +38,7 @@
     "@babel/preset-react": "^7.10.4",
     "@rollup/plugin-babel": "^5.0.4",
     "@rollup/plugin-commonjs": "^13.0.0",
+    "@rollup/plugin-image": "^2.0.5",
     "@rollup/plugin-node-resolve": "^8.1.0",
     "@storybook/addon-actions": "^5.3.19",
     "@storybook/addon-docs": "^5.3.19",
@@ -62,6 +66,7 @@
     "rollup": "^2.21.0",
     "rollup-plugin-peer-deps-external": "^2.2.3",
     "rollup-plugin-svg": "^2.0.0",
+    "rollup-plugin-terser": "^6.1.0",
     "storybook": "^5.3.19"
   },
   "peerDependencies": {

@@ -8,12 +8,6 @@ const StyledFooter = styled.div`
   height: 80px;
   text-align: center;
   padding-top: ${({ theme }) => theme.spacing(2)};
-  ${({ theme }) => theme.breakpoints.up("lg")} {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
 `;
 
 export const ExplorerLayoutFooter = ({ action, ...props }) => {
