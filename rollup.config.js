@@ -1,5 +1,5 @@
 import path from "path";
-import svg from "rollup-plugin-svg";
+// import svg from "rollup-plugin-svg";
 import babel from "@rollup/plugin-babel";
 import image from "@rollup/plugin-image";
 import commonjs from "@rollup/plugin-commonjs";
@@ -21,7 +21,7 @@ const baseConfig = {
       includeDependencies: true,
     }),
     resolve(),
-    svg(),
+    // svg(),
     image(),
     commonjs({ include: /node_modules/ }),
     babel({

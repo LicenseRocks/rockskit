@@ -45,34 +45,41 @@ const sidebar = (
   </>
 );
 
+const content = (
+  <>
+    <H1 content="Main content" />
+    <Text color="textSecondary" mb={2}>
+      Network:
+      <Text color="textPrimary" content=" Mainnet" dInline fontWeight="bold" />
+    </Text>
+    <OutlineButton
+      color="secondary"
+      content="Visit Website of License"
+      size="sm"
+    />
+
+    <DetailsTableStory my={10} />
+  </>
+);
+
 export const main = () => {
   const [currentTab, setCurrentTab] = useState(0);
 
+  const extraContent = (
+    <>
+      <Tab currentTab={currentTab} onChange={setCurrentTab} tabs={TABS} />
+      {TABS[currentTab].render()}
+    </>
+  );
+
   return (
     <ExplorerLayout
+      content={content}
+      extraContent={extraContent}
+      extraSidebar={sidebar}
       headerLogoAction={() => {}}
       headerRight={headerRight}
       sidebar={sidebar}
-    >
-      <H1 content="Main content" />
-      <Text color="textSecondary" mb={2}>
-        Network:
-        <Text
-          color="textPrimary"
-          content=" Mainnet"
-          dInline
-          fontWeight="bold"
-        />
-      </Text>
-      <OutlineButton
-        color="secondary"
-        content="Visit Website of License"
-        size="sm"
-      />
-
-      <DetailsTableStory my={10} />
-      <Tab currentTab={currentTab} onChange={setCurrentTab} tabs={TABS} />
-      {TABS[currentTab].render()}
-    </ExplorerLayout>
+    />
   );
 };

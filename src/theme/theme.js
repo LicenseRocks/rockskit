@@ -2,7 +2,16 @@ import { createMuiTheme } from "@material-ui/core/styles";
 
 import { KIT_COLORS, KIT_FONTS, KIT_TYPOGRAPHY } from ".";
 
-export const theme = createMuiTheme();
+export const theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 576,
+      md: 768,
+      lg: 1200,
+    },
+  },
+});
 
 theme.palette = {
   ...theme.palette,
@@ -57,16 +66,6 @@ theme.typography = {
   body1: KIT_TYPOGRAPHY.body1(), // Paragraph
   body2: KIT_TYPOGRAPHY.body2(), // Text
   button: KIT_TYPOGRAPHY.button(),
-};
-
-theme.breakpoints = {
-  ...theme.breakpoints,
-  values: {
-    xs: 0,
-    sm: 576,
-    md: 768,
-    lg: 1200,
-  },
 };
 
 theme.spacing = (...nums) => {
