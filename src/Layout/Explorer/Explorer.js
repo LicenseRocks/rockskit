@@ -34,8 +34,8 @@ const poweredBy = (
 export const ExplorerLayout = ({
   ads,
   content,
-  extraContent = "Content",
-  extraSidebar = "Sidebar",
+  extraContent,
+  extraSidebar,
   footerContent,
   headerLogoAction,
   headerRight,
@@ -73,7 +73,7 @@ export const ExplorerLayout = ({
             container
             alignItems="center"
             justify="space-between"
-            spacing={8}
+            spacing={4}
           >
             <Grid item md={6} xs={12}>
               {sidebar}

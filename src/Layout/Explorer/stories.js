@@ -1,7 +1,14 @@
 import React, { useState } from "react";
 
 // UI
-import { ExplorerLayout, H1, H4, OutlineButton, Text } from "../..";
+import {
+  DownloadModule,
+  ExplorerLayout,
+  H1,
+  H4,
+  OutlineButton,
+  Text,
+} from "../..";
 import { main as DetailsTableStory } from "../../DetailsTable/stories";
 import { main as ShareModuleStory } from "../../ShareModule/stories";
 import { main as HistoryStory } from "../../History/stories";
@@ -41,9 +48,11 @@ const headerRight = (
 const sidebar = (
   <>
     <H4 mb={6}>Share this license</H4>
-    <ShareModuleStory />
+    <ShareModuleStory mb={6} />
   </>
 );
+
+const extraSidebar = <DownloadModule mb={6} />;
 
 const content = (
   <>
@@ -76,7 +85,7 @@ export const main = () => {
     <ExplorerLayout
       content={content}
       extraContent={extraContent}
-      extraSidebar={sidebar}
+      extraSidebar={extraSidebar}
       headerLogoAction={() => {}}
       headerRight={headerRight}
       sidebar={sidebar}

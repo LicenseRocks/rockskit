@@ -12,10 +12,11 @@ import _defineProperty from '@babel/runtime/helpers/defineProperty';
 import Typography from '@material-ui/core/Typography';
 import MuiButtonBase from '@material-ui/core/ButtonBase';
 import { Collapse as Collapse$1 } from 'react-collapse';
+import Grid from '@material-ui/core/Grid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import _slicedToArray from '@babel/runtime/helpers/slicedToArray';
-import Grid from '@material-ui/core/Grid';
 import MuiContainer from '@material-ui/core/Container';
+import Hidden from '@material-ui/core/Hidden';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
@@ -193,7 +194,16 @@ var KIT_TYPOGRAPHY = {
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var theme = createMuiTheme();
+var theme = createMuiTheme({
+  breakpoints: {
+    values: {
+      xs: 0,
+      sm: 576,
+      md: 768,
+      lg: 1200
+    }
+  }
+});
 theme.palette = _objectSpread(_objectSpread({}, theme.palette), {}, {
   primary: {
     main: KIT_COLORS.primary.main,
@@ -246,14 +256,6 @@ theme.typography = _objectSpread(_objectSpread({}, theme.typography), {}, {
   body2: KIT_TYPOGRAPHY.body2(),
   // Text
   button: KIT_TYPOGRAPHY.button()
-});
-theme.breakpoints = _objectSpread(_objectSpread({}, theme.breakpoints), {}, {
-  values: {
-    xs: 0,
-    sm: 576,
-    md: 768,
-    lg: 1200
-  }
 });
 
 theme.spacing = function () {
@@ -756,7 +758,119 @@ DetailsTable.defaultProps = DetailsTableDefaultProps;
 function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
 function _objectSpread$6(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$6(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$6(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var IconPropTypes = _objectSpread$6(_objectSpread$6({
+var FileManagerPropTypes = _objectSpread$6(_objectSpread$6({
+  data: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string,
+    files: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      date: PropTypes.string,
+      description: PropTypes.string,
+      previewUrl: PropTypes.string
+    }))
+  }))
+}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+var FileManagerDefaultProps = {};
+
+var Container = styled.div.withConfig({
+  displayName: "FileManager__Container",
+  componentId: "sc-1ajp889-0"
+})([""]);
+var Wrapper$2 = styled.div.withConfig({
+  displayName: "FileManager__Wrapper",
+  componentId: "sc-1ajp889-1"
+})(["border:1px solid ", ";padding:", ";margin-bottom:", ";border-radius:8px;", " ", ""], function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.gray.semiLight;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.spacing(4);
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.spacing(2);
+}, function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
+var Row$1 = styled(Grid).attrs(function () {
+  return {
+    container: true
+  };
+}).withConfig({
+  displayName: "FileManager__Row",
+  componentId: "sc-1ajp889-2"
+})(["width:100%;height:48px;margin-bottom:", ";"], function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.spacing(2);
+});
+var Item = styled(Grid).attrs(function (_ref5) {
+  var lg = _ref5.lg;
+  return {
+    item: true,
+    xs: 4,
+    lg: lg || 3
+  };
+}).withConfig({
+  displayName: "FileManager__Item",
+  componentId: "sc-1ajp889-3"
+})(["display:flex;align-items:center;"]);
+var FileManager = function FileManager(_ref6) {
+  var data = _ref6.data;
+  return /*#__PURE__*/React.createElement(Container, null, data.map(function (_ref7) {
+    var label = _ref7.label,
+        files = _ref7.files;
+    return /*#__PURE__*/React.createElement(Wrapper$2, {
+      key: label
+    }, /*#__PURE__*/React.createElement(Text, {
+      content: label,
+      fontWeight: "bold",
+      mb: 2
+    }), files.map(function (_ref8) {
+      var date = _ref8.date,
+          description = _ref8.description,
+          id = _ref8.id,
+          name = _ref8.name,
+          previewUrl = _ref8.previewUrl;
+      return /*#__PURE__*/React.createElement(Row$1, {
+        key: id
+      }, /*#__PURE__*/React.createElement(Item, {
+        lg: 5,
+        md: 5
+      }, /*#__PURE__*/React.createElement(Thumbnail, {
+        imgSrc: previewUrl,
+        hasPreview: true,
+        mr: 4
+      }), /*#__PURE__*/React.createElement(Text, {
+        content: name,
+        color: "textSecondary",
+        fontStyle: "italic",
+        noWrap: true
+      })), /*#__PURE__*/React.createElement(Item, {
+        lg: 4,
+        md: 3
+      }, /*#__PURE__*/React.createElement(Text, {
+        content: date,
+        color: "textSecondary",
+        fontWeight: "bold"
+      })), /*#__PURE__*/React.createElement(Item, {
+        justify: "flex-end"
+      }, /*#__PURE__*/React.createElement(Text, {
+        content: description,
+        color: "textSecondary",
+        fontWeight: "bold",
+        noWrap: true
+      })));
+    }));
+  }));
+};
+FileManager.propTypes = FileManagerPropTypes;
+FileManager.defaultProps = FileManagerDefaultProps;
+
+function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+
+function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var IconPropTypes = _objectSpread$7(_objectSpread$7({
   bordered: PropTypes.bool,
   color: PropTypes.oneOf(THEME_COLORS),
   icon: PropTypes.string.isRequired,
@@ -826,10 +940,10 @@ var Icon = function Icon(_ref6) {
 Icon.propTypes = IconPropTypes;
 Icon.defaultProps = IconDefaultProps;
 
-function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var FieldWrapperPropTypes = _objectSpread$7(_objectSpread$7({
+function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var FieldWrapperPropTypes = _objectSpread$8(_objectSpread$8({
   block: PropTypes.bool,
   endIcon: PropTypes.string,
   endIconColor: PropTypes.oneOf(THEME_COLORS),
@@ -904,17 +1018,17 @@ var FieldWrapper = function FieldWrapper(_ref10) {
 FieldWrapper.propTypes = FieldWrapperPropTypes;
 FieldWrapper.defaultProps = FieldWrapperDefaultProps;
 
-function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$9(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var FieldBasePropTypes = _objectSpread$8(_objectSpread$8({}, FieldWrapperPropTypes), {}, {
+function _objectSpread$9(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$9(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$9(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var FieldBasePropTypes = _objectSpread$9(_objectSpread$9({}, FieldWrapperPropTypes), {}, {
   disabled: PropTypes.bool,
   hasError: PropTypes.bool,
   readOnly: PropTypes.bool,
   register: PropTypes.func,
   type: PropTypes.string
 });
-var FieldBaseDefaultProps = _objectSpread$8(_objectSpread$8({}, FieldWrapperDefaultProps), {}, {
+var FieldBaseDefaultProps = _objectSpread$9(_objectSpread$9({}, FieldWrapperDefaultProps), {}, {
   disabled: false,
   hasError: false,
   readOnly: false,
@@ -995,7 +1109,7 @@ var ItemConnector = styled.div.withConfig({
   var theme = _ref.theme;
   return theme.palette.gray.regular;
 });
-var Container = styled.div.withConfig({
+var Container$1 = styled.div.withConfig({
   displayName: "Item__Container",
   componentId: "sc-14akrnv-1"
 })(["position:relative;min-height:40px;:last-child{", "{border-left-width:0;}}"], ItemConnector);
@@ -1011,7 +1125,7 @@ var RowDetails = styled(Grid).attrs(function () {
   displayName: "Item__RowDetails",
   componentId: "sc-14akrnv-3"
 })(["width:100%;height:100%;"]);
-var Item = styled(Grid).attrs(function (_ref2) {
+var Item$1 = styled(Grid).attrs(function (_ref2) {
   var lg = _ref2.lg;
   return {
     item: true,
@@ -1061,22 +1175,22 @@ var HistoryItem = function HistoryItem(_ref7) {
       collapseOpen = _useState2[0],
       setCollapseOpen = _useState2[1];
 
-  return /*#__PURE__*/React.createElement(Container, {
+  return /*#__PURE__*/React.createElement(Container$1, {
     "data-cy": "historyItem"
   }, /*#__PURE__*/React.createElement(ItemConnector, null), /*#__PURE__*/React.createElement(RowWrapper, null, /*#__PURE__*/React.createElement(StyledIcon$1, {
     bordered: true,
     color: iconColor,
     icon: icon
-  }), /*#__PURE__*/React.createElement(RowDetails, null, /*#__PURE__*/React.createElement(Item, {
+  }), /*#__PURE__*/React.createElement(RowDetails, null, /*#__PURE__*/React.createElement(Item$1, {
     lg: 5
   }, /*#__PURE__*/React.createElement(Text, {
     fontWeight: "bold"
-  }, title)), /*#__PURE__*/React.createElement(Item, {
+  }, title)), /*#__PURE__*/React.createElement(Item$1, {
     lg: 4
   }, /*#__PURE__*/React.createElement(Text, {
     color: "textSecondary",
     noWrap: true
-  }, description)), /*#__PURE__*/React.createElement(Item, {
+  }, description)), /*#__PURE__*/React.createElement(Item$1, {
     justify: "flex-end"
   }, /*#__PURE__*/React.createElement(Text, {
     color: "textSecondary",
@@ -1105,10 +1219,10 @@ HistoryItem.propTypes = {
   }).isRequired
 };
 
-function ownKeys$9(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$a(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$9(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$9(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$9(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var HistoryPropTypes = _objectSpread$9(_objectSpread$9({
+function _objectSpread$a(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$a(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$a(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var HistoryPropTypes = _objectSpread$a(_objectSpread$a({
   rows: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     description: PropTypes.string,
@@ -1119,7 +1233,7 @@ var HistoryPropTypes = _objectSpread$9(_objectSpread$9({
   })).isRequired
 }, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
 
-var Container$1 = styled.div.withConfig({
+var Container$2 = styled.div.withConfig({
   displayName: "History__Container",
   componentId: "wa0hqd-0"
 })(["", " ", ""], function (theme) {
@@ -1131,7 +1245,7 @@ var History = function History(_ref) {
   var rows = _ref.rows,
       props = _objectWithoutProperties(_ref, ["rows"]);
 
-  return /*#__PURE__*/React.createElement(Container$1, props, rows.map(function (h) {
+  return /*#__PURE__*/React.createElement(Container$2, props, rows.map(function (h) {
     return /*#__PURE__*/React.createElement(HistoryItem, {
       key: h.id,
       data: h
@@ -1140,10 +1254,10 @@ var History = function History(_ref) {
 };
 History.propTypes = HistoryPropTypes;
 
-function ownKeys$a(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$b(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$a(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$a(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$a(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var ImagePropTypes = _objectSpread$a(_objectSpread$a({
+function _objectSpread$b(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$b(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$b(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var ImagePropTypes = _objectSpread$b(_objectSpread$b({
   alt: PropTypes.string.isRequired,
   className: PropTypes.any,
   cover: PropTypes.bool,
@@ -1201,22 +1315,19 @@ var ExplorerLayoutFooterPropTypes = {
 var StyledFooter = styled.div.withConfig({
   displayName: "Footer__StyledFooter",
   componentId: "sc-1rkjlvz-0"
-})(["box-sizing:border-box;height:80px;text-align:center;padding-top:", ";", "{position:fixed;bottom:0;left:0;right:0;}"], function (_ref) {
+})(["box-sizing:border-box;height:80px;text-align:center;padding-top:", ";"], function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
-}, function (_ref2) {
-  var theme = _ref2.theme;
-  return theme.breakpoints.up("lg");
 });
-var ExplorerLayoutFooter = function ExplorerLayoutFooter(_ref3) {
-  var action = _ref3.action,
-      props = _objectWithoutProperties(_ref3, ["action"]);
+var ExplorerLayoutFooter = function ExplorerLayoutFooter(_ref2) {
+  var action = _ref2.action,
+      props = _objectWithoutProperties(_ref2, ["action"]);
 
   return /*#__PURE__*/React.createElement(StyledFooter, props);
 };
 ExplorerLayoutFooter.propTypes = ExplorerLayoutFooterPropTypes;
 
-var Logo = "const img = \"data:image/svg+xml,%3csvg width='194' height='60' viewBox='0 0 194 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 52.0601C88.0083 52.0601 89.3892 53.5534 89.3892 55.2955C89.3892 57.1088 88.0083 58.4599 86.0961 58.4599C84.184 58.4599 82.8384 57.1088 82.8384 55.2955C82.8384 53.5534 84.184 52.0601 86.0961 52.0601Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M103.965 40.1848C104.461 40.1848 104.815 40.2204 105.24 40.327L104.992 46.0158H103.965C99.9993 46.0158 97.8393 48.0779 97.8393 52.7V58.2821H92.1737V40.4337H97.8393V43.8469C99.114 41.7136 101.062 40.1848 103.965 40.1848Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M120.118 33.9272C127.2 33.9272 132.76 39.4382 132.76 46.4069C132.76 53.34 127.2 58.8155 120.118 58.8155C113.037 58.8155 107.477 53.34 107.477 46.4069C107.477 39.4382 113.037 33.9272 120.118 33.9272ZM120.118 53.4467C123.978 53.4467 126.917 50.4601 126.917 46.4069C126.917 42.3181 123.978 39.2959 120.118 39.2959C116.259 39.2959 113.32 42.3181 113.32 46.4069C113.32 50.4601 116.259 53.4467 120.118 53.4467Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M144.587 53.8378C146.392 53.8378 147.844 52.8778 148.446 50.709L153.651 51.8467C152.766 56.0777 149.013 58.8154 144.587 58.8154C139.275 58.8154 134.884 55.0111 134.884 49.3579C134.884 43.7403 139.275 39.9003 144.587 39.9003C148.907 39.9003 152.66 42.5669 153.651 46.7624L148.34 48.0424C147.844 45.8735 146.392 44.878 144.587 44.878C142.037 44.878 140.337 46.7624 140.337 49.3579C140.337 51.9889 142.037 53.8378 144.587 53.8378Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M175.992 58.2821H168.733L162.961 51.8467H161.934V58.2821H156.269V32.6828H161.934V46.5135H162.713L168.343 40.4337H175.177L167.387 48.9312L175.992 58.2821Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M176.087 53.6483L181.611 52.5105C181.859 54.0394 183.24 54.6083 184.762 54.6083C186.25 54.6083 187.064 53.9683 187.064 53.1861C187.064 52.5817 186.604 52.1194 185.294 51.8706L181.682 51.1595C178.389 50.555 176.512 48.7773 176.512 45.9685C176.512 42.3064 179.663 39.9242 184.16 39.9242C188.587 39.9242 191.526 41.9508 192.234 45.0441L187.064 46.0752C186.887 44.973 185.825 43.9774 184.09 43.9774C182.567 43.9774 182.071 44.7241 182.071 45.3641C182.071 45.8618 182.284 46.3596 183.417 46.6085L187.595 47.4618C190.959 48.1729 192.517 50.1995 192.517 52.8305C192.517 56.7771 189.118 58.8393 184.444 58.8393C180.265 58.8393 176.689 57.3104 176.087 53.6483Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M79.4906 27.4174H73.825V1.81807H79.4906V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M88.9289 27.4174H83.2634V9.569H88.9289V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 1.07143C88.0083 1.07143 89.3892 2.56472 89.3892 4.3069C89.3892 6.12019 88.0083 7.47127 86.0961 7.47127C84.184 7.47127 82.8384 6.12019 82.8384 4.3069C82.8384 2.56472 84.184 1.07143 86.0961 1.07143Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M101.853 22.9731C103.659 22.9731 105.111 22.0131 105.713 19.8443L110.918 20.982C110.033 25.213 106.28 27.9507 101.853 27.9507C96.542 27.9507 92.1512 24.1464 92.1512 18.4932C92.1512 12.8756 96.542 9.03566 101.853 9.03566C106.173 9.03566 109.927 11.7023 110.918 15.8977L105.607 17.1777C105.111 15.0088 103.659 14.0133 101.853 14.0133C99.3039 14.0133 97.6043 15.8977 97.6043 18.4932C97.6043 21.1242 99.3039 22.9731 101.853 22.9731Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M131.601 18.4932V19.9509H118.57C119.03 22.0842 120.482 23.3997 122.394 23.3997C123.704 23.3997 125.227 23.0798 126.183 21.3376L131.211 22.3687C129.689 26.1375 126.466 27.9507 122.394 27.9507C117.26 27.9507 113.011 24.1464 113.011 18.4932C113.011 12.8756 117.26 9.03566 122.43 9.03566C127.458 9.03566 131.495 12.6622 131.601 18.4932ZM122.43 13.6578C120.836 13.6578 119.207 14.6533 118.676 16.4666H126.006C125.475 14.5466 124.059 13.6578 122.43 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M145.659 9.03566C149.801 9.03566 152.563 11.9867 152.563 16.4666V27.4174H146.933V17.6754C146.933 15.5777 145.694 14.1555 143.888 14.1555C141.657 14.1555 140.205 15.6844 140.205 19.1332V27.4174H134.54V9.56898H140.205V11.2756C141.551 9.85342 143.428 9.03566 145.659 9.03566Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M155.219 22.7598L160.743 21.622C160.991 23.1509 162.372 23.7197 163.895 23.7197C165.382 23.7197 166.196 23.0798 166.196 22.2975C166.196 21.6931 165.736 21.2309 164.426 20.982L160.814 20.2709C157.521 19.6665 155.644 17.8888 155.644 15.08C155.644 11.4178 158.796 9.03566 163.293 9.03566C167.719 9.03566 170.658 11.0623 171.366 14.1555L166.196 15.1866C166.019 14.0844 164.957 13.0889 163.222 13.0889C161.699 13.0889 161.203 13.8355 161.203 14.4755C161.203 14.9733 161.416 15.4711 162.549 15.7199L166.727 16.5732C170.091 17.2843 171.649 19.311 171.649 21.942C171.649 25.8886 168.25 27.9507 163.576 27.9507C159.397 27.9507 155.821 26.4219 155.219 22.7598Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M192.403 18.4932V19.9509H179.372C179.832 22.0842 181.284 23.3997 183.196 23.3997C184.506 23.3997 186.029 23.0798 186.985 21.3376L192.013 22.3687C190.49 26.1375 187.268 27.9507 183.196 27.9507C178.062 27.9507 173.812 24.1464 173.812 18.4932C173.812 12.8756 178.062 9.03566 183.231 9.03566C188.26 9.03566 192.296 12.6622 192.403 18.4932ZM183.231 13.6578C181.638 13.6578 180.009 14.6533 179.478 16.4666H186.808C186.277 14.5466 184.86 13.6578 183.231 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.58723 46.6197C11.4115 46.6197 14.1734 49.6063 14.1734 53.0907C14.1734 56.7172 11.4115 59.4194 7.58723 59.4194C3.76298 59.4194 1.07184 56.7172 1.07184 53.0907C1.07184 49.6063 3.76298 46.6197 7.58723 46.6197ZM38.7574 9.64285C52.9213 9.64285 64.04 20.6648 64.04 34.6022C64.04 48.4685 52.9213 59.4194 38.7574 59.4194C24.5936 59.4194 13.4749 48.4685 13.4749 34.6022C13.4749 20.6648 24.5936 9.64285 38.7574 9.64285ZM38.7574 48.6819C46.4768 48.6819 52.3548 42.7087 52.3548 34.6022C52.3548 26.4247 46.4768 20.3804 38.7574 20.3804C31.0381 20.3804 25.1601 26.4247 25.1601 34.6022C25.1601 42.7087 31.0381 48.6819 38.7574 48.6819Z' fill='%23AC00FC'/%3e%3c/svg%3e\";\n  export default img;";
+const img = "data:image/svg+xml,%3csvg width='194' height='60' viewBox='0 0 194 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 52.0601C88.0083 52.0601 89.3892 53.5534 89.3892 55.2955C89.3892 57.1088 88.0083 58.4599 86.0961 58.4599C84.184 58.4599 82.8384 57.1088 82.8384 55.2955C82.8384 53.5534 84.184 52.0601 86.0961 52.0601Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M103.965 40.1848C104.461 40.1848 104.815 40.2204 105.24 40.327L104.992 46.0158H103.965C99.9993 46.0158 97.8393 48.0779 97.8393 52.7V58.2821H92.1737V40.4337H97.8393V43.8469C99.114 41.7136 101.062 40.1848 103.965 40.1848Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M120.118 33.9272C127.2 33.9272 132.76 39.4382 132.76 46.4069C132.76 53.34 127.2 58.8155 120.118 58.8155C113.037 58.8155 107.477 53.34 107.477 46.4069C107.477 39.4382 113.037 33.9272 120.118 33.9272ZM120.118 53.4467C123.978 53.4467 126.917 50.4601 126.917 46.4069C126.917 42.3181 123.978 39.2959 120.118 39.2959C116.259 39.2959 113.32 42.3181 113.32 46.4069C113.32 50.4601 116.259 53.4467 120.118 53.4467Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M144.587 53.8378C146.392 53.8378 147.844 52.8778 148.446 50.709L153.651 51.8467C152.766 56.0777 149.013 58.8154 144.587 58.8154C139.275 58.8154 134.884 55.0111 134.884 49.3579C134.884 43.7403 139.275 39.9003 144.587 39.9003C148.907 39.9003 152.66 42.5669 153.651 46.7624L148.34 48.0424C147.844 45.8735 146.392 44.878 144.587 44.878C142.037 44.878 140.337 46.7624 140.337 49.3579C140.337 51.9889 142.037 53.8378 144.587 53.8378Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M175.992 58.2821H168.733L162.961 51.8467H161.934V58.2821H156.269V32.6828H161.934V46.5135H162.713L168.343 40.4337H175.177L167.387 48.9312L175.992 58.2821Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M176.087 53.6483L181.611 52.5105C181.859 54.0394 183.24 54.6083 184.762 54.6083C186.25 54.6083 187.064 53.9683 187.064 53.1861C187.064 52.5817 186.604 52.1194 185.294 51.8706L181.682 51.1595C178.389 50.555 176.512 48.7773 176.512 45.9685C176.512 42.3064 179.663 39.9242 184.16 39.9242C188.587 39.9242 191.526 41.9508 192.234 45.0441L187.064 46.0752C186.887 44.973 185.825 43.9774 184.09 43.9774C182.567 43.9774 182.071 44.7241 182.071 45.3641C182.071 45.8618 182.284 46.3596 183.417 46.6085L187.595 47.4618C190.959 48.1729 192.517 50.1995 192.517 52.8305C192.517 56.7771 189.118 58.8393 184.444 58.8393C180.265 58.8393 176.689 57.3104 176.087 53.6483Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M79.4906 27.4174H73.825V1.81807H79.4906V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M88.9289 27.4174H83.2634V9.569H88.9289V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 1.07143C88.0083 1.07143 89.3892 2.56472 89.3892 4.3069C89.3892 6.12019 88.0083 7.47127 86.0961 7.47127C84.184 7.47127 82.8384 6.12019 82.8384 4.3069C82.8384 2.56472 84.184 1.07143 86.0961 1.07143Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M101.853 22.9731C103.659 22.9731 105.111 22.0131 105.713 19.8443L110.918 20.982C110.033 25.213 106.28 27.9507 101.853 27.9507C96.542 27.9507 92.1512 24.1464 92.1512 18.4932C92.1512 12.8756 96.542 9.03566 101.853 9.03566C106.173 9.03566 109.927 11.7023 110.918 15.8977L105.607 17.1777C105.111 15.0088 103.659 14.0133 101.853 14.0133C99.3039 14.0133 97.6043 15.8977 97.6043 18.4932C97.6043 21.1242 99.3039 22.9731 101.853 22.9731Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M131.601 18.4932V19.9509H118.57C119.03 22.0842 120.482 23.3997 122.394 23.3997C123.704 23.3997 125.227 23.0798 126.183 21.3376L131.211 22.3687C129.689 26.1375 126.466 27.9507 122.394 27.9507C117.26 27.9507 113.011 24.1464 113.011 18.4932C113.011 12.8756 117.26 9.03566 122.43 9.03566C127.458 9.03566 131.495 12.6622 131.601 18.4932ZM122.43 13.6578C120.836 13.6578 119.207 14.6533 118.676 16.4666H126.006C125.475 14.5466 124.059 13.6578 122.43 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M145.659 9.03566C149.801 9.03566 152.563 11.9867 152.563 16.4666V27.4174H146.933V17.6754C146.933 15.5777 145.694 14.1555 143.888 14.1555C141.657 14.1555 140.205 15.6844 140.205 19.1332V27.4174H134.54V9.56898H140.205V11.2756C141.551 9.85342 143.428 9.03566 145.659 9.03566Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M155.219 22.7598L160.743 21.622C160.991 23.1509 162.372 23.7197 163.895 23.7197C165.382 23.7197 166.196 23.0798 166.196 22.2975C166.196 21.6931 165.736 21.2309 164.426 20.982L160.814 20.2709C157.521 19.6665 155.644 17.8888 155.644 15.08C155.644 11.4178 158.796 9.03566 163.293 9.03566C167.719 9.03566 170.658 11.0623 171.366 14.1555L166.196 15.1866C166.019 14.0844 164.957 13.0889 163.222 13.0889C161.699 13.0889 161.203 13.8355 161.203 14.4755C161.203 14.9733 161.416 15.4711 162.549 15.7199L166.727 16.5732C170.091 17.2843 171.649 19.311 171.649 21.942C171.649 25.8886 168.25 27.9507 163.576 27.9507C159.397 27.9507 155.821 26.4219 155.219 22.7598Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M192.403 18.4932V19.9509H179.372C179.832 22.0842 181.284 23.3997 183.196 23.3997C184.506 23.3997 186.029 23.0798 186.985 21.3376L192.013 22.3687C190.49 26.1375 187.268 27.9507 183.196 27.9507C178.062 27.9507 173.812 24.1464 173.812 18.4932C173.812 12.8756 178.062 9.03566 183.231 9.03566C188.26 9.03566 192.296 12.6622 192.403 18.4932ZM183.231 13.6578C181.638 13.6578 180.009 14.6533 179.478 16.4666H186.808C186.277 14.5466 184.86 13.6578 183.231 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.58723 46.6197C11.4115 46.6197 14.1734 49.6063 14.1734 53.0907C14.1734 56.7172 11.4115 59.4194 7.58723 59.4194C3.76298 59.4194 1.07184 56.7172 1.07184 53.0907C1.07184 49.6063 3.76298 46.6197 7.58723 46.6197ZM38.7574 9.64285C52.9213 9.64285 64.04 20.6648 64.04 34.6022C64.04 48.4685 52.9213 59.4194 38.7574 59.4194C24.5936 59.4194 13.4749 48.4685 13.4749 34.6022C13.4749 20.6648 24.5936 9.64285 38.7574 9.64285ZM38.7574 48.6819C46.4768 48.6819 52.3548 42.7087 52.3548 34.6022C52.3548 26.4247 46.4768 20.3804 38.7574 20.3804C31.0381 20.3804 25.1601 26.4247 25.1601 34.6022C25.1601 42.7087 31.0381 48.6819 38.7574 48.6819Z' fill='%23AC00FC'/%3e%3c/svg%3e";
 
 var ExplorerLayoutHeaderPropTypes = {
   headerRight: PropTypes.node,
@@ -1238,7 +1349,7 @@ var StyledHeader = styled(Grid).attrs(function () {
 var StyledLogo = styled(Image).attrs(function () {
   return {
     alt: "Logo",
-    src: Logo
+    src: img
   };
 }).withConfig({
   displayName: "Header__StyledLogo",
@@ -1269,7 +1380,10 @@ var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
 ExplorerLayoutHeader.propTypes = ExplorerLayoutHeaderPropTypes;
 
 var ExplorerLayoutPropTypes = {
-  children: PropTypes.node.isRequired,
+  ads: PropTypes.node,
+  content: PropTypes.node.isRequired,
+  extraContent: PropTypes.node,
+  extraSidebar: PropTypes.node,
   footerContent: PropTypes.node,
   headerLogoAction: PropTypes.func,
   headerRight: PropTypes.node,
@@ -1304,25 +1418,51 @@ var poweredBy = /*#__PURE__*/React.createElement(Text, {
   fontWeight: "bold"
 }, " ", "license.rocks"));
 var ExplorerLayout = function ExplorerLayout(_ref5) {
-  var children = _ref5.children,
+  var ads = _ref5.ads,
+      content = _ref5.content,
+      _ref5$extraContent = _ref5.extraContent,
+      extraContent = _ref5$extraContent === void 0 ? "Content" : _ref5$extraContent,
+      _ref5$extraSidebar = _ref5.extraSidebar,
+      extraSidebar = _ref5$extraSidebar === void 0 ? "Sidebar" : _ref5$extraSidebar,
       footerContent = _ref5.footerContent,
       headerLogoAction = _ref5.headerLogoAction,
       headerRight = _ref5.headerRight,
       sidebar = _ref5.sidebar,
-      props = _objectWithoutProperties(_ref5, ["children", "footerContent", "headerLogoAction", "headerRight", "sidebar"]);
+      props = _objectWithoutProperties(_ref5, ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "sidebar"]);
 
   return /*#__PURE__*/React.createElement(MuiContainer, props, /*#__PURE__*/React.createElement(ExplorerLayoutHeader, {
     logoAction: headerLogoAction,
     headerRight: headerRight
-  }), /*#__PURE__*/React.createElement(Content$1, null, /*#__PURE__*/React.createElement(Grid, {
+  }), /*#__PURE__*/React.createElement(Content$1, null, /*#__PURE__*/React.createElement(Hidden, {
+    mdDown: true
+  }, /*#__PURE__*/React.createElement(Grid, {
     item: true,
-    lg: 9,
-    xs: 12
-  }, children), /*#__PURE__*/React.createElement(Grid, {
+    lg: 9
+  }, content, extraContent), /*#__PURE__*/React.createElement(Grid, {
     item: true,
-    lg: 3,
+    lg: 3
+  }, sidebar, extraSidebar, ads)), /*#__PURE__*/React.createElement(Hidden, {
+    lgUp: true
+  }, /*#__PURE__*/React.createElement(Grid, {
+    item: true,
     xs: 12
-  }, sidebar)), footerContent && /*#__PURE__*/React.createElement(ExplorerLayoutFooter, null, footerContent || poweredBy));
+  }, content), /*#__PURE__*/React.createElement(Grid, {
+    container: true,
+    alignItems: "center",
+    justify: "space-between",
+    spacing: 8
+  }, /*#__PURE__*/React.createElement(Grid, {
+    item: true,
+    md: 6,
+    xs: 12
+  }, sidebar), /*#__PURE__*/React.createElement(Grid, {
+    item: true,
+    md: 6,
+    xs: 12
+  }, extraSidebar)), /*#__PURE__*/React.createElement(Grid, {
+    item: true,
+    xs: 12
+  }, extraContent, ads))), footerContent && /*#__PURE__*/React.createElement(ExplorerLayoutFooter, null, footerContent || poweredBy));
 };
 ExplorerLayout.propTypes = ExplorerLayoutPropTypes;
 ExplorerLayout.defaultProps = {
@@ -1489,10 +1629,10 @@ ShareModuleButton.defaultProps = {
 
 var SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "telegram", "whatsapp", "email", "navigator"];
 
-function ownKeys$b(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$c(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$b(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$b(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$b(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var ShareModulePropTypes = _objectSpread$b(_objectSpread$b({
+function _objectSpread$c(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$c(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$c(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var ShareModulePropTypes = _objectSpread$c(_objectSpread$c({
   copyText: PropTypes.string,
   shareOptions: PropTypes.arrayOf(PropTypes.oneOf(SHARE_MODULE_SHARE_OPTIONS)),
   url: PropTypes.string
@@ -1503,7 +1643,7 @@ var ShareModuleDefaultProps = {
   url: "#"
 };
 
-var Container$2 = styled.div.withConfig({
+var Container$3 = styled.div.withConfig({
   displayName: "ShareModule__Container",
   componentId: "sc-1s032sh-0"
 })(["", " ", ""], function (theme) {
@@ -1533,12 +1673,15 @@ var StyledText$1 = styled(Text).attrs(function () {
   return css(["margin:", ";"], spacing(2, 0));
 });
 var ShareModule = function ShareModule(_ref3) {
+  var _window, _window$navigator, _window2, _window2$navigator;
+
   var copyText = _ref3.copyText,
       shareOptions = _ref3.shareOptions,
       url = _ref3.url,
       props = _objectWithoutProperties(_ref3, ["copyText", "shareOptions", "url"]);
 
-  return /*#__PURE__*/React.createElement(Container$2, props, /*#__PURE__*/React.createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React.createElement(ShareModuleButton, {
+  var navigatorShare = typeof window !== "undefined" && ((_window = window) === null || _window === void 0 ? void 0 : (_window$navigator = _window.navigator) === null || _window$navigator === void 0 ? void 0 : _window$navigator.share) ? (_window2 = window) === null || _window2 === void 0 ? void 0 : (_window2$navigator = _window2.navigator) === null || _window2$navigator === void 0 ? void 0 : _window2$navigator.share : null;
+  return /*#__PURE__*/React.createElement(Container$3, props, /*#__PURE__*/React.createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "twitter",
     href: "https://twitter.com/intent/tweet?url=".concat(url)
   }), shareOptions.includes("facebook") && /*#__PURE__*/React.createElement(ShareModuleButton, {
@@ -1554,11 +1697,11 @@ var ShareModule = function ShareModule(_ref3) {
     icon: "envelope",
     iconPrefix: "far",
     href: "mailto:?body=".concat(url)
-  }), shareOptions.includes("navigator") && navigator.share && /*#__PURE__*/React.createElement(ShareModuleButton, {
+  }), shareOptions.includes("navigator") && navigatorShare && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "ellipsis-h",
     iconPrefix: "far",
     onClick: function onClick() {
-      return navigator.share({
+      return navigatorShare({
         url: url
       });
     }
@@ -1579,10 +1722,10 @@ var ShareModule = function ShareModule(_ref3) {
 ShareModule.propTypes = ShareModulePropTypes;
 ShareModule.defaultProps = ShareModuleDefaultProps;
 
-function ownKeys$c(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$d(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$c(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$c(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$c(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var TabPropTypes = _objectSpread$c(_objectSpread$c({
+function _objectSpread$d(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$d(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$d(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var TabPropTypes = _objectSpread$d(_objectSpread$d({
   currentTab: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   tabs: PropTypes.arrayOf(PropTypes.shape({
@@ -1593,7 +1736,7 @@ var TabPropTypes = _objectSpread$c(_objectSpread$c({
   })).isRequired
 }, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
 
-var Wrapper$2 = styled.div.withConfig({
+var Wrapper$3 = styled.div.withConfig({
   displayName: "Tab__Wrapper",
   componentId: "cqsr0f-0"
 })(["margin-bottom:", ";", " ", ""], function (_ref) {
@@ -1624,7 +1767,7 @@ var Tab = function Tab(_ref4) {
       _onChange = _ref4.onChange,
       props = _objectWithoutProperties(_ref4, ["tabs", "currentTab", "onChange"]);
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Wrapper$2, props, /*#__PURE__*/React.createElement(StyledTabs, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Wrapper$3, props, /*#__PURE__*/React.createElement(StyledTabs, {
     value: currentTab,
     onChange: function onChange(e, newTab) {
       return _onChange(newTab);
@@ -1685,10 +1828,10 @@ ImageModal.defaultProps = {
   imgSrc: ""
 };
 
-function ownKeys$d(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function ownKeys$e(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$d(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$d(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$d(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var ThumbnailPropTypes = _objectSpread$d(_objectSpread$d({
+function _objectSpread$e(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$e(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$e(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+var ThumbnailPropTypes = _objectSpread$e(_objectSpread$e({
   hasPreview: PropTypes.bool,
   imgSrc: PropTypes.string,
   onClick: PropTypes.func
@@ -1699,7 +1842,7 @@ var ThumbnailDefaultProps = {
   imgSrc: ""
 };
 
-var Container$3 = styled.div.withConfig({
+var Container$4 = styled.div.withConfig({
   displayName: "Thumbnail__Container",
   componentId: "cnapw-0"
 })(["position:relative;height:48px;width:48px;text-align:center;border-radius:8px;overflow:hidden;background-color:", ";display:flex;align-items:center;justify-content:center;flex-shrink:0;", " ", ""], function (_ref) {
@@ -1742,7 +1885,7 @@ var Thumbnail = function Thumbnail(_ref3) {
     if (hasPreview) setPreviewOpen(true);else onClick();
   };
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Container$3, _extends({
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Container$4, _extends({
     onClick: handleClick
   }, props), loadError ? /*#__PURE__*/React.createElement(StyledIcon$2, {
     color: "secondary",
@@ -1769,5 +1912,5 @@ var Thumbnail = function Thumbnail(_ref3) {
 Thumbnail.propTypes = ThumbnailPropTypes;
 Thumbnail.defaultProps = ThumbnailDefaultProps;
 
-export { AppContainer, Button, ButtonBase, ChipBadge, Collapse, CollapseButton, DISPLAY, DISPLAY_PROP_TYPES, DetailsTable, ExplorerLayout, FieldBase, FieldWrapper, H1, H2, H3, H4, H5, H6, HeadingBase, History, Icon, Image, ImageModal, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Modal, OutlineButton, Paragraph, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, ShareModule, THEME_COLORS, Tab, Text, TextBase, TextButton, Thumbnail, theme };
+export { AppContainer, Button, ButtonBase, ChipBadge, Collapse, CollapseButton, DISPLAY, DISPLAY_PROP_TYPES, DetailsTable, ExplorerLayout, FieldBase, FieldWrapper, FileManager, H1, H2, H3, H4, H5, H6, HeadingBase, History, Icon, Image, ImageModal, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Modal, OutlineButton, Paragraph, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, ShareModule, THEME_COLORS, Tab, Text, TextBase, TextButton, Thumbnail, theme };
 //# sourceMappingURL=rockskit.es.js.map

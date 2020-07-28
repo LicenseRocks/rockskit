@@ -9,9 +9,10 @@ export default {
   decorators: [StoryWrapper, withKnobs],
 };
 
-export const main = () => {
+export const main = (props) => {
   const defaultProps = {
     url: "https://license.rocks/",
+    ...props,
   };
 
   return <ShareModule {...defaultProps} />;
