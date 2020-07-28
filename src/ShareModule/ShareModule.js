@@ -37,6 +37,11 @@ const StyledText = styled(Text).attrs(() => ({
 `;
 
 export const ShareModule = ({ copyText, shareOptions, url, ...props }) => {
+  const navigatorShare =
+    typeof window !== "undefined" && window?.navigator?.share
+      ? window?.navigator?.share
+      : null;
+
   return (
     <Container {...props}>
       <ButtonsWrapper>
@@ -73,11 +78,11 @@ export const ShareModule = ({ copyText, shareOptions, url, ...props }) => {
           />
         )}
 
-        {shareOptions.includes("navigator") && navigator.share && (
+        {shareOptions.includes("navigator") && navigatorShare && (
           <ShareModuleButton
             icon="ellipsis-h"
             iconPrefix="far"
-            onClick={() => navigator.share({ url })}
+            onClick={() => navigatorShare({ url })}
           />
         )}
       </ButtonsWrapper>
