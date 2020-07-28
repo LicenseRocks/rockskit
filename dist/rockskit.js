@@ -6,14 +6,22 @@ function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'defau
 
 var React = require('react');
 var React__default = _interopDefault(React);
+var styles = require('@material-ui/core/styles');
+var CssBaseline = _interopDefault(require('@material-ui/core/CssBaseline'));
 var styled = require('styled-components');
 var styled__default = _interopDefault(styled);
 var PropTypes = _interopDefault(require('prop-types'));
-var styles = require('@material-ui/core/styles');
+var fontawesomeSvgCore = require('@fortawesome/fontawesome-svg-core');
+var proRegularSvgIcons = require('@fortawesome/pro-regular-svg-icons');
+var freeBrandsSvgIcons = require('@fortawesome/free-brands-svg-icons');
+var _extends = _interopDefault(require('@babel/runtime/helpers/extends'));
+var _objectWithoutProperties = _interopDefault(require('@babel/runtime/helpers/objectWithoutProperties'));
+var _defineProperty = _interopDefault(require('@babel/runtime/helpers/defineProperty'));
 var Typography = _interopDefault(require('@material-ui/core/Typography'));
 var MuiButtonBase = _interopDefault(require('@material-ui/core/ButtonBase'));
 var reactCollapse = require('react-collapse');
 var reactFontawesome = require('@fortawesome/react-fontawesome');
+var _slicedToArray = _interopDefault(require('@babel/runtime/helpers/slicedToArray'));
 var Grid = _interopDefault(require('@material-ui/core/Grid'));
 var MuiContainer = _interopDefault(require('@material-ui/core/Container'));
 var CircularProgress = _interopDefault(require('@material-ui/core/CircularProgress'));
@@ -25,96 +33,23 @@ var copy = _interopDefault(require('copy-to-clipboard'));
 var MuiTabs = _interopDefault(require('@material-ui/core/Tabs'));
 var MuiTab = _interopDefault(require('@material-ui/core/Tab'));
 
-function createCommonjsModule(fn, basedir, module) {
-	return module = {
-	  path: basedir,
-	  exports: {},
-	  require: function (path, base) {
-      return commonjsRequire(path, (base === undefined || base === null) ? module.path : base);
-    }
-	}, fn(module, module.exports), module.exports;
-}
+var AppContainerPropTypes = {
+  children: PropTypes.node.isRequired,
+  theme: PropTypes.object.isRequired
+};
 
-function commonjsRequire () {
-	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
-}
+fontawesomeSvgCore.library.add(freeBrandsSvgIcons.faFacebookF, freeBrandsSvgIcons.faTelegramPlane, freeBrandsSvgIcons.faTwitter, freeBrandsSvgIcons.faWhatsapp, proRegularSvgIcons.faBox, proRegularSvgIcons.faCheckCircle, proRegularSvgIcons.faChevronDown, proRegularSvgIcons.faChevronLeft, proRegularSvgIcons.faChevronRight, proRegularSvgIcons.faChevronUp, proRegularSvgIcons.faCopy, proRegularSvgIcons.faEllipsisH, proRegularSvgIcons.faEnvelope, proRegularSvgIcons.faFile, proRegularSvgIcons.faLink, proRegularSvgIcons.faPlus, proRegularSvgIcons.faSearchPlus, proRegularSvgIcons.faTimes, proRegularSvgIcons.faUser);
 
-var _extends_1 = createCommonjsModule(function (module) {
-function _extends() {
-  module.exports = _extends = Object.assign || function (target) {
-    for (var i = 1; i < arguments.length; i++) {
-      var source = arguments[i];
-
-      for (var key in source) {
-        if (Object.prototype.hasOwnProperty.call(source, key)) {
-          target[key] = source[key];
-        }
-      }
-    }
-
-    return target;
-  };
-
-  return _extends.apply(this, arguments);
-}
-
-module.exports = _extends;
-});
-
-function _objectWithoutPropertiesLoose(source, excluded) {
-  if (source == null) return {};
-  var target = {};
-  var sourceKeys = Object.keys(source);
-  var key, i;
-
-  for (i = 0; i < sourceKeys.length; i++) {
-    key = sourceKeys[i];
-    if (excluded.indexOf(key) >= 0) continue;
-    target[key] = source[key];
-  }
-
-  return target;
-}
-
-var objectWithoutPropertiesLoose = _objectWithoutPropertiesLoose;
-
-function _objectWithoutProperties(source, excluded) {
-  if (source == null) return {};
-  var target = objectWithoutPropertiesLoose(source, excluded);
-  var key, i;
-
-  if (Object.getOwnPropertySymbols) {
-    var sourceSymbolKeys = Object.getOwnPropertySymbols(source);
-
-    for (i = 0; i < sourceSymbolKeys.length; i++) {
-      key = sourceSymbolKeys[i];
-      if (excluded.indexOf(key) >= 0) continue;
-      if (!Object.prototype.propertyIsEnumerable.call(source, key)) continue;
-      target[key] = source[key];
-    }
-  }
-
-  return target;
-}
-
-var objectWithoutProperties = _objectWithoutProperties;
-
-function _defineProperty(obj, key, value) {
-  if (key in obj) {
-    Object.defineProperty(obj, key, {
-      value: value,
-      enumerable: true,
-      configurable: true,
-      writable: true
-    });
-  } else {
-    obj[key] = value;
-  }
-
-  return obj;
-}
-
-var defineProperty = _defineProperty;
+var AppContainer = function AppContainer(_ref) {
+  var children = _ref.children,
+      theme = _ref.theme;
+  return /*#__PURE__*/React__default.createElement(styles.ThemeProvider, {
+    theme: theme
+  }, /*#__PURE__*/React__default.createElement(styled.ThemeProvider, {
+    theme: theme
+  }, /*#__PURE__*/React__default.createElement(CssBaseline, null), children));
+};
+AppContainer.propTypes = AppContainerPropTypes;
 
 var KIT_COLORS = {
   primary: {
@@ -157,7 +92,7 @@ var KIT_ICON_SIZES = {
 
 var KIT_TYPOGRAPHY = {
   h1: function h1(theme) {
-    return defineProperty({
+    return _defineProperty({
       fontFamily: KIT_FONTS.Galano.name,
       fontSize: "32px",
       fontWeight: 500,
@@ -170,7 +105,7 @@ var KIT_TYPOGRAPHY = {
     });
   },
   h2: function h2(theme) {
-    return defineProperty({
+    return _defineProperty({
       fontFamily: KIT_FONTS.Galano.name,
       fontWeight: 500,
       fontSize: "26px",
@@ -183,7 +118,7 @@ var KIT_TYPOGRAPHY = {
     });
   },
   h3: function h3(theme) {
-    return defineProperty({
+    return _defineProperty({
       fontFamily: KIT_FONTS.Galano.name,
       fontWeight: 500,
       fontSize: "20px",
@@ -265,7 +200,7 @@ var KIT_TYPOGRAPHY = {
 
 function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var theme = styles.createMuiTheme();
 theme.palette = _objectSpread(_objectSpread({}, theme.palette), {}, {
   primary: {
@@ -435,7 +370,7 @@ var THEME_COLORS = ["primary", "secondary", "success", "error", "warning"];
 
 function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var ChipBadgePropTypes = _objectSpread$1(_objectSpread$1({
   color: PropTypes.oneOf(THEME_COLORS),
   label: PropTypes.string,
@@ -447,7 +382,7 @@ var ChipBadgeDefaultProps = {
 
 function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var HeadingBasePropTypes = _objectSpread$2(_objectSpread$2({
   align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
   children: PropTypes.node,
@@ -469,49 +404,49 @@ var StyledHeading = styled__default(Typography).withConfig({
 var HeadingBase = function HeadingBase(_ref) {
   var content = _ref.content,
       children = _ref.children,
-      props = objectWithoutProperties(_ref, ["content", "children"]);
+      props = _objectWithoutProperties(_ref, ["content", "children"]);
 
   return /*#__PURE__*/React__default.createElement(StyledHeading, props, content || children);
 };
 HeadingBase.propTypes = HeadingBasePropTypes;
 
 var H1 = function H1(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends_1({
+  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
     variant: "h1"
   }, props));
 };
 H1.propTypes = HeadingBasePropTypes;
 
 var H2 = function H2(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends_1({
+  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
     variant: "h2"
   }, props));
 };
 H2.propTypes = HeadingBasePropTypes;
 
 var H3 = function H3(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends_1({
+  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
     variant: "h3"
   }, props));
 };
 H3.propTypes = HeadingBasePropTypes;
 
 var H4 = function H4(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends_1({
+  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
     variant: "h4"
   }, props));
 };
 H4.propTypes = HeadingBasePropTypes;
 
 var H5 = function H5(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends_1({
+  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
     variant: "h5"
   }, props));
 };
 H5.propTypes = HeadingBasePropTypes;
 
 var H6 = function H6(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends_1({
+  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
     variant: "h6"
   }, props));
 };
@@ -519,7 +454,7 @@ H6.propTypes = HeadingBasePropTypes;
 
 function ownKeys$3(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$3(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$3(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$3(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$3(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$3(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$3(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var TextBasePropTypes = _objectSpread$3(_objectSpread$3({
   align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
   children: PropTypes.node,
@@ -579,7 +514,7 @@ var StyledText = styled__default(Typography).withConfig({
 var TextBase = function TextBase(_ref4) {
   var content = _ref4.content,
       children = _ref4.children,
-      props = objectWithoutProperties(_ref4, ["content", "children"]);
+      props = _objectWithoutProperties(_ref4, ["content", "children"]);
 
   return /*#__PURE__*/React__default.createElement(StyledText, props, content || children);
 };
@@ -594,7 +529,7 @@ var StyledParagraph = styled__default(TextBase).withConfig({
   return theme.spacing(2);
 });
 var Paragraph = function Paragraph(props) {
-  return /*#__PURE__*/React__default.createElement(StyledParagraph, _extends_1({
+  return /*#__PURE__*/React__default.createElement(StyledParagraph, _extends({
     variant: "body1",
     paragraph: true
   }, props));
@@ -602,7 +537,7 @@ var Paragraph = function Paragraph(props) {
 Paragraph.propTypes = TextBasePropTypes;
 
 var Text = function Text(props) {
-  return /*#__PURE__*/React__default.createElement(TextBase, _extends_1({
+  return /*#__PURE__*/React__default.createElement(TextBase, _extends({
     component: "div",
     variant: "body2"
   }, props));
@@ -636,9 +571,9 @@ var ChipBadge = function ChipBadge(_ref3) {
   var color = _ref3.color,
       icon = _ref3.icon,
       label = _ref3.label,
-      props = objectWithoutProperties(_ref3, ["color", "icon", "label"]);
+      props = _objectWithoutProperties(_ref3, ["color", "icon", "label"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledChip, _extends_1({
+  return /*#__PURE__*/React__default.createElement(StyledChip, _extends({
     color: color
   }, props), /*#__PURE__*/React__default.createElement(Icon, {
     color: color,
@@ -650,7 +585,7 @@ ChipBadge.defaultProps = ChipBadgeDefaultProps;
 
 function ownKeys$4(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$4(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$4(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$4(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$4(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$4(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$4(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var ButtonBasePropTypes = _objectSpread$4(_objectSpread$4({
   color: PropTypes.oneOf(["primary", "secondary", "subtle"]),
   content: PropTypes.string,
@@ -694,9 +629,9 @@ var ButtonBase = function ButtonBase(_ref3) {
   var content = _ref3.content,
       children = _ref3.children,
       href = _ref3.href,
-      props = objectWithoutProperties(_ref3, ["content", "children", "href"]);
+      props = _objectWithoutProperties(_ref3, ["content", "children", "href"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledButton, _extends_1({
+  return /*#__PURE__*/React__default.createElement(StyledButton, _extends({
     component: href ? "a" : "button",
     href: href
   }, props), content || children);
@@ -764,9 +699,9 @@ Collapse.propTypes = CollapsePropTypes;
 
 var CollapseButton = function CollapseButton(_ref) {
   var isOpened = _ref.isOpened,
-      props = objectWithoutProperties(_ref, ["isOpened"]);
+      props = _objectWithoutProperties(_ref, ["isOpened"]);
 
-  return /*#__PURE__*/React__default.createElement(Icon, _extends_1({
+  return /*#__PURE__*/React__default.createElement(Icon, _extends({
     icon: isOpened ? "chevron-up" : "chevron-down"
   }, props));
 };
@@ -776,7 +711,7 @@ CollapseButton.propTypes = {
 
 function ownKeys$5(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$5(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$5(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$5(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$5(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$5(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$5(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var DetailsTablePropTypes = _objectSpread$5(_objectSpread$5({
   rows: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
@@ -811,7 +746,7 @@ var Label = styled__default(Text).attrs(function () {
 })(["flex:0 140px;"]);
 var DetailsTable = function DetailsTable(_ref2) {
   var rows = _ref2.rows,
-      props = objectWithoutProperties(_ref2, ["rows"]);
+      props = _objectWithoutProperties(_ref2, ["rows"]);
 
   return /*#__PURE__*/React__default.createElement(Wrapper$1, props, rows.map(function (_ref3) {
     var label = _ref3.label,
@@ -828,7 +763,7 @@ DetailsTable.defaultProps = DetailsTableDefaultProps;
 
 function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$6(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$6(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$6(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$6(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$6(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$6(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var IconPropTypes = _objectSpread$6(_objectSpread$6({
   bordered: PropTypes.bool,
   color: PropTypes.oneOf(THEME_COLORS),
@@ -856,9 +791,9 @@ var StyledIcon = styled__default(function (_ref2) {
   var icon = _ref2.icon,
       prefix = _ref2.prefix,
       size = _ref2.size,
-      props = objectWithoutProperties(_ref2, ["icon", "prefix", "size"]);
+      props = _objectWithoutProperties(_ref2, ["icon", "prefix", "size"]);
 
-  return /*#__PURE__*/React__default.createElement(reactFontawesome.FontAwesomeIcon, _extends_1({
+  return /*#__PURE__*/React__default.createElement(reactFontawesome.FontAwesomeIcon, _extends({
     icon: [prefix, icon]
   }, props));
 }).withConfig({
@@ -884,14 +819,14 @@ var Icon = function Icon(_ref6) {
   var bordered = _ref6.bordered,
       className = _ref6.className,
       color = _ref6.color,
-      props = objectWithoutProperties(_ref6, ["bordered", "className", "color"]);
+      props = _objectWithoutProperties(_ref6, ["bordered", "className", "color"]);
 
-  return bordered ? /*#__PURE__*/React__default.createElement(Bordered, _extends_1({
+  return bordered ? /*#__PURE__*/React__default.createElement(Bordered, _extends({
     className: className,
     color: color
-  }, props), /*#__PURE__*/React__default.createElement(StyledIcon, _extends_1({
+  }, props), /*#__PURE__*/React__default.createElement(StyledIcon, _extends({
     color: color
-  }, props))) : /*#__PURE__*/React__default.createElement(StyledIcon, _extends_1({
+  }, props))) : /*#__PURE__*/React__default.createElement(StyledIcon, _extends({
     className: className,
     color: color
   }, props));
@@ -901,7 +836,7 @@ Icon.defaultProps = IconDefaultProps;
 
 function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var FieldWrapperPropTypes = _objectSpread$7(_objectSpread$7({
   block: PropTypes.bool,
   endIcon: PropTypes.string,
@@ -962,7 +897,7 @@ var FieldWrapper = function FieldWrapper(_ref10) {
       startIcon = _ref10.startIcon,
       startIconColor = _ref10.startIconColor,
       startIconOnClick = _ref10.startIconOnClick,
-      props = objectWithoutProperties(_ref10, ["children", "endIcon", "endIconColor", "endIconOnClick", "startIcon", "startIconColor", "startIconOnClick"]);
+      props = _objectWithoutProperties(_ref10, ["children", "endIcon", "endIconColor", "endIconOnClick", "startIcon", "startIconColor", "startIconOnClick"]);
 
   return /*#__PURE__*/React__default.createElement(StyledWrapper, props, startIcon && /*#__PURE__*/React__default.createElement(Icon, {
     color: startIconColor,
@@ -979,7 +914,7 @@ FieldWrapper.defaultProps = FieldWrapperDefaultProps;
 
 function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var FieldBasePropTypes = _objectSpread$8(_objectSpread$8({}, FieldWrapperPropTypes), {}, {
   disabled: PropTypes.bool,
   hasError: PropTypes.bool,
@@ -997,7 +932,7 @@ var FieldBaseDefaultProps = _objectSpread$8(_objectSpread$8({}, FieldWrapperDefa
 
 var StyledInput = styled__default(function (_ref) {
   var Component = _ref.component,
-      props = objectWithoutProperties(_ref, ["component"]);
+      props = _objectWithoutProperties(_ref, ["component"]);
 
   return /*#__PURE__*/React__default.createElement(Component, props);
 }).withConfig({
@@ -1035,7 +970,7 @@ var FieldBase = function FieldBase(_ref9) {
       startIcon = _ref9.startIcon,
       startIconColor = _ref9.startIconColor,
       startIconOnClick = _ref9.startIconOnClick,
-      props = objectWithoutProperties(_ref9, ["block", "endIcon", "endIconColor", "endIconOnClick", "hasError", "register", "startIcon", "startIconColor", "startIconOnClick"]);
+      props = _objectWithoutProperties(_ref9, ["block", "endIcon", "endIconColor", "endIconOnClick", "hasError", "register", "startIcon", "startIconColor", "startIconOnClick"]);
 
   return /*#__PURE__*/React__default.createElement(FieldWrapper, {
     endIcon: endIcon,
@@ -1045,7 +980,7 @@ var FieldBase = function FieldBase(_ref9) {
     startIcon: startIcon,
     startIconColor: startIconColor,
     startIconOnClick: startIconOnClick
-  }, /*#__PURE__*/React__default.createElement(StyledInput, _extends_1({
+  }, /*#__PURE__*/React__default.createElement(StyledInput, _extends({
     hasError: hasError,
     ref: register
   }, props)));
@@ -1054,82 +989,12 @@ FieldBase.propTypes = FieldBasePropTypes;
 FieldBase.defaultProps = FieldBaseDefaultProps;
 
 var Input = function Input(props) {
-  return /*#__PURE__*/React__default.createElement(FieldBase, _extends_1({
+  return /*#__PURE__*/React__default.createElement(FieldBase, _extends({
     component: "input"
   }, props));
 };
 Input.propTypes = FieldBasePropTypes;
 Input.defaultProps = FieldBaseDefaultProps;
-
-function _arrayWithHoles(arr) {
-  if (Array.isArray(arr)) return arr;
-}
-
-var arrayWithHoles = _arrayWithHoles;
-
-function _iterableToArrayLimit(arr, i) {
-  if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;
-  var _arr = [];
-  var _n = true;
-  var _d = false;
-  var _e = undefined;
-
-  try {
-    for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {
-      _arr.push(_s.value);
-
-      if (i && _arr.length === i) break;
-    }
-  } catch (err) {
-    _d = true;
-    _e = err;
-  } finally {
-    try {
-      if (!_n && _i["return"] != null) _i["return"]();
-    } finally {
-      if (_d) throw _e;
-    }
-  }
-
-  return _arr;
-}
-
-var iterableToArrayLimit = _iterableToArrayLimit;
-
-function _arrayLikeToArray(arr, len) {
-  if (len == null || len > arr.length) len = arr.length;
-
-  for (var i = 0, arr2 = new Array(len); i < len; i++) {
-    arr2[i] = arr[i];
-  }
-
-  return arr2;
-}
-
-var arrayLikeToArray = _arrayLikeToArray;
-
-function _unsupportedIterableToArray(o, minLen) {
-  if (!o) return;
-  if (typeof o === "string") return arrayLikeToArray(o, minLen);
-  var n = Object.prototype.toString.call(o).slice(8, -1);
-  if (n === "Object" && o.constructor) n = o.constructor.name;
-  if (n === "Map" || n === "Set") return Array.from(o);
-  if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return arrayLikeToArray(o, minLen);
-}
-
-var unsupportedIterableToArray = _unsupportedIterableToArray;
-
-function _nonIterableRest() {
-  throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
-}
-
-var nonIterableRest = _nonIterableRest;
-
-function _slicedToArray(arr, i) {
-  return arrayWithHoles(arr) || iterableToArrayLimit(arr, i) || unsupportedIterableToArray(arr, i) || nonIterableRest();
-}
-
-var slicedToArray = _slicedToArray;
 
 var ItemConnector = styled__default.div.withConfig({
   displayName: "Item__ItemConnector",
@@ -1200,7 +1065,7 @@ var HistoryItem = function HistoryItem(_ref7) {
       title = _ref7$data.title;
 
   var _useState = React.useState(false),
-      _useState2 = slicedToArray(_useState, 2),
+      _useState2 = _slicedToArray(_useState, 2),
       collapseOpen = _useState2[0],
       setCollapseOpen = _useState2[1];
 
@@ -1250,7 +1115,7 @@ HistoryItem.propTypes = {
 
 function ownKeys$9(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$9(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$9(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$9(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$9(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$9(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$9(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var HistoryPropTypes = _objectSpread$9(_objectSpread$9({
   rows: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
@@ -1272,7 +1137,7 @@ var Container$1 = styled__default.div.withConfig({
 });
 var History = function History(_ref) {
   var rows = _ref.rows,
-      props = objectWithoutProperties(_ref, ["rows"]);
+      props = _objectWithoutProperties(_ref, ["rows"]);
 
   return /*#__PURE__*/React__default.createElement(Container$1, props, rows.map(function (h) {
     return /*#__PURE__*/React__default.createElement(HistoryItem, {
@@ -1285,7 +1150,7 @@ History.propTypes = HistoryPropTypes;
 
 function ownKeys$a(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$a(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$a(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$a(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$a(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$a(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$a(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var ImagePropTypes = _objectSpread$a(_objectSpread$a({
   alt: PropTypes.string.isRequired,
   className: PropTypes.any,
@@ -1308,9 +1173,9 @@ var ImageDefaultProps = {
 };
 
 var Image = function Image(_ref) {
-  var props = _extends_1({}, _ref);
+  var props = _extends({}, _ref);
 
-  return /*#__PURE__*/React__default.createElement(StyledImg, _extends_1({
+  return /*#__PURE__*/React__default.createElement(StyledImg, _extends({
     itemProp: "contentUrl"
   }, props));
 };
@@ -1353,13 +1218,13 @@ var StyledFooter = styled__default.div.withConfig({
 });
 var ExplorerLayoutFooter = function ExplorerLayoutFooter(_ref3) {
   var action = _ref3.action,
-      props = objectWithoutProperties(_ref3, ["action"]);
+      props = _objectWithoutProperties(_ref3, ["action"]);
 
   return /*#__PURE__*/React__default.createElement(StyledFooter, props);
 };
 ExplorerLayoutFooter.propTypes = ExplorerLayoutFooterPropTypes;
 
-var Logo = "<svg width=\"194\" height=\"60\" viewBox=\"0 0 194 60\" fill=\"none\" xmlns=\"http://www.w3.org/2000/svg\">\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M86.0961 52.0601C88.0083 52.0601 89.3892 53.5534 89.3892 55.2955C89.3892 57.1088 88.0083 58.4599 86.0961 58.4599C84.184 58.4599 82.8384 57.1088 82.8384 55.2955C82.8384 53.5534 84.184 52.0601 86.0961 52.0601Z\" fill=\"#AC00FC\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M103.965 40.1848C104.461 40.1848 104.815 40.2204 105.24 40.327L104.992 46.0158H103.965C99.9993 46.0158 97.8393 48.0779 97.8393 52.7V58.2821H92.1737V40.4337H97.8393V43.8469C99.114 41.7136 101.062 40.1848 103.965 40.1848Z\" fill=\"#AC00FC\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M120.118 33.9272C127.2 33.9272 132.76 39.4382 132.76 46.4069C132.76 53.34 127.2 58.8155 120.118 58.8155C113.037 58.8155 107.477 53.34 107.477 46.4069C107.477 39.4382 113.037 33.9272 120.118 33.9272ZM120.118 53.4467C123.978 53.4467 126.917 50.4601 126.917 46.4069C126.917 42.3181 123.978 39.2959 120.118 39.2959C116.259 39.2959 113.32 42.3181 113.32 46.4069C113.32 50.4601 116.259 53.4467 120.118 53.4467Z\" fill=\"#AC00FC\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M144.587 53.8378C146.392 53.8378 147.844 52.8778 148.446 50.709L153.651 51.8467C152.766 56.0777 149.013 58.8154 144.587 58.8154C139.275 58.8154 134.884 55.0111 134.884 49.3579C134.884 43.7403 139.275 39.9003 144.587 39.9003C148.907 39.9003 152.66 42.5669 153.651 46.7624L148.34 48.0424C147.844 45.8735 146.392 44.878 144.587 44.878C142.037 44.878 140.337 46.7624 140.337 49.3579C140.337 51.9889 142.037 53.8378 144.587 53.8378Z\" fill=\"#AC00FC\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M175.992 58.2821H168.733L162.961 51.8467H161.934V58.2821H156.269V32.6828H161.934V46.5135H162.713L168.343 40.4337H175.177L167.387 48.9312L175.992 58.2821Z\" fill=\"#AC00FC\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M176.087 53.6483L181.611 52.5105C181.859 54.0394 183.24 54.6083 184.762 54.6083C186.25 54.6083 187.064 53.9683 187.064 53.1861C187.064 52.5817 186.604 52.1194 185.294 51.8706L181.682 51.1595C178.389 50.555 176.512 48.7773 176.512 45.9685C176.512 42.3064 179.663 39.9242 184.16 39.9242C188.587 39.9242 191.526 41.9508 192.234 45.0441L187.064 46.0752C186.887 44.973 185.825 43.9774 184.09 43.9774C182.567 43.9774 182.071 44.7241 182.071 45.3641C182.071 45.8618 182.284 46.3596 183.417 46.6085L187.595 47.4618C190.959 48.1729 192.517 50.1995 192.517 52.8305C192.517 56.7771 189.118 58.8393 184.444 58.8393C180.265 58.8393 176.689 57.3104 176.087 53.6483Z\" fill=\"#AC00FC\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M79.4906 27.4174H73.825V1.81807H79.4906V27.4174Z\" fill=\"#AC00FC\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M88.9289 27.4174H83.2634V9.569H88.9289V27.4174Z\" fill=\"#AC00FC\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M86.0961 1.07143C88.0083 1.07143 89.3892 2.56472 89.3892 4.3069C89.3892 6.12019 88.0083 7.47127 86.0961 7.47127C84.184 7.47127 82.8384 6.12019 82.8384 4.3069C82.8384 2.56472 84.184 1.07143 86.0961 1.07143Z\" fill=\"#AC00FC\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M101.853 22.9731C103.659 22.9731 105.111 22.0131 105.713 19.8443L110.918 20.982C110.033 25.213 106.28 27.9507 101.853 27.9507C96.542 27.9507 92.1512 24.1464 92.1512 18.4932C92.1512 12.8756 96.542 9.03566 101.853 9.03566C106.173 9.03566 109.927 11.7023 110.918 15.8977L105.607 17.1777C105.111 15.0088 103.659 14.0133 101.853 14.0133C99.3039 14.0133 97.6043 15.8977 97.6043 18.4932C97.6043 21.1242 99.3039 22.9731 101.853 22.9731Z\" fill=\"#AC00FC\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M131.601 18.4932V19.9509H118.57C119.03 22.0842 120.482 23.3997 122.394 23.3997C123.704 23.3997 125.227 23.0798 126.183 21.3376L131.211 22.3687C129.689 26.1375 126.466 27.9507 122.394 27.9507C117.26 27.9507 113.011 24.1464 113.011 18.4932C113.011 12.8756 117.26 9.03566 122.43 9.03566C127.458 9.03566 131.495 12.6622 131.601 18.4932ZM122.43 13.6578C120.836 13.6578 119.207 14.6533 118.676 16.4666H126.006C125.475 14.5466 124.059 13.6578 122.43 13.6578Z\" fill=\"#AC00FC\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M145.659 9.03566C149.801 9.03566 152.563 11.9867 152.563 16.4666V27.4174H146.933V17.6754C146.933 15.5777 145.694 14.1555 143.888 14.1555C141.657 14.1555 140.205 15.6844 140.205 19.1332V27.4174H134.54V9.56898H140.205V11.2756C141.551 9.85342 143.428 9.03566 145.659 9.03566Z\" fill=\"#AC00FC\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M155.219 22.7598L160.743 21.622C160.991 23.1509 162.372 23.7197 163.895 23.7197C165.382 23.7197 166.196 23.0798 166.196 22.2975C166.196 21.6931 165.736 21.2309 164.426 20.982L160.814 20.2709C157.521 19.6665 155.644 17.8888 155.644 15.08C155.644 11.4178 158.796 9.03566 163.293 9.03566C167.719 9.03566 170.658 11.0623 171.366 14.1555L166.196 15.1866C166.019 14.0844 164.957 13.0889 163.222 13.0889C161.699 13.0889 161.203 13.8355 161.203 14.4755C161.203 14.9733 161.416 15.4711 162.549 15.7199L166.727 16.5732C170.091 17.2843 171.649 19.311 171.649 21.942C171.649 25.8886 168.25 27.9507 163.576 27.9507C159.397 27.9507 155.821 26.4219 155.219 22.7598Z\" fill=\"#AC00FC\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M192.403 18.4932V19.9509H179.372C179.832 22.0842 181.284 23.3997 183.196 23.3997C184.506 23.3997 186.029 23.0798 186.985 21.3376L192.013 22.3687C190.49 26.1375 187.268 27.9507 183.196 27.9507C178.062 27.9507 173.812 24.1464 173.812 18.4932C173.812 12.8756 178.062 9.03566 183.231 9.03566C188.26 9.03566 192.296 12.6622 192.403 18.4932ZM183.231 13.6578C181.638 13.6578 180.009 14.6533 179.478 16.4666H186.808C186.277 14.5466 184.86 13.6578 183.231 13.6578Z\" fill=\"#AC00FC\"/>\n<path fill-rule=\"evenodd\" clip-rule=\"evenodd\" d=\"M7.58723 46.6197C11.4115 46.6197 14.1734 49.6063 14.1734 53.0907C14.1734 56.7172 11.4115 59.4194 7.58723 59.4194C3.76298 59.4194 1.07184 56.7172 1.07184 53.0907C1.07184 49.6063 3.76298 46.6197 7.58723 46.6197ZM38.7574 9.64285C52.9213 9.64285 64.04 20.6648 64.04 34.6022C64.04 48.4685 52.9213 59.4194 38.7574 59.4194C24.5936 59.4194 13.4749 48.4685 13.4749 34.6022C13.4749 20.6648 24.5936 9.64285 38.7574 9.64285ZM38.7574 48.6819C46.4768 48.6819 52.3548 42.7087 52.3548 34.6022C52.3548 26.4247 46.4768 20.3804 38.7574 20.3804C31.0381 20.3804 25.1601 26.4247 25.1601 34.6022C25.1601 42.7087 31.0381 48.6819 38.7574 48.6819Z\" fill=\"#AC00FC\"/>\n</svg>";
+var Logo = "const img = \"data:image/svg+xml,%3csvg width='194' height='60' viewBox='0 0 194 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 52.0601C88.0083 52.0601 89.3892 53.5534 89.3892 55.2955C89.3892 57.1088 88.0083 58.4599 86.0961 58.4599C84.184 58.4599 82.8384 57.1088 82.8384 55.2955C82.8384 53.5534 84.184 52.0601 86.0961 52.0601Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M103.965 40.1848C104.461 40.1848 104.815 40.2204 105.24 40.327L104.992 46.0158H103.965C99.9993 46.0158 97.8393 48.0779 97.8393 52.7V58.2821H92.1737V40.4337H97.8393V43.8469C99.114 41.7136 101.062 40.1848 103.965 40.1848Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M120.118 33.9272C127.2 33.9272 132.76 39.4382 132.76 46.4069C132.76 53.34 127.2 58.8155 120.118 58.8155C113.037 58.8155 107.477 53.34 107.477 46.4069C107.477 39.4382 113.037 33.9272 120.118 33.9272ZM120.118 53.4467C123.978 53.4467 126.917 50.4601 126.917 46.4069C126.917 42.3181 123.978 39.2959 120.118 39.2959C116.259 39.2959 113.32 42.3181 113.32 46.4069C113.32 50.4601 116.259 53.4467 120.118 53.4467Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M144.587 53.8378C146.392 53.8378 147.844 52.8778 148.446 50.709L153.651 51.8467C152.766 56.0777 149.013 58.8154 144.587 58.8154C139.275 58.8154 134.884 55.0111 134.884 49.3579C134.884 43.7403 139.275 39.9003 144.587 39.9003C148.907 39.9003 152.66 42.5669 153.651 46.7624L148.34 48.0424C147.844 45.8735 146.392 44.878 144.587 44.878C142.037 44.878 140.337 46.7624 140.337 49.3579C140.337 51.9889 142.037 53.8378 144.587 53.8378Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M175.992 58.2821H168.733L162.961 51.8467H161.934V58.2821H156.269V32.6828H161.934V46.5135H162.713L168.343 40.4337H175.177L167.387 48.9312L175.992 58.2821Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M176.087 53.6483L181.611 52.5105C181.859 54.0394 183.24 54.6083 184.762 54.6083C186.25 54.6083 187.064 53.9683 187.064 53.1861C187.064 52.5817 186.604 52.1194 185.294 51.8706L181.682 51.1595C178.389 50.555 176.512 48.7773 176.512 45.9685C176.512 42.3064 179.663 39.9242 184.16 39.9242C188.587 39.9242 191.526 41.9508 192.234 45.0441L187.064 46.0752C186.887 44.973 185.825 43.9774 184.09 43.9774C182.567 43.9774 182.071 44.7241 182.071 45.3641C182.071 45.8618 182.284 46.3596 183.417 46.6085L187.595 47.4618C190.959 48.1729 192.517 50.1995 192.517 52.8305C192.517 56.7771 189.118 58.8393 184.444 58.8393C180.265 58.8393 176.689 57.3104 176.087 53.6483Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M79.4906 27.4174H73.825V1.81807H79.4906V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M88.9289 27.4174H83.2634V9.569H88.9289V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 1.07143C88.0083 1.07143 89.3892 2.56472 89.3892 4.3069C89.3892 6.12019 88.0083 7.47127 86.0961 7.47127C84.184 7.47127 82.8384 6.12019 82.8384 4.3069C82.8384 2.56472 84.184 1.07143 86.0961 1.07143Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M101.853 22.9731C103.659 22.9731 105.111 22.0131 105.713 19.8443L110.918 20.982C110.033 25.213 106.28 27.9507 101.853 27.9507C96.542 27.9507 92.1512 24.1464 92.1512 18.4932C92.1512 12.8756 96.542 9.03566 101.853 9.03566C106.173 9.03566 109.927 11.7023 110.918 15.8977L105.607 17.1777C105.111 15.0088 103.659 14.0133 101.853 14.0133C99.3039 14.0133 97.6043 15.8977 97.6043 18.4932C97.6043 21.1242 99.3039 22.9731 101.853 22.9731Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M131.601 18.4932V19.9509H118.57C119.03 22.0842 120.482 23.3997 122.394 23.3997C123.704 23.3997 125.227 23.0798 126.183 21.3376L131.211 22.3687C129.689 26.1375 126.466 27.9507 122.394 27.9507C117.26 27.9507 113.011 24.1464 113.011 18.4932C113.011 12.8756 117.26 9.03566 122.43 9.03566C127.458 9.03566 131.495 12.6622 131.601 18.4932ZM122.43 13.6578C120.836 13.6578 119.207 14.6533 118.676 16.4666H126.006C125.475 14.5466 124.059 13.6578 122.43 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M145.659 9.03566C149.801 9.03566 152.563 11.9867 152.563 16.4666V27.4174H146.933V17.6754C146.933 15.5777 145.694 14.1555 143.888 14.1555C141.657 14.1555 140.205 15.6844 140.205 19.1332V27.4174H134.54V9.56898H140.205V11.2756C141.551 9.85342 143.428 9.03566 145.659 9.03566Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M155.219 22.7598L160.743 21.622C160.991 23.1509 162.372 23.7197 163.895 23.7197C165.382 23.7197 166.196 23.0798 166.196 22.2975C166.196 21.6931 165.736 21.2309 164.426 20.982L160.814 20.2709C157.521 19.6665 155.644 17.8888 155.644 15.08C155.644 11.4178 158.796 9.03566 163.293 9.03566C167.719 9.03566 170.658 11.0623 171.366 14.1555L166.196 15.1866C166.019 14.0844 164.957 13.0889 163.222 13.0889C161.699 13.0889 161.203 13.8355 161.203 14.4755C161.203 14.9733 161.416 15.4711 162.549 15.7199L166.727 16.5732C170.091 17.2843 171.649 19.311 171.649 21.942C171.649 25.8886 168.25 27.9507 163.576 27.9507C159.397 27.9507 155.821 26.4219 155.219 22.7598Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M192.403 18.4932V19.9509H179.372C179.832 22.0842 181.284 23.3997 183.196 23.3997C184.506 23.3997 186.029 23.0798 186.985 21.3376L192.013 22.3687C190.49 26.1375 187.268 27.9507 183.196 27.9507C178.062 27.9507 173.812 24.1464 173.812 18.4932C173.812 12.8756 178.062 9.03566 183.231 9.03566C188.26 9.03566 192.296 12.6622 192.403 18.4932ZM183.231 13.6578C181.638 13.6578 180.009 14.6533 179.478 16.4666H186.808C186.277 14.5466 184.86 13.6578 183.231 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.58723 46.6197C11.4115 46.6197 14.1734 49.6063 14.1734 53.0907C14.1734 56.7172 11.4115 59.4194 7.58723 59.4194C3.76298 59.4194 1.07184 56.7172 1.07184 53.0907C1.07184 49.6063 3.76298 46.6197 7.58723 46.6197ZM38.7574 9.64285C52.9213 9.64285 64.04 20.6648 64.04 34.6022C64.04 48.4685 52.9213 59.4194 38.7574 59.4194C24.5936 59.4194 13.4749 48.4685 13.4749 34.6022C13.4749 20.6648 24.5936 9.64285 38.7574 9.64285ZM38.7574 48.6819C46.4768 48.6819 52.3548 42.7087 52.3548 34.6022C52.3548 26.4247 46.4768 20.3804 38.7574 20.3804C31.0381 20.3804 25.1601 26.4247 25.1601 34.6022C25.1601 42.7087 31.0381 48.6819 38.7574 48.6819Z' fill='%23AC00FC'/%3e%3c/svg%3e\";\n  export default img;";
 
 var ExplorerLayoutHeaderPropTypes = {
   headerRight: PropTypes.node,
@@ -1393,7 +1258,7 @@ var StyledLogo = styled__default(Image).attrs(function () {
 var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
   var headerRight = _ref3.headerRight,
       logoAction = _ref3.logoAction,
-      props = objectWithoutProperties(_ref3, ["headerRight", "logoAction"]);
+      props = _objectWithoutProperties(_ref3, ["headerRight", "logoAction"]);
 
   return /*#__PURE__*/React__default.createElement(StyledHeader, props, /*#__PURE__*/React__default.createElement(Grid, {
     item: true,
@@ -1452,7 +1317,7 @@ var ExplorerLayout = function ExplorerLayout(_ref5) {
       headerLogoAction = _ref5.headerLogoAction,
       headerRight = _ref5.headerRight,
       sidebar = _ref5.sidebar,
-      props = objectWithoutProperties(_ref5, ["children", "footerContent", "headerLogoAction", "headerRight", "sidebar"]);
+      props = _objectWithoutProperties(_ref5, ["children", "footerContent", "headerLogoAction", "headerRight", "sidebar"]);
 
   return /*#__PURE__*/React__default.createElement(MuiContainer, props, /*#__PURE__*/React__default.createElement(ExplorerLayoutHeader, {
     logoAction: headerLogoAction,
@@ -1533,9 +1398,9 @@ var Modal = function Modal(_ref6) {
       maxWidth = _ref6.maxWidth,
       title = _ref6.title,
       disabled = _ref6.disabled,
-      props = objectWithoutProperties(_ref6, ["action", "actionDescription", "actionLoading", "actionTitle", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled"]);
+      props = _objectWithoutProperties(_ref6, ["action", "actionDescription", "actionLoading", "actionTitle", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled"]);
 
-  return /*#__PURE__*/React__default.createElement(Dialog, _extends_1({
+  return /*#__PURE__*/React__default.createElement(Dialog, _extends({
     "data-cy": dataCy,
     fullScreen: typeof fullScreen !== "undefined" ? fullScreen : typeof window !== "undefined" && window.screen.width < 768,
     onClose: onClose,
@@ -1634,7 +1499,7 @@ var SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "telegram", "whatsapp",
 
 function ownKeys$b(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$b(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$b(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$b(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$b(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$b(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$b(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var ShareModulePropTypes = _objectSpread$b(_objectSpread$b({
   copyText: PropTypes.string,
   shareOptions: PropTypes.arrayOf(PropTypes.oneOf(SHARE_MODULE_SHARE_OPTIONS)),
@@ -1679,7 +1544,7 @@ var ShareModule = function ShareModule(_ref3) {
   var copyText = _ref3.copyText,
       shareOptions = _ref3.shareOptions,
       url = _ref3.url,
-      props = objectWithoutProperties(_ref3, ["copyText", "shareOptions", "url"]);
+      props = _objectWithoutProperties(_ref3, ["copyText", "shareOptions", "url"]);
 
   return /*#__PURE__*/React__default.createElement(Container$2, props, /*#__PURE__*/React__default.createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React__default.createElement(ShareModuleButton, {
     icon: "twitter",
@@ -1724,7 +1589,7 @@ ShareModule.defaultProps = ShareModuleDefaultProps;
 
 function ownKeys$c(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$c(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$c(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$c(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$c(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$c(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$c(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var TabPropTypes = _objectSpread$c(_objectSpread$c({
   currentTab: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
@@ -1765,7 +1630,7 @@ var Tab = function Tab(_ref4) {
   var tabs = _ref4.tabs,
       currentTab = _ref4.currentTab,
       _onChange = _ref4.onChange,
-      props = objectWithoutProperties(_ref4, ["tabs", "currentTab", "onChange"]);
+      props = _objectWithoutProperties(_ref4, ["tabs", "currentTab", "onChange"]);
 
   return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Wrapper$2, props, /*#__PURE__*/React__default.createElement(StyledTabs, {
     value: currentTab,
@@ -1830,7 +1695,7 @@ ImageModal.defaultProps = {
 
 function ownKeys$d(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
 
-function _objectSpread$d(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$d(Object(source), true).forEach(function (key) { defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$d(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
+function _objectSpread$d(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$d(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$d(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var ThumbnailPropTypes = _objectSpread$d(_objectSpread$d({
   hasPreview: PropTypes.bool,
   imgSrc: PropTypes.string,
@@ -1869,15 +1734,15 @@ var Thumbnail = function Thumbnail(_ref3) {
   var hasPreview = _ref3.hasPreview,
       imgSrc = _ref3.imgSrc,
       onClick = _ref3.onClick,
-      props = objectWithoutProperties(_ref3, ["hasPreview", "imgSrc", "onClick"]);
+      props = _objectWithoutProperties(_ref3, ["hasPreview", "imgSrc", "onClick"]);
 
   var _useState = React.useState(false),
-      _useState2 = slicedToArray(_useState, 2),
+      _useState2 = _slicedToArray(_useState, 2),
       loadError = _useState2[0],
       setLoadError = _useState2[1];
 
   var _useState3 = React.useState(false),
-      _useState4 = slicedToArray(_useState3, 2),
+      _useState4 = _slicedToArray(_useState3, 2),
       previewOpen = _useState4[0],
       setPreviewOpen = _useState4[1];
 
@@ -1885,7 +1750,7 @@ var Thumbnail = function Thumbnail(_ref3) {
     if (hasPreview) setPreviewOpen(true);else onClick();
   };
 
-  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Container$3, _extends_1({
+  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Container$3, _extends({
     onClick: handleClick
   }, props), loadError ? /*#__PURE__*/React__default.createElement(StyledIcon$2, {
     color: "secondary",
@@ -1912,6 +1777,7 @@ var Thumbnail = function Thumbnail(_ref3) {
 Thumbnail.propTypes = ThumbnailPropTypes;
 Thumbnail.defaultProps = ThumbnailDefaultProps;
 
+exports.AppContainer = AppContainer;
 exports.Button = Button;
 exports.ButtonBase = ButtonBase;
 exports.ChipBadge = ChipBadge;
