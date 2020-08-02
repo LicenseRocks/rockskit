@@ -54,7 +54,7 @@ const StyledInput = styled.input`
   &:checked + label::before {
     background-color: ${({ theme }) => theme.palette.primary.main};
     border-color: ${({ theme }) => theme.palette.primary.main};
-    background-image: url(${`${Check}`});
+    background-image: url("${`${Check}`}");
     background-size: 16px 16px;
     background-repeat: no-repeat;
     background-position: center;

@@ -13,6 +13,8 @@ import AsyncSelect from "react-select/async";
 import { ReactSelectDefaultProps, ReactSelectPropTypes } from "./props";
 
 const ReactSelectWrapper = styled.div`
+  flex: 1;
+
   .react-select__control {
     border-radius: 12px;
     color: ${({ theme }) => theme.palette.text.primary};
