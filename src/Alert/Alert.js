@@ -1,7 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { DISPLAY, Icon, SPACER } from "..";
+import { DISPLAY, SPACER } from "..";
+import { Icon } from "../Icon";
 import { AlertPropTypes, AlertDefaultProps } from "./props";
 
 const StyledMessage = styled.div`
