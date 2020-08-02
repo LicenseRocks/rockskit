@@ -9,11 +9,12 @@
     "url": "https://github.com/LicenseRocks/rockskit"
   },
   "scripts": {
-    "build": "rollup --config",
+    "build": "NODE_ENV=build rollup -c",
     "build-storybook": "build-storybook --quiet -s ./.storybook/static",
     "deploy-storybook": "storybook-to-ghpages",
     "start-storybook": "start-storybook -s ./.storybook/static -p 9000 --quiet -c .storybook",
-    "test": "jest"
+    "test:snapshot": "jest",
+    "test:snapshot:update": "jest --updateSnapshot"
   },
   "author": "",
   "license": "ISC",
