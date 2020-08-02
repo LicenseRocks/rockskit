@@ -18,6 +18,7 @@ const StyledInput = styled(({ component: Component, ...props }) => (
   height: 100%;
   box-sizing: border-box;
   transition: all 100ms ease-in-out;
+  background-color: transparent;
 
   ::placeholder {
     font-weight: normal;
