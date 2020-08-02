@@ -24,15 +24,19 @@ const StyledInput = styled(({ component: Component, ...props }) => (
     font-weight: normal;
   }
 
-  &:read-only {
-    cursor: ${({ selectable }) => !selectable && "not-allowed"};
-  }
-
   &:disabled {
     opacity: 0.3;
     cursor: not-allowed;
     pointer-events: none;
   }
+
+  ${({ component }) =>
+    component === "input" &&
+    css`
+      &:read-only {
+        cursor: ${({ selectable }) => !selectable && "not-allowed"};
+      }
+    `}
 
   ${({ hasError }) =>
     hasError &&
@@ -68,6 +72,7 @@ export const FieldBase = ({
   startIconOnClick,
   ...props
 }) => {
+  console.log("props: ", props);
   return (
     <FieldWrapper
       endIcon={endIcon}

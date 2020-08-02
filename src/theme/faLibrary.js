@@ -2,6 +2,7 @@ import { library } from "@fortawesome/fontawesome-svg-core";
 
 import {
   faBox,
+  faCheck,
   faCheckCircle,
   faChevronDown,
   faChevronLeft,
@@ -33,6 +34,7 @@ library.add(
   fabTwitter,
   fabWhatsapp,
   faBox,
+  faCheck,
   faCheckCircle,
   faChevronDown,
   faChevronLeft,
