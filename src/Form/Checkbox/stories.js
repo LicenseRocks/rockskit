@@ -3,11 +3,11 @@ import { withKnobs, boolean } from "@storybook/addon-knobs";
 import { useForm } from "react-hook-form";
 
 import { StoryWrapper } from "../../../.storybook/decorators";
-import { Radio } from "./Radio";
+import { Checkbox } from "./Checkbox";
 
 export default {
-  title: "Form/Radio",
-  component: Radio,
+  title: "Form/Checkbox",
+  component: Checkbox,
   decorators: [StoryWrapper, withKnobs],
 };
 
@@ -17,7 +17,7 @@ export const main = () => {
   const defaultProps = {
     disabled: boolean("Disabled", false),
     hasError: boolean("Has error", false),
-    name: "radio",
+    name: "checkbox",
     options: [
       { value: "first", label: "First" },
       { value: "second", label: "Second" },
@@ -27,5 +27,5 @@ export const main = () => {
     stacked: boolean("Stacked", false),
   };
 
-  return <Radio {...defaultProps} />;
+  return <Checkbox {...defaultProps} />;
 };
