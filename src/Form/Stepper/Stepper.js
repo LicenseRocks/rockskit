@@ -1,10 +1,10 @@
 import React from "react";
 import { Controller } from "react-hook-form";
 
-import { Toggle } from "./Toggle";
-import { ToggleSwitchPropTypes, ToggleSwitchDefaultProps } from "./props";
+import { StepperComponent } from "./Component";
+import { StepperPropTypes, StepperDefaultProps } from "./props";
 
-export const ToggleSwitch = ({
+export const Stepper = ({
   control,
   defaultValue,
   isRequired,
@@ -14,7 +14,7 @@ export const ToggleSwitch = ({
   return (
     <Controller
       render={(events) => (
-        <Toggle defaultValue={defaultValue} {...props} {...events} />
+        <StepperComponent defaultValue={defaultValue} {...props} {...events} />
       )}
       control={control}
       defaultValue={defaultValue}
@@ -24,6 +24,6 @@ export const ToggleSwitch = ({
   );
 };
 
-ToggleSwitch.propTypes = ToggleSwitchPropTypes;
+Stepper.propTypes = StepperPropTypes;
 
-ToggleSwitch.defaultProps = ToggleSwitchDefaultProps;
+Stepper.defaultProps = StepperDefaultProps;
