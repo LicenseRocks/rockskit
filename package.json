@@ -9,11 +9,12 @@
     "url": "https://github.com/LicenseRocks/rockskit"
   },
   "scripts": {
-    "build": "rollup --config",
+    "build": "NODE_ENV=production rollup -c",
     "build-storybook": "build-storybook --quiet -s ./.storybook/static",
     "deploy-storybook": "storybook-to-ghpages",
     "start-storybook": "start-storybook -s ./.storybook/static -p 9000 --quiet -c .storybook",
-    "test": "jest"
+    "test:snapshot": "jest",
+    "test:snapshot:update": "jest --updateSnapshot"
   },
   "author": "",
   "license": "ISC",
@@ -21,12 +22,16 @@
     "@babel/runtime": "^7.10.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
-    "@fortawesome/pro-regular-svg-icons": "^5.14.0",
+    "@fortawesome/free-solid-svg-icons": "^5.14.0",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@material-ui/core": "^4.11.0",
+    "axios": "^0.19.2",
     "copy-to-clipboard": "^3.3.1",
     "qrcode.react": "^1.0.0",
     "react-collapse": "^5.0.1",
+    "react-dropzone": "^11.0.2",
+    "react-hook-form": "^6.2.0",
+    "react-select": "^3.1.0",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {

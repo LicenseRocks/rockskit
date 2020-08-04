@@ -1,3 +1,4 @@
+export * from "./Alert";
 export * from "./AppContainer";
 export * from "./Badge";
 export * from "./Button";
@@ -17,3 +18,4 @@ export * from "./Tab";
 export * from "./theme";
 export * from "./Thumbnail";
 export * from "./Typography";
+export * from "./Wizard/Wizard";

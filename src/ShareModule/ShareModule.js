@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css, useTheme } from "styled-components";
 import copy from "copy-to-clipboard";
 
 import {
@@ -37,6 +37,7 @@ const StyledText = styled(Text).attrs(() => ({
 `;
 
 export const ShareModule = ({ copyText, shareOptions, url, ...props }) => {
+  const theme = useTheme();
   const navigatorShare =
     typeof window !== "undefined" && window?.navigator?.share
       ? window?.navigator?.share
@@ -73,7 +74,7 @@ export const ShareModule = ({ copyText, shareOptions, url, ...props }) => {
         {shareOptions.includes("email") && (
           <ShareModuleButton
             icon="envelope"
-            iconPrefix="far"
+            iconPrefix={theme.defaultIconSet}
             href={`mailto:?body=${url}`}
           />
         )}
@@ -81,7 +82,7 @@ export const ShareModule = ({ copyText, shareOptions, url, ...props }) => {
         {shareOptions.includes("navigator") && navigatorShare && (
           <ShareModuleButton
             icon="ellipsis-h"
-            iconPrefix="far"
+            iconPrefix={theme.defaultIconSet}
             onClick={() => navigatorShare({ url })}
           />
         )}

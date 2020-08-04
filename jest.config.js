@@ -6,7 +6,8 @@ module.exports = {
       "<rootDir>/.jest/fileMock.js",
   },
   roots: ["<rootDir>/src"],
+  testMatch: ["<rootDir>/src/*.test.js"],
   setupFiles: ["<rootDir>/.jest/jest.init.js"],
   setupFilesAfterEnv: ["<rootDir>/.jest/setupTestAfterEnv.js"],
-  transformIgnorePatterns: ["/node_modules/(?!(@babel/runtime)/).*/"],
+  transformIgnorePatterns: ["/node_modules/(?!(@babel/runtime)/).*/", "/dist/"],
 };

@@ -1,9 +1,11 @@
 import React from "react";
 
-import { AppContainer } from "../../src";
-import { theme } from "../../src/theme";
-import "../../src/theme/faLibrary";
+import { AppContainer, RocksKitIcons, RocksKitTheme } from "../../src";
 
 export const Container = (story) => {
-  return <AppContainer theme={theme}>{story()}</AppContainer>;
+  return (
+    <AppContainer icons={RocksKitIcons} theme={RocksKitTheme}>
+      {story()}
+    </AppContainer>
+  );
 };

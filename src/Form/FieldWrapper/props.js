@@ -11,9 +11,11 @@ export const FieldWrapperPropTypes = {
   endIcon: PropTypes.string,
   endIconColor: PropTypes.oneOf(THEME_COLORS),
   endIconOnClick: PropTypes.func,
+  endIconPrefix: PropTypes.string,
   startIcon: PropTypes.string,
   startIconColor: PropTypes.oneOf(THEME_COLORS),
   startIconOnClick: PropTypes.func,
+  startIconPrefix: PropTypes.string,
   ...SPACER_PROP_TYPES,
   ...DISPLAY_PROP_TYPES,
 };

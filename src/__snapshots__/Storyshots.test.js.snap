@@ -1,20 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Storyshots Badge/ChipBadge Main 1`] = `
-.c0 {
-  position: relative;
-  padding: 16px;
-}
-
 .c3.c3 {
   font-weight: 600;
   font-size: 14px;
   font-style: normal;
-}
-
-.c2 {
-  font-size: 16px;
-  color: #AC00fC;
 }
 
 .c1 {
@@ -46,6 +36,16 @@ exports[`Storyshots Badge/ChipBadge Main 1`] = `
   padding-left: 8px;
 }
 
+.c2 {
+  font-size: 16px;
+  color: #AC00fC;
+}
+
+.c0 {
+  position: relative;
+  padding: 16px;
+}
+
 <div
   className="c0"
 >
@@ -71,24 +71,19 @@ exports[`Storyshots Badge/ChipBadge Main 1`] = `
         style={Object {}}
       />
     </svg>
-    <span
+    <div
       className="MuiTypography-root c3 c4 MuiTypography-body2"
       fontSize="md"
       fontStyle="normal"
       fontWeight="bold"
     >
       Label
-    </span>
+    </div>
   </div>
 </div>
 `;
 
 exports[`Storyshots Button Main 1`] = `
-.c0 {
-  position: relative;
-  padding: 16px;
-}
-
 .c2.c2 {
   box-sizing: border-box;
   border-radius: 12px;
@@ -127,6 +122,11 @@ exports[`Storyshots Button Main 1`] = `
 
 .c5.c5 {
   color: #AC00fC;
+}
+
+.c0 {
+  position: relative;
+  padding: 16px;
 }
 
 .c1 {
@@ -230,11 +230,6 @@ exports[`Storyshots Button Main 1`] = `
 `;
 
 exports[`Storyshots DetailsTable Main 1`] = `
-.c0 {
-  position: relative;
-  padding: 16px;
-}
-
 .c2.c2 {
   font-weight: normal;
   font-size: 14px;
@@ -245,30 +240,6 @@ exports[`Storyshots DetailsTable Main 1`] = `
   font-weight: 600;
   font-size: 14px;
   font-style: normal;
-}
-
-.c1 {
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  height: 32px;
-  margin-bottom: 8px;
-}
-
-.c3 {
-  -webkit-flex: 0 140px;
-  -ms-flex: 0 140px;
-  flex: 0 140px;
-}
-
-.c5 {
-  font-size: 16px;
-  color: #AC00fC;
 }
 
 .c4 {
@@ -300,49 +271,81 @@ exports[`Storyshots DetailsTable Main 1`] = `
   padding-left: 8px;
 }
 
+.c1 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  height: 32px;
+  margin-bottom: 8px;
+}
+
+.c3 {
+  -webkit-flex: 0 140px;
+  -ms-flex: 0 140px;
+  flex: 0 140px;
+}
+
+.c5 {
+  font-size: 16px;
+  color: #AC00fC;
+}
+
+.c0 {
+  position: relative;
+  padding: 16px;
+}
+
 <div
   className="c0"
 >
   <div
     className=""
+    id="detailstable--main"
+    kind="DetailsTable"
+    name="Main"
   >
     <div
       className="c1"
     >
-      <span
+      <div
         className="MuiTypography-root c2 c3 MuiTypography-body2 MuiTypography-colorTextSecondary"
         fontSize="md"
         fontStyle="normal"
         fontWeight="regular"
       >
         Last updated
-      </span>
+      </div>
       4 Feb 2020
     </div>
     <div
       className="c1"
     >
-      <span
+      <div
         className="MuiTypography-root c2 c3 MuiTypography-body2 MuiTypography-colorTextSecondary"
         fontSize="md"
         fontStyle="normal"
         fontWeight="regular"
       >
         Creator
-      </span>
+      </div>
       Majid Amiri
     </div>
     <div
       className="c1"
     >
-      <span
+      <div
         className="MuiTypography-root c2 c3 MuiTypography-body2 MuiTypography-colorTextSecondary"
         fontSize="md"
         fontStyle="normal"
         fontWeight="regular"
       >
         Status
-      </span>
+      </div>
       <div
         className="c4"
         color="primary"
@@ -365,27 +368,27 @@ exports[`Storyshots DetailsTable Main 1`] = `
             style={Object {}}
           />
         </svg>
-        <span
+        <div
           className="MuiTypography-root c6 c7 MuiTypography-body2"
           fontSize="md"
           fontStyle="normal"
           fontWeight="bold"
         >
           Verified
-        </span>
+        </div>
       </div>
     </div>
     <div
       className="c1"
     >
-      <span
+      <div
         className="MuiTypography-root c2 c3 MuiTypography-body2 MuiTypography-colorTextSecondary"
         fontSize="md"
         fontStyle="normal"
         fontWeight="regular"
       >
         Amount
-      </span>
+      </div>
       <h3
         className="MuiTypography-root MuiTypography-h3"
       >
@@ -395,14 +398,14 @@ exports[`Storyshots DetailsTable Main 1`] = `
     <div
       className="c1"
     >
-      <span
+      <div
         className="MuiTypography-root c2 c3 MuiTypography-body2 MuiTypography-colorTextSecondary"
         fontSize="md"
         fontStyle="normal"
         fontWeight="regular"
       >
         Unit Price
-      </span>
+      </div>
       <h3
         className="MuiTypography-root MuiTypography-h3 MuiTypography-colorPrimary"
       >
@@ -413,12 +416,599 @@ exports[`Storyshots DetailsTable Main 1`] = `
 </div>
 `;
 
-exports[`Storyshots Form/Input Main 1`] = `
+exports[`Storyshots DownloadModule Main 1`] = `
+.c7.c7 {
+  font-weight: normal;
+  font-size: 14px;
+  font-style: normal;
+  margin-left: 8px !important;
+}
+
+.c5.c5 {
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 0 16px;
+  min-width: 40px;
+  height: 40px;
+  -webkit-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
+  font-size: 12px;
+  padding: 0 8px;
+  height: 32px;
+  border-radius: 8px;
+}
+
+.c5.c5:hover {
+  opacity: 0.7;
+}
+
+.c5.c5:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.c8.c8 {
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 0 16px;
+  min-width: 40px;
+  height: 40px;
+  -webkit-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
+  font-size: 12px;
+  padding: 0 8px;
+  height: 32px;
+  border-radius: 8px;
+  margin-left: 4px !important;
+}
+
+.c8.c8:hover {
+  opacity: 0.7;
+}
+
+.c8.c8:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.c6.c6 {
+  color: #AC00fC;
+}
+
+.c3 {
+  display: -webkit-inline-box;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  border-radius: 12px;
+}
+
+.c3.c3 {
+  width: 40px;
+  height: 40px;
+  background-color: #F5E0FF;
+}
+
+.c3.c3 svg {
+  color: #AC00fC;
+}
+
+.c1 {
+  background-color: #F0F0F4;
+  padding: 16px;
+  border-radius: 16px;
+}
+
+.c2 {
+  margin-bottom: 32px !important;
+}
+
+.c4 {
+  font-size: 20px;
+  color: #AC00fC;
+}
+
 .c0 {
   position: relative;
   padding: 16px;
 }
 
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+  >
+    <div
+      className="MuiGrid-root c2 MuiGrid-container MuiGrid-align-items-xs-center"
+      mb={8}
+    >
+      <div
+        className="c3"
+      >
+        <svg
+          aria-hidden="true"
+          className="svg-inline--fa fa-file-pdf fa-w-12 c4"
+          color="primary"
+          data-icon="file-pdf"
+          data-prefix="far"
+          focusable="false"
+          role="img"
+          style={Object {}}
+          viewBox="0 0 384 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M369.9 97.9L286 14C277 5 264.8-.1 252.1-.1H48C21.5 0 0 21.5 0 48v416c0 26.5 21.5 48 48 48h288c26.5 0 48-21.5 48-48V131.9c0-12.7-5.1-25-14.1-34zM332.1 128H256V51.9l76.1 76.1zM48 464V48h160v104c0 13.3 10.7 24 24 24h104v288H48zm250.2-143.7c-12.2-12-47-8.7-64.4-6.5-17.2-10.5-28.7-25-36.8-46.3 3.9-16.1 10.1-40.6 5.4-56-4.2-26.2-37.8-23.6-42.6-5.9-4.4 16.1-.4 38.5 7 67.1-10 23.9-24.9 56-35.4 74.4-20 10.3-47 26.2-51 46.2-3.3 15.8 26 55.2 76.1-31.2 22.4-7.4 46.8-16.5 68.4-20.1 18.9 10.2 41 17 55.8 17 25.5 0 28-28.2 17.5-38.7zm-198.1 77.8c5.1-13.7 24.5-29.5 30.4-35-19 30.3-30.4 35.7-30.4 35zm81.6-190.6c7.4 0 6.7 32.1 1.8 40.8-4.4-13.9-4.3-40.8-1.8-40.8zm-24.4 136.6c9.7-16.9 18-37 24.7-54.7 8.3 15.1 18.9 27.2 30.1 35.5-20.8 4.3-38.9 13.1-54.8 19.2zm131.6-5s-5 6-37.3-7.8c35.1-2.6 40.9 5.4 37.3 7.8z"
+            fill="currentColor"
+            style={Object {}}
+          />
+        </svg>
+      </div>
+      <button
+        className="MuiButtonBase-root c5 c6"
+        color="primary"
+        disabled={false}
+        onBlur={[Function]}
+        onDragLeave={[Function]}
+        onFocus={[Function]}
+        onKeyDown={[Function]}
+        onKeyUp={[Function]}
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchMove={[Function]}
+        onTouchStart={[Function]}
+        size="sm"
+        tabIndex={0}
+        type="button"
+      >
+        Download as PDF
+      </button>
+    </div>
+    <div
+      className="MuiGrid-root MuiGrid-container MuiGrid-wrap-xs-nowrap MuiGrid-align-items-xs-center"
+    >
+      <canvas
+        height={76}
+        style={
+          Object {
+            "height": 76,
+            "width": 76,
+          }
+        }
+        width={76}
+      />
+      <div
+        className="MuiGrid-root MuiGrid-item MuiGrid-align-items-xs-center"
+      >
+        <div
+          className="MuiTypography-root c7 MuiTypography-body2"
+          fontSize="md"
+          fontStyle="normal"
+          fontWeight="regular"
+          ml={2}
+        >
+          Or just download the QR Code of license
+        </div>
+        <button
+          className="MuiButtonBase-root c8 c6"
+          color="primary"
+          disabled={false}
+          ml={1}
+          onBlur={[Function]}
+          onDragLeave={[Function]}
+          onFocus={[Function]}
+          onKeyDown={[Function]}
+          onKeyUp={[Function]}
+          onMouseDown={[Function]}
+          onMouseLeave={[Function]}
+          onMouseUp={[Function]}
+          onTouchEnd={[Function]}
+          onTouchMove={[Function]}
+          onTouchStart={[Function]}
+          size="sm"
+          tabIndex={0}
+          type="button"
+        >
+          Download QR Code
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots FileManager Main 1`] = `
+.c2.c2 {
+  font-weight: 600;
+  font-size: 14px;
+  font-style: normal;
+  margin-bottom: 8px !important;
+}
+
+.c10.c10 {
+  font-weight: normal;
+  font-size: 14px;
+  font-style: italic;
+}
+
+.c11.c11 {
+  font-weight: 600;
+  font-size: 14px;
+  font-style: normal;
+}
+
+.c1 {
+  border: 1px solid #F0F0F4;
+  padding: 16px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+}
+
+.c3 {
+  width: 100%;
+  height: 48px;
+  margin-bottom: 8px;
+}
+
+.c4 {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+
+.c7 {
+  font-size: 16px;
+  color: #AC00fC;
+}
+
+.c9 {
+  width: 48px;
+  height: 100%;
+  object-fit: fill;
+}
+
+.c5 {
+  position: relative;
+  height: 48px;
+  width: 48px;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+  margin-right: 16px !important;
+}
+
+.c6 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.c6:hover {
+  background-color: rgba(0,0,0,0.2);
+}
+
+.c8 {
+  color: #FFFFFF;
+}
+
+.c0 {
+  position: relative;
+  padding: 16px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className=""
+  >
+    <div
+      className="c1"
+    >
+      <div
+        className="MuiTypography-root c2 MuiTypography-body2"
+        fontSize="md"
+        fontStyle="normal"
+        fontWeight="bold"
+        mb={2}
+      >
+        Proof documents
+      </div>
+      <div
+        className="MuiGrid-root c3 MuiGrid-container"
+      >
+        <div
+          className="MuiGrid-root c4 MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-md-5 MuiGrid-grid-lg-5"
+        >
+          <div
+            className="c5"
+            onClick={[Function]}
+          >
+            <div
+              className="c6"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-search-plus fa-w-16 c7 c8"
+                color="primary"
+                data-icon="search-plus"
+                data-prefix="far"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M312 196v24c0 6.6-5.4 12-12 12h-68v68c0 6.6-5.4 12-12 12h-24c-6.6 0-12-5.4-12-12v-68h-68c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h68v-68c0-6.6 5.4-12 12-12h24c6.6 0 12 5.4 12 12v68h68c6.6 0 12 5.4 12 12zm196.5 289.9l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L347.5 387.1c-2.3-2.3-3.5-5.3-3.5-8.5v-13.2c-36.5 31.5-84 50.6-136 50.6C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 52-19.1 99.5-50.6 136h13.2c3.2 0 6.2 1.3 8.5 3.5l121.4 121.4c4.7 4.7 4.7 12.3 0 17zM368 208c0-88.4-71.6-160-160-160S48 119.6 48 208s71.6 160 160 160 160-71.6 160-160z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </div>
+            <img
+              alt="Thumbnail"
+              className="c9"
+              itemProp="contentUrl"
+              onError={[Function]}
+              src="https://via.placeholder.com/500"
+              width="48px"
+            />
+          </div>
+          <div
+            className="MuiTypography-root c10 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-noWrap"
+            fontSize="md"
+            fontStyle="italic"
+            fontWeight="regular"
+          >
+            license_273.pdf
+          </div>
+        </div>
+        <div
+          className="MuiGrid-root c4 MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-md-3 MuiGrid-grid-lg-4"
+        >
+          <div
+            className="MuiTypography-root c11 MuiTypography-body2 MuiTypography-colorTextSecondary"
+            fontSize="md"
+            fontStyle="normal"
+            fontWeight="bold"
+          >
+            01/03/2020
+          </div>
+        </div>
+        <div
+          className="MuiGrid-root c4 MuiGrid-item MuiGrid-justify-xs-flex-end MuiGrid-grid-xs-4 MuiGrid-grid-lg-3"
+        >
+          <div
+            className="MuiTypography-root c11 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-noWrap"
+            fontSize="md"
+            fontStyle="normal"
+            fontWeight="bold"
+          >
+            Certificate with QR Code
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c1"
+    >
+      <div
+        className="MuiTypography-root c2 MuiTypography-body2"
+        fontSize="md"
+        fontStyle="normal"
+        fontWeight="bold"
+        mb={2}
+      >
+        Contracts
+      </div>
+      <div
+        className="MuiGrid-root c3 MuiGrid-container"
+      >
+        <div
+          className="MuiGrid-root c4 MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-md-5 MuiGrid-grid-lg-5"
+        >
+          <div
+            className="c5"
+            onClick={[Function]}
+          >
+            <div
+              className="c6"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-search-plus fa-w-16 c7 c8"
+                color="primary"
+                data-icon="search-plus"
+                data-prefix="far"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M312 196v24c0 6.6-5.4 12-12 12h-68v68c0 6.6-5.4 12-12 12h-24c-6.6 0-12-5.4-12-12v-68h-68c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h68v-68c0-6.6 5.4-12 12-12h24c6.6 0 12 5.4 12 12v68h68c6.6 0 12 5.4 12 12zm196.5 289.9l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L347.5 387.1c-2.3-2.3-3.5-5.3-3.5-8.5v-13.2c-36.5 31.5-84 50.6-136 50.6C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 52-19.1 99.5-50.6 136h13.2c3.2 0 6.2 1.3 8.5 3.5l121.4 121.4c4.7 4.7 4.7 12.3 0 17zM368 208c0-88.4-71.6-160-160-160S48 119.6 48 208s71.6 160 160 160 160-71.6 160-160z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </div>
+            <img
+              alt="Thumbnail"
+              className="c9"
+              itemProp="contentUrl"
+              onError={[Function]}
+              src=""
+              width="48px"
+            />
+          </div>
+          <div
+            className="MuiTypography-root c10 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-noWrap"
+            fontSize="md"
+            fontStyle="italic"
+            fontWeight="regular"
+          >
+            license_273.pdf
+          </div>
+        </div>
+        <div
+          className="MuiGrid-root c4 MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-md-3 MuiGrid-grid-lg-4"
+        >
+          <div
+            className="MuiTypography-root c11 MuiTypography-body2 MuiTypography-colorTextSecondary"
+            fontSize="md"
+            fontStyle="normal"
+            fontWeight="bold"
+          >
+            01/03/2020
+          </div>
+        </div>
+        <div
+          className="MuiGrid-root c4 MuiGrid-item MuiGrid-justify-xs-flex-end MuiGrid-grid-xs-4 MuiGrid-grid-lg-3"
+        >
+          <div
+            className="MuiTypography-root c11 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-noWrap"
+            fontSize="md"
+            fontStyle="normal"
+            fontWeight="bold"
+          >
+            Certificate with QR Code
+          </div>
+        </div>
+      </div>
+      <div
+        className="MuiGrid-root c3 MuiGrid-container"
+      >
+        <div
+          className="MuiGrid-root c4 MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-md-5 MuiGrid-grid-lg-5"
+        >
+          <div
+            className="c5"
+            onClick={[Function]}
+          >
+            <div
+              className="c6"
+            >
+              <svg
+                aria-hidden="true"
+                className="svg-inline--fa fa-search-plus fa-w-16 c7 c8"
+                color="primary"
+                data-icon="search-plus"
+                data-prefix="far"
+                focusable="false"
+                role="img"
+                style={Object {}}
+                viewBox="0 0 512 512"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M312 196v24c0 6.6-5.4 12-12 12h-68v68c0 6.6-5.4 12-12 12h-24c-6.6 0-12-5.4-12-12v-68h-68c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h68v-68c0-6.6 5.4-12 12-12h24c6.6 0 12 5.4 12 12v68h68c6.6 0 12 5.4 12 12zm196.5 289.9l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L347.5 387.1c-2.3-2.3-3.5-5.3-3.5-8.5v-13.2c-36.5 31.5-84 50.6-136 50.6C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 52-19.1 99.5-50.6 136h13.2c3.2 0 6.2 1.3 8.5 3.5l121.4 121.4c4.7 4.7 4.7 12.3 0 17zM368 208c0-88.4-71.6-160-160-160S48 119.6 48 208s71.6 160 160 160 160-71.6 160-160z"
+                  fill="currentColor"
+                  style={Object {}}
+                />
+              </svg>
+            </div>
+            <img
+              alt="Thumbnail"
+              className="c9"
+              itemProp="contentUrl"
+              onError={[Function]}
+              src=""
+              width="48px"
+            />
+          </div>
+          <div
+            className="MuiTypography-root c10 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-noWrap"
+            fontSize="md"
+            fontStyle="italic"
+            fontWeight="regular"
+          >
+            denys-nevozhai-6OAWj_ZvSxx-unsplash.jpg
+          </div>
+        </div>
+        <div
+          className="MuiGrid-root c4 MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-md-3 MuiGrid-grid-lg-4"
+        >
+          <div
+            className="MuiTypography-root c11 MuiTypography-body2 MuiTypography-colorTextSecondary"
+            fontSize="md"
+            fontStyle="normal"
+            fontWeight="bold"
+          >
+            01/03/2019
+          </div>
+        </div>
+        <div
+          className="MuiGrid-root c4 MuiGrid-item MuiGrid-justify-xs-flex-end MuiGrid-grid-xs-4 MuiGrid-grid-lg-3"
+        >
+          <div
+            className="MuiTypography-root c11 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-noWrap"
+            fontSize="md"
+            fontStyle="normal"
+            fontWeight="bold"
+          >
+            Enterprise contract
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Storyshots Form/Input Main 1`] = `
 .c2 {
   font-size: 16px;
   color: #CECDD9;
@@ -506,6 +1096,11 @@ exports[`Storyshots Form/Input Main 1`] = `
   pointer-events: none;
 }
 
+.c0 {
+  position: relative;
+  padding: 16px;
+}
+
 <div
   className="c0"
 >
@@ -562,16 +1157,6 @@ exports[`Storyshots Form/Input Main 1`] = `
 `;
 
 exports[`Storyshots History Main 1`] = `
-.c0 {
-  position: relative;
-  padding: 16px;
-}
-
-.c15 .ReactCollapse--collapse {
-  -webkit-transition: height 200ms ease-in-out;
-  transition: height 200ms ease-in-out;
-}
-
 .c10.c10 {
   font-weight: 600;
   font-size: 14px;
@@ -588,6 +1173,11 @@ exports[`Storyshots History Main 1`] = `
   font-weight: normal;
   font-size: 14px;
   font-style: italic;
+}
+
+.c15 .ReactCollapse--collapse {
+  -webkit-transition: height 200ms ease-in-out;
+  transition: height 200ms ease-in-out;
 }
 
 .c5 {
@@ -725,23 +1315,7 @@ exports[`Storyshots History Main 1`] = `
 
 .c8 {
   width: 100%;
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-align-items: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  -webkit-box-pack: justify;
-  -webkit-justify-content: space-between;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  -webkit-flex-wrap: nowrap;
-  -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
   height: 100%;
-  border-bottom: 1px solid #F0F0F4;
 }
 
 .c9 {
@@ -771,285 +1345,294 @@ exports[`Storyshots History Main 1`] = `
   padding: 16px 40px;
 }
 
+.c0 {
+  position: relative;
+  padding: 16px;
+}
+
 <div
   className="c0"
 >
   <div
-    className="c1"
-    data-cy="historyItem"
+    className=""
   >
     <div
-      className="c2 c3"
-    />
-    <div
-      className="c4"
+      className="c1"
+      data-cy="historyItem"
     >
       <div
-        className="c5 c6"
-        color="success"
-        prefix="far"
-        size="md"
-      >
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-check-circle fa-w-16 c7"
-          color="success"
-          data-icon="check-circle"
-          data-prefix="far"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 512 512"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 48c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m140.204 130.267l-22.536-22.718c-4.667-4.705-12.265-4.736-16.97-.068L215.346 303.697l-59.792-60.277c-4.667-4.705-12.265-4.736-16.97-.069l-22.719 22.536c-4.705 4.667-4.736 12.265-.068 16.971l90.781 91.516c4.667 4.705 12.265 4.736 16.97.068l172.589-171.204c4.704-4.668 4.734-12.266.067-16.971z"
-            fill="currentColor"
-            style={Object {}}
-          />
-        </svg>
-      </div>
+        className="c2 c3"
+      />
       <div
-        className="c8"
+        className="c4"
       >
         <div
-          className="c9"
+          className="c5 c6"
+          color="success"
+          prefix="far"
+          size="md"
         >
-          <span
-            className="MuiTypography-root c10 MuiTypography-body2"
-            fontSize="md"
-            fontStyle="normal"
-            fontWeight="bold"
-          >
-            Test
-          </span>
-        </div>
-        <div
-          className="c9"
-        >
-          <span
-            className="MuiTypography-root c11 MuiTypography-body2 MuiTypography-colorTextSecondary"
-            fontSize="md"
-            fontStyle="normal"
-            fontWeight="regular"
-          >
-            Description
-          </span>
-        </div>
-        <div
-          className="c9"
-        >
-          <span
-            className="MuiTypography-root c12 MuiTypography-body2 MuiTypography-colorTextSecondary"
-            fontSize="md"
-            fontStyle="italic"
-            fontWeight="regular"
-          >
-            2020-06-20
-          </span>
           <svg
             aria-hidden="true"
-            className="svg-inline--fa fa-chevron-down fa-w-14 c13 c14"
-            color="primary"
-            data-icon="chevron-down"
+            className="svg-inline--fa fa-check-circle fa-w-16 c7"
+            color="success"
+            data-icon="check-circle"
             data-prefix="far"
             focusable="false"
-            onClick={[Function]}
+            role="img"
+            style={Object {}}
+            viewBox="0 0 512 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M256 8C119.033 8 8 119.033 8 256s111.033 248 248 248 248-111.033 248-248S392.967 8 256 8zm0 48c110.532 0 200 89.451 200 200 0 110.532-89.451 200-200 200-110.532 0-200-89.451-200-200 0-110.532 89.451-200 200-200m140.204 130.267l-22.536-22.718c-4.667-4.705-12.265-4.736-16.97-.068L215.346 303.697l-59.792-60.277c-4.667-4.705-12.265-4.736-16.97-.069l-22.719 22.536c-4.705 4.667-4.736 12.265-.068 16.971l90.781 91.516c4.667 4.705 12.265 4.736 16.97.068l172.589-171.204c4.704-4.668 4.734-12.266.067-16.971z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiGrid-root c8 MuiGrid-container"
+        >
+          <div
+            className="MuiGrid-root c9 MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-lg-5"
+          >
+            <div
+              className="MuiTypography-root c10 MuiTypography-body2"
+              fontSize="md"
+              fontStyle="normal"
+              fontWeight="bold"
+            >
+              Test
+            </div>
+          </div>
+          <div
+            className="MuiGrid-root c9 MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-lg-4"
+          >
+            <div
+              className="MuiTypography-root c11 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-noWrap"
+              fontSize="md"
+              fontStyle="normal"
+              fontWeight="regular"
+            >
+              Description
+            </div>
+          </div>
+          <div
+            className="MuiGrid-root c9 MuiGrid-item MuiGrid-justify-xs-flex-end MuiGrid-grid-xs-4 MuiGrid-grid-lg-3"
+          >
+            <div
+              className="MuiTypography-root c12 MuiTypography-body2 MuiTypography-colorTextSecondary"
+              fontSize="md"
+              fontStyle="italic"
+              fontWeight="regular"
+            >
+              2020-06-20
+            </div>
+            <svg
+              aria-hidden="true"
+              className="svg-inline--fa fa-chevron-down fa-w-14 c13 c14"
+              color="primary"
+              data-icon="chevron-down"
+              data-prefix="far"
+              focusable="false"
+              onClick={[Function]}
+              role="img"
+              style={Object {}}
+              viewBox="0 0 448 512"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z"
+                fill="currentColor"
+                style={Object {}}
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div
+        className="c15"
+      >
+        <div
+          className="ReactCollapse--collapse"
+          style={
+            Object {
+              "height": "0px",
+              "overflow": "hidden",
+            }
+          }
+        >
+          <div
+            className="ReactCollapse--content"
+          >
+            <div
+              className="c16"
+            >
+              <div
+                className="MuiTypography-root c11 MuiTypography-body2"
+                fontSize="md"
+                fontStyle="normal"
+                fontWeight="regular"
+              >
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt suscipit purus, et ultrices ante sagittis sit amet. Nulla in scelerisque erat. Phasellus molestie turpis vel nisi commodo lacinia. Etiam vitae lectus lectus. Etiam et diam ex. Cras tellus dolor, congue sed libero cursus, dictum dapibus nisl. Nam efficitur ante non nibh efficitur, sed porttitor nisi tristique. Duis pellentesque eu dolor sit amet tristique. Ut id ligula aliquet, suscipit erat eget, commodo nisi. Sed ut diam non turpis pretium ultricies nec non purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras sagittis nisl sit amet mollis blandit. Fusce hendrerit lacus nec cursus scelerisque. Nullam mollis eu ante in pharetra. In aliquam sapien eu rutrum vestibulum. Aenean facilisis leo vitae odio laoreet ultrices.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c1"
+      data-cy="historyItem"
+    >
+      <div
+        className="c2 c3"
+      />
+      <div
+        className="c4"
+      >
+        <div
+          className="c17 c6"
+          color="secondary"
+          prefix="far"
+          size="md"
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-plus fa-w-12 c18"
+            color="secondary"
+            data-icon="plus"
+            data-prefix="far"
+            focusable="false"
+            role="img"
+            style={Object {}}
+            viewBox="0 0 384 512"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M368 224H224V80c0-8.84-7.16-16-16-16h-32c-8.84 0-16 7.16-16 16v144H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h144v144c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V288h144c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"
+              fill="currentColor"
+              style={Object {}}
+            />
+          </svg>
+        </div>
+        <div
+          className="MuiGrid-root c8 MuiGrid-container"
+        >
+          <div
+            className="MuiGrid-root c9 MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-lg-5"
+          >
+            <div
+              className="MuiTypography-root c10 MuiTypography-body2"
+              fontSize="md"
+              fontStyle="normal"
+              fontWeight="bold"
+            >
+              Test 2
+            </div>
+          </div>
+          <div
+            className="MuiGrid-root c9 MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-lg-4"
+          >
+            <div
+              className="MuiTypography-root c11 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-noWrap"
+              fontSize="md"
+              fontStyle="normal"
+              fontWeight="regular"
+            >
+              Some description
+            </div>
+          </div>
+          <div
+            className="MuiGrid-root c9 MuiGrid-item MuiGrid-justify-xs-flex-end MuiGrid-grid-xs-4 MuiGrid-grid-lg-3"
+          >
+            <div
+              className="MuiTypography-root c12 MuiTypography-body2 MuiTypography-colorTextSecondary"
+              fontSize="md"
+              fontStyle="italic"
+              fontWeight="regular"
+            >
+              2020-02-10
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      className="c1"
+      data-cy="historyItem"
+    >
+      <div
+        className="c2 c3"
+      />
+      <div
+        className="c4"
+      >
+        <div
+          className="c19 c6"
+          color="warning"
+          prefix="far"
+          size="md"
+        >
+          <svg
+            aria-hidden="true"
+            className="svg-inline--fa fa-copy fa-w-14 c20"
+            color="warning"
+            data-icon="copy"
+            data-prefix="far"
+            focusable="false"
             role="img"
             style={Object {}}
             viewBox="0 0 448 512"
             xmlns="http://www.w3.org/2000/svg"
           >
             <path
-              d="M441.9 167.3l-19.8-19.8c-4.7-4.7-12.3-4.7-17 0L224 328.2 42.9 147.5c-4.7-4.7-12.3-4.7-17 0L6.1 167.3c-4.7 4.7-4.7 12.3 0 17l209.4 209.4c4.7 4.7 12.3 4.7 17 0l209.4-209.4c4.7-4.7 4.7-12.3 0-17z"
+              d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"
               fill="currentColor"
               style={Object {}}
             />
           </svg>
         </div>
-      </div>
-    </div>
-    <div
-      className="c15"
-    >
-      <div
-        className="ReactCollapse--collapse"
-        style={
-          Object {
-            "height": "0px",
-            "overflow": "hidden",
-          }
-        }
-      >
         <div
-          className="ReactCollapse--content"
+          className="MuiGrid-root c8 MuiGrid-container"
         >
           <div
-            className="c16"
+            className="MuiGrid-root c9 MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-lg-5"
           >
-            <span
-              className="MuiTypography-root c11 MuiTypography-body2"
+            <div
+              className="MuiTypography-root c10 MuiTypography-body2"
+              fontSize="md"
+              fontStyle="normal"
+              fontWeight="bold"
+            >
+              Test 3
+            </div>
+          </div>
+          <div
+            className="MuiGrid-root c9 MuiGrid-item MuiGrid-grid-xs-4 MuiGrid-grid-lg-4"
+          >
+            <div
+              className="MuiTypography-root c11 MuiTypography-body2 MuiTypography-colorTextSecondary MuiTypography-noWrap"
               fontSize="md"
               fontStyle="normal"
               fontWeight="regular"
             >
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt suscipit purus, et ultrices ante sagittis sit amet. Nulla in scelerisque erat. Phasellus molestie turpis vel nisi commodo lacinia. Etiam vitae lectus lectus. Etiam et diam ex. Cras tellus dolor, congue sed libero cursus, dictum dapibus nisl. Nam efficitur ante non nibh efficitur, sed porttitor nisi tristique. Duis pellentesque eu dolor sit amet tristique. Ut id ligula aliquet, suscipit erat eget, commodo nisi. Sed ut diam non turpis pretium ultricies nec non purus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras sagittis nisl sit amet mollis blandit. Fusce hendrerit lacus nec cursus scelerisque. Nullam mollis eu ante in pharetra. In aliquam sapien eu rutrum vestibulum. Aenean facilisis leo vitae odio laoreet ultrices.
-            </span>
+              
+            </div>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="c1"
-    data-cy="historyItem"
-  >
-    <div
-      className="c2 c3"
-    />
-    <div
-      className="c4"
-    >
-      <div
-        className="c17 c6"
-        color="secondary"
-        prefix="far"
-        size="md"
-      >
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-plus fa-w-12 c18"
-          color="secondary"
-          data-icon="plus"
-          data-prefix="far"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 384 512"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M368 224H224V80c0-8.84-7.16-16-16-16h-32c-8.84 0-16 7.16-16 16v144H16c-8.84 0-16 7.16-16 16v32c0 8.84 7.16 16 16 16h144v144c0 8.84 7.16 16 16 16h32c8.84 0 16-7.16 16-16V288h144c8.84 0 16-7.16 16-16v-32c0-8.84-7.16-16-16-16z"
-            fill="currentColor"
-            style={Object {}}
-          />
-        </svg>
-      </div>
-      <div
-        className="c8"
-      >
-        <div
-          className="c9"
-        >
-          <span
-            className="MuiTypography-root c10 MuiTypography-body2"
-            fontSize="md"
-            fontStyle="normal"
-            fontWeight="bold"
+          <div
+            className="MuiGrid-root c9 MuiGrid-item MuiGrid-justify-xs-flex-end MuiGrid-grid-xs-4 MuiGrid-grid-lg-3"
           >
-            Test 2
-          </span>
-        </div>
-        <div
-          className="c9"
-        >
-          <span
-            className="MuiTypography-root c11 MuiTypography-body2 MuiTypography-colorTextSecondary"
-            fontSize="md"
-            fontStyle="normal"
-            fontWeight="regular"
-          >
-            
-          </span>
-        </div>
-        <div
-          className="c9"
-        >
-          <span
-            className="MuiTypography-root c12 MuiTypography-body2 MuiTypography-colorTextSecondary"
-            fontSize="md"
-            fontStyle="italic"
-            fontWeight="regular"
-          >
-            2020-02-10
-          </span>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div
-    className="c1"
-    data-cy="historyItem"
-  >
-    <div
-      className="c2 c3"
-    />
-    <div
-      className="c4"
-    >
-      <div
-        className="c19 c6"
-        color="warning"
-        prefix="far"
-        size="md"
-      >
-        <svg
-          aria-hidden="true"
-          className="svg-inline--fa fa-copy fa-w-14 c20"
-          color="warning"
-          data-icon="copy"
-          data-prefix="far"
-          focusable="false"
-          role="img"
-          style={Object {}}
-          viewBox="0 0 448 512"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path
-            d="M433.941 65.941l-51.882-51.882A48 48 0 0 0 348.118 0H176c-26.51 0-48 21.49-48 48v48H48c-26.51 0-48 21.49-48 48v320c0 26.51 21.49 48 48 48h224c26.51 0 48-21.49 48-48v-48h80c26.51 0 48-21.49 48-48V99.882a48 48 0 0 0-14.059-33.941zM266 464H54a6 6 0 0 1-6-6V150a6 6 0 0 1 6-6h74v224c0 26.51 21.49 48 48 48h96v42a6 6 0 0 1-6 6zm128-96H182a6 6 0 0 1-6-6V54a6 6 0 0 1 6-6h106v88c0 13.255 10.745 24 24 24h88v202a6 6 0 0 1-6 6zm6-256h-64V48h9.632c1.591 0 3.117.632 4.243 1.757l48.368 48.368a6 6 0 0 1 1.757 4.243V112z"
-            fill="currentColor"
-            style={Object {}}
-          />
-        </svg>
-      </div>
-      <div
-        className="c8"
-      >
-        <div
-          className="c9"
-        >
-          <span
-            className="MuiTypography-root c10 MuiTypography-body2"
-            fontSize="md"
-            fontStyle="normal"
-            fontWeight="bold"
-          >
-            Test 3
-          </span>
-        </div>
-        <div
-          className="c9"
-        >
-          <span
-            className="MuiTypography-root c11 MuiTypography-body2 MuiTypography-colorTextSecondary"
-            fontSize="md"
-            fontStyle="normal"
-            fontWeight="regular"
-          >
-            
-          </span>
-        </div>
-        <div
-          className="c9"
-        >
-          <span
-            className="MuiTypography-root c12 MuiTypography-body2 MuiTypography-colorTextSecondary"
-            fontSize="md"
-            fontStyle="italic"
-            fontWeight="regular"
-          >
-            2020-01-23
-          </span>
+            <div
+              className="MuiTypography-root c12 MuiTypography-body2 MuiTypography-colorTextSecondary"
+              fontSize="md"
+              fontStyle="italic"
+              fontWeight="regular"
+            >
+              2020-01-23
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -1058,14 +1641,14 @@ exports[`Storyshots History Main 1`] = `
 `;
 
 exports[`Storyshots Icon Main 1`] = `
-.c0 {
-  position: relative;
-  padding: 16px;
-}
-
 .c1 {
   font-size: 16px;
   color: #AC00fC;
+}
+
+.c0 {
+  position: relative;
+  padding: 16px;
 }
 
 <div
@@ -1110,10 +1693,251 @@ exports[`Storyshots Image Main 1`] = `
 </div>
 `;
 
-exports[`Storyshots ShareModule Main 1`] = `
+exports[`Storyshots Modal Main 1`] = `
+.c1.c1 {
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 0 16px;
+  min-width: 40px;
+  height: 40px;
+  -webkit-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
+  font-size: 16px;
+}
+
+.c1.c1:hover {
+  opacity: 0.7;
+}
+
+.c1.c1:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.c2.c2 {
+  background-color: #AC00fC;
+  color: #FFFFFF;
+}
+
 .c0 {
   position: relative;
   padding: 16px;
+}
+
+<div
+  className="c0"
+>
+  <button
+    className="MuiButtonBase-root c1 c2"
+    color="primary"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    size="md"
+    tabIndex={0}
+    type="button"
+  >
+    Open Modal
+  </button>
+</div>
+`;
+
+exports[`Storyshots Modal With Action 1`] = `
+.c1.c1 {
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 0 16px;
+  min-width: 40px;
+  height: 40px;
+  -webkit-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
+  font-size: 16px;
+}
+
+.c1.c1:hover {
+  opacity: 0.7;
+}
+
+.c1.c1:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.c2.c2 {
+  background-color: #AC00fC;
+  color: #FFFFFF;
+}
+
+.c0 {
+  position: relative;
+  padding: 16px;
+}
+
+<div
+  className="c0"
+>
+  <button
+    className="MuiButtonBase-root c1 c2"
+    color="primary"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    size="md"
+    tabIndex={0}
+    type="button"
+  >
+    Open Modal
+  </button>
+</div>
+`;
+
+exports[`Storyshots Modal With Loading 1`] = `
+.c1.c1 {
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 0 16px;
+  min-width: 40px;
+  height: 40px;
+  -webkit-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
+  font-size: 16px;
+}
+
+.c1.c1:hover {
+  opacity: 0.7;
+}
+
+.c1.c1:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.c2.c2 {
+  background-color: #AC00fC;
+  color: #FFFFFF;
+}
+
+.c0 {
+  position: relative;
+  padding: 16px;
+}
+
+<div
+  className="c0"
+>
+  <button
+    className="MuiButtonBase-root c1 c2"
+    color="primary"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    size="md"
+    tabIndex={0}
+    type="button"
+  >
+    Open Modal
+  </button>
+</div>
+`;
+
+exports[`Storyshots Modal With Title 1`] = `
+.c1.c1 {
+  box-sizing: border-box;
+  border-radius: 12px;
+  padding: 0 16px;
+  min-width: 40px;
+  height: 40px;
+  -webkit-transition: all 100ms ease-in-out;
+  transition: all 100ms ease-in-out;
+  font-size: 16px;
+}
+
+.c1.c1:hover {
+  opacity: 0.7;
+}
+
+.c1.c1:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.c2.c2 {
+  background-color: #AC00fC;
+  color: #FFFFFF;
+}
+
+.c0 {
+  position: relative;
+  padding: 16px;
+}
+
+<div
+  className="c0"
+>
+  <button
+    className="MuiButtonBase-root c1 c2"
+    color="primary"
+    disabled={false}
+    onBlur={[Function]}
+    onClick={[Function]}
+    onDragLeave={[Function]}
+    onFocus={[Function]}
+    onKeyDown={[Function]}
+    onKeyUp={[Function]}
+    onMouseDown={[Function]}
+    onMouseLeave={[Function]}
+    onMouseUp={[Function]}
+    onTouchEnd={[Function]}
+    onTouchMove={[Function]}
+    onTouchStart={[Function]}
+    size="md"
+    tabIndex={0}
+    type="button"
+  >
+    Open Modal
+  </button>
+</div>
+`;
+
+exports[`Storyshots ShareModule Main 1`] = `
+.c5.c5 {
+  font-weight: normal;
+  font-size: 12px;
+  font-style: italic;
 }
 
 .c2.c2 {
@@ -1135,12 +1959,6 @@ exports[`Storyshots ShareModule Main 1`] = `
   opacity: 0.3;
   cursor: not-allowed;
   pointer-events: none;
-}
-
-.c5.c5 {
-  font-weight: normal;
-  font-size: 12px;
-  font-style: italic;
 }
 
 .c4 {
@@ -1298,11 +2116,19 @@ exports[`Storyshots ShareModule Main 1`] = `
   margin: 8px 0;
 }
 
+.c0 {
+  position: relative;
+  padding: 16px;
+}
+
 <div
   className="c0"
 >
   <div
     className=""
+    id="sharemodule--main"
+    kind="ShareModule"
+    name="Main"
   >
     <div
       className="c1"
@@ -1570,6 +2396,348 @@ exports[`Storyshots ShareModule Main 1`] = `
 </div>
 `;
 
+exports[`Storyshots Thumbnail Main 1`] = `
+.c3 {
+  font-size: 16px;
+  color: #AC00fC;
+}
+
+.c5 {
+  width: 48px;
+  height: 100%;
+  object-fit: fill;
+}
+
+.c1 {
+  position: relative;
+  height: 48px;
+  width: 48px;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.c2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.c2:hover {
+  background-color: rgba(0,0,0,0.2);
+}
+
+.c4 {
+  color: #FFFFFF;
+}
+
+.c0 {
+  position: relative;
+  padding: 16px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    onClick={[Function]}
+  >
+    <div
+      className="c2"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-search-plus fa-w-16 c3 c4"
+        color="primary"
+        data-icon="search-plus"
+        data-prefix="far"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M312 196v24c0 6.6-5.4 12-12 12h-68v68c0 6.6-5.4 12-12 12h-24c-6.6 0-12-5.4-12-12v-68h-68c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h68v-68c0-6.6 5.4-12 12-12h24c6.6 0 12 5.4 12 12v68h68c6.6 0 12 5.4 12 12zm196.5 289.9l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L347.5 387.1c-2.3-2.3-3.5-5.3-3.5-8.5v-13.2c-36.5 31.5-84 50.6-136 50.6C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 52-19.1 99.5-50.6 136h13.2c3.2 0 6.2 1.3 8.5 3.5l121.4 121.4c4.7 4.7 4.7 12.3 0 17zM368 208c0-88.4-71.6-160-160-160S48 119.6 48 208s71.6 160 160 160 160-71.6 160-160z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </div>
+    <img
+      alt="Thumbnail"
+      className="c5"
+      itemProp="contentUrl"
+      onError={[Function]}
+      src="https://via.placeholder.com/350x150"
+      width="48px"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Thumbnail With Broken Image 1`] = `
+.c3 {
+  font-size: 16px;
+  color: #AC00fC;
+}
+
+.c5 {
+  width: 48px;
+  height: 100%;
+  object-fit: fill;
+}
+
+.c1 {
+  position: relative;
+  height: 48px;
+  width: 48px;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.c2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.c2:hover {
+  background-color: rgba(0,0,0,0.2);
+}
+
+.c4 {
+  color: #FFFFFF;
+}
+
+.c0 {
+  position: relative;
+  padding: 16px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    onClick={[Function]}
+  >
+    <div
+      className="c2"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-search-plus fa-w-16 c3 c4"
+        color="primary"
+        data-icon="search-plus"
+        data-prefix="far"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M312 196v24c0 6.6-5.4 12-12 12h-68v68c0 6.6-5.4 12-12 12h-24c-6.6 0-12-5.4-12-12v-68h-68c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h68v-68c0-6.6 5.4-12 12-12h24c6.6 0 12 5.4 12 12v68h68c6.6 0 12 5.4 12 12zm196.5 289.9l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L347.5 387.1c-2.3-2.3-3.5-5.3-3.5-8.5v-13.2c-36.5 31.5-84 50.6-136 50.6C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 52-19.1 99.5-50.6 136h13.2c3.2 0 6.2 1.3 8.5 3.5l121.4 121.4c4.7 4.7 4.7 12.3 0 17zM368 208c0-88.4-71.6-160-160-160S48 119.6 48 208s71.6 160 160 160 160-71.6 160-160z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </div>
+    <img
+      alt="Thumbnail"
+      className="c5"
+      itemProp="contentUrl"
+      onError={[Function]}
+      src="https://example.com/example.jpg"
+      width="48px"
+    />
+  </div>
+</div>
+`;
+
+exports[`Storyshots Thumbnail With Preview 1`] = `
+.c3 {
+  font-size: 16px;
+  color: #AC00fC;
+}
+
+.c5 {
+  width: 48px;
+  height: 100%;
+  object-fit: fill;
+}
+
+.c1 {
+  position: relative;
+  height: 48px;
+  width: 48px;
+  text-align: center;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #FFFFFF;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-flex-shrink: 0;
+  -ms-flex-negative: 0;
+  flex-shrink: 0;
+}
+
+.c2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-transition: all 0.1s ease-in-out;
+  transition: all 0.1s ease-in-out;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -webkit-justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.c2:hover {
+  background-color: rgba(0,0,0,0.2);
+}
+
+.c4 {
+  color: #FFFFFF;
+}
+
+.c0 {
+  position: relative;
+  padding: 16px;
+}
+
+<div
+  className="c0"
+>
+  <div
+    className="c1"
+    onClick={[Function]}
+  >
+    <div
+      className="c2"
+    >
+      <svg
+        aria-hidden="true"
+        className="svg-inline--fa fa-search-plus fa-w-16 c3 c4"
+        color="primary"
+        data-icon="search-plus"
+        data-prefix="far"
+        focusable="false"
+        role="img"
+        style={Object {}}
+        viewBox="0 0 512 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M312 196v24c0 6.6-5.4 12-12 12h-68v68c0 6.6-5.4 12-12 12h-24c-6.6 0-12-5.4-12-12v-68h-68c-6.6 0-12-5.4-12-12v-24c0-6.6 5.4-12 12-12h68v-68c0-6.6 5.4-12 12-12h24c6.6 0 12 5.4 12 12v68h68c6.6 0 12 5.4 12 12zm196.5 289.9l-22.6 22.6c-4.7 4.7-12.3 4.7-17 0L347.5 387.1c-2.3-2.3-3.5-5.3-3.5-8.5v-13.2c-36.5 31.5-84 50.6-136 50.6C93.1 416 0 322.9 0 208S93.1 0 208 0s208 93.1 208 208c0 52-19.1 99.5-50.6 136h13.2c3.2 0 6.2 1.3 8.5 3.5l121.4 121.4c4.7 4.7 4.7 12.3 0 17zM368 208c0-88.4-71.6-160-160-160S48 119.6 48 208s71.6 160 160 160 160-71.6 160-160z"
+          fill="currentColor"
+          style={Object {}}
+        />
+      </svg>
+    </div>
+    <img
+      alt="Thumbnail"
+      className="c5"
+      itemProp="contentUrl"
+      onError={[Function]}
+      src="https://via.placeholder.com/500"
+      width="48px"
+    />
+  </div>
+</div>
+`;
+
 exports[`Storyshots Typography/Headings Main 1`] = `
 .c0 {
   position: relative;
@@ -1643,11 +2811,6 @@ exports[`Storyshots Typography/Headings Main 1`] = `
 `;
 
 exports[`Storyshots Typography/Text Main 1`] = `
-.c0 {
-  position: relative;
-  padding: 16px;
-}
-
 .c1.c1 {
   font-weight: normal;
   font-size: 16px;
@@ -1662,6 +2825,11 @@ exports[`Storyshots Typography/Text Main 1`] = `
 
 .c2.c2 {
   margin-bottom: 8px;
+}
+
+.c0 {
+  position: relative;
+  padding: 16px;
 }
 
 <div
@@ -1685,13 +2853,13 @@ exports[`Storyshots Typography/Text Main 1`] = `
   >
     Text
   </h3>
-  <span
+  <div
     className="MuiTypography-root c3 MuiTypography-body2"
     fontSize="md"
     fontStyle="normal"
     fontWeight="regular"
   >
     Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry standard dummy text ever since the 1500s
-  </span>
+  </div>
 </div>
 `;

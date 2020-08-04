@@ -22,7 +22,6 @@ const StyledChip = styled.div`
       color: ${theme.palette[color].main};
     `}
 
-
   ${(theme) => SPACER(theme)}
   ${(theme) => DISPLAY(theme)}
 `;

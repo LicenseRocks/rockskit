@@ -32,6 +32,14 @@ const StyledWrapper = styled.div`
       border: 1px solid ${({ theme }) => theme.palette.error.main};
     `}
 
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      opacity: 0.3;
+      cursor: not-allowed;
+      pointer-events: none;
+    `}
+
   ${({ block }) =>
     block &&
     css`
@@ -47,9 +55,11 @@ export const FieldWrapper = ({
   endIcon,
   endIconColor,
   endIconOnClick,
+  endIconPrefix,
   startIcon,
   startIconColor,
   startIconOnClick,
+  startIconPrefix,
   ...props
 }) => {
   return (
@@ -59,13 +69,19 @@ export const FieldWrapper = ({
           color={startIconColor}
           icon={startIcon}
           onClick={startIconOnClick}
+          prefix={startIconPrefix}
         />
       )}
 
       {children}
 
       {endIcon && (
-        <Icon color={endIconColor} icon={endIcon} onClick={endIconOnClick} />
+        <Icon
+          color={endIconColor}
+          icon={endIcon}
+          onClick={endIconOnClick}
+          prefix={endIconPrefix}
+        />
       )}
     </StyledWrapper>
   );

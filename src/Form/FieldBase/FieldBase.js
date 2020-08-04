@@ -1,12 +1,15 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styled, { css } from "styled-components";
 
 import { FieldWrapper } from "../FieldWrapper";
 import { FieldBasePropTypes, FieldBaseDefaultProps } from "./props";
 
-const StyledInput = styled(({ component: Component, ...props }) => (
-  <Component {...props} />
-))`
+const StyledInput = styled(
+  // eslint-disable-next-line react/prop-types
+  forwardRef(({ component: Component, ...props }, ref) => (
+    <Component ref={ref} {...props} />
+  ))
+)`
   flex: 1;
   font-weight: 600;
   font-size: 14px;
@@ -18,13 +21,10 @@ const StyledInput = styled(({ component: Component, ...props }) => (
   height: 100%;
   box-sizing: border-box;
   transition: all 100ms ease-in-out;
+  background-color: transparent;
 
   ::placeholder {
     font-weight: normal;
-  }
-
-  &:read-only {
-    cursor: ${({ selectable }) => !selectable && "not-allowed"};
   }
 
   &:disabled {
@@ -32,6 +32,14 @@ const StyledInput = styled(({ component: Component, ...props }) => (
     cursor: not-allowed;
     pointer-events: none;
   }
+
+  ${({ component }) =>
+    component === "input" &&
+    css`
+      &:read-only {
+        cursor: ${({ selectable }) => !selectable && "not-allowed"};
+      }
+    `}
 
   ${({ hasError }) =>
     hasError &&
@@ -60,27 +68,29 @@ export const FieldBase = ({
   endIcon,
   endIconColor,
   endIconOnClick,
+  endIconPrefix,
   hasError,
   register,
   startIcon,
   startIconColor,
   startIconOnClick,
+  startIconPrefix,
   ...props
-}) => {
-  return (
-    <FieldWrapper
-      endIcon={endIcon}
-      endIconColor={endIconColor}
-      endIconOnClick={endIconOnClick}
-      hasError={hasError}
-      startIcon={startIcon}
-      startIconColor={startIconColor}
-      startIconOnClick={startIconOnClick}
-    >
-      <StyledInput hasError={hasError} ref={register} {...props} />
-    </FieldWrapper>
-  );
-};
+}) => (
+  <FieldWrapper
+    endIcon={endIcon}
+    endIconColor={endIconColor}
+    endIconOnClick={endIconOnClick}
+    endIconPrefix={endIconPrefix}
+    hasError={hasError}
+    startIcon={startIcon}
+    startIconColor={startIconColor}
+    startIconOnClick={startIconOnClick}
+    startIconPrefix={startIconPrefix}
+  >
+    <StyledInput hasError={hasError} ref={register} {...props} />
+  </FieldWrapper>
+);
 
 FieldBase.propTypes = FieldBasePropTypes;
 
