@@ -1,5 +1,5 @@
 {
-  "name": "rockskit",
+  "name": "@licenserocks/kit",
   "version": "1.0.0",
   "description": "",
   "main": "dist/rockskit.js",
