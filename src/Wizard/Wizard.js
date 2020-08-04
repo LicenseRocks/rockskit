@@ -9,10 +9,14 @@ import {
 } from ".";
 import { stepBorderAndTitleColor } from "./helper";
 import { handleScroll } from "../utils";
+import { DISPLAY, SPACER } from "../theme";
 
 const Wrapper = styled.div`
   max-width: 680px;
   margin: auto;
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 const StepsWrapper = styled.div`
@@ -141,6 +145,7 @@ export const Wizard = ({
   setCurrentStepIndex,
   steps,
   transitionDuration,
+  ...props
 }) => {
   const stepRef = useRef(null);
   const wrapperRef = createRef();
@@ -194,7 +199,7 @@ export const Wizard = ({
   );
 
   return (
-    <Wrapper>
+    <Wrapper {...props}>
       <StepsWrapper isHorizontal={isHorizontal}>
         <Steps isHorizontal={isHorizontal} ref={wrapperRef}>
           {steps.map((step, idx) => {

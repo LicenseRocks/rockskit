@@ -21,6 +21,5 @@ export const IconPropTypes = {
 export const IconDefaultProps = {
   bordered: false,
   color: "primary",
-  prefix: "far",
   size: "md",
 };

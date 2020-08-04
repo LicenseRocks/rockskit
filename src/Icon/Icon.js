@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import styled, { css } from "styled-components";
+import styled, { css, useTheme } from "styled-components";
 
 import { DISPLAY, SPACER, KIT_ICON_SIZES } from "../theme";
 import { IconPropTypes, IconDefaultProps } from "./props";
@@ -44,13 +44,20 @@ const StyledIcon = styled(({ icon, prefix, size, ...props }) => (
   ${(theme) => DISPLAY(theme)}
 `;
 
-export const Icon = ({ bordered, className, color, ...props }) => {
+export const Icon = ({ bordered, className, color, prefix, ...props }) => {
+  const theme = useTheme();
+  const defaultProps = {
+    color,
+    prefix: prefix || theme.defaultIconSet,
+    ...props,
+  };
+
   return bordered ? (
     <Bordered className={className} color={color} {...props}>
-      <StyledIcon color={color} {...props} />
+      <StyledIcon {...defaultProps} />
     </Bordered>
   ) : (
-    <StyledIcon className={className} color={color} {...props} />
+    <StyledIcon className={className} {...defaultProps} />
   );
 };
 

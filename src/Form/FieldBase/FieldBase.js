@@ -5,6 +5,7 @@ import { FieldWrapper } from "../FieldWrapper";
 import { FieldBasePropTypes, FieldBaseDefaultProps } from "./props";
 
 const StyledInput = styled(
+  // eslint-disable-next-line react/prop-types
   forwardRef(({ component: Component, ...props }, ref) => (
     <Component ref={ref} {...props} />
   ))
@@ -67,21 +68,25 @@ export const FieldBase = ({
   endIcon,
   endIconColor,
   endIconOnClick,
+  endIconPrefix,
   hasError,
   register,
   startIcon,
   startIconColor,
   startIconOnClick,
+  startIconPrefix,
   ...props
 }) => (
   <FieldWrapper
     endIcon={endIcon}
     endIconColor={endIconColor}
     endIconOnClick={endIconOnClick}
+    endIconPrefix={endIconPrefix}
     hasError={hasError}
     startIcon={startIcon}
     startIconColor={startIconColor}
     startIconOnClick={startIconOnClick}
+    startIconPrefix={startIconPrefix}
   >
     <StyledInput hasError={hasError} ref={register} {...props} />
   </FieldWrapper>

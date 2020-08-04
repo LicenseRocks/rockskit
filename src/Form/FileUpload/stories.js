@@ -2,7 +2,7 @@ import React from "react";
 import { withKnobs, boolean } from "@storybook/addon-knobs";
 import { useForm } from "react-hook-form";
 
-import { FileUpload } from ".";
+import { Button, FormError, FileUpload } from "../..";
 import { StoryWrapper } from "../../../.storybook/decorators";
 
 export default {
@@ -12,16 +12,27 @@ export default {
 };
 
 export const main = () => {
-  const { control, watch } = useForm();
+  const { control, errors, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("data: ", data);
+  };
+
   const defaultProps = {
     control,
     disabled: boolean("Disabled", false),
-    hasError: boolean("Has error", false),
+    hasError: !!errors.fileUpload,
+    isRequired: "This item is required",
     name: "fileUpload",
   };
 
-  const values = watch();
-  console.log("values: ", values);
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <FileUpload {...defaultProps} />
 
-  return <FileUpload {...defaultProps} />;
+      {errors.fileUpload && <FormError message={errors.fileUpload.message} />}
+
+      <Button content="Submit" mt={8} type="submit" />
+    </form>
+  );
 };

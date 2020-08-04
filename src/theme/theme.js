@@ -2,7 +2,7 @@ import { createMuiTheme } from "@material-ui/core/styles";
 
 import { KIT_COLORS, KIT_FONTS, KIT_TYPOGRAPHY } from ".";
 
-export const theme = createMuiTheme({
+export const RocksTheme = createMuiTheme({
   breakpoints: {
     values: {
       xs: 0,
@@ -11,10 +11,11 @@ export const theme = createMuiTheme({
       lg: 1200,
     },
   },
+  defaultIconSet: "fa",
 });
 
-theme.palette = {
-  ...theme.palette,
+RocksTheme.palette = {
+  ...RocksTheme.palette,
   primary: {
     main: KIT_COLORS.primary.main,
     light: KIT_COLORS.primary.light,
@@ -50,16 +51,16 @@ theme.palette = {
   },
 };
 
-theme.typography = {
-  ...theme.typography,
+RocksTheme.typography = {
+  ...RocksTheme.typography,
   fontFamily: [KIT_FONTS.Inter.name, "sans-serif"].join(","),
   fontSize: 16,
   fontWeightLight: 300,
   fontWeightRegular: "normal",
   fontWeightBold: 600,
-  h1: KIT_TYPOGRAPHY.h1(theme),
-  h2: KIT_TYPOGRAPHY.h2(theme),
-  h3: KIT_TYPOGRAPHY.h3(theme),
+  h1: KIT_TYPOGRAPHY.h1(RocksTheme),
+  h2: KIT_TYPOGRAPHY.h2(RocksTheme),
+  h3: KIT_TYPOGRAPHY.h3(RocksTheme),
   h4: KIT_TYPOGRAPHY.h4(),
   h5: KIT_TYPOGRAPHY.h5(),
   h6: KIT_TYPOGRAPHY.h6(),
@@ -68,7 +69,7 @@ theme.typography = {
   button: KIT_TYPOGRAPHY.button(),
 };
 
-theme.spacing = (...nums) => {
+RocksTheme.spacing = (...nums) => {
   const amount = 4;
   return nums.reduce(
     (output, n) => `${output}${n * amount}${n > 0 ? "px" : ""} `,
@@ -76,6 +77,6 @@ theme.spacing = (...nums) => {
   );
 };
 
-theme.overrides.MuiButtonBase = {
+RocksTheme.overrides.MuiButtonBase = {
   root: KIT_TYPOGRAPHY.button(),
 };

@@ -1355,7 +1355,10 @@ var FieldBaseDefaultProps = _objectSpread$c(_objectSpread$c({}, FieldWrapperDefa
   type: "text"
 });
 
-var StyledInput$1 = styled( /*#__PURE__*/forwardRef(function (_ref, ref) {
+var StyledInput$1 = styled(
+/*#__PURE__*/
+// eslint-disable-next-line react/prop-types
+forwardRef(function (_ref, ref) {
   var Component = _ref.component,
       props = _objectWithoutProperties(_ref, ["component"]);
 
@@ -1665,11 +1668,13 @@ var ReactSelectPropTypes = {
   endpoint: PropTypes.string,
   endpointQueryFlag: PropTypes.string,
   isClearable: PropTypes.bool,
-  isDisabled: PropTypes.bool
+  isDisabled: PropTypes.bool,
+  isRequired: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 };
 var ReactSelectDefaultProps = {
   defaultValue: undefined,
-  endpointQueryFlag: "q"
+  endpointQueryFlag: "q",
+  isRequired: false
 };
 
 var ReactSelectWrapper = styled.div.withConfig({
@@ -1717,15 +1722,13 @@ var ReactSelect = function ReactSelect(_ref12) {
       defaultValue = _ref12.defaultValue,
       endpoint = _ref12.endpoint,
       endpointQueryFlag = _ref12.endpointQueryFlag,
-      error = _ref12.error,
-      errors = _ref12.errors,
       hasError = _ref12.hasError,
       loadOptions = _ref12.loadOptions,
-      required = _ref12.required,
+      isRequired = _ref12.isRequired,
       name = _ref12.name,
       options = _ref12.options,
       selectedOption = _ref12.selectedOption,
-      props = _objectWithoutProperties(_ref12, ["async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "error", "errors", "hasError", "loadOptions", "required", "name", "options", "selectedOption"]);
+      props = _objectWithoutProperties(_ref12, ["async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "hasError", "loadOptions", "isRequired", "name", "options", "selectedOption"]);
 
   var loadOptionsfromEndpoint = function loadOptionsfromEndpoint(inputValue, callback) {
     axios.get("".concat(endpoint).concat(endpointQueryFlag ? "?".concat(endpointQueryFlag, "=").concat(inputValue) : "")).then(function (_ref13) {
@@ -1765,7 +1768,7 @@ var ReactSelect = function ReactSelect(_ref12) {
       return selected;
     },
     rules: {
-      required: required
+      required: isRequired
     }
   }));
 };

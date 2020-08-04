@@ -11,6 +11,7 @@ import AsyncSelect from "react-select/async";
 
 // Components
 import { ReactSelectDefaultProps, ReactSelectPropTypes } from "./props";
+import { DISPLAY, SPACER } from "../../theme";
 
 const ReactSelectWrapper = styled.div`
   flex: 1;
@@ -61,6 +62,9 @@ const ReactSelectWrapper = styled.div`
         border-color: ${({ theme }) => theme.palette.error.main};
       }
     `}
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 export const ReactSelect = ({
@@ -71,11 +75,9 @@ export const ReactSelect = ({
   defaultValue,
   endpoint,
   endpointQueryFlag,
-  error,
-  errors,
   hasError,
   loadOptions,
-  required,
+  isRequired,
   name,
   options,
   selectedOption,
@@ -119,14 +121,14 @@ export const ReactSelect = ({
   );
 
   return (
-    <ReactSelectWrapper hasError={hasError}>
+    <ReactSelectWrapper hasError={hasError} {...props}>
       <Controller
         as={As}
         control={control}
         defaultValue={defaultValue}
         name={name}
         onChange={([selected]) => selected}
-        rules={{ required }}
+        rules={{ required: isRequired }}
       />
     </ReactSelectWrapper>
   );

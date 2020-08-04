@@ -4,10 +4,14 @@ import { useDropzone } from "react-dropzone";
 import styled, { css } from "styled-components";
 
 import { DropzonePreview } from "./DropzonePreview";
+import { DISPLAY, SPACER } from "../../theme";
 
 const StyledContainer = styled.div`
   width: 100%;
   height: 100%;
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 const DropzoneArea = styled.div`
@@ -63,6 +67,7 @@ export const Dropzone = ({
   hasError,
   multiple,
   onChange,
+  ...props
 }) => {
   const [files, setFiles] = useState(defaultValue);
 
@@ -110,7 +115,7 @@ export const Dropzone = ({
   };
 
   return (
-    <StyledContainer>
+    <StyledContainer {...props}>
       <DropzoneArea
         dragActive={isDragActive}
         dragAccept={isDragAccept}

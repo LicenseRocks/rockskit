@@ -3,10 +3,14 @@ import { bool, func, oneOf } from "prop-types";
 import styled from "styled-components";
 
 import Switch from "./Switch";
+import { DISPLAY, SPACER } from "../../theme";
 
 const StyledToggle = styled.div`
   display: inline-block;
   position: relative;
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 export const Toggle = ({ disabled, onChange, size, value, ...props }) => {

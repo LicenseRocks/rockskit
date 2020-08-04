@@ -6,7 +6,7 @@ import React from "react";
 import { boolean, withKnobs } from "@storybook/addon-knobs";
 import { useForm } from "react-hook-form";
 
-import { ReactSelect } from ".";
+import { Button, FormError, ReactSelect } from "../..";
 import { StoryWrapper } from "../../../.storybook/decorators";
 
 const OPTIONS = [
@@ -48,22 +48,33 @@ export const main = (props = {}) => {
 };
 
 export const async = (props = {}) => {
-  const { control, errors, watch } = useForm();
+  const { control, errors, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    console.log("data: ", data);
+  };
 
   const defaultProps = {
     async,
     control,
     defaultOptions: true,
     endpoint: "https://run.mocky.io/v3/a7e06c66-251c-4ca9-a8ac-cac5284d21a0",
-    errors,
-    hasError: boolean("Has error", false),
+    hasError: !!errors.Async,
+    isRequired: "This item is required",
     isClearable: true,
     name: "reactSelect",
     ...props,
   };
 
-  const values = watch();
-  console.log("values: ", values);
+  console.log("errors: ", errors);
 
-  return <ReactSelect {...defaultProps} />;
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <ReactSelect {...defaultProps} />
+
+      {errors.Async && <FormError message={errors.Async.message} />}
+
+      <Button content="Submit" mt={8} type="submit" />
+    </form>
+  );
 };
