@@ -145,7 +145,7 @@ export const Dropzone = ({
 
 Dropzone.propTypes = {
   accept: PropTypes.string,
-  defaultValue: PropTypes.arrayOf(PropTypes.instanceOf(File)),
+  defaultValue: PropTypes.arrayOf(PropTypes.object),
   disabled: PropTypes.bool,
   hasError: PropTypes.bool,
   multiple: PropTypes.bool,

@@ -408,7 +408,7 @@ function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if 
 function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var Bordered = styled.div.withConfig({
   displayName: "Icon__Bordered",
-  componentId: "sc-1omhsb8-0"
+  componentId: "naquj8-0"
 })(["", ""], function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
@@ -425,7 +425,7 @@ var StyledIcon = styled(function (_ref2) {
   }, props));
 }).withConfig({
   displayName: "Icon__StyledIcon",
-  componentId: "sc-1omhsb8-1"
+  componentId: "naquj8-1"
 })(["font-size:", "px;", " ", " ", " ", ""], function (_ref3) {
   var size = _ref3.size;
   return KIT_ICON_SIZES[size];
@@ -482,7 +482,7 @@ var AlertDefaultProps = {
 
 var StyledMessage = styled.div.withConfig({
   displayName: "Alert__StyledMessage",
-  componentId: "sc-39p25x-0"
+  componentId: "sc-1q2nixr-0"
 })(["width:100%;box-sizing:border-box;min-height:40px;padding:8px;font-size:14px;border-radius:8px;background-color:", ";color:", ";transition:all 100ms ease-in-out;display:flex;align-items:center;svg{color:", ";}", " ", " ", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
@@ -564,7 +564,7 @@ var HeadingBasePropTypes = _objectSpread$5(_objectSpread$5({
 
 var StyledHeading = styled(Typography).withConfig({
   displayName: "Base__StyledHeading",
-  componentId: "cb64jp-0"
+  componentId: "sc-1hr75b8-0"
 })(["", " ", ""], function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -644,7 +644,7 @@ var TextBaseDefaultProps = {
 
 var StyledText = styled(Typography).withConfig({
   displayName: "Base__StyledText",
-  componentId: "sc-1yx6bh1-0"
+  componentId: "sc-17vyex8-0"
 })(["&&{", " ", " font-style:", ";", " ", "}"], function (_ref) {
   var fontWeight = _ref.fontWeight,
       theme = _ref.theme;
@@ -692,7 +692,7 @@ TextBase.defaultProps = TextBaseDefaultProps;
 
 var StyledParagraph = styled(TextBase).withConfig({
   displayName: "Paragraph__StyledParagraph",
-  componentId: "sc-174p9te-0"
+  componentId: "jsbo80-0"
 })(["&&{margin-bottom:", ";}"], function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
@@ -715,7 +715,7 @@ Text.propTypes = TextBasePropTypes;
 
 var StyledChip = styled.div.withConfig({
   displayName: "Chip__StyledChip",
-  componentId: "sc-492e0l-0"
+  componentId: "sc-2e49ss-0"
 })(["box-sizing:border-box;display:flex;align-items:center;justify-content:center;border-radius:22px;min-width:32px;min-height:32px;width:max-content;", " ", " ", ""], function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
@@ -731,7 +731,7 @@ var StyledLabel = styled(Text).attrs(function () {
   };
 }).withConfig({
   displayName: "Chip__StyledLabel",
-  componentId: "sc-492e0l-1"
+  componentId: "sc-2e49ss-1"
 })(["padding-left:", ";"], function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(2);
@@ -772,7 +772,7 @@ var ButtonBaseDefaultProps = {
 
 var StyledButton = styled(MuiButtonBase).withConfig({
   displayName: "Base__StyledButton",
-  componentId: "sc-12kghpw-0"
+  componentId: "sc-1vgypdg-0"
 })(["&&{box-sizing:border-box;border-radius:12px;padding:", ";min-width:40px;height:40px;transition:all 100ms ease-in-out;:hover{opacity:0.7;}:disabled{opacity:0.3;cursor:not-allowed;pointer-events:none;}", " ", " ", "}"], function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(0, 4);
@@ -810,7 +810,7 @@ ButtonBase.defaultProps = ButtonBaseDefaultProps;
 
 var StyledButton$1 = styled(ButtonBase).withConfig({
   displayName: "Button__StyledButton",
-  componentId: "wes1x7-0"
+  componentId: "rmizea-0"
 })(["&&{", "}"], function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
@@ -825,7 +825,7 @@ Button.propTypes = ButtonBasePropTypes;
 
 var StyledButton$2 = styled(ButtonBase).withConfig({
   displayName: "OutlineButton__StyledButton",
-  componentId: "sc-1xxcw04-0"
+  componentId: "c22pyk-0"
 })(["&&{", "}"], function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
@@ -840,7 +840,7 @@ OutlineButton.propTypes = ButtonBasePropTypes;
 
 var StyledButton$3 = styled(ButtonBase).withConfig({
   displayName: "TextButton__StyledButton",
-  componentId: "sc-11aor45-0"
+  componentId: "rbrc68-0"
 })(["&&{", "}"], function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
@@ -859,7 +859,7 @@ var CollapsePropTypes = {
 
 var Wrapper = styled.div.withConfig({
   displayName: "Collapse__Wrapper",
-  componentId: "m05upq-0"
+  componentId: "u544hd-0"
 })([".ReactCollapse--collapse{transition:height 200ms ease-in-out;}"]);
 var Collapse = function Collapse(props) {
   return /*#__PURE__*/React.createElement(Wrapper, null, /*#__PURE__*/React.createElement(Collapse$1, props));
@@ -892,7 +892,7 @@ var DetailsTableDefaultProps = {};
 
 var Wrapper$1 = styled.div.withConfig({
   displayName: "DetailsTable__Wrapper",
-  componentId: "hwx39-0"
+  componentId: "sc-41caw8-0"
 })(["", " ", ""], function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -900,7 +900,7 @@ var Wrapper$1 = styled.div.withConfig({
 });
 var Row = styled.div.withConfig({
   displayName: "DetailsTable__Row",
-  componentId: "hwx39-1"
+  componentId: "sc-41caw8-1"
 })(["display:flex;align-items:center;height:32px;margin-bottom:", ";"], function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
@@ -911,7 +911,7 @@ var Label = styled(Text).attrs(function () {
   };
 }).withConfig({
   displayName: "DetailsTable__Label",
-  componentId: "hwx39-2"
+  componentId: "sc-41caw8-2"
 })(["flex:0 140px;"]);
 var DetailsTable = function DetailsTable(_ref2) {
   var rows = _ref2.rows,
@@ -932,7 +932,7 @@ DetailsTable.defaultProps = DetailsTableDefaultProps;
 
 var Wrapper$2 = styled.div.withConfig({
   displayName: "Button__Wrapper",
-  componentId: "sc-12eddn2-0"
+  componentId: "sc-1yl0nkz-0"
 })(["display:inline-flex;align-items:center;justify-content:center;border-radius:12px;&&{width:40px;height:40px;background-color:", ";svg{color:", ";}}"], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.light;
@@ -972,7 +972,7 @@ var DownloadModuleDefaultProps = {
 
 var Container = styled.div.withConfig({
   displayName: "DownloadModule__Container",
-  componentId: "iqo54g-0"
+  componentId: "lhoe08-0"
 })(["background-color:", ";padding:", ";border-radius:16px;", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
@@ -1044,11 +1044,11 @@ var FileManagerDefaultProps = {};
 
 var Container$1 = styled.div.withConfig({
   displayName: "FileManager__Container",
-  componentId: "sc-1ajp889-0"
+  componentId: "iqc9f7-0"
 })([""]);
 var Wrapper$3 = styled.div.withConfig({
   displayName: "FileManager__Wrapper",
-  componentId: "sc-1ajp889-1"
+  componentId: "iqc9f7-1"
 })(["border:1px solid ", ";padding:", ";margin-bottom:", ";border-radius:8px;", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
@@ -1069,7 +1069,7 @@ var Row$1 = styled(Grid).attrs(function () {
   };
 }).withConfig({
   displayName: "FileManager__Row",
-  componentId: "sc-1ajp889-2"
+  componentId: "iqc9f7-2"
 })(["width:100%;height:48px;margin-bottom:", ";"], function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(2);
@@ -1083,7 +1083,7 @@ var Item = styled(Grid).attrs(function (_ref5) {
   };
 }).withConfig({
   displayName: "FileManager__Item",
-  componentId: "sc-1ajp889-3"
+  componentId: "iqc9f7-3"
 })(["display:flex;align-items:center;"]);
 var FileManager = function FileManager(_ref6) {
   var data = _ref6.data;
@@ -1153,7 +1153,7 @@ var FlexDefaultProps = {
 
 var StyledFlex = styled(Grid).withConfig({
   displayName: "Flex__StyledFlex",
-  componentId: "sc-1p61jku-0"
+  componentId: "sc-1db77mn-0"
 })(["", " ", ""], function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -1190,7 +1190,7 @@ var RadioBaseDefaultProps = {
 
 var StyledInput = styled.input.withConfig({
   displayName: "Item__StyledInput",
-  componentId: "sc-1f4uzab-0"
+  componentId: "lk2kwt-0"
 })(["display:none;+ label{display:inline-flex;align-items:center;font-weight:600;font-size:14px;line-height:120%;margin:0 32px 0 0;cursor:pointer;transition:all 0.1s ease-in-out;", " &::before{content:\"\";display:inline-block;width:24px;height:24px;border-radius:", ";background-color:", ";border:1px solid ", ";margin-right:8px;transition:background-color 0.1s ease-in-out;", "}&:hover{&::before{background-color:", ";border-color:", ";}}}&:checked + label::before{background-color:", ";border-color:", ";background-image:url(\"", "\");background-size:16px 16px;background-repeat:no-repeat;background-position:center;}&:disabled + label{opacity:0.3;&,span{cursor:default;}}"], function (_ref) {
   var stacked = _ref.stacked;
   return stacked && css(["display:flex;:not(:last-child){margin:0 0 24px 0;}"]);
@@ -1224,7 +1224,7 @@ var StyledInput = styled.input.withConfig({
 }, "".concat(img));
 var StyledLabel$1 = styled.label.withConfig({
   displayName: "Item__StyledLabel",
-  componentId: "sc-1f4uzab-1"
+  componentId: "lk2kwt-1"
 })([""]);
 var RadioBaseItem = function RadioBaseItem(_ref11) {
   var defaultValue = _ref11.defaultValue,
@@ -1271,7 +1271,7 @@ RadioBase.defaultProps = RadioBaseDefaultProps;
 
 var StyledRadioBase = styled(RadioBase).withConfig({
   displayName: "Checkbox__StyledRadioBase",
-  componentId: "mthxa-0"
+  componentId: "w3jfx2-0"
 })(["", " ", ""], function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -1295,7 +1295,7 @@ var FormErrorDefaultProps = {};
 
 var Error = styled.div.withConfig({
   displayName: "Error",
-  componentId: "sc-1khf2ov-0"
+  componentId: "fbul9h-0"
 })(["font-weight:600;font-size:12px;line-height:120%;color:", ";margin-top:", ";", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.error.main;
@@ -1340,7 +1340,7 @@ var FieldWrapperDefaultProps = {
 
 var StyledWrapper = styled.div.withConfig({
   displayName: "FieldWrapper__StyledWrapper",
-  componentId: "sc-8caztj-0"
+  componentId: "tbw1oa-0"
 })(["display:flex;align-items:center;justify-content:space-between;border-radius:", ";background-color:", ";border:1px solid ", ";padding:", ";outline:none;height:40px;box-sizing:border-box;transition:all 100ms ease-in-out;:not(:last-child){margin-right:", ";}&:focus-within{border:1px solid ", ";}", " ", " ", " ", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(3);
@@ -1433,7 +1433,7 @@ forwardRef(function (_ref, ref) {
   }, props));
 })).withConfig({
   displayName: "FieldBase__StyledInput",
-  componentId: "sc-9w7fs9-0"
+  componentId: "l785gg-0"
 })(["flex:1;font-weight:600;font-size:14px;line-height:120%;padding:8px;color:", ";outline:none;border:none;height:100%;box-sizing:border-box;transition:all 100ms ease-in-out;background-color:transparent;::placeholder{font-weight:normal;}&:disabled{opacity:0.3;cursor:not-allowed;pointer-events:none;}", " ", " ", " ", ""], function (_ref2) {
   var theme = _ref2.theme;
   return theme.palette.text.primary;
@@ -1493,7 +1493,7 @@ FieldBase.defaultProps = FieldBaseDefaultProps;
 
 var StyledFieldset = styled.fieldset.withConfig({
   displayName: "Fieldset__StyledFieldset",
-  componentId: "ga0mu5-0"
+  componentId: "sc-1qv5ut9-0"
 })(["border:none;padding:0%;margin:0;"]);
 var Fieldset = function Fieldset(_ref) {
   var children = _ref.children;
@@ -1507,7 +1507,7 @@ Fieldset.defaultProps = {};
 /* eslint-disable no-restricted-properties */
 var Item$1 = styled.div.withConfig({
   displayName: "DropzonePreview__Item",
-  componentId: "sc-1bm3vwo-0"
+  componentId: "rkfxqg-0"
 })(["display:flex;align-items:center;justify-content:space-between;padding:8px 16px;background-color:", ";color:", ";font-size:12px;margin-bottom:8px;border-radius:8px;"], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.success.main;
@@ -1517,7 +1517,7 @@ var Item$1 = styled.div.withConfig({
 });
 var RemoveIcon = styled(Icon).withConfig({
   displayName: "DropzonePreview__RemoveIcon",
-  componentId: "sc-1bm3vwo-1"
+  componentId: "rkfxqg-1"
 })(["color:", ";"], function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.common.white;
@@ -1543,7 +1543,7 @@ var DropzonePreview = function DropzonePreview(_ref4) {
   });
 };
 DropzonePreview.propTypes = {
-  files: PropTypes.arrayOf(PropTypes.instanceOf(File)),
+  files: PropTypes.arrayOf(PropTypes.object),
   onRemoveClick: PropTypes.func.isRequired
 };
 DropzonePreview.defaultProps = {
@@ -1552,7 +1552,7 @@ DropzonePreview.defaultProps = {
 
 var StyledContainer = styled.div.withConfig({
   displayName: "Dropzone__StyledContainer",
-  componentId: "sc-2s1ha6-0"
+  componentId: "sc-1yejosv-0"
 })(["width:100%;height:100%;", " ", ""], function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -1560,7 +1560,7 @@ var StyledContainer = styled.div.withConfig({
 });
 var DropzoneArea = styled.div.withConfig({
   displayName: "Dropzone__DropzoneArea",
-  componentId: "sc-2s1ha6-1"
+  componentId: "sc-1yejosv-1"
 })(["background-color:", ";border-color:", ";border-radius:16px;border-style:dashed;border-width:2px;cursor:pointer;min-height:125px;outline:none;transition:all 100ms ease-in-out;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:", ";margin-bottom:8px;&:hover{border-color:", ";}", " ", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
@@ -1660,7 +1660,7 @@ var Dropzone = function Dropzone(_ref10) {
 };
 Dropzone.propTypes = {
   accept: PropTypes.string,
-  defaultValue: PropTypes.arrayOf(PropTypes.instanceOf(File)),
+  defaultValue: PropTypes.arrayOf(PropTypes.object),
   disabled: PropTypes.bool,
   hasError: PropTypes.bool,
   multiple: PropTypes.bool,
@@ -1680,7 +1680,7 @@ function ownKeys$g(object, enumerableOnly) { var keys = Object.keys(object); if 
 function _objectSpread$g(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$g(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$g(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
 var FileUploadPropTypes = _objectSpread$g(_objectSpread$g({
   control: PropTypes.shape({}).isRequired,
-  defaultValue: PropTypes.arrayOf(PropTypes.instanceOf(File)),
+  defaultValue: PropTypes.arrayOf(PropTypes.object),
   isRequired: PropTypes.string,
   name: PropTypes.string
 }, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
@@ -1721,7 +1721,7 @@ Input.defaultProps = FieldBaseDefaultProps;
 
 var StyledLabel$2 = styled.label.withConfig({
   displayName: "Label__StyledLabel",
-  componentId: "sc-1lhiuvl-0"
+  componentId: "m2ki9p-0"
 })(["font-size:14px;line-height:120%;color:", ";"], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.medium;
@@ -1734,7 +1734,7 @@ FormLabel.defaultProps = {};
 
 var StyledRadioBase$1 = styled(RadioBase).withConfig({
   displayName: "Radio__StyledRadioBase",
-  componentId: "sc-1isq3t-0"
+  componentId: "sc-1bzwanc-0"
 })(["", " ", ""], function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -1768,7 +1768,7 @@ var ReactSelectDefaultProps = {
 
 var ReactSelectWrapper = styled.div.withConfig({
   displayName: "ReactSelect__ReactSelectWrapper",
-  componentId: "ak9e6i-0"
+  componentId: "xq5gfv-0"
 })(["flex:1;.react-select__control{border-radius:12px;color:", ";padding:", ";height:40px;box-sizing:border-box;box-shadow:none;border-color:", ";font-weight:600;font-size:14px;line-height:120%;}.react-select__control--is-focused{border-color:", ";}.react-select__menu{border-radius:12px;}.react-select__option{font-weight:300;font-size:14px;line-height:160%;padding:", ";}.react-select__option--is-focused{background-color:", ";color:", ";}.react-select__option:hover,.react-select__option--is-selected{color:", ";background-color:", ";}", " ", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.text.primary;
@@ -1883,7 +1883,7 @@ var FormRowDefaultProps = {
 
 var Wrapper$4 = styled.div.withConfig({
   displayName: "Row__Wrapper",
-  componentId: "gp267o-0"
+  componentId: "sc-1ir0fqh-0"
 })(["display:flex;align-items:center;min-height:40px;margin-bottom:8px;", ";", " ", ""], function (_ref) {
   var show = _ref.show;
   return !show && "display: none";
@@ -1894,18 +1894,18 @@ var Wrapper$4 = styled.div.withConfig({
 });
 var StyledLabel$3 = styled(FormLabel).withConfig({
   displayName: "Row__StyledLabel",
-  componentId: "gp267o-1"
+  componentId: "sc-1ir0fqh-1"
 })(["flex:30% 0;"]);
 var FieldsAndErrorsWrapper = styled.div.withConfig({
   displayName: "Row__FieldsAndErrorsWrapper",
-  componentId: "gp267o-2"
+  componentId: "sc-1ir0fqh-2"
 })(["flex:", " 0;"], function (_ref2) {
   var fullWidth = _ref2.fullWidth;
   return fullWidth ? "100%" : "50%";
 });
 var Fields = styled.div.withConfig({
   displayName: "Row__Fields",
-  componentId: "gp267o-3"
+  componentId: "sc-1ir0fqh-3"
 })(["display:flex;align-items:center;flex-wrap:wrap;width:100%;"]);
 var FormRow = function FormRow(_ref3) {
   var children = _ref3.children,
@@ -1969,7 +1969,7 @@ var StepperDefaultProps = {
 
 var Wrapper$5 = styled.div.withConfig({
   displayName: "Component__Wrapper",
-  componentId: "sx10iu-0"
+  componentId: "sc-1apjhkv-0"
 })(["display:flex;justify-content:center;align-items:center;", " user-select:none;input{border:none;width:40px;outline:none;font-weight:600;font-size:16px;text-align:center;}span{font-size:12px;font-style:italic;}"], function (_ref) {
   var size = _ref.size;
   return size === "sm" && css(["flex-direction:column;"]);
@@ -2054,7 +2054,7 @@ var Switch = function Switch(_ref) {
 
 var StyledSwitchContainer = styled.div.withConfig({
   displayName: "Switch__StyledSwitchContainer",
-  componentId: "fafy6m-0"
+  componentId: "sc-44pphp-0"
 })(["align-items:center;background-color:", ";cursor:pointer;display:flex;justify-content:space-between;position:relative;transition:background-color 0.2s;", " ", " ", " ", " ", ""], function (_ref2) {
   var theme = _ref2.theme,
       toggled = _ref2.toggled;
@@ -2080,7 +2080,7 @@ var StyledSwitchContainer = styled.div.withConfig({
 });
 var StyledSwitch = styled.span.withConfig({
   displayName: "Switch__StyledSwitch",
-  componentId: "fafy6m-1"
+  componentId: "sc-44pphp-1"
 })(["background:#fff;box-shadow:0 0 2px 0 rgba(10,10,10,0.29);left:2px;position:absolute;top:2px;transition:left 0.2s,transform 0.2s;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10px;color:", ";text-transform:uppercase;user-select:none;", ";", " ", " ", ""], function (_ref9) {
   var theme = _ref9.theme;
   return theme.palette.gray.medium;
@@ -2113,7 +2113,7 @@ Switch.defaultProps = {
 
 var StyledToggle = styled.div.withConfig({
   displayName: "Toggle__StyledToggle",
-  componentId: "sc-2kk5pv-0"
+  componentId: "sc-68gvde-0"
 })(["display:inline-block;position:relative;", " ", ""], function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -2191,18 +2191,18 @@ ToggleSwitch.defaultProps = ToggleSwitchDefaultProps;
 
 var ItemConnector = styled.div.withConfig({
   displayName: "Item__ItemConnector",
-  componentId: "sc-14akrnv-0"
+  componentId: "sc-1awk8nq-0"
 })(["border-width:0;border-style:solid;border-color:", ";border-left-width:1px;transition:all 0.1ms ease-in-out;position:absolute;bottom:0;left:15px;top:0;::before{content:\"\";width:1px;height:100%;display:inline-block;}"], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.regular;
 });
 var Container$2 = styled.div.withConfig({
   displayName: "Item__Container",
-  componentId: "sc-14akrnv-1"
+  componentId: "sc-1awk8nq-1"
 })(["position:relative;min-height:40px;:last-child{", "{border-left-width:0;}}"], ItemConnector);
 var RowWrapper = styled.div.withConfig({
   displayName: "Item__RowWrapper",
-  componentId: "sc-14akrnv-2"
+  componentId: "sc-1awk8nq-2"
 })(["display:flex;align-items:center;"]);
 var RowDetails = styled(Grid).attrs(function () {
   return {
@@ -2210,7 +2210,7 @@ var RowDetails = styled(Grid).attrs(function () {
   };
 }).withConfig({
   displayName: "Item__RowDetails",
-  componentId: "sc-14akrnv-3"
+  componentId: "sc-1awk8nq-3"
 })(["width:100%;height:100%;"]);
 var Item$2 = styled(Grid).attrs(function (_ref2) {
   var lg = _ref2.lg;
@@ -2221,18 +2221,18 @@ var Item$2 = styled(Grid).attrs(function (_ref2) {
   };
 }).withConfig({
   displayName: "Item",
-  componentId: "sc-14akrnv-4"
+  componentId: "sc-1awk8nq-4"
 })(["display:flex;align-items:center;"]);
 var StyledIcon$1 = styled(Icon).withConfig({
   displayName: "Item__StyledIcon",
-  componentId: "sc-14akrnv-5"
+  componentId: "sc-1awk8nq-5"
 })(["margin-right:", ";flex-shrink:0;"], function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(2);
 });
 var StyledCollapseButton = styled(CollapseButton).withConfig({
   displayName: "Item__StyledCollapseButton",
-  componentId: "sc-14akrnv-6"
+  componentId: "sc-1awk8nq-6"
 })(["margin-left:", ";color:", ";"], function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(4);
@@ -2242,7 +2242,7 @@ var StyledCollapseButton = styled(CollapseButton).withConfig({
 });
 var Content = styled.div.withConfig({
   displayName: "Item__Content",
-  componentId: "sc-14akrnv-7"
+  componentId: "sc-1awk8nq-7"
 })(["padding:", ";"], function (_ref6) {
   var theme = _ref6.theme;
   return theme.spacing(4, 10);
@@ -2322,7 +2322,7 @@ var HistoryPropTypes = _objectSpread$k(_objectSpread$k({
 
 var Container$3 = styled.div.withConfig({
   displayName: "History__Container",
-  componentId: "wa0hqd-0"
+  componentId: "sc-1u2gi2m-0"
 })(["", " ", ""], function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -2374,7 +2374,7 @@ var Image = function Image(_ref) {
 };
 var StyledImg = styled.img.withConfig({
   displayName: "Image__StyledImg",
-  componentId: "sc-1ta15p5-0"
+  componentId: "sc-1oqfb7n-0"
 })(["", " ", " ", " ", " ", " ", ""], function (_ref2) {
   var width = _ref2.width;
   return width && "width: ".concat(width, ";");
@@ -2401,7 +2401,7 @@ var ExplorerLayoutFooterPropTypes = {
 
 var StyledFooter = styled.div.withConfig({
   displayName: "Footer__StyledFooter",
-  componentId: "sc-1rkjlvz-0"
+  componentId: "sc-5p9du5-0"
 })(["box-sizing:border-box;height:80px;text-align:center;padding-top:", ";"], function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
@@ -2428,7 +2428,7 @@ var StyledHeader = styled(Grid).attrs(function () {
   };
 }).withConfig({
   displayName: "Header__StyledHeader",
-  componentId: "sc-16ap3pj-0"
+  componentId: "sc-1amm62j-0"
 })(["height:128px;", "{height:96px;}"], function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
@@ -2440,7 +2440,7 @@ var StyledLogo = styled(Image).attrs(function () {
   };
 }).withConfig({
   displayName: "Header__StyledLogo",
-  componentId: "sc-16ap3pj-1"
+  componentId: "sc-1amm62j-1"
 })(["width:155px;", "{width:103px;}"], function (_ref2) {
   var theme = _ref2.theme;
   return theme.breakpoints.down("md");
@@ -2483,7 +2483,7 @@ var Content$1 = styled(Grid).attrs(function () {
   };
 }).withConfig({
   displayName: "Explorer__Content",
-  componentId: "a6i2rb-0"
+  componentId: "sc-9py360-0"
 })(["padding-top:", ";padding-bottom:", ";", "{padding-top:", ";}"], function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(8);
@@ -2560,7 +2560,7 @@ var ContentWrapper = styled(DialogContent).attrs(function () {
   };
 }).withConfig({
   displayName: "Modal__ContentWrapper",
-  componentId: "fzfza1-0"
+  componentId: "pqwu3e-0"
 })(["&&{padding:0;&:first-child{padding-top:0;}}"]);
 var Title = styled(DialogTitle).attrs(function () {
   return {
@@ -2568,7 +2568,7 @@ var Title = styled(DialogTitle).attrs(function () {
   };
 }).withConfig({
   displayName: "Modal__Title",
-  componentId: "fzfza1-1"
+  componentId: "pqwu3e-1"
 })(["&&{font-size:16px;font-weight:500;color:", ";display:flex;align-items:center;justify-content:space-between;padding:", "px;}"], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.darkIndigo;
@@ -2582,21 +2582,21 @@ var CloseModalIcon = styled(Icon).attrs(function () {
   };
 }).withConfig({
   displayName: "Modal__CloseModalIcon",
-  componentId: "fzfza1-2"
+  componentId: "pqwu3e-2"
 })(["cursor:pointer;background-color:white;&&{color:", ";}"], function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.secondary.dark;
 });
 var Actions = styled(DialogActions).withConfig({
   displayName: "Modal__Actions",
-  componentId: "fzfza1-3"
+  componentId: "pqwu3e-3"
 })(["&&{justify-content:", ";}"], function (_ref4) {
   var hasDesc = _ref4.hasDesc;
   return hasDesc ? "space-between" : "flex-end";
 });
 var LoadingWrapper = styled.div.withConfig({
   displayName: "Modal__LoadingWrapper",
-  componentId: "fzfza1-4"
+  componentId: "pqwu3e-4"
 })(["position:absolute;top:0;right:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background-color:", ";z-index:1;"], function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.secondary.dark;
@@ -2671,7 +2671,7 @@ Modal.defaultProps = {
 
 var Button$1 = styled(ButtonBase).withConfig({
   displayName: "Button",
-  componentId: "sc-1vsutll-0"
+  componentId: "k7mzaq-0"
 })(["display:flex;align-items:center;&&{width:40px;height:40px;background-color:", ";svg{color:", ";}:hover{background-color:", ";svg{color:", ";}}}"], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
@@ -2730,7 +2730,7 @@ var ShareModuleDefaultProps = {
 
 var Container$4 = styled.div.withConfig({
   displayName: "ShareModule__Container",
-  componentId: "sc-1s032sh-0"
+  componentId: "sc-1jmukyt-0"
 })(["", " ", ""], function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -2738,7 +2738,7 @@ var Container$4 = styled.div.withConfig({
 });
 var ButtonsWrapper = styled.div.withConfig({
   displayName: "ShareModule__ButtonsWrapper",
-  componentId: "sc-1s032sh-1"
+  componentId: "sc-1jmukyt-1"
 })(["display:flex;align-items:center;justify-content:space-between;margin-bottom:", ";"], function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
@@ -2752,7 +2752,7 @@ var StyledText$1 = styled(Text).attrs(function () {
   };
 }).withConfig({
   displayName: "ShareModule__StyledText",
-  componentId: "sc-1s032sh-2"
+  componentId: "sc-1jmukyt-2"
 })(["&&{", "}"], function (_ref2) {
   var spacing = _ref2.theme.spacing;
   return css(["margin:", ";"], spacing(2, 0));
@@ -2824,7 +2824,7 @@ var TabPropTypes = _objectSpread$n(_objectSpread$n({
 
 var Wrapper$6 = styled.div.withConfig({
   displayName: "Tab__Wrapper",
-  componentId: "cqsr0f-0"
+  componentId: "q8ovtf-0"
 })(["margin-bottom:", ";", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
@@ -2835,7 +2835,7 @@ var Wrapper$6 = styled.div.withConfig({
 });
 var StyledTabs = styled(MuiTabs).withConfig({
   displayName: "Tab__StyledTabs",
-  componentId: "cqsr0f-1"
+  componentId: "q8ovtf-1"
 })(["&&{min-height:fit-content;.MuiTab-root{min-height:24px;}}.MuiTabs-indicator{display:none;}button{min-width:fit-content;margin-right:", ";padding:0;font-weight:normal;font-size:14px;line-height:120%;&.Mui-selected{font-weight:600;}}.Mui-selected{&::after{content:\"\";position:absolute;width:100%;left:0;bottom:0;height:2px;background-color:", ";border-radius:2px 2px 0 0;}}"], function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(5);
@@ -2845,7 +2845,7 @@ var StyledTabs = styled(MuiTabs).withConfig({
 });
 var StyledTab = styled(MuiTab).withConfig({
   displayName: "Tab__StyledTab",
-  componentId: "cqsr0f-2"
+  componentId: "q8ovtf-2"
 })(["&&{text-transform:initial;}"]);
 var Tab = function Tab(_ref4) {
   var tabs = _ref4.tabs,
@@ -2880,14 +2880,14 @@ var CloseModalIcon$1 = styled(Icon).attrs(function () {
   };
 }).withConfig({
   displayName: "ImageModal__CloseModalIcon",
-  componentId: "sc-1grz9di-0"
+  componentId: "sc-1een0u3-0"
 })(["position:absolute;top:0;right:0;border-radius:100%;&&{margin:", ";}"], function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
 var StyledImg$1 = styled(Image).withConfig({
   displayName: "ImageModal__StyledImg",
-  componentId: "sc-1grz9di-1"
+  componentId: "sc-1een0u3-1"
 })(["width:500px;max-width:500px;user-select:none;"]);
 var ImageModal = function ImageModal(_ref2) {
   var isOpen = _ref2.isOpen,
@@ -2930,7 +2930,7 @@ var ThumbnailDefaultProps = {
 
 var Container$5 = styled.div.withConfig({
   displayName: "Thumbnail__Container",
-  componentId: "cnapw-0"
+  componentId: "sc-142uf10-0"
 })(["position:relative;height:48px;width:48px;text-align:center;border-radius:8px;overflow:hidden;background-color:", ";display:flex;align-items:center;justify-content:center;flex-shrink:0;", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
@@ -2941,11 +2941,11 @@ var Container$5 = styled.div.withConfig({
 });
 var IconWrapper = styled.div.withConfig({
   displayName: "Thumbnail__IconWrapper",
-  componentId: "cnapw-1"
+  componentId: "sc-142uf10-1"
 })(["position:absolute;top:0;left:0;width:100%;height:100%;transition:all 0.1s ease-in-out;display:flex;align-items:center;justify-content:center;cursor:pointer;:hover{background-color:rgba(0,0,0,0.2);}"]);
 var StyledIcon$2 = styled(Icon).withConfig({
   displayName: "Thumbnail__StyledIcon",
-  componentId: "cnapw-2"
+  componentId: "sc-142uf10-2"
 })(["color:", ";"], function (_ref2) {
   var color = _ref2.color,
       theme = _ref2.theme;
@@ -3629,7 +3629,7 @@ Transition.EXITING = EXITING;
 
 var StyledContent = styled.div.withConfig({
   displayName: "Content__StyledContent",
-  componentId: "sztjj9-0"
+  componentId: "sc-196inky-0"
 })(["width:100%;height:100%;flex:1;padding:24px 24px 24px 40px;transition:all ", "ms ease-in-out;", ";"], function (_ref) {
   var duration = _ref.duration;
   return duration / 2;
@@ -3647,11 +3647,11 @@ var StyledContent = styled.div.withConfig({
 });
 var ActionWrapper = styled.div.withConfig({
   displayName: "Content__ActionWrapper",
-  componentId: "sztjj9-1"
+  componentId: "sc-196inky-1"
 })(["display:flex;justify-content:space-between;align-items:center;padding:16px 0;"]);
 var StepHint = styled.span.withConfig({
   displayName: "Content__StepHint",
-  componentId: "sztjj9-2"
+  componentId: "sc-196inky-2"
 })(["font-style:italic;font-weight:normal;font-size:14px;color:", ";margin-left:8px;"], function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.gray.medium;
@@ -3746,7 +3746,7 @@ var stepFlagBackgroundColor = function stepFlagBackgroundColor(_ref3) {
 
 var StyledTitle = styled.div.withConfig({
   displayName: "Title__StyledTitle",
-  componentId: "zx9ai3-0"
+  componentId: "sc-8gl7u5-0"
 })(["display:flex;align-items:center;text-overflow:ellipsis;overflow:hidden;white-space:normal;", " ", ""], function (_ref) {
   var isPassed = _ref.isPassed;
   return isPassed && css(["cursor:pointer;"]);
@@ -3756,7 +3756,7 @@ var StyledTitle = styled.div.withConfig({
 });
 var Flag = styled.div.withConfig({
   displayName: "Title__Flag",
-  componentId: "zx9ai3-1"
+  componentId: "sc-8gl7u5-1"
 })(["width:32px;height:32px;display:flex;align-items:center;justify-content:center;background-color:", ";color:", ";border-radius:100%;font-weight:600;font-size:14px;line-height:120%;z-index:1;transition:all ", " ease-in-out;"], function (props) {
   return stepFlagBackgroundColor(props);
 }, function (props) {
@@ -3767,7 +3767,7 @@ var Flag = styled.div.withConfig({
 });
 var Label$1 = styled.span.withConfig({
   displayName: "Title__Label",
-  componentId: "zx9ai3-2"
+  componentId: "sc-8gl7u5-2"
 })(["font-weight:600;font-size:16px;line-height:120%;color:", ";padding-left:8px;transition:all ", " ease-in-out;", ""], function (props) {
   return stepBorderAndTitleColor(props);
 }, function (_ref4) {
@@ -3864,7 +3864,7 @@ var handleScroll = function handleScroll(el) {
 
 var Wrapper$7 = styled.div.withConfig({
   displayName: "Wizard__Wrapper",
-  componentId: "sc-16pu72e-0"
+  componentId: "sc-3fjyf3-0"
 })(["max-width:680px;margin:auto;", " ", ""], function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -3872,21 +3872,21 @@ var Wrapper$7 = styled.div.withConfig({
 });
 var StepsWrapper = styled.div.withConfig({
   displayName: "Wizard__StepsWrapper",
-  componentId: "sc-16pu72e-1"
+  componentId: "sc-3fjyf3-1"
 })(["", ""], function (_ref) {
   var isHorizontal = _ref.isHorizontal;
   return isHorizontal && css(["position:relative;::before{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,#ffffff 0%,rgba(255,255,255,0) 100% );transform:rotate(-180deg);position:absolute;top:0;left:0;z-index:2;}::after{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,#ffffff 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;right:0;z-index:2;}"]);
 });
 var Steps = styled.div.withConfig({
   displayName: "Wizard__Steps",
-  componentId: "sc-16pu72e-2"
+  componentId: "sc-3fjyf3-2"
 })(["", ""], function (_ref2) {
   var isHorizontal = _ref2.isHorizontal;
   return isHorizontal && css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}"]);
 });
 var StepConnector = styled.div.withConfig({
   displayName: "Wizard__StepConnector",
-  componentId: "sc-16pu72e-3"
+  componentId: "sc-3fjyf3-3"
 })(["border-width:0;border-style:dashed;border-color:", ";border-left-width:2px;transition:all ", " ease-in-out;position:absolute;top:0;left:15px;bottom:0;::before{content:\"\";width:2px;height:100%;display:inline-block;}", ""], function (props) {
   return stepBorderAndTitleColor(props);
 }, function (_ref3) {
@@ -3898,7 +3898,7 @@ var StepConnector = styled.div.withConfig({
 });
 var Step = styled.div.withConfig({
   displayName: "Wizard__Step",
-  componentId: "sc-16pu72e-4"
+  componentId: "sc-3fjyf3-4"
 })(["box-sizing:border-box;position:relative;min-height:60px;:last-child{", "{", ";}}", ""], StepConnector, function (_ref5) {
   var isActive = _ref5.isActive,
       isHorizontal = _ref5.isHorizontal;

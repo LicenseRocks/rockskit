@@ -41,7 +41,7 @@ export const DropzonePreview = ({ files, onRemoveClick }) => {
 };
 
 DropzonePreview.propTypes = {
-  files: PropTypes.arrayOf(PropTypes.instanceOf(File)),
+  files: PropTypes.arrayOf(PropTypes.object),
   onRemoveClick: PropTypes.func.isRequired,
 };
 
