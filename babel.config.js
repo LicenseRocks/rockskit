@@ -11,7 +11,7 @@ module.exports = {
     ],
   ],
   env: {
-    build: {
+    production: {
       presets: [
         [
           "@babel/env",

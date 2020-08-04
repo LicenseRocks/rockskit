@@ -1,18 +1,10 @@
 import React from "react";
 
-import {
-  AppContainer,
-  FreeBrandIconSet,
-  FreeSolidIconSet,
-  RocksTheme,
-} from "../../src";
+import { AppContainer, RocksKitIcons, RocksKitTheme } from "../../src";
 
 export const Container = (story) => {
   return (
-    <AppContainer
-      icons={{ ...FreeSolidIconSet, ...FreeBrandIconSet }}
-      theme={RocksTheme}
-    >
+    <AppContainer icons={RocksKitIcons} theme={RocksKitTheme}>
       {story()}
     </AppContainer>
   );
