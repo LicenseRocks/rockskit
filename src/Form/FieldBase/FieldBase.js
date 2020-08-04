@@ -1,12 +1,14 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styled, { css } from "styled-components";
 
 import { FieldWrapper } from "../FieldWrapper";
 import { FieldBasePropTypes, FieldBaseDefaultProps } from "./props";
 
-const StyledInput = styled(({ component: Component, ...props }) => (
-  <Component {...props} />
-))`
+const StyledInput = styled(
+  forwardRef(({ component: Component, ...props }, ref) => (
+    <Component ref={ref} {...props} />
+  ))
+)`
   flex: 1;
   font-weight: 600;
   font-size: 14px;
@@ -71,22 +73,19 @@ export const FieldBase = ({
   startIconColor,
   startIconOnClick,
   ...props
-}) => {
-  console.log("props: ", props);
-  return (
-    <FieldWrapper
-      endIcon={endIcon}
-      endIconColor={endIconColor}
-      endIconOnClick={endIconOnClick}
-      hasError={hasError}
-      startIcon={startIcon}
-      startIconColor={startIconColor}
-      startIconOnClick={startIconOnClick}
-    >
-      <StyledInput hasError={hasError} ref={register} {...props} />
-    </FieldWrapper>
-  );
-};
+}) => (
+  <FieldWrapper
+    endIcon={endIcon}
+    endIconColor={endIconColor}
+    endIconOnClick={endIconOnClick}
+    hasError={hasError}
+    startIcon={startIcon}
+    startIconColor={startIconColor}
+    startIconOnClick={startIconOnClick}
+  >
+    <StyledInput hasError={hasError} ref={register} {...props} />
+  </FieldWrapper>
+);
 
 FieldBase.propTypes = FieldBasePropTypes;
 

@@ -12,7 +12,7 @@ export default {
 };
 
 export const main = () => {
-  const { register } = useForm();
+  const { register, watch } = useForm();
 
   const defaultProps = {
     disabled: boolean("Disabled", false),
@@ -26,6 +26,9 @@ export const main = () => {
     register,
     stacked: boolean("Stacked", false),
   };
+
+  const values = watch();
+  console.log("values: ", values);
 
   return <Radio {...defaultProps} />;
 };

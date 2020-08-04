@@ -1364,12 +1364,14 @@ var FieldBaseDefaultProps = _objectSpread$c(_objectSpread$c({}, FieldWrapperDefa
   type: "text"
 });
 
-var StyledInput$1 = styled__default(function (_ref) {
+var StyledInput$1 = styled__default( /*#__PURE__*/React.forwardRef(function (_ref, ref) {
   var Component = _ref.component,
       props = _objectWithoutProperties(_ref, ["component"]);
 
-  return /*#__PURE__*/React__default.createElement(Component, props);
-}).withConfig({
+  return /*#__PURE__*/React__default.createElement(Component, _extends({
+    ref: ref
+  }, props));
+})).withConfig({
   displayName: "FieldBase__StyledInput",
   componentId: "sc-9w7fs9-0"
 })(["flex:1;font-weight:600;font-size:14px;line-height:120%;padding:8px;color:", ";outline:none;border:none;height:100%;box-sizing:border-box;transition:all 100ms ease-in-out;background-color:transparent;::placeholder{font-weight:normal;}&:disabled{opacity:0.3;cursor:not-allowed;pointer-events:none;}", " ", " ", " ", ""], function (_ref2) {
@@ -1409,7 +1411,6 @@ var FieldBase = function FieldBase(_ref10) {
       startIconOnClick = _ref10.startIconOnClick,
       props = _objectWithoutProperties(_ref10, ["block", "endIcon", "endIconColor", "endIconOnClick", "hasError", "register", "startIcon", "startIconColor", "startIconOnClick"]);
 
-  console.log("props: ", props);
   return /*#__PURE__*/React__default.createElement(FieldWrapper, {
     endIcon: endIcon,
     endIconColor: endIconColor,
