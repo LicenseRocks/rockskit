@@ -13,6 +13,7 @@ export const SPACER_PROP_TYPES = {
   mb: PropTypes.number,
   mr: PropTypes.number,
   ml: PropTypes.number,
+  mAuto: PropTypes.bool,
   p: PropTypes.number,
   p0: PropTypes.bool,
   px: PropTypes.number,
@@ -32,6 +33,7 @@ export const SPACER = ({
   mb,
   mr,
   ml,
+  mAuto,
   p,
   p0,
   px,
@@ -51,6 +53,7 @@ export const SPACER = ({
   if (mb) temp += `margin-bottom: ${SPACER_FORMULA(mb)}px !important;`;
   if (mr) temp += `margin-right: ${SPACER_FORMULA(mr)}px !important;`;
   if (ml) temp += `margin-left: ${SPACER_FORMULA(ml)}px !important;`;
+  if (mAuto) temp += `margin: auto !important;`;
 
   if (p) temp += `padding: ${SPACER_FORMULA(p)}px !important;`;
   if (p0) temp += `padding: 0 !important;`;
