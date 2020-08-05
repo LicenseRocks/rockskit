@@ -5,6 +5,7 @@ import { ThemeProvider } from "styled-components";
 import { library } from "@fortawesome/fontawesome-svg-core";
 
 import { AppContainerPropTypes } from "./props";
+import { GlobalStyle } from "../theme";
 
 export const AppContainer = ({ children, icons, theme }) => {
   if (icons) library.add(icons);
@@ -12,6 +13,7 @@ export const AppContainer = ({ children, icons, theme }) => {
   return (
     <MuiThemeProvider theme={theme}>
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <CssBaseline />
         {children}
       </ThemeProvider>
