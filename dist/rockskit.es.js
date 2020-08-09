@@ -1,8 +1,5 @@
-import _objectWithoutProperties from '@babel/runtime/helpers/objectWithoutProperties';
 import React, { forwardRef, useState, useEffect, useRef, createRef } from 'react';
 import styled, { css, useTheme, ThemeProvider as ThemeProvider$1 } from 'styled-components';
-import _defineProperty from '@babel/runtime/helpers/defineProperty';
-import _extends from '@babel/runtime/helpers/extends';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faTelegramPlane, faTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
 import { faArrowLeft, faBox, faCheck, faCheckCircle, faChevronDown, faChevronLeft, faChevronRight, faChevronUp, faCopy, faEllipsisH, faEnvelope, faFile, faFilePdf, faInfoCircle, faLink, faMinus, faPlus, faSearchPlus, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
@@ -16,8 +13,6 @@ import { Collapse as Collapse$1 } from 'react-collapse';
 import QRCode from 'qrcode.react';
 import Grid from '@material-ui/core/Grid';
 import { Controller } from 'react-hook-form';
-import _toConsumableArray from '@babel/runtime/helpers/toConsumableArray';
-import _slicedToArray from '@babel/runtime/helpers/slicedToArray';
 import { useDropzone } from 'react-dropzone';
 import axios from 'axios';
 import Select$1 from 'react-select';
@@ -32,9 +27,49 @@ import DialogTitle from '@material-ui/core/DialogTitle';
 import copy from 'copy-to-clipboard';
 import MuiTabs from '@material-ui/core/Tabs';
 import MuiTab from '@material-ui/core/Tab';
-import _objectWithoutPropertiesLoose from '@babel/runtime/helpers/esm/objectWithoutPropertiesLoose';
-import _inheritsLoose from '@babel/runtime/helpers/esm/inheritsLoose';
 import ReactDOM from 'react-dom';
+
+function _extends() {
+  _extends = Object.assign || function (target) {
+    for (var i = 1; i < arguments.length; i++) {
+      var source = arguments[i];
+
+      for (var key in source) {
+        if (Object.prototype.hasOwnProperty.call(source, key)) {
+          target[key] = source[key];
+        }
+      }
+    }
+
+    return target;
+  };
+
+  return _extends.apply(this, arguments);
+}
+
+function _objectWithoutPropertiesLoose(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _taggedTemplateLiteralLoose(strings, raw) {
+  if (!raw) {
+    raw = strings.slice(0);
+  }
+
+  strings.raw = raw;
+  return strings;
+}
 
 var FreeBrandIconSet = {
   fabFacebookF: faFacebookF,
@@ -107,43 +142,49 @@ var KIT_ICON_SIZES = {
 
 var KIT_TYPOGRAPHY = {
   h1: function h1(theme) {
-    return _defineProperty({
+    var _ref;
+
+    return _ref = {
       fontFamily: KIT_FONTS.Galano.name,
       fontSize: "32px",
       fontWeight: 500,
       lineHeight: "120%",
       textTransform: "initial",
       letterSpacing: "-0.03em"
-    }, theme.breakpoints.down("sm"), {
+    }, _ref[theme.breakpoints.down("sm")] = {
       fontSize: "28px",
       letterSpacing: "-0.02em"
-    });
+    }, _ref;
   },
   h2: function h2(theme) {
-    return _defineProperty({
+    var _ref2;
+
+    return _ref2 = {
       fontFamily: KIT_FONTS.Galano.name,
       fontWeight: 500,
       fontSize: "26px",
       lineHeight: "120%",
       textTransform: "initial",
       letterSpacing: "-0.02em"
-    }, theme.breakpoints.down("sm"), {
+    }, _ref2[theme.breakpoints.down("sm")] = {
       fontSize: "20px",
       letterSpacing: "-0.01em"
-    });
+    }, _ref2;
   },
   h3: function h3(theme) {
-    return _defineProperty({
+    var _ref3;
+
+    return _ref3 = {
       fontFamily: KIT_FONTS.Galano.name,
       fontWeight: 500,
       fontSize: "20px",
       lineHeight: "120%",
       textTransform: "initial",
       letterSpacing: "-0.01em"
-    }, theme.breakpoints.down("sm"), {
+    }, _ref3[theme.breakpoints.down("sm")] = {
       fontSize: "16px",
       letterSpacing: "-0.01em"
-    });
+    }, _ref3;
   },
   h4: function h4() {
     return {
@@ -213,10 +254,7 @@ var KIT_TYPOGRAPHY = {
   }
 };
 
-function ownKeys(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var RocksKitIcons = _objectSpread(_objectSpread({}, FreeBrandIconSet), FreeSolidIconSet);
+var RocksKitIcons = _extends({}, FreeBrandIconSet, FreeSolidIconSet);
 var RocksKitTheme = createMuiTheme({
   breakpoints: {
     values: {
@@ -228,7 +266,7 @@ var RocksKitTheme = createMuiTheme({
   },
   defaultIconSet: "fa"
 });
-RocksKitTheme.palette = _objectSpread(_objectSpread({}, RocksKitTheme.palette), {}, {
+RocksKitTheme.palette = _extends({}, RocksKitTheme.palette, {
   primary: {
     main: KIT_COLORS.primary.main,
     light: KIT_COLORS.primary.light
@@ -260,10 +298,10 @@ RocksKitTheme.palette = _objectSpread(_objectSpread({}, RocksKitTheme.palette), 
     black: KIT_COLORS.gray.black
   },
   background: {
-    "default": KIT_COLORS.gray.light
+    default: KIT_COLORS.gray.light
   }
 });
-RocksKitTheme.typography = _objectSpread(_objectSpread({}, RocksKitTheme.typography), {}, {
+RocksKitTheme.typography = _extends({}, RocksKitTheme.typography, {
   fontFamily: [KIT_FONTS.Inter.name, "sans-serif"].join(","),
   fontSize: 16,
   fontWeightLight: 300,
@@ -290,7 +328,7 @@ RocksKitTheme.spacing = function () {
   }
 
   return nums.reduce(function (output, n) {
-    return "".concat(output).concat(n * amount).concat(n > 0 ? "px" : "", " ");
+    return "" + output + n * amount + (n > 0 ? "px" : "") + " ";
   }, "");
 };
 
@@ -320,14 +358,14 @@ var DISPLAY = function DISPLAY(_ref) {
   if (dInlineBlock) display = "inline-block";
   if (dInlineFlex) display = "inline-flex";
   if (dNone) display = "none";
-  return display ? "display: ".concat(display, " !important;") : "";
+  return display ? "display: " + display + " !important;" : "";
 };
 
 var SPACER_FORMULA = function SPACER_FORMULA(factor) {
   return factor * 4;
 };
 var SPACER_POSTFIX = function SPACER_POSTFIX(space) {
-  return "".concat(space > 0 ? "px" : "");
+  return "" + (space > 0 ? "px" : "");
 };
 var SPACER_PROP_TYPES = {
   m: PropTypes.number,
@@ -365,51 +403,61 @@ var SPACER = function SPACER(_ref) {
       pr = _ref.pr,
       pl = _ref.pl;
   var temp = "";
-  if (m) temp += "margin: ".concat(SPACER_FORMULA(m), "px !important;");
+  if (m) temp += "margin: " + SPACER_FORMULA(m) + "px !important;";
   if (m0) temp += "margin: 0 !important;";
-  if (mx) temp += "margin: 0 ".concat(SPACER_FORMULA(mx), "px !important;");
-  if (my) temp += "margin: ".concat(SPACER_FORMULA(my), "px 0 !important;");
-  if (mt) temp += "margin-top: ".concat(SPACER_FORMULA(mt), "px !important;");
-  if (mb) temp += "margin-bottom: ".concat(SPACER_FORMULA(mb), "px !important;");
-  if (mr) temp += "margin-right: ".concat(SPACER_FORMULA(mr), "px !important;");
-  if (ml) temp += "margin-left: ".concat(SPACER_FORMULA(ml), "px !important;");
-  if (p) temp += "padding: ".concat(SPACER_FORMULA(p), "px !important;");
+  if (mx) temp += "margin: 0 " + SPACER_FORMULA(mx) + "px !important;";
+  if (my) temp += "margin: " + SPACER_FORMULA(my) + "px 0 !important;";
+  if (mt) temp += "margin-top: " + SPACER_FORMULA(mt) + "px !important;";
+  if (mb) temp += "margin-bottom: " + SPACER_FORMULA(mb) + "px !important;";
+  if (mr) temp += "margin-right: " + SPACER_FORMULA(mr) + "px !important;";
+  if (ml) temp += "margin-left: " + SPACER_FORMULA(ml) + "px !important;";
+  if (p) temp += "padding: " + SPACER_FORMULA(p) + "px !important;";
   if (p0) temp += "padding: 0 !important;";
-  if (px) temp += "padding: 0 ".concat(SPACER_FORMULA(px), "px !important;");
-  if (py) temp += "padding: ".concat(SPACER_FORMULA(py), "px 0 !important;");
-  if (pt) temp += "padding-top: ".concat(SPACER_FORMULA(pt), "px !important;");
-  if (pb) temp += "padding-bottom: ".concat(SPACER_FORMULA(pb), "px !important;");
-  if (pr) temp += "padding-right: ".concat(SPACER_FORMULA(pr), "px !important;");
-  if (pl) temp += "padding-left: ".concat(SPACER_FORMULA(pl), "px !important;");
+  if (px) temp += "padding: 0 " + SPACER_FORMULA(px) + "px !important;";
+  if (py) temp += "padding: " + SPACER_FORMULA(py) + "px 0 !important;";
+  if (pt) temp += "padding-top: " + SPACER_FORMULA(pt) + "px !important;";
+  if (pb) temp += "padding-bottom: " + SPACER_FORMULA(pb) + "px !important;";
+  if (pr) temp += "padding-right: " + SPACER_FORMULA(pr) + "px !important;";
+  if (pl) temp += "padding-left: " + SPACER_FORMULA(pl) + "px !important;";
   return temp;
 };
 
 var THEME_COLORS = ["primary", "secondary", "success", "error", "warning"];
 
-function ownKeys$1(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$1(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$1(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$1(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var IconPropTypes = _objectSpread$1(_objectSpread$1({
+var IconPropTypes = _extends({
   bordered: PropTypes.bool,
   color: PropTypes.oneOf(THEME_COLORS),
   icon: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   prefix: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(KIT_ICON_SIZES))
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var IconDefaultProps = {
   bordered: false,
   color: "primary",
   size: "md"
 };
 
-function ownKeys$2(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
+function _templateObject2() {
+  var data = _taggedTemplateLiteralLoose(["\n  font-size: ", "px;\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-function _objectSpread$2(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$2(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$2(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var Bordered = styled.div.withConfig({
-  displayName: "Icon__Bordered",
-  componentId: "naquj8-0"
-})(["", ""], function (_ref) {
+  _templateObject2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Bordered = styled.div(_templateObject(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
   return css(["width:32px;height:32px;border:solid 2px ", ";background-color:", ";display:inline-flex;align-items:center;justify-content:center;border-radius:100%;box-sizing:border-box;position:relative;"], theme.palette.gray.regular, theme.palette[color].light);
@@ -418,22 +466,19 @@ var StyledIcon = styled(function (_ref2) {
   var icon = _ref2.icon,
       prefix = _ref2.prefix,
       size = _ref2.size,
-      props = _objectWithoutProperties(_ref2, ["icon", "prefix", "size"]);
+      props = _objectWithoutPropertiesLoose(_ref2, ["icon", "prefix", "size"]);
 
   return /*#__PURE__*/React.createElement(FontAwesomeIcon, _extends({
     icon: [prefix, icon]
   }, props));
-}).withConfig({
-  displayName: "Icon__StyledIcon",
-  componentId: "naquj8-1"
-})(["font-size:", "px;", " ", " ", " ", ""], function (_ref3) {
+})(_templateObject2(), function (_ref3) {
   var size = _ref3.size;
   return KIT_ICON_SIZES[size];
 }, function (_ref4) {
   var color = _ref4.color,
       theme = _ref4.theme;
-  if (color === "input") return "color: ".concat(theme.palette.gray.regular, ";");
-  return "color: ".concat(theme.palette[color].main, ";");
+  if (color === "input") return "color: " + theme.palette.gray.regular + ";";
+  return "color: " + theme.palette[color].main + ";";
 }, function (_ref5) {
   var onClick = _ref5.onClick;
   return onClick && css(["cursor:pointer;transition:all 0.1s ease-in-out;:hover{opacity:0.7;}"]);
@@ -447,11 +492,11 @@ var Icon = function Icon(_ref6) {
       className = _ref6.className,
       color = _ref6.color,
       prefix = _ref6.prefix,
-      props = _objectWithoutProperties(_ref6, ["bordered", "className", "color", "prefix"]);
+      props = _objectWithoutPropertiesLoose(_ref6, ["bordered", "className", "color", "prefix"]);
 
   var theme = useTheme();
 
-  var defaultProps = _objectSpread$2({
+  var defaultProps = _extends({
     color: color,
     prefix: prefix || theme.defaultIconSet
   }, props);
@@ -466,24 +511,27 @@ var Icon = function Icon(_ref6) {
 Icon.propTypes = IconPropTypes;
 Icon.defaultProps = IconDefaultProps;
 
-function ownKeys$3(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$3(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$3(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$3(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var AlertPropTypes = _objectSpread$3(_objectSpread$3({
+var AlertPropTypes = _extends({
   content: PropTypes.node,
   children: PropTypes.node,
   color: PropTypes.oneOf(["info", "danger", "warning"])
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var AlertDefaultProps = {
   content: null,
   children: null,
   color: "info"
 };
 
-var StyledMessage = styled.div.withConfig({
-  displayName: "Alert__StyledMessage",
-  componentId: "sc-1q2nixr-0"
-})(["width:100%;box-sizing:border-box;min-height:40px;padding:8px;font-size:14px;border-radius:8px;background-color:", ";color:", ";transition:all 100ms ease-in-out;display:flex;align-items:center;svg{color:", ";}", " ", " ", " ", ""], function (_ref) {
+function _templateObject$1() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  box-sizing: border-box;\n  min-height: 40px;\n  padding: 8px;\n  font-size: 14px;\n  border-radius: 8px;\n  background-color: ", ";\n  color: ", ";\n  transition: all 100ms ease-in-out;\n  display: flex;\n  align-items: center;\n\n  svg {\n    color: ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$1 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledMessage = styled.div(_templateObject$1(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -508,7 +556,7 @@ var StyledMessage = styled.div.withConfig({
 var Alert = function Alert(_ref6) {
   var content = _ref6.content,
       children = _ref6.children,
-      props = _objectWithoutProperties(_ref6, ["content", "children"]);
+      props = _objectWithoutPropertiesLoose(_ref6, ["content", "children"]);
 
   return /*#__PURE__*/React.createElement(StyledMessage, props, /*#__PURE__*/React.createElement(Icon, {
     icon: "info-circle",
@@ -537,22 +585,16 @@ var AppContainer = function AppContainer(_ref) {
 };
 AppContainer.propTypes = AppContainerPropTypes;
 
-function ownKeys$4(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$4(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$4(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$4(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var ChipBadgePropTypes = _objectSpread$4(_objectSpread$4({
+var ChipBadgePropTypes = _extends({
   color: PropTypes.oneOf(THEME_COLORS),
   label: PropTypes.string,
   icon: PropTypes.string.isRequired
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ChipBadgeDefaultProps = {
   color: "primary"
 };
 
-function ownKeys$5(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$5(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$5(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$5(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var HeadingBasePropTypes = _objectSpread$5(_objectSpread$5({
+var HeadingBasePropTypes = _extends({
   align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
   children: PropTypes.node,
   content: PropTypes.string,
@@ -560,12 +602,18 @@ var HeadingBasePropTypes = _objectSpread$5(_objectSpread$5({
   display: PropTypes.oneOf(["initial", "block", "inline"]),
   gutterBottom: PropTypes.bool,
   noWrap: PropTypes.bool
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-var StyledHeading = styled(Typography).withConfig({
-  displayName: "Base__StyledHeading",
-  componentId: "sc-1hr75b8-0"
-})(["", " ", ""], function (theme) {
+function _templateObject$2() {
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
+
+  _templateObject$2 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledHeading = styled(Typography)(_templateObject$2(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -573,7 +621,7 @@ var StyledHeading = styled(Typography).withConfig({
 var HeadingBase = function HeadingBase(_ref) {
   var content = _ref.content,
       children = _ref.children,
-      props = _objectWithoutProperties(_ref, ["content", "children"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["content", "children"]);
 
   return /*#__PURE__*/React.createElement(StyledHeading, props, content || children);
 };
@@ -621,10 +669,7 @@ var H6 = function H6(props) {
 };
 H6.propTypes = HeadingBasePropTypes;
 
-function ownKeys$6(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$6(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$6(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$6(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var TextBasePropTypes = _objectSpread$6(_objectSpread$6({
+var TextBasePropTypes = _extends({
   align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
   children: PropTypes.node,
   content: PropTypes.string,
@@ -635,43 +680,49 @@ var TextBasePropTypes = _objectSpread$6(_objectSpread$6({
   fontSize: PropTypes.oneOf(["sm", "md", "lg"]),
   gutterBottom: PropTypes.bool,
   noWrap: PropTypes.bool
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var TextBaseDefaultProps = {
   fontStyle: "normal",
   fontWeight: "regular",
   fontSize: "md"
 };
 
-var StyledText = styled(Typography).withConfig({
-  displayName: "Base__StyledText",
-  componentId: "sc-17vyex8-0"
-})(["&&{", " ", " font-style:", ";", " ", "}"], function (_ref) {
+function _templateObject$3() {
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n\n    ", "\n\n  font-style: ", ";\n\n  ", "\n  ", "\n  }\n"]);
+
+  _templateObject$3 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledText = styled(Typography)(_templateObject$3(), function (_ref) {
   var fontWeight = _ref.fontWeight,
       theme = _ref.theme;
 
   if (fontWeight === "light") {
-    return "font-weight: ".concat(theme.typography.fontWeightLight, ";");
+    return "font-weight: " + theme.typography.fontWeightLight + ";";
   }
 
   if (fontWeight === "bold") {
-    return "font-weight: ".concat(theme.typography.fontWeightBold, ";");
+    return "font-weight: " + theme.typography.fontWeightBold + ";";
   }
 
-  return "font-weight: ".concat(theme.typography.fontWeightRegular, ";");
+  return "font-weight: " + theme.typography.fontWeightRegular + ";";
 }, function (_ref2) {
   var fontSize = _ref2.fontSize,
       theme = _ref2.theme,
       variant = _ref2.variant;
 
   if (fontSize === "sm") {
-    return "font-size: ".concat(theme.typography[variant].fontSizeSm, ";");
+    return "font-size: " + theme.typography[variant].fontSizeSm + ";";
   }
 
   if (fontSize === "lg") {
-    return "font-size: ".concat(theme.typography[variant].fontSizeLg, ";");
+    return "font-size: " + theme.typography[variant].fontSizeLg + ";";
   }
 
-  return "font-size: ".concat(theme.typography[variant].fontSize, ";");
+  return "font-size: " + theme.typography[variant].fontSize + ";";
 }, function (_ref3) {
   var fontStyle = _ref3.fontStyle;
   return fontStyle;
@@ -683,17 +734,23 @@ var StyledText = styled(Typography).withConfig({
 var TextBase = function TextBase(_ref4) {
   var content = _ref4.content,
       children = _ref4.children,
-      props = _objectWithoutProperties(_ref4, ["content", "children"]);
+      props = _objectWithoutPropertiesLoose(_ref4, ["content", "children"]);
 
   return /*#__PURE__*/React.createElement(StyledText, props, content || children);
 };
 TextBase.propTypes = TextBasePropTypes;
 TextBase.defaultProps = TextBaseDefaultProps;
 
-var StyledParagraph = styled(TextBase).withConfig({
-  displayName: "Paragraph__StyledParagraph",
-  componentId: "jsbo80-0"
-})(["&&{margin-bottom:", ";}"], function (_ref) {
+function _templateObject$4() {
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    margin-bottom: ", ";\n  }\n"]);
+
+  _templateObject$4 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledParagraph = styled(TextBase)(_templateObject$4(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
@@ -713,10 +770,26 @@ var Text = function Text(props) {
 };
 Text.propTypes = TextBasePropTypes;
 
-var StyledChip = styled.div.withConfig({
-  displayName: "Chip__StyledChip",
-  componentId: "sc-2e49ss-0"
-})(["box-sizing:border-box;display:flex;align-items:center;justify-content:center;border-radius:22px;min-width:32px;min-height:32px;width:max-content;", " ", " ", ""], function (_ref) {
+function _templateObject2$1() {
+  var data = _taggedTemplateLiteralLoose(["\n  padding-left: ", ";\n"]);
+
+  _templateObject2$1 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$5() {
+  var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 22px;\n  min-width: 32px;\n  min-height: 32px;\n  width: max-content;\n\n  ", "\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$5 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledChip = styled.div(_templateObject$5(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
   return css(["padding:", ";background-color:", ";color:", ";"], theme.spacing(2), theme.palette[color].light, theme.palette[color].main);
@@ -729,10 +802,7 @@ var StyledLabel = styled(Text).attrs(function () {
   return {
     fontWeight: "bold"
   };
-}).withConfig({
-  displayName: "Chip__StyledLabel",
-  componentId: "sc-2e49ss-1"
-})(["padding-left:", ";"], function (_ref2) {
+})(_templateObject2$1(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(2);
 });
@@ -740,7 +810,7 @@ var ChipBadge = function ChipBadge(_ref3) {
   var color = _ref3.color,
       icon = _ref3.icon,
       label = _ref3.label,
-      props = _objectWithoutProperties(_ref3, ["color", "icon", "label"]);
+      props = _objectWithoutPropertiesLoose(_ref3, ["color", "icon", "label"]);
 
   return /*#__PURE__*/React.createElement(StyledChip, _extends({
     color: color
@@ -752,10 +822,7 @@ var ChipBadge = function ChipBadge(_ref3) {
 ChipBadge.propTypes = ChipBadgePropTypes;
 ChipBadge.defaultProps = ChipBadgeDefaultProps;
 
-function ownKeys$7(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$7(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$7(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$7(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var ButtonBasePropTypes = _objectSpread$7(_objectSpread$7({
+var ButtonBasePropTypes = _extends({
   color: PropTypes.oneOf(["primary", "secondary", "subtle"]),
   content: PropTypes.string,
   children: PropTypes.node,
@@ -764,16 +831,22 @@ var ButtonBasePropTypes = _objectSpread$7(_objectSpread$7({
   onClick: PropTypes.func,
   size: PropTypes.oneOf(["md", "sm", "xs"]),
   target: PropTypes.string
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ButtonBaseDefaultProps = {
   color: "primary",
   size: "md"
 };
 
-var StyledButton = styled(MuiButtonBase).withConfig({
-  displayName: "Base__StyledButton",
-  componentId: "sc-1vgypdg-0"
-})(["&&{box-sizing:border-box;border-radius:12px;padding:", ";min-width:40px;height:40px;transition:all 100ms ease-in-out;:hover{opacity:0.7;}:disabled{opacity:0.3;cursor:not-allowed;pointer-events:none;}", " ", " ", "}"], function (_ref) {
+function _templateObject$6() {
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    box-sizing: border-box;\n    border-radius: 12px;\n    padding: ", ";\n    min-width: 40px;\n    height: 40px;\n    transition: all 100ms ease-in-out;\n\n    :hover {\n      opacity: 0.7;\n    }\n\n    :disabled {\n      opacity: 0.3;\n      cursor: not-allowed;\n      pointer-events: none;\n    }\n\n    ", "\n\n    ", "\n    ", "\n  }\n"]);
+
+  _templateObject$6 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledButton = styled(MuiButtonBase)(_templateObject$6(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(0, 4);
 }, function (_ref2) {
@@ -798,7 +871,7 @@ var ButtonBase = function ButtonBase(_ref3) {
   var content = _ref3.content,
       children = _ref3.children,
       href = _ref3.href,
-      props = _objectWithoutProperties(_ref3, ["content", "children", "href"]);
+      props = _objectWithoutPropertiesLoose(_ref3, ["content", "children", "href"]);
 
   return /*#__PURE__*/React.createElement(StyledButton, _extends({
     component: href ? "a" : "button",
@@ -808,10 +881,16 @@ var ButtonBase = function ButtonBase(_ref3) {
 ButtonBase.propTypes = ButtonBasePropTypes;
 ButtonBase.defaultProps = ButtonBaseDefaultProps;
 
-var StyledButton$1 = styled(ButtonBase).withConfig({
-  displayName: "Button__StyledButton",
-  componentId: "rmizea-0"
-})(["&&{", "}"], function (_ref) {
+function _templateObject$7() {
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n  }\n"]);
+
+  _templateObject$7 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledButton$1 = styled(ButtonBase)(_templateObject$7(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
   if (color === "secondary") return css(["background-color:", ";color:", ";"], theme.palette.gray.dark, theme.palette.common.white);
@@ -823,10 +902,16 @@ var Button = function Button(props) {
 };
 Button.propTypes = ButtonBasePropTypes;
 
-var StyledButton$2 = styled(ButtonBase).withConfig({
-  displayName: "OutlineButton__StyledButton",
-  componentId: "c22pyk-0"
-})(["&&{", "}"], function (_ref) {
+function _templateObject$8() {
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n  }\n"]);
+
+  _templateObject$8 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledButton$2 = styled(ButtonBase)(_templateObject$8(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
   if (color === "secondary") return css(["border:1px solid ", ";color:", ";:hover{background-color:", ";opacity:1;}"], theme.palette.gray.dark, theme.palette.gray.dark, theme.palette.gray.semiLight);
@@ -838,10 +923,16 @@ var OutlineButton = function OutlineButton(props) {
 };
 OutlineButton.propTypes = ButtonBasePropTypes;
 
-var StyledButton$3 = styled(ButtonBase).withConfig({
-  displayName: "TextButton__StyledButton",
-  componentId: "rbrc68-0"
-})(["&&{", "}"], function (_ref) {
+function _templateObject$9() {
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n  }\n"]);
+
+  _templateObject$9 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledButton$3 = styled(ButtonBase)(_templateObject$9(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
   if (color === "secondary") return css(["color:", ";"], theme.palette.gray.dark);
@@ -857,10 +948,16 @@ var CollapsePropTypes = {
   isOpened: PropTypes.bool
 };
 
-var Wrapper = styled.div.withConfig({
-  displayName: "Collapse__Wrapper",
-  componentId: "u544hd-0"
-})([".ReactCollapse--collapse{transition:height 200ms ease-in-out;}"]);
+function _templateObject$a() {
+  var data = _taggedTemplateLiteralLoose(["\n  .ReactCollapse--collapse {\n    transition: height 200ms ease-in-out;\n  }\n"]);
+
+  _templateObject$a = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Wrapper = styled.div(_templateObject$a());
 var Collapse = function Collapse(props) {
   return /*#__PURE__*/React.createElement(Wrapper, null, /*#__PURE__*/React.createElement(Collapse$1, props));
 };
@@ -868,7 +965,7 @@ Collapse.propTypes = CollapsePropTypes;
 
 var CollapseButton = function CollapseButton(_ref) {
   var isOpened = _ref.isOpened,
-      props = _objectWithoutProperties(_ref, ["isOpened"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["isOpened"]);
 
   return /*#__PURE__*/React.createElement(Icon, _extends({
     icon: isOpened ? "chevron-up" : "chevron-down"
@@ -878,30 +975,50 @@ CollapseButton.propTypes = {
   isOpened: PropTypes.bool.isRequired
 };
 
-function ownKeys$8(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$8(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$8(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$8(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var DetailsTablePropTypes = _objectSpread$8(_objectSpread$8({
+var DetailsTablePropTypes = _extends({
   rows: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
     value: PropTypes.node,
     expanded: PropTypes.bool
   }))
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var DetailsTableDefaultProps = {};
 
-var Wrapper$1 = styled.div.withConfig({
-  displayName: "DetailsTable__Wrapper",
-  componentId: "sc-41caw8-0"
-})(["", " ", ""], function (theme) {
+function _templateObject3() {
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 0 140px;\n"]);
+
+  _templateObject3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$2() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  height: 32px;\n  margin-bottom: ", ";\n"]);
+
+  _templateObject2$2 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$b() {
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
+
+  _templateObject$b = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Wrapper$1 = styled.div(_templateObject$b(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var Row = styled.div.withConfig({
-  displayName: "DetailsTable__Row",
-  componentId: "sc-41caw8-1"
-})(["display:flex;align-items:center;height:32px;margin-bottom:", ";"], function (_ref) {
+var Row = styled.div(_templateObject2$2(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
@@ -909,19 +1026,16 @@ var Label = styled(Text).attrs(function () {
   return {
     color: "textSecondary"
   };
-}).withConfig({
-  displayName: "DetailsTable__Label",
-  componentId: "sc-41caw8-2"
-})(["flex:0 140px;"]);
+})(_templateObject3());
 var DetailsTable = function DetailsTable(_ref2) {
   var rows = _ref2.rows,
-      props = _objectWithoutProperties(_ref2, ["rows"]);
+      props = _objectWithoutPropertiesLoose(_ref2, ["rows"]);
 
   return /*#__PURE__*/React.createElement(Wrapper$1, props, rows.map(function (_ref3) {
     var label = _ref3.label,
         value = _ref3.value;
     return /*#__PURE__*/React.createElement(Row, {
-      key: "".concat(label, ":").concat(value)
+      key: label + ":" + value
     }, /*#__PURE__*/React.createElement(Label, {
       content: label
     }), value);
@@ -930,10 +1044,16 @@ var DetailsTable = function DetailsTable(_ref2) {
 DetailsTable.propTypes = DetailsTablePropTypes;
 DetailsTable.defaultProps = DetailsTableDefaultProps;
 
-var Wrapper$2 = styled.div.withConfig({
-  displayName: "Button__Wrapper",
-  componentId: "sc-1yl0nkz-0"
-})(["display:inline-flex;align-items:center;justify-content:center;border-radius:12px;&&{width:40px;height:40px;background-color:", ";svg{color:", ";}}"], function (_ref) {
+function _templateObject$c() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 12px;\n\n  && {\n    width: 40px;\n    height: 40px;\n    background-color: ", ";\n    svg {\n      color: ", ";\n    }\n  }\n"]);
+
+  _templateObject$c = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Wrapper$2 = styled.div(_templateObject$c(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.light;
 }, function (_ref2) {
@@ -951,10 +1071,7 @@ DownloadModuleButton.propTypes = {
   icon: PropTypes.string.isRequired
 };
 
-function ownKeys$9(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$9(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$9(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$9(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var DownloadModulePropTypes = _objectSpread$9(_objectSpread$9({
+var DownloadModulePropTypes = _extends({
   downloadPdfText: PropTypes.string,
   downloadPdfUrl: PropTypes.string,
   downloadQrCodeDesc: PropTypes.string,
@@ -962,7 +1079,7 @@ var DownloadModulePropTypes = _objectSpread$9(_objectSpread$9({
   downloadQrCodeUrl: PropTypes.string,
   qrCodeUrl: PropTypes.string,
   qrCodeValue: PropTypes.string
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var DownloadModuleDefaultProps = {
   downloadPdfText: "Download as PDF",
   downloadQrCodeDesc: "Or just download the QR Code of license",
@@ -970,10 +1087,16 @@ var DownloadModuleDefaultProps = {
   qrCodeValue: "https://license.rocks"
 };
 
-var Container = styled.div.withConfig({
-  displayName: "DownloadModule__Container",
-  componentId: "lhoe08-0"
-})(["background-color:", ";padding:", ";border-radius:16px;", " ", ""], function (_ref) {
+function _templateObject$d() {
+  var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  padding: ", ";\n  border-radius: 16px;\n  ", "\n  ", "\n"]);
+
+  _templateObject$d = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Container = styled.div(_templateObject$d(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -992,7 +1115,7 @@ var DownloadModule = function DownloadModule(_ref3) {
       downloadQrCodeUrl = _ref3.downloadQrCodeUrl,
       qrCodeUrl = _ref3.qrCodeUrl,
       qrCodeValue = _ref3.qrCodeValue,
-      props = _objectWithoutProperties(_ref3, ["downloadPdfText", "downloadPdfUrl", "downloadQrCodeDesc", "downloadQrCodeText", "downloadQrCodeUrl", "qrCodeUrl", "qrCodeValue"]);
+      props = _objectWithoutPropertiesLoose(_ref3, ["downloadPdfText", "downloadPdfUrl", "downloadQrCodeDesc", "downloadQrCodeText", "downloadQrCodeUrl", "qrCodeUrl", "qrCodeValue"]);
 
   return /*#__PURE__*/React.createElement(Container, props, /*#__PURE__*/React.createElement(Flex, {
     container: true,
@@ -1025,10 +1148,7 @@ var DownloadModule = function DownloadModule(_ref3) {
 DownloadModule.propTypes = DownloadModulePropTypes;
 DownloadModule.defaultProps = DownloadModuleDefaultProps;
 
-function ownKeys$a(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$a(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$a(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$a(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var FileManagerPropTypes = _objectSpread$a(_objectSpread$a({
+var FileManagerPropTypes = _extends({
   data: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
     files: PropTypes.arrayOf(PropTypes.shape({
@@ -1039,17 +1159,50 @@ var FileManagerPropTypes = _objectSpread$a(_objectSpread$a({
       previewUrl: PropTypes.string
     }))
   }))
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FileManagerDefaultProps = {};
 
-var Container$1 = styled.div.withConfig({
-  displayName: "FileManager__Container",
-  componentId: "iqc9f7-0"
-})([""]);
-var Wrapper$3 = styled.div.withConfig({
-  displayName: "FileManager__Wrapper",
-  componentId: "iqc9f7-1"
-})(["border:1px solid ", ";padding:", ";margin-bottom:", ";border-radius:8px;", " ", ""], function (_ref) {
+function _templateObject4() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3$1() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 48px;\n  margin-bottom: ", ";\n"]);
+
+  _templateObject3$1 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$3() {
+  var data = _taggedTemplateLiteralLoose(["\n  border: 1px solid ", ";\n  padding: ", ";\n  margin-bottom: ", ";\n  border-radius: 8px;\n\n  ", "\n  ", "\n"]);
+
+  _templateObject2$3 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$e() {
+  var data = _taggedTemplateLiteralLoose([""]);
+
+  _templateObject$e = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Container$1 = styled.div(_templateObject$e());
+var Wrapper$3 = styled.div(_templateObject2$3(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -1067,10 +1220,7 @@ var Row$1 = styled(Grid).attrs(function () {
   return {
     container: true
   };
-}).withConfig({
-  displayName: "FileManager__Row",
-  componentId: "iqc9f7-2"
-})(["width:100%;height:48px;margin-bottom:", ";"], function (_ref4) {
+})(_templateObject3$1(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(2);
 });
@@ -1081,10 +1231,7 @@ var Item = styled(Grid).attrs(function (_ref5) {
     xs: 4,
     lg: lg || 3
   };
-}).withConfig({
-  displayName: "FileManager__Item",
-  componentId: "iqc9f7-3"
-})(["display:flex;align-items:center;"]);
+})(_templateObject4());
 var FileManager = function FileManager(_ref6) {
   var data = _ref6.data;
   return /*#__PURE__*/React.createElement(Container$1, null, data.map(function (_ref7) {
@@ -1137,10 +1284,7 @@ var FileManager = function FileManager(_ref6) {
 FileManager.propTypes = FileManagerPropTypes;
 FileManager.defaultProps = FileManagerDefaultProps;
 
-function ownKeys$b(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$b(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$b(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$b(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var FlexPropTypes = _objectSpread$b({
+var FlexPropTypes = _extends({
   alignItems: PropTypes.oneOf(["flex-start", "center", "flex-end", "stretch", "baseline"]),
   container: PropTypes.bool,
   item: PropTypes.bool,
@@ -1151,10 +1295,16 @@ var FlexDefaultProps = {
   justify: "flex-start"
 };
 
-var StyledFlex = styled(Grid).withConfig({
-  displayName: "Flex__StyledFlex",
-  componentId: "sc-1db77mn-0"
-})(["", " ", ""], function (theme) {
+function _templateObject$f() {
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
+
+  _templateObject$f = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledFlex = styled(Grid)(_templateObject$f(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -1167,10 +1317,7 @@ Flex.defaultProps = FlexDefaultProps;
 
 const img = "data:image/svg+xml,%3csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.5938 0.625L5.375 8.84375L2.375 5.8125C2.21875 5.6875 1.96875 5.6875 1.84375 5.8125L0.9375 6.71875C0.8125 6.84375 0.8125 7.09375 0.9375 7.25L5.125 11.4062C5.28125 11.5625 5.5 11.5625 5.65625 11.4062L15.0312 2.03125C15.1562 1.90625 15.1562 1.65625 15.0312 1.5L14.125 0.625C14 0.46875 13.75 0.46875 13.5938 0.625Z' fill='white'/%3e%3c/svg%3e";
 
-function ownKeys$c(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$c(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$c(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$c(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var RadioBasePropTypes = _objectSpread$c(_objectSpread$c({
+var RadioBasePropTypes = _extends({
   defaultValue: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
   hasError: PropTypes.bool,
   name: PropTypes.string,
@@ -1180,7 +1327,7 @@ var RadioBasePropTypes = _objectSpread$c(_objectSpread$c({
   })),
   register: PropTypes.func.isRequired,
   stacked: PropTypes.bool
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var RadioBaseDefaultProps = {
   defaultValue: "",
   hasError: false,
@@ -1188,10 +1335,26 @@ var RadioBaseDefaultProps = {
   stacked: true
 };
 
-var StyledInput = styled.input.withConfig({
-  displayName: "Item__StyledInput",
-  componentId: "lk2kwt-0"
-})(["display:none;+ label{display:inline-flex;align-items:center;font-weight:600;font-size:14px;line-height:120%;margin:0 32px 0 0;cursor:pointer;transition:all 0.1s ease-in-out;", " &::before{content:\"\";display:inline-block;width:24px;height:24px;border-radius:", ";background-color:", ";border:1px solid ", ";margin-right:8px;transition:background-color 0.1s ease-in-out;", "}&:hover{&::before{background-color:", ";border-color:", ";}}}&:checked + label::before{background-color:", ";border-color:", ";background-image:url(\"", "\");background-size:16px 16px;background-repeat:no-repeat;background-position:center;}&:disabled + label{opacity:0.3;&,span{cursor:default;}}"], function (_ref) {
+function _templateObject2$4() {
+  var data = _taggedTemplateLiteralLoose([""]);
+
+  _templateObject2$4 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$g() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: none;\n\n  + label {\n    display: inline-flex;\n    align-items: center;\n    font-weight: 600;\n    font-size: 14px;\n    line-height: 120%;\n    margin: 0 32px 0 0;\n    cursor: pointer;\n    transition: all 0.1s ease-in-out;\n\n    ", "\n\n    &::before {\n      content: \"\";\n      display: inline-block;\n      width: 24px;\n      height: 24px;\n      border-radius: ", ";\n      background-color: ", ";\n      border: 1px solid ", ";\n      margin-right: 8px;\n      transition: background-color 0.1s ease-in-out;\n      ", "\n    }\n\n    &:hover {\n      &::before {\n        background-color: ", ";\n        border-color: ", ";\n      }\n    }\n  }\n\n  &:checked + label::before {\n    background-color: ", ";\n    border-color: ", ";\n    background-image: url(\"", "\");\n    background-size: 16px 16px;\n    background-repeat: no-repeat;\n    background-position: center;\n  }\n\n  &:disabled + label {\n    opacity: 0.3;\n\n    &,\n    span {\n      cursor: default;\n    }\n  }\n"]);
+
+  _templateObject$g = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledInput = styled.input(_templateObject$g(), function (_ref) {
   var stacked = _ref.stacked;
   return stacked && css(["display:flex;:not(:last-child){margin:0 0 24px 0;}"]);
 }, function (_ref2) {
@@ -1221,11 +1384,8 @@ var StyledInput = styled.input.withConfig({
 }, function (_ref10) {
   var theme = _ref10.theme;
   return theme.palette.primary.main;
-}, "".concat(img));
-var StyledLabel$1 = styled.label.withConfig({
-  displayName: "Item__StyledLabel",
-  componentId: "lk2kwt-1"
-})([""]);
+}, "" + img);
+var StyledLabel$1 = styled.label(_templateObject2$4());
 var RadioBaseItem = function RadioBaseItem(_ref11) {
   var defaultValue = _ref11.defaultValue,
       hasError = _ref11.hasError,
@@ -1236,9 +1396,9 @@ var RadioBaseItem = function RadioBaseItem(_ref11) {
       stacked = _ref11.stacked,
       type = _ref11.type,
       value = _ref11.value,
-      props = _objectWithoutProperties(_ref11, ["defaultValue", "hasError", "label", "name", "options", "register", "stacked", "type", "value"]);
+      props = _objectWithoutPropertiesLoose(_ref11, ["defaultValue", "hasError", "label", "name", "options", "register", "stacked", "type", "value"]);
 
-  var id = "".concat(name, "-").concat(value);
+  var id = name + "-" + value;
   var defaultChecked = type === "checkbox" ? defaultValue.includes(value) : defaultValue === value;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(StyledInput, _extends({
     defaultChecked: defaultChecked,
@@ -1258,7 +1418,7 @@ RadioBaseItem.defaultProps = RadioBaseDefaultProps;
 
 var RadioBase = function RadioBase(_ref) {
   var options = _ref.options,
-      props = _objectWithoutProperties(_ref, ["options"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["options"]);
 
   return /*#__PURE__*/React.createElement(Fieldset, null, options.map(function (opt) {
     return /*#__PURE__*/React.createElement(RadioBaseItem, _extends({
@@ -1269,10 +1429,16 @@ var RadioBase = function RadioBase(_ref) {
 RadioBase.propTypes = RadioBasePropTypes;
 RadioBase.defaultProps = RadioBaseDefaultProps;
 
-var StyledRadioBase = styled(RadioBase).withConfig({
-  displayName: "Checkbox__StyledRadioBase",
-  componentId: "w3jfx2-0"
-})(["", " ", ""], function (theme) {
+function _templateObject$h() {
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
+
+  _templateObject$h = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledRadioBase = styled(RadioBase)(_templateObject$h(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -1285,18 +1451,21 @@ var Checkbox = function Checkbox(props) {
 Checkbox.propTypes = RadioBasePropTypes;
 Checkbox.defaultProps = RadioBaseDefaultProps;
 
-function ownKeys$d(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$d(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$d(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$d(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var FormErrorPropTypes = _objectSpread$d(_objectSpread$d({
+var FormErrorPropTypes = _extends({
   message: PropTypes.node.isRequired
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FormErrorDefaultProps = {};
 
-var Error = styled.div.withConfig({
-  displayName: "Error",
-  componentId: "fbul9h-0"
-})(["font-weight:600;font-size:12px;line-height:120%;color:", ";margin-top:", ";", " ", ""], function (_ref) {
+function _templateObject$i() {
+  var data = _taggedTemplateLiteralLoose(["\n  font-weight: 600;\n  font-size: 12px;\n  line-height: 120%;\n  color: ", ";\n  margin-top: ", ";\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$i = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Error = styled.div(_templateObject$i(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.error.main;
 }, function (_ref2) {
@@ -1309,17 +1478,14 @@ var Error = styled.div.withConfig({
 });
 var FormError = function FormError(_ref3) {
   var message = _ref3.message,
-      props = _objectWithoutProperties(_ref3, ["message"]);
+      props = _objectWithoutPropertiesLoose(_ref3, ["message"]);
 
   return /*#__PURE__*/React.createElement(Error, props, message);
 };
 FormError.propTypes = FormErrorPropTypes;
 FormError.defaultProps = FormErrorDefaultProps;
 
-function ownKeys$e(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$e(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$e(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$e(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var FieldWrapperPropTypes = _objectSpread$e(_objectSpread$e({
+var FieldWrapperPropTypes = _extends({
   block: PropTypes.bool,
   endIcon: PropTypes.string,
   endIconColor: PropTypes.oneOf(THEME_COLORS),
@@ -1329,7 +1495,7 @@ var FieldWrapperPropTypes = _objectSpread$e(_objectSpread$e({
   startIconColor: PropTypes.oneOf(THEME_COLORS),
   startIconOnClick: PropTypes.func,
   startIconPrefix: PropTypes.string
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FieldWrapperDefaultProps = {
   block: true,
   endIcon: "",
@@ -1338,10 +1504,16 @@ var FieldWrapperDefaultProps = {
   startIconColor: "input"
 };
 
-var StyledWrapper = styled.div.withConfig({
-  displayName: "FieldWrapper__StyledWrapper",
-  componentId: "tbw1oa-0"
-})(["display:flex;align-items:center;justify-content:space-between;border-radius:", ";background-color:", ";border:1px solid ", ";padding:", ";outline:none;height:40px;box-sizing:border-box;transition:all 100ms ease-in-out;:not(:last-child){margin-right:", ";}&:focus-within{border:1px solid ", ";}", " ", " ", " ", " ", ""], function (_ref) {
+function _templateObject$j() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  border-radius: ", ";\n  background-color: ", ";\n  border: 1px solid ", ";\n  padding: ", ";\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: all 100ms ease-in-out;\n\n  :not(:last-child) {\n    margin-right: ", ";\n  }\n\n  &:focus-within {\n    border: 1px solid ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$j = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledWrapper = styled.div(_templateObject$j(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(3);
 }, function (_ref2) {
@@ -1386,7 +1558,7 @@ var FieldWrapper = function FieldWrapper(_ref11) {
       startIconColor = _ref11.startIconColor,
       startIconOnClick = _ref11.startIconOnClick,
       startIconPrefix = _ref11.startIconPrefix,
-      props = _objectWithoutProperties(_ref11, ["children", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
+      props = _objectWithoutPropertiesLoose(_ref11, ["children", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
 
   return /*#__PURE__*/React.createElement(StyledWrapper, props, startIcon && /*#__PURE__*/React.createElement(Icon, {
     color: startIconColor,
@@ -1403,17 +1575,14 @@ var FieldWrapper = function FieldWrapper(_ref11) {
 FieldWrapper.propTypes = FieldWrapperPropTypes;
 FieldWrapper.defaultProps = FieldWrapperDefaultProps;
 
-function ownKeys$f(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$f(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$f(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$f(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var FieldBasePropTypes = _objectSpread$f(_objectSpread$f({}, FieldWrapperPropTypes), {}, {
+var FieldBasePropTypes = _extends({}, FieldWrapperPropTypes, {
   disabled: PropTypes.bool,
   hasError: PropTypes.bool,
   readOnly: PropTypes.bool,
   register: PropTypes.func,
   type: PropTypes.string
 });
-var FieldBaseDefaultProps = _objectSpread$f(_objectSpread$f({}, FieldWrapperDefaultProps), {}, {
+var FieldBaseDefaultProps = _extends({}, FieldWrapperDefaultProps, {
   disabled: false,
   hasError: false,
   readOnly: false,
@@ -1421,20 +1590,26 @@ var FieldBaseDefaultProps = _objectSpread$f(_objectSpread$f({}, FieldWrapperDefa
   type: "text"
 });
 
+function _templateObject$k() {
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 120%;\n  padding: 8px;\n  color: ", ";\n  outline: none;\n  border: none;\n  height: 100%;\n  box-sizing: border-box;\n  transition: all 100ms ease-in-out;\n  background-color: transparent;\n\n  ::placeholder {\n    font-weight: normal;\n  }\n\n  &:disabled {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none;\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
+
+  _templateObject$k = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
 var StyledInput$1 = styled(
 /*#__PURE__*/
 // eslint-disable-next-line react/prop-types
 forwardRef(function (_ref, ref) {
   var Component = _ref.component,
-      props = _objectWithoutProperties(_ref, ["component"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["component"]);
 
   return /*#__PURE__*/React.createElement(Component, _extends({
     ref: ref
   }, props));
-})).withConfig({
-  displayName: "FieldBase__StyledInput",
-  componentId: "l785gg-0"
-})(["flex:1;font-weight:600;font-size:14px;line-height:120%;padding:8px;color:", ";outline:none;border:none;height:100%;box-sizing:border-box;transition:all 100ms ease-in-out;background-color:transparent;::placeholder{font-weight:normal;}&:disabled{opacity:0.3;cursor:not-allowed;pointer-events:none;}", " ", " ", " ", ""], function (_ref2) {
+}))(_templateObject$k(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.palette.text.primary;
 }, function (_ref3) {
@@ -1471,7 +1646,7 @@ var FieldBase = function FieldBase(_ref10) {
       startIconColor = _ref10.startIconColor,
       startIconOnClick = _ref10.startIconOnClick,
       startIconPrefix = _ref10.startIconPrefix,
-      props = _objectWithoutProperties(_ref10, ["block", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "hasError", "register", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
+      props = _objectWithoutPropertiesLoose(_ref10, ["block", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "hasError", "register", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
 
   return /*#__PURE__*/React.createElement(FieldWrapper, {
     endIcon: endIcon,
@@ -1491,10 +1666,16 @@ var FieldBase = function FieldBase(_ref10) {
 FieldBase.propTypes = FieldBasePropTypes;
 FieldBase.defaultProps = FieldBaseDefaultProps;
 
-var StyledFieldset = styled.fieldset.withConfig({
-  displayName: "Fieldset__StyledFieldset",
-  componentId: "sc-1qv5ut9-0"
-})(["border:none;padding:0%;margin:0;"]);
+function _templateObject$l() {
+  var data = _taggedTemplateLiteralLoose(["\n  border: none;\n  padding: 0%;\n  margin: 0;\n"]);
+
+  _templateObject$l = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledFieldset = styled.fieldset(_templateObject$l());
 var Fieldset = function Fieldset(_ref) {
   var children = _ref.children;
   return /*#__PURE__*/React.createElement(StyledFieldset, null, children);
@@ -1504,21 +1685,33 @@ Fieldset.propTypes = {
 };
 Fieldset.defaultProps = {};
 
-/* eslint-disable no-restricted-properties */
-var Item$1 = styled.div.withConfig({
-  displayName: "DropzonePreview__Item",
-  componentId: "rkfxqg-0"
-})(["display:flex;align-items:center;justify-content:space-between;padding:8px 16px;background-color:", ";color:", ";font-size:12px;margin-bottom:8px;border-radius:8px;"], function (_ref) {
+function _templateObject2$5() {
+  var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n"]);
+
+  _templateObject2$5 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$m() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 8px 16px;\n  background-color: ", ";\n  color: ", ";\n  font-size: 12px;\n  margin-bottom: 8px;\n  border-radius: 8px;\n"]);
+
+  _templateObject$m = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Item$1 = styled.div(_templateObject$m(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.success.main;
 }, function (_ref2) {
   var theme = _ref2.theme;
   return theme.palette.common.white;
 });
-var RemoveIcon = styled(Icon).withConfig({
-  displayName: "DropzonePreview__RemoveIcon",
-  componentId: "rkfxqg-1"
-})(["color:", ";"], function (_ref3) {
+var RemoveIcon = styled(Icon)(_templateObject2$5(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.common.white;
 });
@@ -1527,7 +1720,7 @@ function bytesToSize(bytes) {
   var sizes = ["Bytes", "KB", "MB", "GB", "TB"];
   if (bytes === 0) return "0 Byte";
   var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
-  return "".concat(Math.round(bytes / Math.pow(1024, i), 2), " ").concat(sizes[i]);
+  return Math.round(bytes / Math.pow(1024, i), 2) + " " + sizes[i];
 }
 
 var DropzonePreview = function DropzonePreview(_ref4) {
@@ -1550,18 +1743,31 @@ DropzonePreview.defaultProps = {
   files: []
 };
 
-var StyledContainer = styled.div.withConfig({
-  displayName: "Dropzone__StyledContainer",
-  componentId: "sc-1yejosv-0"
-})(["width:100%;height:100%;", " ", ""], function (theme) {
+function _templateObject2$6() {
+  var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  border-color: ", ";\n  border-radius: 16px;\n  border-style: dashed;\n  border-width: 2px;\n  cursor: pointer;\n  min-height: 125px;\n  outline: none;\n  transition: all 100ms ease-in-out;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  color: ", ";\n  margin-bottom: 8px;\n\n  &:hover {\n    border-color: ", ";\n  }\n\n\n  ", "\n\n\n  ", "\n\n  ", "\n"]);
+
+  _templateObject2$6 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$n() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$n = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledContainer = styled.div(_templateObject$n(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var DropzoneArea = styled.div.withConfig({
-  displayName: "Dropzone__DropzoneArea",
-  componentId: "sc-1yejosv-1"
-})(["background-color:", ";border-color:", ";border-radius:16px;border-style:dashed;border-width:2px;cursor:pointer;min-height:125px;outline:none;transition:all 100ms ease-in-out;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:", ";margin-bottom:8px;&:hover{border-color:", ";}", " ", " ", ""], function (_ref) {
+var DropzoneArea = styled.div(_templateObject2$6(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -1597,12 +1803,11 @@ var Dropzone = function Dropzone(_ref10) {
       hasError = _ref10.hasError,
       multiple = _ref10.multiple,
       onChange = _ref10.onChange,
-      props = _objectWithoutProperties(_ref10, ["accept", "disabled", "defaultValue", "hasError", "multiple", "onChange"]);
+      props = _objectWithoutPropertiesLoose(_ref10, ["accept", "disabled", "defaultValue", "hasError", "multiple", "onChange"]);
 
   var _useState = useState(defaultValue),
-      _useState2 = _slicedToArray(_useState, 2),
-      files = _useState2[0],
-      setFiles = _useState2[1];
+      files = _useState[0],
+      setFiles = _useState[1];
 
   useEffect(function () {
     return function () {
@@ -1637,8 +1842,7 @@ var Dropzone = function Dropzone(_ref10) {
       isDragReject = _useDropzone.isDragReject;
 
   var removeFile = function removeFile(file) {
-    var newFiles = _toConsumableArray(files);
-
+    var newFiles = [].concat(files);
     newFiles.splice(newFiles.indexOf(file), 1);
     setFiles(newFiles);
 
@@ -1675,15 +1879,12 @@ Dropzone.defaultProps = {
   onChange: function onChange() {}
 };
 
-function ownKeys$g(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$g(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$g(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$g(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var FileUploadPropTypes = _objectSpread$g(_objectSpread$g({
+var FileUploadPropTypes = _extends({
   control: PropTypes.shape({}).isRequired,
   defaultValue: PropTypes.arrayOf(PropTypes.object),
   isRequired: PropTypes.string,
   name: PropTypes.string
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FileUploadDefaultProps = {
   defaultValue: undefined,
   name: "fileUpload"
@@ -1694,7 +1895,7 @@ var FileUpload = function FileUpload(_ref) {
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutProperties(_ref, ["control", "defaultValue", "isRequired", "name"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["control", "defaultValue", "isRequired", "name"]);
 
   return /*#__PURE__*/React.createElement(Controller, {
     as: /*#__PURE__*/React.createElement(Dropzone, _extends({
@@ -1719,10 +1920,16 @@ var Input = function Input(props) {
 Input.propTypes = FieldBasePropTypes;
 Input.defaultProps = FieldBaseDefaultProps;
 
-var StyledLabel$2 = styled.label.withConfig({
-  displayName: "Label__StyledLabel",
-  componentId: "m2ki9p-0"
-})(["font-size:14px;line-height:120%;color:", ";"], function (_ref) {
+function _templateObject$o() {
+  var data = _taggedTemplateLiteralLoose(["\n  font-size: 14px;\n  line-height: 120%;\n  color: ", ";\n"]);
+
+  _templateObject$o = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledLabel$2 = styled.label(_templateObject$o(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.medium;
 });
@@ -1732,10 +1939,16 @@ var FormLabel = function FormLabel(props) {
 FormLabel.propTypes = {};
 FormLabel.defaultProps = {};
 
-var StyledRadioBase$1 = styled(RadioBase).withConfig({
-  displayName: "Radio__StyledRadioBase",
-  componentId: "sc-1bzwanc-0"
-})(["", " ", ""], function (theme) {
+function _templateObject$p() {
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
+
+  _templateObject$p = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledRadioBase$1 = styled(RadioBase)(_templateObject$p(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -1748,10 +1961,7 @@ var Radio = function Radio(props) {
 Radio.propTypes = RadioBasePropTypes;
 Radio.defaultProps = RadioBaseDefaultProps;
 
-function ownKeys$h(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$h(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$h(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$h(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var ReactSelectPropTypes = _objectSpread$h(_objectSpread$h({
+var ReactSelectPropTypes = _extends({
   async: PropTypes.bool,
   defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   endpoint: PropTypes.string,
@@ -1759,17 +1969,23 @@ var ReactSelectPropTypes = _objectSpread$h(_objectSpread$h({
   isClearable: PropTypes.bool,
   isDisabled: PropTypes.bool,
   isRequired: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ReactSelectDefaultProps = {
   defaultValue: undefined,
   endpointQueryFlag: "q",
   isRequired: false
 };
 
-var ReactSelectWrapper = styled.div.withConfig({
-  displayName: "ReactSelect__ReactSelectWrapper",
-  componentId: "xq5gfv-0"
-})(["flex:1;.react-select__control{border-radius:12px;color:", ";padding:", ";height:40px;box-sizing:border-box;box-shadow:none;border-color:", ";font-weight:600;font-size:14px;line-height:120%;}.react-select__control--is-focused{border-color:", ";}.react-select__menu{border-radius:12px;}.react-select__option{font-weight:300;font-size:14px;line-height:160%;padding:", ";}.react-select__option--is-focused{background-color:", ";color:", ";}.react-select__option:hover,.react-select__option--is-selected{color:", ";background-color:", ";}", " ", " ", ""], function (_ref) {
+function _templateObject$q() {
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n\n  .react-select__control {\n    border-radius: 12px;\n    color: ", ";\n    padding: ", ";\n    height: 40px;\n    box-sizing: border-box;\n    box-shadow: none;\n    border-color: ", ";\n    font-weight: 600;\n    font-size: 14px;\n    line-height: 120%;\n  }\n\n  .react-select__control--is-focused {\n    border-color: ", ";\n  }\n\n  .react-select__menu {\n    border-radius: 12px;\n  }\n\n  .react-select__option {\n    font-weight: 300;\n    font-size: 14px;\n    line-height: 160%;\n    padding: ", ";\n  }\n\n  .react-select__option--is-focused {\n    background-color: ", ";\n    color: ", ";\n  }\n\n  .react-select__option:hover,\n  .react-select__option--is-selected {\n    color: ", ";\n    background-color: ", ";\n  }\n\n  ", "\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$q = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var ReactSelectWrapper = styled.div(_templateObject$q(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.text.primary;
 }, function (_ref2) {
@@ -1821,10 +2037,10 @@ var ReactSelect = function ReactSelect(_ref12) {
       name = _ref12.name,
       options = _ref12.options,
       selectedOption = _ref12.selectedOption,
-      props = _objectWithoutProperties(_ref12, ["async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "hasError", "loadOptions", "isRequired", "name", "options", "selectedOption"]);
+      props = _objectWithoutPropertiesLoose(_ref12, ["async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "hasError", "loadOptions", "isRequired", "name", "options", "selectedOption"]);
 
   var loadOptionsfromEndpoint = function loadOptionsfromEndpoint(inputValue, callback) {
-    axios.get("".concat(endpoint).concat(endpointQueryFlag ? "?".concat(endpointQueryFlag, "=").concat(inputValue) : "")).then(function (_ref13) {
+    axios.get("" + endpoint + (endpointQueryFlag ? "?" + endpointQueryFlag + "=" + inputValue : "")).then(function (_ref13) {
       var data = _ref13.data;
       return callback(data.filter(function (item) {
         return item.label.toLowerCase().includes(inputValue);
@@ -1855,9 +2071,7 @@ var ReactSelect = function ReactSelect(_ref12) {
     defaultValue: defaultValue,
     name: name,
     onChange: function onChange(_ref14) {
-      var _ref15 = _slicedToArray(_ref14, 1),
-          selected = _ref15[0];
-
+      var selected = _ref14[0];
       return selected;
     },
     rules: {
@@ -1868,23 +2082,56 @@ var ReactSelect = function ReactSelect(_ref12) {
 ReactSelect.propTypes = ReactSelectPropTypes;
 ReactSelect.defaultProps = ReactSelectDefaultProps;
 
-function ownKeys$i(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$i(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$i(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$i(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var FormRowPropTypes = _objectSpread$i(_objectSpread$i({
+var FormRowPropTypes = _extends({
   children: PropTypes.node.isRequired,
   errors: PropTypes.arrayOf(PropTypes.node).isRequired,
   label: PropTypes.node,
   show: PropTypes.bool.isRequired
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FormRowDefaultProps = {
   label: ""
 };
 
-var Wrapper$4 = styled.div.withConfig({
-  displayName: "Row__Wrapper",
-  componentId: "sc-1ir0fqh-0"
-})(["display:flex;align-items:center;min-height:40px;margin-bottom:8px;", ";", " ", ""], function (_ref) {
+function _templateObject4$1() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  flex-wrap: wrap;\n  width: 100%;\n"]);
+
+  _templateObject4$1 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3$2() {
+  var data = _taggedTemplateLiteralLoose(["\n  flex: ", " 0;\n"]);
+
+  _templateObject3$2 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$7() {
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 30% 0;\n"]);
+
+  _templateObject2$7 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$r() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  min-height: 40px;\n  margin-bottom: 8px;\n  ", ";\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$r = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Wrapper$4 = styled.div(_templateObject$r(), function (_ref) {
   var show = _ref.show;
   return !show && "display: none";
 }, function (theme) {
@@ -1892,27 +2139,18 @@ var Wrapper$4 = styled.div.withConfig({
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledLabel$3 = styled(FormLabel).withConfig({
-  displayName: "Row__StyledLabel",
-  componentId: "sc-1ir0fqh-1"
-})(["flex:30% 0;"]);
-var FieldsAndErrorsWrapper = styled.div.withConfig({
-  displayName: "Row__FieldsAndErrorsWrapper",
-  componentId: "sc-1ir0fqh-2"
-})(["flex:", " 0;"], function (_ref2) {
+var StyledLabel$3 = styled(FormLabel)(_templateObject2$7());
+var FieldsAndErrorsWrapper = styled.div(_templateObject3$2(), function (_ref2) {
   var fullWidth = _ref2.fullWidth;
   return fullWidth ? "100%" : "50%";
 });
-var Fields = styled.div.withConfig({
-  displayName: "Row__Fields",
-  componentId: "sc-1ir0fqh-3"
-})(["display:flex;align-items:center;flex-wrap:wrap;width:100%;"]);
+var Fields = styled.div(_templateObject4$1());
 var FormRow = function FormRow(_ref3) {
   var children = _ref3.children,
       errors = _ref3.errors,
       label = _ref3.label,
       show = _ref3.show,
-      props = _objectWithoutProperties(_ref3, ["children", "errors", "label", "show"]);
+      props = _objectWithoutPropertiesLoose(_ref3, ["children", "errors", "label", "show"]);
 
   return /*#__PURE__*/React.createElement(Wrapper$4, _extends({
     show: show
@@ -1939,7 +2177,7 @@ var renderOptions = function renderOptions(options) {
 
 var Select = function Select(_ref) {
   var options = _ref.options,
-      props = _objectWithoutProperties(_ref, ["options"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["options"]);
 
   return /*#__PURE__*/React.createElement(FieldBase, _extends({
     component: "select"
@@ -1967,10 +2205,16 @@ var StepperDefaultProps = {
   value: 1
 };
 
-var Wrapper$5 = styled.div.withConfig({
-  displayName: "Component__Wrapper",
-  componentId: "sc-1apjhkv-0"
-})(["display:flex;justify-content:center;align-items:center;", " user-select:none;input{border:none;width:40px;outline:none;font-weight:600;font-size:16px;text-align:center;}span{font-size:12px;font-style:italic;}"], function (_ref) {
+function _templateObject$s() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  ", "\n\n  user-select: none;\n\n  input {\n    border: none;\n    width: 40px;\n    outline: none;\n    font-weight: 600;\n    font-size: 16px;\n    text-align: center;\n  }\n\n  span {\n    font-size: 12px;\n    font-style: italic;\n  }\n"]);
+
+  _templateObject$s = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Wrapper$5 = styled.div(_templateObject$s(), function (_ref) {
   var size = _ref.size;
   return size === "sm" && css(["flex-direction:column;"]);
 });
@@ -1981,7 +2225,7 @@ var StepperComponent = function StepperComponent(_ref2) {
       min = _ref2.min,
       max = _ref2.max,
       size = _ref2.size,
-      props = _objectWithoutProperties(_ref2, ["label", "value", "onChange", "min", "max", "size"]);
+      props = _objectWithoutPropertiesLoose(_ref2, ["label", "value", "onChange", "min", "max", "size"]);
 
   var handleChange = function handleChange(type) {
     var newVal = type === "sub" ? value - 1 : value + 1;
@@ -2015,7 +2259,7 @@ var Stepper = function Stepper(_ref) {
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutProperties(_ref, ["control", "defaultValue", "isRequired", "name"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["control", "defaultValue", "isRequired", "name"]);
 
   return /*#__PURE__*/React.createElement(Controller, {
     render: function render(events) {
@@ -2034,12 +2278,32 @@ var Stepper = function Stepper(_ref) {
 Stepper.propTypes = StepperPropTypes;
 Stepper.defaultProps = StepperDefaultProps;
 
+function _templateObject2$8() {
+  var data = _taggedTemplateLiteralLoose(["\n  background: #fff;\n  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);\n  left: 2px;\n  position: absolute;\n  top: 2px;\n  transition: left 0.2s, transform 0.2s;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: bold;\n  font-size: 10px;\n  color: ", ";\n  text-transform: uppercase;\n  user-select: none;\n\n  ", ";\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
+
+  _templateObject2$8 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$t() {
+  var data = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  background-color: ", ";\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  transition: background-color 0.2s;\n\n  ", "\n\n    ", "\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
+
+  _templateObject$t = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
 var Switch = function Switch(_ref) {
   var disabled = _ref.disabled,
       handleToggle = _ref.handleToggle,
       size = _ref.size,
       toggled = _ref.toggled,
-      props = _objectWithoutProperties(_ref, ["disabled", "handleToggle", "size", "toggled"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["disabled", "handleToggle", "size", "toggled"]);
 
   return /*#__PURE__*/React.createElement(StyledSwitchContainer, _extends({
     disabled: disabled,
@@ -2052,10 +2316,7 @@ var Switch = function Switch(_ref) {
   }, toggled ? "Yes" : "No"));
 };
 
-var StyledSwitchContainer = styled.div.withConfig({
-  displayName: "Switch__StyledSwitchContainer",
-  componentId: "sc-44pphp-0"
-})(["align-items:center;background-color:", ";cursor:pointer;display:flex;justify-content:space-between;position:relative;transition:background-color 0.2s;", " ", " ", " ", " ", ""], function (_ref2) {
+var StyledSwitchContainer = styled.div(_templateObject$t(), function (_ref2) {
   var theme = _ref2.theme,
       toggled = _ref2.toggled;
   return toggled ? theme.palette.primary.main : theme.palette.gray.regular;
@@ -2078,10 +2339,7 @@ var StyledSwitchContainer = styled.div.withConfig({
   var size = _ref8.size;
   return size === "lg" && css(["border-radius:100px;height:50px;width:100px;"]);
 });
-var StyledSwitch = styled.span.withConfig({
-  displayName: "Switch__StyledSwitch",
-  componentId: "sc-44pphp-1"
-})(["background:#fff;box-shadow:0 0 2px 0 rgba(10,10,10,0.29);left:2px;position:absolute;top:2px;transition:left 0.2s,transform 0.2s;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:10px;color:", ";text-transform:uppercase;user-select:none;", ";", " ", " ", ""], function (_ref9) {
+var StyledSwitch = styled.span(_templateObject2$8(), function (_ref9) {
   var theme = _ref9.theme;
   return theme.palette.gray.medium;
 }, function (_ref10) {
@@ -2111,10 +2369,16 @@ Switch.defaultProps = {
   toggled: false
 };
 
-var StyledToggle = styled.div.withConfig({
-  displayName: "Toggle__StyledToggle",
-  componentId: "sc-68gvde-0"
-})(["display:inline-block;position:relative;", " ", ""], function (theme) {
+function _templateObject$u() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: inline-block;\n  position: relative;\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$u = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledToggle = styled.div(_templateObject$u(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -2124,7 +2388,7 @@ var Toggle = function Toggle(_ref) {
       onChange = _ref.onChange,
       size = _ref.size,
       value = _ref.value,
-      props = _objectWithoutProperties(_ref, ["disabled", "onChange", "size", "value"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["disabled", "onChange", "size", "value"]);
 
   var handleToggle = function handleToggle() {
     onChange(!value);
@@ -2150,15 +2414,12 @@ Toggle.defaultProps = {
   value: false
 };
 
-function ownKeys$j(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$j(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$j(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$j(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var ToggleSwitchPropTypes = _objectSpread$j(_objectSpread$j({
+var ToggleSwitchPropTypes = _extends({
   control: PropTypes.shape({}).isRequired,
   defaultValue: PropTypes.bool,
   isRequired: PropTypes.string,
   name: PropTypes.string
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ToggleSwitchDefaultProps = {
   defaultValue: undefined,
   isRequired: "",
@@ -2170,7 +2431,7 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutProperties(_ref, ["control", "defaultValue", "isRequired", "name"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["control", "defaultValue", "isRequired", "name"]);
 
   return /*#__PURE__*/React.createElement(Controller, {
     render: function render(events) {
@@ -2189,29 +2450,96 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
 ToggleSwitch.propTypes = ToggleSwitchPropTypes;
 ToggleSwitch.defaultProps = ToggleSwitchDefaultProps;
 
-var ItemConnector = styled.div.withConfig({
-  displayName: "Item__ItemConnector",
-  componentId: "sc-1awk8nq-0"
-})(["border-width:0;border-style:solid;border-color:", ";border-left-width:1px;transition:all 0.1ms ease-in-out;position:absolute;bottom:0;left:15px;top:0;::before{content:\"\";width:1px;height:100%;display:inline-block;}"], function (_ref) {
+function _templateObject8() {
+  var data = _taggedTemplateLiteralLoose(["\n  padding: ", ";\n"]);
+
+  _templateObject8 = function _templateObject8() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject7() {
+  var data = _taggedTemplateLiteralLoose(["\n  margin-left: ", ";\n  color: ", ";\n"]);
+
+  _templateObject7 = function _templateObject7() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject6() {
+  var data = _taggedTemplateLiteralLoose(["\n  margin-right: ", ";\n  flex-shrink: 0;\n"]);
+
+  _templateObject6 = function _templateObject6() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject5() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4$2() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n"]);
+
+  _templateObject4$2 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3$3() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n"]);
+
+  _templateObject3$3 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$9() {
+  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  min-height: 40px;\n\n  :last-child {\n    ", " {\n      border-left-width: 0;\n    }\n  }\n"]);
+
+  _templateObject2$9 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$v() {
+  var data = _taggedTemplateLiteralLoose(["\n  border-width: 0;\n  border-style: solid;\n  border-color: ", ";\n  border-left-width: 1px;\n  transition: all 0.1ms ease-in-out;\n  position: absolute;\n  bottom: 0;\n  left: 15px;\n  top: 0;\n  ::before {\n    content: \"\";\n    width: 1px;\n    height: 100%;\n    display: inline-block;\n  }\n"]);
+
+  _templateObject$v = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var ItemConnector = styled.div(_templateObject$v(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.regular;
 });
-var Container$2 = styled.div.withConfig({
-  displayName: "Item__Container",
-  componentId: "sc-1awk8nq-1"
-})(["position:relative;min-height:40px;:last-child{", "{border-left-width:0;}}"], ItemConnector);
-var RowWrapper = styled.div.withConfig({
-  displayName: "Item__RowWrapper",
-  componentId: "sc-1awk8nq-2"
-})(["display:flex;align-items:center;"]);
+var Container$2 = styled.div(_templateObject2$9(), ItemConnector);
+var RowWrapper = styled.div(_templateObject3$3());
 var RowDetails = styled(Grid).attrs(function () {
   return {
     container: true
   };
-}).withConfig({
-  displayName: "Item__RowDetails",
-  componentId: "sc-1awk8nq-3"
-})(["width:100%;height:100%;"]);
+})(_templateObject4$2());
 var Item$2 = styled(Grid).attrs(function (_ref2) {
   var lg = _ref2.lg;
   return {
@@ -2219,31 +2547,19 @@ var Item$2 = styled(Grid).attrs(function (_ref2) {
     xs: 4,
     lg: lg || 3
   };
-}).withConfig({
-  displayName: "Item",
-  componentId: "sc-1awk8nq-4"
-})(["display:flex;align-items:center;"]);
-var StyledIcon$1 = styled(Icon).withConfig({
-  displayName: "Item__StyledIcon",
-  componentId: "sc-1awk8nq-5"
-})(["margin-right:", ";flex-shrink:0;"], function (_ref3) {
+})(_templateObject5());
+var StyledIcon$1 = styled(Icon)(_templateObject6(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(2);
 });
-var StyledCollapseButton = styled(CollapseButton).withConfig({
-  displayName: "Item__StyledCollapseButton",
-  componentId: "sc-1awk8nq-6"
-})(["margin-left:", ";color:", ";"], function (_ref4) {
+var StyledCollapseButton = styled(CollapseButton)(_templateObject7(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(4);
 }, function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.text.primary;
 });
-var Content = styled.div.withConfig({
-  displayName: "Item__Content",
-  componentId: "sc-1awk8nq-7"
-})(["padding:", ";"], function (_ref6) {
+var Content = styled.div(_templateObject8(), function (_ref6) {
   var theme = _ref6.theme;
   return theme.spacing(4, 10);
 });
@@ -2258,9 +2574,8 @@ var HistoryItem = function HistoryItem(_ref7) {
       title = _ref7$data.title;
 
   var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      collapseOpen = _useState2[0],
-      setCollapseOpen = _useState2[1];
+      collapseOpen = _useState[0],
+      setCollapseOpen = _useState[1];
 
   return /*#__PURE__*/React.createElement(Container$2, {
     "data-cy": "historyItem"
@@ -2306,10 +2621,7 @@ HistoryItem.propTypes = {
   }).isRequired
 };
 
-function ownKeys$k(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$k(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$k(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$k(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var HistoryPropTypes = _objectSpread$k(_objectSpread$k({
+var HistoryPropTypes = _extends({
   rows: PropTypes.arrayOf(PropTypes.shape({
     id: PropTypes.number.isRequired,
     description: PropTypes.string,
@@ -2318,19 +2630,25 @@ var HistoryPropTypes = _objectSpread$k(_objectSpread$k({
     icon: PropTypes.string.isRequired,
     iconColor: PropTypes.string
   })).isRequired
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-var Container$3 = styled.div.withConfig({
-  displayName: "History__Container",
-  componentId: "sc-1u2gi2m-0"
-})(["", " ", ""], function (theme) {
+function _templateObject$w() {
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
+
+  _templateObject$w = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Container$3 = styled.div(_templateObject$w(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
 var History = function History(_ref) {
   var rows = _ref.rows,
-      props = _objectWithoutProperties(_ref, ["rows"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["rows"]);
 
   return /*#__PURE__*/React.createElement(Container$3, props, rows.map(function (h) {
     return /*#__PURE__*/React.createElement(HistoryItem, {
@@ -2341,10 +2659,7 @@ var History = function History(_ref) {
 };
 History.propTypes = HistoryPropTypes;
 
-function ownKeys$l(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$l(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$l(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$l(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var ImagePropTypes = _objectSpread$l(_objectSpread$l({
+var ImagePropTypes = _extends({
   alt: PropTypes.string.isRequired,
   className: PropTypes.any,
   cover: PropTypes.bool,
@@ -2357,7 +2672,7 @@ var ImagePropTypes = _objectSpread$l(_objectSpread$l({
   style: PropTypes.object,
   thumbnail: PropTypes.bool,
   width: PropTypes.number
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ImageDefaultProps = {
   fluid: false,
   rounded: false,
@@ -2365,6 +2680,15 @@ var ImageDefaultProps = {
   thumbnail: false
 };
 
+function _templateObject$x() {
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$x = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
 var Image = function Image(_ref) {
   var props = _extends({}, _ref);
 
@@ -2372,15 +2696,12 @@ var Image = function Image(_ref) {
     itemProp: "contentUrl"
   }, props));
 };
-var StyledImg = styled.img.withConfig({
-  displayName: "Image__StyledImg",
-  componentId: "sc-1oqfb7n-0"
-})(["", " ", " ", " ", " ", " ", ""], function (_ref2) {
+var StyledImg = styled.img(_templateObject$x(), function (_ref2) {
   var width = _ref2.width;
-  return width && "width: ".concat(width, ";");
+  return width && "width: " + width + ";";
 }, function (_ref3) {
   var height = _ref3.height;
-  return height && "width: ".concat(height, ";");
+  return height && "width: " + height + ";";
 }, function (_ref4) {
   var cover = _ref4.cover;
   return cover && css(["height:100%;object-fit:fill;"]);
@@ -2399,16 +2720,22 @@ var ExplorerLayoutFooterPropTypes = {
   children: PropTypes.node
 };
 
-var StyledFooter = styled.div.withConfig({
-  displayName: "Footer__StyledFooter",
-  componentId: "sc-5p9du5-0"
-})(["box-sizing:border-box;height:80px;text-align:center;padding-top:", ";"], function (_ref) {
+function _templateObject$y() {
+  var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  height: 80px;\n  text-align: center;\n  padding-top: ", ";\n"]);
+
+  _templateObject$y = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledFooter = styled.div(_templateObject$y(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
 var ExplorerLayoutFooter = function ExplorerLayoutFooter(_ref2) {
   var action = _ref2.action,
-      props = _objectWithoutProperties(_ref2, ["action"]);
+      props = _objectWithoutPropertiesLoose(_ref2, ["action"]);
 
   return /*#__PURE__*/React.createElement(StyledFooter, props);
 };
@@ -2421,15 +2748,31 @@ var ExplorerLayoutHeaderPropTypes = {
   logoAction: PropTypes.func
 };
 
+function _templateObject2$a() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 155px;\n  ", " {\n    width: 103px;\n  }\n"]);
+
+  _templateObject2$a = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$z() {
+  var data = _taggedTemplateLiteralLoose(["\n  height: 128px;\n  ", " {\n    height: 96px;\n  }\n"]);
+
+  _templateObject$z = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
 var StyledHeader = styled(Grid).attrs(function () {
   return {
     container: true,
     alignItems: "center"
   };
-}).withConfig({
-  displayName: "Header__StyledHeader",
-  componentId: "sc-1amm62j-0"
-})(["height:128px;", "{height:96px;}"], function (_ref) {
+})(_templateObject$z(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
@@ -2438,17 +2781,14 @@ var StyledLogo = styled(Image).attrs(function () {
     alt: "Logo",
     src: img$1
   };
-}).withConfig({
-  displayName: "Header__StyledLogo",
-  componentId: "sc-1amm62j-1"
-})(["width:155px;", "{width:103px;}"], function (_ref2) {
+})(_templateObject2$a(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.breakpoints.down("md");
 });
 var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
   var headerRight = _ref3.headerRight,
       logoAction = _ref3.logoAction,
-      props = _objectWithoutProperties(_ref3, ["headerRight", "logoAction"]);
+      props = _objectWithoutPropertiesLoose(_ref3, ["headerRight", "logoAction"]);
 
   return /*#__PURE__*/React.createElement(StyledHeader, props, /*#__PURE__*/React.createElement(Grid, {
     item: true,
@@ -2477,14 +2817,20 @@ var ExplorerLayoutPropTypes = {
   sidebar: PropTypes.node
 };
 
+function _templateObject$A() {
+  var data = _taggedTemplateLiteralLoose(["\n  padding-top: ", ";\n  padding-bottom: ", ";\n  ", " {\n    padding-top: ", ";\n  }\n"]);
+
+  _templateObject$A = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
 var Content$1 = styled(Grid).attrs(function () {
   return {
     container: true
   };
-}).withConfig({
-  displayName: "Explorer__Content",
-  componentId: "sc-9py360-0"
-})(["padding-top:", ";padding-bottom:", ";", "{padding-top:", ";}"], function (_ref) {
+})(_templateObject$A(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(8);
 }, function (_ref2) {
@@ -2513,7 +2859,7 @@ var ExplorerLayout = function ExplorerLayout(_ref5) {
       headerLogoAction = _ref5.headerLogoAction,
       headerRight = _ref5.headerRight,
       sidebar = _ref5.sidebar,
-      props = _objectWithoutProperties(_ref5, ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "sidebar"]);
+      props = _objectWithoutPropertiesLoose(_ref5, ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "sidebar"]);
 
   return /*#__PURE__*/React.createElement(MuiContainer, props, /*#__PURE__*/React.createElement(ExplorerLayoutHeader, {
     logoAction: headerLogoAction,
@@ -2554,22 +2900,65 @@ ExplorerLayout.defaultProps = {
   footerContent: poweredBy
 };
 
+function _templateObject5$1() {
+  var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: ", ";\n  z-index: 1;\n"]);
+
+  _templateObject5$1 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4$3() {
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    justify-content: ", ";\n  }\n"]);
+
+  _templateObject4$3 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3$4() {
+  var data = _taggedTemplateLiteralLoose(["\n  cursor: pointer;\n  background-color: white;\n  && {\n    color: ", ";\n  }\n"]);
+
+  _templateObject3$4 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$b() {
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    font-size: 16px;\n    font-weight: 500;\n    color: ", ";\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: ", "px;\n  }\n"]);
+
+  _templateObject2$b = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$B() {
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    padding: 0;\n    &:first-child {\n      padding-top: 0;\n    }\n  }\n"]);
+
+  _templateObject$B = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
 var ContentWrapper = styled(DialogContent).attrs(function () {
   return {
     dividers: true
   };
-}).withConfig({
-  displayName: "Modal__ContentWrapper",
-  componentId: "pqwu3e-0"
-})(["&&{padding:0;&:first-child{padding-top:0;}}"]);
+})(_templateObject$B());
 var Title = styled(DialogTitle).attrs(function () {
   return {
     disableTypography: true
   };
-}).withConfig({
-  displayName: "Modal__Title",
-  componentId: "pqwu3e-1"
-})(["&&{font-size:16px;font-weight:500;color:", ";display:flex;align-items:center;justify-content:space-between;padding:", "px;}"], function (_ref) {
+})(_templateObject2$b(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.darkIndigo;
 }, function (_ref2) {
@@ -2580,24 +2969,15 @@ var CloseModalIcon = styled(Icon).attrs(function () {
   return {
     size: "lg"
   };
-}).withConfig({
-  displayName: "Modal__CloseModalIcon",
-  componentId: "pqwu3e-2"
-})(["cursor:pointer;background-color:white;&&{color:", ";}"], function (_ref3) {
+})(_templateObject3$4(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.secondary.dark;
 });
-var Actions = styled(DialogActions).withConfig({
-  displayName: "Modal__Actions",
-  componentId: "pqwu3e-3"
-})(["&&{justify-content:", ";}"], function (_ref4) {
+var Actions = styled(DialogActions)(_templateObject4$3(), function (_ref4) {
   var hasDesc = _ref4.hasDesc;
   return hasDesc ? "space-between" : "flex-end";
 });
-var LoadingWrapper = styled.div.withConfig({
-  displayName: "Modal__LoadingWrapper",
-  componentId: "pqwu3e-4"
-})(["position:absolute;top:0;right:0;left:0;width:100%;height:100%;display:flex;align-items:center;justify-content:center;background-color:", ";z-index:1;"], function (_ref5) {
+var LoadingWrapper = styled.div(_templateObject5$1(), function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.secondary.dark;
 });
@@ -2615,7 +2995,7 @@ var Modal = function Modal(_ref6) {
       maxWidth = _ref6.maxWidth,
       title = _ref6.title,
       disabled = _ref6.disabled,
-      props = _objectWithoutProperties(_ref6, ["action", "actionDescription", "actionLoading", "actionTitle", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled"]);
+      props = _objectWithoutPropertiesLoose(_ref6, ["action", "actionDescription", "actionLoading", "actionTitle", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled"]);
 
   return /*#__PURE__*/React.createElement(Dialog, _extends({
     "data-cy": dataCy,
@@ -2669,10 +3049,16 @@ Modal.defaultProps = {
   disabled: false
 };
 
-var Button$1 = styled(ButtonBase).withConfig({
-  displayName: "Button",
-  componentId: "k7mzaq-0"
-})(["display:flex;align-items:center;&&{width:40px;height:40px;background-color:", ";svg{color:", ";}:hover{background-color:", ";svg{color:", ";}}}"], function (_ref) {
+function _templateObject$C() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n\n  && {\n    width: 40px;\n    height: 40px;\n    background-color: ", ";\n    svg {\n      color: ", ";\n    }\n\n    :hover {\n      background-color: ", ";\n\n      svg {\n        color: ", ";\n      }\n    }\n  }\n"]);
+
+  _templateObject$C = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Button$1 = styled(ButtonBase)(_templateObject$C(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -2714,32 +3100,52 @@ ShareModuleButton.defaultProps = {
 
 var SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "telegram", "whatsapp", "email", "navigator"];
 
-function ownKeys$m(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$m(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$m(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$m(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var ShareModulePropTypes = _objectSpread$m(_objectSpread$m({
+var ShareModulePropTypes = _extends({
   copyText: PropTypes.string,
   shareOptions: PropTypes.arrayOf(PropTypes.oneOf(SHARE_MODULE_SHARE_OPTIONS)),
   url: PropTypes.string
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ShareModuleDefaultProps = {
   copyText: "Or copy the link",
   shareOptions: SHARE_MODULE_SHARE_OPTIONS,
   url: "#"
 };
 
-var Container$4 = styled.div.withConfig({
-  displayName: "ShareModule__Container",
-  componentId: "sc-1jmukyt-0"
-})(["", " ", ""], function (theme) {
+function _templateObject3$5() {
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n  }\n"]);
+
+  _templateObject3$5 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$c() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: ", ";\n"]);
+
+  _templateObject2$c = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$D() {
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
+
+  _templateObject$D = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Container$4 = styled.div(_templateObject$D(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var ButtonsWrapper = styled.div.withConfig({
-  displayName: "ShareModule__ButtonsWrapper",
-  componentId: "sc-1jmukyt-1"
-})(["display:flex;align-items:center;justify-content:space-between;margin-bottom:", ";"], function (_ref) {
+var ButtonsWrapper = styled.div(_templateObject2$c(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
@@ -2750,10 +3156,7 @@ var StyledText$1 = styled(Text).attrs(function () {
     fontSize: "sm",
     fontStyle: "italic"
   };
-}).withConfig({
-  displayName: "ShareModule__StyledText",
-  componentId: "sc-1jmukyt-2"
-})(["&&{", "}"], function (_ref2) {
+})(_templateObject3$5(), function (_ref2) {
   var spacing = _ref2.theme.spacing;
   return css(["margin:", ";"], spacing(2, 0));
 });
@@ -2763,26 +3166,26 @@ var ShareModule = function ShareModule(_ref3) {
   var copyText = _ref3.copyText,
       shareOptions = _ref3.shareOptions,
       url = _ref3.url,
-      props = _objectWithoutProperties(_ref3, ["copyText", "shareOptions", "url"]);
+      props = _objectWithoutPropertiesLoose(_ref3, ["copyText", "shareOptions", "url"]);
 
   var theme = useTheme();
-  var navigatorShare = typeof window !== "undefined" && ((_window = window) === null || _window === void 0 ? void 0 : (_window$navigator = _window.navigator) === null || _window$navigator === void 0 ? void 0 : _window$navigator.share) ? (_window2 = window) === null || _window2 === void 0 ? void 0 : (_window2$navigator = _window2.navigator) === null || _window2$navigator === void 0 ? void 0 : _window2$navigator.share : null;
+  var navigatorShare = typeof window !== "undefined" && ((_window = window) == null ? void 0 : (_window$navigator = _window.navigator) == null ? void 0 : _window$navigator.share) ? (_window2 = window) == null ? void 0 : (_window2$navigator = _window2.navigator) == null ? void 0 : _window2$navigator.share : null;
   return /*#__PURE__*/React.createElement(Container$4, props, /*#__PURE__*/React.createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "twitter",
-    href: "https://twitter.com/intent/tweet?url=".concat(url)
+    href: "https://twitter.com/intent/tweet?url=" + url
   }), shareOptions.includes("facebook") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "facebook-f",
-    href: "https://www.facebook.com/sharer.php?u=".concat(url)
+    href: "https://www.facebook.com/sharer.php?u=" + url
   }), shareOptions.includes("telegram") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "telegram-plane",
-    href: "tg://msg?text=".concat(url)
+    href: "tg://msg?text=" + url
   }), shareOptions.includes("whatsapp") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "whatsapp",
-    href: "whatsapp://send?".concat(url)
+    href: "whatsapp://send?" + url
   }), shareOptions.includes("email") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "envelope",
     iconPrefix: theme.defaultIconSet,
-    href: "mailto:?body=".concat(url)
+    href: "mailto:?body=" + url
   }), shareOptions.includes("navigator") && navigatorShare && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "ellipsis-h",
     iconPrefix: theme.defaultIconSet,
@@ -2808,10 +3211,7 @@ var ShareModule = function ShareModule(_ref3) {
 ShareModule.propTypes = ShareModulePropTypes;
 ShareModule.defaultProps = ShareModuleDefaultProps;
 
-function ownKeys$n(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$n(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$n(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$n(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var TabPropTypes = _objectSpread$n(_objectSpread$n({
+var TabPropTypes = _extends({
   currentTab: PropTypes.number.isRequired,
   onChange: PropTypes.func.isRequired,
   tabs: PropTypes.arrayOf(PropTypes.shape({
@@ -2820,12 +3220,38 @@ var TabPropTypes = _objectSpread$n(_objectSpread$n({
     disabled: PropTypes.bool,
     showTab: PropTypes.bbol
   })).isRequired
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-var Wrapper$6 = styled.div.withConfig({
-  displayName: "Tab__Wrapper",
-  componentId: "q8ovtf-0"
-})(["margin-bottom:", ";", " ", ""], function (_ref) {
+function _templateObject3$6() {
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    text-transform: initial;\n  }\n"]);
+
+  _templateObject3$6 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$d() {
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    min-height: fit-content;\n\n    .MuiTab-root {\n      min-height: 24px;\n    }\n  }\n\n  .MuiTabs-indicator {\n    display: none;\n  }\n\n  button {\n    min-width: fit-content;\n    margin-right: ", ";\n    padding: 0;\n    font-weight: normal;\n    font-size: 14px;\n    line-height: 120%;\n\n    &.Mui-selected {\n      font-weight: 600;\n    }\n  }\n\n  .Mui-selected {\n    &::after {\n      content: \"\";\n      position: absolute;\n      width: 100%;\n      left: 0;\n      bottom: 0;\n      height: 2px;\n      background-color: ", ";\n      border-radius: 2px 2px 0 0;\n    }\n  }\n"]);
+
+  _templateObject2$d = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$E() {
+  var data = _taggedTemplateLiteralLoose(["\n  margin-bottom: ", ";\n  ", "\n  ", "\n"]);
+
+  _templateObject$E = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Wrapper$6 = styled.div(_templateObject$E(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (theme) {
@@ -2833,25 +3259,19 @@ var Wrapper$6 = styled.div.withConfig({
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledTabs = styled(MuiTabs).withConfig({
-  displayName: "Tab__StyledTabs",
-  componentId: "q8ovtf-1"
-})(["&&{min-height:fit-content;.MuiTab-root{min-height:24px;}}.MuiTabs-indicator{display:none;}button{min-width:fit-content;margin-right:", ";padding:0;font-weight:normal;font-size:14px;line-height:120%;&.Mui-selected{font-weight:600;}}.Mui-selected{&::after{content:\"\";position:absolute;width:100%;left:0;bottom:0;height:2px;background-color:", ";border-radius:2px 2px 0 0;}}"], function (_ref2) {
+var StyledTabs = styled(MuiTabs)(_templateObject2$d(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(5);
 }, function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.primary.main;
 });
-var StyledTab = styled(MuiTab).withConfig({
-  displayName: "Tab__StyledTab",
-  componentId: "q8ovtf-2"
-})(["&&{text-transform:initial;}"]);
+var StyledTab = styled(MuiTab)(_templateObject3$6());
 var Tab = function Tab(_ref4) {
   var tabs = _ref4.tabs,
       currentTab = _ref4.currentTab,
       _onChange = _ref4.onChange,
-      props = _objectWithoutProperties(_ref4, ["tabs", "currentTab", "onChange"]);
+      props = _objectWithoutPropertiesLoose(_ref4, ["tabs", "currentTab", "onChange"]);
 
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Wrapper$6, props, /*#__PURE__*/React.createElement(StyledTabs, {
     value: currentTab,
@@ -2874,21 +3294,34 @@ var Tab = function Tab(_ref4) {
 };
 Tab.propTypes = TabPropTypes;
 
+function _templateObject2$e() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 500px;\n  max-width: 500px;\n  user-select: none;\n"]);
+
+  _templateObject2$e = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$F() {
+  var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  border-radius: 100%;\n  && {\n    margin: ", ";\n  }\n"]);
+
+  _templateObject$F = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
 var CloseModalIcon$1 = styled(Icon).attrs(function () {
   return {
     size: "lg"
   };
-}).withConfig({
-  displayName: "ImageModal__CloseModalIcon",
-  componentId: "sc-1een0u3-0"
-})(["position:absolute;top:0;right:0;border-radius:100%;&&{margin:", ";}"], function (_ref) {
+})(_templateObject$F(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
-var StyledImg$1 = styled(Image).withConfig({
-  displayName: "ImageModal__StyledImg",
-  componentId: "sc-1een0u3-1"
-})(["width:500px;max-width:500px;user-select:none;"]);
+var StyledImg$1 = styled(Image)(_templateObject2$e());
 var ImageModal = function ImageModal(_ref2) {
   var isOpen = _ref2.isOpen,
       onClose = _ref2.onClose,
@@ -2914,24 +3347,47 @@ ImageModal.defaultProps = {
   imgSrc: ""
 };
 
-function ownKeys$o(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$o(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$o(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$o(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var ThumbnailPropTypes = _objectSpread$o(_objectSpread$o({
+var ThumbnailPropTypes = _extends({
   hasPreview: PropTypes.bool,
   imgSrc: PropTypes.string,
   onClick: PropTypes.func
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ThumbnailDefaultProps = {
   hasPreview: false,
   onClick: function onClick() {},
   imgSrc: ""
 };
 
-var Container$5 = styled.div.withConfig({
-  displayName: "Thumbnail__Container",
-  componentId: "sc-142uf10-0"
-})(["position:relative;height:48px;width:48px;text-align:center;border-radius:8px;overflow:hidden;background-color:", ";display:flex;align-items:center;justify-content:center;flex-shrink:0;", " ", ""], function (_ref) {
+function _templateObject3$7() {
+  var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n"]);
+
+  _templateObject3$7 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$f() {
+  var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all 0.1s ease-in-out;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n\n  :hover {\n    background-color: rgba(0, 0, 0, 0.2);\n  }\n"]);
+
+  _templateObject2$f = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$G() {
+  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  height: 48px;\n  width: 48px;\n  text-align: center;\n  border-radius: 8px;\n  overflow: hidden;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$G = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Container$5 = styled.div(_templateObject$G(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
@@ -2939,14 +3395,8 @@ var Container$5 = styled.div.withConfig({
 }, function (theme) {
   return DISPLAY(theme);
 });
-var IconWrapper = styled.div.withConfig({
-  displayName: "Thumbnail__IconWrapper",
-  componentId: "sc-142uf10-1"
-})(["position:absolute;top:0;left:0;width:100%;height:100%;transition:all 0.1s ease-in-out;display:flex;align-items:center;justify-content:center;cursor:pointer;:hover{background-color:rgba(0,0,0,0.2);}"]);
-var StyledIcon$2 = styled(Icon).withConfig({
-  displayName: "Thumbnail__StyledIcon",
-  componentId: "sc-142uf10-2"
-})(["color:", ";"], function (_ref2) {
+var IconWrapper = styled.div(_templateObject2$f());
+var StyledIcon$2 = styled(Icon)(_templateObject3$7(), function (_ref2) {
   var color = _ref2.color,
       theme = _ref2.theme;
   return !color && theme.palette.common.white;
@@ -2955,17 +3405,15 @@ var Thumbnail = function Thumbnail(_ref3) {
   var hasPreview = _ref3.hasPreview,
       imgSrc = _ref3.imgSrc,
       onClick = _ref3.onClick,
-      props = _objectWithoutProperties(_ref3, ["hasPreview", "imgSrc", "onClick"]);
+      props = _objectWithoutPropertiesLoose(_ref3, ["hasPreview", "imgSrc", "onClick"]);
 
   var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      loadError = _useState2[0],
-      setLoadError = _useState2[1];
+      loadError = _useState[0],
+      setLoadError = _useState[1];
 
-  var _useState3 = useState(false),
-      _useState4 = _slicedToArray(_useState3, 2),
-      previewOpen = _useState4[0],
-      setPreviewOpen = _useState4[1];
+  var _useState2 = useState(false),
+      previewOpen = _useState2[0],
+      setPreviewOpen = _useState2[1];
 
   var handleClick = function handleClick() {
     if (hasPreview) setPreviewOpen(true);else onClick();
@@ -2997,6 +3445,27 @@ var Thumbnail = function Thumbnail(_ref3) {
 };
 Thumbnail.propTypes = ThumbnailPropTypes;
 Thumbnail.defaultProps = ThumbnailDefaultProps;
+
+function _objectWithoutPropertiesLoose$1(source, excluded) {
+  if (source == null) return {};
+  var target = {};
+  var sourceKeys = Object.keys(source);
+  var key, i;
+
+  for (i = 0; i < sourceKeys.length; i++) {
+    key = sourceKeys[i];
+    if (excluded.indexOf(key) >= 0) continue;
+    target[key] = source[key];
+  }
+
+  return target;
+}
+
+function _inheritsLoose(subClass, superClass) {
+  subClass.prototype = Object.create(superClass.prototype);
+  subClass.prototype.constructor = subClass;
+  subClass.__proto__ = superClass;
+}
 
 var config = {
   disabled: false
@@ -3405,7 +3874,7 @@ var Transition = /*#__PURE__*/function (_React$Component) {
         _onExiting = _this$props.onExiting,
         _onExited = _this$props.onExited,
         _nodeRef = _this$props.nodeRef,
-        childProps = _objectWithoutPropertiesLoose(_this$props, ["children", "in", "mountOnEnter", "unmountOnExit", "appear", "enter", "exit", "timeout", "addEndListener", "onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited", "nodeRef"]);
+        childProps = _objectWithoutPropertiesLoose$1(_this$props, ["children", "in", "mountOnEnter", "unmountOnExit", "appear", "enter", "exit", "timeout", "addEndListener", "onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited", "nodeRef"]);
 
     return (
       /*#__PURE__*/
@@ -3627,10 +4096,36 @@ Transition.ENTERING = ENTERING;
 Transition.ENTERED = ENTERED;
 Transition.EXITING = EXITING;
 
-var StyledContent = styled.div.withConfig({
-  displayName: "Content__StyledContent",
-  componentId: "sc-196inky-0"
-})(["width:100%;height:100%;flex:1;padding:24px 24px 24px 40px;transition:all ", "ms ease-in-out;", ";"], function (_ref) {
+function _templateObject3$8() {
+  var data = _taggedTemplateLiteralLoose(["\n  font-style: italic;\n  font-weight: normal;\n  font-size: 14px;\n  color: ", ";\n  margin-left: 8px;\n"]);
+
+  _templateObject3$8 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$g() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 16px 0;\n"]);
+
+  _templateObject2$g = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$H() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: 24px 24px 24px 40px;\n  transition: all ", "ms ease-in-out;\n\n  ", ";\n"]);
+
+  _templateObject$H = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledContent = styled.div(_templateObject$H(), function (_ref) {
   var duration = _ref.duration;
   return duration / 2;
 }, function (_ref2) {
@@ -3645,14 +4140,8 @@ var StyledContent = styled.div.withConfig({
       return css(["-webkit-filter:blur(0);filter:blur(0);"]);
   }
 });
-var ActionWrapper = styled.div.withConfig({
-  displayName: "Content__ActionWrapper",
-  componentId: "sc-196inky-1"
-})(["display:flex;justify-content:space-between;align-items:center;padding:16px 0;"]);
-var StepHint = styled.span.withConfig({
-  displayName: "Content__StepHint",
-  componentId: "sc-196inky-2"
-})(["font-style:italic;font-weight:normal;font-size:14px;color:", ";margin-left:8px;"], function (_ref3) {
+var ActionWrapper = styled.div(_templateObject2$g());
+var StepHint = styled.span(_templateObject3$8(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.gray.medium;
 });
@@ -3667,12 +4156,11 @@ var WizardStepContent = function WizardStepContent(_ref4) {
       isLastStep = _ref4.isLastStep,
       nextStepMethod = _ref4.nextStepMethod,
       stepCount = _ref4.stepCount,
-      props = _objectWithoutProperties(_ref4, ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "nextStepMethod", "stepCount"]);
+      props = _objectWithoutPropertiesLoose(_ref4, ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "nextStepMethod", "stepCount"]);
 
   var _useState = useState(false),
-      _useState2 = _slicedToArray(_useState, 2),
-      mounted = _useState2[0],
-      setMounted = _useState2[1];
+      mounted = _useState[0],
+      setMounted = _useState[1];
 
   useEffect(function () {
     setMounted(true);
@@ -3681,7 +4169,7 @@ var WizardStepContent = function WizardStepContent(_ref4) {
     };
   }, []);
   return /*#__PURE__*/React.createElement(Transition, {
-    "in": mounted,
+    in: mounted,
     timeout: duration,
     unmountOnExit: true
   }, function (state) {
@@ -3696,7 +4184,7 @@ var WizardStepContent = function WizardStepContent(_ref4) {
     }, /*#__PURE__*/React.createElement(Icon, {
       color: "secondary",
       icon: "arrow-left"
-    })), /*#__PURE__*/React.createElement(StepHint, null, "".concat(currentStep, " of ").concat(stepCount, " steps"))), /*#__PURE__*/React.createElement(Button, {
+    })), /*#__PURE__*/React.createElement(StepHint, null, currentStep + " of " + stepCount + " steps")), /*#__PURE__*/React.createElement(Button, {
       content: isLastStep ? "Finish" : "Next",
       onClick: nextStepMethod === "button" ? handleNext : undefined,
       type: nextStepMethod // disabled
@@ -3744,35 +4232,55 @@ var stepFlagBackgroundColor = function stepFlagBackgroundColor(_ref3) {
   return theme.palette.gray.regular;
 };
 
-var StyledTitle = styled.div.withConfig({
-  displayName: "Title__StyledTitle",
-  componentId: "sc-8gl7u5-0"
-})(["display:flex;align-items:center;text-overflow:ellipsis;overflow:hidden;white-space:normal;", " ", ""], function (_ref) {
+function _templateObject3$9() {
+  var data = _taggedTemplateLiteralLoose(["\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 120%;\n  color: ", ";\n  padding-left: 8px;\n  transition: all ", "\n    ease-in-out;\n  ", "\n"]);
+
+  _templateObject3$9 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$h() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 100%;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 120%;\n  z-index: 1;\n  transition: all ", "\n    ease-in-out;\n"]);
+
+  _templateObject2$h = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$I() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: normal;\n\n  ", "\n\n  ", "\n"]);
+
+  _templateObject$I = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledTitle = styled.div(_templateObject$I(), function (_ref) {
   var isPassed = _ref.isPassed;
   return isPassed && css(["cursor:pointer;"]);
 }, function (_ref2) {
   var isHorizontal = _ref2.isHorizontal;
   return isHorizontal && css(["flex-direction:column;align-items:flex-start;"]);
 });
-var Flag = styled.div.withConfig({
-  displayName: "Title__Flag",
-  componentId: "sc-8gl7u5-1"
-})(["width:32px;height:32px;display:flex;align-items:center;justify-content:center;background-color:", ";color:", ";border-radius:100%;font-weight:600;font-size:14px;line-height:120%;z-index:1;transition:all ", " ease-in-out;"], function (props) {
+var Flag = styled.div(_templateObject2$h(), function (props) {
   return stepFlagBackgroundColor(props);
 }, function (props) {
   return stepFlagColor(props);
 }, function (_ref3) {
   var transitionDuration = _ref3.transitionDuration;
-  return "".concat(transitionDuration, "ms");
+  return transitionDuration + "ms";
 });
-var Label$1 = styled.span.withConfig({
-  displayName: "Title__Label",
-  componentId: "sc-8gl7u5-2"
-})(["font-weight:600;font-size:16px;line-height:120%;color:", ";padding-left:8px;transition:all ", " ease-in-out;", ""], function (props) {
+var Label$1 = styled.span(_templateObject3$9(), function (props) {
   return stepBorderAndTitleColor(props);
 }, function (_ref4) {
   var transitionDuration = _ref4.transitionDuration;
-  return "".concat(transitionDuration, "ms");
+  return transitionDuration + "ms";
 }, function (_ref5) {
   var isHorizontal = _ref5.isHorizontal;
   return isHorizontal && css(["font-size:12px;padding:4px 4px 0 0;"]);
@@ -3816,10 +4324,7 @@ WizardStepTitle.defaultProps = {
   onClick: function onClick() {}
 };
 
-function ownKeys$p(object, enumerableOnly) { var keys = Object.keys(object); if (Object.getOwnPropertySymbols) { var symbols = Object.getOwnPropertySymbols(object); if (enumerableOnly) symbols = symbols.filter(function (sym) { return Object.getOwnPropertyDescriptor(object, sym).enumerable; }); keys.push.apply(keys, symbols); } return keys; }
-
-function _objectSpread$p(target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i] != null ? arguments[i] : {}; if (i % 2) { ownKeys$p(Object(source), true).forEach(function (key) { _defineProperty(target, key, source[key]); }); } else if (Object.getOwnPropertyDescriptors) { Object.defineProperties(target, Object.getOwnPropertyDescriptors(source)); } else { ownKeys$p(Object(source)).forEach(function (key) { Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key)); }); } } return target; }
-var WizardPropTypes = _objectSpread$p(_objectSpread$p({
+var WizardPropTypes = _extends({
   currentStepContent: PropTypes.node.isRequired,
   currentStepIndex: PropTypes.number.isRequired,
   nextStepMethod: PropTypes.oneOf(["submit", "button"]),
@@ -3827,7 +4332,7 @@ var WizardPropTypes = _objectSpread$p(_objectSpread$p({
   setCurrentStepIndex: PropTypes.func.isRequired,
   steps: PropTypes.arrayOf(PropTypes.string).isRequired,
   transitionDuration: PropTypes.number
-}, SPACER_PROP_TYPES), DISPLAY_PROP_TYPES);
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var WizardDefaultProps = {
   nextStepMethod: "submit",
   orientation: "horizontal",
@@ -3862,44 +4367,78 @@ var handleScroll = function handleScroll(el) {
   });
 };
 
-var Wrapper$7 = styled.div.withConfig({
-  displayName: "Wizard__Wrapper",
-  componentId: "sc-3fjyf3-0"
-})(["max-width:680px;margin:auto;", " ", ""], function (theme) {
+function _templateObject5$2() {
+  var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  position: relative;\n  min-height: 60px;\n\n  :last-child {\n    ", " {\n      ", ";\n    }\n  }\n\n  ", "\n"]);
+
+  _templateObject5$2 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4$4() {
+  var data = _taggedTemplateLiteralLoose(["\n  border-width: 0;\n  border-style: dashed;\n  border-color: ", ";\n  border-left-width: 2px;\n  transition: all ", "\n    ease-in-out;\n  position: absolute;\n  top: 0;\n  left: 15px;\n  bottom: 0;\n  ::before {\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    display: inline-block;\n  }\n\n  ", "\n"]);
+
+  _templateObject4$4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3$a() {
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
+
+  _templateObject3$a = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$i() {
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
+
+  _templateObject2$i = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$J() {
+  var data = _taggedTemplateLiteralLoose(["\n  max-width: 680px;\n  margin: auto;\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$J = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Wrapper$7 = styled.div(_templateObject$J(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StepsWrapper = styled.div.withConfig({
-  displayName: "Wizard__StepsWrapper",
-  componentId: "sc-3fjyf3-1"
-})(["", ""], function (_ref) {
+var StepsWrapper = styled.div(_templateObject2$i(), function (_ref) {
   var isHorizontal = _ref.isHorizontal;
   return isHorizontal && css(["position:relative;::before{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,#ffffff 0%,rgba(255,255,255,0) 100% );transform:rotate(-180deg);position:absolute;top:0;left:0;z-index:2;}::after{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,#ffffff 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;right:0;z-index:2;}"]);
 });
-var Steps = styled.div.withConfig({
-  displayName: "Wizard__Steps",
-  componentId: "sc-3fjyf3-2"
-})(["", ""], function (_ref2) {
+var Steps = styled.div(_templateObject3$a(), function (_ref2) {
   var isHorizontal = _ref2.isHorizontal;
   return isHorizontal && css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}"]);
 });
-var StepConnector = styled.div.withConfig({
-  displayName: "Wizard__StepConnector",
-  componentId: "sc-3fjyf3-3"
-})(["border-width:0;border-style:dashed;border-color:", ";border-left-width:2px;transition:all ", " ease-in-out;position:absolute;top:0;left:15px;bottom:0;::before{content:\"\";width:2px;height:100%;display:inline-block;}", ""], function (props) {
+var StepConnector = styled.div(_templateObject4$4(), function (props) {
   return stepBorderAndTitleColor(props);
 }, function (_ref3) {
   var transitionDuration = _ref3.transitionDuration;
-  return "".concat(transitionDuration, "ms");
+  return transitionDuration + "ms";
 }, function (_ref4) {
   var isHorizontal = _ref4.isHorizontal;
   return isHorizontal && css(["width:100%;border-left-width:0;border-top-width:2px;top:15px;left:8px;::before{content:\"\";width:100%;height:2px;display:inline-block;}"]);
 });
-var Step = styled.div.withConfig({
-  displayName: "Wizard__Step",
-  componentId: "sc-3fjyf3-4"
-})(["box-sizing:border-box;position:relative;min-height:60px;:last-child{", "{", ";}}", ""], StepConnector, function (_ref5) {
+var Step = styled.div(_templateObject5$2(), StepConnector, function (_ref5) {
   var isActive = _ref5.isActive,
       isHorizontal = _ref5.isHorizontal;
   return (!isActive || isHorizontal) && "border: none";
@@ -3915,7 +4454,7 @@ var Wizard = function Wizard(_ref7) {
       setCurrentStepIndex = _ref7.setCurrentStepIndex,
       steps = _ref7.steps,
       transitionDuration = _ref7.transitionDuration,
-      props = _objectWithoutProperties(_ref7, ["currentStepContent", "currentStepIndex", "nextStepMethod", "orientation", "setCurrentStepIndex", "steps", "transitionDuration"]);
+      props = _objectWithoutPropertiesLoose(_ref7, ["currentStepContent", "currentStepIndex", "nextStepMethod", "orientation", "setCurrentStepIndex", "steps", "transitionDuration"]);
 
   var stepRef = useRef(null);
   var wrapperRef = /*#__PURE__*/createRef();
@@ -3977,7 +4516,7 @@ var Wizard = function Wizard(_ref7) {
   }, steps.map(function (step, idx) {
     var isActive = idx === currentStepIndex;
     var isPassed = idx < currentStepIndex;
-    var stepKey = "step-".concat(idx);
+    var stepKey = "step-" + idx;
     return /*#__PURE__*/React.createElement(Step, {
       isActive: isActive,
       isHorizontal: isHorizontal,
