@@ -1,7 +1,19 @@
 module.exports = {
-  presets: ["@babel/react"],
+  presets: [
+    [
+      "@babel/env",
+      {
+        loose: true,
+        shippedProposals: true,
+        modules: false,
+        targets: {
+          ie: 9,
+        },
+      },
+    ],
+    "@babel/react",
+  ],
   plugins: [
-    "@babel/plugin-transform-runtime",
     [
       "styled-components",
       {
@@ -11,16 +23,6 @@ module.exports = {
     ],
   ],
   env: {
-    production: {
-      presets: [
-        [
-          "@babel/env",
-          {
-            modules: false,
-          },
-        ],
-      ],
-    },
     test: {
       presets: [
         [
@@ -31,6 +33,7 @@ module.exports = {
             },
           },
         ],
+        "@babel/react",
       ],
     },
   },

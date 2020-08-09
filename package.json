@@ -1,15 +1,15 @@
 {
   "name": "@licenserocks/kit",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "",
-  "main": "dist/rockskit.cjs",
+  "main": "dist/rockskit.common.js",
   "module": "dist/rockskit.es.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/LicenseRocks/rockskit"
   },
   "scripts": {
-    "build": "NODE_ENV=production rollup -c",
+    "build": "rollup -c",
     "build-storybook": "build-storybook --quiet -s ./.storybook/static",
     "deploy-storybook": "storybook-to-ghpages",
     "start-storybook": "start-storybook -s ./.storybook/static -p 9000 --quiet -c .storybook",
@@ -19,7 +19,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@babel/runtime": "^7.10.5",
     "@fortawesome/fontawesome-svg-core": "^1.2.30",
     "@fortawesome/free-brands-svg-icons": "^5.14.0",
     "@fortawesome/free-solid-svg-icons": "^5.14.0",
@@ -37,7 +36,6 @@
   "devDependencies": {
     "@babel/core": "^7.10.4",
     "@babel/plugin-proposal-optional-chaining": "^7.10.4",
-    "@babel/plugin-transform-runtime": "^7.10.4",
     "@babel/polyfill": "^7.10.4",
     "@babel/preset-env": "^7.10.4",
     "@babel/preset-react": "^7.10.4",
