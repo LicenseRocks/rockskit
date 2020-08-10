@@ -1,6 +1,6 @@
 {
   "name": "@licenserocks/kit",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "",
   "main": "dist/rockskit.common.js",
   "module": "dist/rockskit.es.js",
@@ -29,9 +29,8 @@
     "qrcode.react": "^1.0.0",
     "react-collapse": "^5.0.1",
     "react-dropzone": "^11.0.2",
-    "react-hook-form": "^6.2.0",
-    "react-select": "^3.1.0",
-    "styled-components": "^5.1.1"
+    "react-hook-form": "^6.3.1",
+    "react-select": "^3.1.0"
   },
   "devDependencies": {
     "@babel/core": "^7.10.4",
@@ -75,6 +74,7 @@
   "peerDependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "styled-components": "^5.1.1"
   }
 }
