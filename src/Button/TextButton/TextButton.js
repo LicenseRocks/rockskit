@@ -9,15 +9,24 @@ const StyledButton = styled(ButtonBase)`
       if (color === "secondary")
         return css`
           color: ${theme.palette.gray.dark};
+          svg {
+            color: ${theme.palette.gray.dark};
+          }
         `;
 
       if (color === "subtle")
         return css`
           color: ${theme.palette.gray.medium};
+          svg {
+            color: ${theme.palette.gray.medium};
+          }
         `;
 
       return css`
         color: ${theme.palette.primary.main};
+        svg {
+          color: ${theme.palette.primary.main};
+        }
       `;
     }}
   }

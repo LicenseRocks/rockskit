@@ -1,5 +1,6 @@
 import {
   faArrowLeft,
+  faArrowRight,
   faBox,
   faCheck,
   faCheckCircle,
@@ -23,6 +24,7 @@ import {
 
 export const FreeSolidIconSet = {
   faArrowLeft,
+  faArrowRight,
   faBox,
   faCheck,
   faCheckCircle,

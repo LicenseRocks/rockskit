@@ -1,5 +1,5 @@
 import React from "react";
-import { select, boolean } from "@storybook/addon-knobs";
+import { select, boolean, text } from "@storybook/addon-knobs";
 import styled from "styled-components";
 
 import { StoryWrapper } from "../../.storybook/decorators";
@@ -23,7 +23,9 @@ export const main = () => {
   const defaultProps = {
     color: select("Color", ["primary", "secondary", "subtle"], "primary"),
     disabled: boolean("Disabled", false),
+    endIcon: text("End icon", "arrow-left"),
     size: select("Size", ["xs", "sm", "md"], "md"),
+    startIcon: text("Start icon", "arrow-right"),
   };
 
   return (

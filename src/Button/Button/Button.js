@@ -10,17 +10,26 @@ const StyledButton = styled(ButtonBase)`
         return css`
           background-color: ${theme.palette.gray.dark};
           color: ${theme.palette.common.white};
+          svg {
+            color: ${theme.palette.common.white};
+          }
         `;
 
       if (color === "subtle")
         return css`
           background-color: ${theme.palette.gray.regular};
           color: ${theme.palette.gray.medium};
+          svg {
+            color: ${theme.palette.gray.medium};
+          }
         `;
 
       return css`
         background-color: ${theme.palette.primary.main};
         color: ${theme.palette.common.white};
+        svg {
+          color: ${theme.palette.common.white};
+        }
       `;
     }}
   }
