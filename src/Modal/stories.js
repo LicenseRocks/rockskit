@@ -1,13 +1,13 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import { boolean, text, withKnobs } from "@storybook/addon-knobs";
+import { boolean, text } from "@storybook/addon-knobs";
 
 import { StoryWrapper } from "../../.storybook/decorators";
 import { Modal, Button } from "..";
 
 export default {
   title: "Modal",
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 const StyledWrapper = styled.div`

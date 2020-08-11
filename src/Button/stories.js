@@ -1,5 +1,5 @@
 import React from "react";
-import { withKnobs, select, boolean } from "@storybook/addon-knobs";
+import { select, boolean } from "@storybook/addon-knobs";
 import styled from "styled-components";
 
 import { StoryWrapper } from "../../.storybook/decorators";
@@ -7,7 +7,7 @@ import { Button, H3, OutlineButton, TextButton } from "..";
 
 export default {
   title: "Button",
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 const BaseComponent = ({ Component, title, ...props }) => {

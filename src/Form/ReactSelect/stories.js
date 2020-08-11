@@ -3,7 +3,7 @@
  */
 
 import React from "react";
-import { boolean, withKnobs } from "@storybook/addon-knobs";
+import { boolean } from "@storybook/addon-knobs";
 import { useForm } from "react-hook-form";
 
 import { Button, FormError, ReactSelect } from "../..";
@@ -25,7 +25,7 @@ const OPTIONS = [
 export default {
   title: "Form/ReactSelect",
   component: ReactSelect,
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 export const main = (props = {}) => {

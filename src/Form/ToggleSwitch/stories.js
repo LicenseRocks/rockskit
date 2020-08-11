@@ -1,5 +1,5 @@
 import React from "react";
-import { boolean, select, withKnobs } from "@storybook/addon-knobs";
+import { boolean, select } from "@storybook/addon-knobs";
 import { useForm } from "react-hook-form";
 
 import { ToggleSwitch } from ".";
@@ -8,7 +8,7 @@ import { StoryWrapper } from "../../../.storybook/decorators";
 export default {
   title: "Form/ToggleSwitch",
   component: ToggleSwitch,
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 export const main = () => {

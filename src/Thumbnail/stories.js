@@ -1,12 +1,11 @@
 import React from "react";
-import { withKnobs } from "@storybook/addon-knobs";
 
 import { StoryWrapper } from "../../.storybook/decorators";
 import { Thumbnail } from ".";
 
 export default {
   title: "Thumbnail",
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 export const main = () => {

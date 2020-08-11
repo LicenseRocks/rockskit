@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { withKnobs } from "@storybook/addon-knobs";
 
 import { StoryWrapper } from "../../.storybook/decorators";
 import { Wizard } from ".";
@@ -7,7 +6,7 @@ import { Wizard } from ".";
 export default {
   title: "Wizard",
   component: Wizard,
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 export const main = () => {

@@ -1,5 +1,5 @@
 import React from "react";
-import { withKnobs, text } from "@storybook/addon-knobs";
+import { text } from "@storybook/addon-knobs";
 
 import { StoryWrapper } from "../../../.storybook/decorators";
 import { FormLabel } from ".";
@@ -7,7 +7,7 @@ import { FormLabel } from ".";
 export default {
   title: "Form/Label",
   component: FormLabel,
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 export const main = () => {

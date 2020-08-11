@@ -1,5 +1,5 @@
 import React from "react";
-import { boolean, text, withKnobs } from "@storybook/addon-knobs";
+import { boolean, text } from "@storybook/addon-knobs";
 import { useForm } from "react-hook-form";
 
 import { StoryWrapper } from "../../../.storybook/decorators";
@@ -8,7 +8,7 @@ import { Input } from "./Input";
 export default {
   title: "Form/Input",
   component: Input,
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 export const main = () => {
