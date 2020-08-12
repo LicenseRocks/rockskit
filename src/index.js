@@ -1,6 +1,7 @@
 export * from "./Alert";
 export * from "./AppContainer";
 export * from "./Badge";
+export * from "./Box";
 export * from "./Button";
 export * from "./Collapse";
 export * from "./DetailsTable";
@@ -16,6 +17,7 @@ export * from "./Language";
 export * from "./Layout";
 export * from "./Modal";
 export * from "./ShareModule/ShareModule";
+export * from "./Spinner";
 export * from "./Tab";
 export * from "./theme";
 export * from "./Thumbnail";

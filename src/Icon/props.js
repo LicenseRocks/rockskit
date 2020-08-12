@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
 import {
+  COLOR_PROP_TYPES,
   DISPLAY_PROP_TYPES,
   KIT_ICON_SIZES,
   SPACER_PROP_TYPES,
@@ -14,6 +15,7 @@ export const IconPropTypes = {
   onClick: PropTypes.func,
   prefix: PropTypes.string,
   size: PropTypes.oneOf(Object.keys(KIT_ICON_SIZES)),
+  ...COLOR_PROP_TYPES,
   ...SPACER_PROP_TYPES,
   ...DISPLAY_PROP_TYPES,
 };

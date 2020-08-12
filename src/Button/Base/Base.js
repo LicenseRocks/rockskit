@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import MuiButtonBase from "@material-ui/core/ButtonBase";
 
-import { DISPLAY, Icon, SPACER } from "../..";
+import { DISPLAY, DotsSpinner, Icon, SPACER } from "../..";
 import { ButtonBasePropTypes, ButtonBaseDefaultProps } from "./props";
 
 const StyledButton = styled(MuiButtonBase)`
@@ -65,8 +65,10 @@ const getIconSize = (buttonSize) => {
 };
 
 export const ButtonBase = ({
+  colors,
   content,
   children,
+  loading,
   endIcon,
   href,
   size,
@@ -82,9 +84,15 @@ export const ButtonBase = ({
       size={size}
       {...props}
     >
-      {startIcon && <Icon icon={startIcon} size={iconSize} mr={2} />}
-      {content || children}
-      {endIcon && <Icon icon={endIcon} size={iconSize} ml={2} />}
+      {loading ? (
+        <DotsSpinner color={colors?.color} />
+      ) : (
+        <>
+          {startIcon && <Icon icon={startIcon} size={iconSize} mr={2} />}
+          {content || children}
+          {endIcon && <Icon icon={endIcon} size={iconSize} ml={2} />}
+        </>
+      )}
     </StyledButton>
   );
 };

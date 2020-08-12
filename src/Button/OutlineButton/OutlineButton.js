@@ -1,48 +1,20 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css, useTheme } from "styled-components";
 
 import { ButtonBase, ButtonBasePropTypes } from "../Base";
 
 const StyledButton = styled(ButtonBase)`
   && {
-    ${({ color, theme }) => {
-      if (color === "secondary")
-        return css`
-          border: 1px solid ${theme.palette.gray.dark};
-          color: ${theme.palette.gray.dark};
-          svg {
-            color: ${theme.palette.gray.dark};
-          }
-
-          :hover {
-            background-color: ${theme.palette.gray.semiLight};
-            opacity: 1;
-          }
-        `;
-
-      if (color === "subtle")
-        return css`
-          border: 1px solid ${theme.palette.gray.regular};
-          color: ${theme.palette.gray.medium};
-          svg {
-            color: ${theme.palette.gray.medium};
-          }
-
-          :hover {
-            background-color: ${theme.palette.gray.semiLight};
-            opacity: 1;
-          }
-        `;
-
+    ${({ colors }) => {
       return css`
-        border: 1px solid ${theme.palette.primary.main};
-        color: ${theme.palette.primary.main};
+        border: 1px solid ${colors.borderColor};
+        color: ${colors.color};
         svg {
-          color: ${theme.palette.primary.main};
+          color: ${colors.color};
         }
 
         :hover {
-          background-color: ${theme.palette.primary.light};
+          background-color: ${colors.backgroundColorHover};
           opacity: 1;
         }
       `;
@@ -50,8 +22,33 @@ const StyledButton = styled(ButtonBase)`
   }
 `;
 
-export const OutlineButton = (props) => {
-  return <StyledButton {...props} />;
+const colorMapper = (color, theme) => {
+  if (color === "secondary")
+    return {
+      backgroundColorHover: theme.palette.gray.semiLight,
+      borderColor: theme.palette.gray.dark,
+      color: theme.palette.gray.dark,
+    };
+
+  if (color === "subtle")
+    return {
+      backgroundColorHover: theme.palette.gray.semiLight,
+      borderColor: theme.palette.gray.regular,
+      color: theme.palette.gray.medium,
+    };
+
+  return {
+    backgroundColorHover: theme.palette.primary.light,
+    borderColor: theme.palette.primary.main,
+    color: theme.palette.primary.main,
+  };
+};
+
+export const OutlineButton = ({ color, ...props }) => {
+  const theme = useTheme();
+  const colors = colorMapper(color, theme);
+
+  return <StyledButton colors={colors} {...props} />;
 };
 
 OutlineButton.propTypes = ButtonBasePropTypes;

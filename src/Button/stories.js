@@ -23,6 +23,7 @@ export const main = () => {
   const defaultProps = {
     color: select("Color", ["primary", "secondary", "subtle"], "primary"),
     disabled: boolean("Disabled", false),
+    loading: boolean("Loading", false),
     endIcon: text("End icon", "arrow-left"),
     size: select("Size", ["xs", "sm", "md"], "md"),
     startIcon: text("Start icon", "arrow-right"),

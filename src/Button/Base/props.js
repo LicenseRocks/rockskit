@@ -7,6 +7,7 @@ export const ButtonBasePropTypes = {
   content: PropTypes.string,
   children: PropTypes.node,
   disabled: PropTypes.bool,
+  loading: PropTypes.bool,
   endIcon: PropTypes.string,
   href: PropTypes.string,
   onClick: PropTypes.func,
