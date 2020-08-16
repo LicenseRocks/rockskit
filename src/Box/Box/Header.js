@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { H4, Icon } from "../..";
+import { H3, Icon } from "../..";
 import { Flex } from "../../Flex";
 
 const StyledBoxHeader = styled(Flex).attrs(() => ({
@@ -32,7 +32,7 @@ export const BoxHeader = ({
         {renderTitle() || (
           <>
             {titleIcon && <Icon colorBlack icon={titleIcon} mr={2} size="lg" />}
-            <H4 content={title} dInlineBlock />
+            <H3 content={title} dInlineBlock />
           </>
         )}
       </Flex>

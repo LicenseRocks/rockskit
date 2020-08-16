@@ -1,42 +1,84 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', { value: true });
+Object.defineProperty(exports, '__esModule', {
+  value: true
+});
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
+function _interopDefault$1(ex) {
+  return ex && typeof ex === 'object' && 'default' in ex ? ex['default'] : ex;
+}
 
 var React = require('react');
-var React__default = _interopDefault(React);
+
+var React__default = _interopDefault$1(React);
+
 var styled = require('styled-components');
-var styled__default = _interopDefault(styled);
+
+var styled__default = _interopDefault$1(styled);
+
 var reactFontawesome = require('@fortawesome/react-fontawesome');
+
 var freeBrandsSvgIcons = require('@fortawesome/free-brands-svg-icons');
+
 var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
+
 var styles = require('@material-ui/core/styles');
+
 var PropTypes = require('prop-types');
-var PropTypes__default = _interopDefault(PropTypes);
-var CssBaseline = _interopDefault(require('@material-ui/core/CssBaseline'));
+
+var PropTypes__default = _interopDefault$1(PropTypes);
+
+var CssBaseline = _interopDefault$1(require('@material-ui/core/CssBaseline'));
+
 var fontawesomeSvgCore = require('@fortawesome/fontawesome-svg-core');
-var Typography = _interopDefault(require('@material-ui/core/Typography'));
-var MuiButtonBase = _interopDefault(require('@material-ui/core/ButtonBase'));
+
+var notistack = require('notistack');
+
+var Typography = _interopDefault$1(require('@material-ui/core/Typography'));
+
+var Grid = _interopDefault$1(require('@material-ui/core/Grid'));
+
+var MuiButtonBase = _interopDefault$1(require('@material-ui/core/ButtonBase'));
+
 var reactCollapse = require('react-collapse');
-var QRCode = _interopDefault(require('qrcode.react'));
-var Grid = _interopDefault(require('@material-ui/core/Grid'));
+
+var Menu = _interopDefault$1(require('@material-ui/core/Menu'));
+
+var MenuItem = _interopDefault$1(require('@material-ui/core/MenuItem'));
+
+var QRCode = _interopDefault$1(require('qrcode.react'));
+
 var reactHookForm = require('react-hook-form');
+
 var reactDropzone = require('react-dropzone');
-var axios = _interopDefault(require('axios'));
-var Select$1 = _interopDefault(require('react-select'));
-var AsyncSelect = _interopDefault(require('react-select/async'));
-var MuiContainer = _interopDefault(require('@material-ui/core/Container'));
-var Hidden = _interopDefault(require('@material-ui/core/Hidden'));
-var CircularProgress = _interopDefault(require('@material-ui/core/CircularProgress'));
-var Dialog = _interopDefault(require('@material-ui/core/Dialog'));
-var DialogActions = _interopDefault(require('@material-ui/core/DialogActions'));
-var DialogContent = _interopDefault(require('@material-ui/core/DialogContent'));
-var DialogTitle = _interopDefault(require('@material-ui/core/DialogTitle'));
-var copy = _interopDefault(require('copy-to-clipboard'));
-var MuiTabs = _interopDefault(require('@material-ui/core/Tabs'));
-var MuiTab = _interopDefault(require('@material-ui/core/Tab'));
-var ReactDOM = _interopDefault(require('react-dom'));
+
+var axios = _interopDefault$1(require('axios'));
+
+var Select$1 = _interopDefault$1(require('react-select'));
+
+var AsyncSelect = _interopDefault$1(require('react-select/async'));
+
+var MuiContainer = _interopDefault$1(require('@material-ui/core/Container'));
+
+var Hidden = _interopDefault$1(require('@material-ui/core/Hidden'));
+
+var CircularProgress = _interopDefault$1(require('@material-ui/core/CircularProgress'));
+
+var Dialog = _interopDefault$1(require('@material-ui/core/Dialog'));
+
+var DialogActions = _interopDefault$1(require('@material-ui/core/DialogActions'));
+
+var DialogContent = _interopDefault$1(require('@material-ui/core/DialogContent'));
+
+var DialogTitle = _interopDefault$1(require('@material-ui/core/DialogTitle'));
+
+var copy = _interopDefault$1(require('copy-to-clipboard'));
+
+var MuiTabs = _interopDefault$1(require('@material-ui/core/Tabs'));
+
+var MuiTab = _interopDefault$1(require('@material-ui/core/Tab'));
+
+var ReactDOM = _interopDefault$1(require('react-dom'));
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -80,15 +122,26 @@ function _taggedTemplateLiteralLoose(strings, raw) {
   return strings;
 }
 
+function _templateObject() {
+  var data = _taggedTemplateLiteralLoose(["\n  html, body, #root {\n    height: 100%;\n  }\n"]);
+
+  _templateObject = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var GlobalStyle = styled.createGlobalStyle(_templateObject());
 var FreeBrandIconSet = {
   fabFacebookF: freeBrandsSvgIcons.faFacebookF,
   fabTelegramPlane: freeBrandsSvgIcons.faTelegramPlane,
   fabTwitter: freeBrandsSvgIcons.faTwitter,
   fabWhatsapp: freeBrandsSvgIcons.faWhatsapp
 };
-
 var FreeSolidIconSet = {
   faArrowLeft: freeSolidSvgIcons.faArrowLeft,
+  faArrowRight: freeSolidSvgIcons.faArrowRight,
   faBox: freeSolidSvgIcons.faBox,
   faCheck: freeSolidSvgIcons.faCheck,
   faCheckCircle: freeSolidSvgIcons.faCheckCircle,
@@ -109,7 +162,6 @@ var FreeSolidIconSet = {
   faTimes: freeSolidSvgIcons.faTimes,
   faUser: freeSolidSvgIcons.faUser
 };
-
 var KIT_COLORS = {
   primary: {
     main: "#AC00fC",
@@ -133,7 +185,6 @@ var KIT_COLORS = {
     lightYellow: "#FFF3A2"
   }
 };
-
 var KIT_FONTS = {
   Galano: {
     name: "GalanoGrotesque-Bold"
@@ -142,13 +193,11 @@ var KIT_FONTS = {
     name: "Inter"
   }
 };
-
 var KIT_ICON_SIZES = {
   lg: 20,
   md: 16,
   sm: 12
 };
-
 var KIT_TYPOGRAPHY = {
   h1: function h1(theme) {
     var _ref;
@@ -264,6 +313,7 @@ var KIT_TYPOGRAPHY = {
 };
 
 var RocksKitIcons = _extends({}, FreeBrandIconSet, FreeSolidIconSet);
+
 var RocksKitTheme = styles.createMuiTheme({
   breakpoints: {
     values: {
@@ -344,6 +394,78 @@ RocksKitTheme.spacing = function () {
 RocksKitTheme.overrides.MuiButtonBase = {
   root: KIT_TYPOGRAPHY.button()
 };
+var COLOR_PROP_TYPES = {
+  colorPrimary: PropTypes__default.bool,
+  colorPrimaryLight: PropTypes__default.bool,
+  colorGrayLight: PropTypes__default.bool,
+  colorGraySemiLight: PropTypes__default.bool,
+  colorGrayRegular: PropTypes__default.bool,
+  colorGrayMedium: PropTypes__default.bool,
+  colorGrayDark: PropTypes__default.bool,
+  colorBlack: PropTypes__default.bool,
+  colorWhite: PropTypes__default.bool,
+  colorError: PropTypes__default.bool,
+  colorErrorLight: PropTypes__default.bool,
+  colorWarning: PropTypes__default.bool,
+  colorWarningLight: PropTypes__default.bool,
+  colorSuccess: PropTypes__default.bool,
+  colorSuccessLight: PropTypes__default.bool
+};
+
+var COLOR = function COLOR(_ref) {
+  var colorPrimary = _ref.colorPrimary,
+      colorPrimaryLight = _ref.colorPrimaryLight,
+      colorGrayLight = _ref.colorGrayLight,
+      colorGraySemiLight = _ref.colorGraySemiLight,
+      colorGrayRegular = _ref.colorGrayRegular,
+      colorGrayMedium = _ref.colorGrayMedium,
+      colorGrayDark = _ref.colorGrayDark,
+      colorBlack = _ref.colorBlack,
+      colorWhite = _ref.colorWhite,
+      colorError = _ref.colorError,
+      colorErrorLight = _ref.colorErrorLight,
+      colorWarning = _ref.colorWarning,
+      colorWarningLight = _ref.colorWarningLight,
+      colorSuccess = _ref.colorSuccess,
+      colorSuccessLight = _ref.colorSuccessLight;
+  var color = null;
+  if (colorPrimary) color = KIT_COLORS.primary.main;
+  if (colorPrimaryLight) color = KIT_COLORS.primary.light;
+  if (colorGrayLight) color = KIT_COLORS.gray.light;
+  if (colorGraySemiLight) color = KIT_COLORS.gray.semiLight;
+  if (colorGrayRegular) color = KIT_COLORS.gray.regular;
+  if (colorGrayMedium) color = KIT_COLORS.gray.medium;
+  if (colorGrayDark) color = KIT_COLORS.gray.dark;
+  if (colorBlack) color = KIT_COLORS.gray.black;
+  if (colorWhite) color = KIT_COLORS.gray.white;
+  if (colorError) color = KIT_COLORS.alert.darkRed;
+  if (colorErrorLight) color = KIT_COLORS.alert.lightRed;
+  if (colorWarning) color = KIT_COLORS.gray.white;
+  if (colorWarningLight) color = KIT_COLORS.gray.white;
+  if (colorSuccess) color = KIT_COLORS.gray.white;
+  if (colorSuccessLight) color = KIT_COLORS.gray.white;
+  return color ? "color: " + color + " !important;" : "";
+};
+
+var DIMENSION_PROP_TYPES = {
+  h100: PropTypes__default.bool,
+  w100: PropTypes__default.bool,
+  h100vh: PropTypes__default.bool,
+  w100vw: PropTypes__default.bool
+};
+
+var DIMENSION = function DIMENSION(_ref) {
+  var h100 = _ref.h100,
+      w100 = _ref.w100,
+      h100vh = _ref.h100vh,
+      w100vw = _ref.w100vw;
+  var temp = "";
+  if (h100) temp += "height: 100% !important;";
+  if (w100) temp += "width: 100% !important;";
+  if (h100vh) temp += "height: 100vh !important;";
+  if (w100vw) temp += "width: 100vw !important;";
+  return temp;
+};
 
 var DISPLAY_PROP_TYPES = {
   dBlock: PropTypes__default.bool,
@@ -353,6 +475,7 @@ var DISPLAY_PROP_TYPES = {
   dInlineFlex: PropTypes__default.bool,
   dNone: PropTypes__default.bool
 };
+
 var DISPLAY = function DISPLAY(_ref) {
   var dBlock = _ref.dBlock,
       dFlex = _ref.dFlex,
@@ -373,9 +496,11 @@ var DISPLAY = function DISPLAY(_ref) {
 var SPACER_FORMULA = function SPACER_FORMULA(factor) {
   return factor * 4;
 };
+
 var SPACER_POSTFIX = function SPACER_POSTFIX(space) {
   return "" + (space > 0 ? "px" : "");
 };
+
 var SPACER_PROP_TYPES = {
   m: PropTypes__default.number,
   m0: PropTypes__default.bool,
@@ -385,6 +510,7 @@ var SPACER_PROP_TYPES = {
   mb: PropTypes__default.number,
   mr: PropTypes__default.number,
   ml: PropTypes__default.number,
+  mAuto: PropTypes__default.bool,
   p: PropTypes__default.number,
   p0: PropTypes__default.bool,
   px: PropTypes__default.number,
@@ -394,6 +520,7 @@ var SPACER_PROP_TYPES = {
   pr: PropTypes__default.number,
   pl: PropTypes__default.number
 };
+
 var SPACER = function SPACER(_ref) {
   var m = _ref.m,
       m0 = _ref.m0,
@@ -403,6 +530,7 @@ var SPACER = function SPACER(_ref) {
       mb = _ref.mb,
       mr = _ref.mr,
       ml = _ref.ml,
+      mAuto = _ref.mAuto,
       p = _ref.p,
       p0 = _ref.p0,
       px = _ref.px,
@@ -420,6 +548,7 @@ var SPACER = function SPACER(_ref) {
   if (mb) temp += "margin-bottom: " + SPACER_FORMULA(mb) + "px !important;";
   if (mr) temp += "margin-right: " + SPACER_FORMULA(mr) + "px !important;";
   if (ml) temp += "margin-left: " + SPACER_FORMULA(ml) + "px !important;";
+  if (mAuto) temp += "margin: auto !important;";
   if (p) temp += "padding: " + SPACER_FORMULA(p) + "px !important;";
   if (p0) temp += "padding: 0 !important;";
   if (px) temp += "padding: 0 " + SPACER_FORMULA(px) + "px !important;";
@@ -440,7 +569,8 @@ var IconPropTypes = _extends({
   onClick: PropTypes__default.func,
   prefix: PropTypes__default.string,
   size: PropTypes__default.oneOf(Object.keys(KIT_ICON_SIZES))
-}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+}, COLOR_PROP_TYPES, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var IconDefaultProps = {
   bordered: false,
   color: "primary",
@@ -448,7 +578,7 @@ var IconDefaultProps = {
 };
 
 function _templateObject2() {
-  var data = _taggedTemplateLiteralLoose(["\n  font-size: ", "px;\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  font-size: ", "px;\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n  ", "\n"]);
 
   _templateObject2 = function _templateObject2() {
     return data;
@@ -457,16 +587,17 @@ function _templateObject2() {
   return data;
 }
 
-function _templateObject() {
+function _templateObject$1() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject = function _templateObject() {
+  _templateObject$1 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Bordered = styled__default.div(_templateObject(), function (_ref) {
+
+var Bordered = styled__default.div(_templateObject$1(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
   return styled.css(["width:32px;height:32px;border:solid 2px ", ";background-color:", ";display:inline-flex;align-items:center;justify-content:center;border-radius:100%;box-sizing:border-box;position:relative;"], theme.palette.gray.regular, theme.palette[color].light);
@@ -492,10 +623,13 @@ var StyledIcon = styled__default(function (_ref2) {
   var onClick = _ref5.onClick;
   return onClick && styled.css(["cursor:pointer;transition:all 0.1s ease-in-out;:hover{opacity:0.7;}"]);
 }, function (theme) {
-  return SPACER(theme);
+  return COLOR(theme);
 }, function (theme) {
   return DISPLAY(theme);
+}, function (theme) {
+  return SPACER(theme);
 });
+
 var Icon = function Icon(_ref6) {
   var bordered = _ref6.bordered,
       className = _ref6.className,
@@ -517,6 +651,7 @@ var Icon = function Icon(_ref6) {
     className: className
   }, defaultProps));
 };
+
 Icon.propTypes = IconPropTypes;
 Icon.defaultProps = IconDefaultProps;
 
@@ -525,22 +660,24 @@ var AlertPropTypes = _extends({
   children: PropTypes__default.node,
   color: PropTypes__default.oneOf(["info", "danger", "warning"])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var AlertDefaultProps = {
   content: null,
   children: null,
   color: "info"
 };
 
-function _templateObject$1() {
+function _templateObject$2() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  box-sizing: border-box;\n  min-height: 40px;\n  padding: 8px;\n  font-size: 14px;\n  border-radius: 8px;\n  background-color: ", ";\n  color: ", ";\n  transition: all 100ms ease-in-out;\n  display: flex;\n  align-items: center;\n\n  svg {\n    color: ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1 = function _templateObject() {
+  _templateObject$2 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledMessage = styled__default.div(_templateObject$1(), function (_ref) {
+
+var StyledMessage = styled__default.div(_templateObject$2(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -562,6 +699,7 @@ var StyledMessage = styled__default.div(_templateObject$1(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
+
 var Alert = function Alert(_ref6) {
   var content = _ref6.content,
       children = _ref6.children,
@@ -572,9 +710,9 @@ var Alert = function Alert(_ref6) {
     mr: 2
   }), content || children);
 };
+
 Alert.propTypes = AlertPropTypes;
 Alert.defaultProps = AlertDefaultProps;
-
 var AppContainerPropTypes = {
   children: PropTypes__default.node.isRequired,
   icons: PropTypes__default.object,
@@ -590,8 +728,11 @@ var AppContainer = function AppContainer(_ref) {
     theme: theme
   }, /*#__PURE__*/React__default.createElement(styled.ThemeProvider, {
     theme: theme
-  }, /*#__PURE__*/React__default.createElement(CssBaseline, null), children));
+  }, /*#__PURE__*/React__default.createElement(notistack.SnackbarProvider, {
+    maxSnack: 3
+  }, /*#__PURE__*/React__default.createElement(GlobalStyle, null), /*#__PURE__*/React__default.createElement(CssBaseline, null), children)));
 };
+
 AppContainer.propTypes = AppContainerPropTypes;
 
 var ChipBadgePropTypes = _extends({
@@ -599,6 +740,7 @@ var ChipBadgePropTypes = _extends({
   label: PropTypes__default.string,
   icon: PropTypes__default.string.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var ChipBadgeDefaultProps = {
   color: "primary"
 };
@@ -613,20 +755,22 @@ var HeadingBasePropTypes = _extends({
   noWrap: PropTypes__default.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-function _templateObject$2() {
+function _templateObject$3() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$2 = function _templateObject() {
+  _templateObject$3 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledHeading = styled__default(Typography)(_templateObject$2(), function (theme) {
+
+var StyledHeading = styled__default(Typography)(_templateObject$3(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
+
 var HeadingBase = function HeadingBase(_ref) {
   var content = _ref.content,
       children = _ref.children,
@@ -634,6 +778,7 @@ var HeadingBase = function HeadingBase(_ref) {
 
   return /*#__PURE__*/React__default.createElement(StyledHeading, props, content || children);
 };
+
 HeadingBase.propTypes = HeadingBasePropTypes;
 
 var H1 = function H1(props) {
@@ -641,6 +786,7 @@ var H1 = function H1(props) {
     variant: "h1"
   }, props));
 };
+
 H1.propTypes = HeadingBasePropTypes;
 
 var H2 = function H2(props) {
@@ -648,6 +794,7 @@ var H2 = function H2(props) {
     variant: "h2"
   }, props));
 };
+
 H2.propTypes = HeadingBasePropTypes;
 
 var H3 = function H3(props) {
@@ -655,6 +802,7 @@ var H3 = function H3(props) {
     variant: "h3"
   }, props));
 };
+
 H3.propTypes = HeadingBasePropTypes;
 
 var H4 = function H4(props) {
@@ -662,6 +810,7 @@ var H4 = function H4(props) {
     variant: "h4"
   }, props));
 };
+
 H4.propTypes = HeadingBasePropTypes;
 
 var H5 = function H5(props) {
@@ -669,6 +818,7 @@ var H5 = function H5(props) {
     variant: "h5"
   }, props));
 };
+
 H5.propTypes = HeadingBasePropTypes;
 
 var H6 = function H6(props) {
@@ -676,6 +826,7 @@ var H6 = function H6(props) {
     variant: "h6"
   }, props));
 };
+
 H6.propTypes = HeadingBasePropTypes;
 
 var TextBasePropTypes = _extends({
@@ -690,22 +841,24 @@ var TextBasePropTypes = _extends({
   gutterBottom: PropTypes__default.bool,
   noWrap: PropTypes__default.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var TextBaseDefaultProps = {
   fontStyle: "normal",
   fontWeight: "regular",
   fontSize: "md"
 };
 
-function _templateObject$3() {
+function _templateObject$4() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n\n    ", "\n\n  font-style: ", ";\n\n  ", "\n  ", "\n  }\n"]);
 
-  _templateObject$3 = function _templateObject() {
+  _templateObject$4 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledText = styled__default(Typography)(_templateObject$3(), function (_ref) {
+
+var StyledText = styled__default(Typography)(_templateObject$4(), function (_ref) {
   var fontWeight = _ref.fontWeight,
       theme = _ref.theme;
 
@@ -740,6 +893,7 @@ var StyledText = styled__default(Typography)(_templateObject$3(), function (_ref
 }, function (theme) {
   return DISPLAY(theme);
 });
+
 var TextBase = function TextBase(_ref4) {
   var content = _ref4.content,
       children = _ref4.children,
@@ -747,28 +901,32 @@ var TextBase = function TextBase(_ref4) {
 
   return /*#__PURE__*/React__default.createElement(StyledText, props, content || children);
 };
+
 TextBase.propTypes = TextBasePropTypes;
 TextBase.defaultProps = TextBaseDefaultProps;
 
-function _templateObject$4() {
+function _templateObject$5() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    margin-bottom: ", ";\n  }\n"]);
 
-  _templateObject$4 = function _templateObject() {
+  _templateObject$5 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledParagraph = styled__default(TextBase)(_templateObject$4(), function (_ref) {
+
+var StyledParagraph = styled__default(TextBase)(_templateObject$5(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
+
 var Paragraph = function Paragraph(props) {
   return /*#__PURE__*/React__default.createElement(StyledParagraph, _extends({
     variant: "body1",
     paragraph: true
   }, props));
 };
+
 Paragraph.propTypes = TextBasePropTypes;
 
 var Text = function Text(props) {
@@ -777,6 +935,7 @@ var Text = function Text(props) {
     variant: "body2"
   }, props));
 };
+
 Text.propTypes = TextBasePropTypes;
 
 function _templateObject2$1() {
@@ -789,16 +948,17 @@ function _templateObject2$1() {
   return data;
 }
 
-function _templateObject$5() {
+function _templateObject$6() {
   var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 22px;\n  min-width: 32px;\n  min-height: 32px;\n  width: max-content;\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$5 = function _templateObject() {
+  _templateObject$6 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledChip = styled__default.div(_templateObject$5(), function (_ref) {
+
+var StyledChip = styled__default.div(_templateObject$6(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
   return styled.css(["padding:", ";background-color:", ";color:", ";"], theme.spacing(2), theme.palette[color].light, theme.palette[color].main);
@@ -815,6 +975,7 @@ var StyledLabel = styled__default(Text).attrs(function () {
   var theme = _ref2.theme;
   return theme.spacing(2);
 });
+
 var ChipBadge = function ChipBadge(_ref3) {
   var color = _ref3.color,
       icon = _ref3.icon,
@@ -828,34 +989,343 @@ var ChipBadge = function ChipBadge(_ref3) {
     icon: icon
   }), label && /*#__PURE__*/React__default.createElement(StyledLabel, null, label));
 };
+
 ChipBadge.propTypes = ChipBadgePropTypes;
 ChipBadge.defaultProps = ChipBadgeDefaultProps;
+
+var BoxBasePropTypes = _extends({
+  shadow: PropTypes__default.oneOf(["none", "normal", "long"])
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
+var BoxBaseDefaultProps = {
+  shadow: "normal"
+};
+
+function _templateObject$7() {
+  var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  width: 100%;\n  box-sizing: border-box;\n  border-radius: 16px;\n  position: relative;\n  overflow: hidden;\n\n  box-shadow: ", ";\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$7 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var StyledBox = styled__default.div(_templateObject$7(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.common.white;
+}, function (_ref2) {
+  var shadow = _ref2.shadow;
+  if (shadow === "long") return "0px 16px 56px rgba(41, 40, 57, 0.16)";
+  if (shadow === "normal") return "0px 8px 32px rgba(41, 40, 57, 0.08)";
+  return "none";
+}, function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
+
+var BoxBase = function BoxBase(props) {
+  return /*#__PURE__*/React__default.createElement(StyledBox, props);
+};
+
+BoxBase.propTypes = BoxBasePropTypes;
+BoxBase.defaultProps = BoxBaseDefaultProps;
+
+var FlexPropTypes = _extends({
+  alignItems: PropTypes__default.oneOf(["flex-start", "center", "flex-end", "stretch", "baseline"]),
+  container: PropTypes__default.bool,
+  item: PropTypes__default.bool,
+  justify: PropTypes__default.oneOf(["flex-start", "center", "flex-end", "space-between", "space-around", "space-evenly"])
+}, SPACER_PROP_TYPES, DIMENSION_PROP_TYPES);
+
+var FlexDefaultProps = {
+  alignItems: "center",
+  justify: "flex-start"
+};
+
+function _templateObject$8() {
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n  ", "\n"]);
+
+  _templateObject$8 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var StyledFlex = styled__default(Grid)(_templateObject$8(), function (theme) {
+  return DIMENSION(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+}, function (theme) {
+  return SPACER(theme);
+});
+
+var Flex = function Flex(props) {
+  return /*#__PURE__*/React__default.createElement(StyledFlex, props);
+};
+
+Flex.propTypes = FlexPropTypes;
+Flex.defaultProps = FlexDefaultProps;
+
+function _templateObject$9() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  box-sizing: border-box;\n  background-color: ", ";\n  padding: ", ";\n  border-top: 1px solid ", ";\n"]);
+
+  _templateObject$9 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var StyledBoxFooter = styled__default(Flex).attrs(function () {
+  return {
+    container: true,
+    alignItems: "center",
+    justify: "space-between"
+  };
+})(_templateObject$9(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.common.white;
+}, function (_ref2) {
+  var padding = _ref2.padding,
+      theme = _ref2.theme;
+  return theme.spacing(4, padding);
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.palette.gray.semiLight;
+});
+
+var BoxFooter = function BoxFooter(_ref4) {
+  var action = _ref4.action,
+      actionDisabled = _ref4.actionDisabled,
+      actionLoading = _ref4.actionLoading,
+      actionTitle = _ref4.actionTitle,
+      renderAction = _ref4.renderAction,
+      renderTitle = _ref4.renderTitle,
+      props = _objectWithoutPropertiesLoose(_ref4, ["action", "actionDisabled", "actionLoading", "actionTitle", "renderAction", "renderTitle"]);
+
+  return /*#__PURE__*/React__default.createElement(StyledBoxFooter, props, /*#__PURE__*/React__default.createElement(Flex, {
+    item: true
+  }, renderTitle()), /*#__PURE__*/React__default.createElement(Flex, {
+    item: true
+  }, renderAction() || /*#__PURE__*/React__default.createElement(Button, {
+    content: actionTitle,
+    disabled: actionDisabled,
+    loading: actionLoading,
+    onClick: action
+  })));
+};
+
+BoxFooter.propTypes = {
+  action: PropTypes__default.func,
+  actionDisabled: PropTypes__default.bool,
+  actionLoading: PropTypes__default.bool,
+  actionTitle: PropTypes__default.string.isRequired,
+  padding: PropTypes__default.number.isRequired,
+  renderAction: PropTypes__default.func,
+  renderTitle: PropTypes__default.func
+};
+BoxFooter.defaultProps = {
+  action: function action() {},
+  actionDisabled: false,
+  actionLoading: false,
+  renderAction: function renderAction() {},
+  renderTitle: function renderTitle() {}
+};
+
+function _templateObject$a() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  box-sizing: border-box;\n  background-color: ", ";\n  padding: ", ";\n  border-bottom: 1px solid ", ";\n"]);
+
+  _templateObject$a = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var StyledBoxHeader = styled__default(Flex).attrs(function () {
+  return {
+    container: true,
+    justify: "space-between"
+  };
+})(_templateObject$a(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.common.white;
+}, function (_ref2) {
+  var padding = _ref2.padding,
+      theme = _ref2.theme;
+  return theme.spacing(padding);
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.palette.gray.semiLight;
+});
+
+var BoxHeader = function BoxHeader(_ref4) {
+  var action = _ref4.action,
+      actionIcon = _ref4.actionIcon,
+      actionIconSize = _ref4.actionIconSize,
+      renderAction = _ref4.renderAction,
+      renderTitle = _ref4.renderTitle,
+      title = _ref4.title,
+      titleIcon = _ref4.titleIcon,
+      props = _objectWithoutPropertiesLoose(_ref4, ["action", "actionIcon", "actionIconSize", "renderAction", "renderTitle", "title", "titleIcon"]);
+
+  return /*#__PURE__*/React__default.createElement(StyledBoxHeader, props, /*#__PURE__*/React__default.createElement(Flex, {
+    container: true,
+    item: true,
+    xs: 6
+  }, renderTitle() || /*#__PURE__*/React__default.createElement(React__default.Fragment, null, titleIcon && /*#__PURE__*/React__default.createElement(Icon, {
+    colorBlack: true,
+    icon: titleIcon,
+    mr: 2,
+    size: "lg"
+  }), /*#__PURE__*/React__default.createElement(H3, {
+    content: title,
+    dInlineBlock: true
+  }))), /*#__PURE__*/React__default.createElement(Flex, {
+    item: true
+  }, renderAction() || actionIcon && /*#__PURE__*/React__default.createElement(Icon, {
+    colorGrayMedium: true,
+    icon: actionIcon,
+    size: actionIconSize,
+    onClick: action
+  })));
+};
+
+BoxHeader.propTypes = {
+  action: PropTypes__default.func,
+  actionIcon: PropTypes__default.string,
+  actionIconSize: PropTypes__default.string,
+  padding: PropTypes__default.number.isRequired,
+  renderAction: PropTypes__default.func,
+  renderTitle: PropTypes__default.func,
+  title: PropTypes__default.string.isRequired,
+  titleIcon: PropTypes__default.string,
+  titleComponent: PropTypes__default.string
+};
+BoxHeader.defaultProps = {
+  action: function action() {},
+  actionIcon: "",
+  actionIconSize: "lg",
+  renderAction: function renderAction() {},
+  renderTitle: function renderTitle() {},
+  titleIcon: "",
+  titleComponent: "H3"
+};
+
+var BoxPropTypes = _extends({
+  children: PropTypes__default.node.isRequired,
+  footerAction: PropTypes__default.func,
+  footerActionLoading: PropTypes__default.bool,
+  footerActionDisabled: PropTypes__default.bool,
+  footerActionTitle: PropTypes__default.string,
+  footerRenderAction: PropTypes__default.func,
+  footerRenderTitle: PropTypes__default.func,
+  headerAction: PropTypes__default.func,
+  headerActionIcon: PropTypes__default.string,
+  headerActionIconSize: PropTypes__default.string,
+  headerRenderAction: PropTypes__default.func,
+  headerRenderTitle: PropTypes__default.func,
+  headerTitle: PropTypes__default.string,
+  headerTitleIcon: PropTypes__default.string,
+  padding: PropTypes__default.number
+}, BoxBasePropTypes);
+
+var BoxDefaultProps = _extends({
+  padding: 6
+}, BoxBaseDefaultProps);
+
+function _templateObject$b() {
+  var data = _taggedTemplateLiteralLoose(["\n  padding: ", ";\n"]);
+
+  _templateObject$b = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var BoxContent = styled__default.div(_templateObject$b(), function (_ref) {
+  var padding = _ref.padding,
+      theme = _ref.theme;
+  return theme.spacing(padding);
+});
+
+var Box = function Box(_ref2) {
+  var children = _ref2.children,
+      footerAction = _ref2.footerAction,
+      footerActionLoading = _ref2.footerActionLoading,
+      footerActionDisabled = _ref2.footerActionDisabled,
+      footerActionTitle = _ref2.footerActionTitle,
+      footerRenderAction = _ref2.footerRenderAction,
+      footerRenderTitle = _ref2.footerRenderTitle,
+      headerAction = _ref2.headerAction,
+      headerActionIcon = _ref2.headerActionIcon,
+      headerActionIconSize = _ref2.headerActionIconSize,
+      headerRenderAction = _ref2.headerRenderAction,
+      headerRenderTitle = _ref2.headerRenderTitle,
+      headerTitle = _ref2.headerTitle,
+      headerTitleIcon = _ref2.headerTitleIcon,
+      padding = _ref2.padding,
+      props = _objectWithoutPropertiesLoose(_ref2, ["children", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionTitle", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconSize", "headerRenderAction", "headerRenderTitle", "headerTitle", "headerTitleIcon", "padding"]);
+
+  return /*#__PURE__*/React__default.createElement(BoxBase, props, headerTitle && /*#__PURE__*/React__default.createElement(BoxHeader, {
+    action: headerAction,
+    actionIcon: headerActionIcon,
+    actionIconSize: headerActionIconSize,
+    padding: padding,
+    renderAction: headerRenderAction,
+    renderTitle: headerRenderTitle,
+    title: headerTitle,
+    titleIcon: headerTitleIcon
+  }), /*#__PURE__*/React__default.createElement(BoxContent, {
+    padding: padding
+  }, children), /*#__PURE__*/React__default.createElement(BoxFooter, {
+    action: footerAction,
+    actionDisabled: footerActionDisabled,
+    actionLoading: footerActionLoading,
+    actionTitle: footerActionTitle,
+    padding: padding,
+    renderAction: footerRenderAction,
+    renderTitle: footerRenderTitle
+  }));
+};
+
+Box.propTypes = BoxPropTypes;
+Box.defaultProps = BoxDefaultProps;
 
 var ButtonBasePropTypes = _extends({
   color: PropTypes__default.oneOf(["primary", "secondary", "subtle"]),
   content: PropTypes__default.string,
   children: PropTypes__default.node,
   disabled: PropTypes__default.bool,
+  loading: PropTypes__default.bool,
+  endIcon: PropTypes__default.string,
   href: PropTypes__default.string,
   onClick: PropTypes__default.func,
   size: PropTypes__default.oneOf(["md", "sm", "xs"]),
+  startIcon: PropTypes__default.string,
   target: PropTypes__default.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var ButtonBaseDefaultProps = {
   color: "primary",
   size: "md"
 };
 
-function _templateObject$6() {
+function _templateObject$c() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    box-sizing: border-box;\n    border-radius: 12px;\n    padding: ", ";\n    min-width: 40px;\n    height: 40px;\n    transition: all 100ms ease-in-out;\n\n    :hover {\n      opacity: 0.7;\n    }\n\n    :disabled {\n      opacity: 0.3;\n      cursor: not-allowed;\n      pointer-events: none;\n    }\n\n    ", "\n\n    ", "\n    ", "\n  }\n"]);
 
-  _templateObject$6 = function _templateObject() {
+  _templateObject$c = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledButton = styled__default(MuiButtonBase)(_templateObject$6(), function (_ref) {
+
+var StyledButton = styled__default(MuiButtonBase)(_templateObject$c(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(0, 4);
 }, function (_ref2) {
@@ -876,100 +1346,200 @@ var StyledButton = styled__default(MuiButtonBase)(_templateObject$6(), function 
 }, function (theme) {
   return DISPLAY(theme);
 });
-var ButtonBase = function ButtonBase(_ref3) {
-  var content = _ref3.content,
-      children = _ref3.children,
-      href = _ref3.href,
-      props = _objectWithoutPropertiesLoose(_ref3, ["content", "children", "href"]);
 
+var getIconSize = function getIconSize(buttonSize) {
+  switch (buttonSize) {
+    case "xs":
+      return "sm";
+
+    case "sm":
+      return "md";
+
+    default:
+      return "lg";
+  }
+};
+
+var ButtonBase = function ButtonBase(_ref3) {
+  var colors = _ref3.colors,
+      content = _ref3.content,
+      children = _ref3.children,
+      loading = _ref3.loading,
+      endIcon = _ref3.endIcon,
+      href = _ref3.href,
+      size = _ref3.size,
+      startIcon = _ref3.startIcon,
+      props = _objectWithoutPropertiesLoose(_ref3, ["colors", "content", "children", "loading", "endIcon", "href", "size", "startIcon"]);
+
+  var iconSize = getIconSize(size);
   return /*#__PURE__*/React__default.createElement(StyledButton, _extends({
     component: href ? "a" : "button",
-    href: href
-  }, props), content || children);
+    href: href,
+    size: size
+  }, props), loading ? /*#__PURE__*/React__default.createElement(DotsSpinner, {
+    color: colors == null ? void 0 : colors.color
+  }) : /*#__PURE__*/React__default.createElement(React__default.Fragment, null, startIcon && /*#__PURE__*/React__default.createElement(Icon, {
+    icon: startIcon,
+    size: iconSize,
+    mr: 2
+  }), content || children, endIcon && /*#__PURE__*/React__default.createElement(Icon, {
+    icon: endIcon,
+    size: iconSize,
+    ml: 2
+  })));
 };
+
 ButtonBase.propTypes = ButtonBasePropTypes;
 ButtonBase.defaultProps = ButtonBaseDefaultProps;
 
-function _templateObject$7() {
+function _templateObject$d() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n  }\n"]);
 
-  _templateObject$7 = function _templateObject() {
+  _templateObject$d = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledButton$1 = styled__default(ButtonBase)(_templateObject$7(), function (_ref) {
-  var color = _ref.color,
-      theme = _ref.theme;
-  if (color === "secondary") return styled.css(["background-color:", ";color:", ";"], theme.palette.gray.dark, theme.palette.common.white);
-  if (color === "subtle") return styled.css(["background-color:", ";color:", ";"], theme.palette.gray.regular, theme.palette.gray.medium);
-  return styled.css(["background-color:", ";color:", ";"], theme.palette.primary.main, theme.palette.common.white);
+
+var StyledButton$1 = styled__default(ButtonBase)(_templateObject$d(), function (_ref) {
+  var colors = _ref.colors;
+  return styled.css(["background-color:", ";color:", ";svg{color:", ";}"], colors.backgroundColor, colors.color, colors.color);
 });
-var Button = function Button(props) {
-  return /*#__PURE__*/React__default.createElement(StyledButton$1, props);
+
+var colorMapper = function colorMapper(color, theme) {
+  if (color === "secondary") return {
+    backgroundColor: theme.palette.gray.dark,
+    color: theme.palette.common.white
+  };
+  if (color === "subtle") return {
+    backgroundColor: theme.palette.gray.regular,
+    color: theme.palette.gray.medium
+  };
+  return {
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.common.white
+  };
 };
+
+var Button = function Button(_ref2) {
+  var color = _ref2.color,
+      props = _objectWithoutPropertiesLoose(_ref2, ["color"]);
+
+  var theme = styled.useTheme();
+  var colors = colorMapper(color, theme);
+  return /*#__PURE__*/React__default.createElement(StyledButton$1, _extends({
+    colors: colors
+  }, props));
+};
+
 Button.propTypes = ButtonBasePropTypes;
 
-function _templateObject$8() {
+function _templateObject$e() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n  }\n"]);
 
-  _templateObject$8 = function _templateObject() {
+  _templateObject$e = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledButton$2 = styled__default(ButtonBase)(_templateObject$8(), function (_ref) {
-  var color = _ref.color,
-      theme = _ref.theme;
-  if (color === "secondary") return styled.css(["border:1px solid ", ";color:", ";:hover{background-color:", ";opacity:1;}"], theme.palette.gray.dark, theme.palette.gray.dark, theme.palette.gray.semiLight);
-  if (color === "subtle") return styled.css(["border:1px solid ", ";color:", ";:hover{background-color:", ";opacity:1;}"], theme.palette.gray.regular, theme.palette.gray.medium, theme.palette.gray.semiLight);
-  return styled.css(["border:1px solid ", ";color:", ";:hover{background-color:", ";opacity:1;}"], theme.palette.primary.main, theme.palette.primary.main, theme.palette.primary.light);
+
+var StyledButton$2 = styled__default(ButtonBase)(_templateObject$e(), function (_ref) {
+  var colors = _ref.colors;
+  return styled.css(["border:1px solid ", ";color:", ";svg{color:", ";}:hover{background-color:", ";opacity:1;}"], colors.borderColor, colors.color, colors.color, colors.backgroundColorHover);
 });
-var OutlineButton = function OutlineButton(props) {
-  return /*#__PURE__*/React__default.createElement(StyledButton$2, props);
+
+var colorMapper$1 = function colorMapper(color, theme) {
+  if (color === "secondary") return {
+    backgroundColorHover: theme.palette.gray.semiLight,
+    borderColor: theme.palette.gray.dark,
+    color: theme.palette.gray.dark
+  };
+  if (color === "subtle") return {
+    backgroundColorHover: theme.palette.gray.semiLight,
+    borderColor: theme.palette.gray.regular,
+    color: theme.palette.gray.medium
+  };
+  return {
+    backgroundColorHover: theme.palette.primary.light,
+    borderColor: theme.palette.primary.main,
+    color: theme.palette.primary.main
+  };
 };
+
+var OutlineButton = function OutlineButton(_ref2) {
+  var color = _ref2.color,
+      props = _objectWithoutPropertiesLoose(_ref2, ["color"]);
+
+  var theme = styled.useTheme();
+  var colors = colorMapper$1(color, theme);
+  return /*#__PURE__*/React__default.createElement(StyledButton$2, _extends({
+    colors: colors
+  }, props));
+};
+
 OutlineButton.propTypes = ButtonBasePropTypes;
 
-function _templateObject$9() {
+function _templateObject$f() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n  }\n"]);
 
-  _templateObject$9 = function _templateObject() {
+  _templateObject$f = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledButton$3 = styled__default(ButtonBase)(_templateObject$9(), function (_ref) {
-  var color = _ref.color,
-      theme = _ref.theme;
-  if (color === "secondary") return styled.css(["color:", ";"], theme.palette.gray.dark);
-  if (color === "subtle") return styled.css(["color:", ";"], theme.palette.gray.medium);
-  return styled.css(["color:", ";"], theme.palette.primary.main);
-});
-var TextButton = function TextButton(props) {
-  return /*#__PURE__*/React__default.createElement(StyledButton$3, props);
-};
-TextButton.propTypes = ButtonBasePropTypes;
 
+var StyledButton$3 = styled__default(ButtonBase)(_templateObject$f(), function (_ref) {
+  var colors = _ref.colors;
+  return styled.css(["color:", ";svg{color:", ";}"], colors.color, colors.color);
+});
+
+var colorMapper$2 = function colorMapper(color, theme) {
+  if (color === "secondary") return {
+    color: theme.palette.gray.dark
+  };
+  if (color === "subtle") return {
+    color: theme.palette.gray.medium
+  };
+  return {
+    color: theme.palette.primary.main
+  };
+};
+
+var TextButton = function TextButton(_ref2) {
+  var color = _ref2.color,
+      props = _objectWithoutPropertiesLoose(_ref2, ["color"]);
+
+  var theme = styled.useTheme();
+  var colors = colorMapper$2(color, theme);
+  return /*#__PURE__*/React__default.createElement(StyledButton$3, _extends({
+    colors: colors
+  }, props));
+};
+
+TextButton.propTypes = ButtonBasePropTypes;
 var CollapsePropTypes = {
   isOpened: PropTypes__default.bool
 };
 
-function _templateObject$a() {
+function _templateObject$g() {
   var data = _taggedTemplateLiteralLoose(["\n  .ReactCollapse--collapse {\n    transition: height 200ms ease-in-out;\n  }\n"]);
 
-  _templateObject$a = function _templateObject() {
+  _templateObject$g = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper = styled__default.div(_templateObject$a());
+
+var Wrapper = styled__default.div(_templateObject$g());
+
 var Collapse = function Collapse(props) {
   return /*#__PURE__*/React__default.createElement(Wrapper, null, /*#__PURE__*/React__default.createElement(reactCollapse.Collapse, props));
 };
+
 Collapse.propTypes = CollapsePropTypes;
 
 var CollapseButton = function CollapseButton(_ref) {
@@ -980,6 +1550,7 @@ var CollapseButton = function CollapseButton(_ref) {
     icon: isOpened ? "chevron-up" : "chevron-down"
   }, props));
 };
+
 CollapseButton.propTypes = {
   isOpened: PropTypes__default.bool.isRequired
 };
@@ -991,6 +1562,7 @@ var DetailsTablePropTypes = _extends({
     expanded: PropTypes__default.bool
   }))
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var DetailsTableDefaultProps = {};
 
 function _templateObject3() {
@@ -1013,16 +1585,17 @@ function _templateObject2$2() {
   return data;
 }
 
-function _templateObject$b() {
+function _templateObject$h() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$b = function _templateObject() {
+  _templateObject$h = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$1 = styled__default.div(_templateObject$b(), function (theme) {
+
+var Wrapper$1 = styled__default.div(_templateObject$h(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -1036,6 +1609,7 @@ var Label = styled__default(Text).attrs(function () {
     color: "textSecondary"
   };
 })(_templateObject3());
+
 var DetailsTable = function DetailsTable(_ref2) {
   var rows = _ref2.rows,
       props = _objectWithoutPropertiesLoose(_ref2, ["rows"]);
@@ -1050,25 +1624,98 @@ var DetailsTable = function DetailsTable(_ref2) {
     }), value);
   }));
 };
+
 DetailsTable.propTypes = DetailsTablePropTypes;
 DetailsTable.defaultProps = DetailsTableDefaultProps;
 
-function _templateObject$c() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 12px;\n\n  && {\n    width: 40px;\n    height: 40px;\n    background-color: ", ";\n    svg {\n      color: ", ";\n    }\n  }\n"]);
+var DropdownPropTypes = _extends({
+  anchorEl: PropTypes__default.object,
+  items: PropTypes__default.arrayOf(PropTypes__default.shape({
+    label: PropTypes__default.string
+  })),
+  onClose: PropTypes__default.func,
+  open: PropTypes__default.bool.isRequired
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-  _templateObject$c = function _templateObject() {
+var DropdownDefaultProps = {
+  anchorOrigin: {
+    vertical: "bottom",
+    horizontal: "center"
+  },
+  getContentAnchorEl: null,
+  transformOrigin: {
+    vertical: "top",
+    horizontal: "center"
+  }
+};
+
+function _templateObject2$3() {
+  var data = _taggedTemplateLiteralLoose([""]);
+
+  _templateObject2$3 = function _templateObject2() {
     return data;
   };
 
   return data;
 }
-var Wrapper$2 = styled__default.div(_templateObject$c(), function (_ref) {
+
+function _templateObject$i() {
+  var data = _taggedTemplateLiteralLoose(["\n  border-radius: 24px;\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$i = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var StyledDropdown = styled__default(Menu)(_templateObject$i(), function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
+var StyledItem = styled__default(MenuItem)(_templateObject2$3());
+
+var Dropdown = function Dropdown(_ref) {
+  var items = _ref.items,
+      props = _objectWithoutPropertiesLoose(_ref, ["items"]);
+
+  return /*#__PURE__*/React__default.createElement(StyledDropdown, props, items.map(function (_ref2) {
+    var label = _ref2.label,
+        _onClick = _ref2.onClick,
+        value = _ref2.value,
+        itemProps = _objectWithoutPropertiesLoose(_ref2, ["label", "onClick", "value"]);
+
+    return /*#__PURE__*/React__default.createElement(StyledItem, _extends({
+      key: label,
+      onClick: function onClick() {
+        return _onClick(value);
+      }
+    }, itemProps), label);
+  }));
+};
+
+Dropdown.propTypes = DropdownPropTypes;
+Dropdown.defaultProps = DropdownDefaultProps;
+
+function _templateObject$j() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 12px;\n\n  && {\n    width: 40px;\n    height: 40px;\n    background-color: ", ";\n    svg {\n      color: ", ";\n    }\n  }\n"]);
+
+  _templateObject$j = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var Wrapper$2 = styled__default.div(_templateObject$j(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.light;
 }, function (_ref2) {
   var theme = _ref2.theme;
   return theme.palette.primary.main;
 });
+
 var DownloadModuleButton = function DownloadModuleButton(_ref3) {
   var icon = _ref3.icon;
   return /*#__PURE__*/React__default.createElement(Wrapper$2, null, /*#__PURE__*/React__default.createElement(Icon, {
@@ -1076,6 +1723,7 @@ var DownloadModuleButton = function DownloadModuleButton(_ref3) {
     size: "lg"
   }));
 };
+
 DownloadModuleButton.propTypes = {
   icon: PropTypes__default.string.isRequired
 };
@@ -1089,6 +1737,7 @@ var DownloadModulePropTypes = _extends({
   qrCodeUrl: PropTypes__default.string,
   qrCodeValue: PropTypes__default.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var DownloadModuleDefaultProps = {
   downloadPdfText: "Download as PDF",
   downloadQrCodeDesc: "Or just download the QR Code of license",
@@ -1096,16 +1745,17 @@ var DownloadModuleDefaultProps = {
   qrCodeValue: "https://license.rocks"
 };
 
-function _templateObject$d() {
+function _templateObject$k() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  padding: ", ";\n  border-radius: 16px;\n  ", "\n  ", "\n"]);
 
-  _templateObject$d = function _templateObject() {
+  _templateObject$k = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container = styled__default.div(_templateObject$d(), function (_ref) {
+
+var Container = styled__default.div(_templateObject$k(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -1116,6 +1766,7 @@ var Container = styled__default.div(_templateObject$d(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
+
 var DownloadModule = function DownloadModule(_ref3) {
   var downloadPdfText = _ref3.downloadPdfText,
       downloadPdfUrl = _ref3.downloadPdfUrl,
@@ -1154,6 +1805,7 @@ var DownloadModule = function DownloadModule(_ref3) {
     size: "sm"
   }))));
 };
+
 DownloadModule.propTypes = DownloadModulePropTypes;
 DownloadModule.defaultProps = DownloadModuleDefaultProps;
 
@@ -1169,6 +1821,7 @@ var FileManagerPropTypes = _extends({
     }))
   }))
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var FileManagerDefaultProps = {};
 
 function _templateObject4() {
@@ -1191,27 +1844,28 @@ function _templateObject3$1() {
   return data;
 }
 
-function _templateObject2$3() {
+function _templateObject2$4() {
   var data = _taggedTemplateLiteralLoose(["\n  border: 1px solid ", ";\n  padding: ", ";\n  margin-bottom: ", ";\n  border-radius: 8px;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject2$3 = function _templateObject2() {
+  _templateObject2$4 = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$e() {
+function _templateObject$l() {
   var data = _taggedTemplateLiteralLoose([""]);
 
-  _templateObject$e = function _templateObject() {
+  _templateObject$l = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$1 = styled__default.div(_templateObject$e());
-var Wrapper$3 = styled__default.div(_templateObject2$3(), function (_ref) {
+
+var Container$1 = styled__default.div(_templateObject$l());
+var Wrapper$3 = styled__default.div(_templateObject2$4(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -1241,6 +1895,7 @@ var Item = styled__default(Grid).attrs(function (_ref5) {
     lg: lg || 3
   };
 })(_templateObject4());
+
 var FileManager = function FileManager(_ref6) {
   var data = _ref6.data;
   return /*#__PURE__*/React__default.createElement(Container$1, null, data.map(function (_ref7) {
@@ -1290,41 +1945,10 @@ var FileManager = function FileManager(_ref6) {
     }));
   }));
 };
+
 FileManager.propTypes = FileManagerPropTypes;
 FileManager.defaultProps = FileManagerDefaultProps;
-
-var FlexPropTypes = _extends({
-  alignItems: PropTypes__default.oneOf(["flex-start", "center", "flex-end", "stretch", "baseline"]),
-  container: PropTypes__default.bool,
-  item: PropTypes__default.bool,
-  justify: PropTypes__default.oneOf(["flex-start", "center", "flex-end", "space-between", "space-around", "space-evenly"])
-}, SPACER_PROP_TYPES);
-var FlexDefaultProps = {
-  alignItems: "center",
-  justify: "flex-start"
-};
-
-function _templateObject$f() {
-  var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
-
-  _templateObject$f = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var StyledFlex = styled__default(Grid)(_templateObject$f(), function (theme) {
-  return SPACER(theme);
-}, function (theme) {
-  return DISPLAY(theme);
-});
-var Flex = function Flex(props) {
-  return /*#__PURE__*/React__default.createElement(StyledFlex, props);
-};
-Flex.propTypes = FlexPropTypes;
-Flex.defaultProps = FlexDefaultProps;
-
-const img = "data:image/svg+xml,%3csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.5938 0.625L5.375 8.84375L2.375 5.8125C2.21875 5.6875 1.96875 5.6875 1.84375 5.8125L0.9375 6.71875C0.8125 6.84375 0.8125 7.09375 0.9375 7.25L5.125 11.4062C5.28125 11.5625 5.5 11.5625 5.65625 11.4062L15.0312 2.03125C15.1562 1.90625 15.1562 1.65625 15.0312 1.5L14.125 0.625C14 0.46875 13.75 0.46875 13.5938 0.625Z' fill='white'/%3e%3c/svg%3e";
+var img = "data:image/svg+xml,%3csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.5938 0.625L5.375 8.84375L2.375 5.8125C2.21875 5.6875 1.96875 5.6875 1.84375 5.8125L0.9375 6.71875C0.8125 6.84375 0.8125 7.09375 0.9375 7.25L5.125 11.4062C5.28125 11.5625 5.5 11.5625 5.65625 11.4062L15.0312 2.03125C15.1562 1.90625 15.1562 1.65625 15.0312 1.5L14.125 0.625C14 0.46875 13.75 0.46875 13.5938 0.625Z' fill='white'/%3e%3c/svg%3e";
 
 var RadioBasePropTypes = _extends({
   defaultValue: PropTypes__default.oneOfType([PropTypes__default.arrayOf(PropTypes__default.string), PropTypes__default.string]),
@@ -1337,6 +1961,7 @@ var RadioBasePropTypes = _extends({
   register: PropTypes__default.func.isRequired,
   stacked: PropTypes__default.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var RadioBaseDefaultProps = {
   defaultValue: "",
   hasError: false,
@@ -1344,26 +1969,27 @@ var RadioBaseDefaultProps = {
   stacked: true
 };
 
-function _templateObject2$4() {
+function _templateObject2$5() {
   var data = _taggedTemplateLiteralLoose([""]);
 
-  _templateObject2$4 = function _templateObject2() {
+  _templateObject2$5 = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$g() {
+function _templateObject$m() {
   var data = _taggedTemplateLiteralLoose(["\n  display: none;\n\n  + label {\n    display: inline-flex;\n    align-items: center;\n    font-weight: 600;\n    font-size: 14px;\n    line-height: 120%;\n    margin: 0 32px 0 0;\n    cursor: pointer;\n    transition: all 0.1s ease-in-out;\n\n    ", "\n\n    &::before {\n      content: \"\";\n      display: inline-block;\n      width: 24px;\n      height: 24px;\n      border-radius: ", ";\n      background-color: ", ";\n      border: 1px solid ", ";\n      margin-right: 8px;\n      transition: background-color 0.1s ease-in-out;\n      ", "\n    }\n\n    &:hover {\n      &::before {\n        background-color: ", ";\n        border-color: ", ";\n      }\n    }\n  }\n\n  &:checked + label::before {\n    background-color: ", ";\n    border-color: ", ";\n    background-image: url(\"", "\");\n    background-size: 16px 16px;\n    background-repeat: no-repeat;\n    background-position: center;\n  }\n\n  &:disabled + label {\n    opacity: 0.3;\n\n    &,\n    span {\n      cursor: default;\n    }\n  }\n"]);
 
-  _templateObject$g = function _templateObject() {
+  _templateObject$m = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledInput = styled__default.input(_templateObject$g(), function (_ref) {
+
+var StyledInput = styled__default.input(_templateObject$m(), function (_ref) {
   var stacked = _ref.stacked;
   return stacked && styled.css(["display:flex;:not(:last-child){margin:0 0 24px 0;}"]);
 }, function (_ref2) {
@@ -1394,7 +2020,8 @@ var StyledInput = styled__default.input(_templateObject$g(), function (_ref) {
   var theme = _ref10.theme;
   return theme.palette.primary.main;
 }, "" + img);
-var StyledLabel$1 = styled__default.label(_templateObject2$4());
+var StyledLabel$1 = styled__default.label(_templateObject2$5());
+
 var RadioBaseItem = function RadioBaseItem(_ref11) {
   var defaultValue = _ref11.defaultValue,
       hasError = _ref11.hasError,
@@ -1422,6 +2049,7 @@ var RadioBaseItem = function RadioBaseItem(_ref11) {
     htmlFor: id
   }, label));
 };
+
 RadioBaseItem.propTypes = RadioBasePropTypes;
 RadioBaseItem.defaultProps = RadioBaseDefaultProps;
 
@@ -1435,46 +2063,52 @@ var RadioBase = function RadioBase(_ref) {
     }, opt, props));
   }));
 };
+
 RadioBase.propTypes = RadioBasePropTypes;
 RadioBase.defaultProps = RadioBaseDefaultProps;
 
-function _templateObject$h() {
+function _templateObject$n() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$h = function _templateObject() {
+  _templateObject$n = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledRadioBase = styled__default(RadioBase)(_templateObject$h(), function (theme) {
+
+var StyledRadioBase = styled__default(RadioBase)(_templateObject$n(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
+
 var Checkbox = function Checkbox(props) {
   return /*#__PURE__*/React__default.createElement(StyledRadioBase, _extends({
     type: "checkbox"
   }, props));
 };
+
 Checkbox.propTypes = RadioBasePropTypes;
 Checkbox.defaultProps = RadioBaseDefaultProps;
 
 var FormErrorPropTypes = _extends({
   message: PropTypes__default.node.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var FormErrorDefaultProps = {};
 
-function _templateObject$i() {
+function _templateObject$o() {
   var data = _taggedTemplateLiteralLoose(["\n  font-weight: 600;\n  font-size: 12px;\n  line-height: 120%;\n  color: ", ";\n  margin-top: ", ";\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$i = function _templateObject() {
+  _templateObject$o = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Error = styled__default.div(_templateObject$i(), function (_ref) {
+
+var Error = styled__default.div(_templateObject$o(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.error.main;
 }, function (_ref2) {
@@ -1485,12 +2119,14 @@ var Error = styled__default.div(_templateObject$i(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
+
 var FormError = function FormError(_ref3) {
   var message = _ref3.message,
       props = _objectWithoutPropertiesLoose(_ref3, ["message"]);
 
   return /*#__PURE__*/React__default.createElement(Error, props, message);
 };
+
 FormError.propTypes = FormErrorPropTypes;
 FormError.defaultProps = FormErrorDefaultProps;
 
@@ -1505,6 +2141,7 @@ var FieldWrapperPropTypes = _extends({
   startIconOnClick: PropTypes__default.func,
   startIconPrefix: PropTypes__default.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var FieldWrapperDefaultProps = {
   block: true,
   endIcon: "",
@@ -1513,16 +2150,17 @@ var FieldWrapperDefaultProps = {
   startIconColor: "input"
 };
 
-function _templateObject$j() {
+function _templateObject$p() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  border-radius: ", ";\n  background-color: ", ";\n  border: 1px solid ", ";\n  padding: ", ";\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: all 100ms ease-in-out;\n\n  :not(:last-child) {\n    margin-right: ", ";\n  }\n\n  &:focus-within {\n    border: 1px solid ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$j = function _templateObject() {
+  _templateObject$p = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledWrapper = styled__default.div(_templateObject$j(), function (_ref) {
+
+var StyledWrapper = styled__default.div(_templateObject$p(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(3);
 }, function (_ref2) {
@@ -1557,6 +2195,7 @@ var StyledWrapper = styled__default.div(_templateObject$j(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
+
 var FieldWrapper = function FieldWrapper(_ref11) {
   var children = _ref11.children,
       endIcon = _ref11.endIcon,
@@ -1581,6 +2220,7 @@ var FieldWrapper = function FieldWrapper(_ref11) {
     prefix: endIconPrefix
   }));
 };
+
 FieldWrapper.propTypes = FieldWrapperPropTypes;
 FieldWrapper.defaultProps = FieldWrapperDefaultProps;
 
@@ -1591,6 +2231,7 @@ var FieldBasePropTypes = _extends({}, FieldWrapperPropTypes, {
   register: PropTypes__default.func,
   type: PropTypes__default.string
 });
+
 var FieldBaseDefaultProps = _extends({}, FieldWrapperDefaultProps, {
   disabled: false,
   hasError: false,
@@ -1599,15 +2240,16 @@ var FieldBaseDefaultProps = _extends({}, FieldWrapperDefaultProps, {
   type: "text"
 });
 
-function _templateObject$k() {
+function _templateObject$q() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 120%;\n  padding: 8px;\n  color: ", ";\n  outline: none;\n  border: none;\n  height: 100%;\n  box-sizing: border-box;\n  transition: all 100ms ease-in-out;\n  background-color: transparent;\n\n  ::placeholder {\n    font-weight: normal;\n  }\n\n  &:disabled {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none;\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
 
-  _templateObject$k = function _templateObject() {
+  _templateObject$q = function _templateObject() {
     return data;
   };
 
   return data;
 }
+
 var StyledInput$1 = styled__default(
 /*#__PURE__*/
 // eslint-disable-next-line react/prop-types
@@ -1618,7 +2260,7 @@ React.forwardRef(function (_ref, ref) {
   return /*#__PURE__*/React__default.createElement(Component, _extends({
     ref: ref
   }, props));
-}))(_templateObject$k(), function (_ref2) {
+}))(_templateObject$q(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.palette.text.primary;
 }, function (_ref3) {
@@ -1643,6 +2285,7 @@ React.forwardRef(function (_ref, ref) {
   var selectable = _ref9.selectable;
   return selectable && styled.css(["user-select:all;"]);
 });
+
 var FieldBase = function FieldBase(_ref10) {
   var block = _ref10.block,
       endIcon = _ref10.endIcon,
@@ -1672,55 +2315,60 @@ var FieldBase = function FieldBase(_ref10) {
     ref: register
   }, props)));
 };
+
 FieldBase.propTypes = FieldBasePropTypes;
 FieldBase.defaultProps = FieldBaseDefaultProps;
 
-function _templateObject$l() {
+function _templateObject$r() {
   var data = _taggedTemplateLiteralLoose(["\n  border: none;\n  padding: 0%;\n  margin: 0;\n"]);
 
-  _templateObject$l = function _templateObject() {
+  _templateObject$r = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledFieldset = styled__default.fieldset(_templateObject$l());
+
+var StyledFieldset = styled__default.fieldset(_templateObject$r());
+
 var Fieldset = function Fieldset(_ref) {
   var children = _ref.children;
   return /*#__PURE__*/React__default.createElement(StyledFieldset, null, children);
 };
+
 Fieldset.propTypes = {
   children: PropTypes__default.node.isRequired
 };
 Fieldset.defaultProps = {};
 
-function _templateObject2$5() {
+function _templateObject2$6() {
   var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n"]);
 
-  _templateObject2$5 = function _templateObject2() {
+  _templateObject2$6 = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$m() {
+function _templateObject$s() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: 8px 16px;\n  background-color: ", ";\n  color: ", ";\n  font-size: 12px;\n  margin-bottom: 8px;\n  border-radius: 8px;\n"]);
 
-  _templateObject$m = function _templateObject() {
+  _templateObject$s = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Item$1 = styled__default.div(_templateObject$m(), function (_ref) {
+
+var Item$1 = styled__default.div(_templateObject$s(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.success.main;
 }, function (_ref2) {
   var theme = _ref2.theme;
   return theme.palette.common.white;
 });
-var RemoveIcon = styled__default(Icon)(_templateObject2$5(), function (_ref3) {
+var RemoveIcon = styled__default(Icon)(_templateObject2$6(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.common.white;
 });
@@ -1744,6 +2392,7 @@ var DropzonePreview = function DropzonePreview(_ref4) {
     }));
   });
 };
+
 DropzonePreview.propTypes = {
   files: PropTypes__default.arrayOf(PropTypes__default.object),
   onRemoveClick: PropTypes__default.func.isRequired
@@ -1752,31 +2401,32 @@ DropzonePreview.defaultProps = {
   files: []
 };
 
-function _templateObject2$6() {
+function _templateObject2$7() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  border-color: ", ";\n  border-radius: 16px;\n  border-style: dashed;\n  border-width: 2px;\n  cursor: pointer;\n  min-height: 125px;\n  outline: none;\n  transition: all 100ms ease-in-out;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  color: ", ";\n  margin-bottom: 8px;\n\n  &:hover {\n    border-color: ", ";\n  }\n\n\n  ", "\n\n\n  ", "\n\n  ", "\n"]);
 
-  _templateObject2$6 = function _templateObject2() {
+  _templateObject2$7 = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$n() {
+function _templateObject$t() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$n = function _templateObject() {
+  _templateObject$t = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContainer = styled__default.div(_templateObject$n(), function (theme) {
+
+var StyledContainer = styled__default.div(_templateObject$t(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var DropzoneArea = styled__default.div(_templateObject2$6(), function (_ref) {
+var DropzoneArea = styled__default.div(_templateObject2$7(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -1805,6 +2455,7 @@ var DropzoneArea = styled__default.div(_templateObject2$6(), function (_ref) {
       theme = _ref9.theme;
   return dragActive && styled.css(["border-color:", ";"], theme.palette.gray.medium);
 });
+
 var Dropzone = function Dropzone(_ref10) {
   var accept = _ref10.accept,
       disabled = _ref10.disabled,
@@ -1871,6 +2522,7 @@ var Dropzone = function Dropzone(_ref10) {
     onRemoveClick: removeFile
   }));
 };
+
 Dropzone.propTypes = {
   accept: PropTypes__default.string,
   defaultValue: PropTypes__default.arrayOf(PropTypes__default.object),
@@ -1894,6 +2546,7 @@ var FileUploadPropTypes = _extends({
   isRequired: PropTypes__default.string,
   name: PropTypes__default.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var FileUploadDefaultProps = {
   defaultValue: undefined,
   name: "fileUpload"
@@ -1918,6 +2571,7 @@ var FileUpload = function FileUpload(_ref) {
     }
   });
 };
+
 FileUpload.propTypes = FileUploadPropTypes;
 FileUpload.defaultProps = FileUploadDefaultProps;
 
@@ -1926,47 +2580,54 @@ var Input = function Input(props) {
     component: "input"
   }, props));
 };
+
 Input.propTypes = FieldBasePropTypes;
 Input.defaultProps = FieldBaseDefaultProps;
 
-function _templateObject$o() {
+function _templateObject$u() {
   var data = _taggedTemplateLiteralLoose(["\n  font-size: 14px;\n  line-height: 120%;\n  color: ", ";\n"]);
 
-  _templateObject$o = function _templateObject() {
+  _templateObject$u = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledLabel$2 = styled__default.label(_templateObject$o(), function (_ref) {
+
+var StyledLabel$2 = styled__default.label(_templateObject$u(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.medium;
 });
+
 var FormLabel = function FormLabel(props) {
   return /*#__PURE__*/React__default.createElement(StyledLabel$2, props);
 };
+
 FormLabel.propTypes = {};
 FormLabel.defaultProps = {};
 
-function _templateObject$p() {
+function _templateObject$v() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$p = function _templateObject() {
+  _templateObject$v = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledRadioBase$1 = styled__default(RadioBase)(_templateObject$p(), function (theme) {
+
+var StyledRadioBase$1 = styled__default(RadioBase)(_templateObject$v(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
+
 var Radio = function Radio(props) {
   return /*#__PURE__*/React__default.createElement(StyledRadioBase$1, _extends({
     type: "radio"
   }, props));
 };
+
 Radio.propTypes = RadioBasePropTypes;
 Radio.defaultProps = RadioBaseDefaultProps;
 
@@ -1979,22 +2640,24 @@ var ReactSelectPropTypes = _extends({
   isDisabled: PropTypes__default.bool,
   isRequired: PropTypes__default.oneOfType([PropTypes__default.bool, PropTypes__default.string])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var ReactSelectDefaultProps = {
   defaultValue: undefined,
   endpointQueryFlag: "q",
   isRequired: false
 };
 
-function _templateObject$q() {
+function _templateObject$w() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n\n  .react-select__control {\n    border-radius: 12px;\n    color: ", ";\n    padding: ", ";\n    height: 40px;\n    box-sizing: border-box;\n    box-shadow: none;\n    border-color: ", ";\n    font-weight: 600;\n    font-size: 14px;\n    line-height: 120%;\n  }\n\n  .react-select__control--is-focused {\n    border-color: ", ";\n  }\n\n  .react-select__menu {\n    border-radius: 12px;\n  }\n\n  .react-select__option {\n    font-weight: 300;\n    font-size: 14px;\n    line-height: 160%;\n    padding: ", ";\n  }\n\n  .react-select__option--is-focused {\n    background-color: ", ";\n    color: ", ";\n  }\n\n  .react-select__option:hover,\n  .react-select__option--is-selected {\n    color: ", ";\n    background-color: ", ";\n  }\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$q = function _templateObject() {
+  _templateObject$w = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var ReactSelectWrapper = styled__default.div(_templateObject$q(), function (_ref) {
+
+var ReactSelectWrapper = styled__default.div(_templateObject$w(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.text.primary;
 }, function (_ref2) {
@@ -2032,6 +2695,7 @@ var ReactSelectWrapper = styled__default.div(_templateObject$q(), function (_ref
 }, function (theme) {
   return DISPLAY(theme);
 });
+
 var ReactSelect = function ReactSelect(_ref12) {
   var async = _ref12.async,
       cacheOptions = _ref12.cacheOptions,
@@ -2088,6 +2752,7 @@ var ReactSelect = function ReactSelect(_ref12) {
     }
   }));
 };
+
 ReactSelect.propTypes = ReactSelectPropTypes;
 ReactSelect.defaultProps = ReactSelectDefaultProps;
 
@@ -2097,6 +2762,7 @@ var FormRowPropTypes = _extends({
   label: PropTypes__default.node,
   show: PropTypes__default.bool.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var FormRowDefaultProps = {
   label: ""
 };
@@ -2121,26 +2787,27 @@ function _templateObject3$2() {
   return data;
 }
 
-function _templateObject2$7() {
+function _templateObject2$8() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 30% 0;\n"]);
 
-  _templateObject2$7 = function _templateObject2() {
+  _templateObject2$8 = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$r() {
+function _templateObject$x() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  min-height: 40px;\n  margin-bottom: 8px;\n  ", ";\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$r = function _templateObject() {
+  _templateObject$x = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$4 = styled__default.div(_templateObject$r(), function (_ref) {
+
+var Wrapper$4 = styled__default.div(_templateObject$x(), function (_ref) {
   var show = _ref.show;
   return !show && "display: none";
 }, function (theme) {
@@ -2148,12 +2815,13 @@ var Wrapper$4 = styled__default.div(_templateObject$r(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledLabel$3 = styled__default(FormLabel)(_templateObject2$7());
+var StyledLabel$3 = styled__default(FormLabel)(_templateObject2$8());
 var FieldsAndErrorsWrapper = styled__default.div(_templateObject3$2(), function (_ref2) {
   var fullWidth = _ref2.fullWidth;
   return fullWidth ? "100%" : "50%";
 });
 var Fields = styled__default.div(_templateObject4$1());
+
 var FormRow = function FormRow(_ref3) {
   var children = _ref3.children,
       errors = _ref3.errors,
@@ -2172,6 +2840,7 @@ var FormRow = function FormRow(_ref3) {
     });
   })));
 };
+
 FormRow.propTypes = FormRowPropTypes;
 FormRow.defaultProps = FormRowDefaultProps;
 
@@ -2192,9 +2861,9 @@ var Select = function Select(_ref) {
     component: "select"
   }, props), renderOptions(options));
 };
+
 Select.propTypes = FieldBasePropTypes;
 Select.defaultProps = FieldBaseDefaultProps;
-
 var StepperPropTypes = {
   control: PropTypes__default.object,
   label: PropTypes__default.string,
@@ -2214,19 +2883,21 @@ var StepperDefaultProps = {
   value: 1
 };
 
-function _templateObject$s() {
+function _templateObject$y() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  ", "\n\n  user-select: none;\n\n  input {\n    border: none;\n    width: 40px;\n    outline: none;\n    font-weight: 600;\n    font-size: 16px;\n    text-align: center;\n  }\n\n  span {\n    font-size: 12px;\n    font-style: italic;\n  }\n"]);
 
-  _templateObject$s = function _templateObject() {
+  _templateObject$y = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$5 = styled__default.div(_templateObject$s(), function (_ref) {
+
+var Wrapper$5 = styled__default.div(_templateObject$y(), function (_ref) {
   var size = _ref.size;
   return size === "sm" && styled.css(["flex-direction:column;"]);
 });
+
 var StepperComponent = function StepperComponent(_ref2) {
   var label = _ref2.label,
       value = _ref2.value,
@@ -2260,6 +2931,7 @@ var StepperComponent = function StepperComponent(_ref2) {
     value: value
   }), /*#__PURE__*/React__default.createElement("span", null, label)));
 };
+
 StepperComponent.propTypes = StepperPropTypes;
 StepperComponent.defaultProps = StepperDefaultProps;
 
@@ -2284,23 +2956,24 @@ var Stepper = function Stepper(_ref) {
     }
   });
 };
+
 Stepper.propTypes = StepperPropTypes;
 Stepper.defaultProps = StepperDefaultProps;
 
-function _templateObject2$8() {
+function _templateObject2$9() {
   var data = _taggedTemplateLiteralLoose(["\n  background: #fff;\n  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);\n  left: 2px;\n  position: absolute;\n  top: 2px;\n  transition: left 0.2s, transform 0.2s;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: bold;\n  font-size: 10px;\n  color: ", ";\n  text-transform: uppercase;\n  user-select: none;\n\n  ", ";\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
 
-  _templateObject2$8 = function _templateObject2() {
+  _templateObject2$9 = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$t() {
+function _templateObject$z() {
   var data = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  background-color: ", ";\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  transition: background-color 0.2s;\n\n  ", "\n\n    ", "\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
 
-  _templateObject$t = function _templateObject() {
+  _templateObject$z = function _templateObject() {
     return data;
   };
 
@@ -2325,7 +2998,7 @@ var Switch = function Switch(_ref) {
   }, toggled ? "Yes" : "No"));
 };
 
-var StyledSwitchContainer = styled__default.div(_templateObject$t(), function (_ref2) {
+var StyledSwitchContainer = styled__default.div(_templateObject$z(), function (_ref2) {
   var theme = _ref2.theme,
       toggled = _ref2.toggled;
   return toggled ? theme.palette.primary.main : theme.palette.gray.regular;
@@ -2348,7 +3021,7 @@ var StyledSwitchContainer = styled__default.div(_templateObject$t(), function (_
   var size = _ref8.size;
   return size === "lg" && styled.css(["border-radius:100px;height:50px;width:100px;"]);
 });
-var StyledSwitch = styled__default.span(_templateObject2$8(), function (_ref9) {
+var StyledSwitch = styled__default.span(_templateObject2$9(), function (_ref9) {
   var theme = _ref9.theme;
   return theme.palette.gray.medium;
 }, function (_ref10) {
@@ -2378,20 +3051,22 @@ Switch.defaultProps = {
   toggled: false
 };
 
-function _templateObject$u() {
+function _templateObject$A() {
   var data = _taggedTemplateLiteralLoose(["\n  display: inline-block;\n  position: relative;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$u = function _templateObject() {
+  _templateObject$A = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledToggle = styled__default.div(_templateObject$u(), function (theme) {
+
+var StyledToggle = styled__default.div(_templateObject$A(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
+
 var Toggle = function Toggle(_ref) {
   var disabled = _ref.disabled,
       onChange = _ref.onChange,
@@ -2410,6 +3085,7 @@ var Toggle = function Toggle(_ref) {
     toggled: value
   }, props)));
 };
+
 Toggle.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
@@ -2429,6 +3105,7 @@ var ToggleSwitchPropTypes = _extends({
   isRequired: PropTypes__default.string,
   name: PropTypes__default.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var ToggleSwitchDefaultProps = {
   defaultValue: undefined,
   isRequired: "",
@@ -2456,6 +3133,7 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
     }
   });
 };
+
 ToggleSwitch.propTypes = ToggleSwitchPropTypes;
 ToggleSwitch.defaultProps = ToggleSwitchDefaultProps;
 
@@ -2519,30 +3197,31 @@ function _templateObject3$3() {
   return data;
 }
 
-function _templateObject2$9() {
+function _templateObject2$a() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  min-height: 40px;\n\n  :last-child {\n    ", " {\n      border-left-width: 0;\n    }\n  }\n"]);
 
-  _templateObject2$9 = function _templateObject2() {
+  _templateObject2$a = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$v() {
+function _templateObject$B() {
   var data = _taggedTemplateLiteralLoose(["\n  border-width: 0;\n  border-style: solid;\n  border-color: ", ";\n  border-left-width: 1px;\n  transition: all 0.1ms ease-in-out;\n  position: absolute;\n  bottom: 0;\n  left: 15px;\n  top: 0;\n  ::before {\n    content: \"\";\n    width: 1px;\n    height: 100%;\n    display: inline-block;\n  }\n"]);
 
-  _templateObject$v = function _templateObject() {
+  _templateObject$B = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var ItemConnector = styled__default.div(_templateObject$v(), function (_ref) {
+
+var ItemConnector = styled__default.div(_templateObject$B(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.regular;
 });
-var Container$2 = styled__default.div(_templateObject2$9(), ItemConnector);
+var Container$2 = styled__default.div(_templateObject2$a(), ItemConnector);
 var RowWrapper = styled__default.div(_templateObject3$3());
 var RowDetails = styled__default(Grid).attrs(function () {
   return {
@@ -2572,6 +3251,7 @@ var Content = styled__default.div(_templateObject8(), function (_ref6) {
   var theme = _ref6.theme;
   return theme.spacing(4, 10);
 });
+
 var HistoryItem = function HistoryItem(_ref7) {
   var _ref7$data = _ref7.data,
       collapsible = _ref7$data.collapsible,
@@ -2617,6 +3297,7 @@ var HistoryItem = function HistoryItem(_ref7) {
     isOpened: collapseOpen
   }, /*#__PURE__*/React__default.createElement(Content, null, collapseContent)));
 };
+
 HistoryItem.propTypes = {
   data: PropTypes__default.shape({
     collapsible: PropTypes__default.bool,
@@ -2641,20 +3322,22 @@ var HistoryPropTypes = _extends({
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-function _templateObject$w() {
+function _templateObject$C() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$w = function _templateObject() {
+  _templateObject$C = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$3 = styled__default.div(_templateObject$w(), function (theme) {
+
+var Container$3 = styled__default.div(_templateObject$C(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
+
 var History = function History(_ref) {
   var rows = _ref.rows,
       props = _objectWithoutPropertiesLoose(_ref, ["rows"]);
@@ -2666,6 +3349,7 @@ var History = function History(_ref) {
     });
   }));
 };
+
 History.propTypes = HistoryPropTypes;
 
 var ImagePropTypes = _extends({
@@ -2682,6 +3366,7 @@ var ImagePropTypes = _extends({
   thumbnail: PropTypes__default.bool,
   width: PropTypes__default.number
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var ImageDefaultProps = {
   fluid: false,
   rounded: false,
@@ -2689,15 +3374,16 @@ var ImageDefaultProps = {
   thumbnail: false
 };
 
-function _templateObject$x() {
+function _templateObject$D() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$x = function _templateObject() {
+  _templateObject$D = function _templateObject() {
     return data;
   };
 
   return data;
 }
+
 var Image = function Image(_ref) {
   var props = _extends({}, _ref);
 
@@ -2705,7 +3391,8 @@ var Image = function Image(_ref) {
     itemProp: "contentUrl"
   }, props));
 };
-var StyledImg = styled__default.img(_templateObject$x(), function (_ref2) {
+
+var StyledImg = styled__default.img(_templateObject$D(), function (_ref2) {
   var width = _ref2.width;
   return width && "width: " + width + ";";
 }, function (_ref3) {
@@ -2725,63 +3412,101 @@ var StyledImg = styled__default.img(_templateObject$x(), function (_ref2) {
 Image.propTypes = ImagePropTypes;
 Image.defaultProps = ImageDefaultProps;
 
-var ExplorerLayoutFooterPropTypes = {
-  children: PropTypes__default.node
+var LanguagePropTypes = _extends({
+  languages: PropTypes__default.arrayOf(PropTypes__default.shape({
+    value: PropTypes__default.string,
+    label: PropTypes__default.string
+  })),
+  onChange: PropTypes__default.func.isRequired,
+  value: PropTypes__default.string.isRequired
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
+var LanguageDefaultProps = {
+  languages: [{
+    value: "en",
+    label: "English"
+  }, {
+    value: "de",
+    label: "Deutsch"
+  }],
+  size: "sm"
 };
 
-function _templateObject$y() {
-  var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  height: 80px;\n  text-align: center;\n  padding-top: ", ";\n"]);
+var Language = function Language(_ref) {
+  var value = _ref.value,
+      languages = _ref.languages,
+      onChange = _ref.onChange,
+      props = _objectWithoutPropertiesLoose(_ref, ["value", "languages", "onChange"]);
 
-  _templateObject$y = function _templateObject() {
-    return data;
+  var _useState = React.useState(null),
+      anchorEl = _useState[0],
+      setAnchorEl = _useState[1];
+
+  var handleClick = function handleClick(val) {
+    onChange(val);
   };
 
-  return data;
-}
-var StyledFooter = styled__default.div(_templateObject$y(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.spacing(2);
-});
-var ExplorerLayoutFooter = function ExplorerLayoutFooter(_ref2) {
-  var action = _ref2.action,
-      props = _objectWithoutPropertiesLoose(_ref2, ["action"]);
-
-  return /*#__PURE__*/React__default.createElement(StyledFooter, props);
+  var current = languages.find(function (l) {
+    return l.value === value;
+  });
+  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(TextButton, _extends({
+    content: current == null ? void 0 : current.label,
+    color: "secondary",
+    onClick: function onClick(_ref2) {
+      var currentTarget = _ref2.currentTarget;
+      return setAnchorEl(currentTarget);
+    }
+  }, props)), /*#__PURE__*/React__default.createElement(Dropdown, {
+    anchorEl: anchorEl,
+    items: languages.map(function (l) {
+      return _extends({
+        onClick: handleClick,
+        selected: l.value === (current == null ? void 0 : current.value)
+      }, l);
+    }),
+    open: Boolean(anchorEl),
+    onClose: function onClose() {
+      return setAnchorEl(null);
+    }
+  }));
 };
-ExplorerLayoutFooter.propTypes = ExplorerLayoutFooterPropTypes;
 
-const img$1 = "data:image/svg+xml,%3csvg width='194' height='60' viewBox='0 0 194 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 52.0601C88.0083 52.0601 89.3892 53.5534 89.3892 55.2955C89.3892 57.1088 88.0083 58.4599 86.0961 58.4599C84.184 58.4599 82.8384 57.1088 82.8384 55.2955C82.8384 53.5534 84.184 52.0601 86.0961 52.0601Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M103.965 40.1848C104.461 40.1848 104.815 40.2204 105.24 40.327L104.992 46.0158H103.965C99.9993 46.0158 97.8393 48.0779 97.8393 52.7V58.2821H92.1737V40.4337H97.8393V43.8469C99.114 41.7136 101.062 40.1848 103.965 40.1848Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M120.118 33.9272C127.2 33.9272 132.76 39.4382 132.76 46.4069C132.76 53.34 127.2 58.8155 120.118 58.8155C113.037 58.8155 107.477 53.34 107.477 46.4069C107.477 39.4382 113.037 33.9272 120.118 33.9272ZM120.118 53.4467C123.978 53.4467 126.917 50.4601 126.917 46.4069C126.917 42.3181 123.978 39.2959 120.118 39.2959C116.259 39.2959 113.32 42.3181 113.32 46.4069C113.32 50.4601 116.259 53.4467 120.118 53.4467Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M144.587 53.8378C146.392 53.8378 147.844 52.8778 148.446 50.709L153.651 51.8467C152.766 56.0777 149.013 58.8154 144.587 58.8154C139.275 58.8154 134.884 55.0111 134.884 49.3579C134.884 43.7403 139.275 39.9003 144.587 39.9003C148.907 39.9003 152.66 42.5669 153.651 46.7624L148.34 48.0424C147.844 45.8735 146.392 44.878 144.587 44.878C142.037 44.878 140.337 46.7624 140.337 49.3579C140.337 51.9889 142.037 53.8378 144.587 53.8378Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M175.992 58.2821H168.733L162.961 51.8467H161.934V58.2821H156.269V32.6828H161.934V46.5135H162.713L168.343 40.4337H175.177L167.387 48.9312L175.992 58.2821Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M176.087 53.6483L181.611 52.5105C181.859 54.0394 183.24 54.6083 184.762 54.6083C186.25 54.6083 187.064 53.9683 187.064 53.1861C187.064 52.5817 186.604 52.1194 185.294 51.8706L181.682 51.1595C178.389 50.555 176.512 48.7773 176.512 45.9685C176.512 42.3064 179.663 39.9242 184.16 39.9242C188.587 39.9242 191.526 41.9508 192.234 45.0441L187.064 46.0752C186.887 44.973 185.825 43.9774 184.09 43.9774C182.567 43.9774 182.071 44.7241 182.071 45.3641C182.071 45.8618 182.284 46.3596 183.417 46.6085L187.595 47.4618C190.959 48.1729 192.517 50.1995 192.517 52.8305C192.517 56.7771 189.118 58.8393 184.444 58.8393C180.265 58.8393 176.689 57.3104 176.087 53.6483Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M79.4906 27.4174H73.825V1.81807H79.4906V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M88.9289 27.4174H83.2634V9.569H88.9289V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 1.07143C88.0083 1.07143 89.3892 2.56472 89.3892 4.3069C89.3892 6.12019 88.0083 7.47127 86.0961 7.47127C84.184 7.47127 82.8384 6.12019 82.8384 4.3069C82.8384 2.56472 84.184 1.07143 86.0961 1.07143Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M101.853 22.9731C103.659 22.9731 105.111 22.0131 105.713 19.8443L110.918 20.982C110.033 25.213 106.28 27.9507 101.853 27.9507C96.542 27.9507 92.1512 24.1464 92.1512 18.4932C92.1512 12.8756 96.542 9.03566 101.853 9.03566C106.173 9.03566 109.927 11.7023 110.918 15.8977L105.607 17.1777C105.111 15.0088 103.659 14.0133 101.853 14.0133C99.3039 14.0133 97.6043 15.8977 97.6043 18.4932C97.6043 21.1242 99.3039 22.9731 101.853 22.9731Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M131.601 18.4932V19.9509H118.57C119.03 22.0842 120.482 23.3997 122.394 23.3997C123.704 23.3997 125.227 23.0798 126.183 21.3376L131.211 22.3687C129.689 26.1375 126.466 27.9507 122.394 27.9507C117.26 27.9507 113.011 24.1464 113.011 18.4932C113.011 12.8756 117.26 9.03566 122.43 9.03566C127.458 9.03566 131.495 12.6622 131.601 18.4932ZM122.43 13.6578C120.836 13.6578 119.207 14.6533 118.676 16.4666H126.006C125.475 14.5466 124.059 13.6578 122.43 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M145.659 9.03566C149.801 9.03566 152.563 11.9867 152.563 16.4666V27.4174H146.933V17.6754C146.933 15.5777 145.694 14.1555 143.888 14.1555C141.657 14.1555 140.205 15.6844 140.205 19.1332V27.4174H134.54V9.56898H140.205V11.2756C141.551 9.85342 143.428 9.03566 145.659 9.03566Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M155.219 22.7598L160.743 21.622C160.991 23.1509 162.372 23.7197 163.895 23.7197C165.382 23.7197 166.196 23.0798 166.196 22.2975C166.196 21.6931 165.736 21.2309 164.426 20.982L160.814 20.2709C157.521 19.6665 155.644 17.8888 155.644 15.08C155.644 11.4178 158.796 9.03566 163.293 9.03566C167.719 9.03566 170.658 11.0623 171.366 14.1555L166.196 15.1866C166.019 14.0844 164.957 13.0889 163.222 13.0889C161.699 13.0889 161.203 13.8355 161.203 14.4755C161.203 14.9733 161.416 15.4711 162.549 15.7199L166.727 16.5732C170.091 17.2843 171.649 19.311 171.649 21.942C171.649 25.8886 168.25 27.9507 163.576 27.9507C159.397 27.9507 155.821 26.4219 155.219 22.7598Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M192.403 18.4932V19.9509H179.372C179.832 22.0842 181.284 23.3997 183.196 23.3997C184.506 23.3997 186.029 23.0798 186.985 21.3376L192.013 22.3687C190.49 26.1375 187.268 27.9507 183.196 27.9507C178.062 27.9507 173.812 24.1464 173.812 18.4932C173.812 12.8756 178.062 9.03566 183.231 9.03566C188.26 9.03566 192.296 12.6622 192.403 18.4932ZM183.231 13.6578C181.638 13.6578 180.009 14.6533 179.478 16.4666H186.808C186.277 14.5466 184.86 13.6578 183.231 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.58723 46.6197C11.4115 46.6197 14.1734 49.6063 14.1734 53.0907C14.1734 56.7172 11.4115 59.4194 7.58723 59.4194C3.76298 59.4194 1.07184 56.7172 1.07184 53.0907C1.07184 49.6063 3.76298 46.6197 7.58723 46.6197ZM38.7574 9.64285C52.9213 9.64285 64.04 20.6648 64.04 34.6022C64.04 48.4685 52.9213 59.4194 38.7574 59.4194C24.5936 59.4194 13.4749 48.4685 13.4749 34.6022C13.4749 20.6648 24.5936 9.64285 38.7574 9.64285ZM38.7574 48.6819C46.4768 48.6819 52.3548 42.7087 52.3548 34.6022C52.3548 26.4247 46.4768 20.3804 38.7574 20.3804C31.0381 20.3804 25.1601 26.4247 25.1601 34.6022C25.1601 42.7087 31.0381 48.6819 38.7574 48.6819Z' fill='%23AC00FC'/%3e%3c/svg%3e";
-
-var ExplorerLayoutHeaderPropTypes = {
+Language.propTypes = LanguagePropTypes;
+Language.defaultProps = LanguageDefaultProps;
+var img$1 = "data:image/svg+xml,%3csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.20827 41.2468C9.85226 41.2468 12.484 44.0937 12.484 47.415C12.484 50.8719 9.85226 53.4477 6.20827 53.4477C2.56429 53.4477 0 50.8719 0 47.415C0 44.0937 2.56429 41.2468 6.20827 41.2468ZM35.9092 6C49.4054 6 60 16.5063 60 29.7916C60 43.0092 49.4054 53.4477 35.9092 53.4477C22.413 53.4477 11.8184 43.0092 11.8184 29.7916C11.8184 16.5063 22.413 6 35.9092 6ZM35.9092 43.2125C43.2647 43.2125 48.8656 37.5188 48.8656 29.7916C48.8656 21.9966 43.2647 16.2351 35.9092 16.2351C28.5538 16.2351 22.9528 21.9966 22.9528 29.7916C22.9528 37.5188 28.5538 43.2125 35.9092 43.2125Z' fill='%23AC00FC'/%3e%3c/svg%3e";
+var AuthLayoutHeaderPropTypes = {
+  headerLeft: PropTypes__default.node,
   headerRight: PropTypes__default.node,
   logoAction: PropTypes__default.func
 };
 
-function _templateObject2$a() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 155px;\n  ", " {\n    width: 103px;\n  }\n"]);
+function _templateObject2$b() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 48px;\n  height: 48px;\n"]);
 
-  _templateObject2$a = function _templateObject2() {
+  _templateObject2$b = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$z() {
-  var data = _taggedTemplateLiteralLoose(["\n  height: 128px;\n  ", " {\n    height: 96px;\n  }\n"]);
+function _templateObject$E() {
+  var data = _taggedTemplateLiteralLoose(["\n  height: 120px;\n  ", " {\n    height: 96px;\n  }\n"]);
 
-  _templateObject$z = function _templateObject() {
+  _templateObject$E = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledHeader = styled__default(Grid).attrs(function () {
+
+var StyledHeader = styled__default(Flex).attrs(function () {
   return {
     container: true,
-    alignItems: "center"
+    alignItems: "center",
+    justify: "space-between"
   };
-})(_templateObject$z(), function (_ref) {
+})(_templateObject$E(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
@@ -2790,20 +3515,169 @@ var StyledLogo = styled__default(Image).attrs(function () {
     alt: "Logo",
     src: img$1
   };
-})(_templateObject2$a(), function (_ref2) {
+})(_templateObject2$b());
+
+var AuthLayoutHeader = function AuthLayoutHeader(_ref2) {
+  var headerLeft = _ref2.headerLeft,
+      headerRight = _ref2.headerRight,
+      logoAction = _ref2.logoAction,
+      props = _objectWithoutPropertiesLoose(_ref2, ["headerLeft", "headerRight", "logoAction"]);
+
+  var backButton = /*#__PURE__*/React__default.createElement(TextButton, {
+    color: "secondary",
+    size: "sm"
+  }, "Back");
+  return /*#__PURE__*/React__default.createElement(StyledHeader, props, /*#__PURE__*/React__default.createElement(Flex, {
+    item: true
+  }, headerLeft || backButton), /*#__PURE__*/React__default.createElement(Flex, {
+    item: true
+  }, /*#__PURE__*/React__default.createElement(StyledLogo, {
+    onClick: logoAction
+  })), /*#__PURE__*/React__default.createElement(Flex, {
+    item: true
+  }, headerRight));
+};
+
+AuthLayoutHeader.propTypes = AuthLayoutHeaderPropTypes;
+var AuthLayoutPropTypes = {
+  content: PropTypes__default.node.isRequired,
+  headerLeft: PropTypes__default.node,
+  headerLogoAction: PropTypes__default.func,
+  headerRight: PropTypes__default.node
+};
+
+function _templateObject2$c() {
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  width: 100%;\n  padding-top: ", ";\n"]);
+
+  _templateObject2$c = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$F() {
+  var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n"]);
+
+  _templateObject$F = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var StyledContainer$1 = styled__default(MuiContainer)(_templateObject$F());
+var Content$1 = styled__default.div(_templateObject2$c(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.spacing(20);
+});
+
+var AuthLayout = function AuthLayout(_ref2) {
+  var content = _ref2.content,
+      headerLeft = _ref2.headerLeft,
+      headerLogoAction = _ref2.headerLogoAction,
+      headerRight = _ref2.headerRight,
+      props = _objectWithoutPropertiesLoose(_ref2, ["content", "headerLeft", "headerLogoAction", "headerRight"]);
+
+  return /*#__PURE__*/React__default.createElement(StyledContainer$1, props, /*#__PURE__*/React__default.createElement(Flex, {
+    container: true,
+    direction: "column",
+    lg: 4,
+    md: 6,
+    xs: 12,
+    mAuto: true,
+    h100: true
+  }, /*#__PURE__*/React__default.createElement(AuthLayoutHeader, {
+    headerLeft: headerLeft,
+    headerLogoAction: headerLogoAction,
+    headerRight: headerRight
+  }), /*#__PURE__*/React__default.createElement(Content$1, null, content)));
+};
+
+AuthLayout.propTypes = AuthLayoutPropTypes;
+AuthLayout.defaultProps = {};
+var ExplorerLayoutFooterPropTypes = {
+  children: PropTypes__default.node
+};
+
+function _templateObject$G() {
+  var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  height: 80px;\n  text-align: center;\n  padding-top: ", ";\n"]);
+
+  _templateObject$G = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var StyledFooter = styled__default.div(_templateObject$G(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.spacing(2);
+});
+
+var ExplorerLayoutFooter = function ExplorerLayoutFooter(_ref2) {
+  var action = _ref2.action,
+      props = _objectWithoutPropertiesLoose(_ref2, ["action"]);
+
+  return /*#__PURE__*/React__default.createElement(StyledFooter, props);
+};
+
+ExplorerLayoutFooter.propTypes = ExplorerLayoutFooterPropTypes;
+var img$2 = "data:image/svg+xml,%3csvg width='194' height='60' viewBox='0 0 194 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 52.0601C88.0083 52.0601 89.3892 53.5534 89.3892 55.2955C89.3892 57.1088 88.0083 58.4599 86.0961 58.4599C84.184 58.4599 82.8384 57.1088 82.8384 55.2955C82.8384 53.5534 84.184 52.0601 86.0961 52.0601Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M103.965 40.1848C104.461 40.1848 104.815 40.2204 105.24 40.327L104.992 46.0158H103.965C99.9993 46.0158 97.8393 48.0779 97.8393 52.7V58.2821H92.1737V40.4337H97.8393V43.8469C99.114 41.7136 101.062 40.1848 103.965 40.1848Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M120.118 33.9272C127.2 33.9272 132.76 39.4382 132.76 46.4069C132.76 53.34 127.2 58.8155 120.118 58.8155C113.037 58.8155 107.477 53.34 107.477 46.4069C107.477 39.4382 113.037 33.9272 120.118 33.9272ZM120.118 53.4467C123.978 53.4467 126.917 50.4601 126.917 46.4069C126.917 42.3181 123.978 39.2959 120.118 39.2959C116.259 39.2959 113.32 42.3181 113.32 46.4069C113.32 50.4601 116.259 53.4467 120.118 53.4467Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M144.587 53.8378C146.392 53.8378 147.844 52.8778 148.446 50.709L153.651 51.8467C152.766 56.0777 149.013 58.8154 144.587 58.8154C139.275 58.8154 134.884 55.0111 134.884 49.3579C134.884 43.7403 139.275 39.9003 144.587 39.9003C148.907 39.9003 152.66 42.5669 153.651 46.7624L148.34 48.0424C147.844 45.8735 146.392 44.878 144.587 44.878C142.037 44.878 140.337 46.7624 140.337 49.3579C140.337 51.9889 142.037 53.8378 144.587 53.8378Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M175.992 58.2821H168.733L162.961 51.8467H161.934V58.2821H156.269V32.6828H161.934V46.5135H162.713L168.343 40.4337H175.177L167.387 48.9312L175.992 58.2821Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M176.087 53.6483L181.611 52.5105C181.859 54.0394 183.24 54.6083 184.762 54.6083C186.25 54.6083 187.064 53.9683 187.064 53.1861C187.064 52.5817 186.604 52.1194 185.294 51.8706L181.682 51.1595C178.389 50.555 176.512 48.7773 176.512 45.9685C176.512 42.3064 179.663 39.9242 184.16 39.9242C188.587 39.9242 191.526 41.9508 192.234 45.0441L187.064 46.0752C186.887 44.973 185.825 43.9774 184.09 43.9774C182.567 43.9774 182.071 44.7241 182.071 45.3641C182.071 45.8618 182.284 46.3596 183.417 46.6085L187.595 47.4618C190.959 48.1729 192.517 50.1995 192.517 52.8305C192.517 56.7771 189.118 58.8393 184.444 58.8393C180.265 58.8393 176.689 57.3104 176.087 53.6483Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M79.4906 27.4174H73.825V1.81807H79.4906V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M88.9289 27.4174H83.2634V9.569H88.9289V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 1.07143C88.0083 1.07143 89.3892 2.56472 89.3892 4.3069C89.3892 6.12019 88.0083 7.47127 86.0961 7.47127C84.184 7.47127 82.8384 6.12019 82.8384 4.3069C82.8384 2.56472 84.184 1.07143 86.0961 1.07143Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M101.853 22.9731C103.659 22.9731 105.111 22.0131 105.713 19.8443L110.918 20.982C110.033 25.213 106.28 27.9507 101.853 27.9507C96.542 27.9507 92.1512 24.1464 92.1512 18.4932C92.1512 12.8756 96.542 9.03566 101.853 9.03566C106.173 9.03566 109.927 11.7023 110.918 15.8977L105.607 17.1777C105.111 15.0088 103.659 14.0133 101.853 14.0133C99.3039 14.0133 97.6043 15.8977 97.6043 18.4932C97.6043 21.1242 99.3039 22.9731 101.853 22.9731Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M131.601 18.4932V19.9509H118.57C119.03 22.0842 120.482 23.3997 122.394 23.3997C123.704 23.3997 125.227 23.0798 126.183 21.3376L131.211 22.3687C129.689 26.1375 126.466 27.9507 122.394 27.9507C117.26 27.9507 113.011 24.1464 113.011 18.4932C113.011 12.8756 117.26 9.03566 122.43 9.03566C127.458 9.03566 131.495 12.6622 131.601 18.4932ZM122.43 13.6578C120.836 13.6578 119.207 14.6533 118.676 16.4666H126.006C125.475 14.5466 124.059 13.6578 122.43 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M145.659 9.03566C149.801 9.03566 152.563 11.9867 152.563 16.4666V27.4174H146.933V17.6754C146.933 15.5777 145.694 14.1555 143.888 14.1555C141.657 14.1555 140.205 15.6844 140.205 19.1332V27.4174H134.54V9.56898H140.205V11.2756C141.551 9.85342 143.428 9.03566 145.659 9.03566Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M155.219 22.7598L160.743 21.622C160.991 23.1509 162.372 23.7197 163.895 23.7197C165.382 23.7197 166.196 23.0798 166.196 22.2975C166.196 21.6931 165.736 21.2309 164.426 20.982L160.814 20.2709C157.521 19.6665 155.644 17.8888 155.644 15.08C155.644 11.4178 158.796 9.03566 163.293 9.03566C167.719 9.03566 170.658 11.0623 171.366 14.1555L166.196 15.1866C166.019 14.0844 164.957 13.0889 163.222 13.0889C161.699 13.0889 161.203 13.8355 161.203 14.4755C161.203 14.9733 161.416 15.4711 162.549 15.7199L166.727 16.5732C170.091 17.2843 171.649 19.311 171.649 21.942C171.649 25.8886 168.25 27.9507 163.576 27.9507C159.397 27.9507 155.821 26.4219 155.219 22.7598Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M192.403 18.4932V19.9509H179.372C179.832 22.0842 181.284 23.3997 183.196 23.3997C184.506 23.3997 186.029 23.0798 186.985 21.3376L192.013 22.3687C190.49 26.1375 187.268 27.9507 183.196 27.9507C178.062 27.9507 173.812 24.1464 173.812 18.4932C173.812 12.8756 178.062 9.03566 183.231 9.03566C188.26 9.03566 192.296 12.6622 192.403 18.4932ZM183.231 13.6578C181.638 13.6578 180.009 14.6533 179.478 16.4666H186.808C186.277 14.5466 184.86 13.6578 183.231 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.58723 46.6197C11.4115 46.6197 14.1734 49.6063 14.1734 53.0907C14.1734 56.7172 11.4115 59.4194 7.58723 59.4194C3.76298 59.4194 1.07184 56.7172 1.07184 53.0907C1.07184 49.6063 3.76298 46.6197 7.58723 46.6197ZM38.7574 9.64285C52.9213 9.64285 64.04 20.6648 64.04 34.6022C64.04 48.4685 52.9213 59.4194 38.7574 59.4194C24.5936 59.4194 13.4749 48.4685 13.4749 34.6022C13.4749 20.6648 24.5936 9.64285 38.7574 9.64285ZM38.7574 48.6819C46.4768 48.6819 52.3548 42.7087 52.3548 34.6022C52.3548 26.4247 46.4768 20.3804 38.7574 20.3804C31.0381 20.3804 25.1601 26.4247 25.1601 34.6022C25.1601 42.7087 31.0381 48.6819 38.7574 48.6819Z' fill='%23AC00FC'/%3e%3c/svg%3e";
+var ExplorerLayoutHeaderPropTypes = {
+  headerRight: PropTypes__default.node,
+  logoAction: PropTypes__default.func
+};
+
+function _templateObject2$d() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 155px;\n  ", " {\n    width: 103px;\n  }\n"]);
+
+  _templateObject2$d = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$H() {
+  var data = _taggedTemplateLiteralLoose(["\n  height: 128px;\n  ", " {\n    height: 96px;\n  }\n"]);
+
+  _templateObject$H = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var StyledHeader$1 = styled__default(Grid).attrs(function () {
+  return {
+    container: true,
+    alignItems: "center"
+  };
+})(_templateObject$H(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.breakpoints.down("md");
+});
+var StyledLogo$1 = styled__default(Image).attrs(function () {
+  return {
+    alt: "Logo",
+    src: img$2
+  };
+})(_templateObject2$d(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.breakpoints.down("md");
 });
+
 var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
   var headerRight = _ref3.headerRight,
       logoAction = _ref3.logoAction,
       props = _objectWithoutPropertiesLoose(_ref3, ["headerRight", "logoAction"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledHeader, props, /*#__PURE__*/React__default.createElement(Grid, {
+  return /*#__PURE__*/React__default.createElement(StyledHeader$1, props, /*#__PURE__*/React__default.createElement(Grid, {
     item: true,
     lg: 9,
     xs: 6
-  }, /*#__PURE__*/React__default.createElement(StyledLogo, {
+  }, /*#__PURE__*/React__default.createElement(StyledLogo$1, {
     onClick: logoAction
   })), /*#__PURE__*/React__default.createElement(Grid, {
     container: true,
@@ -2813,8 +3687,8 @@ var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
     xs: 6
   }, headerRight));
 };
-ExplorerLayoutHeader.propTypes = ExplorerLayoutHeaderPropTypes;
 
+ExplorerLayoutHeader.propTypes = ExplorerLayoutHeaderPropTypes;
 var ExplorerLayoutPropTypes = {
   ads: PropTypes__default.node,
   content: PropTypes__default.node.isRequired,
@@ -2826,20 +3700,21 @@ var ExplorerLayoutPropTypes = {
   sidebar: PropTypes__default.node
 };
 
-function _templateObject$A() {
+function _templateObject$I() {
   var data = _taggedTemplateLiteralLoose(["\n  padding-top: ", ";\n  padding-bottom: ", ";\n  ", " {\n    padding-top: ", ";\n  }\n"]);
 
-  _templateObject$A = function _templateObject() {
+  _templateObject$I = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Content$1 = styled__default(Grid).attrs(function () {
+
+var Content$2 = styled__default(Grid).attrs(function () {
   return {
     container: true
   };
-})(_templateObject$A(), function (_ref) {
+})(_templateObject$I(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(8);
 }, function (_ref2) {
@@ -2859,6 +3734,7 @@ var poweredBy = /*#__PURE__*/React__default.createElement(Text, {
   color: "textPrimary",
   fontWeight: "bold"
 }, " ", "license.rocks"));
+
 var ExplorerLayout = function ExplorerLayout(_ref5) {
   var ads = _ref5.ads,
       content = _ref5.content,
@@ -2873,7 +3749,7 @@ var ExplorerLayout = function ExplorerLayout(_ref5) {
   return /*#__PURE__*/React__default.createElement(MuiContainer, props, /*#__PURE__*/React__default.createElement(ExplorerLayoutHeader, {
     logoAction: headerLogoAction,
     headerRight: headerRight
-  }), /*#__PURE__*/React__default.createElement(Content$1, null, /*#__PURE__*/React__default.createElement(Hidden, {
+  }), /*#__PURE__*/React__default.createElement(Content$2, null, /*#__PURE__*/React__default.createElement(Hidden, {
     mdDown: true
   }, /*#__PURE__*/React__default.createElement(Grid, {
     item: true,
@@ -2904,6 +3780,7 @@ var ExplorerLayout = function ExplorerLayout(_ref5) {
     xs: 12
   }, extraContent, ads))), footerContent && /*#__PURE__*/React__default.createElement(ExplorerLayoutFooter, null, footerContent || poweredBy));
 };
+
 ExplorerLayout.propTypes = ExplorerLayoutPropTypes;
 ExplorerLayout.defaultProps = {
   footerContent: poweredBy
@@ -2939,35 +3816,36 @@ function _templateObject3$4() {
   return data;
 }
 
-function _templateObject2$b() {
+function _templateObject2$e() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    font-size: 16px;\n    font-weight: 500;\n    color: ", ";\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: ", "px;\n  }\n"]);
 
-  _templateObject2$b = function _templateObject2() {
+  _templateObject2$e = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$B() {
+function _templateObject$J() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    padding: 0;\n    &:first-child {\n      padding-top: 0;\n    }\n  }\n"]);
 
-  _templateObject$B = function _templateObject() {
+  _templateObject$J = function _templateObject() {
     return data;
   };
 
   return data;
 }
+
 var ContentWrapper = styled__default(DialogContent).attrs(function () {
   return {
     dividers: true
   };
-})(_templateObject$B());
+})(_templateObject$J());
 var Title = styled__default(DialogTitle).attrs(function () {
   return {
     disableTypography: true
   };
-})(_templateObject2$b(), function (_ref) {
+})(_templateObject2$e(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.darkIndigo;
 }, function (_ref2) {
@@ -2990,6 +3868,7 @@ var LoadingWrapper = styled__default.div(_templateObject5$1(), function (_ref5) 
   var theme = _ref5.theme;
   return theme.palette.secondary.dark;
 });
+
 var Modal = function Modal(_ref6) {
   var action = _ref6.action,
       actionDescription = _ref6.actionDescription,
@@ -3030,6 +3909,7 @@ var Modal = function Modal(_ref6) {
     onClick: action
   }, actionTitle)));
 };
+
 Modal.propTypes = {
   action: PropTypes__default.func,
   actionDescription: PropTypes__default.node,
@@ -3058,16 +3938,17 @@ Modal.defaultProps = {
   disabled: false
 };
 
-function _templateObject$C() {
+function _templateObject$K() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n\n  && {\n    width: 40px;\n    height: 40px;\n    background-color: ", ";\n    svg {\n      color: ", ";\n    }\n\n    :hover {\n      background-color: ", ";\n\n      svg {\n        color: ", ";\n      }\n    }\n  }\n"]);
 
-  _templateObject$C = function _templateObject() {
+  _templateObject$K = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Button$1 = styled__default(ButtonBase)(_templateObject$C(), function (_ref) {
+
+var Button$1 = styled__default(ButtonBase)(_templateObject$K(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -3080,6 +3961,7 @@ var Button$1 = styled__default(ButtonBase)(_templateObject$C(), function (_ref) 
   var theme = _ref4.theme;
   return theme.palette.primary.main;
 });
+
 var ShareModuleButton = function ShareModuleButton(_ref5) {
   var href = _ref5.href,
       icon = _ref5.icon,
@@ -3095,6 +3977,7 @@ var ShareModuleButton = function ShareModuleButton(_ref5) {
     size: "lg"
   }));
 };
+
 ShareModuleButton.propTypes = {
   href: PropTypes__default.string,
   icon: PropTypes__default.string.isRequired,
@@ -3106,7 +3989,6 @@ ShareModuleButton.defaultProps = {
   iconPrefix: "fab",
   onClick: null
 };
-
 var SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "telegram", "whatsapp", "email", "navigator"];
 
 var ShareModulePropTypes = _extends({
@@ -3114,6 +3996,7 @@ var ShareModulePropTypes = _extends({
   shareOptions: PropTypes__default.arrayOf(PropTypes__default.oneOf(SHARE_MODULE_SHARE_OPTIONS)),
   url: PropTypes__default.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var ShareModuleDefaultProps = {
   copyText: "Or copy the link",
   shareOptions: SHARE_MODULE_SHARE_OPTIONS,
@@ -3130,31 +4013,32 @@ function _templateObject3$5() {
   return data;
 }
 
-function _templateObject2$c() {
+function _templateObject2$f() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: ", ";\n"]);
 
-  _templateObject2$c = function _templateObject2() {
+  _templateObject2$f = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$D() {
+function _templateObject$L() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$D = function _templateObject() {
+  _templateObject$L = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$4 = styled__default.div(_templateObject$D(), function (theme) {
+
+var Container$4 = styled__default.div(_templateObject$L(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var ButtonsWrapper = styled__default.div(_templateObject2$c(), function (_ref) {
+var ButtonsWrapper = styled__default.div(_templateObject2$f(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
@@ -3169,6 +4053,7 @@ var StyledText$1 = styled__default(Text).attrs(function () {
   var spacing = _ref2.theme.spacing;
   return styled.css(["margin:", ";"], spacing(2, 0));
 });
+
 var ShareModule = function ShareModule(_ref3) {
   var _window, _window$navigator, _window2, _window2$navigator;
 
@@ -3217,8 +4102,131 @@ var ShareModule = function ShareModule(_ref3) {
     value: url
   }));
 };
+
 ShareModule.propTypes = ShareModulePropTypes;
 ShareModule.defaultProps = ShareModuleDefaultProps;
+
+var DotsSpinnerPropTypes = _extends({
+  size: PropTypes__default.number
+}, COLOR_PROP_TYPES, DISPLAY_PROP_TYPES, DIMENSION_PROP_TYPES, SPACER_PROP_TYPES);
+
+var DotsSpinnerDefaultProps = {
+  size: 60
+};
+
+function _templateObject$M() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  > div {\n    width: ", "px;\n    height: ", "px;\n    background-color: ", ";\n\n    border-radius: 100%;\n    display: inline-block;\n    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;\n    animation: sk-bouncedelay 1.4s infinite ease-in-out both;\n  }\n\n  .bounce1 {\n    -webkit-animation-delay: -0.32s;\n    animation-delay: -0.32s;\n  }\n\n  .bounce2 {\n    -webkit-animation-delay: -0.16s;\n    animation-delay: -0.16s;\n  }\n\n  @-webkit-keyframes sk-bouncedelay {\n    0%, 80%, 100% { -webkit-transform: scale(0) }\n    40% { -webkit-transform: scale(1.0) }\n  }\n\n  @keyframes sk-bouncedelay {\n    0%, 80%, 100% {\n      -webkit-transform: scale(0);\n      transform: scale(0);\n    } 40% {\n      -webkit-transform: scale(1.0);\n      transform: scale(1.0);\n    }\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n"]);
+
+  _templateObject$M = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var StyledDotsSpinner = styled__default.div(_templateObject$M(), function (_ref) {
+  var size = _ref.size;
+  return size;
+}, function (_ref2) {
+  var size = _ref2.size;
+  return size / 4;
+}, function (_ref3) {
+  var size = _ref3.size;
+  return size / 4;
+}, function (_ref4) {
+  var color = _ref4.color,
+      theme = _ref4.theme;
+  return color || theme.palette.primary.main;
+}, function (theme) {
+  return COLOR(theme);
+}, function (theme) {
+  return DIMENSION(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+}, function (theme) {
+  return SPACER(theme);
+});
+
+var DotsSpinner = function DotsSpinner(props) {
+  return /*#__PURE__*/React__default.createElement(StyledDotsSpinner, props, /*#__PURE__*/React__default.createElement("div", {
+    className: "bounce1"
+  }), /*#__PURE__*/React__default.createElement("div", {
+    className: "bounce2"
+  }), /*#__PURE__*/React__default.createElement("div", {
+    className: "bounce3"
+  }));
+};
+
+DotsSpinner.propTypes = DotsSpinnerPropTypes;
+DotsSpinner.defaultProps = DotsSpinnerDefaultProps;
+
+var RocksSpinnerPropTypes = _extends({
+  size: PropTypes__default.number
+}, COLOR_PROP_TYPES, DISPLAY_PROP_TYPES, DIMENSION_PROP_TYPES, SPACER_PROP_TYPES);
+
+var RocksSpinnerDefaultProps = {
+  size: 60
+};
+
+function _templateObject$N() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  height: ", "px;\n  position: relative;\n\n  .dot {\n    width: ", "px;\n    height: ", "px;\n    background-color: ", ";\n    border-radius: 100%;\n    position: absolute;\n    bottom: 5px;\n    left: 0;\n\n    -webkit-animation: bounce 2.0s infinite ease-in-out;\n    animation: bounce 2.0s infinite ease-in-out;\n  }\n\n  .circle {\n    width: ", "px;\n    height: ", "px;\n    border: ", "px solid ", ";\n    border-radius: 100%;\n    position: absolute;\n    top: 5px;\n    right: 0;\n\n    -webkit-animation: bounce 2.0s infinite ease-in-out;\n    animation: bounce 2.0s infinite ease-in-out;\n    -webkit-animation-delay: -1.0s;\n    animation-delay: -1.0s;\n  }\n\n  @-webkit-keyframes bounce {\n    0%, 100% { -webkit-transform: scale(0.0) }\n    50% { -webkit-transform: scale(1.0) }\n  }\n\n  @keyframes bounce {\n    0%, 100% {\n      transform: scale(0.0);\n      -webkit-transform: scale(0.0);\n    } 50% {\n      transform: scale(1.0);\n      -webkit-transform: scale(1.0);\n    }\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n"]);
+
+  _templateObject$N = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+
+var StyledRocksSpinner = styled__default.div(_templateObject$N(), function (_ref) {
+  var size = _ref.size;
+  return size;
+}, function (_ref2) {
+  var size = _ref2.size;
+  return size;
+}, function (_ref3) {
+  var size = _ref3.size;
+  return size / 6;
+}, function (_ref4) {
+  var size = _ref4.size;
+  return size / 6;
+}, function (_ref5) {
+  var color = _ref5.color,
+      theme = _ref5.theme;
+  return color || theme.palette.primary.main;
+}, function (_ref6) {
+  var size = _ref6.size;
+  return size - 12;
+}, function (_ref7) {
+  var size = _ref7.size;
+  return size - 12;
+}, function (_ref8) {
+  var size = _ref8.size;
+  return size / 6;
+}, function (_ref9) {
+  var color = _ref9.color,
+      theme = _ref9.theme;
+  return color || theme.palette.primary.main;
+}, function (theme) {
+  return COLOR(theme);
+}, function (theme) {
+  return DIMENSION(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+}, function (theme) {
+  return SPACER(theme);
+});
+
+var RocksSpinner = function RocksSpinner(props) {
+  return /*#__PURE__*/React__default.createElement(StyledRocksSpinner, props, /*#__PURE__*/React__default.createElement("div", {
+    className: "dot"
+  }), /*#__PURE__*/React__default.createElement("div", {
+    className: "circle"
+  }));
+};
+
+RocksSpinner.propTypes = RocksSpinnerPropTypes;
+RocksSpinner.defaultProps = RocksSpinnerDefaultProps;
 
 var TabPropTypes = _extends({
   currentTab: PropTypes__default.number.isRequired,
@@ -3241,26 +4249,27 @@ function _templateObject3$6() {
   return data;
 }
 
-function _templateObject2$d() {
+function _templateObject2$g() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    min-height: fit-content;\n\n    .MuiTab-root {\n      min-height: 24px;\n    }\n  }\n\n  .MuiTabs-indicator {\n    display: none;\n  }\n\n  button {\n    min-width: fit-content;\n    margin-right: ", ";\n    padding: 0;\n    font-weight: normal;\n    font-size: 14px;\n    line-height: 120%;\n\n    &.Mui-selected {\n      font-weight: 600;\n    }\n  }\n\n  .Mui-selected {\n    &::after {\n      content: \"\";\n      position: absolute;\n      width: 100%;\n      left: 0;\n      bottom: 0;\n      height: 2px;\n      background-color: ", ";\n      border-radius: 2px 2px 0 0;\n    }\n  }\n"]);
 
-  _templateObject2$d = function _templateObject2() {
+  _templateObject2$g = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$E() {
+function _templateObject$O() {
   var data = _taggedTemplateLiteralLoose(["\n  margin-bottom: ", ";\n  ", "\n  ", "\n"]);
 
-  _templateObject$E = function _templateObject() {
+  _templateObject$O = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$6 = styled__default.div(_templateObject$E(), function (_ref) {
+
+var Wrapper$6 = styled__default.div(_templateObject$O(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (theme) {
@@ -3268,7 +4277,7 @@ var Wrapper$6 = styled__default.div(_templateObject$E(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledTabs = styled__default(MuiTabs)(_templateObject2$d(), function (_ref2) {
+var StyledTabs = styled__default(MuiTabs)(_templateObject2$g(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(5);
 }, function (_ref3) {
@@ -3276,6 +4285,7 @@ var StyledTabs = styled__default(MuiTabs)(_templateObject2$d(), function (_ref2)
   return theme.palette.primary.main;
 });
 var StyledTab = styled__default(MuiTab)(_templateObject3$6());
+
 var Tab = function Tab(_ref4) {
   var tabs = _ref4.tabs,
       currentTab = _ref4.currentTab,
@@ -3301,36 +4311,39 @@ var Tab = function Tab(_ref4) {
     });
   }))));
 };
+
 Tab.propTypes = TabPropTypes;
 
-function _templateObject2$e() {
+function _templateObject2$h() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 500px;\n  max-width: 500px;\n  user-select: none;\n"]);
 
-  _templateObject2$e = function _templateObject2() {
+  _templateObject2$h = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$F() {
+function _templateObject$P() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  border-radius: 100%;\n  && {\n    margin: ", ";\n  }\n"]);
 
-  _templateObject$F = function _templateObject() {
+  _templateObject$P = function _templateObject() {
     return data;
   };
 
   return data;
 }
+
 var CloseModalIcon$1 = styled__default(Icon).attrs(function () {
   return {
     size: "lg"
   };
-})(_templateObject$F(), function (_ref) {
+})(_templateObject$P(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
-var StyledImg$1 = styled__default(Image)(_templateObject2$e());
+var StyledImg$1 = styled__default(Image)(_templateObject2$h());
+
 var ImageModal = function ImageModal(_ref2) {
   var isOpen = _ref2.isOpen,
       onClose = _ref2.onClose,
@@ -3347,6 +4360,7 @@ var ImageModal = function ImageModal(_ref2) {
     alt: "Attachment preview"
   }));
 };
+
 ImageModal.propTypes = {
   isOpen: PropTypes__default.bool.isRequired,
   onClose: PropTypes__default.func.isRequired,
@@ -3361,6 +4375,7 @@ var ThumbnailPropTypes = _extends({
   imgSrc: PropTypes__default.string,
   onClick: PropTypes__default.func
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var ThumbnailDefaultProps = {
   hasPreview: false,
   onClick: function onClick() {},
@@ -3377,26 +4392,27 @@ function _templateObject3$7() {
   return data;
 }
 
-function _templateObject2$f() {
+function _templateObject2$i() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all 0.1s ease-in-out;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n\n  :hover {\n    background-color: rgba(0, 0, 0, 0.2);\n  }\n"]);
 
-  _templateObject2$f = function _templateObject2() {
+  _templateObject2$i = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$G() {
+function _templateObject$Q() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  height: 48px;\n  width: 48px;\n  text-align: center;\n  border-radius: 8px;\n  overflow: hidden;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$G = function _templateObject() {
+  _templateObject$Q = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$5 = styled__default.div(_templateObject$G(), function (_ref) {
+
+var Container$5 = styled__default.div(_templateObject$Q(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
@@ -3404,12 +4420,13 @@ var Container$5 = styled__default.div(_templateObject$G(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-var IconWrapper = styled__default.div(_templateObject2$f());
+var IconWrapper = styled__default.div(_templateObject2$i());
 var StyledIcon$2 = styled__default(Icon)(_templateObject3$7(), function (_ref2) {
   var color = _ref2.color,
       theme = _ref2.theme;
   return !color && theme.palette.common.white;
 });
+
 var Thumbnail = function Thumbnail(_ref3) {
   var hasPreview = _ref3.hasPreview,
       imgSrc = _ref3.imgSrc,
@@ -3452,6 +4469,7 @@ var Thumbnail = function Thumbnail(_ref3) {
     }
   }));
 };
+
 Thumbnail.propTypes = ThumbnailPropTypes;
 Thumbnail.defaultProps = ThumbnailDefaultProps;
 
@@ -3479,7 +4497,6 @@ function _inheritsLoose(subClass, superClass) {
 var config = {
   disabled: false
 };
-
 var timeoutsShape = process.env.NODE_ENV !== 'production' ? PropTypes__default.oneOfType([PropTypes__default.number, PropTypes__default.shape({
   enter: PropTypes__default.number,
   exit: PropTypes__default.number,
@@ -3497,9 +4514,7 @@ var classNamesShape = process.env.NODE_ENV !== 'production' ? PropTypes__default
   exitDone: PropTypes__default.string,
   exitActive: PropTypes__default.string
 })]) : null;
-
 var TransitionGroupContext = React__default.createContext(null);
-
 var UNMOUNTED = 'unmounted';
 var EXITED = 'exited';
 var ENTERING = 'entering';
@@ -4115,26 +5130,27 @@ function _templateObject3$8() {
   return data;
 }
 
-function _templateObject2$g() {
+function _templateObject2$j() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 16px 0;\n"]);
 
-  _templateObject2$g = function _templateObject2() {
+  _templateObject2$j = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$H() {
+function _templateObject$R() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: 24px 24px 24px 40px;\n  transition: all ", "ms ease-in-out;\n\n  ", ";\n"]);
 
-  _templateObject$H = function _templateObject() {
+  _templateObject$R = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContent = styled__default.div(_templateObject$H(), function (_ref) {
+
+var StyledContent = styled__default.div(_templateObject$R(), function (_ref) {
   var duration = _ref.duration;
   return duration / 2;
 }, function (_ref2) {
@@ -4149,12 +5165,13 @@ var StyledContent = styled__default.div(_templateObject$H(), function (_ref) {
       return styled.css(["-webkit-filter:blur(0);filter:blur(0);"]);
   }
 });
-var ActionWrapper = styled__default.div(_templateObject2$g());
+var ActionWrapper = styled__default.div(_templateObject2$j());
 var StepHint = styled__default.span(_templateObject3$8(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.gray.medium;
 });
 var duration = 500;
+
 var WizardStepContent = function WizardStepContent(_ref4) {
   var children = _ref4.children,
       content = _ref4.content,
@@ -4201,6 +5218,7 @@ var WizardStepContent = function WizardStepContent(_ref4) {
     })));
   });
 };
+
 WizardStepContent.propTypes = {
   children: PropTypes__default.node,
   content: PropTypes__default.node,
@@ -4225,6 +5243,7 @@ var stepBorderAndTitleColor = function stepBorderAndTitleColor(_ref) {
   if (isPassed) return theme.palette.gray.dark;
   return theme.palette.gray.medium;
 };
+
 var stepFlagColor = function stepFlagColor(_ref2) {
   var isActive = _ref2.isActive,
       isPassed = _ref2.isPassed,
@@ -4232,6 +5251,7 @@ var stepFlagColor = function stepFlagColor(_ref2) {
   if (isActive || isPassed) return theme.palette.common.white;
   return theme.palette.gray.medium;
 };
+
 var stepFlagBackgroundColor = function stepFlagBackgroundColor(_ref3) {
   var isActive = _ref3.isActive,
       isPassed = _ref3.isPassed,
@@ -4251,33 +5271,34 @@ function _templateObject3$9() {
   return data;
 }
 
-function _templateObject2$h() {
+function _templateObject2$k() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 100%;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 120%;\n  z-index: 1;\n  transition: all ", "\n    ease-in-out;\n"]);
 
-  _templateObject2$h = function _templateObject2() {
+  _templateObject2$k = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$I() {
+function _templateObject$S() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: normal;\n\n  ", "\n\n  ", "\n"]);
 
-  _templateObject$I = function _templateObject() {
+  _templateObject$S = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTitle = styled__default.div(_templateObject$I(), function (_ref) {
+
+var StyledTitle = styled__default.div(_templateObject$S(), function (_ref) {
   var isPassed = _ref.isPassed;
   return isPassed && styled.css(["cursor:pointer;"]);
 }, function (_ref2) {
   var isHorizontal = _ref2.isHorizontal;
   return isHorizontal && styled.css(["flex-direction:column;align-items:flex-start;"]);
 });
-var Flag = styled__default.div(_templateObject2$h(), function (props) {
+var Flag = styled__default.div(_templateObject2$k(), function (props) {
   return stepFlagBackgroundColor(props);
 }, function (props) {
   return stepFlagColor(props);
@@ -4294,6 +5315,7 @@ var Label$1 = styled__default.span(_templateObject3$9(), function (props) {
   var isHorizontal = _ref5.isHorizontal;
   return isHorizontal && styled.css(["font-size:12px;padding:4px 4px 0 0;"]);
 });
+
 var WizardStepTitle = function WizardStepTitle(_ref6) {
   var isActive = _ref6.isActive,
       isHorizontal = _ref6.isHorizontal,
@@ -4320,6 +5342,7 @@ var WizardStepTitle = function WizardStepTitle(_ref6) {
     transitionDuration: transitionDuration
   }, label));
 };
+
 WizardStepTitle.propTypes = {
   isActive: PropTypes__default.bool.isRequired,
   isHorizontal: PropTypes__default.bool.isRequired,
@@ -4342,6 +5365,7 @@ var WizardPropTypes = _extends({
   steps: PropTypes__default.arrayOf(PropTypes__default.string).isRequired,
   transitionDuration: PropTypes__default.number
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+
 var WizardDefaultProps = {
   nextStepMethod: "submit",
   orientation: "horizontal",
@@ -4406,31 +5430,32 @@ function _templateObject3$a() {
   return data;
 }
 
-function _templateObject2$i() {
+function _templateObject2$l() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject2$i = function _templateObject2() {
+  _templateObject2$l = function _templateObject2() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject$J() {
+function _templateObject$T() {
   var data = _taggedTemplateLiteralLoose(["\n  max-width: 680px;\n  margin: auto;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$J = function _templateObject() {
+  _templateObject$T = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$7 = styled__default.div(_templateObject$J(), function (theme) {
+
+var Wrapper$7 = styled__default.div(_templateObject$T(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StepsWrapper = styled__default.div(_templateObject2$i(), function (_ref) {
+var StepsWrapper = styled__default.div(_templateObject2$l(), function (_ref) {
   var isHorizontal = _ref.isHorizontal;
   return isHorizontal && styled.css(["position:relative;::before{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,#ffffff 0%,rgba(255,255,255,0) 100% );transform:rotate(-180deg);position:absolute;top:0;left:0;z-index:2;}::after{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,#ffffff 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;right:0;z-index:2;}"]);
 });
@@ -4455,6 +5480,7 @@ var Step = styled__default.div(_templateObject5$2(), StepConnector, function (_r
   var isHorizontal = _ref6.isHorizontal;
   return isHorizontal && styled.css(["width:100px;min-width:100px;"]);
 });
+
 var Wizard = function Wizard(_ref7) {
   var currentStepContent = _ref7.currentStepContent,
       currentStepIndex = _ref7.currentStepIndex,
@@ -4550,21 +5576,30 @@ var Wizard = function Wizard(_ref7) {
     }));
   }))), isHorizontal && content);
 };
+
 Wizard.propTypes = WizardPropTypes;
 Wizard.defaultProps = WizardDefaultProps;
-
 exports.Alert = Alert;
 exports.AppContainer = AppContainer;
+exports.AuthLayout = AuthLayout;
+exports.Box = Box;
+exports.BoxBase = BoxBase;
 exports.Button = Button;
 exports.ButtonBase = ButtonBase;
+exports.COLOR = COLOR;
+exports.COLOR_PROP_TYPES = COLOR_PROP_TYPES;
 exports.Checkbox = Checkbox;
 exports.ChipBadge = ChipBadge;
 exports.Collapse = Collapse;
 exports.CollapseButton = CollapseButton;
+exports.DIMENSION = DIMENSION;
+exports.DIMENSION_PROP_TYPES = DIMENSION_PROP_TYPES;
 exports.DISPLAY = DISPLAY;
 exports.DISPLAY_PROP_TYPES = DISPLAY_PROP_TYPES;
 exports.DetailsTable = DetailsTable;
+exports.DotsSpinner = DotsSpinner;
 exports.DownloadModule = DownloadModule;
+exports.Dropdown = Dropdown;
 exports.ExplorerLayout = ExplorerLayout;
 exports.FieldBase = FieldBase;
 exports.FieldWrapper = FieldWrapper;
@@ -4577,6 +5612,7 @@ exports.FormLabel = FormLabel;
 exports.FormRow = FormRow;
 exports.FreeBrandIconSet = FreeBrandIconSet;
 exports.FreeSolidIconSet = FreeSolidIconSet;
+exports.GlobalStyle = GlobalStyle;
 exports.H1 = H1;
 exports.H2 = H2;
 exports.H3 = H3;
@@ -4593,6 +5629,7 @@ exports.KIT_COLORS = KIT_COLORS;
 exports.KIT_FONTS = KIT_FONTS;
 exports.KIT_ICON_SIZES = KIT_ICON_SIZES;
 exports.KIT_TYPOGRAPHY = KIT_TYPOGRAPHY;
+exports.Language = Language;
 exports.Modal = Modal;
 exports.OutlineButton = OutlineButton;
 exports.Paragraph = Paragraph;
@@ -4601,6 +5638,7 @@ exports.RadioBase = RadioBase;
 exports.ReactSelect = ReactSelect;
 exports.RocksKitIcons = RocksKitIcons;
 exports.RocksKitTheme = RocksKitTheme;
+exports.RocksSpinner = RocksSpinner;
 exports.SPACER = SPACER;
 exports.SPACER_FORMULA = SPACER_FORMULA;
 exports.SPACER_POSTFIX = SPACER_POSTFIX;
