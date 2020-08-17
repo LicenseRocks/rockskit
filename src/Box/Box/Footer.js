@@ -22,10 +22,13 @@ export const BoxFooter = ({
   actionDisabled,
   actionLoading,
   actionTitle,
+  actionType,
   renderAction,
   renderTitle,
   ...props
 }) => {
+  if (!renderTitle || !renderAction || !actionTitle) return null;
+
   return (
     <StyledBoxFooter {...props}>
       <Flex item>{renderTitle()}</Flex>
@@ -37,6 +40,7 @@ export const BoxFooter = ({
             disabled={actionDisabled}
             loading={actionLoading}
             onClick={action}
+            type={actionType}
           />
         )}
       </Flex>
@@ -49,6 +53,7 @@ BoxFooter.propTypes = {
   actionDisabled: PropTypes.bool,
   actionLoading: PropTypes.bool,
   actionTitle: PropTypes.string.isRequired,
+  actionType: PropTypes.string,
   padding: PropTypes.number.isRequired,
   renderAction: PropTypes.func,
   renderTitle: PropTypes.func,
@@ -58,6 +63,7 @@ BoxFooter.defaultProps = {
   action: () => {},
   actionDisabled: false,
   actionLoading: false,
+  actionType: "submit",
   renderAction: () => {},
   renderTitle: () => {},
 };

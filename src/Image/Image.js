@@ -10,7 +10,7 @@ export const Image = ({ ...props }) => {
 
 const StyledImg = styled.img`
   ${({ width }) => width && `width: ${width};`}
-  ${({ height }) => height && `width: ${height};`}
+  ${({ height }) => height && `height: ${height};`}
 
   ${({ cover }) =>
     cover &&

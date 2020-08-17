@@ -16,6 +16,7 @@ export const Box = ({
   footerActionLoading,
   footerActionDisabled,
   footerActionTitle,
+  footerActionType,
   footerRenderAction,
   footerRenderTitle,
   headerAction,
@@ -50,6 +51,7 @@ export const Box = ({
         actionDisabled={footerActionDisabled}
         actionLoading={footerActionLoading}
         actionTitle={footerActionTitle}
+        actionType={footerActionType}
         padding={padding}
         renderAction={footerRenderAction}
         renderTitle={footerRenderTitle}

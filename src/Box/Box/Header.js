@@ -28,7 +28,7 @@ export const BoxHeader = ({
 }) => {
   return (
     <StyledBoxHeader {...props}>
-      <Flex container item xs={6}>
+      <Flex container item xs={8}>
         {renderTitle() || (
           <>
             {titleIcon && <Icon colorBlack icon={titleIcon} mr={2} size="lg" />}

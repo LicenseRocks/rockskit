@@ -18,14 +18,16 @@ const Content = styled.div`
 export const AuthLayout = ({
   content,
   headerLeft,
+  headerBackButtonOnClick,
   headerLogoAction,
   headerRight,
   ...props
 }) => {
   return (
     <StyledContainer {...props}>
-      <Flex container direction="column" lg={4} md={6} xs={12} mAuto h100>
+      <Flex container direction="column" lg={5} md={8} xs={12} mAuto h100>
         <AuthLayoutHeader
+          backButtonOnClick={headerBackButtonOnClick}
           headerLeft={headerLeft}
           headerLogoAction={headerLogoAction}
           headerRight={headerRight}
