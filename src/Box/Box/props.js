@@ -19,10 +19,12 @@ export const BoxPropTypes = {
   headerTitle: PropTypes.string,
   headerTitleIcon: PropTypes.string,
   padding: PropTypes.number,
+  transition: PropTypes.bool,
   ...BoxBasePropTypes,
 };
 
 export const BoxDefaultProps = {
   padding: 6,
+  transition: false,
   ...BoxBaseDefaultProps,
 };

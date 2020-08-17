@@ -11,7 +11,7 @@ export const LoginTemplate = () => {
       {loginMethod === "oAuth" ? (
         <LoginTemplateOAuth switchLoginMethod={() => setLoginMethod("basic")} />
       ) : (
-        <LoginTemplateBasic />
+        <LoginTemplateBasic switchLoginMethod={() => setLoginMethod("oAuth")} />
       )}
       <LoginTemplateCreateAccountText align="center" mt={6} />
     </>
