@@ -1,84 +1,45 @@
 'use strict';
 
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
+Object.defineProperty(exports, '__esModule', { value: true });
 
-function _interopDefault$1(ex) {
-  return ex && typeof ex === 'object' && 'default' in ex ? ex['default'] : ex;
-}
+function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
 
 var React = require('react');
-
-var React__default = _interopDefault$1(React);
-
+var React__default = _interopDefault(React);
 var styled = require('styled-components');
-
-var styled__default = _interopDefault$1(styled);
-
+var styled__default = _interopDefault(styled);
 var reactFontawesome = require('@fortawesome/react-fontawesome');
-
 var freeBrandsSvgIcons = require('@fortawesome/free-brands-svg-icons');
-
 var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
-
 var styles = require('@material-ui/core/styles');
-
 var PropTypes = require('prop-types');
-
-var PropTypes__default = _interopDefault$1(PropTypes);
-
-var CssBaseline = _interopDefault$1(require('@material-ui/core/CssBaseline'));
-
+var PropTypes__default = _interopDefault(PropTypes);
+var CssBaseline = _interopDefault(require('@material-ui/core/CssBaseline'));
 var fontawesomeSvgCore = require('@fortawesome/fontawesome-svg-core');
-
 var notistack = require('notistack');
-
-var Typography = _interopDefault$1(require('@material-ui/core/Typography'));
-
-var Grid = _interopDefault$1(require('@material-ui/core/Grid'));
-
-var MuiButtonBase = _interopDefault$1(require('@material-ui/core/ButtonBase'));
-
+var Typography = _interopDefault(require('@material-ui/core/Typography'));
+var Grid = _interopDefault(require('@material-ui/core/Grid'));
+var MuiButtonBase = _interopDefault(require('@material-ui/core/ButtonBase'));
 var reactCollapse = require('react-collapse');
-
-var Menu = _interopDefault$1(require('@material-ui/core/Menu'));
-
-var MenuItem = _interopDefault$1(require('@material-ui/core/MenuItem'));
-
-var QRCode = _interopDefault$1(require('qrcode.react'));
-
+var Menu = _interopDefault(require('@material-ui/core/Menu'));
+var MenuItem = _interopDefault(require('@material-ui/core/MenuItem'));
+var QRCode = _interopDefault(require('qrcode.react'));
 var reactHookForm = require('react-hook-form');
-
 var reactDropzone = require('react-dropzone');
-
-var axios = _interopDefault$1(require('axios'));
-
-var Select$1 = _interopDefault$1(require('react-select'));
-
-var AsyncSelect = _interopDefault$1(require('react-select/async'));
-
-var MuiContainer = _interopDefault$1(require('@material-ui/core/Container'));
-
-var Hidden = _interopDefault$1(require('@material-ui/core/Hidden'));
-
-var CircularProgress = _interopDefault$1(require('@material-ui/core/CircularProgress'));
-
-var Dialog = _interopDefault$1(require('@material-ui/core/Dialog'));
-
-var DialogActions = _interopDefault$1(require('@material-ui/core/DialogActions'));
-
-var DialogContent = _interopDefault$1(require('@material-ui/core/DialogContent'));
-
-var DialogTitle = _interopDefault$1(require('@material-ui/core/DialogTitle'));
-
-var copy = _interopDefault$1(require('copy-to-clipboard'));
-
-var MuiTabs = _interopDefault$1(require('@material-ui/core/Tabs'));
-
-var MuiTab = _interopDefault$1(require('@material-ui/core/Tab'));
-
-var ReactDOM = _interopDefault$1(require('react-dom'));
+var axios = _interopDefault(require('axios'));
+var Select$1 = _interopDefault(require('react-select'));
+var AsyncSelect = _interopDefault(require('react-select/async'));
+var MuiContainer = _interopDefault(require('@material-ui/core/Container'));
+var Hidden = _interopDefault(require('@material-ui/core/Hidden'));
+var CircularProgress = _interopDefault(require('@material-ui/core/CircularProgress'));
+var Dialog = _interopDefault(require('@material-ui/core/Dialog'));
+var DialogActions = _interopDefault(require('@material-ui/core/DialogActions'));
+var DialogContent = _interopDefault(require('@material-ui/core/DialogContent'));
+var DialogTitle = _interopDefault(require('@material-ui/core/DialogTitle'));
+var copy = _interopDefault(require('copy-to-clipboard'));
+var MuiTabs = _interopDefault(require('@material-ui/core/Tabs'));
+var MuiTab = _interopDefault(require('@material-ui/core/Tab'));
+var ReactDOM = _interopDefault(require('react-dom'));
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -131,14 +92,15 @@ function _templateObject() {
 
   return data;
 }
-
 var GlobalStyle = styled.createGlobalStyle(_templateObject());
+
 var FreeBrandIconSet = {
   fabFacebookF: freeBrandsSvgIcons.faFacebookF,
   fabTelegramPlane: freeBrandsSvgIcons.faTelegramPlane,
   fabTwitter: freeBrandsSvgIcons.faTwitter,
   fabWhatsapp: freeBrandsSvgIcons.faWhatsapp
 };
+
 var FreeSolidIconSet = {
   faArrowLeft: freeSolidSvgIcons.faArrowLeft,
   faArrowRight: freeSolidSvgIcons.faArrowRight,
@@ -162,6 +124,7 @@ var FreeSolidIconSet = {
   faTimes: freeSolidSvgIcons.faTimes,
   faUser: freeSolidSvgIcons.faUser
 };
+
 var KIT_COLORS = {
   primary: {
     main: "#AC00fC",
@@ -185,6 +148,7 @@ var KIT_COLORS = {
     lightYellow: "#FFF3A2"
   }
 };
+
 var KIT_FONTS = {
   Galano: {
     name: "GalanoGrotesque-Bold"
@@ -193,11 +157,13 @@ var KIT_FONTS = {
     name: "Inter"
   }
 };
+
 var KIT_ICON_SIZES = {
   lg: 20,
   md: 16,
   sm: 12
 };
+
 var KIT_TYPOGRAPHY = {
   h1: function h1(theme) {
     var _ref;
@@ -313,7 +279,6 @@ var KIT_TYPOGRAPHY = {
 };
 
 var RocksKitIcons = _extends({}, FreeBrandIconSet, FreeSolidIconSet);
-
 var RocksKitTheme = styles.createMuiTheme({
   breakpoints: {
     values: {
@@ -394,6 +359,7 @@ RocksKitTheme.spacing = function () {
 RocksKitTheme.overrides.MuiButtonBase = {
   root: KIT_TYPOGRAPHY.button()
 };
+
 var COLOR_PROP_TYPES = {
   colorPrimary: PropTypes__default.bool,
   colorPrimaryLight: PropTypes__default.bool,
@@ -411,7 +377,6 @@ var COLOR_PROP_TYPES = {
   colorSuccess: PropTypes__default.bool,
   colorSuccessLight: PropTypes__default.bool
 };
-
 var COLOR = function COLOR(_ref) {
   var colorPrimary = _ref.colorPrimary,
       colorPrimaryLight = _ref.colorPrimaryLight,
@@ -453,7 +418,6 @@ var DIMENSION_PROP_TYPES = {
   h100vh: PropTypes__default.bool,
   w100vw: PropTypes__default.bool
 };
-
 var DIMENSION = function DIMENSION(_ref) {
   var h100 = _ref.h100,
       w100 = _ref.w100,
@@ -475,7 +439,6 @@ var DISPLAY_PROP_TYPES = {
   dInlineFlex: PropTypes__default.bool,
   dNone: PropTypes__default.bool
 };
-
 var DISPLAY = function DISPLAY(_ref) {
   var dBlock = _ref.dBlock,
       dFlex = _ref.dFlex,
@@ -496,11 +459,9 @@ var DISPLAY = function DISPLAY(_ref) {
 var SPACER_FORMULA = function SPACER_FORMULA(factor) {
   return factor * 4;
 };
-
 var SPACER_POSTFIX = function SPACER_POSTFIX(space) {
   return "" + (space > 0 ? "px" : "");
 };
-
 var SPACER_PROP_TYPES = {
   m: PropTypes__default.number,
   m0: PropTypes__default.bool,
@@ -520,7 +481,6 @@ var SPACER_PROP_TYPES = {
   pr: PropTypes__default.number,
   pl: PropTypes__default.number
 };
-
 var SPACER = function SPACER(_ref) {
   var m = _ref.m,
       m0 = _ref.m0,
@@ -570,7 +530,6 @@ var IconPropTypes = _extends({
   prefix: PropTypes__default.string,
   size: PropTypes__default.oneOf(Object.keys(KIT_ICON_SIZES))
 }, COLOR_PROP_TYPES, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var IconDefaultProps = {
   bordered: false,
   color: "primary",
@@ -596,7 +555,6 @@ function _templateObject$1() {
 
   return data;
 }
-
 var Bordered = styled__default.div(_templateObject$1(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
@@ -629,7 +587,6 @@ var StyledIcon = styled__default(function (_ref2) {
 }, function (theme) {
   return SPACER(theme);
 });
-
 var Icon = function Icon(_ref6) {
   var bordered = _ref6.bordered,
       className = _ref6.className,
@@ -651,7 +608,6 @@ var Icon = function Icon(_ref6) {
     className: className
   }, defaultProps));
 };
-
 Icon.propTypes = IconPropTypes;
 Icon.defaultProps = IconDefaultProps;
 
@@ -660,7 +616,6 @@ var AlertPropTypes = _extends({
   children: PropTypes__default.node,
   color: PropTypes__default.oneOf(["info", "danger", "warning"])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var AlertDefaultProps = {
   content: null,
   children: null,
@@ -676,7 +631,6 @@ function _templateObject$2() {
 
   return data;
 }
-
 var StyledMessage = styled__default.div(_templateObject$2(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
@@ -699,7 +653,6 @@ var StyledMessage = styled__default.div(_templateObject$2(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var Alert = function Alert(_ref6) {
   var content = _ref6.content,
       children = _ref6.children,
@@ -710,9 +663,9 @@ var Alert = function Alert(_ref6) {
     mr: 2
   }), content || children);
 };
-
 Alert.propTypes = AlertPropTypes;
 Alert.defaultProps = AlertDefaultProps;
+
 var AppContainerPropTypes = {
   children: PropTypes__default.node.isRequired,
   icons: PropTypes__default.object,
@@ -732,7 +685,6 @@ var AppContainer = function AppContainer(_ref) {
     maxSnack: 3
   }, /*#__PURE__*/React__default.createElement(GlobalStyle, null), /*#__PURE__*/React__default.createElement(CssBaseline, null), children)));
 };
-
 AppContainer.propTypes = AppContainerPropTypes;
 
 var ChipBadgePropTypes = _extends({
@@ -740,7 +692,6 @@ var ChipBadgePropTypes = _extends({
   label: PropTypes__default.string,
   icon: PropTypes__default.string.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var ChipBadgeDefaultProps = {
   color: "primary"
 };
@@ -764,13 +715,11 @@ function _templateObject$3() {
 
   return data;
 }
-
 var StyledHeading = styled__default(Typography)(_templateObject$3(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var HeadingBase = function HeadingBase(_ref) {
   var content = _ref.content,
       children = _ref.children,
@@ -778,7 +727,6 @@ var HeadingBase = function HeadingBase(_ref) {
 
   return /*#__PURE__*/React__default.createElement(StyledHeading, props, content || children);
 };
-
 HeadingBase.propTypes = HeadingBasePropTypes;
 
 var H1 = function H1(props) {
@@ -786,7 +734,6 @@ var H1 = function H1(props) {
     variant: "h1"
   }, props));
 };
-
 H1.propTypes = HeadingBasePropTypes;
 
 var H2 = function H2(props) {
@@ -794,7 +741,6 @@ var H2 = function H2(props) {
     variant: "h2"
   }, props));
 };
-
 H2.propTypes = HeadingBasePropTypes;
 
 var H3 = function H3(props) {
@@ -802,7 +748,6 @@ var H3 = function H3(props) {
     variant: "h3"
   }, props));
 };
-
 H3.propTypes = HeadingBasePropTypes;
 
 var H4 = function H4(props) {
@@ -810,7 +755,6 @@ var H4 = function H4(props) {
     variant: "h4"
   }, props));
 };
-
 H4.propTypes = HeadingBasePropTypes;
 
 var H5 = function H5(props) {
@@ -818,7 +762,6 @@ var H5 = function H5(props) {
     variant: "h5"
   }, props));
 };
-
 H5.propTypes = HeadingBasePropTypes;
 
 var H6 = function H6(props) {
@@ -826,7 +769,6 @@ var H6 = function H6(props) {
     variant: "h6"
   }, props));
 };
-
 H6.propTypes = HeadingBasePropTypes;
 
 var TextBasePropTypes = _extends({
@@ -841,7 +783,6 @@ var TextBasePropTypes = _extends({
   gutterBottom: PropTypes__default.bool,
   noWrap: PropTypes__default.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var TextBaseDefaultProps = {
   fontStyle: "normal",
   fontWeight: "regular",
@@ -857,7 +798,6 @@ function _templateObject$4() {
 
   return data;
 }
-
 var StyledText = styled__default(Typography)(_templateObject$4(), function (_ref) {
   var fontWeight = _ref.fontWeight,
       theme = _ref.theme;
@@ -893,7 +833,6 @@ var StyledText = styled__default(Typography)(_templateObject$4(), function (_ref
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var TextBase = function TextBase(_ref4) {
   var content = _ref4.content,
       children = _ref4.children,
@@ -901,7 +840,6 @@ var TextBase = function TextBase(_ref4) {
 
   return /*#__PURE__*/React__default.createElement(StyledText, props, content || children);
 };
-
 TextBase.propTypes = TextBasePropTypes;
 TextBase.defaultProps = TextBaseDefaultProps;
 
@@ -914,19 +852,16 @@ function _templateObject$5() {
 
   return data;
 }
-
 var StyledParagraph = styled__default(TextBase)(_templateObject$5(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
-
 var Paragraph = function Paragraph(props) {
   return /*#__PURE__*/React__default.createElement(StyledParagraph, _extends({
     variant: "body1",
     paragraph: true
   }, props));
 };
-
 Paragraph.propTypes = TextBasePropTypes;
 
 var Text = function Text(props) {
@@ -935,7 +870,6 @@ var Text = function Text(props) {
     variant: "body2"
   }, props));
 };
-
 Text.propTypes = TextBasePropTypes;
 
 function _templateObject2$1() {
@@ -957,7 +891,6 @@ function _templateObject$6() {
 
   return data;
 }
-
 var StyledChip = styled__default.div(_templateObject$6(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
@@ -975,7 +908,6 @@ var StyledLabel = styled__default(Text).attrs(function () {
   var theme = _ref2.theme;
   return theme.spacing(2);
 });
-
 var ChipBadge = function ChipBadge(_ref3) {
   var color = _ref3.color,
       icon = _ref3.icon,
@@ -989,14 +921,12 @@ var ChipBadge = function ChipBadge(_ref3) {
     icon: icon
   }), label && /*#__PURE__*/React__default.createElement(StyledLabel, null, label));
 };
-
 ChipBadge.propTypes = ChipBadgePropTypes;
 ChipBadge.defaultProps = ChipBadgeDefaultProps;
 
 var BoxBasePropTypes = _extends({
   shadow: PropTypes__default.oneOf(["none", "normal", "long"])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var BoxBaseDefaultProps = {
   shadow: "normal"
 };
@@ -1010,7 +940,6 @@ function _templateObject$7() {
 
   return data;
 }
-
 var StyledBox = styled__default.div(_templateObject$7(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
@@ -1024,11 +953,9 @@ var StyledBox = styled__default.div(_templateObject$7(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var BoxBase = function BoxBase(props) {
   return /*#__PURE__*/React__default.createElement(StyledBox, props);
 };
-
 BoxBase.propTypes = BoxBasePropTypes;
 BoxBase.defaultProps = BoxBaseDefaultProps;
 
@@ -1038,7 +965,6 @@ var FlexPropTypes = _extends({
   item: PropTypes__default.bool,
   justify: PropTypes__default.oneOf(["flex-start", "center", "flex-end", "space-between", "space-around", "space-evenly"])
 }, SPACER_PROP_TYPES, DIMENSION_PROP_TYPES);
-
 var FlexDefaultProps = {
   alignItems: "center",
   justify: "flex-start"
@@ -1053,7 +979,6 @@ function _templateObject$8() {
 
   return data;
 }
-
 var StyledFlex = styled__default(Grid)(_templateObject$8(), function (theme) {
   return DIMENSION(theme);
 }, function (theme) {
@@ -1061,11 +986,9 @@ var StyledFlex = styled__default(Grid)(_templateObject$8(), function (theme) {
 }, function (theme) {
   return SPACER(theme);
 });
-
 var Flex = function Flex(props) {
   return /*#__PURE__*/React__default.createElement(StyledFlex, props);
 };
-
 Flex.propTypes = FlexPropTypes;
 Flex.defaultProps = FlexDefaultProps;
 
@@ -1078,7 +1001,6 @@ function _templateObject$9() {
 
   return data;
 }
-
 var StyledBoxFooter = styled__default(Flex).attrs(function () {
   return {
     container: true,
@@ -1096,7 +1018,6 @@ var StyledBoxFooter = styled__default(Flex).attrs(function () {
   var theme = _ref3.theme;
   return theme.palette.gray.semiLight;
 });
-
 var BoxFooter = function BoxFooter(_ref4) {
   var action = _ref4.action,
       actionDisabled = _ref4.actionDisabled,
@@ -1117,7 +1038,6 @@ var BoxFooter = function BoxFooter(_ref4) {
     onClick: action
   })));
 };
-
 BoxFooter.propTypes = {
   action: PropTypes__default.func,
   actionDisabled: PropTypes__default.bool,
@@ -1144,7 +1064,6 @@ function _templateObject$a() {
 
   return data;
 }
-
 var StyledBoxHeader = styled__default(Flex).attrs(function () {
   return {
     container: true,
@@ -1161,7 +1080,6 @@ var StyledBoxHeader = styled__default(Flex).attrs(function () {
   var theme = _ref3.theme;
   return theme.palette.gray.semiLight;
 });
-
 var BoxHeader = function BoxHeader(_ref4) {
   var action = _ref4.action,
       actionIcon = _ref4.actionIcon,
@@ -1193,7 +1111,6 @@ var BoxHeader = function BoxHeader(_ref4) {
     onClick: action
   })));
 };
-
 BoxHeader.propTypes = {
   action: PropTypes__default.func,
   actionIcon: PropTypes__default.string,
@@ -1232,7 +1149,6 @@ var BoxPropTypes = _extends({
   headerTitleIcon: PropTypes__default.string,
   padding: PropTypes__default.number
 }, BoxBasePropTypes);
-
 var BoxDefaultProps = _extends({
   padding: 6
 }, BoxBaseDefaultProps);
@@ -1246,13 +1162,11 @@ function _templateObject$b() {
 
   return data;
 }
-
 var BoxContent = styled__default.div(_templateObject$b(), function (_ref) {
   var padding = _ref.padding,
       theme = _ref.theme;
   return theme.spacing(padding);
 });
-
 var Box = function Box(_ref2) {
   var children = _ref2.children,
       footerAction = _ref2.footerAction,
@@ -1292,7 +1206,6 @@ var Box = function Box(_ref2) {
     renderTitle: footerRenderTitle
   }));
 };
-
 Box.propTypes = BoxPropTypes;
 Box.defaultProps = BoxDefaultProps;
 
@@ -1309,7 +1222,6 @@ var ButtonBasePropTypes = _extends({
   startIcon: PropTypes__default.string,
   target: PropTypes__default.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var ButtonBaseDefaultProps = {
   color: "primary",
   size: "md"
@@ -1324,7 +1236,6 @@ function _templateObject$c() {
 
   return data;
 }
-
 var StyledButton = styled__default(MuiButtonBase)(_templateObject$c(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(0, 4);
@@ -1388,7 +1299,6 @@ var ButtonBase = function ButtonBase(_ref3) {
     ml: 2
   })));
 };
-
 ButtonBase.propTypes = ButtonBasePropTypes;
 ButtonBase.defaultProps = ButtonBaseDefaultProps;
 
@@ -1401,7 +1311,6 @@ function _templateObject$d() {
 
   return data;
 }
-
 var StyledButton$1 = styled__default(ButtonBase)(_templateObject$d(), function (_ref) {
   var colors = _ref.colors;
   return styled.css(["background-color:", ";color:", ";svg{color:", ";}"], colors.backgroundColor, colors.color, colors.color);
@@ -1432,7 +1341,6 @@ var Button = function Button(_ref2) {
     colors: colors
   }, props));
 };
-
 Button.propTypes = ButtonBasePropTypes;
 
 function _templateObject$e() {
@@ -1444,7 +1352,6 @@ function _templateObject$e() {
 
   return data;
 }
-
 var StyledButton$2 = styled__default(ButtonBase)(_templateObject$e(), function (_ref) {
   var colors = _ref.colors;
   return styled.css(["border:1px solid ", ";color:", ";svg{color:", ";}:hover{background-color:", ";opacity:1;}"], colors.borderColor, colors.color, colors.color, colors.backgroundColorHover);
@@ -1478,7 +1385,6 @@ var OutlineButton = function OutlineButton(_ref2) {
     colors: colors
   }, props));
 };
-
 OutlineButton.propTypes = ButtonBasePropTypes;
 
 function _templateObject$f() {
@@ -1490,7 +1396,6 @@ function _templateObject$f() {
 
   return data;
 }
-
 var StyledButton$3 = styled__default(ButtonBase)(_templateObject$f(), function (_ref) {
   var colors = _ref.colors;
   return styled.css(["color:", ";svg{color:", ";}"], colors.color, colors.color);
@@ -1518,8 +1423,8 @@ var TextButton = function TextButton(_ref2) {
     colors: colors
   }, props));
 };
-
 TextButton.propTypes = ButtonBasePropTypes;
+
 var CollapsePropTypes = {
   isOpened: PropTypes__default.bool
 };
@@ -1533,13 +1438,10 @@ function _templateObject$g() {
 
   return data;
 }
-
 var Wrapper = styled__default.div(_templateObject$g());
-
 var Collapse = function Collapse(props) {
   return /*#__PURE__*/React__default.createElement(Wrapper, null, /*#__PURE__*/React__default.createElement(reactCollapse.Collapse, props));
 };
-
 Collapse.propTypes = CollapsePropTypes;
 
 var CollapseButton = function CollapseButton(_ref) {
@@ -1550,7 +1452,6 @@ var CollapseButton = function CollapseButton(_ref) {
     icon: isOpened ? "chevron-up" : "chevron-down"
   }, props));
 };
-
 CollapseButton.propTypes = {
   isOpened: PropTypes__default.bool.isRequired
 };
@@ -1562,7 +1463,6 @@ var DetailsTablePropTypes = _extends({
     expanded: PropTypes__default.bool
   }))
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var DetailsTableDefaultProps = {};
 
 function _templateObject3() {
@@ -1594,7 +1494,6 @@ function _templateObject$h() {
 
   return data;
 }
-
 var Wrapper$1 = styled__default.div(_templateObject$h(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -1609,7 +1508,6 @@ var Label = styled__default(Text).attrs(function () {
     color: "textSecondary"
   };
 })(_templateObject3());
-
 var DetailsTable = function DetailsTable(_ref2) {
   var rows = _ref2.rows,
       props = _objectWithoutPropertiesLoose(_ref2, ["rows"]);
@@ -1624,7 +1522,6 @@ var DetailsTable = function DetailsTable(_ref2) {
     }), value);
   }));
 };
-
 DetailsTable.propTypes = DetailsTablePropTypes;
 DetailsTable.defaultProps = DetailsTableDefaultProps;
 
@@ -1636,7 +1533,6 @@ var DropdownPropTypes = _extends({
   onClose: PropTypes__default.func,
   open: PropTypes__default.bool.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var DropdownDefaultProps = {
   anchorOrigin: {
     vertical: "bottom",
@@ -1668,14 +1564,12 @@ function _templateObject$i() {
 
   return data;
 }
-
 var StyledDropdown = styled__default(Menu)(_templateObject$i(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
 var StyledItem = styled__default(MenuItem)(_templateObject2$3());
-
 var Dropdown = function Dropdown(_ref) {
   var items = _ref.items,
       props = _objectWithoutPropertiesLoose(_ref, ["items"]);
@@ -1694,7 +1588,6 @@ var Dropdown = function Dropdown(_ref) {
     }, itemProps), label);
   }));
 };
-
 Dropdown.propTypes = DropdownPropTypes;
 Dropdown.defaultProps = DropdownDefaultProps;
 
@@ -1707,7 +1600,6 @@ function _templateObject$j() {
 
   return data;
 }
-
 var Wrapper$2 = styled__default.div(_templateObject$j(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.light;
@@ -1715,7 +1607,6 @@ var Wrapper$2 = styled__default.div(_templateObject$j(), function (_ref) {
   var theme = _ref2.theme;
   return theme.palette.primary.main;
 });
-
 var DownloadModuleButton = function DownloadModuleButton(_ref3) {
   var icon = _ref3.icon;
   return /*#__PURE__*/React__default.createElement(Wrapper$2, null, /*#__PURE__*/React__default.createElement(Icon, {
@@ -1723,7 +1614,6 @@ var DownloadModuleButton = function DownloadModuleButton(_ref3) {
     size: "lg"
   }));
 };
-
 DownloadModuleButton.propTypes = {
   icon: PropTypes__default.string.isRequired
 };
@@ -1737,7 +1627,6 @@ var DownloadModulePropTypes = _extends({
   qrCodeUrl: PropTypes__default.string,
   qrCodeValue: PropTypes__default.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var DownloadModuleDefaultProps = {
   downloadPdfText: "Download as PDF",
   downloadQrCodeDesc: "Or just download the QR Code of license",
@@ -1754,7 +1643,6 @@ function _templateObject$k() {
 
   return data;
 }
-
 var Container = styled__default.div(_templateObject$k(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
@@ -1766,7 +1654,6 @@ var Container = styled__default.div(_templateObject$k(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var DownloadModule = function DownloadModule(_ref3) {
   var downloadPdfText = _ref3.downloadPdfText,
       downloadPdfUrl = _ref3.downloadPdfUrl,
@@ -1805,7 +1692,6 @@ var DownloadModule = function DownloadModule(_ref3) {
     size: "sm"
   }))));
 };
-
 DownloadModule.propTypes = DownloadModulePropTypes;
 DownloadModule.defaultProps = DownloadModuleDefaultProps;
 
@@ -1821,7 +1707,6 @@ var FileManagerPropTypes = _extends({
     }))
   }))
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var FileManagerDefaultProps = {};
 
 function _templateObject4() {
@@ -1863,7 +1748,6 @@ function _templateObject$l() {
 
   return data;
 }
-
 var Container$1 = styled__default.div(_templateObject$l());
 var Wrapper$3 = styled__default.div(_templateObject2$4(), function (_ref) {
   var theme = _ref.theme;
@@ -1895,7 +1779,6 @@ var Item = styled__default(Grid).attrs(function (_ref5) {
     lg: lg || 3
   };
 })(_templateObject4());
-
 var FileManager = function FileManager(_ref6) {
   var data = _ref6.data;
   return /*#__PURE__*/React__default.createElement(Container$1, null, data.map(function (_ref7) {
@@ -1945,10 +1828,10 @@ var FileManager = function FileManager(_ref6) {
     }));
   }));
 };
-
 FileManager.propTypes = FileManagerPropTypes;
 FileManager.defaultProps = FileManagerDefaultProps;
-var img = "data:image/svg+xml,%3csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.5938 0.625L5.375 8.84375L2.375 5.8125C2.21875 5.6875 1.96875 5.6875 1.84375 5.8125L0.9375 6.71875C0.8125 6.84375 0.8125 7.09375 0.9375 7.25L5.125 11.4062C5.28125 11.5625 5.5 11.5625 5.65625 11.4062L15.0312 2.03125C15.1562 1.90625 15.1562 1.65625 15.0312 1.5L14.125 0.625C14 0.46875 13.75 0.46875 13.5938 0.625Z' fill='white'/%3e%3c/svg%3e";
+
+const img = "data:image/svg+xml,%3csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.5938 0.625L5.375 8.84375L2.375 5.8125C2.21875 5.6875 1.96875 5.6875 1.84375 5.8125L0.9375 6.71875C0.8125 6.84375 0.8125 7.09375 0.9375 7.25L5.125 11.4062C5.28125 11.5625 5.5 11.5625 5.65625 11.4062L15.0312 2.03125C15.1562 1.90625 15.1562 1.65625 15.0312 1.5L14.125 0.625C14 0.46875 13.75 0.46875 13.5938 0.625Z' fill='white'/%3e%3c/svg%3e";
 
 var RadioBasePropTypes = _extends({
   defaultValue: PropTypes__default.oneOfType([PropTypes__default.arrayOf(PropTypes__default.string), PropTypes__default.string]),
@@ -1961,7 +1844,6 @@ var RadioBasePropTypes = _extends({
   register: PropTypes__default.func.isRequired,
   stacked: PropTypes__default.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var RadioBaseDefaultProps = {
   defaultValue: "",
   hasError: false,
@@ -1988,7 +1870,6 @@ function _templateObject$m() {
 
   return data;
 }
-
 var StyledInput = styled__default.input(_templateObject$m(), function (_ref) {
   var stacked = _ref.stacked;
   return stacked && styled.css(["display:flex;:not(:last-child){margin:0 0 24px 0;}"]);
@@ -2021,7 +1902,6 @@ var StyledInput = styled__default.input(_templateObject$m(), function (_ref) {
   return theme.palette.primary.main;
 }, "" + img);
 var StyledLabel$1 = styled__default.label(_templateObject2$5());
-
 var RadioBaseItem = function RadioBaseItem(_ref11) {
   var defaultValue = _ref11.defaultValue,
       hasError = _ref11.hasError,
@@ -2049,7 +1929,6 @@ var RadioBaseItem = function RadioBaseItem(_ref11) {
     htmlFor: id
   }, label));
 };
-
 RadioBaseItem.propTypes = RadioBasePropTypes;
 RadioBaseItem.defaultProps = RadioBaseDefaultProps;
 
@@ -2063,7 +1942,6 @@ var RadioBase = function RadioBase(_ref) {
     }, opt, props));
   }));
 };
-
 RadioBase.propTypes = RadioBasePropTypes;
 RadioBase.defaultProps = RadioBaseDefaultProps;
 
@@ -2076,26 +1954,22 @@ function _templateObject$n() {
 
   return data;
 }
-
 var StyledRadioBase = styled__default(RadioBase)(_templateObject$n(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var Checkbox = function Checkbox(props) {
   return /*#__PURE__*/React__default.createElement(StyledRadioBase, _extends({
     type: "checkbox"
   }, props));
 };
-
 Checkbox.propTypes = RadioBasePropTypes;
 Checkbox.defaultProps = RadioBaseDefaultProps;
 
 var FormErrorPropTypes = _extends({
   message: PropTypes__default.node.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var FormErrorDefaultProps = {};
 
 function _templateObject$o() {
@@ -2107,7 +1981,6 @@ function _templateObject$o() {
 
   return data;
 }
-
 var Error = styled__default.div(_templateObject$o(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.error.main;
@@ -2119,14 +1992,12 @@ var Error = styled__default.div(_templateObject$o(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var FormError = function FormError(_ref3) {
   var message = _ref3.message,
       props = _objectWithoutPropertiesLoose(_ref3, ["message"]);
 
   return /*#__PURE__*/React__default.createElement(Error, props, message);
 };
-
 FormError.propTypes = FormErrorPropTypes;
 FormError.defaultProps = FormErrorDefaultProps;
 
@@ -2141,7 +2012,6 @@ var FieldWrapperPropTypes = _extends({
   startIconOnClick: PropTypes__default.func,
   startIconPrefix: PropTypes__default.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var FieldWrapperDefaultProps = {
   block: true,
   endIcon: "",
@@ -2159,7 +2029,6 @@ function _templateObject$p() {
 
   return data;
 }
-
 var StyledWrapper = styled__default.div(_templateObject$p(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(3);
@@ -2195,7 +2064,6 @@ var StyledWrapper = styled__default.div(_templateObject$p(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var FieldWrapper = function FieldWrapper(_ref11) {
   var children = _ref11.children,
       endIcon = _ref11.endIcon,
@@ -2220,7 +2088,6 @@ var FieldWrapper = function FieldWrapper(_ref11) {
     prefix: endIconPrefix
   }));
 };
-
 FieldWrapper.propTypes = FieldWrapperPropTypes;
 FieldWrapper.defaultProps = FieldWrapperDefaultProps;
 
@@ -2231,7 +2098,6 @@ var FieldBasePropTypes = _extends({}, FieldWrapperPropTypes, {
   register: PropTypes__default.func,
   type: PropTypes__default.string
 });
-
 var FieldBaseDefaultProps = _extends({}, FieldWrapperDefaultProps, {
   disabled: false,
   hasError: false,
@@ -2249,7 +2115,6 @@ function _templateObject$q() {
 
   return data;
 }
-
 var StyledInput$1 = styled__default(
 /*#__PURE__*/
 // eslint-disable-next-line react/prop-types
@@ -2285,7 +2150,6 @@ React.forwardRef(function (_ref, ref) {
   var selectable = _ref9.selectable;
   return selectable && styled.css(["user-select:all;"]);
 });
-
 var FieldBase = function FieldBase(_ref10) {
   var block = _ref10.block,
       endIcon = _ref10.endIcon,
@@ -2315,7 +2179,6 @@ var FieldBase = function FieldBase(_ref10) {
     ref: register
   }, props)));
 };
-
 FieldBase.propTypes = FieldBasePropTypes;
 FieldBase.defaultProps = FieldBaseDefaultProps;
 
@@ -2328,14 +2191,11 @@ function _templateObject$r() {
 
   return data;
 }
-
 var StyledFieldset = styled__default.fieldset(_templateObject$r());
-
 var Fieldset = function Fieldset(_ref) {
   var children = _ref.children;
   return /*#__PURE__*/React__default.createElement(StyledFieldset, null, children);
 };
-
 Fieldset.propTypes = {
   children: PropTypes__default.node.isRequired
 };
@@ -2360,7 +2220,6 @@ function _templateObject$s() {
 
   return data;
 }
-
 var Item$1 = styled__default.div(_templateObject$s(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.success.main;
@@ -2392,7 +2251,6 @@ var DropzonePreview = function DropzonePreview(_ref4) {
     }));
   });
 };
-
 DropzonePreview.propTypes = {
   files: PropTypes__default.arrayOf(PropTypes__default.object),
   onRemoveClick: PropTypes__default.func.isRequired
@@ -2420,7 +2278,6 @@ function _templateObject$t() {
 
   return data;
 }
-
 var StyledContainer = styled__default.div(_templateObject$t(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -2455,7 +2312,6 @@ var DropzoneArea = styled__default.div(_templateObject2$7(), function (_ref) {
       theme = _ref9.theme;
   return dragActive && styled.css(["border-color:", ";"], theme.palette.gray.medium);
 });
-
 var Dropzone = function Dropzone(_ref10) {
   var accept = _ref10.accept,
       disabled = _ref10.disabled,
@@ -2522,7 +2378,6 @@ var Dropzone = function Dropzone(_ref10) {
     onRemoveClick: removeFile
   }));
 };
-
 Dropzone.propTypes = {
   accept: PropTypes__default.string,
   defaultValue: PropTypes__default.arrayOf(PropTypes__default.object),
@@ -2546,7 +2401,6 @@ var FileUploadPropTypes = _extends({
   isRequired: PropTypes__default.string,
   name: PropTypes__default.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var FileUploadDefaultProps = {
   defaultValue: undefined,
   name: "fileUpload"
@@ -2571,7 +2425,6 @@ var FileUpload = function FileUpload(_ref) {
     }
   });
 };
-
 FileUpload.propTypes = FileUploadPropTypes;
 FileUpload.defaultProps = FileUploadDefaultProps;
 
@@ -2580,7 +2433,6 @@ var Input = function Input(props) {
     component: "input"
   }, props));
 };
-
 Input.propTypes = FieldBasePropTypes;
 Input.defaultProps = FieldBaseDefaultProps;
 
@@ -2593,16 +2445,13 @@ function _templateObject$u() {
 
   return data;
 }
-
 var StyledLabel$2 = styled__default.label(_templateObject$u(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.medium;
 });
-
 var FormLabel = function FormLabel(props) {
   return /*#__PURE__*/React__default.createElement(StyledLabel$2, props);
 };
-
 FormLabel.propTypes = {};
 FormLabel.defaultProps = {};
 
@@ -2615,19 +2464,16 @@ function _templateObject$v() {
 
   return data;
 }
-
 var StyledRadioBase$1 = styled__default(RadioBase)(_templateObject$v(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var Radio = function Radio(props) {
   return /*#__PURE__*/React__default.createElement(StyledRadioBase$1, _extends({
     type: "radio"
   }, props));
 };
-
 Radio.propTypes = RadioBasePropTypes;
 Radio.defaultProps = RadioBaseDefaultProps;
 
@@ -2640,7 +2486,6 @@ var ReactSelectPropTypes = _extends({
   isDisabled: PropTypes__default.bool,
   isRequired: PropTypes__default.oneOfType([PropTypes__default.bool, PropTypes__default.string])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var ReactSelectDefaultProps = {
   defaultValue: undefined,
   endpointQueryFlag: "q",
@@ -2656,7 +2501,6 @@ function _templateObject$w() {
 
   return data;
 }
-
 var ReactSelectWrapper = styled__default.div(_templateObject$w(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.text.primary;
@@ -2695,7 +2539,6 @@ var ReactSelectWrapper = styled__default.div(_templateObject$w(), function (_ref
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var ReactSelect = function ReactSelect(_ref12) {
   var async = _ref12.async,
       cacheOptions = _ref12.cacheOptions,
@@ -2752,7 +2595,6 @@ var ReactSelect = function ReactSelect(_ref12) {
     }
   }));
 };
-
 ReactSelect.propTypes = ReactSelectPropTypes;
 ReactSelect.defaultProps = ReactSelectDefaultProps;
 
@@ -2762,7 +2604,6 @@ var FormRowPropTypes = _extends({
   label: PropTypes__default.node,
   show: PropTypes__default.bool.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var FormRowDefaultProps = {
   label: ""
 };
@@ -2806,7 +2647,6 @@ function _templateObject$x() {
 
   return data;
 }
-
 var Wrapper$4 = styled__default.div(_templateObject$x(), function (_ref) {
   var show = _ref.show;
   return !show && "display: none";
@@ -2821,7 +2661,6 @@ var FieldsAndErrorsWrapper = styled__default.div(_templateObject3$2(), function 
   return fullWidth ? "100%" : "50%";
 });
 var Fields = styled__default.div(_templateObject4$1());
-
 var FormRow = function FormRow(_ref3) {
   var children = _ref3.children,
       errors = _ref3.errors,
@@ -2840,7 +2679,6 @@ var FormRow = function FormRow(_ref3) {
     });
   })));
 };
-
 FormRow.propTypes = FormRowPropTypes;
 FormRow.defaultProps = FormRowDefaultProps;
 
@@ -2861,9 +2699,9 @@ var Select = function Select(_ref) {
     component: "select"
   }, props), renderOptions(options));
 };
-
 Select.propTypes = FieldBasePropTypes;
 Select.defaultProps = FieldBaseDefaultProps;
+
 var StepperPropTypes = {
   control: PropTypes__default.object,
   label: PropTypes__default.string,
@@ -2892,12 +2730,10 @@ function _templateObject$y() {
 
   return data;
 }
-
 var Wrapper$5 = styled__default.div(_templateObject$y(), function (_ref) {
   var size = _ref.size;
   return size === "sm" && styled.css(["flex-direction:column;"]);
 });
-
 var StepperComponent = function StepperComponent(_ref2) {
   var label = _ref2.label,
       value = _ref2.value,
@@ -2931,7 +2767,6 @@ var StepperComponent = function StepperComponent(_ref2) {
     value: value
   }), /*#__PURE__*/React__default.createElement("span", null, label)));
 };
-
 StepperComponent.propTypes = StepperPropTypes;
 StepperComponent.defaultProps = StepperDefaultProps;
 
@@ -2956,7 +2791,6 @@ var Stepper = function Stepper(_ref) {
     }
   });
 };
-
 Stepper.propTypes = StepperPropTypes;
 Stepper.defaultProps = StepperDefaultProps;
 
@@ -3060,13 +2894,11 @@ function _templateObject$A() {
 
   return data;
 }
-
 var StyledToggle = styled__default.div(_templateObject$A(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var Toggle = function Toggle(_ref) {
   var disabled = _ref.disabled,
       onChange = _ref.onChange,
@@ -3085,7 +2917,6 @@ var Toggle = function Toggle(_ref) {
     toggled: value
   }, props)));
 };
-
 Toggle.propTypes = {
   disabled: PropTypes.bool,
   onChange: PropTypes.func,
@@ -3105,7 +2936,6 @@ var ToggleSwitchPropTypes = _extends({
   isRequired: PropTypes__default.string,
   name: PropTypes__default.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var ToggleSwitchDefaultProps = {
   defaultValue: undefined,
   isRequired: "",
@@ -3133,7 +2963,6 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
     }
   });
 };
-
 ToggleSwitch.propTypes = ToggleSwitchPropTypes;
 ToggleSwitch.defaultProps = ToggleSwitchDefaultProps;
 
@@ -3216,7 +3045,6 @@ function _templateObject$B() {
 
   return data;
 }
-
 var ItemConnector = styled__default.div(_templateObject$B(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.regular;
@@ -3251,7 +3079,6 @@ var Content = styled__default.div(_templateObject8(), function (_ref6) {
   var theme = _ref6.theme;
   return theme.spacing(4, 10);
 });
-
 var HistoryItem = function HistoryItem(_ref7) {
   var _ref7$data = _ref7.data,
       collapsible = _ref7$data.collapsible,
@@ -3297,7 +3124,6 @@ var HistoryItem = function HistoryItem(_ref7) {
     isOpened: collapseOpen
   }, /*#__PURE__*/React__default.createElement(Content, null, collapseContent)));
 };
-
 HistoryItem.propTypes = {
   data: PropTypes__default.shape({
     collapsible: PropTypes__default.bool,
@@ -3331,13 +3157,11 @@ function _templateObject$C() {
 
   return data;
 }
-
 var Container$3 = styled__default.div(_templateObject$C(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var History = function History(_ref) {
   var rows = _ref.rows,
       props = _objectWithoutPropertiesLoose(_ref, ["rows"]);
@@ -3349,7 +3173,6 @@ var History = function History(_ref) {
     });
   }));
 };
-
 History.propTypes = HistoryPropTypes;
 
 var ImagePropTypes = _extends({
@@ -3366,7 +3189,6 @@ var ImagePropTypes = _extends({
   thumbnail: PropTypes__default.bool,
   width: PropTypes__default.number
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var ImageDefaultProps = {
   fluid: false,
   rounded: false,
@@ -3383,7 +3205,6 @@ function _templateObject$D() {
 
   return data;
 }
-
 var Image = function Image(_ref) {
   var props = _extends({}, _ref);
 
@@ -3391,7 +3212,6 @@ var Image = function Image(_ref) {
     itemProp: "contentUrl"
   }, props));
 };
-
 var StyledImg = styled__default.img(_templateObject$D(), function (_ref2) {
   var width = _ref2.width;
   return width && "width: " + width + ";";
@@ -3420,7 +3240,6 @@ var LanguagePropTypes = _extends({
   onChange: PropTypes__default.func.isRequired,
   value: PropTypes__default.string.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var LanguageDefaultProps = {
   languages: [{
     value: "en",
@@ -3470,10 +3289,11 @@ var Language = function Language(_ref) {
     }
   }));
 };
-
 Language.propTypes = LanguagePropTypes;
 Language.defaultProps = LanguageDefaultProps;
-var img$1 = "data:image/svg+xml,%3csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.20827 41.2468C9.85226 41.2468 12.484 44.0937 12.484 47.415C12.484 50.8719 9.85226 53.4477 6.20827 53.4477C2.56429 53.4477 0 50.8719 0 47.415C0 44.0937 2.56429 41.2468 6.20827 41.2468ZM35.9092 6C49.4054 6 60 16.5063 60 29.7916C60 43.0092 49.4054 53.4477 35.9092 53.4477C22.413 53.4477 11.8184 43.0092 11.8184 29.7916C11.8184 16.5063 22.413 6 35.9092 6ZM35.9092 43.2125C43.2647 43.2125 48.8656 37.5188 48.8656 29.7916C48.8656 21.9966 43.2647 16.2351 35.9092 16.2351C28.5538 16.2351 22.9528 21.9966 22.9528 29.7916C22.9528 37.5188 28.5538 43.2125 35.9092 43.2125Z' fill='%23AC00FC'/%3e%3c/svg%3e";
+
+const img$1 = "data:image/svg+xml,%3csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.20827 41.2468C9.85226 41.2468 12.484 44.0937 12.484 47.415C12.484 50.8719 9.85226 53.4477 6.20827 53.4477C2.56429 53.4477 0 50.8719 0 47.415C0 44.0937 2.56429 41.2468 6.20827 41.2468ZM35.9092 6C49.4054 6 60 16.5063 60 29.7916C60 43.0092 49.4054 53.4477 35.9092 53.4477C22.413 53.4477 11.8184 43.0092 11.8184 29.7916C11.8184 16.5063 22.413 6 35.9092 6ZM35.9092 43.2125C43.2647 43.2125 48.8656 37.5188 48.8656 29.7916C48.8656 21.9966 43.2647 16.2351 35.9092 16.2351C28.5538 16.2351 22.9528 21.9966 22.9528 29.7916C22.9528 37.5188 28.5538 43.2125 35.9092 43.2125Z' fill='%23AC00FC'/%3e%3c/svg%3e";
+
 var AuthLayoutHeaderPropTypes = {
   headerLeft: PropTypes__default.node,
   headerRight: PropTypes__default.node,
@@ -3499,7 +3319,6 @@ function _templateObject$E() {
 
   return data;
 }
-
 var StyledHeader = styled__default(Flex).attrs(function () {
   return {
     container: true,
@@ -3516,7 +3335,6 @@ var StyledLogo = styled__default(Image).attrs(function () {
     src: img$1
   };
 })(_templateObject2$b());
-
 var AuthLayoutHeader = function AuthLayoutHeader(_ref2) {
   var headerLeft = _ref2.headerLeft,
       headerRight = _ref2.headerRight,
@@ -3537,8 +3355,8 @@ var AuthLayoutHeader = function AuthLayoutHeader(_ref2) {
     item: true
   }, headerRight));
 };
-
 AuthLayoutHeader.propTypes = AuthLayoutHeaderPropTypes;
+
 var AuthLayoutPropTypes = {
   content: PropTypes__default.node.isRequired,
   headerLeft: PropTypes__default.node,
@@ -3565,13 +3383,11 @@ function _templateObject$F() {
 
   return data;
 }
-
 var StyledContainer$1 = styled__default(MuiContainer)(_templateObject$F());
 var Content$1 = styled__default.div(_templateObject2$c(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(20);
 });
-
 var AuthLayout = function AuthLayout(_ref2) {
   var content = _ref2.content,
       headerLeft = _ref2.headerLeft,
@@ -3593,9 +3409,9 @@ var AuthLayout = function AuthLayout(_ref2) {
     headerRight: headerRight
   }), /*#__PURE__*/React__default.createElement(Content$1, null, content)));
 };
-
 AuthLayout.propTypes = AuthLayoutPropTypes;
 AuthLayout.defaultProps = {};
+
 var ExplorerLayoutFooterPropTypes = {
   children: PropTypes__default.node
 };
@@ -3609,21 +3425,20 @@ function _templateObject$G() {
 
   return data;
 }
-
 var StyledFooter = styled__default.div(_templateObject$G(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
-
 var ExplorerLayoutFooter = function ExplorerLayoutFooter(_ref2) {
   var action = _ref2.action,
       props = _objectWithoutPropertiesLoose(_ref2, ["action"]);
 
   return /*#__PURE__*/React__default.createElement(StyledFooter, props);
 };
-
 ExplorerLayoutFooter.propTypes = ExplorerLayoutFooterPropTypes;
-var img$2 = "data:image/svg+xml,%3csvg width='194' height='60' viewBox='0 0 194 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 52.0601C88.0083 52.0601 89.3892 53.5534 89.3892 55.2955C89.3892 57.1088 88.0083 58.4599 86.0961 58.4599C84.184 58.4599 82.8384 57.1088 82.8384 55.2955C82.8384 53.5534 84.184 52.0601 86.0961 52.0601Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M103.965 40.1848C104.461 40.1848 104.815 40.2204 105.24 40.327L104.992 46.0158H103.965C99.9993 46.0158 97.8393 48.0779 97.8393 52.7V58.2821H92.1737V40.4337H97.8393V43.8469C99.114 41.7136 101.062 40.1848 103.965 40.1848Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M120.118 33.9272C127.2 33.9272 132.76 39.4382 132.76 46.4069C132.76 53.34 127.2 58.8155 120.118 58.8155C113.037 58.8155 107.477 53.34 107.477 46.4069C107.477 39.4382 113.037 33.9272 120.118 33.9272ZM120.118 53.4467C123.978 53.4467 126.917 50.4601 126.917 46.4069C126.917 42.3181 123.978 39.2959 120.118 39.2959C116.259 39.2959 113.32 42.3181 113.32 46.4069C113.32 50.4601 116.259 53.4467 120.118 53.4467Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M144.587 53.8378C146.392 53.8378 147.844 52.8778 148.446 50.709L153.651 51.8467C152.766 56.0777 149.013 58.8154 144.587 58.8154C139.275 58.8154 134.884 55.0111 134.884 49.3579C134.884 43.7403 139.275 39.9003 144.587 39.9003C148.907 39.9003 152.66 42.5669 153.651 46.7624L148.34 48.0424C147.844 45.8735 146.392 44.878 144.587 44.878C142.037 44.878 140.337 46.7624 140.337 49.3579C140.337 51.9889 142.037 53.8378 144.587 53.8378Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M175.992 58.2821H168.733L162.961 51.8467H161.934V58.2821H156.269V32.6828H161.934V46.5135H162.713L168.343 40.4337H175.177L167.387 48.9312L175.992 58.2821Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M176.087 53.6483L181.611 52.5105C181.859 54.0394 183.24 54.6083 184.762 54.6083C186.25 54.6083 187.064 53.9683 187.064 53.1861C187.064 52.5817 186.604 52.1194 185.294 51.8706L181.682 51.1595C178.389 50.555 176.512 48.7773 176.512 45.9685C176.512 42.3064 179.663 39.9242 184.16 39.9242C188.587 39.9242 191.526 41.9508 192.234 45.0441L187.064 46.0752C186.887 44.973 185.825 43.9774 184.09 43.9774C182.567 43.9774 182.071 44.7241 182.071 45.3641C182.071 45.8618 182.284 46.3596 183.417 46.6085L187.595 47.4618C190.959 48.1729 192.517 50.1995 192.517 52.8305C192.517 56.7771 189.118 58.8393 184.444 58.8393C180.265 58.8393 176.689 57.3104 176.087 53.6483Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M79.4906 27.4174H73.825V1.81807H79.4906V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M88.9289 27.4174H83.2634V9.569H88.9289V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 1.07143C88.0083 1.07143 89.3892 2.56472 89.3892 4.3069C89.3892 6.12019 88.0083 7.47127 86.0961 7.47127C84.184 7.47127 82.8384 6.12019 82.8384 4.3069C82.8384 2.56472 84.184 1.07143 86.0961 1.07143Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M101.853 22.9731C103.659 22.9731 105.111 22.0131 105.713 19.8443L110.918 20.982C110.033 25.213 106.28 27.9507 101.853 27.9507C96.542 27.9507 92.1512 24.1464 92.1512 18.4932C92.1512 12.8756 96.542 9.03566 101.853 9.03566C106.173 9.03566 109.927 11.7023 110.918 15.8977L105.607 17.1777C105.111 15.0088 103.659 14.0133 101.853 14.0133C99.3039 14.0133 97.6043 15.8977 97.6043 18.4932C97.6043 21.1242 99.3039 22.9731 101.853 22.9731Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M131.601 18.4932V19.9509H118.57C119.03 22.0842 120.482 23.3997 122.394 23.3997C123.704 23.3997 125.227 23.0798 126.183 21.3376L131.211 22.3687C129.689 26.1375 126.466 27.9507 122.394 27.9507C117.26 27.9507 113.011 24.1464 113.011 18.4932C113.011 12.8756 117.26 9.03566 122.43 9.03566C127.458 9.03566 131.495 12.6622 131.601 18.4932ZM122.43 13.6578C120.836 13.6578 119.207 14.6533 118.676 16.4666H126.006C125.475 14.5466 124.059 13.6578 122.43 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M145.659 9.03566C149.801 9.03566 152.563 11.9867 152.563 16.4666V27.4174H146.933V17.6754C146.933 15.5777 145.694 14.1555 143.888 14.1555C141.657 14.1555 140.205 15.6844 140.205 19.1332V27.4174H134.54V9.56898H140.205V11.2756C141.551 9.85342 143.428 9.03566 145.659 9.03566Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M155.219 22.7598L160.743 21.622C160.991 23.1509 162.372 23.7197 163.895 23.7197C165.382 23.7197 166.196 23.0798 166.196 22.2975C166.196 21.6931 165.736 21.2309 164.426 20.982L160.814 20.2709C157.521 19.6665 155.644 17.8888 155.644 15.08C155.644 11.4178 158.796 9.03566 163.293 9.03566C167.719 9.03566 170.658 11.0623 171.366 14.1555L166.196 15.1866C166.019 14.0844 164.957 13.0889 163.222 13.0889C161.699 13.0889 161.203 13.8355 161.203 14.4755C161.203 14.9733 161.416 15.4711 162.549 15.7199L166.727 16.5732C170.091 17.2843 171.649 19.311 171.649 21.942C171.649 25.8886 168.25 27.9507 163.576 27.9507C159.397 27.9507 155.821 26.4219 155.219 22.7598Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M192.403 18.4932V19.9509H179.372C179.832 22.0842 181.284 23.3997 183.196 23.3997C184.506 23.3997 186.029 23.0798 186.985 21.3376L192.013 22.3687C190.49 26.1375 187.268 27.9507 183.196 27.9507C178.062 27.9507 173.812 24.1464 173.812 18.4932C173.812 12.8756 178.062 9.03566 183.231 9.03566C188.26 9.03566 192.296 12.6622 192.403 18.4932ZM183.231 13.6578C181.638 13.6578 180.009 14.6533 179.478 16.4666H186.808C186.277 14.5466 184.86 13.6578 183.231 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.58723 46.6197C11.4115 46.6197 14.1734 49.6063 14.1734 53.0907C14.1734 56.7172 11.4115 59.4194 7.58723 59.4194C3.76298 59.4194 1.07184 56.7172 1.07184 53.0907C1.07184 49.6063 3.76298 46.6197 7.58723 46.6197ZM38.7574 9.64285C52.9213 9.64285 64.04 20.6648 64.04 34.6022C64.04 48.4685 52.9213 59.4194 38.7574 59.4194C24.5936 59.4194 13.4749 48.4685 13.4749 34.6022C13.4749 20.6648 24.5936 9.64285 38.7574 9.64285ZM38.7574 48.6819C46.4768 48.6819 52.3548 42.7087 52.3548 34.6022C52.3548 26.4247 46.4768 20.3804 38.7574 20.3804C31.0381 20.3804 25.1601 26.4247 25.1601 34.6022C25.1601 42.7087 31.0381 48.6819 38.7574 48.6819Z' fill='%23AC00FC'/%3e%3c/svg%3e";
+
+const img$2 = "data:image/svg+xml,%3csvg width='194' height='60' viewBox='0 0 194 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 52.0601C88.0083 52.0601 89.3892 53.5534 89.3892 55.2955C89.3892 57.1088 88.0083 58.4599 86.0961 58.4599C84.184 58.4599 82.8384 57.1088 82.8384 55.2955C82.8384 53.5534 84.184 52.0601 86.0961 52.0601Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M103.965 40.1848C104.461 40.1848 104.815 40.2204 105.24 40.327L104.992 46.0158H103.965C99.9993 46.0158 97.8393 48.0779 97.8393 52.7V58.2821H92.1737V40.4337H97.8393V43.8469C99.114 41.7136 101.062 40.1848 103.965 40.1848Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M120.118 33.9272C127.2 33.9272 132.76 39.4382 132.76 46.4069C132.76 53.34 127.2 58.8155 120.118 58.8155C113.037 58.8155 107.477 53.34 107.477 46.4069C107.477 39.4382 113.037 33.9272 120.118 33.9272ZM120.118 53.4467C123.978 53.4467 126.917 50.4601 126.917 46.4069C126.917 42.3181 123.978 39.2959 120.118 39.2959C116.259 39.2959 113.32 42.3181 113.32 46.4069C113.32 50.4601 116.259 53.4467 120.118 53.4467Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M144.587 53.8378C146.392 53.8378 147.844 52.8778 148.446 50.709L153.651 51.8467C152.766 56.0777 149.013 58.8154 144.587 58.8154C139.275 58.8154 134.884 55.0111 134.884 49.3579C134.884 43.7403 139.275 39.9003 144.587 39.9003C148.907 39.9003 152.66 42.5669 153.651 46.7624L148.34 48.0424C147.844 45.8735 146.392 44.878 144.587 44.878C142.037 44.878 140.337 46.7624 140.337 49.3579C140.337 51.9889 142.037 53.8378 144.587 53.8378Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M175.992 58.2821H168.733L162.961 51.8467H161.934V58.2821H156.269V32.6828H161.934V46.5135H162.713L168.343 40.4337H175.177L167.387 48.9312L175.992 58.2821Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M176.087 53.6483L181.611 52.5105C181.859 54.0394 183.24 54.6083 184.762 54.6083C186.25 54.6083 187.064 53.9683 187.064 53.1861C187.064 52.5817 186.604 52.1194 185.294 51.8706L181.682 51.1595C178.389 50.555 176.512 48.7773 176.512 45.9685C176.512 42.3064 179.663 39.9242 184.16 39.9242C188.587 39.9242 191.526 41.9508 192.234 45.0441L187.064 46.0752C186.887 44.973 185.825 43.9774 184.09 43.9774C182.567 43.9774 182.071 44.7241 182.071 45.3641C182.071 45.8618 182.284 46.3596 183.417 46.6085L187.595 47.4618C190.959 48.1729 192.517 50.1995 192.517 52.8305C192.517 56.7771 189.118 58.8393 184.444 58.8393C180.265 58.8393 176.689 57.3104 176.087 53.6483Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M79.4906 27.4174H73.825V1.81807H79.4906V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M88.9289 27.4174H83.2634V9.569H88.9289V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 1.07143C88.0083 1.07143 89.3892 2.56472 89.3892 4.3069C89.3892 6.12019 88.0083 7.47127 86.0961 7.47127C84.184 7.47127 82.8384 6.12019 82.8384 4.3069C82.8384 2.56472 84.184 1.07143 86.0961 1.07143Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M101.853 22.9731C103.659 22.9731 105.111 22.0131 105.713 19.8443L110.918 20.982C110.033 25.213 106.28 27.9507 101.853 27.9507C96.542 27.9507 92.1512 24.1464 92.1512 18.4932C92.1512 12.8756 96.542 9.03566 101.853 9.03566C106.173 9.03566 109.927 11.7023 110.918 15.8977L105.607 17.1777C105.111 15.0088 103.659 14.0133 101.853 14.0133C99.3039 14.0133 97.6043 15.8977 97.6043 18.4932C97.6043 21.1242 99.3039 22.9731 101.853 22.9731Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M131.601 18.4932V19.9509H118.57C119.03 22.0842 120.482 23.3997 122.394 23.3997C123.704 23.3997 125.227 23.0798 126.183 21.3376L131.211 22.3687C129.689 26.1375 126.466 27.9507 122.394 27.9507C117.26 27.9507 113.011 24.1464 113.011 18.4932C113.011 12.8756 117.26 9.03566 122.43 9.03566C127.458 9.03566 131.495 12.6622 131.601 18.4932ZM122.43 13.6578C120.836 13.6578 119.207 14.6533 118.676 16.4666H126.006C125.475 14.5466 124.059 13.6578 122.43 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M145.659 9.03566C149.801 9.03566 152.563 11.9867 152.563 16.4666V27.4174H146.933V17.6754C146.933 15.5777 145.694 14.1555 143.888 14.1555C141.657 14.1555 140.205 15.6844 140.205 19.1332V27.4174H134.54V9.56898H140.205V11.2756C141.551 9.85342 143.428 9.03566 145.659 9.03566Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M155.219 22.7598L160.743 21.622C160.991 23.1509 162.372 23.7197 163.895 23.7197C165.382 23.7197 166.196 23.0798 166.196 22.2975C166.196 21.6931 165.736 21.2309 164.426 20.982L160.814 20.2709C157.521 19.6665 155.644 17.8888 155.644 15.08C155.644 11.4178 158.796 9.03566 163.293 9.03566C167.719 9.03566 170.658 11.0623 171.366 14.1555L166.196 15.1866C166.019 14.0844 164.957 13.0889 163.222 13.0889C161.699 13.0889 161.203 13.8355 161.203 14.4755C161.203 14.9733 161.416 15.4711 162.549 15.7199L166.727 16.5732C170.091 17.2843 171.649 19.311 171.649 21.942C171.649 25.8886 168.25 27.9507 163.576 27.9507C159.397 27.9507 155.821 26.4219 155.219 22.7598Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M192.403 18.4932V19.9509H179.372C179.832 22.0842 181.284 23.3997 183.196 23.3997C184.506 23.3997 186.029 23.0798 186.985 21.3376L192.013 22.3687C190.49 26.1375 187.268 27.9507 183.196 27.9507C178.062 27.9507 173.812 24.1464 173.812 18.4932C173.812 12.8756 178.062 9.03566 183.231 9.03566C188.26 9.03566 192.296 12.6622 192.403 18.4932ZM183.231 13.6578C181.638 13.6578 180.009 14.6533 179.478 16.4666H186.808C186.277 14.5466 184.86 13.6578 183.231 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.58723 46.6197C11.4115 46.6197 14.1734 49.6063 14.1734 53.0907C14.1734 56.7172 11.4115 59.4194 7.58723 59.4194C3.76298 59.4194 1.07184 56.7172 1.07184 53.0907C1.07184 49.6063 3.76298 46.6197 7.58723 46.6197ZM38.7574 9.64285C52.9213 9.64285 64.04 20.6648 64.04 34.6022C64.04 48.4685 52.9213 59.4194 38.7574 59.4194C24.5936 59.4194 13.4749 48.4685 13.4749 34.6022C13.4749 20.6648 24.5936 9.64285 38.7574 9.64285ZM38.7574 48.6819C46.4768 48.6819 52.3548 42.7087 52.3548 34.6022C52.3548 26.4247 46.4768 20.3804 38.7574 20.3804C31.0381 20.3804 25.1601 26.4247 25.1601 34.6022C25.1601 42.7087 31.0381 48.6819 38.7574 48.6819Z' fill='%23AC00FC'/%3e%3c/svg%3e";
+
 var ExplorerLayoutHeaderPropTypes = {
   headerRight: PropTypes__default.node,
   logoAction: PropTypes__default.func
@@ -3648,7 +3463,6 @@ function _templateObject$H() {
 
   return data;
 }
-
 var StyledHeader$1 = styled__default(Grid).attrs(function () {
   return {
     container: true,
@@ -3667,7 +3481,6 @@ var StyledLogo$1 = styled__default(Image).attrs(function () {
   var theme = _ref2.theme;
   return theme.breakpoints.down("md");
 });
-
 var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
   var headerRight = _ref3.headerRight,
       logoAction = _ref3.logoAction,
@@ -3687,8 +3500,8 @@ var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
     xs: 6
   }, headerRight));
 };
-
 ExplorerLayoutHeader.propTypes = ExplorerLayoutHeaderPropTypes;
+
 var ExplorerLayoutPropTypes = {
   ads: PropTypes__default.node,
   content: PropTypes__default.node.isRequired,
@@ -3709,7 +3522,6 @@ function _templateObject$I() {
 
   return data;
 }
-
 var Content$2 = styled__default(Grid).attrs(function () {
   return {
     container: true
@@ -3734,7 +3546,6 @@ var poweredBy = /*#__PURE__*/React__default.createElement(Text, {
   color: "textPrimary",
   fontWeight: "bold"
 }, " ", "license.rocks"));
-
 var ExplorerLayout = function ExplorerLayout(_ref5) {
   var ads = _ref5.ads,
       content = _ref5.content,
@@ -3780,7 +3591,6 @@ var ExplorerLayout = function ExplorerLayout(_ref5) {
     xs: 12
   }, extraContent, ads))), footerContent && /*#__PURE__*/React__default.createElement(ExplorerLayoutFooter, null, footerContent || poweredBy));
 };
-
 ExplorerLayout.propTypes = ExplorerLayoutPropTypes;
 ExplorerLayout.defaultProps = {
   footerContent: poweredBy
@@ -3835,7 +3645,6 @@ function _templateObject$J() {
 
   return data;
 }
-
 var ContentWrapper = styled__default(DialogContent).attrs(function () {
   return {
     dividers: true
@@ -3868,7 +3677,6 @@ var LoadingWrapper = styled__default.div(_templateObject5$1(), function (_ref5) 
   var theme = _ref5.theme;
   return theme.palette.secondary.dark;
 });
-
 var Modal = function Modal(_ref6) {
   var action = _ref6.action,
       actionDescription = _ref6.actionDescription,
@@ -3909,7 +3717,6 @@ var Modal = function Modal(_ref6) {
     onClick: action
   }, actionTitle)));
 };
-
 Modal.propTypes = {
   action: PropTypes__default.func,
   actionDescription: PropTypes__default.node,
@@ -3947,7 +3754,6 @@ function _templateObject$K() {
 
   return data;
 }
-
 var Button$1 = styled__default(ButtonBase)(_templateObject$K(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
@@ -3961,7 +3767,6 @@ var Button$1 = styled__default(ButtonBase)(_templateObject$K(), function (_ref) 
   var theme = _ref4.theme;
   return theme.palette.primary.main;
 });
-
 var ShareModuleButton = function ShareModuleButton(_ref5) {
   var href = _ref5.href,
       icon = _ref5.icon,
@@ -3977,7 +3782,6 @@ var ShareModuleButton = function ShareModuleButton(_ref5) {
     size: "lg"
   }));
 };
-
 ShareModuleButton.propTypes = {
   href: PropTypes__default.string,
   icon: PropTypes__default.string.isRequired,
@@ -3989,6 +3793,7 @@ ShareModuleButton.defaultProps = {
   iconPrefix: "fab",
   onClick: null
 };
+
 var SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "telegram", "whatsapp", "email", "navigator"];
 
 var ShareModulePropTypes = _extends({
@@ -3996,7 +3801,6 @@ var ShareModulePropTypes = _extends({
   shareOptions: PropTypes__default.arrayOf(PropTypes__default.oneOf(SHARE_MODULE_SHARE_OPTIONS)),
   url: PropTypes__default.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var ShareModuleDefaultProps = {
   copyText: "Or copy the link",
   shareOptions: SHARE_MODULE_SHARE_OPTIONS,
@@ -4032,7 +3836,6 @@ function _templateObject$L() {
 
   return data;
 }
-
 var Container$4 = styled__default.div(_templateObject$L(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -4053,7 +3856,6 @@ var StyledText$1 = styled__default(Text).attrs(function () {
   var spacing = _ref2.theme.spacing;
   return styled.css(["margin:", ";"], spacing(2, 0));
 });
-
 var ShareModule = function ShareModule(_ref3) {
   var _window, _window$navigator, _window2, _window2$navigator;
 
@@ -4102,14 +3904,12 @@ var ShareModule = function ShareModule(_ref3) {
     value: url
   }));
 };
-
 ShareModule.propTypes = ShareModulePropTypes;
 ShareModule.defaultProps = ShareModuleDefaultProps;
 
 var DotsSpinnerPropTypes = _extends({
   size: PropTypes__default.number
 }, COLOR_PROP_TYPES, DISPLAY_PROP_TYPES, DIMENSION_PROP_TYPES, SPACER_PROP_TYPES);
-
 var DotsSpinnerDefaultProps = {
   size: 60
 };
@@ -4123,7 +3923,6 @@ function _templateObject$M() {
 
   return data;
 }
-
 var StyledDotsSpinner = styled__default.div(_templateObject$M(), function (_ref) {
   var size = _ref.size;
   return size;
@@ -4146,7 +3945,6 @@ var StyledDotsSpinner = styled__default.div(_templateObject$M(), function (_ref)
 }, function (theme) {
   return SPACER(theme);
 });
-
 var DotsSpinner = function DotsSpinner(props) {
   return /*#__PURE__*/React__default.createElement(StyledDotsSpinner, props, /*#__PURE__*/React__default.createElement("div", {
     className: "bounce1"
@@ -4156,14 +3954,12 @@ var DotsSpinner = function DotsSpinner(props) {
     className: "bounce3"
   }));
 };
-
 DotsSpinner.propTypes = DotsSpinnerPropTypes;
 DotsSpinner.defaultProps = DotsSpinnerDefaultProps;
 
 var RocksSpinnerPropTypes = _extends({
   size: PropTypes__default.number
 }, COLOR_PROP_TYPES, DISPLAY_PROP_TYPES, DIMENSION_PROP_TYPES, SPACER_PROP_TYPES);
-
 var RocksSpinnerDefaultProps = {
   size: 60
 };
@@ -4177,7 +3973,6 @@ function _templateObject$N() {
 
   return data;
 }
-
 var StyledRocksSpinner = styled__default.div(_templateObject$N(), function (_ref) {
   var size = _ref.size;
   return size;
@@ -4216,7 +4011,6 @@ var StyledRocksSpinner = styled__default.div(_templateObject$N(), function (_ref
 }, function (theme) {
   return SPACER(theme);
 });
-
 var RocksSpinner = function RocksSpinner(props) {
   return /*#__PURE__*/React__default.createElement(StyledRocksSpinner, props, /*#__PURE__*/React__default.createElement("div", {
     className: "dot"
@@ -4224,7 +4018,6 @@ var RocksSpinner = function RocksSpinner(props) {
     className: "circle"
   }));
 };
-
 RocksSpinner.propTypes = RocksSpinnerPropTypes;
 RocksSpinner.defaultProps = RocksSpinnerDefaultProps;
 
@@ -4268,7 +4061,6 @@ function _templateObject$O() {
 
   return data;
 }
-
 var Wrapper$6 = styled__default.div(_templateObject$O(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
@@ -4285,7 +4077,6 @@ var StyledTabs = styled__default(MuiTabs)(_templateObject2$g(), function (_ref2)
   return theme.palette.primary.main;
 });
 var StyledTab = styled__default(MuiTab)(_templateObject3$6());
-
 var Tab = function Tab(_ref4) {
   var tabs = _ref4.tabs,
       currentTab = _ref4.currentTab,
@@ -4311,7 +4102,6 @@ var Tab = function Tab(_ref4) {
     });
   }))));
 };
-
 Tab.propTypes = TabPropTypes;
 
 function _templateObject2$h() {
@@ -4333,7 +4123,6 @@ function _templateObject$P() {
 
   return data;
 }
-
 var CloseModalIcon$1 = styled__default(Icon).attrs(function () {
   return {
     size: "lg"
@@ -4343,7 +4132,6 @@ var CloseModalIcon$1 = styled__default(Icon).attrs(function () {
   return theme.spacing(4);
 });
 var StyledImg$1 = styled__default(Image)(_templateObject2$h());
-
 var ImageModal = function ImageModal(_ref2) {
   var isOpen = _ref2.isOpen,
       onClose = _ref2.onClose,
@@ -4360,7 +4148,6 @@ var ImageModal = function ImageModal(_ref2) {
     alt: "Attachment preview"
   }));
 };
-
 ImageModal.propTypes = {
   isOpen: PropTypes__default.bool.isRequired,
   onClose: PropTypes__default.func.isRequired,
@@ -4375,7 +4162,6 @@ var ThumbnailPropTypes = _extends({
   imgSrc: PropTypes__default.string,
   onClick: PropTypes__default.func
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var ThumbnailDefaultProps = {
   hasPreview: false,
   onClick: function onClick() {},
@@ -4411,7 +4197,6 @@ function _templateObject$Q() {
 
   return data;
 }
-
 var Container$5 = styled__default.div(_templateObject$Q(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
@@ -4426,7 +4211,6 @@ var StyledIcon$2 = styled__default(Icon)(_templateObject3$7(), function (_ref2) 
       theme = _ref2.theme;
   return !color && theme.palette.common.white;
 });
-
 var Thumbnail = function Thumbnail(_ref3) {
   var hasPreview = _ref3.hasPreview,
       imgSrc = _ref3.imgSrc,
@@ -4469,7 +4253,6 @@ var Thumbnail = function Thumbnail(_ref3) {
     }
   }));
 };
-
 Thumbnail.propTypes = ThumbnailPropTypes;
 Thumbnail.defaultProps = ThumbnailDefaultProps;
 
@@ -4497,6 +4280,7 @@ function _inheritsLoose(subClass, superClass) {
 var config = {
   disabled: false
 };
+
 var timeoutsShape = process.env.NODE_ENV !== 'production' ? PropTypes__default.oneOfType([PropTypes__default.number, PropTypes__default.shape({
   enter: PropTypes__default.number,
   exit: PropTypes__default.number,
@@ -4514,7 +4298,9 @@ var classNamesShape = process.env.NODE_ENV !== 'production' ? PropTypes__default
   exitDone: PropTypes__default.string,
   exitActive: PropTypes__default.string
 })]) : null;
+
 var TransitionGroupContext = React__default.createContext(null);
+
 var UNMOUNTED = 'unmounted';
 var EXITED = 'exited';
 var ENTERING = 'entering';
@@ -5149,7 +4935,6 @@ function _templateObject$R() {
 
   return data;
 }
-
 var StyledContent = styled__default.div(_templateObject$R(), function (_ref) {
   var duration = _ref.duration;
   return duration / 2;
@@ -5171,7 +4956,6 @@ var StepHint = styled__default.span(_templateObject3$8(), function (_ref3) {
   return theme.palette.gray.medium;
 });
 var duration = 500;
-
 var WizardStepContent = function WizardStepContent(_ref4) {
   var children = _ref4.children,
       content = _ref4.content,
@@ -5218,7 +5002,6 @@ var WizardStepContent = function WizardStepContent(_ref4) {
     })));
   });
 };
-
 WizardStepContent.propTypes = {
   children: PropTypes__default.node,
   content: PropTypes__default.node,
@@ -5243,7 +5026,6 @@ var stepBorderAndTitleColor = function stepBorderAndTitleColor(_ref) {
   if (isPassed) return theme.palette.gray.dark;
   return theme.palette.gray.medium;
 };
-
 var stepFlagColor = function stepFlagColor(_ref2) {
   var isActive = _ref2.isActive,
       isPassed = _ref2.isPassed,
@@ -5251,7 +5033,6 @@ var stepFlagColor = function stepFlagColor(_ref2) {
   if (isActive || isPassed) return theme.palette.common.white;
   return theme.palette.gray.medium;
 };
-
 var stepFlagBackgroundColor = function stepFlagBackgroundColor(_ref3) {
   var isActive = _ref3.isActive,
       isPassed = _ref3.isPassed,
@@ -5290,7 +5071,6 @@ function _templateObject$S() {
 
   return data;
 }
-
 var StyledTitle = styled__default.div(_templateObject$S(), function (_ref) {
   var isPassed = _ref.isPassed;
   return isPassed && styled.css(["cursor:pointer;"]);
@@ -5315,7 +5095,6 @@ var Label$1 = styled__default.span(_templateObject3$9(), function (props) {
   var isHorizontal = _ref5.isHorizontal;
   return isHorizontal && styled.css(["font-size:12px;padding:4px 4px 0 0;"]);
 });
-
 var WizardStepTitle = function WizardStepTitle(_ref6) {
   var isActive = _ref6.isActive,
       isHorizontal = _ref6.isHorizontal,
@@ -5342,7 +5121,6 @@ var WizardStepTitle = function WizardStepTitle(_ref6) {
     transitionDuration: transitionDuration
   }, label));
 };
-
 WizardStepTitle.propTypes = {
   isActive: PropTypes__default.bool.isRequired,
   isHorizontal: PropTypes__default.bool.isRequired,
@@ -5365,7 +5143,6 @@ var WizardPropTypes = _extends({
   steps: PropTypes__default.arrayOf(PropTypes__default.string).isRequired,
   transitionDuration: PropTypes__default.number
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var WizardDefaultProps = {
   nextStepMethod: "submit",
   orientation: "horizontal",
@@ -5449,7 +5226,6 @@ function _templateObject$T() {
 
   return data;
 }
-
 var Wrapper$7 = styled__default.div(_templateObject$T(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -5480,7 +5256,6 @@ var Step = styled__default.div(_templateObject5$2(), StepConnector, function (_r
   var isHorizontal = _ref6.isHorizontal;
   return isHorizontal && styled.css(["width:100px;min-width:100px;"]);
 });
-
 var Wizard = function Wizard(_ref7) {
   var currentStepContent = _ref7.currentStepContent,
       currentStepIndex = _ref7.currentStepIndex,
@@ -5576,9 +5351,9 @@ var Wizard = function Wizard(_ref7) {
     }));
   }))), isHorizontal && content);
 };
-
 Wizard.propTypes = WizardPropTypes;
 Wizard.defaultProps = WizardDefaultProps;
+
 exports.Alert = Alert;
 exports.AppContainer = AppContainer;
 exports.AuthLayout = AuthLayout;

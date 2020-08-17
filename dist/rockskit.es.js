@@ -1,82 +1,36 @@
-Object.defineProperty(exports, '__esModule', {
-  value: true
-});
-
-function _interopDefault(ex) {
-  return ex && typeof ex === 'object' && 'default' in ex ? ex['default'] : ex;
-}
-
-var React = require('react');
-
-var React__default = _interopDefault(React);
-
-var styled = require('styled-components');
-
-var styled__default = _interopDefault(styled);
-
-var reactFontawesome = require('@fortawesome/react-fontawesome');
-
-var freeBrandsSvgIcons = require('@fortawesome/free-brands-svg-icons');
-
-var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
-
-var styles = require('@material-ui/core/styles');
-
-var PropTypes = require('prop-types');
-
-var PropTypes__default = _interopDefault(PropTypes);
-
-var CssBaseline = _interopDefault(require('@material-ui/core/CssBaseline'));
-
-var fontawesomeSvgCore = require('@fortawesome/fontawesome-svg-core');
-
-var notistack = require('notistack');
-
-var Typography = _interopDefault(require('@material-ui/core/Typography'));
-
-var Grid = _interopDefault(require('@material-ui/core/Grid'));
-
-var MuiButtonBase = _interopDefault(require('@material-ui/core/ButtonBase'));
-
-var reactCollapse = require('react-collapse');
-
-var Menu = _interopDefault(require('@material-ui/core/Menu'));
-
-var MenuItem = _interopDefault(require('@material-ui/core/MenuItem'));
-
-var QRCode = _interopDefault(require('qrcode.react'));
-
-var reactHookForm = require('react-hook-form');
-
-var reactDropzone = require('react-dropzone');
-
-var axios = _interopDefault(require('axios'));
-
-var Select$1 = _interopDefault(require('react-select'));
-
-var AsyncSelect = _interopDefault(require('react-select/async'));
-
-var MuiContainer = _interopDefault(require('@material-ui/core/Container'));
-
-var Hidden = _interopDefault(require('@material-ui/core/Hidden'));
-
-var CircularProgress = _interopDefault(require('@material-ui/core/CircularProgress'));
-
-var Dialog = _interopDefault(require('@material-ui/core/Dialog'));
-
-var DialogActions = _interopDefault(require('@material-ui/core/DialogActions'));
-
-var DialogContent = _interopDefault(require('@material-ui/core/DialogContent'));
-
-var DialogTitle = _interopDefault(require('@material-ui/core/DialogTitle'));
-
-var copy = _interopDefault(require('copy-to-clipboard'));
-
-var MuiTabs = _interopDefault(require('@material-ui/core/Tabs'));
-
-var MuiTab = _interopDefault(require('@material-ui/core/Tab'));
-
-var ReactDOM = _interopDefault(require('react-dom'));
+import React, { forwardRef, useState, useEffect, useRef, createRef } from 'react';
+import styled, { createGlobalStyle, css, useTheme, ThemeProvider as ThemeProvider$1 } from 'styled-components';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faTelegramPlane, faTwitter, faWhatsapp } from '@fortawesome/free-brands-svg-icons';
+import { faArrowLeft, faArrowRight, faBox, faCheck, faCheckCircle, faChevronDown, faChevronLeft, faChevronRight, faChevronUp, faCopy, faEllipsisH, faEnvelope, faFile, faFilePdf, faInfoCircle, faLink, faMinus, faPlus, faSearchPlus, faTimes, faUser } from '@fortawesome/free-solid-svg-icons';
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import PropTypes, { bool, func, oneOf } from 'prop-types';
+import CssBaseline from '@material-ui/core/CssBaseline';
+import { library } from '@fortawesome/fontawesome-svg-core';
+import { SnackbarProvider } from 'notistack';
+import Typography from '@material-ui/core/Typography';
+import Grid from '@material-ui/core/Grid';
+import MuiButtonBase from '@material-ui/core/ButtonBase';
+import { Collapse as Collapse$1 } from 'react-collapse';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
+import QRCode from 'qrcode.react';
+import { Controller } from 'react-hook-form';
+import { useDropzone } from 'react-dropzone';
+import axios from 'axios';
+import Select$1 from 'react-select';
+import AsyncSelect from 'react-select/async';
+import MuiContainer from '@material-ui/core/Container';
+import Hidden from '@material-ui/core/Hidden';
+import CircularProgress from '@material-ui/core/CircularProgress';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import copy from 'copy-to-clipboard';
+import MuiTabs from '@material-ui/core/Tabs';
+import MuiTab from '@material-ui/core/Tab';
+import ReactDOM from 'react-dom';
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -129,37 +83,39 @@ function _templateObject() {
 
   return data;
 }
+var GlobalStyle = createGlobalStyle(_templateObject());
 
-var GlobalStyle = styled.createGlobalStyle(_templateObject());
 var FreeBrandIconSet = {
-  fabFacebookF: freeBrandsSvgIcons.faFacebookF,
-  fabTelegramPlane: freeBrandsSvgIcons.faTelegramPlane,
-  fabTwitter: freeBrandsSvgIcons.faTwitter,
-  fabWhatsapp: freeBrandsSvgIcons.faWhatsapp
+  fabFacebookF: faFacebookF,
+  fabTelegramPlane: faTelegramPlane,
+  fabTwitter: faTwitter,
+  fabWhatsapp: faWhatsapp
 };
+
 var FreeSolidIconSet = {
-  faArrowLeft: freeSolidSvgIcons.faArrowLeft,
-  faArrowRight: freeSolidSvgIcons.faArrowRight,
-  faBox: freeSolidSvgIcons.faBox,
-  faCheck: freeSolidSvgIcons.faCheck,
-  faCheckCircle: freeSolidSvgIcons.faCheckCircle,
-  faChevronDown: freeSolidSvgIcons.faChevronDown,
-  faChevronLeft: freeSolidSvgIcons.faChevronLeft,
-  faChevronRight: freeSolidSvgIcons.faChevronRight,
-  faChevronUp: freeSolidSvgIcons.faChevronUp,
-  faCopy: freeSolidSvgIcons.faCopy,
-  faEllipsisH: freeSolidSvgIcons.faEllipsisH,
-  faEnvelope: freeSolidSvgIcons.faEnvelope,
-  faFile: freeSolidSvgIcons.faFile,
-  faFilePdf: freeSolidSvgIcons.faFilePdf,
-  faInfoCircle: freeSolidSvgIcons.faInfoCircle,
-  faLink: freeSolidSvgIcons.faLink,
-  faMinus: freeSolidSvgIcons.faMinus,
-  faPlus: freeSolidSvgIcons.faPlus,
-  faSearchPlus: freeSolidSvgIcons.faSearchPlus,
-  faTimes: freeSolidSvgIcons.faTimes,
-  faUser: freeSolidSvgIcons.faUser
+  faArrowLeft: faArrowLeft,
+  faArrowRight: faArrowRight,
+  faBox: faBox,
+  faCheck: faCheck,
+  faCheckCircle: faCheckCircle,
+  faChevronDown: faChevronDown,
+  faChevronLeft: faChevronLeft,
+  faChevronRight: faChevronRight,
+  faChevronUp: faChevronUp,
+  faCopy: faCopy,
+  faEllipsisH: faEllipsisH,
+  faEnvelope: faEnvelope,
+  faFile: faFile,
+  faFilePdf: faFilePdf,
+  faInfoCircle: faInfoCircle,
+  faLink: faLink,
+  faMinus: faMinus,
+  faPlus: faPlus,
+  faSearchPlus: faSearchPlus,
+  faTimes: faTimes,
+  faUser: faUser
 };
+
 var KIT_COLORS = {
   primary: {
     main: "#AC00fC",
@@ -183,6 +139,7 @@ var KIT_COLORS = {
     lightYellow: "#FFF3A2"
   }
 };
+
 var KIT_FONTS = {
   Galano: {
     name: "GalanoGrotesque-Bold"
@@ -191,11 +148,13 @@ var KIT_FONTS = {
     name: "Inter"
   }
 };
+
 var KIT_ICON_SIZES = {
   lg: 20,
   md: 16,
   sm: 12
 };
+
 var KIT_TYPOGRAPHY = {
   h1: function h1(theme) {
     var _ref;
@@ -311,8 +270,7 @@ var KIT_TYPOGRAPHY = {
 };
 
 var RocksKitIcons = _extends({}, FreeBrandIconSet, FreeSolidIconSet);
-
-var RocksKitTheme = styles.createMuiTheme({
+var RocksKitTheme = createMuiTheme({
   breakpoints: {
     values: {
       xs: 0,
@@ -392,24 +350,24 @@ RocksKitTheme.spacing = function () {
 RocksKitTheme.overrides.MuiButtonBase = {
   root: KIT_TYPOGRAPHY.button()
 };
-var COLOR_PROP_TYPES = {
-  colorPrimary: PropTypes__default.bool,
-  colorPrimaryLight: PropTypes__default.bool,
-  colorGrayLight: PropTypes__default.bool,
-  colorGraySemiLight: PropTypes__default.bool,
-  colorGrayRegular: PropTypes__default.bool,
-  colorGrayMedium: PropTypes__default.bool,
-  colorGrayDark: PropTypes__default.bool,
-  colorBlack: PropTypes__default.bool,
-  colorWhite: PropTypes__default.bool,
-  colorError: PropTypes__default.bool,
-  colorErrorLight: PropTypes__default.bool,
-  colorWarning: PropTypes__default.bool,
-  colorWarningLight: PropTypes__default.bool,
-  colorSuccess: PropTypes__default.bool,
-  colorSuccessLight: PropTypes__default.bool
-};
 
+var COLOR_PROP_TYPES = {
+  colorPrimary: PropTypes.bool,
+  colorPrimaryLight: PropTypes.bool,
+  colorGrayLight: PropTypes.bool,
+  colorGraySemiLight: PropTypes.bool,
+  colorGrayRegular: PropTypes.bool,
+  colorGrayMedium: PropTypes.bool,
+  colorGrayDark: PropTypes.bool,
+  colorBlack: PropTypes.bool,
+  colorWhite: PropTypes.bool,
+  colorError: PropTypes.bool,
+  colorErrorLight: PropTypes.bool,
+  colorWarning: PropTypes.bool,
+  colorWarningLight: PropTypes.bool,
+  colorSuccess: PropTypes.bool,
+  colorSuccessLight: PropTypes.bool
+};
 var COLOR = function COLOR(_ref) {
   var colorPrimary = _ref.colorPrimary,
       colorPrimaryLight = _ref.colorPrimaryLight,
@@ -446,12 +404,11 @@ var COLOR = function COLOR(_ref) {
 };
 
 var DIMENSION_PROP_TYPES = {
-  h100: PropTypes__default.bool,
-  w100: PropTypes__default.bool,
-  h100vh: PropTypes__default.bool,
-  w100vw: PropTypes__default.bool
+  h100: PropTypes.bool,
+  w100: PropTypes.bool,
+  h100vh: PropTypes.bool,
+  w100vw: PropTypes.bool
 };
-
 var DIMENSION = function DIMENSION(_ref) {
   var h100 = _ref.h100,
       w100 = _ref.w100,
@@ -466,14 +423,13 @@ var DIMENSION = function DIMENSION(_ref) {
 };
 
 var DISPLAY_PROP_TYPES = {
-  dBlock: PropTypes__default.bool,
-  dFlex: PropTypes__default.bool,
-  dInline: PropTypes__default.bool,
-  dInlineBlock: PropTypes__default.bool,
-  dInlineFlex: PropTypes__default.bool,
-  dNone: PropTypes__default.bool
+  dBlock: PropTypes.bool,
+  dFlex: PropTypes.bool,
+  dInline: PropTypes.bool,
+  dInlineBlock: PropTypes.bool,
+  dInlineFlex: PropTypes.bool,
+  dNone: PropTypes.bool
 };
-
 var DISPLAY = function DISPLAY(_ref) {
   var dBlock = _ref.dBlock,
       dFlex = _ref.dFlex,
@@ -494,31 +450,28 @@ var DISPLAY = function DISPLAY(_ref) {
 var SPACER_FORMULA = function SPACER_FORMULA(factor) {
   return factor * 4;
 };
-
 var SPACER_POSTFIX = function SPACER_POSTFIX(space) {
   return "" + (space > 0 ? "px" : "");
 };
-
 var SPACER_PROP_TYPES = {
-  m: PropTypes__default.number,
-  m0: PropTypes__default.bool,
-  mx: PropTypes__default.number,
-  my: PropTypes__default.number,
-  mt: PropTypes__default.number,
-  mb: PropTypes__default.number,
-  mr: PropTypes__default.number,
-  ml: PropTypes__default.number,
-  mAuto: PropTypes__default.bool,
-  p: PropTypes__default.number,
-  p0: PropTypes__default.bool,
-  px: PropTypes__default.number,
-  py: PropTypes__default.number,
-  pt: PropTypes__default.number,
-  pb: PropTypes__default.number,
-  pr: PropTypes__default.number,
-  pl: PropTypes__default.number
+  m: PropTypes.number,
+  m0: PropTypes.bool,
+  mx: PropTypes.number,
+  my: PropTypes.number,
+  mt: PropTypes.number,
+  mb: PropTypes.number,
+  mr: PropTypes.number,
+  ml: PropTypes.number,
+  mAuto: PropTypes.bool,
+  p: PropTypes.number,
+  p0: PropTypes.bool,
+  px: PropTypes.number,
+  py: PropTypes.number,
+  pt: PropTypes.number,
+  pb: PropTypes.number,
+  pr: PropTypes.number,
+  pl: PropTypes.number
 };
-
 var SPACER = function SPACER(_ref) {
   var m = _ref.m,
       m0 = _ref.m0,
@@ -561,14 +514,13 @@ var SPACER = function SPACER(_ref) {
 var THEME_COLORS = ["primary", "secondary", "success", "error", "warning"];
 
 var IconPropTypes = _extends({
-  bordered: PropTypes__default.bool,
-  color: PropTypes__default.oneOf(THEME_COLORS),
-  icon: PropTypes__default.string.isRequired,
-  onClick: PropTypes__default.func,
-  prefix: PropTypes__default.string,
-  size: PropTypes__default.oneOf(Object.keys(KIT_ICON_SIZES))
+  bordered: PropTypes.bool,
+  color: PropTypes.oneOf(THEME_COLORS),
+  icon: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  prefix: PropTypes.string,
+  size: PropTypes.oneOf(Object.keys(KIT_ICON_SIZES))
 }, COLOR_PROP_TYPES, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var IconDefaultProps = {
   bordered: false,
   color: "primary",
@@ -594,19 +546,18 @@ function _templateObject$1() {
 
   return data;
 }
-
-var Bordered = styled__default.div(_templateObject$1(), function (_ref) {
+var Bordered = styled.div(_templateObject$1(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
-  return styled.css(["width:32px;height:32px;border:solid 2px ", ";background-color:", ";display:inline-flex;align-items:center;justify-content:center;border-radius:100%;box-sizing:border-box;position:relative;"], theme.palette.gray.regular, theme.palette[color].light);
+  return css(["width:32px;height:32px;border:solid 2px ", ";background-color:", ";display:inline-flex;align-items:center;justify-content:center;border-radius:100%;box-sizing:border-box;position:relative;"], theme.palette.gray.regular, theme.palette[color].light);
 });
-var StyledIcon = styled__default(function (_ref2) {
+var StyledIcon = styled(function (_ref2) {
   var icon = _ref2.icon,
       prefix = _ref2.prefix,
       size = _ref2.size,
       props = _objectWithoutPropertiesLoose(_ref2, ["icon", "prefix", "size"]);
 
-  return /*#__PURE__*/React__default.createElement(reactFontawesome.FontAwesomeIcon, _extends({
+  return /*#__PURE__*/React.createElement(FontAwesomeIcon, _extends({
     icon: [prefix, icon]
   }, props));
 })(_templateObject2(), function (_ref3) {
@@ -619,7 +570,7 @@ var StyledIcon = styled__default(function (_ref2) {
   return "color: " + theme.palette[color].main + ";";
 }, function (_ref5) {
   var onClick = _ref5.onClick;
-  return onClick && styled.css(["cursor:pointer;transition:all 0.1s ease-in-out;:hover{opacity:0.7;}"]);
+  return onClick && css(["cursor:pointer;transition:all 0.1s ease-in-out;:hover{opacity:0.7;}"]);
 }, function (theme) {
   return COLOR(theme);
 }, function (theme) {
@@ -627,7 +578,6 @@ var StyledIcon = styled__default(function (_ref2) {
 }, function (theme) {
   return SPACER(theme);
 });
-
 var Icon = function Icon(_ref6) {
   var bordered = _ref6.bordered,
       className = _ref6.className,
@@ -635,30 +585,28 @@ var Icon = function Icon(_ref6) {
       prefix = _ref6.prefix,
       props = _objectWithoutPropertiesLoose(_ref6, ["bordered", "className", "color", "prefix"]);
 
-  var theme = styled.useTheme();
+  var theme = useTheme();
 
   var defaultProps = _extends({
     color: color,
     prefix: prefix || theme.defaultIconSet
   }, props);
 
-  return bordered ? /*#__PURE__*/React__default.createElement(Bordered, _extends({
+  return bordered ? /*#__PURE__*/React.createElement(Bordered, _extends({
     className: className,
     color: color
-  }, props), /*#__PURE__*/React__default.createElement(StyledIcon, defaultProps)) : /*#__PURE__*/React__default.createElement(StyledIcon, _extends({
+  }, props), /*#__PURE__*/React.createElement(StyledIcon, defaultProps)) : /*#__PURE__*/React.createElement(StyledIcon, _extends({
     className: className
   }, defaultProps));
 };
-
 Icon.propTypes = IconPropTypes;
 Icon.defaultProps = IconDefaultProps;
 
 var AlertPropTypes = _extends({
-  content: PropTypes__default.node,
-  children: PropTypes__default.node,
-  color: PropTypes__default.oneOf(["info", "danger", "warning"])
+  content: PropTypes.node,
+  children: PropTypes.node,
+  color: PropTypes.oneOf(["info", "danger", "warning"])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var AlertDefaultProps = {
   content: null,
   children: null,
@@ -674,8 +622,7 @@ function _templateObject$2() {
 
   return data;
 }
-
-var StyledMessage = styled__default.div(_templateObject$2(), function (_ref) {
+var StyledMessage = styled.div(_templateObject$2(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -687,70 +634,67 @@ var StyledMessage = styled__default.div(_templateObject$2(), function (_ref) {
 }, function (_ref4) {
   var color = _ref4.color,
       theme = _ref4.theme;
-  return color === "danger" && styled.css(["background-color:", ";color:", ";svg{color:", ";}"], theme.palette.error.light, theme.palette.error.main, theme.palette.error.main);
+  return color === "danger" && css(["background-color:", ";color:", ";svg{color:", ";}"], theme.palette.error.light, theme.palette.error.main, theme.palette.error.main);
 }, function (_ref5) {
   var color = _ref5.color,
       theme = _ref5.theme;
-  return color === "warning" && styled.css(["background-color:", ";color:", ";"], theme.palette.primary.light, theme.palette.primary.main);
+  return color === "warning" && css(["background-color:", ";color:", ";"], theme.palette.primary.light, theme.palette.primary.main);
 }, function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var Alert = function Alert(_ref6) {
   var content = _ref6.content,
       children = _ref6.children,
       props = _objectWithoutPropertiesLoose(_ref6, ["content", "children"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledMessage, props, /*#__PURE__*/React__default.createElement(Icon, {
+  return /*#__PURE__*/React.createElement(StyledMessage, props, /*#__PURE__*/React.createElement(Icon, {
     icon: "info-circle",
     mr: 2
   }), content || children);
 };
-
 Alert.propTypes = AlertPropTypes;
 Alert.defaultProps = AlertDefaultProps;
+
 var AppContainerPropTypes = {
-  children: PropTypes__default.node.isRequired,
-  icons: PropTypes__default.object,
-  theme: PropTypes__default.object.isRequired
+  children: PropTypes.node.isRequired,
+  icons: PropTypes.object,
+  theme: PropTypes.object.isRequired
 };
 
 var AppContainer = function AppContainer(_ref) {
   var children = _ref.children,
       icons = _ref.icons,
       theme = _ref.theme;
-  if (icons) fontawesomeSvgCore.library.add(icons);
-  return /*#__PURE__*/React__default.createElement(styles.ThemeProvider, {
+  if (icons) library.add(icons);
+  return /*#__PURE__*/React.createElement(ThemeProvider, {
     theme: theme
-  }, /*#__PURE__*/React__default.createElement(styled.ThemeProvider, {
+  }, /*#__PURE__*/React.createElement(ThemeProvider$1, {
     theme: theme
-  }, /*#__PURE__*/React__default.createElement(notistack.SnackbarProvider, {
+  }, /*#__PURE__*/React.createElement(SnackbarProvider, {
     maxSnack: 3
-  }, /*#__PURE__*/React__default.createElement(GlobalStyle, null), /*#__PURE__*/React__default.createElement(CssBaseline, null), children)));
+  }, /*#__PURE__*/React.createElement(GlobalStyle, null), /*#__PURE__*/React.createElement(CssBaseline, null), children)));
 };
-
 AppContainer.propTypes = AppContainerPropTypes;
 
 var ChipBadgePropTypes = _extends({
-  color: PropTypes__default.oneOf(THEME_COLORS),
-  label: PropTypes__default.string,
-  icon: PropTypes__default.string.isRequired
+  color: PropTypes.oneOf(THEME_COLORS),
+  label: PropTypes.string,
+  icon: PropTypes.string.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var ChipBadgeDefaultProps = {
   color: "primary"
 };
 
 var HeadingBasePropTypes = _extends({
-  align: PropTypes__default.oneOf(["inherit", "left", "center", "right", "justify"]),
-  children: PropTypes__default.node,
-  content: PropTypes__default.string,
-  color: PropTypes__default.oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
-  display: PropTypes__default.oneOf(["initial", "block", "inline"]),
-  gutterBottom: PropTypes__default.bool,
-  noWrap: PropTypes__default.bool
+  align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
+  children: PropTypes.node,
+  content: PropTypes.string,
+  color: PropTypes.oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
+  display: PropTypes.oneOf(["initial", "block", "inline"]),
+  gutterBottom: PropTypes.bool,
+  noWrap: PropTypes.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
 function _templateObject$3() {
@@ -762,84 +706,74 @@ function _templateObject$3() {
 
   return data;
 }
-
-var StyledHeading = styled__default(Typography)(_templateObject$3(), function (theme) {
+var StyledHeading = styled(Typography)(_templateObject$3(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var HeadingBase = function HeadingBase(_ref) {
   var content = _ref.content,
       children = _ref.children,
       props = _objectWithoutPropertiesLoose(_ref, ["content", "children"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledHeading, props, content || children);
+  return /*#__PURE__*/React.createElement(StyledHeading, props, content || children);
 };
-
 HeadingBase.propTypes = HeadingBasePropTypes;
 
 var H1 = function H1(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React.createElement(HeadingBase, _extends({
     variant: "h1"
   }, props));
 };
-
 H1.propTypes = HeadingBasePropTypes;
 
 var H2 = function H2(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React.createElement(HeadingBase, _extends({
     variant: "h2"
   }, props));
 };
-
 H2.propTypes = HeadingBasePropTypes;
 
 var H3 = function H3(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React.createElement(HeadingBase, _extends({
     variant: "h3"
   }, props));
 };
-
 H3.propTypes = HeadingBasePropTypes;
 
 var H4 = function H4(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React.createElement(HeadingBase, _extends({
     variant: "h4"
   }, props));
 };
-
 H4.propTypes = HeadingBasePropTypes;
 
 var H5 = function H5(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React.createElement(HeadingBase, _extends({
     variant: "h5"
   }, props));
 };
-
 H5.propTypes = HeadingBasePropTypes;
 
 var H6 = function H6(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React.createElement(HeadingBase, _extends({
     variant: "h6"
   }, props));
 };
-
 H6.propTypes = HeadingBasePropTypes;
 
 var TextBasePropTypes = _extends({
-  align: PropTypes__default.oneOf(["inherit", "left", "center", "right", "justify"]),
-  children: PropTypes__default.node,
-  content: PropTypes__default.string,
-  color: PropTypes__default.oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
-  display: PropTypes__default.oneOf(["initial", "block", "inline"]),
-  fontStyle: PropTypes__default.oneOf(["normal", "italic"]),
-  fontWeight: PropTypes__default.oneOf(["light", "regular", "bold"]),
-  fontSize: PropTypes__default.oneOf(["sm", "md", "lg"]),
-  gutterBottom: PropTypes__default.bool,
-  noWrap: PropTypes__default.bool
+  align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
+  children: PropTypes.node,
+  content: PropTypes.string,
+  color: PropTypes.oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
+  display: PropTypes.oneOf(["initial", "block", "inline"]),
+  fontStyle: PropTypes.oneOf(["normal", "italic"]),
+  fontWeight: PropTypes.oneOf(["light", "regular", "bold"]),
+  fontSize: PropTypes.oneOf(["sm", "md", "lg"]),
+  gutterBottom: PropTypes.bool,
+  noWrap: PropTypes.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var TextBaseDefaultProps = {
   fontStyle: "normal",
   fontWeight: "regular",
@@ -855,8 +789,7 @@ function _templateObject$4() {
 
   return data;
 }
-
-var StyledText = styled__default(Typography)(_templateObject$4(), function (_ref) {
+var StyledText = styled(Typography)(_templateObject$4(), function (_ref) {
   var fontWeight = _ref.fontWeight,
       theme = _ref.theme;
 
@@ -891,15 +824,13 @@ var StyledText = styled__default(Typography)(_templateObject$4(), function (_ref
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var TextBase = function TextBase(_ref4) {
   var content = _ref4.content,
       children = _ref4.children,
       props = _objectWithoutPropertiesLoose(_ref4, ["content", "children"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledText, props, content || children);
+  return /*#__PURE__*/React.createElement(StyledText, props, content || children);
 };
-
 TextBase.propTypes = TextBasePropTypes;
 TextBase.defaultProps = TextBaseDefaultProps;
 
@@ -912,28 +843,24 @@ function _templateObject$5() {
 
   return data;
 }
-
-var StyledParagraph = styled__default(TextBase)(_templateObject$5(), function (_ref) {
+var StyledParagraph = styled(TextBase)(_templateObject$5(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
-
 var Paragraph = function Paragraph(props) {
-  return /*#__PURE__*/React__default.createElement(StyledParagraph, _extends({
+  return /*#__PURE__*/React.createElement(StyledParagraph, _extends({
     variant: "body1",
     paragraph: true
   }, props));
 };
-
 Paragraph.propTypes = TextBasePropTypes;
 
 var Text = function Text(props) {
-  return /*#__PURE__*/React__default.createElement(TextBase, _extends({
+  return /*#__PURE__*/React.createElement(TextBase, _extends({
     component: "div",
     variant: "body2"
   }, props));
 };
-
 Text.propTypes = TextBasePropTypes;
 
 function _templateObject2$1() {
@@ -955,17 +882,16 @@ function _templateObject$6() {
 
   return data;
 }
-
-var StyledChip = styled__default.div(_templateObject$6(), function (_ref) {
+var StyledChip = styled.div(_templateObject$6(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
-  return styled.css(["padding:", ";background-color:", ";color:", ";"], theme.spacing(2), theme.palette[color].light, theme.palette[color].main);
+  return css(["padding:", ";background-color:", ";color:", ";"], theme.spacing(2), theme.palette[color].light, theme.palette[color].main);
 }, function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledLabel = styled__default(Text).attrs(function () {
+var StyledLabel = styled(Text).attrs(function () {
   return {
     fontWeight: "bold"
   };
@@ -973,28 +899,25 @@ var StyledLabel = styled__default(Text).attrs(function () {
   var theme = _ref2.theme;
   return theme.spacing(2);
 });
-
 var ChipBadge = function ChipBadge(_ref3) {
   var color = _ref3.color,
       icon = _ref3.icon,
       label = _ref3.label,
       props = _objectWithoutPropertiesLoose(_ref3, ["color", "icon", "label"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledChip, _extends({
+  return /*#__PURE__*/React.createElement(StyledChip, _extends({
     color: color
-  }, props), /*#__PURE__*/React__default.createElement(Icon, {
+  }, props), /*#__PURE__*/React.createElement(Icon, {
     color: color,
     icon: icon
-  }), label && /*#__PURE__*/React__default.createElement(StyledLabel, null, label));
+  }), label && /*#__PURE__*/React.createElement(StyledLabel, null, label));
 };
-
 ChipBadge.propTypes = ChipBadgePropTypes;
 ChipBadge.defaultProps = ChipBadgeDefaultProps;
 
 var BoxBasePropTypes = _extends({
-  shadow: PropTypes__default.oneOf(["none", "normal", "long"])
+  shadow: PropTypes.oneOf(["none", "normal", "long"])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var BoxBaseDefaultProps = {
   shadow: "normal"
 };
@@ -1008,8 +931,7 @@ function _templateObject$7() {
 
   return data;
 }
-
-var StyledBox = styled__default.div(_templateObject$7(), function (_ref) {
+var StyledBox = styled.div(_templateObject$7(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
@@ -1022,21 +944,18 @@ var StyledBox = styled__default.div(_templateObject$7(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var BoxBase = function BoxBase(props) {
-  return /*#__PURE__*/React__default.createElement(StyledBox, props);
+  return /*#__PURE__*/React.createElement(StyledBox, props);
 };
-
 BoxBase.propTypes = BoxBasePropTypes;
 BoxBase.defaultProps = BoxBaseDefaultProps;
 
 var FlexPropTypes = _extends({
-  alignItems: PropTypes__default.oneOf(["flex-start", "center", "flex-end", "stretch", "baseline"]),
-  container: PropTypes__default.bool,
-  item: PropTypes__default.bool,
-  justify: PropTypes__default.oneOf(["flex-start", "center", "flex-end", "space-between", "space-around", "space-evenly"])
+  alignItems: PropTypes.oneOf(["flex-start", "center", "flex-end", "stretch", "baseline"]),
+  container: PropTypes.bool,
+  item: PropTypes.bool,
+  justify: PropTypes.oneOf(["flex-start", "center", "flex-end", "space-between", "space-around", "space-evenly"])
 }, SPACER_PROP_TYPES, DIMENSION_PROP_TYPES);
-
 var FlexDefaultProps = {
   alignItems: "center",
   justify: "flex-start"
@@ -1051,19 +970,16 @@ function _templateObject$8() {
 
   return data;
 }
-
-var StyledFlex = styled__default(Grid)(_templateObject$8(), function (theme) {
+var StyledFlex = styled(Grid)(_templateObject$8(), function (theme) {
   return DIMENSION(theme);
 }, function (theme) {
   return DISPLAY(theme);
 }, function (theme) {
   return SPACER(theme);
 });
-
 var Flex = function Flex(props) {
-  return /*#__PURE__*/React__default.createElement(StyledFlex, props);
+  return /*#__PURE__*/React.createElement(StyledFlex, props);
 };
-
 Flex.propTypes = FlexPropTypes;
 Flex.defaultProps = FlexDefaultProps;
 
@@ -1076,8 +992,7 @@ function _templateObject$9() {
 
   return data;
 }
-
-var StyledBoxFooter = styled__default(Flex).attrs(function () {
+var StyledBoxFooter = styled(Flex).attrs(function () {
   return {
     container: true,
     alignItems: "center",
@@ -1094,7 +1009,6 @@ var StyledBoxFooter = styled__default(Flex).attrs(function () {
   var theme = _ref3.theme;
   return theme.palette.gray.semiLight;
 });
-
 var BoxFooter = function BoxFooter(_ref4) {
   var action = _ref4.action,
       actionDisabled = _ref4.actionDisabled,
@@ -1104,26 +1018,25 @@ var BoxFooter = function BoxFooter(_ref4) {
       renderTitle = _ref4.renderTitle,
       props = _objectWithoutPropertiesLoose(_ref4, ["action", "actionDisabled", "actionLoading", "actionTitle", "renderAction", "renderTitle"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledBoxFooter, props, /*#__PURE__*/React__default.createElement(Flex, {
+  return /*#__PURE__*/React.createElement(StyledBoxFooter, props, /*#__PURE__*/React.createElement(Flex, {
     item: true
-  }, renderTitle()), /*#__PURE__*/React__default.createElement(Flex, {
+  }, renderTitle()), /*#__PURE__*/React.createElement(Flex, {
     item: true
-  }, renderAction() || /*#__PURE__*/React__default.createElement(Button, {
+  }, renderAction() || /*#__PURE__*/React.createElement(Button, {
     content: actionTitle,
     disabled: actionDisabled,
     loading: actionLoading,
     onClick: action
   })));
 };
-
 BoxFooter.propTypes = {
-  action: PropTypes__default.func,
-  actionDisabled: PropTypes__default.bool,
-  actionLoading: PropTypes__default.bool,
-  actionTitle: PropTypes__default.string.isRequired,
-  padding: PropTypes__default.number.isRequired,
-  renderAction: PropTypes__default.func,
-  renderTitle: PropTypes__default.func
+  action: PropTypes.func,
+  actionDisabled: PropTypes.bool,
+  actionLoading: PropTypes.bool,
+  actionTitle: PropTypes.string.isRequired,
+  padding: PropTypes.number.isRequired,
+  renderAction: PropTypes.func,
+  renderTitle: PropTypes.func
 };
 BoxFooter.defaultProps = {
   action: function action() {},
@@ -1142,8 +1055,7 @@ function _templateObject$a() {
 
   return data;
 }
-
-var StyledBoxHeader = styled__default(Flex).attrs(function () {
+var StyledBoxHeader = styled(Flex).attrs(function () {
   return {
     container: true,
     justify: "space-between"
@@ -1159,7 +1071,6 @@ var StyledBoxHeader = styled__default(Flex).attrs(function () {
   var theme = _ref3.theme;
   return theme.palette.gray.semiLight;
 });
-
 var BoxHeader = function BoxHeader(_ref4) {
   var action = _ref4.action,
       actionIcon = _ref4.actionIcon,
@@ -1170,38 +1081,37 @@ var BoxHeader = function BoxHeader(_ref4) {
       titleIcon = _ref4.titleIcon,
       props = _objectWithoutPropertiesLoose(_ref4, ["action", "actionIcon", "actionIconSize", "renderAction", "renderTitle", "title", "titleIcon"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledBoxHeader, props, /*#__PURE__*/React__default.createElement(Flex, {
+  return /*#__PURE__*/React.createElement(StyledBoxHeader, props, /*#__PURE__*/React.createElement(Flex, {
     container: true,
     item: true,
     xs: 6
-  }, renderTitle() || /*#__PURE__*/React__default.createElement(React__default.Fragment, null, titleIcon && /*#__PURE__*/React__default.createElement(Icon, {
+  }, renderTitle() || /*#__PURE__*/React.createElement(React.Fragment, null, titleIcon && /*#__PURE__*/React.createElement(Icon, {
     colorBlack: true,
     icon: titleIcon,
     mr: 2,
     size: "lg"
-  }), /*#__PURE__*/React__default.createElement(H3, {
+  }), /*#__PURE__*/React.createElement(H3, {
     content: title,
     dInlineBlock: true
-  }))), /*#__PURE__*/React__default.createElement(Flex, {
+  }))), /*#__PURE__*/React.createElement(Flex, {
     item: true
-  }, renderAction() || actionIcon && /*#__PURE__*/React__default.createElement(Icon, {
+  }, renderAction() || actionIcon && /*#__PURE__*/React.createElement(Icon, {
     colorGrayMedium: true,
     icon: actionIcon,
     size: actionIconSize,
     onClick: action
   })));
 };
-
 BoxHeader.propTypes = {
-  action: PropTypes__default.func,
-  actionIcon: PropTypes__default.string,
-  actionIconSize: PropTypes__default.string,
-  padding: PropTypes__default.number.isRequired,
-  renderAction: PropTypes__default.func,
-  renderTitle: PropTypes__default.func,
-  title: PropTypes__default.string.isRequired,
-  titleIcon: PropTypes__default.string,
-  titleComponent: PropTypes__default.string
+  action: PropTypes.func,
+  actionIcon: PropTypes.string,
+  actionIconSize: PropTypes.string,
+  padding: PropTypes.number.isRequired,
+  renderAction: PropTypes.func,
+  renderTitle: PropTypes.func,
+  title: PropTypes.string.isRequired,
+  titleIcon: PropTypes.string,
+  titleComponent: PropTypes.string
 };
 BoxHeader.defaultProps = {
   action: function action() {},
@@ -1214,23 +1124,22 @@ BoxHeader.defaultProps = {
 };
 
 var BoxPropTypes = _extends({
-  children: PropTypes__default.node.isRequired,
-  footerAction: PropTypes__default.func,
-  footerActionLoading: PropTypes__default.bool,
-  footerActionDisabled: PropTypes__default.bool,
-  footerActionTitle: PropTypes__default.string,
-  footerRenderAction: PropTypes__default.func,
-  footerRenderTitle: PropTypes__default.func,
-  headerAction: PropTypes__default.func,
-  headerActionIcon: PropTypes__default.string,
-  headerActionIconSize: PropTypes__default.string,
-  headerRenderAction: PropTypes__default.func,
-  headerRenderTitle: PropTypes__default.func,
-  headerTitle: PropTypes__default.string,
-  headerTitleIcon: PropTypes__default.string,
-  padding: PropTypes__default.number
+  children: PropTypes.node.isRequired,
+  footerAction: PropTypes.func,
+  footerActionLoading: PropTypes.bool,
+  footerActionDisabled: PropTypes.bool,
+  footerActionTitle: PropTypes.string,
+  footerRenderAction: PropTypes.func,
+  footerRenderTitle: PropTypes.func,
+  headerAction: PropTypes.func,
+  headerActionIcon: PropTypes.string,
+  headerActionIconSize: PropTypes.string,
+  headerRenderAction: PropTypes.func,
+  headerRenderTitle: PropTypes.func,
+  headerTitle: PropTypes.string,
+  headerTitleIcon: PropTypes.string,
+  padding: PropTypes.number
 }, BoxBasePropTypes);
-
 var BoxDefaultProps = _extends({
   padding: 6
 }, BoxBaseDefaultProps);
@@ -1244,13 +1153,11 @@ function _templateObject$b() {
 
   return data;
 }
-
-var BoxContent = styled__default.div(_templateObject$b(), function (_ref) {
+var BoxContent = styled.div(_templateObject$b(), function (_ref) {
   var padding = _ref.padding,
       theme = _ref.theme;
   return theme.spacing(padding);
 });
-
 var Box = function Box(_ref2) {
   var children = _ref2.children,
       footerAction = _ref2.footerAction,
@@ -1269,7 +1176,7 @@ var Box = function Box(_ref2) {
       padding = _ref2.padding,
       props = _objectWithoutPropertiesLoose(_ref2, ["children", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionTitle", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconSize", "headerRenderAction", "headerRenderTitle", "headerTitle", "headerTitleIcon", "padding"]);
 
-  return /*#__PURE__*/React__default.createElement(BoxBase, props, headerTitle && /*#__PURE__*/React__default.createElement(BoxHeader, {
+  return /*#__PURE__*/React.createElement(BoxBase, props, headerTitle && /*#__PURE__*/React.createElement(BoxHeader, {
     action: headerAction,
     actionIcon: headerActionIcon,
     actionIconSize: headerActionIconSize,
@@ -1278,9 +1185,9 @@ var Box = function Box(_ref2) {
     renderTitle: headerRenderTitle,
     title: headerTitle,
     titleIcon: headerTitleIcon
-  }), /*#__PURE__*/React__default.createElement(BoxContent, {
+  }), /*#__PURE__*/React.createElement(BoxContent, {
     padding: padding
-  }, children), /*#__PURE__*/React__default.createElement(BoxFooter, {
+  }, children), /*#__PURE__*/React.createElement(BoxFooter, {
     action: footerAction,
     actionDisabled: footerActionDisabled,
     actionLoading: footerActionLoading,
@@ -1290,24 +1197,22 @@ var Box = function Box(_ref2) {
     renderTitle: footerRenderTitle
   }));
 };
-
 Box.propTypes = BoxPropTypes;
 Box.defaultProps = BoxDefaultProps;
 
 var ButtonBasePropTypes = _extends({
-  color: PropTypes__default.oneOf(["primary", "secondary", "subtle"]),
-  content: PropTypes__default.string,
-  children: PropTypes__default.node,
-  disabled: PropTypes__default.bool,
-  loading: PropTypes__default.bool,
-  endIcon: PropTypes__default.string,
-  href: PropTypes__default.string,
-  onClick: PropTypes__default.func,
-  size: PropTypes__default.oneOf(["md", "sm", "xs"]),
-  startIcon: PropTypes__default.string,
-  target: PropTypes__default.string
+  color: PropTypes.oneOf(["primary", "secondary", "subtle"]),
+  content: PropTypes.string,
+  children: PropTypes.node,
+  disabled: PropTypes.bool,
+  loading: PropTypes.bool,
+  endIcon: PropTypes.string,
+  href: PropTypes.string,
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf(["md", "sm", "xs"]),
+  startIcon: PropTypes.string,
+  target: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var ButtonBaseDefaultProps = {
   color: "primary",
   size: "md"
@@ -1322,8 +1227,7 @@ function _templateObject$c() {
 
   return data;
 }
-
-var StyledButton = styled__default(MuiButtonBase)(_templateObject$c(), function (_ref) {
+var StyledButton = styled(MuiButtonBase)(_templateObject$c(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(0, 4);
 }, function (_ref2) {
@@ -1331,14 +1235,14 @@ var StyledButton = styled__default(MuiButtonBase)(_templateObject$c(), function 
       theme = _ref2.theme;
 
   if (size === "xs") {
-    return styled.css(["font-size:", ";padding:", ";height:24px;border-radius:8px;"], theme.typography.button.fontSizeXs, theme.spacing(0, 2));
+    return css(["font-size:", ";padding:", ";height:24px;border-radius:8px;"], theme.typography.button.fontSizeXs, theme.spacing(0, 2));
   }
 
   if (size === "sm") {
-    return styled.css(["font-size:", ";padding:", ";height:32px;border-radius:8px;"], theme.typography.button.fontSizeSm, theme.spacing(0, 2));
+    return css(["font-size:", ";padding:", ";height:32px;border-radius:8px;"], theme.typography.button.fontSizeSm, theme.spacing(0, 2));
   }
 
-  return styled.css(["font-size:", ";"], theme.typography.button.fontSizeMd);
+  return css(["font-size:", ";"], theme.typography.button.fontSizeMd);
 }, function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -1370,23 +1274,22 @@ var ButtonBase = function ButtonBase(_ref3) {
       props = _objectWithoutPropertiesLoose(_ref3, ["colors", "content", "children", "loading", "endIcon", "href", "size", "startIcon"]);
 
   var iconSize = getIconSize(size);
-  return /*#__PURE__*/React__default.createElement(StyledButton, _extends({
+  return /*#__PURE__*/React.createElement(StyledButton, _extends({
     component: href ? "a" : "button",
     href: href,
     size: size
-  }, props), loading ? /*#__PURE__*/React__default.createElement(DotsSpinner, {
+  }, props), loading ? /*#__PURE__*/React.createElement(DotsSpinner, {
     color: colors == null ? void 0 : colors.color
-  }) : /*#__PURE__*/React__default.createElement(React__default.Fragment, null, startIcon && /*#__PURE__*/React__default.createElement(Icon, {
+  }) : /*#__PURE__*/React.createElement(React.Fragment, null, startIcon && /*#__PURE__*/React.createElement(Icon, {
     icon: startIcon,
     size: iconSize,
     mr: 2
-  }), content || children, endIcon && /*#__PURE__*/React__default.createElement(Icon, {
+  }), content || children, endIcon && /*#__PURE__*/React.createElement(Icon, {
     icon: endIcon,
     size: iconSize,
     ml: 2
   })));
 };
-
 ButtonBase.propTypes = ButtonBasePropTypes;
 ButtonBase.defaultProps = ButtonBaseDefaultProps;
 
@@ -1399,10 +1302,9 @@ function _templateObject$d() {
 
   return data;
 }
-
-var StyledButton$1 = styled__default(ButtonBase)(_templateObject$d(), function (_ref) {
+var StyledButton$1 = styled(ButtonBase)(_templateObject$d(), function (_ref) {
   var colors = _ref.colors;
-  return styled.css(["background-color:", ";color:", ";svg{color:", ";}"], colors.backgroundColor, colors.color, colors.color);
+  return css(["background-color:", ";color:", ";svg{color:", ";}"], colors.backgroundColor, colors.color, colors.color);
 });
 
 var colorMapper = function colorMapper(color, theme) {
@@ -1424,13 +1326,12 @@ var Button = function Button(_ref2) {
   var color = _ref2.color,
       props = _objectWithoutPropertiesLoose(_ref2, ["color"]);
 
-  var theme = styled.useTheme();
+  var theme = useTheme();
   var colors = colorMapper(color, theme);
-  return /*#__PURE__*/React__default.createElement(StyledButton$1, _extends({
+  return /*#__PURE__*/React.createElement(StyledButton$1, _extends({
     colors: colors
   }, props));
 };
-
 Button.propTypes = ButtonBasePropTypes;
 
 function _templateObject$e() {
@@ -1442,10 +1343,9 @@ function _templateObject$e() {
 
   return data;
 }
-
-var StyledButton$2 = styled__default(ButtonBase)(_templateObject$e(), function (_ref) {
+var StyledButton$2 = styled(ButtonBase)(_templateObject$e(), function (_ref) {
   var colors = _ref.colors;
-  return styled.css(["border:1px solid ", ";color:", ";svg{color:", ";}:hover{background-color:", ";opacity:1;}"], colors.borderColor, colors.color, colors.color, colors.backgroundColorHover);
+  return css(["border:1px solid ", ";color:", ";svg{color:", ";}:hover{background-color:", ";opacity:1;}"], colors.borderColor, colors.color, colors.color, colors.backgroundColorHover);
 });
 
 var colorMapper$1 = function colorMapper(color, theme) {
@@ -1470,13 +1370,12 @@ var OutlineButton = function OutlineButton(_ref2) {
   var color = _ref2.color,
       props = _objectWithoutPropertiesLoose(_ref2, ["color"]);
 
-  var theme = styled.useTheme();
+  var theme = useTheme();
   var colors = colorMapper$1(color, theme);
-  return /*#__PURE__*/React__default.createElement(StyledButton$2, _extends({
+  return /*#__PURE__*/React.createElement(StyledButton$2, _extends({
     colors: colors
   }, props));
 };
-
 OutlineButton.propTypes = ButtonBasePropTypes;
 
 function _templateObject$f() {
@@ -1488,10 +1387,9 @@ function _templateObject$f() {
 
   return data;
 }
-
-var StyledButton$3 = styled__default(ButtonBase)(_templateObject$f(), function (_ref) {
+var StyledButton$3 = styled(ButtonBase)(_templateObject$f(), function (_ref) {
   var colors = _ref.colors;
-  return styled.css(["color:", ";svg{color:", ";}"], colors.color, colors.color);
+  return css(["color:", ";svg{color:", ";}"], colors.color, colors.color);
 });
 
 var colorMapper$2 = function colorMapper(color, theme) {
@@ -1510,16 +1408,16 @@ var TextButton = function TextButton(_ref2) {
   var color = _ref2.color,
       props = _objectWithoutPropertiesLoose(_ref2, ["color"]);
 
-  var theme = styled.useTheme();
+  var theme = useTheme();
   var colors = colorMapper$2(color, theme);
-  return /*#__PURE__*/React__default.createElement(StyledButton$3, _extends({
+  return /*#__PURE__*/React.createElement(StyledButton$3, _extends({
     colors: colors
   }, props));
 };
-
 TextButton.propTypes = ButtonBasePropTypes;
+
 var CollapsePropTypes = {
-  isOpened: PropTypes__default.bool
+  isOpened: PropTypes.bool
 };
 
 function _templateObject$g() {
@@ -1531,36 +1429,31 @@ function _templateObject$g() {
 
   return data;
 }
-
-var Wrapper = styled__default.div(_templateObject$g());
-
+var Wrapper = styled.div(_templateObject$g());
 var Collapse = function Collapse(props) {
-  return /*#__PURE__*/React__default.createElement(Wrapper, null, /*#__PURE__*/React__default.createElement(reactCollapse.Collapse, props));
+  return /*#__PURE__*/React.createElement(Wrapper, null, /*#__PURE__*/React.createElement(Collapse$1, props));
 };
-
 Collapse.propTypes = CollapsePropTypes;
 
 var CollapseButton = function CollapseButton(_ref) {
   var isOpened = _ref.isOpened,
       props = _objectWithoutPropertiesLoose(_ref, ["isOpened"]);
 
-  return /*#__PURE__*/React__default.createElement(Icon, _extends({
+  return /*#__PURE__*/React.createElement(Icon, _extends({
     icon: isOpened ? "chevron-up" : "chevron-down"
   }, props));
 };
-
 CollapseButton.propTypes = {
-  isOpened: PropTypes__default.bool.isRequired
+  isOpened: PropTypes.bool.isRequired
 };
 
 var DetailsTablePropTypes = _extends({
-  rows: PropTypes__default.arrayOf(PropTypes__default.shape({
-    label: PropTypes__default.string,
-    value: PropTypes__default.node,
-    expanded: PropTypes__default.bool
+  rows: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string,
+    value: PropTypes.node,
+    expanded: PropTypes.bool
   }))
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var DetailsTableDefaultProps = {};
 
 function _templateObject3() {
@@ -1592,49 +1485,45 @@ function _templateObject$h() {
 
   return data;
 }
-
-var Wrapper$1 = styled__default.div(_templateObject$h(), function (theme) {
+var Wrapper$1 = styled.div(_templateObject$h(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var Row = styled__default.div(_templateObject2$2(), function (_ref) {
+var Row = styled.div(_templateObject2$2(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
-var Label = styled__default(Text).attrs(function () {
+var Label = styled(Text).attrs(function () {
   return {
     color: "textSecondary"
   };
 })(_templateObject3());
-
 var DetailsTable = function DetailsTable(_ref2) {
   var rows = _ref2.rows,
       props = _objectWithoutPropertiesLoose(_ref2, ["rows"]);
 
-  return /*#__PURE__*/React__default.createElement(Wrapper$1, props, rows.map(function (_ref3) {
+  return /*#__PURE__*/React.createElement(Wrapper$1, props, rows.map(function (_ref3) {
     var label = _ref3.label,
         value = _ref3.value;
-    return /*#__PURE__*/React__default.createElement(Row, {
+    return /*#__PURE__*/React.createElement(Row, {
       key: label + ":" + value
-    }, /*#__PURE__*/React__default.createElement(Label, {
+    }, /*#__PURE__*/React.createElement(Label, {
       content: label
     }), value);
   }));
 };
-
 DetailsTable.propTypes = DetailsTablePropTypes;
 DetailsTable.defaultProps = DetailsTableDefaultProps;
 
 var DropdownPropTypes = _extends({
-  anchorEl: PropTypes__default.object,
-  items: PropTypes__default.arrayOf(PropTypes__default.shape({
-    label: PropTypes__default.string
+  anchorEl: PropTypes.object,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string
   })),
-  onClose: PropTypes__default.func,
-  open: PropTypes__default.bool.isRequired
+  onClose: PropTypes.func,
+  open: PropTypes.bool.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var DropdownDefaultProps = {
   anchorOrigin: {
     vertical: "bottom",
@@ -1666,25 +1555,23 @@ function _templateObject$i() {
 
   return data;
 }
-
-var StyledDropdown = styled__default(Menu)(_templateObject$i(), function (theme) {
+var StyledDropdown = styled(Menu)(_templateObject$i(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledItem = styled__default(MenuItem)(_templateObject2$3());
-
+var StyledItem = styled(MenuItem)(_templateObject2$3());
 var Dropdown = function Dropdown(_ref) {
   var items = _ref.items,
       props = _objectWithoutPropertiesLoose(_ref, ["items"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledDropdown, props, items.map(function (_ref2) {
+  return /*#__PURE__*/React.createElement(StyledDropdown, props, items.map(function (_ref2) {
     var label = _ref2.label,
         _onClick = _ref2.onClick,
         value = _ref2.value,
         itemProps = _objectWithoutPropertiesLoose(_ref2, ["label", "onClick", "value"]);
 
-    return /*#__PURE__*/React__default.createElement(StyledItem, _extends({
+    return /*#__PURE__*/React.createElement(StyledItem, _extends({
       key: label,
       onClick: function onClick() {
         return _onClick(value);
@@ -1692,7 +1579,6 @@ var Dropdown = function Dropdown(_ref) {
     }, itemProps), label);
   }));
 };
-
 Dropdown.propTypes = DropdownPropTypes;
 Dropdown.defaultProps = DropdownDefaultProps;
 
@@ -1705,37 +1591,33 @@ function _templateObject$j() {
 
   return data;
 }
-
-var Wrapper$2 = styled__default.div(_templateObject$j(), function (_ref) {
+var Wrapper$2 = styled.div(_templateObject$j(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.light;
 }, function (_ref2) {
   var theme = _ref2.theme;
   return theme.palette.primary.main;
 });
-
 var DownloadModuleButton = function DownloadModuleButton(_ref3) {
   var icon = _ref3.icon;
-  return /*#__PURE__*/React__default.createElement(Wrapper$2, null, /*#__PURE__*/React__default.createElement(Icon, {
+  return /*#__PURE__*/React.createElement(Wrapper$2, null, /*#__PURE__*/React.createElement(Icon, {
     icon: icon,
     size: "lg"
   }));
 };
-
 DownloadModuleButton.propTypes = {
-  icon: PropTypes__default.string.isRequired
+  icon: PropTypes.string.isRequired
 };
 
 var DownloadModulePropTypes = _extends({
-  downloadPdfText: PropTypes__default.string,
-  downloadPdfUrl: PropTypes__default.string,
-  downloadQrCodeDesc: PropTypes__default.string,
-  downloadQrCodeText: PropTypes__default.string,
-  downloadQrCodeUrl: PropTypes__default.string,
-  qrCodeUrl: PropTypes__default.string,
-  qrCodeValue: PropTypes__default.string
+  downloadPdfText: PropTypes.string,
+  downloadPdfUrl: PropTypes.string,
+  downloadQrCodeDesc: PropTypes.string,
+  downloadQrCodeText: PropTypes.string,
+  downloadQrCodeUrl: PropTypes.string,
+  qrCodeUrl: PropTypes.string,
+  qrCodeValue: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var DownloadModuleDefaultProps = {
   downloadPdfText: "Download as PDF",
   downloadQrCodeDesc: "Or just download the QR Code of license",
@@ -1752,8 +1634,7 @@ function _templateObject$k() {
 
   return data;
 }
-
-var Container = styled__default.div(_templateObject$k(), function (_ref) {
+var Container = styled.div(_templateObject$k(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -1764,7 +1645,6 @@ var Container = styled__default.div(_templateObject$k(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var DownloadModule = function DownloadModule(_ref3) {
   var downloadPdfText = _ref3.downloadPdfText,
       downloadPdfUrl = _ref3.downloadPdfUrl,
@@ -1775,51 +1655,49 @@ var DownloadModule = function DownloadModule(_ref3) {
       qrCodeValue = _ref3.qrCodeValue,
       props = _objectWithoutPropertiesLoose(_ref3, ["downloadPdfText", "downloadPdfUrl", "downloadQrCodeDesc", "downloadQrCodeText", "downloadQrCodeUrl", "qrCodeUrl", "qrCodeValue"]);
 
-  return /*#__PURE__*/React__default.createElement(Container, props, /*#__PURE__*/React__default.createElement(Flex, {
+  return /*#__PURE__*/React.createElement(Container, props, /*#__PURE__*/React.createElement(Flex, {
     container: true,
     mb: 8
-  }, /*#__PURE__*/React__default.createElement(DownloadModuleButton, {
+  }, /*#__PURE__*/React.createElement(DownloadModuleButton, {
     icon: "file-pdf"
-  }), /*#__PURE__*/React__default.createElement(TextButton, {
+  }), /*#__PURE__*/React.createElement(TextButton, {
     content: downloadPdfText,
     href: downloadPdfUrl,
     size: "sm"
-  })), /*#__PURE__*/React__default.createElement(Flex, {
+  })), /*#__PURE__*/React.createElement(Flex, {
     container: true,
     wrap: "nowrap"
-  }, /*#__PURE__*/React__default.createElement(QRCode, {
+  }, /*#__PURE__*/React.createElement(QRCode, {
     includeMargin: true,
     size: 76,
     value: qrCodeValue
-  }), /*#__PURE__*/React__default.createElement(Flex, {
+  }), /*#__PURE__*/React.createElement(Flex, {
     item: true
-  }, /*#__PURE__*/React__default.createElement(Text, {
+  }, /*#__PURE__*/React.createElement(Text, {
     content: downloadQrCodeDesc,
     ml: 2
-  }), /*#__PURE__*/React__default.createElement(TextButton, {
+  }), /*#__PURE__*/React.createElement(TextButton, {
     content: downloadQrCodeText,
     href: downloadQrCodeUrl,
     ml: 1,
     size: "sm"
   }))));
 };
-
 DownloadModule.propTypes = DownloadModulePropTypes;
 DownloadModule.defaultProps = DownloadModuleDefaultProps;
 
 var FileManagerPropTypes = _extends({
-  data: PropTypes__default.arrayOf(PropTypes__default.shape({
-    label: PropTypes__default.string,
-    files: PropTypes__default.arrayOf(PropTypes__default.shape({
-      id: PropTypes__default.number,
-      name: PropTypes__default.string,
-      date: PropTypes__default.string,
-      description: PropTypes__default.string,
-      previewUrl: PropTypes__default.string
+  data: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string,
+    files: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      date: PropTypes.string,
+      description: PropTypes.string,
+      previewUrl: PropTypes.string
     }))
   }))
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var FileManagerDefaultProps = {};
 
 function _templateObject4() {
@@ -1861,9 +1739,8 @@ function _templateObject$l() {
 
   return data;
 }
-
-var Container$1 = styled__default.div(_templateObject$l());
-var Wrapper$3 = styled__default.div(_templateObject2$4(), function (_ref) {
+var Container$1 = styled.div(_templateObject$l());
+var Wrapper$3 = styled.div(_templateObject2$4(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -1877,7 +1754,7 @@ var Wrapper$3 = styled__default.div(_templateObject2$4(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-var Row$1 = styled__default(Grid).attrs(function () {
+var Row$1 = styled(Grid).attrs(function () {
   return {
     container: true
   };
@@ -1885,7 +1762,7 @@ var Row$1 = styled__default(Grid).attrs(function () {
   var theme = _ref4.theme;
   return theme.spacing(2);
 });
-var Item = styled__default(Grid).attrs(function (_ref5) {
+var Item = styled(Grid).attrs(function (_ref5) {
   var lg = _ref5.lg;
   return {
     item: true,
@@ -1893,15 +1770,14 @@ var Item = styled__default(Grid).attrs(function (_ref5) {
     lg: lg || 3
   };
 })(_templateObject4());
-
 var FileManager = function FileManager(_ref6) {
   var data = _ref6.data;
-  return /*#__PURE__*/React__default.createElement(Container$1, null, data.map(function (_ref7) {
+  return /*#__PURE__*/React.createElement(Container$1, null, data.map(function (_ref7) {
     var label = _ref7.label,
         files = _ref7.files;
-    return /*#__PURE__*/React__default.createElement(Wrapper$3, {
+    return /*#__PURE__*/React.createElement(Wrapper$3, {
       key: label
-    }, /*#__PURE__*/React__default.createElement(Text, {
+    }, /*#__PURE__*/React.createElement(Text, {
       content: label,
       fontWeight: "bold",
       mb: 2
@@ -1911,30 +1787,30 @@ var FileManager = function FileManager(_ref6) {
           id = _ref8.id,
           name = _ref8.name,
           previewUrl = _ref8.previewUrl;
-      return /*#__PURE__*/React__default.createElement(Row$1, {
+      return /*#__PURE__*/React.createElement(Row$1, {
         key: id
-      }, /*#__PURE__*/React__default.createElement(Item, {
+      }, /*#__PURE__*/React.createElement(Item, {
         lg: 5,
         md: 5
-      }, /*#__PURE__*/React__default.createElement(Thumbnail, {
+      }, /*#__PURE__*/React.createElement(Thumbnail, {
         imgSrc: previewUrl,
         hasPreview: true,
         mr: 4
-      }), /*#__PURE__*/React__default.createElement(Text, {
+      }), /*#__PURE__*/React.createElement(Text, {
         content: name,
         color: "textSecondary",
         fontStyle: "italic",
         noWrap: true
-      })), /*#__PURE__*/React__default.createElement(Item, {
+      })), /*#__PURE__*/React.createElement(Item, {
         lg: 4,
         md: 3
-      }, /*#__PURE__*/React__default.createElement(Text, {
+      }, /*#__PURE__*/React.createElement(Text, {
         content: date,
         color: "textSecondary",
         fontWeight: "bold"
-      })), /*#__PURE__*/React__default.createElement(Item, {
+      })), /*#__PURE__*/React.createElement(Item, {
         justify: "flex-end"
-      }, /*#__PURE__*/React__default.createElement(Text, {
+      }, /*#__PURE__*/React.createElement(Text, {
         content: description,
         color: "textSecondary",
         fontWeight: "bold",
@@ -1943,23 +1819,22 @@ var FileManager = function FileManager(_ref6) {
     }));
   }));
 };
-
 FileManager.propTypes = FileManagerPropTypes;
 FileManager.defaultProps = FileManagerDefaultProps;
-var img = "data:image/svg+xml,%3csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.5938 0.625L5.375 8.84375L2.375 5.8125C2.21875 5.6875 1.96875 5.6875 1.84375 5.8125L0.9375 6.71875C0.8125 6.84375 0.8125 7.09375 0.9375 7.25L5.125 11.4062C5.28125 11.5625 5.5 11.5625 5.65625 11.4062L15.0312 2.03125C15.1562 1.90625 15.1562 1.65625 15.0312 1.5L14.125 0.625C14 0.46875 13.75 0.46875 13.5938 0.625Z' fill='white'/%3e%3c/svg%3e";
+
+const img = "data:image/svg+xml,%3csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.5938 0.625L5.375 8.84375L2.375 5.8125C2.21875 5.6875 1.96875 5.6875 1.84375 5.8125L0.9375 6.71875C0.8125 6.84375 0.8125 7.09375 0.9375 7.25L5.125 11.4062C5.28125 11.5625 5.5 11.5625 5.65625 11.4062L15.0312 2.03125C15.1562 1.90625 15.1562 1.65625 15.0312 1.5L14.125 0.625C14 0.46875 13.75 0.46875 13.5938 0.625Z' fill='white'/%3e%3c/svg%3e";
 
 var RadioBasePropTypes = _extends({
-  defaultValue: PropTypes__default.oneOfType([PropTypes__default.arrayOf(PropTypes__default.string), PropTypes__default.string]),
-  hasError: PropTypes__default.bool,
-  name: PropTypes__default.string,
-  options: PropTypes__default.arrayOf(PropTypes__default.shape({
-    label: PropTypes__default.node,
-    value: PropTypes__default.string
+  defaultValue: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
+  hasError: PropTypes.bool,
+  name: PropTypes.string,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.node,
+    value: PropTypes.string
   })),
-  register: PropTypes__default.func.isRequired,
-  stacked: PropTypes__default.bool
+  register: PropTypes.func.isRequired,
+  stacked: PropTypes.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var RadioBaseDefaultProps = {
   defaultValue: "",
   hasError: false,
@@ -1986,10 +1861,9 @@ function _templateObject$m() {
 
   return data;
 }
-
-var StyledInput = styled__default.input(_templateObject$m(), function (_ref) {
+var StyledInput = styled.input(_templateObject$m(), function (_ref) {
   var stacked = _ref.stacked;
-  return stacked && styled.css(["display:flex;:not(:last-child){margin:0 0 24px 0;}"]);
+  return stacked && css(["display:flex;:not(:last-child){margin:0 0 24px 0;}"]);
 }, function (_ref2) {
   var type = _ref2.type;
   return type === "radio" ? "50%" : "8px";
@@ -2001,7 +1875,7 @@ var StyledInput = styled__default.input(_templateObject$m(), function (_ref) {
   return theme.palette.gray.regular;
 }, function (_ref5) {
   var hasError = _ref5.hasError;
-  return hasError && styled.css(["border-color:", ";"], function (_ref6) {
+  return hasError && css(["border-color:", ";"], function (_ref6) {
     var theme = _ref6.theme;
     return theme.palette.error.main;
   });
@@ -2018,8 +1892,7 @@ var StyledInput = styled__default.input(_templateObject$m(), function (_ref) {
   var theme = _ref10.theme;
   return theme.palette.primary.main;
 }, "" + img);
-var StyledLabel$1 = styled__default.label(_templateObject2$5());
-
+var StyledLabel$1 = styled.label(_templateObject2$5());
 var RadioBaseItem = function RadioBaseItem(_ref11) {
   var defaultValue = _ref11.defaultValue,
       hasError = _ref11.hasError,
@@ -2034,7 +1907,7 @@ var RadioBaseItem = function RadioBaseItem(_ref11) {
 
   var id = name + "-" + value;
   var defaultChecked = type === "checkbox" ? defaultValue.includes(value) : defaultValue === value;
-  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(StyledInput, _extends({
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(StyledInput, _extends({
     defaultChecked: defaultChecked,
     hasError: hasError,
     id: id,
@@ -2043,11 +1916,10 @@ var RadioBaseItem = function RadioBaseItem(_ref11) {
     stacked: stacked,
     type: type,
     value: value
-  }, props)), /*#__PURE__*/React__default.createElement(StyledLabel$1, {
+  }, props)), /*#__PURE__*/React.createElement(StyledLabel$1, {
     htmlFor: id
   }, label));
 };
-
 RadioBaseItem.propTypes = RadioBasePropTypes;
 RadioBaseItem.defaultProps = RadioBaseDefaultProps;
 
@@ -2055,13 +1927,12 @@ var RadioBase = function RadioBase(_ref) {
   var options = _ref.options,
       props = _objectWithoutPropertiesLoose(_ref, ["options"]);
 
-  return /*#__PURE__*/React__default.createElement(Fieldset, null, options.map(function (opt) {
-    return /*#__PURE__*/React__default.createElement(RadioBaseItem, _extends({
+  return /*#__PURE__*/React.createElement(Fieldset, null, options.map(function (opt) {
+    return /*#__PURE__*/React.createElement(RadioBaseItem, _extends({
       key: opt.value
     }, opt, props));
   }));
 };
-
 RadioBase.propTypes = RadioBasePropTypes;
 RadioBase.defaultProps = RadioBaseDefaultProps;
 
@@ -2074,26 +1945,22 @@ function _templateObject$n() {
 
   return data;
 }
-
-var StyledRadioBase = styled__default(RadioBase)(_templateObject$n(), function (theme) {
+var StyledRadioBase = styled(RadioBase)(_templateObject$n(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var Checkbox = function Checkbox(props) {
-  return /*#__PURE__*/React__default.createElement(StyledRadioBase, _extends({
+  return /*#__PURE__*/React.createElement(StyledRadioBase, _extends({
     type: "checkbox"
   }, props));
 };
-
 Checkbox.propTypes = RadioBasePropTypes;
 Checkbox.defaultProps = RadioBaseDefaultProps;
 
 var FormErrorPropTypes = _extends({
-  message: PropTypes__default.node.isRequired
+  message: PropTypes.node.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var FormErrorDefaultProps = {};
 
 function _templateObject$o() {
@@ -2105,8 +1972,7 @@ function _templateObject$o() {
 
   return data;
 }
-
-var Error = styled__default.div(_templateObject$o(), function (_ref) {
+var Error = styled.div(_templateObject$o(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.error.main;
 }, function (_ref2) {
@@ -2117,29 +1983,26 @@ var Error = styled__default.div(_templateObject$o(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var FormError = function FormError(_ref3) {
   var message = _ref3.message,
       props = _objectWithoutPropertiesLoose(_ref3, ["message"]);
 
-  return /*#__PURE__*/React__default.createElement(Error, props, message);
+  return /*#__PURE__*/React.createElement(Error, props, message);
 };
-
 FormError.propTypes = FormErrorPropTypes;
 FormError.defaultProps = FormErrorDefaultProps;
 
 var FieldWrapperPropTypes = _extends({
-  block: PropTypes__default.bool,
-  endIcon: PropTypes__default.string,
-  endIconColor: PropTypes__default.oneOf(THEME_COLORS),
-  endIconOnClick: PropTypes__default.func,
-  endIconPrefix: PropTypes__default.string,
-  startIcon: PropTypes__default.string,
-  startIconColor: PropTypes__default.oneOf(THEME_COLORS),
-  startIconOnClick: PropTypes__default.func,
-  startIconPrefix: PropTypes__default.string
+  block: PropTypes.bool,
+  endIcon: PropTypes.string,
+  endIconColor: PropTypes.oneOf(THEME_COLORS),
+  endIconOnClick: PropTypes.func,
+  endIconPrefix: PropTypes.string,
+  startIcon: PropTypes.string,
+  startIconColor: PropTypes.oneOf(THEME_COLORS),
+  startIconOnClick: PropTypes.func,
+  startIconPrefix: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var FieldWrapperDefaultProps = {
   block: true,
   endIcon: "",
@@ -2157,8 +2020,7 @@ function _templateObject$p() {
 
   return data;
 }
-
-var StyledWrapper = styled__default.div(_templateObject$p(), function (_ref) {
+var StyledWrapper = styled.div(_templateObject$p(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(3);
 }, function (_ref2) {
@@ -2178,22 +2040,21 @@ var StyledWrapper = styled__default.div(_templateObject$p(), function (_ref) {
   return theme.palette.primary.main;
 }, function (_ref7) {
   var hasError = _ref7.hasError;
-  return hasError && styled.css(["border:1px solid ", ";"], function (_ref8) {
+  return hasError && css(["border:1px solid ", ";"], function (_ref8) {
     var theme = _ref8.theme;
     return theme.palette.error.main;
   });
 }, function (_ref9) {
   var disabled = _ref9.disabled;
-  return disabled && styled.css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
+  return disabled && css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
 }, function (_ref10) {
   var block = _ref10.block;
-  return block && styled.css(["flex:1;"]);
+  return block && css(["flex:1;"]);
 }, function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var FieldWrapper = function FieldWrapper(_ref11) {
   var children = _ref11.children,
       endIcon = _ref11.endIcon,
@@ -2206,30 +2067,28 @@ var FieldWrapper = function FieldWrapper(_ref11) {
       startIconPrefix = _ref11.startIconPrefix,
       props = _objectWithoutPropertiesLoose(_ref11, ["children", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledWrapper, props, startIcon && /*#__PURE__*/React__default.createElement(Icon, {
+  return /*#__PURE__*/React.createElement(StyledWrapper, props, startIcon && /*#__PURE__*/React.createElement(Icon, {
     color: startIconColor,
     icon: startIcon,
     onClick: startIconOnClick,
     prefix: startIconPrefix
-  }), children, endIcon && /*#__PURE__*/React__default.createElement(Icon, {
+  }), children, endIcon && /*#__PURE__*/React.createElement(Icon, {
     color: endIconColor,
     icon: endIcon,
     onClick: endIconOnClick,
     prefix: endIconPrefix
   }));
 };
-
 FieldWrapper.propTypes = FieldWrapperPropTypes;
 FieldWrapper.defaultProps = FieldWrapperDefaultProps;
 
 var FieldBasePropTypes = _extends({}, FieldWrapperPropTypes, {
-  disabled: PropTypes__default.bool,
-  hasError: PropTypes__default.bool,
-  readOnly: PropTypes__default.bool,
-  register: PropTypes__default.func,
-  type: PropTypes__default.string
+  disabled: PropTypes.bool,
+  hasError: PropTypes.bool,
+  readOnly: PropTypes.bool,
+  register: PropTypes.func,
+  type: PropTypes.string
 });
-
 var FieldBaseDefaultProps = _extends({}, FieldWrapperDefaultProps, {
   disabled: false,
   hasError: false,
@@ -2247,15 +2106,14 @@ function _templateObject$q() {
 
   return data;
 }
-
-var StyledInput$1 = styled__default(
+var StyledInput$1 = styled(
 /*#__PURE__*/
 // eslint-disable-next-line react/prop-types
-React.forwardRef(function (_ref, ref) {
+forwardRef(function (_ref, ref) {
   var Component = _ref.component,
       props = _objectWithoutPropertiesLoose(_ref, ["component"]);
 
-  return /*#__PURE__*/React__default.createElement(Component, _extends({
+  return /*#__PURE__*/React.createElement(Component, _extends({
     ref: ref
   }, props));
 }))(_templateObject$q(), function (_ref2) {
@@ -2263,13 +2121,13 @@ React.forwardRef(function (_ref, ref) {
   return theme.palette.text.primary;
 }, function (_ref3) {
   var component = _ref3.component;
-  return component === "input" && styled.css(["&:read-only{cursor:", ";}"], function (_ref4) {
+  return component === "input" && css(["&:read-only{cursor:", ";}"], function (_ref4) {
     var selectable = _ref4.selectable;
     return !selectable && "not-allowed";
   });
 }, function (_ref5) {
   var hasError = _ref5.hasError;
-  return hasError && styled.css(["::placeholder{color:", ";}color:", ";"], function (_ref6) {
+  return hasError && css(["::placeholder{color:", ";}color:", ";"], function (_ref6) {
     var theme = _ref6.theme;
     return theme.palette.error.main;
   }, function (_ref7) {
@@ -2278,12 +2136,11 @@ React.forwardRef(function (_ref, ref) {
   });
 }, function (_ref8) {
   var block = _ref8.block;
-  return block && styled.css(["width:100%;"]);
+  return block && css(["width:100%;"]);
 }, function (_ref9) {
   var selectable = _ref9.selectable;
-  return selectable && styled.css(["user-select:all;"]);
+  return selectable && css(["user-select:all;"]);
 });
-
 var FieldBase = function FieldBase(_ref10) {
   var block = _ref10.block,
       endIcon = _ref10.endIcon,
@@ -2298,7 +2155,7 @@ var FieldBase = function FieldBase(_ref10) {
       startIconPrefix = _ref10.startIconPrefix,
       props = _objectWithoutPropertiesLoose(_ref10, ["block", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "hasError", "register", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
 
-  return /*#__PURE__*/React__default.createElement(FieldWrapper, {
+  return /*#__PURE__*/React.createElement(FieldWrapper, {
     endIcon: endIcon,
     endIconColor: endIconColor,
     endIconOnClick: endIconOnClick,
@@ -2308,12 +2165,11 @@ var FieldBase = function FieldBase(_ref10) {
     startIconColor: startIconColor,
     startIconOnClick: startIconOnClick,
     startIconPrefix: startIconPrefix
-  }, /*#__PURE__*/React__default.createElement(StyledInput$1, _extends({
+  }, /*#__PURE__*/React.createElement(StyledInput$1, _extends({
     hasError: hasError,
     ref: register
   }, props)));
 };
-
 FieldBase.propTypes = FieldBasePropTypes;
 FieldBase.defaultProps = FieldBaseDefaultProps;
 
@@ -2326,16 +2182,13 @@ function _templateObject$r() {
 
   return data;
 }
-
-var StyledFieldset = styled__default.fieldset(_templateObject$r());
-
+var StyledFieldset = styled.fieldset(_templateObject$r());
 var Fieldset = function Fieldset(_ref) {
   var children = _ref.children;
-  return /*#__PURE__*/React__default.createElement(StyledFieldset, null, children);
+  return /*#__PURE__*/React.createElement(StyledFieldset, null, children);
 };
-
 Fieldset.propTypes = {
-  children: PropTypes__default.node.isRequired
+  children: PropTypes.node.isRequired
 };
 Fieldset.defaultProps = {};
 
@@ -2358,15 +2211,14 @@ function _templateObject$s() {
 
   return data;
 }
-
-var Item$1 = styled__default.div(_templateObject$s(), function (_ref) {
+var Item$1 = styled.div(_templateObject$s(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.success.main;
 }, function (_ref2) {
   var theme = _ref2.theme;
   return theme.palette.common.white;
 });
-var RemoveIcon = styled__default(Icon)(_templateObject2$6(), function (_ref3) {
+var RemoveIcon = styled(Icon)(_templateObject2$6(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.common.white;
 });
@@ -2382,18 +2234,17 @@ var DropzonePreview = function DropzonePreview(_ref4) {
   var files = _ref4.files,
       onRemoveClick = _ref4.onRemoveClick;
   return files.map(function (file) {
-    return /*#__PURE__*/React__default.createElement(Item$1, {
+    return /*#__PURE__*/React.createElement(Item$1, {
       key: file.name
-    }, /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("b", null, file.name), /*#__PURE__*/React__default.createElement("div", null, bytesToSize(file.size))), /*#__PURE__*/React__default.createElement(RemoveIcon, {
+    }, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, file.name), /*#__PURE__*/React.createElement("div", null, bytesToSize(file.size))), /*#__PURE__*/React.createElement(RemoveIcon, {
       icon: "times",
       onClick: onRemoveClick
     }));
   });
 };
-
 DropzonePreview.propTypes = {
-  files: PropTypes__default.arrayOf(PropTypes__default.object),
-  onRemoveClick: PropTypes__default.func.isRequired
+  files: PropTypes.arrayOf(PropTypes.object),
+  onRemoveClick: PropTypes.func.isRequired
 };
 DropzonePreview.defaultProps = {
   files: []
@@ -2418,13 +2269,12 @@ function _templateObject$t() {
 
   return data;
 }
-
-var StyledContainer = styled__default.div(_templateObject$t(), function (theme) {
+var StyledContainer = styled.div(_templateObject$t(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var DropzoneArea = styled__default.div(_templateObject2$7(), function (_ref) {
+var DropzoneArea = styled.div(_templateObject2$7(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -2438,7 +2288,7 @@ var DropzoneArea = styled__default.div(_templateObject2$7(), function (_ref) {
   return theme.palette.gray.medium;
 }, function (_ref5) {
   var hasError = _ref5.hasError;
-  return hasError && styled.css(["border-color:", ";background-color:", ";"], function (_ref6) {
+  return hasError && css(["border-color:", ";background-color:", ";"], function (_ref6) {
     var theme = _ref6.theme;
     return theme.palette.error.main;
   }, function (_ref7) {
@@ -2447,13 +2297,12 @@ var DropzoneArea = styled__default.div(_templateObject2$7(), function (_ref) {
   });
 }, function (_ref8) {
   var disabled = _ref8.disabled;
-  return disabled && styled.css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
+  return disabled && css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
 }, function (_ref9) {
   var dragActive = _ref9.dragActive,
       theme = _ref9.theme;
-  return dragActive && styled.css(["border-color:", ";"], theme.palette.gray.medium);
+  return dragActive && css(["border-color:", ";"], theme.palette.gray.medium);
 });
-
 var Dropzone = function Dropzone(_ref10) {
   var accept = _ref10.accept,
       disabled = _ref10.disabled,
@@ -2463,11 +2312,11 @@ var Dropzone = function Dropzone(_ref10) {
       onChange = _ref10.onChange,
       props = _objectWithoutPropertiesLoose(_ref10, ["accept", "disabled", "defaultValue", "hasError", "multiple", "onChange"]);
 
-  var _useState = React.useState(defaultValue),
+  var _useState = useState(defaultValue),
       files = _useState[0],
       setFiles = _useState[1];
 
-  React.useEffect(function () {
+  useEffect(function () {
     return function () {
       // Make sure to revoke the data uris to avoid memory leaks
       files.forEach(function (file) {
@@ -2476,7 +2325,7 @@ var Dropzone = function Dropzone(_ref10) {
     };
   }, [files]);
 
-  var _useDropzone = reactDropzone.useDropzone({
+  var _useDropzone = useDropzone({
     accept: accept,
     disabled: disabled,
     multiple: multiple,
@@ -2509,25 +2358,24 @@ var Dropzone = function Dropzone(_ref10) {
     }
   };
 
-  return /*#__PURE__*/React__default.createElement(StyledContainer, props, /*#__PURE__*/React__default.createElement(DropzoneArea, _extends({
+  return /*#__PURE__*/React.createElement(StyledContainer, props, /*#__PURE__*/React.createElement(DropzoneArea, _extends({
     dragActive: isDragActive,
     dragAccept: isDragAccept,
     dragReject: isDragReject,
     disabled: disabled,
     hasError: hasError
-  }, getRootProps()), /*#__PURE__*/React__default.createElement("input", getInputProps()), isDragAccept && /*#__PURE__*/React__default.createElement("p", null, "Accepted"), isDragReject && /*#__PURE__*/React__default.createElement("p", null, "Rejected"), isDragActive ? /*#__PURE__*/React__default.createElement("p", null, "Drop here") : /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement("p", null, "Drop, or click to select"), multiple ? /*#__PURE__*/React__default.createElement("p", null, "Accepts multiple files") : /*#__PURE__*/React__default.createElement("p", null, "Single file only"))), /*#__PURE__*/React__default.createElement(DropzonePreview, {
+  }, getRootProps()), /*#__PURE__*/React.createElement("input", getInputProps()), isDragAccept && /*#__PURE__*/React.createElement("p", null, "Accepted"), isDragReject && /*#__PURE__*/React.createElement("p", null, "Rejected"), isDragActive ? /*#__PURE__*/React.createElement("p", null, "Drop here") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Drop, or click to select"), multiple ? /*#__PURE__*/React.createElement("p", null, "Accepts multiple files") : /*#__PURE__*/React.createElement("p", null, "Single file only"))), /*#__PURE__*/React.createElement(DropzonePreview, {
     files: files,
     onRemoveClick: removeFile
   }));
 };
-
 Dropzone.propTypes = {
-  accept: PropTypes__default.string,
-  defaultValue: PropTypes__default.arrayOf(PropTypes__default.object),
-  disabled: PropTypes__default.bool,
-  hasError: PropTypes__default.bool,
-  multiple: PropTypes__default.bool,
-  onChange: PropTypes__default.func
+  accept: PropTypes.string,
+  defaultValue: PropTypes.arrayOf(PropTypes.object),
+  disabled: PropTypes.bool,
+  hasError: PropTypes.bool,
+  multiple: PropTypes.bool,
+  onChange: PropTypes.func
 };
 Dropzone.defaultProps = {
   accept: "image/*",
@@ -2539,12 +2387,11 @@ Dropzone.defaultProps = {
 };
 
 var FileUploadPropTypes = _extends({
-  control: PropTypes__default.shape({}).isRequired,
-  defaultValue: PropTypes__default.arrayOf(PropTypes__default.object),
-  isRequired: PropTypes__default.string,
-  name: PropTypes__default.string
+  control: PropTypes.shape({}).isRequired,
+  defaultValue: PropTypes.arrayOf(PropTypes.object),
+  isRequired: PropTypes.string,
+  name: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var FileUploadDefaultProps = {
   defaultValue: undefined,
   name: "fileUpload"
@@ -2557,8 +2404,8 @@ var FileUpload = function FileUpload(_ref) {
       name = _ref.name,
       props = _objectWithoutPropertiesLoose(_ref, ["control", "defaultValue", "isRequired", "name"]);
 
-  return /*#__PURE__*/React__default.createElement(reactHookForm.Controller, {
-    as: /*#__PURE__*/React__default.createElement(Dropzone, _extends({
+  return /*#__PURE__*/React.createElement(Controller, {
+    as: /*#__PURE__*/React.createElement(Dropzone, _extends({
       defaultValue: defaultValue
     }, props)),
     control: control,
@@ -2569,16 +2416,14 @@ var FileUpload = function FileUpload(_ref) {
     }
   });
 };
-
 FileUpload.propTypes = FileUploadPropTypes;
 FileUpload.defaultProps = FileUploadDefaultProps;
 
 var Input = function Input(props) {
-  return /*#__PURE__*/React__default.createElement(FieldBase, _extends({
+  return /*#__PURE__*/React.createElement(FieldBase, _extends({
     component: "input"
   }, props));
 };
-
 Input.propTypes = FieldBasePropTypes;
 Input.defaultProps = FieldBaseDefaultProps;
 
@@ -2591,16 +2436,13 @@ function _templateObject$u() {
 
   return data;
 }
-
-var StyledLabel$2 = styled__default.label(_templateObject$u(), function (_ref) {
+var StyledLabel$2 = styled.label(_templateObject$u(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.medium;
 });
-
 var FormLabel = function FormLabel(props) {
-  return /*#__PURE__*/React__default.createElement(StyledLabel$2, props);
+  return /*#__PURE__*/React.createElement(StyledLabel$2, props);
 };
-
 FormLabel.propTypes = {};
 FormLabel.defaultProps = {};
 
@@ -2613,32 +2455,28 @@ function _templateObject$v() {
 
   return data;
 }
-
-var StyledRadioBase$1 = styled__default(RadioBase)(_templateObject$v(), function (theme) {
+var StyledRadioBase$1 = styled(RadioBase)(_templateObject$v(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var Radio = function Radio(props) {
-  return /*#__PURE__*/React__default.createElement(StyledRadioBase$1, _extends({
+  return /*#__PURE__*/React.createElement(StyledRadioBase$1, _extends({
     type: "radio"
   }, props));
 };
-
 Radio.propTypes = RadioBasePropTypes;
 Radio.defaultProps = RadioBaseDefaultProps;
 
 var ReactSelectPropTypes = _extends({
-  async: PropTypes__default.bool,
-  defaultValue: PropTypes__default.oneOfType([PropTypes__default.array, PropTypes__default.object]),
-  endpoint: PropTypes__default.string,
-  endpointQueryFlag: PropTypes__default.string,
-  isClearable: PropTypes__default.bool,
-  isDisabled: PropTypes__default.bool,
-  isRequired: PropTypes__default.oneOfType([PropTypes__default.bool, PropTypes__default.string])
+  async: PropTypes.bool,
+  defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  endpoint: PropTypes.string,
+  endpointQueryFlag: PropTypes.string,
+  isClearable: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  isRequired: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var ReactSelectDefaultProps = {
   defaultValue: undefined,
   endpointQueryFlag: "q",
@@ -2654,8 +2492,7 @@ function _templateObject$w() {
 
   return data;
 }
-
-var ReactSelectWrapper = styled__default.div(_templateObject$w(), function (_ref) {
+var ReactSelectWrapper = styled.div(_templateObject$w(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.text.primary;
 }, function (_ref2) {
@@ -2684,7 +2521,7 @@ var ReactSelectWrapper = styled__default.div(_templateObject$w(), function (_ref
   return theme.palette.primary.main;
 }, function (_ref10) {
   var hasError = _ref10.hasError;
-  return hasError && styled.css([".react-select__control{border-color:", ";}"], function (_ref11) {
+  return hasError && css([".react-select__control{border-color:", ";}"], function (_ref11) {
     var theme = _ref11.theme;
     return theme.palette.error.main;
   });
@@ -2693,7 +2530,6 @@ var ReactSelectWrapper = styled__default.div(_templateObject$w(), function (_ref
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var ReactSelect = function ReactSelect(_ref12) {
   var async = _ref12.async,
       cacheOptions = _ref12.cacheOptions,
@@ -2719,24 +2555,24 @@ var ReactSelect = function ReactSelect(_ref12) {
     });
   };
 
-  var Component = /*#__PURE__*/React.forwardRef(function (data, ref) {
-    return async ? /*#__PURE__*/React__default.createElement(AsyncSelect, _extends({
+  var Component = /*#__PURE__*/forwardRef(function (data, ref) {
+    return async ? /*#__PURE__*/React.createElement(AsyncSelect, _extends({
       defaultOptions: defaultOptions,
       loadOptions: endpoint ? loadOptionsfromEndpoint : loadOptions,
       cacheOptions: cacheOptions,
       ref: ref
-    }, data)) : /*#__PURE__*/React__default.createElement(Select$1, _extends({
+    }, data)) : /*#__PURE__*/React.createElement(Select$1, _extends({
       ref: ref
     }, data));
   });
-  var As = /*#__PURE__*/React__default.createElement(Component, _extends({
+  var As = /*#__PURE__*/React.createElement(Component, _extends({
     options: options,
     selectedOption: selectedOption,
     classNamePrefix: "react-select"
   }, props));
-  return /*#__PURE__*/React__default.createElement(ReactSelectWrapper, _extends({
+  return /*#__PURE__*/React.createElement(ReactSelectWrapper, _extends({
     hasError: hasError
-  }, props), /*#__PURE__*/React__default.createElement(reactHookForm.Controller, {
+  }, props), /*#__PURE__*/React.createElement(Controller, {
     as: As,
     control: control,
     defaultValue: defaultValue,
@@ -2750,17 +2586,15 @@ var ReactSelect = function ReactSelect(_ref12) {
     }
   }));
 };
-
 ReactSelect.propTypes = ReactSelectPropTypes;
 ReactSelect.defaultProps = ReactSelectDefaultProps;
 
 var FormRowPropTypes = _extends({
-  children: PropTypes__default.node.isRequired,
-  errors: PropTypes__default.arrayOf(PropTypes__default.node).isRequired,
-  label: PropTypes__default.node,
-  show: PropTypes__default.bool.isRequired
+  children: PropTypes.node.isRequired,
+  errors: PropTypes.arrayOf(PropTypes.node).isRequired,
+  label: PropTypes.node,
+  show: PropTypes.bool.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var FormRowDefaultProps = {
   label: ""
 };
@@ -2804,8 +2638,7 @@ function _templateObject$x() {
 
   return data;
 }
-
-var Wrapper$4 = styled__default.div(_templateObject$x(), function (_ref) {
+var Wrapper$4 = styled.div(_templateObject$x(), function (_ref) {
   var show = _ref.show;
   return !show && "display: none";
 }, function (theme) {
@@ -2813,13 +2646,12 @@ var Wrapper$4 = styled__default.div(_templateObject$x(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledLabel$3 = styled__default(FormLabel)(_templateObject2$8());
-var FieldsAndErrorsWrapper = styled__default.div(_templateObject3$2(), function (_ref2) {
+var StyledLabel$3 = styled(FormLabel)(_templateObject2$8());
+var FieldsAndErrorsWrapper = styled.div(_templateObject3$2(), function (_ref2) {
   var fullWidth = _ref2.fullWidth;
   return fullWidth ? "100%" : "50%";
 });
-var Fields = styled__default.div(_templateObject4$1());
-
+var Fields = styled.div(_templateObject4$1());
 var FormRow = function FormRow(_ref3) {
   var children = _ref3.children,
       errors = _ref3.errors,
@@ -2827,24 +2659,23 @@ var FormRow = function FormRow(_ref3) {
       show = _ref3.show,
       props = _objectWithoutPropertiesLoose(_ref3, ["children", "errors", "label", "show"]);
 
-  return /*#__PURE__*/React__default.createElement(Wrapper$4, _extends({
+  return /*#__PURE__*/React.createElement(Wrapper$4, _extends({
     show: show
-  }, props), label && /*#__PURE__*/React__default.createElement(StyledLabel$3, null, label), /*#__PURE__*/React__default.createElement(FieldsAndErrorsWrapper, {
+  }, props), label && /*#__PURE__*/React.createElement(StyledLabel$3, null, label), /*#__PURE__*/React.createElement(FieldsAndErrorsWrapper, {
     fullWidth: !label
-  }, /*#__PURE__*/React__default.createElement(Fields, null, children), errors.map(function (err) {
-    return /*#__PURE__*/React__default.createElement(FormError, {
+  }, /*#__PURE__*/React.createElement(Fields, null, children), errors.map(function (err) {
+    return /*#__PURE__*/React.createElement(FormError, {
       key: err,
       message: err
     });
   })));
 };
-
 FormRow.propTypes = FormRowPropTypes;
 FormRow.defaultProps = FormRowDefaultProps;
 
 var renderOptions = function renderOptions(options) {
   return options.map(function (opt) {
-    return /*#__PURE__*/React__default.createElement("option", {
+    return /*#__PURE__*/React.createElement("option", {
       key: opt.value,
       value: opt.value
     }, opt.label);
@@ -2855,22 +2686,22 @@ var Select = function Select(_ref) {
   var options = _ref.options,
       props = _objectWithoutPropertiesLoose(_ref, ["options"]);
 
-  return /*#__PURE__*/React__default.createElement(FieldBase, _extends({
+  return /*#__PURE__*/React.createElement(FieldBase, _extends({
     component: "select"
   }, props), renderOptions(options));
 };
-
 Select.propTypes = FieldBasePropTypes;
 Select.defaultProps = FieldBaseDefaultProps;
+
 var StepperPropTypes = {
-  control: PropTypes__default.object,
-  label: PropTypes__default.string,
-  min: PropTypes__default.number,
-  max: PropTypes__default.number,
-  name: PropTypes__default.string,
-  onChange: PropTypes__default.func,
-  size: PropTypes__default.oneOf(["sm", "normal"]),
-  value: PropTypes__default.number
+  control: PropTypes.object,
+  label: PropTypes.string,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  size: PropTypes.oneOf(["sm", "normal"]),
+  value: PropTypes.number
 };
 var StepperDefaultProps = {
   label: "Days",
@@ -2890,12 +2721,10 @@ function _templateObject$y() {
 
   return data;
 }
-
-var Wrapper$5 = styled__default.div(_templateObject$y(), function (_ref) {
+var Wrapper$5 = styled.div(_templateObject$y(), function (_ref) {
   var size = _ref.size;
-  return size === "sm" && styled.css(["flex-direction:column;"]);
+  return size === "sm" && css(["flex-direction:column;"]);
 });
-
 var StepperComponent = function StepperComponent(_ref2) {
   var label = _ref2.label,
       value = _ref2.value,
@@ -2911,7 +2740,7 @@ var StepperComponent = function StepperComponent(_ref2) {
     onChange(newVal);
   };
 
-  return /*#__PURE__*/React__default.createElement(FieldWrapper, _extends({
+  return /*#__PURE__*/React.createElement(FieldWrapper, _extends({
     endIcon: "plus",
     endIconColor: "secondary",
     endIconOnClick: function endIconOnClick() {
@@ -2922,14 +2751,13 @@ var StepperComponent = function StepperComponent(_ref2) {
     startIconOnClick: function startIconOnClick() {
       return handleChange("sub");
     }
-  }, props), /*#__PURE__*/React__default.createElement(Wrapper$5, {
+  }, props), /*#__PURE__*/React.createElement(Wrapper$5, {
     size: size
-  }, /*#__PURE__*/React__default.createElement("input", {
+  }, /*#__PURE__*/React.createElement("input", {
     onChange: onChange,
     value: value
-  }), /*#__PURE__*/React__default.createElement("span", null, label)));
+  }), /*#__PURE__*/React.createElement("span", null, label)));
 };
-
 StepperComponent.propTypes = StepperPropTypes;
 StepperComponent.defaultProps = StepperDefaultProps;
 
@@ -2940,9 +2768,9 @@ var Stepper = function Stepper(_ref) {
       name = _ref.name,
       props = _objectWithoutPropertiesLoose(_ref, ["control", "defaultValue", "isRequired", "name"]);
 
-  return /*#__PURE__*/React__default.createElement(reactHookForm.Controller, {
+  return /*#__PURE__*/React.createElement(Controller, {
     render: function render(events) {
-      return /*#__PURE__*/React__default.createElement(StepperComponent, _extends({
+      return /*#__PURE__*/React.createElement(StepperComponent, _extends({
         defaultValue: defaultValue
       }, props, events));
     },
@@ -2954,7 +2782,6 @@ var Stepper = function Stepper(_ref) {
     }
   });
 };
-
 Stepper.propTypes = StepperPropTypes;
 Stepper.defaultProps = StepperDefaultProps;
 
@@ -2985,62 +2812,62 @@ var Switch = function Switch(_ref) {
       toggled = _ref.toggled,
       props = _objectWithoutPropertiesLoose(_ref, ["disabled", "handleToggle", "size", "toggled"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledSwitchContainer, _extends({
+  return /*#__PURE__*/React.createElement(StyledSwitchContainer, _extends({
     disabled: disabled,
     onClick: handleToggle,
     size: size,
     toggled: toggled
-  }, props), /*#__PURE__*/React__default.createElement(StyledSwitch, {
+  }, props), /*#__PURE__*/React.createElement(StyledSwitch, {
     size: size,
     toggled: toggled
   }, toggled ? "Yes" : "No"));
 };
 
-var StyledSwitchContainer = styled__default.div(_templateObject$z(), function (_ref2) {
+var StyledSwitchContainer = styled.div(_templateObject$z(), function (_ref2) {
   var theme = _ref2.theme,
       toggled = _ref2.toggled;
   return toggled ? theme.palette.primary.main : theme.palette.gray.regular;
 }, function (_ref3) {
   var disabled = _ref3.disabled;
-  return disabled && styled.css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
+  return disabled && css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
 }, function (_ref4) {
   var hasError = _ref4.hasError;
-  return hasError && styled.css(["border:1px solid ", ";"], function (_ref5) {
+  return hasError && css(["border:1px solid ", ";"], function (_ref5) {
     var theme = _ref5.theme;
     return theme.palette.error.main;
   });
 }, function (_ref6) {
   var size = _ref6.size;
-  return size === "sm" && styled.css(["border-radius:40px;height:20px;width:40px;"]);
+  return size === "sm" && css(["border-radius:40px;height:20px;width:40px;"]);
 }, function (_ref7) {
   var size = _ref7.size;
-  return size === "md" && styled.css(["border-radius:35px;height:32px;width:56px;"]);
+  return size === "md" && css(["border-radius:35px;height:32px;width:56px;"]);
 }, function (_ref8) {
   var size = _ref8.size;
-  return size === "lg" && styled.css(["border-radius:100px;height:50px;width:100px;"]);
+  return size === "lg" && css(["border-radius:100px;height:50px;width:100px;"]);
 });
-var StyledSwitch = styled__default.span(_templateObject2$9(), function (_ref9) {
+var StyledSwitch = styled.span(_templateObject2$9(), function (_ref9) {
   var theme = _ref9.theme;
   return theme.palette.gray.medium;
 }, function (_ref10) {
   var theme = _ref10.theme,
       toggled = _ref10.toggled;
-  return toggled && styled.css(["left:calc(100% - 2px);transform:translateX(-100%);color:", ";"], theme.palette.primary.main);
+  return toggled && css(["left:calc(100% - 2px);transform:translateX(-100%);color:", ";"], theme.palette.primary.main);
 }, function (_ref11) {
   var size = _ref11.size;
-  return size === "sm" && styled.css(["border-radius:16px;height:16px;width:16px;"]);
+  return size === "sm" && css(["border-radius:16px;height:16px;width:16px;"]);
 }, function (_ref12) {
   var size = _ref12.size;
-  return size === "md" && styled.css(["border-radius:37px;height:28px;width:28px;"]);
+  return size === "md" && css(["border-radius:37px;height:28px;width:28px;"]);
 }, function (_ref13) {
   var size = _ref13.size;
-  return size === "lg" && styled.css(["border-radius:46px;height:46px;width:46px;"]);
+  return size === "lg" && css(["border-radius:46px;height:46px;width:46px;"]);
 });
 Switch.propTypes = {
-  disabled: PropTypes.bool,
-  handleToggle: PropTypes.func,
-  size: PropTypes.oneOf(["sm", "md", "lg"]),
-  toggled: PropTypes.bool
+  disabled: bool,
+  handleToggle: func,
+  size: oneOf(["sm", "md", "lg"]),
+  toggled: bool
 };
 Switch.defaultProps = {
   disabled: false,
@@ -3058,13 +2885,11 @@ function _templateObject$A() {
 
   return data;
 }
-
-var StyledToggle = styled__default.div(_templateObject$A(), function (theme) {
+var StyledToggle = styled.div(_templateObject$A(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var Toggle = function Toggle(_ref) {
   var disabled = _ref.disabled,
       onChange = _ref.onChange,
@@ -3076,19 +2901,18 @@ var Toggle = function Toggle(_ref) {
     onChange(!value);
   };
 
-  return /*#__PURE__*/React__default.createElement(StyledToggle, null, /*#__PURE__*/React__default.createElement(Switch, _extends({
+  return /*#__PURE__*/React.createElement(StyledToggle, null, /*#__PURE__*/React.createElement(Switch, _extends({
     disabled: disabled,
     handleToggle: !disabled ? handleToggle : undefined,
     size: size,
     toggled: value
   }, props)));
 };
-
 Toggle.propTypes = {
-  disabled: PropTypes.bool,
-  onChange: PropTypes.func,
-  size: PropTypes.oneOf(["sm", "md", "lg"]),
-  value: PropTypes.bool
+  disabled: bool,
+  onChange: func,
+  size: oneOf(["sm", "md", "lg"]),
+  value: bool
 };
 Toggle.defaultProps = {
   disabled: false,
@@ -3098,12 +2922,11 @@ Toggle.defaultProps = {
 };
 
 var ToggleSwitchPropTypes = _extends({
-  control: PropTypes__default.shape({}).isRequired,
-  defaultValue: PropTypes__default.bool,
-  isRequired: PropTypes__default.string,
-  name: PropTypes__default.string
+  control: PropTypes.shape({}).isRequired,
+  defaultValue: PropTypes.bool,
+  isRequired: PropTypes.string,
+  name: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var ToggleSwitchDefaultProps = {
   defaultValue: undefined,
   isRequired: "",
@@ -3117,9 +2940,9 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
       name = _ref.name,
       props = _objectWithoutPropertiesLoose(_ref, ["control", "defaultValue", "isRequired", "name"]);
 
-  return /*#__PURE__*/React__default.createElement(reactHookForm.Controller, {
+  return /*#__PURE__*/React.createElement(Controller, {
     render: function render(events) {
-      return /*#__PURE__*/React__default.createElement(Toggle, _extends({
+      return /*#__PURE__*/React.createElement(Toggle, _extends({
         defaultValue: defaultValue
       }, props, events));
     },
@@ -3131,7 +2954,6 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
     }
   });
 };
-
 ToggleSwitch.propTypes = ToggleSwitchPropTypes;
 ToggleSwitch.defaultProps = ToggleSwitchDefaultProps;
 
@@ -3214,19 +3036,18 @@ function _templateObject$B() {
 
   return data;
 }
-
-var ItemConnector = styled__default.div(_templateObject$B(), function (_ref) {
+var ItemConnector = styled.div(_templateObject$B(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.regular;
 });
-var Container$2 = styled__default.div(_templateObject2$a(), ItemConnector);
-var RowWrapper = styled__default.div(_templateObject3$3());
-var RowDetails = styled__default(Grid).attrs(function () {
+var Container$2 = styled.div(_templateObject2$a(), ItemConnector);
+var RowWrapper = styled.div(_templateObject3$3());
+var RowDetails = styled(Grid).attrs(function () {
   return {
     container: true
   };
 })(_templateObject4$2());
-var Item$2 = styled__default(Grid).attrs(function (_ref2) {
+var Item$2 = styled(Grid).attrs(function (_ref2) {
   var lg = _ref2.lg;
   return {
     item: true,
@@ -3234,22 +3055,21 @@ var Item$2 = styled__default(Grid).attrs(function (_ref2) {
     lg: lg || 3
   };
 })(_templateObject5());
-var StyledIcon$1 = styled__default(Icon)(_templateObject6(), function (_ref3) {
+var StyledIcon$1 = styled(Icon)(_templateObject6(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(2);
 });
-var StyledCollapseButton = styled__default(CollapseButton)(_templateObject7(), function (_ref4) {
+var StyledCollapseButton = styled(CollapseButton)(_templateObject7(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(4);
 }, function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.text.primary;
 });
-var Content = styled__default.div(_templateObject8(), function (_ref6) {
+var Content = styled.div(_templateObject8(), function (_ref6) {
   var theme = _ref6.theme;
   return theme.spacing(4, 10);
 });
-
 var HistoryItem = function HistoryItem(_ref7) {
   var _ref7$data = _ref7.data,
       collapsible = _ref7$data.collapsible,
@@ -3260,63 +3080,62 @@ var HistoryItem = function HistoryItem(_ref7) {
       moreInfo = _ref7$data.moreInfo,
       title = _ref7$data.title;
 
-  var _useState = React.useState(false),
+  var _useState = useState(false),
       collapseOpen = _useState[0],
       setCollapseOpen = _useState[1];
 
-  return /*#__PURE__*/React__default.createElement(Container$2, {
+  return /*#__PURE__*/React.createElement(Container$2, {
     "data-cy": "historyItem"
-  }, /*#__PURE__*/React__default.createElement(ItemConnector, null), /*#__PURE__*/React__default.createElement(RowWrapper, null, /*#__PURE__*/React__default.createElement(StyledIcon$1, {
+  }, /*#__PURE__*/React.createElement(ItemConnector, null), /*#__PURE__*/React.createElement(RowWrapper, null, /*#__PURE__*/React.createElement(StyledIcon$1, {
     bordered: true,
     color: iconColor,
     icon: icon
-  }), /*#__PURE__*/React__default.createElement(RowDetails, null, /*#__PURE__*/React__default.createElement(Item$2, {
+  }), /*#__PURE__*/React.createElement(RowDetails, null, /*#__PURE__*/React.createElement(Item$2, {
     lg: 5
-  }, /*#__PURE__*/React__default.createElement(Text, {
+  }, /*#__PURE__*/React.createElement(Text, {
     fontWeight: "bold"
-  }, title)), /*#__PURE__*/React__default.createElement(Item$2, {
+  }, title)), /*#__PURE__*/React.createElement(Item$2, {
     lg: 4
-  }, /*#__PURE__*/React__default.createElement(Text, {
+  }, /*#__PURE__*/React.createElement(Text, {
     color: "textSecondary",
     noWrap: true
-  }, description)), /*#__PURE__*/React__default.createElement(Item$2, {
+  }, description)), /*#__PURE__*/React.createElement(Item$2, {
     justify: "flex-end"
-  }, /*#__PURE__*/React__default.createElement(Text, {
+  }, /*#__PURE__*/React.createElement(Text, {
     color: "textSecondary",
     fontStyle: "italic"
-  }, moreInfo), collapsible && /*#__PURE__*/React__default.createElement(StyledCollapseButton, {
+  }, moreInfo), collapsible && /*#__PURE__*/React.createElement(StyledCollapseButton, {
     isOpened: collapseOpen,
     onClick: function onClick() {
       return setCollapseOpen(function (prev) {
         return !prev;
       });
     }
-  })))), collapsible && /*#__PURE__*/React__default.createElement(Collapse, {
+  })))), collapsible && /*#__PURE__*/React.createElement(Collapse, {
     isOpened: collapseOpen
-  }, /*#__PURE__*/React__default.createElement(Content, null, collapseContent)));
+  }, /*#__PURE__*/React.createElement(Content, null, collapseContent)));
 };
-
 HistoryItem.propTypes = {
-  data: PropTypes__default.shape({
-    collapsible: PropTypes__default.bool,
-    collapseContent: PropTypes__default.node,
-    id: PropTypes__default.number.isRequired,
-    description: PropTypes__default.string,
-    moreInfo: PropTypes__default.string.isRequired,
-    title: PropTypes__default.string.isRequired,
-    icon: PropTypes__default.string.isRequired,
-    iconColor: PropTypes__default.string
+  data: PropTypes.shape({
+    collapsible: PropTypes.bool,
+    collapseContent: PropTypes.node,
+    id: PropTypes.number.isRequired,
+    description: PropTypes.string,
+    moreInfo: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    iconColor: PropTypes.string
   }).isRequired
 };
 
 var HistoryPropTypes = _extends({
-  rows: PropTypes__default.arrayOf(PropTypes__default.shape({
-    id: PropTypes__default.number.isRequired,
-    description: PropTypes__default.string,
-    moreInfo: PropTypes__default.string.isRequired,
-    title: PropTypes__default.string.isRequired,
-    icon: PropTypes__default.string.isRequired,
-    iconColor: PropTypes__default.string
+  rows: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    description: PropTypes.string,
+    moreInfo: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    iconColor: PropTypes.string
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
@@ -3329,42 +3148,38 @@ function _templateObject$C() {
 
   return data;
 }
-
-var Container$3 = styled__default.div(_templateObject$C(), function (theme) {
+var Container$3 = styled.div(_templateObject$C(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-
 var History = function History(_ref) {
   var rows = _ref.rows,
       props = _objectWithoutPropertiesLoose(_ref, ["rows"]);
 
-  return /*#__PURE__*/React__default.createElement(Container$3, props, rows.map(function (h) {
-    return /*#__PURE__*/React__default.createElement(HistoryItem, {
+  return /*#__PURE__*/React.createElement(Container$3, props, rows.map(function (h) {
+    return /*#__PURE__*/React.createElement(HistoryItem, {
       key: h.id,
       data: h
     });
   }));
 };
-
 History.propTypes = HistoryPropTypes;
 
 var ImagePropTypes = _extends({
-  alt: PropTypes__default.string.isRequired,
-  className: PropTypes__default.any,
-  cover: PropTypes__default.bool,
-  fluid: PropTypes__default.bool,
-  height: PropTypes__default.number,
-  onClick: PropTypes__default.func,
-  rounded: PropTypes__default.bool,
-  roundedCircle: PropTypes__default.bool,
-  src: PropTypes__default.string.isRequired,
-  style: PropTypes__default.object,
-  thumbnail: PropTypes__default.bool,
-  width: PropTypes__default.number
+  alt: PropTypes.string.isRequired,
+  className: PropTypes.any,
+  cover: PropTypes.bool,
+  fluid: PropTypes.bool,
+  height: PropTypes.number,
+  onClick: PropTypes.func,
+  rounded: PropTypes.bool,
+  roundedCircle: PropTypes.bool,
+  src: PropTypes.string.isRequired,
+  style: PropTypes.object,
+  thumbnail: PropTypes.bool,
+  width: PropTypes.number
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var ImageDefaultProps = {
   fluid: false,
   rounded: false,
@@ -3381,16 +3196,14 @@ function _templateObject$D() {
 
   return data;
 }
-
 var Image = function Image(_ref) {
   var props = _extends({}, _ref);
 
-  return /*#__PURE__*/React__default.createElement(StyledImg, _extends({
+  return /*#__PURE__*/React.createElement(StyledImg, _extends({
     itemProp: "contentUrl"
   }, props));
 };
-
-var StyledImg = styled__default.img(_templateObject$D(), function (_ref2) {
+var StyledImg = styled.img(_templateObject$D(), function (_ref2) {
   var width = _ref2.width;
   return width && "width: " + width + ";";
 }, function (_ref3) {
@@ -3398,10 +3211,10 @@ var StyledImg = styled__default.img(_templateObject$D(), function (_ref2) {
   return height && "width: " + height + ";";
 }, function (_ref4) {
   var cover = _ref4.cover;
-  return cover && styled.css(["height:100%;object-fit:fill;"]);
+  return cover && css(["height:100%;object-fit:fill;"]);
 }, function (_ref5) {
   var onClick = _ref5.onClick;
-  return onClick && styled.css(["transition:all 100ms ease-in-out;cursor:pointer;:hover{opacity:0.7;}"]);
+  return onClick && css(["transition:all 100ms ease-in-out;cursor:pointer;:hover{opacity:0.7;}"]);
 }, function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -3411,14 +3224,13 @@ Image.propTypes = ImagePropTypes;
 Image.defaultProps = ImageDefaultProps;
 
 var LanguagePropTypes = _extends({
-  languages: PropTypes__default.arrayOf(PropTypes__default.shape({
-    value: PropTypes__default.string,
-    label: PropTypes__default.string
+  languages: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string,
+    label: PropTypes.string
   })),
-  onChange: PropTypes__default.func.isRequired,
-  value: PropTypes__default.string.isRequired
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var LanguageDefaultProps = {
   languages: [{
     value: "en",
@@ -3436,7 +3248,7 @@ var Language = function Language(_ref) {
       onChange = _ref.onChange,
       props = _objectWithoutPropertiesLoose(_ref, ["value", "languages", "onChange"]);
 
-  var _useState = React.useState(null),
+  var _useState = useState(null),
       anchorEl = _useState[0],
       setAnchorEl = _useState[1];
 
@@ -3447,14 +3259,14 @@ var Language = function Language(_ref) {
   var current = languages.find(function (l) {
     return l.value === value;
   });
-  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(TextButton, _extends({
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(TextButton, _extends({
     content: current == null ? void 0 : current.label,
     color: "secondary",
     onClick: function onClick(_ref2) {
       var currentTarget = _ref2.currentTarget;
       return setAnchorEl(currentTarget);
     }
-  }, props)), /*#__PURE__*/React__default.createElement(Dropdown, {
+  }, props)), /*#__PURE__*/React.createElement(Dropdown, {
     anchorEl: anchorEl,
     items: languages.map(function (l) {
       return _extends({
@@ -3468,14 +3280,15 @@ var Language = function Language(_ref) {
     }
   }));
 };
-
 Language.propTypes = LanguagePropTypes;
 Language.defaultProps = LanguageDefaultProps;
-var img$1 = "data:image/svg+xml,%3csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.20827 41.2468C9.85226 41.2468 12.484 44.0937 12.484 47.415C12.484 50.8719 9.85226 53.4477 6.20827 53.4477C2.56429 53.4477 0 50.8719 0 47.415C0 44.0937 2.56429 41.2468 6.20827 41.2468ZM35.9092 6C49.4054 6 60 16.5063 60 29.7916C60 43.0092 49.4054 53.4477 35.9092 53.4477C22.413 53.4477 11.8184 43.0092 11.8184 29.7916C11.8184 16.5063 22.413 6 35.9092 6ZM35.9092 43.2125C43.2647 43.2125 48.8656 37.5188 48.8656 29.7916C48.8656 21.9966 43.2647 16.2351 35.9092 16.2351C28.5538 16.2351 22.9528 21.9966 22.9528 29.7916C22.9528 37.5188 28.5538 43.2125 35.9092 43.2125Z' fill='%23AC00FC'/%3e%3c/svg%3e";
+
+const img$1 = "data:image/svg+xml,%3csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.20827 41.2468C9.85226 41.2468 12.484 44.0937 12.484 47.415C12.484 50.8719 9.85226 53.4477 6.20827 53.4477C2.56429 53.4477 0 50.8719 0 47.415C0 44.0937 2.56429 41.2468 6.20827 41.2468ZM35.9092 6C49.4054 6 60 16.5063 60 29.7916C60 43.0092 49.4054 53.4477 35.9092 53.4477C22.413 53.4477 11.8184 43.0092 11.8184 29.7916C11.8184 16.5063 22.413 6 35.9092 6ZM35.9092 43.2125C43.2647 43.2125 48.8656 37.5188 48.8656 29.7916C48.8656 21.9966 43.2647 16.2351 35.9092 16.2351C28.5538 16.2351 22.9528 21.9966 22.9528 29.7916C22.9528 37.5188 28.5538 43.2125 35.9092 43.2125Z' fill='%23AC00FC'/%3e%3c/svg%3e";
+
 var AuthLayoutHeaderPropTypes = {
-  headerLeft: PropTypes__default.node,
-  headerRight: PropTypes__default.node,
-  logoAction: PropTypes__default.func
+  headerLeft: PropTypes.node,
+  headerRight: PropTypes.node,
+  logoAction: PropTypes.func
 };
 
 function _templateObject2$b() {
@@ -3497,8 +3310,7 @@ function _templateObject$E() {
 
   return data;
 }
-
-var StyledHeader = styled__default(Flex).attrs(function () {
+var StyledHeader = styled(Flex).attrs(function () {
   return {
     container: true,
     alignItems: "center",
@@ -3508,40 +3320,39 @@ var StyledHeader = styled__default(Flex).attrs(function () {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
-var StyledLogo = styled__default(Image).attrs(function () {
+var StyledLogo = styled(Image).attrs(function () {
   return {
     alt: "Logo",
     src: img$1
   };
 })(_templateObject2$b());
-
 var AuthLayoutHeader = function AuthLayoutHeader(_ref2) {
   var headerLeft = _ref2.headerLeft,
       headerRight = _ref2.headerRight,
       logoAction = _ref2.logoAction,
       props = _objectWithoutPropertiesLoose(_ref2, ["headerLeft", "headerRight", "logoAction"]);
 
-  var backButton = /*#__PURE__*/React__default.createElement(TextButton, {
+  var backButton = /*#__PURE__*/React.createElement(TextButton, {
     color: "secondary",
     size: "sm"
   }, "Back");
-  return /*#__PURE__*/React__default.createElement(StyledHeader, props, /*#__PURE__*/React__default.createElement(Flex, {
+  return /*#__PURE__*/React.createElement(StyledHeader, props, /*#__PURE__*/React.createElement(Flex, {
     item: true
-  }, headerLeft || backButton), /*#__PURE__*/React__default.createElement(Flex, {
+  }, headerLeft || backButton), /*#__PURE__*/React.createElement(Flex, {
     item: true
-  }, /*#__PURE__*/React__default.createElement(StyledLogo, {
+  }, /*#__PURE__*/React.createElement(StyledLogo, {
     onClick: logoAction
-  })), /*#__PURE__*/React__default.createElement(Flex, {
+  })), /*#__PURE__*/React.createElement(Flex, {
     item: true
   }, headerRight));
 };
-
 AuthLayoutHeader.propTypes = AuthLayoutHeaderPropTypes;
+
 var AuthLayoutPropTypes = {
-  content: PropTypes__default.node.isRequired,
-  headerLeft: PropTypes__default.node,
-  headerLogoAction: PropTypes__default.func,
-  headerRight: PropTypes__default.node
+  content: PropTypes.node.isRequired,
+  headerLeft: PropTypes.node,
+  headerLogoAction: PropTypes.func,
+  headerRight: PropTypes.node
 };
 
 function _templateObject2$c() {
@@ -3563,13 +3374,11 @@ function _templateObject$F() {
 
   return data;
 }
-
-var StyledContainer$1 = styled__default(MuiContainer)(_templateObject$F());
-var Content$1 = styled__default.div(_templateObject2$c(), function (_ref) {
+var StyledContainer$1 = styled(MuiContainer)(_templateObject$F());
+var Content$1 = styled.div(_templateObject2$c(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(20);
 });
-
 var AuthLayout = function AuthLayout(_ref2) {
   var content = _ref2.content,
       headerLeft = _ref2.headerLeft,
@@ -3577,7 +3386,7 @@ var AuthLayout = function AuthLayout(_ref2) {
       headerRight = _ref2.headerRight,
       props = _objectWithoutPropertiesLoose(_ref2, ["content", "headerLeft", "headerLogoAction", "headerRight"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledContainer$1, props, /*#__PURE__*/React__default.createElement(Flex, {
+  return /*#__PURE__*/React.createElement(StyledContainer$1, props, /*#__PURE__*/React.createElement(Flex, {
     container: true,
     direction: "column",
     lg: 4,
@@ -3585,17 +3394,17 @@ var AuthLayout = function AuthLayout(_ref2) {
     xs: 12,
     mAuto: true,
     h100: true
-  }, /*#__PURE__*/React__default.createElement(AuthLayoutHeader, {
+  }, /*#__PURE__*/React.createElement(AuthLayoutHeader, {
     headerLeft: headerLeft,
     headerLogoAction: headerLogoAction,
     headerRight: headerRight
-  }), /*#__PURE__*/React__default.createElement(Content$1, null, content)));
+  }), /*#__PURE__*/React.createElement(Content$1, null, content)));
 };
-
 AuthLayout.propTypes = AuthLayoutPropTypes;
 AuthLayout.defaultProps = {};
+
 var ExplorerLayoutFooterPropTypes = {
-  children: PropTypes__default.node
+  children: PropTypes.node
 };
 
 function _templateObject$G() {
@@ -3607,24 +3416,23 @@ function _templateObject$G() {
 
   return data;
 }
-
-var StyledFooter = styled__default.div(_templateObject$G(), function (_ref) {
+var StyledFooter = styled.div(_templateObject$G(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
-
 var ExplorerLayoutFooter = function ExplorerLayoutFooter(_ref2) {
   var action = _ref2.action,
       props = _objectWithoutPropertiesLoose(_ref2, ["action"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledFooter, props);
+  return /*#__PURE__*/React.createElement(StyledFooter, props);
 };
-
 ExplorerLayoutFooter.propTypes = ExplorerLayoutFooterPropTypes;
-var img$2 = "data:image/svg+xml,%3csvg width='194' height='60' viewBox='0 0 194 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 52.0601C88.0083 52.0601 89.3892 53.5534 89.3892 55.2955C89.3892 57.1088 88.0083 58.4599 86.0961 58.4599C84.184 58.4599 82.8384 57.1088 82.8384 55.2955C82.8384 53.5534 84.184 52.0601 86.0961 52.0601Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M103.965 40.1848C104.461 40.1848 104.815 40.2204 105.24 40.327L104.992 46.0158H103.965C99.9993 46.0158 97.8393 48.0779 97.8393 52.7V58.2821H92.1737V40.4337H97.8393V43.8469C99.114 41.7136 101.062 40.1848 103.965 40.1848Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M120.118 33.9272C127.2 33.9272 132.76 39.4382 132.76 46.4069C132.76 53.34 127.2 58.8155 120.118 58.8155C113.037 58.8155 107.477 53.34 107.477 46.4069C107.477 39.4382 113.037 33.9272 120.118 33.9272ZM120.118 53.4467C123.978 53.4467 126.917 50.4601 126.917 46.4069C126.917 42.3181 123.978 39.2959 120.118 39.2959C116.259 39.2959 113.32 42.3181 113.32 46.4069C113.32 50.4601 116.259 53.4467 120.118 53.4467Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M144.587 53.8378C146.392 53.8378 147.844 52.8778 148.446 50.709L153.651 51.8467C152.766 56.0777 149.013 58.8154 144.587 58.8154C139.275 58.8154 134.884 55.0111 134.884 49.3579C134.884 43.7403 139.275 39.9003 144.587 39.9003C148.907 39.9003 152.66 42.5669 153.651 46.7624L148.34 48.0424C147.844 45.8735 146.392 44.878 144.587 44.878C142.037 44.878 140.337 46.7624 140.337 49.3579C140.337 51.9889 142.037 53.8378 144.587 53.8378Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M175.992 58.2821H168.733L162.961 51.8467H161.934V58.2821H156.269V32.6828H161.934V46.5135H162.713L168.343 40.4337H175.177L167.387 48.9312L175.992 58.2821Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M176.087 53.6483L181.611 52.5105C181.859 54.0394 183.24 54.6083 184.762 54.6083C186.25 54.6083 187.064 53.9683 187.064 53.1861C187.064 52.5817 186.604 52.1194 185.294 51.8706L181.682 51.1595C178.389 50.555 176.512 48.7773 176.512 45.9685C176.512 42.3064 179.663 39.9242 184.16 39.9242C188.587 39.9242 191.526 41.9508 192.234 45.0441L187.064 46.0752C186.887 44.973 185.825 43.9774 184.09 43.9774C182.567 43.9774 182.071 44.7241 182.071 45.3641C182.071 45.8618 182.284 46.3596 183.417 46.6085L187.595 47.4618C190.959 48.1729 192.517 50.1995 192.517 52.8305C192.517 56.7771 189.118 58.8393 184.444 58.8393C180.265 58.8393 176.689 57.3104 176.087 53.6483Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M79.4906 27.4174H73.825V1.81807H79.4906V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M88.9289 27.4174H83.2634V9.569H88.9289V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 1.07143C88.0083 1.07143 89.3892 2.56472 89.3892 4.3069C89.3892 6.12019 88.0083 7.47127 86.0961 7.47127C84.184 7.47127 82.8384 6.12019 82.8384 4.3069C82.8384 2.56472 84.184 1.07143 86.0961 1.07143Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M101.853 22.9731C103.659 22.9731 105.111 22.0131 105.713 19.8443L110.918 20.982C110.033 25.213 106.28 27.9507 101.853 27.9507C96.542 27.9507 92.1512 24.1464 92.1512 18.4932C92.1512 12.8756 96.542 9.03566 101.853 9.03566C106.173 9.03566 109.927 11.7023 110.918 15.8977L105.607 17.1777C105.111 15.0088 103.659 14.0133 101.853 14.0133C99.3039 14.0133 97.6043 15.8977 97.6043 18.4932C97.6043 21.1242 99.3039 22.9731 101.853 22.9731Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M131.601 18.4932V19.9509H118.57C119.03 22.0842 120.482 23.3997 122.394 23.3997C123.704 23.3997 125.227 23.0798 126.183 21.3376L131.211 22.3687C129.689 26.1375 126.466 27.9507 122.394 27.9507C117.26 27.9507 113.011 24.1464 113.011 18.4932C113.011 12.8756 117.26 9.03566 122.43 9.03566C127.458 9.03566 131.495 12.6622 131.601 18.4932ZM122.43 13.6578C120.836 13.6578 119.207 14.6533 118.676 16.4666H126.006C125.475 14.5466 124.059 13.6578 122.43 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M145.659 9.03566C149.801 9.03566 152.563 11.9867 152.563 16.4666V27.4174H146.933V17.6754C146.933 15.5777 145.694 14.1555 143.888 14.1555C141.657 14.1555 140.205 15.6844 140.205 19.1332V27.4174H134.54V9.56898H140.205V11.2756C141.551 9.85342 143.428 9.03566 145.659 9.03566Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M155.219 22.7598L160.743 21.622C160.991 23.1509 162.372 23.7197 163.895 23.7197C165.382 23.7197 166.196 23.0798 166.196 22.2975C166.196 21.6931 165.736 21.2309 164.426 20.982L160.814 20.2709C157.521 19.6665 155.644 17.8888 155.644 15.08C155.644 11.4178 158.796 9.03566 163.293 9.03566C167.719 9.03566 170.658 11.0623 171.366 14.1555L166.196 15.1866C166.019 14.0844 164.957 13.0889 163.222 13.0889C161.699 13.0889 161.203 13.8355 161.203 14.4755C161.203 14.9733 161.416 15.4711 162.549 15.7199L166.727 16.5732C170.091 17.2843 171.649 19.311 171.649 21.942C171.649 25.8886 168.25 27.9507 163.576 27.9507C159.397 27.9507 155.821 26.4219 155.219 22.7598Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M192.403 18.4932V19.9509H179.372C179.832 22.0842 181.284 23.3997 183.196 23.3997C184.506 23.3997 186.029 23.0798 186.985 21.3376L192.013 22.3687C190.49 26.1375 187.268 27.9507 183.196 27.9507C178.062 27.9507 173.812 24.1464 173.812 18.4932C173.812 12.8756 178.062 9.03566 183.231 9.03566C188.26 9.03566 192.296 12.6622 192.403 18.4932ZM183.231 13.6578C181.638 13.6578 180.009 14.6533 179.478 16.4666H186.808C186.277 14.5466 184.86 13.6578 183.231 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.58723 46.6197C11.4115 46.6197 14.1734 49.6063 14.1734 53.0907C14.1734 56.7172 11.4115 59.4194 7.58723 59.4194C3.76298 59.4194 1.07184 56.7172 1.07184 53.0907C1.07184 49.6063 3.76298 46.6197 7.58723 46.6197ZM38.7574 9.64285C52.9213 9.64285 64.04 20.6648 64.04 34.6022C64.04 48.4685 52.9213 59.4194 38.7574 59.4194C24.5936 59.4194 13.4749 48.4685 13.4749 34.6022C13.4749 20.6648 24.5936 9.64285 38.7574 9.64285ZM38.7574 48.6819C46.4768 48.6819 52.3548 42.7087 52.3548 34.6022C52.3548 26.4247 46.4768 20.3804 38.7574 20.3804C31.0381 20.3804 25.1601 26.4247 25.1601 34.6022C25.1601 42.7087 31.0381 48.6819 38.7574 48.6819Z' fill='%23AC00FC'/%3e%3c/svg%3e";
+
+const img$2 = "data:image/svg+xml,%3csvg width='194' height='60' viewBox='0 0 194 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 52.0601C88.0083 52.0601 89.3892 53.5534 89.3892 55.2955C89.3892 57.1088 88.0083 58.4599 86.0961 58.4599C84.184 58.4599 82.8384 57.1088 82.8384 55.2955C82.8384 53.5534 84.184 52.0601 86.0961 52.0601Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M103.965 40.1848C104.461 40.1848 104.815 40.2204 105.24 40.327L104.992 46.0158H103.965C99.9993 46.0158 97.8393 48.0779 97.8393 52.7V58.2821H92.1737V40.4337H97.8393V43.8469C99.114 41.7136 101.062 40.1848 103.965 40.1848Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M120.118 33.9272C127.2 33.9272 132.76 39.4382 132.76 46.4069C132.76 53.34 127.2 58.8155 120.118 58.8155C113.037 58.8155 107.477 53.34 107.477 46.4069C107.477 39.4382 113.037 33.9272 120.118 33.9272ZM120.118 53.4467C123.978 53.4467 126.917 50.4601 126.917 46.4069C126.917 42.3181 123.978 39.2959 120.118 39.2959C116.259 39.2959 113.32 42.3181 113.32 46.4069C113.32 50.4601 116.259 53.4467 120.118 53.4467Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M144.587 53.8378C146.392 53.8378 147.844 52.8778 148.446 50.709L153.651 51.8467C152.766 56.0777 149.013 58.8154 144.587 58.8154C139.275 58.8154 134.884 55.0111 134.884 49.3579C134.884 43.7403 139.275 39.9003 144.587 39.9003C148.907 39.9003 152.66 42.5669 153.651 46.7624L148.34 48.0424C147.844 45.8735 146.392 44.878 144.587 44.878C142.037 44.878 140.337 46.7624 140.337 49.3579C140.337 51.9889 142.037 53.8378 144.587 53.8378Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M175.992 58.2821H168.733L162.961 51.8467H161.934V58.2821H156.269V32.6828H161.934V46.5135H162.713L168.343 40.4337H175.177L167.387 48.9312L175.992 58.2821Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M176.087 53.6483L181.611 52.5105C181.859 54.0394 183.24 54.6083 184.762 54.6083C186.25 54.6083 187.064 53.9683 187.064 53.1861C187.064 52.5817 186.604 52.1194 185.294 51.8706L181.682 51.1595C178.389 50.555 176.512 48.7773 176.512 45.9685C176.512 42.3064 179.663 39.9242 184.16 39.9242C188.587 39.9242 191.526 41.9508 192.234 45.0441L187.064 46.0752C186.887 44.973 185.825 43.9774 184.09 43.9774C182.567 43.9774 182.071 44.7241 182.071 45.3641C182.071 45.8618 182.284 46.3596 183.417 46.6085L187.595 47.4618C190.959 48.1729 192.517 50.1995 192.517 52.8305C192.517 56.7771 189.118 58.8393 184.444 58.8393C180.265 58.8393 176.689 57.3104 176.087 53.6483Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M79.4906 27.4174H73.825V1.81807H79.4906V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M88.9289 27.4174H83.2634V9.569H88.9289V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 1.07143C88.0083 1.07143 89.3892 2.56472 89.3892 4.3069C89.3892 6.12019 88.0083 7.47127 86.0961 7.47127C84.184 7.47127 82.8384 6.12019 82.8384 4.3069C82.8384 2.56472 84.184 1.07143 86.0961 1.07143Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M101.853 22.9731C103.659 22.9731 105.111 22.0131 105.713 19.8443L110.918 20.982C110.033 25.213 106.28 27.9507 101.853 27.9507C96.542 27.9507 92.1512 24.1464 92.1512 18.4932C92.1512 12.8756 96.542 9.03566 101.853 9.03566C106.173 9.03566 109.927 11.7023 110.918 15.8977L105.607 17.1777C105.111 15.0088 103.659 14.0133 101.853 14.0133C99.3039 14.0133 97.6043 15.8977 97.6043 18.4932C97.6043 21.1242 99.3039 22.9731 101.853 22.9731Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M131.601 18.4932V19.9509H118.57C119.03 22.0842 120.482 23.3997 122.394 23.3997C123.704 23.3997 125.227 23.0798 126.183 21.3376L131.211 22.3687C129.689 26.1375 126.466 27.9507 122.394 27.9507C117.26 27.9507 113.011 24.1464 113.011 18.4932C113.011 12.8756 117.26 9.03566 122.43 9.03566C127.458 9.03566 131.495 12.6622 131.601 18.4932ZM122.43 13.6578C120.836 13.6578 119.207 14.6533 118.676 16.4666H126.006C125.475 14.5466 124.059 13.6578 122.43 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M145.659 9.03566C149.801 9.03566 152.563 11.9867 152.563 16.4666V27.4174H146.933V17.6754C146.933 15.5777 145.694 14.1555 143.888 14.1555C141.657 14.1555 140.205 15.6844 140.205 19.1332V27.4174H134.54V9.56898H140.205V11.2756C141.551 9.85342 143.428 9.03566 145.659 9.03566Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M155.219 22.7598L160.743 21.622C160.991 23.1509 162.372 23.7197 163.895 23.7197C165.382 23.7197 166.196 23.0798 166.196 22.2975C166.196 21.6931 165.736 21.2309 164.426 20.982L160.814 20.2709C157.521 19.6665 155.644 17.8888 155.644 15.08C155.644 11.4178 158.796 9.03566 163.293 9.03566C167.719 9.03566 170.658 11.0623 171.366 14.1555L166.196 15.1866C166.019 14.0844 164.957 13.0889 163.222 13.0889C161.699 13.0889 161.203 13.8355 161.203 14.4755C161.203 14.9733 161.416 15.4711 162.549 15.7199L166.727 16.5732C170.091 17.2843 171.649 19.311 171.649 21.942C171.649 25.8886 168.25 27.9507 163.576 27.9507C159.397 27.9507 155.821 26.4219 155.219 22.7598Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M192.403 18.4932V19.9509H179.372C179.832 22.0842 181.284 23.3997 183.196 23.3997C184.506 23.3997 186.029 23.0798 186.985 21.3376L192.013 22.3687C190.49 26.1375 187.268 27.9507 183.196 27.9507C178.062 27.9507 173.812 24.1464 173.812 18.4932C173.812 12.8756 178.062 9.03566 183.231 9.03566C188.26 9.03566 192.296 12.6622 192.403 18.4932ZM183.231 13.6578C181.638 13.6578 180.009 14.6533 179.478 16.4666H186.808C186.277 14.5466 184.86 13.6578 183.231 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.58723 46.6197C11.4115 46.6197 14.1734 49.6063 14.1734 53.0907C14.1734 56.7172 11.4115 59.4194 7.58723 59.4194C3.76298 59.4194 1.07184 56.7172 1.07184 53.0907C1.07184 49.6063 3.76298 46.6197 7.58723 46.6197ZM38.7574 9.64285C52.9213 9.64285 64.04 20.6648 64.04 34.6022C64.04 48.4685 52.9213 59.4194 38.7574 59.4194C24.5936 59.4194 13.4749 48.4685 13.4749 34.6022C13.4749 20.6648 24.5936 9.64285 38.7574 9.64285ZM38.7574 48.6819C46.4768 48.6819 52.3548 42.7087 52.3548 34.6022C52.3548 26.4247 46.4768 20.3804 38.7574 20.3804C31.0381 20.3804 25.1601 26.4247 25.1601 34.6022C25.1601 42.7087 31.0381 48.6819 38.7574 48.6819Z' fill='%23AC00FC'/%3e%3c/svg%3e";
+
 var ExplorerLayoutHeaderPropTypes = {
-  headerRight: PropTypes__default.node,
-  logoAction: PropTypes__default.func
+  headerRight: PropTypes.node,
+  logoAction: PropTypes.func
 };
 
 function _templateObject2$d() {
@@ -3646,8 +3454,7 @@ function _templateObject$H() {
 
   return data;
 }
-
-var StyledHeader$1 = styled__default(Grid).attrs(function () {
+var StyledHeader$1 = styled(Grid).attrs(function () {
   return {
     container: true,
     alignItems: "center"
@@ -3656,7 +3463,7 @@ var StyledHeader$1 = styled__default(Grid).attrs(function () {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
-var StyledLogo$1 = styled__default(Image).attrs(function () {
+var StyledLogo$1 = styled(Image).attrs(function () {
   return {
     alt: "Logo",
     src: img$2
@@ -3665,19 +3472,18 @@ var StyledLogo$1 = styled__default(Image).attrs(function () {
   var theme = _ref2.theme;
   return theme.breakpoints.down("md");
 });
-
 var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
   var headerRight = _ref3.headerRight,
       logoAction = _ref3.logoAction,
       props = _objectWithoutPropertiesLoose(_ref3, ["headerRight", "logoAction"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledHeader$1, props, /*#__PURE__*/React__default.createElement(Grid, {
+  return /*#__PURE__*/React.createElement(StyledHeader$1, props, /*#__PURE__*/React.createElement(Grid, {
     item: true,
     lg: 9,
     xs: 6
-  }, /*#__PURE__*/React__default.createElement(StyledLogo$1, {
+  }, /*#__PURE__*/React.createElement(StyledLogo$1, {
     onClick: logoAction
-  })), /*#__PURE__*/React__default.createElement(Grid, {
+  })), /*#__PURE__*/React.createElement(Grid, {
     container: true,
     item: true,
     justify: "flex-end",
@@ -3685,17 +3491,17 @@ var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
     xs: 6
   }, headerRight));
 };
-
 ExplorerLayoutHeader.propTypes = ExplorerLayoutHeaderPropTypes;
+
 var ExplorerLayoutPropTypes = {
-  ads: PropTypes__default.node,
-  content: PropTypes__default.node.isRequired,
-  extraContent: PropTypes__default.node,
-  extraSidebar: PropTypes__default.node,
-  footerContent: PropTypes__default.node,
-  headerLogoAction: PropTypes__default.func,
-  headerRight: PropTypes__default.node,
-  sidebar: PropTypes__default.node
+  ads: PropTypes.node,
+  content: PropTypes.node.isRequired,
+  extraContent: PropTypes.node,
+  extraSidebar: PropTypes.node,
+  footerContent: PropTypes.node,
+  headerLogoAction: PropTypes.func,
+  headerRight: PropTypes.node,
+  sidebar: PropTypes.node
 };
 
 function _templateObject$I() {
@@ -3707,8 +3513,7 @@ function _templateObject$I() {
 
   return data;
 }
-
-var Content$2 = styled__default(Grid).attrs(function () {
+var Content$2 = styled(Grid).attrs(function () {
   return {
     container: true
   };
@@ -3725,14 +3530,13 @@ var Content$2 = styled__default(Grid).attrs(function () {
   var theme = _ref4.theme;
   return theme.spacing(2);
 });
-var poweredBy = /*#__PURE__*/React__default.createElement(Text, {
+var poweredBy = /*#__PURE__*/React.createElement(Text, {
   color: "textSecondary",
   fontStyle: "italic"
-}, "Powered by", /*#__PURE__*/React__default.createElement(Text, {
+}, "Powered by", /*#__PURE__*/React.createElement(Text, {
   color: "textPrimary",
   fontWeight: "bold"
 }, " ", "license.rocks"));
-
 var ExplorerLayout = function ExplorerLayout(_ref5) {
   var ads = _ref5.ads,
       content = _ref5.content,
@@ -3744,41 +3548,40 @@ var ExplorerLayout = function ExplorerLayout(_ref5) {
       sidebar = _ref5.sidebar,
       props = _objectWithoutPropertiesLoose(_ref5, ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "sidebar"]);
 
-  return /*#__PURE__*/React__default.createElement(MuiContainer, props, /*#__PURE__*/React__default.createElement(ExplorerLayoutHeader, {
+  return /*#__PURE__*/React.createElement(MuiContainer, props, /*#__PURE__*/React.createElement(ExplorerLayoutHeader, {
     logoAction: headerLogoAction,
     headerRight: headerRight
-  }), /*#__PURE__*/React__default.createElement(Content$2, null, /*#__PURE__*/React__default.createElement(Hidden, {
+  }), /*#__PURE__*/React.createElement(Content$2, null, /*#__PURE__*/React.createElement(Hidden, {
     mdDown: true
-  }, /*#__PURE__*/React__default.createElement(Grid, {
+  }, /*#__PURE__*/React.createElement(Grid, {
     item: true,
     lg: 9
-  }, content, extraContent), /*#__PURE__*/React__default.createElement(Grid, {
+  }, content, extraContent), /*#__PURE__*/React.createElement(Grid, {
     item: true,
     lg: 3
-  }, sidebar, extraSidebar, ads)), /*#__PURE__*/React__default.createElement(Hidden, {
+  }, sidebar, extraSidebar, ads)), /*#__PURE__*/React.createElement(Hidden, {
     lgUp: true
-  }, /*#__PURE__*/React__default.createElement(Grid, {
+  }, /*#__PURE__*/React.createElement(Grid, {
     item: true,
     xs: 12
-  }, content), /*#__PURE__*/React__default.createElement(Grid, {
+  }, content), /*#__PURE__*/React.createElement(Grid, {
     container: true,
     alignItems: "center",
     justify: "space-between",
     spacing: 4
-  }, /*#__PURE__*/React__default.createElement(Grid, {
+  }, /*#__PURE__*/React.createElement(Grid, {
     item: true,
     md: 6,
     xs: 12
-  }, sidebar), /*#__PURE__*/React__default.createElement(Grid, {
+  }, sidebar), /*#__PURE__*/React.createElement(Grid, {
     item: true,
     md: 6,
     xs: 12
-  }, extraSidebar)), /*#__PURE__*/React__default.createElement(Grid, {
+  }, extraSidebar)), /*#__PURE__*/React.createElement(Grid, {
     item: true,
     xs: 12
-  }, extraContent, ads))), footerContent && /*#__PURE__*/React__default.createElement(ExplorerLayoutFooter, null, footerContent || poweredBy));
+  }, extraContent, ads))), footerContent && /*#__PURE__*/React.createElement(ExplorerLayoutFooter, null, footerContent || poweredBy));
 };
-
 ExplorerLayout.propTypes = ExplorerLayoutPropTypes;
 ExplorerLayout.defaultProps = {
   footerContent: poweredBy
@@ -3833,13 +3636,12 @@ function _templateObject$J() {
 
   return data;
 }
-
-var ContentWrapper = styled__default(DialogContent).attrs(function () {
+var ContentWrapper = styled(DialogContent).attrs(function () {
   return {
     dividers: true
   };
 })(_templateObject$J());
-var Title = styled__default(DialogTitle).attrs(function () {
+var Title = styled(DialogTitle).attrs(function () {
   return {
     disableTypography: true
   };
@@ -3850,7 +3652,7 @@ var Title = styled__default(DialogTitle).attrs(function () {
   var theme = _ref2.theme;
   return theme.spacing(3, 5);
 });
-var CloseModalIcon = styled__default(Icon).attrs(function () {
+var CloseModalIcon = styled(Icon).attrs(function () {
   return {
     size: "lg"
   };
@@ -3858,15 +3660,14 @@ var CloseModalIcon = styled__default(Icon).attrs(function () {
   var theme = _ref3.theme;
   return theme.palette.secondary.dark;
 });
-var Actions = styled__default(DialogActions)(_templateObject4$3(), function (_ref4) {
+var Actions = styled(DialogActions)(_templateObject4$3(), function (_ref4) {
   var hasDesc = _ref4.hasDesc;
   return hasDesc ? "space-between" : "flex-end";
 });
-var LoadingWrapper = styled__default.div(_templateObject5$1(), function (_ref5) {
+var LoadingWrapper = styled.div(_templateObject5$1(), function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.secondary.dark;
 });
-
 var Modal = function Modal(_ref6) {
   var action = _ref6.action,
       actionDescription = _ref6.actionDescription,
@@ -3883,7 +3684,7 @@ var Modal = function Modal(_ref6) {
       disabled = _ref6.disabled,
       props = _objectWithoutPropertiesLoose(_ref6, ["action", "actionDescription", "actionLoading", "actionTitle", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled"]);
 
-  return /*#__PURE__*/React__default.createElement(Dialog, _extends({
+  return /*#__PURE__*/React.createElement(Dialog, _extends({
     "data-cy": dataCy,
     fullScreen: typeof fullScreen !== "undefined" ? fullScreen : typeof window !== "undefined" && window.screen.width < 768,
     onClose: onClose,
@@ -3894,34 +3695,33 @@ var Modal = function Modal(_ref6) {
         position: "relative"
       }
     }
-  }, props), loading && /*#__PURE__*/React__default.createElement(LoadingWrapper, null, /*#__PURE__*/React__default.createElement(CircularProgress, {
+  }, props), loading && /*#__PURE__*/React.createElement(LoadingWrapper, null, /*#__PURE__*/React.createElement(CircularProgress, {
     size: 60
-  })), title && /*#__PURE__*/React__default.createElement(Title, null, title, /*#__PURE__*/React__default.createElement(CloseModalIcon, {
+  })), title && /*#__PURE__*/React.createElement(Title, null, title, /*#__PURE__*/React.createElement(CloseModalIcon, {
     icon: "times",
     onClick: onClose
-  })), /*#__PURE__*/React__default.createElement(ContentWrapper, null, children), action && /*#__PURE__*/React__default.createElement(Actions, {
+  })), /*#__PURE__*/React.createElement(ContentWrapper, null, children), action && /*#__PURE__*/React.createElement(Actions, {
     hasDesc: !!actionDescription
-  }, /*#__PURE__*/React__default.createElement("div", null, actionDescription), /*#__PURE__*/React__default.createElement(Button, {
+  }, /*#__PURE__*/React.createElement("div", null, actionDescription), /*#__PURE__*/React.createElement(Button, {
     disabled: disabled,
     loading: actionLoading,
     onClick: action
   }, actionTitle)));
 };
-
 Modal.propTypes = {
-  action: PropTypes__default.func,
-  actionDescription: PropTypes__default.node,
-  actionLoading: PropTypes__default.bool,
-  actionTitle: PropTypes__default.string,
-  dataCy: PropTypes__default.string,
-  fullScreen: PropTypes__default.bool,
-  isOpen: PropTypes__default.bool.isRequired,
-  loading: PropTypes__default.bool,
-  onClose: PropTypes__default.func.isRequired,
-  children: PropTypes__default.oneOfType([PropTypes__default.any]).isRequired,
-  maxWidth: PropTypes__default.string,
-  title: PropTypes__default.string,
-  disabled: PropTypes__default.bool
+  action: PropTypes.func,
+  actionDescription: PropTypes.node,
+  actionLoading: PropTypes.bool,
+  actionTitle: PropTypes.string,
+  dataCy: PropTypes.string,
+  fullScreen: PropTypes.bool,
+  isOpen: PropTypes.bool.isRequired,
+  loading: PropTypes.bool,
+  onClose: PropTypes.func.isRequired,
+  children: PropTypes.oneOfType([PropTypes.any]).isRequired,
+  maxWidth: PropTypes.string,
+  title: PropTypes.string,
+  disabled: PropTypes.bool
 };
 Modal.defaultProps = {
   action: undefined,
@@ -3945,8 +3745,7 @@ function _templateObject$K() {
 
   return data;
 }
-
-var Button$1 = styled__default(ButtonBase)(_templateObject$K(), function (_ref) {
+var Button$1 = styled(ButtonBase)(_templateObject$K(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -3959,42 +3758,40 @@ var Button$1 = styled__default(ButtonBase)(_templateObject$K(), function (_ref) 
   var theme = _ref4.theme;
   return theme.palette.primary.main;
 });
-
 var ShareModuleButton = function ShareModuleButton(_ref5) {
   var href = _ref5.href,
       icon = _ref5.icon,
       iconPrefix = _ref5.iconPrefix,
       onClick = _ref5.onClick;
-  return /*#__PURE__*/React__default.createElement(Button$1, {
+  return /*#__PURE__*/React.createElement(Button$1, {
     href: href,
     onClick: onClick,
     target: "_blank"
-  }, /*#__PURE__*/React__default.createElement(Icon, {
+  }, /*#__PURE__*/React.createElement(Icon, {
     icon: icon,
     prefix: iconPrefix,
     size: "lg"
   }));
 };
-
 ShareModuleButton.propTypes = {
-  href: PropTypes__default.string,
-  icon: PropTypes__default.string.isRequired,
-  iconPrefix: PropTypes__default.string,
-  onClick: PropTypes__default.func
+  href: PropTypes.string,
+  icon: PropTypes.string.isRequired,
+  iconPrefix: PropTypes.string,
+  onClick: PropTypes.func
 };
 ShareModuleButton.defaultProps = {
   href: null,
   iconPrefix: "fab",
   onClick: null
 };
+
 var SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "telegram", "whatsapp", "email", "navigator"];
 
 var ShareModulePropTypes = _extends({
-  copyText: PropTypes__default.string,
-  shareOptions: PropTypes__default.arrayOf(PropTypes__default.oneOf(SHARE_MODULE_SHARE_OPTIONS)),
-  url: PropTypes__default.string
+  copyText: PropTypes.string,
+  shareOptions: PropTypes.arrayOf(PropTypes.oneOf(SHARE_MODULE_SHARE_OPTIONS)),
+  url: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var ShareModuleDefaultProps = {
   copyText: "Or copy the link",
   shareOptions: SHARE_MODULE_SHARE_OPTIONS,
@@ -4030,17 +3827,16 @@ function _templateObject$L() {
 
   return data;
 }
-
-var Container$4 = styled__default.div(_templateObject$L(), function (theme) {
+var Container$4 = styled.div(_templateObject$L(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var ButtonsWrapper = styled__default.div(_templateObject2$f(), function (_ref) {
+var ButtonsWrapper = styled.div(_templateObject2$f(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
-var StyledText$1 = styled__default(Text).attrs(function () {
+var StyledText$1 = styled(Text).attrs(function () {
   return {
     component: "div",
     color: "textSecondary",
@@ -4049,9 +3845,8 @@ var StyledText$1 = styled__default(Text).attrs(function () {
   };
 })(_templateObject3$5(), function (_ref2) {
   var spacing = _ref2.theme.spacing;
-  return styled.css(["margin:", ";"], spacing(2, 0));
+  return css(["margin:", ";"], spacing(2, 0));
 });
-
 var ShareModule = function ShareModule(_ref3) {
   var _window, _window$navigator, _window2, _window2$navigator;
 
@@ -4060,25 +3855,25 @@ var ShareModule = function ShareModule(_ref3) {
       url = _ref3.url,
       props = _objectWithoutPropertiesLoose(_ref3, ["copyText", "shareOptions", "url"]);
 
-  var theme = styled.useTheme();
+  var theme = useTheme();
   var navigatorShare = typeof window !== "undefined" && ((_window = window) == null ? void 0 : (_window$navigator = _window.navigator) == null ? void 0 : _window$navigator.share) ? (_window2 = window) == null ? void 0 : (_window2$navigator = _window2.navigator) == null ? void 0 : _window2$navigator.share : null;
-  return /*#__PURE__*/React__default.createElement(Container$4, props, /*#__PURE__*/React__default.createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React__default.createElement(ShareModuleButton, {
+  return /*#__PURE__*/React.createElement(Container$4, props, /*#__PURE__*/React.createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "twitter",
     href: "https://twitter.com/intent/tweet?url=" + url
-  }), shareOptions.includes("facebook") && /*#__PURE__*/React__default.createElement(ShareModuleButton, {
+  }), shareOptions.includes("facebook") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "facebook-f",
     href: "https://www.facebook.com/sharer.php?u=" + url
-  }), shareOptions.includes("telegram") && /*#__PURE__*/React__default.createElement(ShareModuleButton, {
+  }), shareOptions.includes("telegram") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "telegram-plane",
     href: "tg://msg?text=" + url
-  }), shareOptions.includes("whatsapp") && /*#__PURE__*/React__default.createElement(ShareModuleButton, {
+  }), shareOptions.includes("whatsapp") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "whatsapp",
     href: "whatsapp://send?" + url
-  }), shareOptions.includes("email") && /*#__PURE__*/React__default.createElement(ShareModuleButton, {
+  }), shareOptions.includes("email") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "envelope",
     iconPrefix: theme.defaultIconSet,
     href: "mailto:?body=" + url
-  }), shareOptions.includes("navigator") && navigatorShare && /*#__PURE__*/React__default.createElement(ShareModuleButton, {
+  }), shareOptions.includes("navigator") && navigatorShare && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "ellipsis-h",
     iconPrefix: theme.defaultIconSet,
     onClick: function onClick() {
@@ -4086,9 +3881,9 @@ var ShareModule = function ShareModule(_ref3) {
         url: url
       });
     }
-  })), /*#__PURE__*/React__default.createElement(StyledText$1, {
+  })), /*#__PURE__*/React.createElement(StyledText$1, {
     content: copyText
-  }), /*#__PURE__*/React__default.createElement(Input, {
+  }), /*#__PURE__*/React.createElement(Input, {
     endIcon: "copy",
     endIconColor: "secondary",
     endIconOnClick: function endIconOnClick() {
@@ -4100,14 +3895,12 @@ var ShareModule = function ShareModule(_ref3) {
     value: url
   }));
 };
-
 ShareModule.propTypes = ShareModulePropTypes;
 ShareModule.defaultProps = ShareModuleDefaultProps;
 
 var DotsSpinnerPropTypes = _extends({
-  size: PropTypes__default.number
+  size: PropTypes.number
 }, COLOR_PROP_TYPES, DISPLAY_PROP_TYPES, DIMENSION_PROP_TYPES, SPACER_PROP_TYPES);
-
 var DotsSpinnerDefaultProps = {
   size: 60
 };
@@ -4121,8 +3914,7 @@ function _templateObject$M() {
 
   return data;
 }
-
-var StyledDotsSpinner = styled__default.div(_templateObject$M(), function (_ref) {
+var StyledDotsSpinner = styled.div(_templateObject$M(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -4144,24 +3936,21 @@ var StyledDotsSpinner = styled__default.div(_templateObject$M(), function (_ref)
 }, function (theme) {
   return SPACER(theme);
 });
-
 var DotsSpinner = function DotsSpinner(props) {
-  return /*#__PURE__*/React__default.createElement(StyledDotsSpinner, props, /*#__PURE__*/React__default.createElement("div", {
+  return /*#__PURE__*/React.createElement(StyledDotsSpinner, props, /*#__PURE__*/React.createElement("div", {
     className: "bounce1"
-  }), /*#__PURE__*/React__default.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     className: "bounce2"
-  }), /*#__PURE__*/React__default.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     className: "bounce3"
   }));
 };
-
 DotsSpinner.propTypes = DotsSpinnerPropTypes;
 DotsSpinner.defaultProps = DotsSpinnerDefaultProps;
 
 var RocksSpinnerPropTypes = _extends({
-  size: PropTypes__default.number
+  size: PropTypes.number
 }, COLOR_PROP_TYPES, DISPLAY_PROP_TYPES, DIMENSION_PROP_TYPES, SPACER_PROP_TYPES);
-
 var RocksSpinnerDefaultProps = {
   size: 60
 };
@@ -4175,8 +3964,7 @@ function _templateObject$N() {
 
   return data;
 }
-
-var StyledRocksSpinner = styled__default.div(_templateObject$N(), function (_ref) {
+var StyledRocksSpinner = styled.div(_templateObject$N(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -4214,26 +4002,24 @@ var StyledRocksSpinner = styled__default.div(_templateObject$N(), function (_ref
 }, function (theme) {
   return SPACER(theme);
 });
-
 var RocksSpinner = function RocksSpinner(props) {
-  return /*#__PURE__*/React__default.createElement(StyledRocksSpinner, props, /*#__PURE__*/React__default.createElement("div", {
+  return /*#__PURE__*/React.createElement(StyledRocksSpinner, props, /*#__PURE__*/React.createElement("div", {
     className: "dot"
-  }), /*#__PURE__*/React__default.createElement("div", {
+  }), /*#__PURE__*/React.createElement("div", {
     className: "circle"
   }));
 };
-
 RocksSpinner.propTypes = RocksSpinnerPropTypes;
 RocksSpinner.defaultProps = RocksSpinnerDefaultProps;
 
 var TabPropTypes = _extends({
-  currentTab: PropTypes__default.number.isRequired,
-  onChange: PropTypes__default.func.isRequired,
-  tabs: PropTypes__default.arrayOf(PropTypes__default.shape({
-    index: PropTypes__default.number.isRequired,
-    label: PropTypes__default.string.isRequired,
-    disabled: PropTypes__default.bool,
-    showTab: PropTypes__default.bbol
+  currentTab: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.shape({
+    index: PropTypes.number.isRequired,
+    label: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    showTab: PropTypes.bbol
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
@@ -4266,8 +4052,7 @@ function _templateObject$O() {
 
   return data;
 }
-
-var Wrapper$6 = styled__default.div(_templateObject$O(), function (_ref) {
+var Wrapper$6 = styled.div(_templateObject$O(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (theme) {
@@ -4275,22 +4060,21 @@ var Wrapper$6 = styled__default.div(_templateObject$O(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledTabs = styled__default(MuiTabs)(_templateObject2$g(), function (_ref2) {
+var StyledTabs = styled(MuiTabs)(_templateObject2$g(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(5);
 }, function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.primary.main;
 });
-var StyledTab = styled__default(MuiTab)(_templateObject3$6());
-
+var StyledTab = styled(MuiTab)(_templateObject3$6());
 var Tab = function Tab(_ref4) {
   var tabs = _ref4.tabs,
       currentTab = _ref4.currentTab,
       _onChange = _ref4.onChange,
       props = _objectWithoutPropertiesLoose(_ref4, ["tabs", "currentTab", "onChange"]);
 
-  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Wrapper$6, props, /*#__PURE__*/React__default.createElement(StyledTabs, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Wrapper$6, props, /*#__PURE__*/React.createElement(StyledTabs, {
     value: currentTab,
     onChange: function onChange(e, newTab) {
       return _onChange(newTab);
@@ -4300,7 +4084,7 @@ var Tab = function Tab(_ref4) {
   }, tabs.filter(function (t) {
     return typeof t.showTab === "boolean" ? t.showTab : true;
   }).map(function (t) {
-    return /*#__PURE__*/React__default.createElement(StyledTab, {
+    return /*#__PURE__*/React.createElement(StyledTab, {
       disabled: t.disabled,
       value: t.index,
       disableRipple: true,
@@ -4309,7 +4093,6 @@ var Tab = function Tab(_ref4) {
     });
   }))));
 };
-
 Tab.propTypes = TabPropTypes;
 
 function _templateObject2$h() {
@@ -4331,8 +4114,7 @@ function _templateObject$P() {
 
   return data;
 }
-
-var CloseModalIcon$1 = styled__default(Icon).attrs(function () {
+var CloseModalIcon$1 = styled(Icon).attrs(function () {
   return {
     size: "lg"
   };
@@ -4340,40 +4122,37 @@ var CloseModalIcon$1 = styled__default(Icon).attrs(function () {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
-var StyledImg$1 = styled__default(Image)(_templateObject2$h());
-
+var StyledImg$1 = styled(Image)(_templateObject2$h());
 var ImageModal = function ImageModal(_ref2) {
   var isOpen = _ref2.isOpen,
       onClose = _ref2.onClose,
       imgSrc = _ref2.imgSrc;
-  return /*#__PURE__*/React__default.createElement(Modal, {
+  return /*#__PURE__*/React.createElement(Modal, {
     onClose: onClose,
     isOpen: isOpen
-  }, /*#__PURE__*/React__default.createElement(CloseModalIcon$1, {
+  }, /*#__PURE__*/React.createElement(CloseModalIcon$1, {
     color: "secondary",
     icon: "times",
     onClick: onClose
-  }), /*#__PURE__*/React__default.createElement(StyledImg$1, {
+  }), /*#__PURE__*/React.createElement(StyledImg$1, {
     src: imgSrc,
     alt: "Attachment preview"
   }));
 };
-
 ImageModal.propTypes = {
-  isOpen: PropTypes__default.bool.isRequired,
-  onClose: PropTypes__default.func.isRequired,
-  imgSrc: PropTypes__default.string
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  imgSrc: PropTypes.string
 };
 ImageModal.defaultProps = {
   imgSrc: ""
 };
 
 var ThumbnailPropTypes = _extends({
-  hasPreview: PropTypes__default.bool,
-  imgSrc: PropTypes__default.string,
-  onClick: PropTypes__default.func
+  hasPreview: PropTypes.bool,
+  imgSrc: PropTypes.string,
+  onClick: PropTypes.func
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var ThumbnailDefaultProps = {
   hasPreview: false,
   onClick: function onClick() {},
@@ -4409,8 +4188,7 @@ function _templateObject$Q() {
 
   return data;
 }
-
-var Container$5 = styled__default.div(_templateObject$Q(), function (_ref) {
+var Container$5 = styled.div(_templateObject$Q(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
@@ -4418,24 +4196,23 @@ var Container$5 = styled__default.div(_templateObject$Q(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-var IconWrapper = styled__default.div(_templateObject2$i());
-var StyledIcon$2 = styled__default(Icon)(_templateObject3$7(), function (_ref2) {
+var IconWrapper = styled.div(_templateObject2$i());
+var StyledIcon$2 = styled(Icon)(_templateObject3$7(), function (_ref2) {
   var color = _ref2.color,
       theme = _ref2.theme;
   return !color && theme.palette.common.white;
 });
-
 var Thumbnail = function Thumbnail(_ref3) {
   var hasPreview = _ref3.hasPreview,
       imgSrc = _ref3.imgSrc,
       onClick = _ref3.onClick,
       props = _objectWithoutPropertiesLoose(_ref3, ["hasPreview", "imgSrc", "onClick"]);
 
-  var _useState = React.useState(false),
+  var _useState = useState(false),
       loadError = _useState[0],
       setLoadError = _useState[1];
 
-  var _useState2 = React.useState(false),
+  var _useState2 = useState(false),
       previewOpen = _useState2[0],
       setPreviewOpen = _useState2[1];
 
@@ -4443,15 +4220,15 @@ var Thumbnail = function Thumbnail(_ref3) {
     if (hasPreview) setPreviewOpen(true);else onClick();
   };
 
-  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Container$5, _extends({
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Container$5, _extends({
     onClick: handleClick
-  }, props), loadError ? /*#__PURE__*/React__default.createElement(StyledIcon$2, {
+  }, props), loadError ? /*#__PURE__*/React.createElement(StyledIcon$2, {
     color: "secondary",
     icon: "file",
     size: "lg"
-  }) : /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(IconWrapper, null, /*#__PURE__*/React__default.createElement(StyledIcon$2, {
+  }) : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(IconWrapper, null, /*#__PURE__*/React.createElement(StyledIcon$2, {
     icon: "search-plus"
-  })), /*#__PURE__*/React__default.createElement(Image, {
+  })), /*#__PURE__*/React.createElement(Image, {
     cover: true,
     src: imgSrc,
     alt: "Thumbnail",
@@ -4459,7 +4236,7 @@ var Thumbnail = function Thumbnail(_ref3) {
       return setLoadError(true);
     },
     width: "48px"
-  }))), hasPreview && /*#__PURE__*/React__default.createElement(ImageModal, {
+  }))), hasPreview && /*#__PURE__*/React.createElement(ImageModal, {
     imgSrc: imgSrc,
     isOpen: previewOpen,
     onClose: function onClose() {
@@ -4467,7 +4244,6 @@ var Thumbnail = function Thumbnail(_ref3) {
     }
   }));
 };
-
 Thumbnail.propTypes = ThumbnailPropTypes;
 Thumbnail.defaultProps = ThumbnailDefaultProps;
 
@@ -4495,24 +4271,27 @@ function _inheritsLoose(subClass, superClass) {
 var config = {
   disabled: false
 };
-var timeoutsShape = process.env.NODE_ENV !== 'production' ? PropTypes__default.oneOfType([PropTypes__default.number, PropTypes__default.shape({
-  enter: PropTypes__default.number,
-  exit: PropTypes__default.number,
-  appear: PropTypes__default.number
+
+var timeoutsShape = process.env.NODE_ENV !== 'production' ? PropTypes.oneOfType([PropTypes.number, PropTypes.shape({
+  enter: PropTypes.number,
+  exit: PropTypes.number,
+  appear: PropTypes.number
 }).isRequired]) : null;
-var classNamesShape = process.env.NODE_ENV !== 'production' ? PropTypes__default.oneOfType([PropTypes__default.string, PropTypes__default.shape({
-  enter: PropTypes__default.string,
-  exit: PropTypes__default.string,
-  active: PropTypes__default.string
-}), PropTypes__default.shape({
-  enter: PropTypes__default.string,
-  enterDone: PropTypes__default.string,
-  enterActive: PropTypes__default.string,
-  exit: PropTypes__default.string,
-  exitDone: PropTypes__default.string,
-  exitActive: PropTypes__default.string
+var classNamesShape = process.env.NODE_ENV !== 'production' ? PropTypes.oneOfType([PropTypes.string, PropTypes.shape({
+  enter: PropTypes.string,
+  exit: PropTypes.string,
+  active: PropTypes.string
+}), PropTypes.shape({
+  enter: PropTypes.string,
+  enterDone: PropTypes.string,
+  enterActive: PropTypes.string,
+  exit: PropTypes.string,
+  exitDone: PropTypes.string,
+  exitActive: PropTypes.string
 })]) : null;
-var TransitionGroupContext = React__default.createContext(null);
+
+var TransitionGroupContext = React.createContext(null);
+
 var UNMOUNTED = 'unmounted';
 var EXITED = 'exited';
 var ENTERING = 'entering';
@@ -4901,14 +4680,14 @@ var Transition = /*#__PURE__*/function (_React$Component) {
     return (
       /*#__PURE__*/
       // allows for nested Transitions
-      React__default.createElement(TransitionGroupContext.Provider, {
+      React.createElement(TransitionGroupContext.Provider, {
         value: null
-      }, typeof children === 'function' ? children(status, childProps) : React__default.cloneElement(React__default.Children.only(children), childProps))
+      }, typeof children === 'function' ? children(status, childProps) : React.cloneElement(React.Children.only(children), childProps))
     );
   };
 
   return Transition;
-}(React__default.Component);
+}(React.Component);
 
 Transition.contextType = TransitionGroupContext;
 Transition.propTypes = process.env.NODE_ENV !== "production" ? {
@@ -4923,8 +4702,8 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    *     (see
    *     [test/CSSTransition-test.js](https://github.com/reactjs/react-transition-group/blob/13435f897b3ab71f6e19d724f145596f5910581c/test/CSSTransition-test.js#L362-L437)).
    */
-  nodeRef: PropTypes__default.shape({
-    current: typeof Element === 'undefined' ? PropTypes__default.any : PropTypes__default.instanceOf(Element)
+  nodeRef: PropTypes.shape({
+    current: typeof Element === 'undefined' ? PropTypes.any : PropTypes.instanceOf(Element)
   }),
 
   /**
@@ -4941,12 +4720,12 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    * </Transition>
    * ```
    */
-  children: PropTypes__default.oneOfType([PropTypes__default.func.isRequired, PropTypes__default.element.isRequired]).isRequired,
+  children: PropTypes.oneOfType([PropTypes.func.isRequired, PropTypes.element.isRequired]).isRequired,
 
   /**
    * Show the component; triggers the enter or exit states
    */
-  in: PropTypes__default.bool,
+  in: PropTypes.bool,
 
   /**
    * By default the child component is mounted immediately along with
@@ -4954,13 +4733,13 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    * first `in={true}` you can set `mountOnEnter`. After the first enter transition the component will stay
    * mounted, even on "exited", unless you also specify `unmountOnExit`.
    */
-  mountOnEnter: PropTypes__default.bool,
+  mountOnEnter: PropTypes.bool,
 
   /**
    * By default the child component stays mounted after it reaches the `'exited'` state.
    * Set `unmountOnExit` if you'd prefer to unmount the component after it finishes exiting.
    */
-  unmountOnExit: PropTypes__default.bool,
+  unmountOnExit: PropTypes.bool,
 
   /**
    * By default the child component does not perform the enter transition when
@@ -4973,17 +4752,17 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    * > additional `.appear-*` classes, that way you can choose to style it
    * > differently.
    */
-  appear: PropTypes__default.bool,
+  appear: PropTypes.bool,
 
   /**
    * Enable or disable enter transitions.
    */
-  enter: PropTypes__default.bool,
+  enter: PropTypes.bool,
 
   /**
    * Enable or disable exit transitions.
    */
-  exit: PropTypes__default.bool,
+  exit: PropTypes.bool,
 
   /**
    * The duration of the transition, in milliseconds.
@@ -5036,7 +4815,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    * }}
    * ```
    */
-  addEndListener: PropTypes__default.func,
+  addEndListener: PropTypes.func,
 
   /**
    * Callback fired before the "entering" status is applied. An extra parameter
@@ -5046,7 +4825,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    *
    * @type Function(node: HtmlElement, isAppearing: bool) -> void
    */
-  onEnter: PropTypes__default.func,
+  onEnter: PropTypes.func,
 
   /**
    * Callback fired after the "entering" status is applied. An extra parameter
@@ -5056,7 +4835,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    *
    * @type Function(node: HtmlElement, isAppearing: bool)
    */
-  onEntering: PropTypes__default.func,
+  onEntering: PropTypes.func,
 
   /**
    * Callback fired after the "entered" status is applied. An extra parameter
@@ -5066,7 +4845,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    *
    * @type Function(node: HtmlElement, isAppearing: bool) -> void
    */
-  onEntered: PropTypes__default.func,
+  onEntered: PropTypes.func,
 
   /**
    * Callback fired before the "exiting" status is applied.
@@ -5075,7 +4854,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    *
    * @type Function(node: HtmlElement) -> void
    */
-  onExit: PropTypes__default.func,
+  onExit: PropTypes.func,
 
   /**
    * Callback fired after the "exiting" status is applied.
@@ -5084,7 +4863,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    *
    * @type Function(node: HtmlElement) -> void
    */
-  onExiting: PropTypes__default.func,
+  onExiting: PropTypes.func,
 
   /**
    * Callback fired after the "exited" status is applied.
@@ -5093,7 +4872,7 @@ Transition.propTypes = process.env.NODE_ENV !== "production" ? {
    *
    * @type Function(node: HtmlElement) -> void
    */
-  onExited: PropTypes__default.func
+  onExited: PropTypes.func
 } : {}; // Name the function so it is clearer in the documentation
 
 function noop() {}
@@ -5147,8 +4926,7 @@ function _templateObject$R() {
 
   return data;
 }
-
-var StyledContent = styled__default.div(_templateObject$R(), function (_ref) {
+var StyledContent = styled.div(_templateObject$R(), function (_ref) {
   var duration = _ref.duration;
   return duration / 2;
 }, function (_ref2) {
@@ -5157,19 +4935,18 @@ var StyledContent = styled__default.div(_templateObject$R(), function (_ref) {
   switch (state) {
     case "entering":
     case "exited":
-      return styled.css(["-webkit-filter:blur(1rem);filter:blur(1rem);"]);
+      return css(["-webkit-filter:blur(1rem);filter:blur(1rem);"]);
 
     default:
-      return styled.css(["-webkit-filter:blur(0);filter:blur(0);"]);
+      return css(["-webkit-filter:blur(0);filter:blur(0);"]);
   }
 });
-var ActionWrapper = styled__default.div(_templateObject2$j());
-var StepHint = styled__default.span(_templateObject3$8(), function (_ref3) {
+var ActionWrapper = styled.div(_templateObject2$j());
+var StepHint = styled.span(_templateObject3$8(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.gray.medium;
 });
 var duration = 500;
-
 var WizardStepContent = function WizardStepContent(_ref4) {
   var children = _ref4.children,
       content = _ref4.content,
@@ -5182,33 +4959,33 @@ var WizardStepContent = function WizardStepContent(_ref4) {
       stepCount = _ref4.stepCount,
       props = _objectWithoutPropertiesLoose(_ref4, ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "nextStepMethod", "stepCount"]);
 
-  var _useState = React.useState(false),
+  var _useState = useState(false),
       mounted = _useState[0],
       setMounted = _useState[1];
 
-  React.useEffect(function () {
+  useEffect(function () {
     setMounted(true);
     return function () {
       setMounted(false);
     };
   }, []);
-  return /*#__PURE__*/React__default.createElement(Transition, {
+  return /*#__PURE__*/React.createElement(Transition, {
     in: mounted,
     timeout: duration,
     unmountOnExit: true
   }, function (state) {
-    return /*#__PURE__*/React__default.createElement(StyledContent, _extends({
+    return /*#__PURE__*/React.createElement(StyledContent, _extends({
       duration: duration,
       state: state
-    }, props), children || content, /*#__PURE__*/React__default.createElement(ActionWrapper, null, /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(OutlineButton, {
+    }, props), children || content, /*#__PURE__*/React.createElement(ActionWrapper, null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(OutlineButton, {
       color: "secondary",
       disabled: isFirstStep,
       onClick: handlePrev,
       px: 2
-    }, /*#__PURE__*/React__default.createElement(Icon, {
+    }, /*#__PURE__*/React.createElement(Icon, {
       color: "secondary",
       icon: "arrow-left"
-    })), /*#__PURE__*/React__default.createElement(StepHint, null, currentStep + " of " + stepCount + " steps")), /*#__PURE__*/React__default.createElement(Button, {
+    })), /*#__PURE__*/React.createElement(StepHint, null, currentStep + " of " + stepCount + " steps")), /*#__PURE__*/React.createElement(Button, {
       content: isLastStep ? "Finish" : "Next",
       onClick: nextStepMethod === "button" ? handleNext : undefined,
       type: nextStepMethod // disabled
@@ -5216,17 +4993,16 @@ var WizardStepContent = function WizardStepContent(_ref4) {
     })));
   });
 };
-
 WizardStepContent.propTypes = {
-  children: PropTypes__default.node,
-  content: PropTypes__default.node,
-  currentStep: PropTypes__default.number.isRequired,
-  handleNext: PropTypes__default.func.isRequired,
-  handlePrev: PropTypes__default.func.isRequired,
-  isFirstStep: PropTypes__default.bool.isRequired,
-  isLastStep: PropTypes__default.bool.isRequired,
-  nextStepMethod: PropTypes__default.string.isRequired,
-  stepCount: PropTypes__default.number.isRequired
+  children: PropTypes.node,
+  content: PropTypes.node,
+  currentStep: PropTypes.number.isRequired,
+  handleNext: PropTypes.func.isRequired,
+  handlePrev: PropTypes.func.isRequired,
+  isFirstStep: PropTypes.bool.isRequired,
+  isLastStep: PropTypes.bool.isRequired,
+  nextStepMethod: PropTypes.string.isRequired,
+  stepCount: PropTypes.number.isRequired
 };
 WizardStepContent.defaultProps = {
   children: null,
@@ -5241,7 +5017,6 @@ var stepBorderAndTitleColor = function stepBorderAndTitleColor(_ref) {
   if (isPassed) return theme.palette.gray.dark;
   return theme.palette.gray.medium;
 };
-
 var stepFlagColor = function stepFlagColor(_ref2) {
   var isActive = _ref2.isActive,
       isPassed = _ref2.isPassed,
@@ -5249,7 +5024,6 @@ var stepFlagColor = function stepFlagColor(_ref2) {
   if (isActive || isPassed) return theme.palette.common.white;
   return theme.palette.gray.medium;
 };
-
 var stepFlagBackgroundColor = function stepFlagBackgroundColor(_ref3) {
   var isActive = _ref3.isActive,
       isPassed = _ref3.isPassed,
@@ -5288,15 +5062,14 @@ function _templateObject$S() {
 
   return data;
 }
-
-var StyledTitle = styled__default.div(_templateObject$S(), function (_ref) {
+var StyledTitle = styled.div(_templateObject$S(), function (_ref) {
   var isPassed = _ref.isPassed;
-  return isPassed && styled.css(["cursor:pointer;"]);
+  return isPassed && css(["cursor:pointer;"]);
 }, function (_ref2) {
   var isHorizontal = _ref2.isHorizontal;
-  return isHorizontal && styled.css(["flex-direction:column;align-items:flex-start;"]);
+  return isHorizontal && css(["flex-direction:column;align-items:flex-start;"]);
 });
-var Flag = styled__default.div(_templateObject2$k(), function (props) {
+var Flag = styled.div(_templateObject2$k(), function (props) {
   return stepFlagBackgroundColor(props);
 }, function (props) {
   return stepFlagColor(props);
@@ -5304,16 +5077,15 @@ var Flag = styled__default.div(_templateObject2$k(), function (props) {
   var transitionDuration = _ref3.transitionDuration;
   return transitionDuration + "ms";
 });
-var Label$1 = styled__default.span(_templateObject3$9(), function (props) {
+var Label$1 = styled.span(_templateObject3$9(), function (props) {
   return stepBorderAndTitleColor(props);
 }, function (_ref4) {
   var transitionDuration = _ref4.transitionDuration;
   return transitionDuration + "ms";
 }, function (_ref5) {
   var isHorizontal = _ref5.isHorizontal;
-  return isHorizontal && styled.css(["font-size:12px;padding:4px 4px 0 0;"]);
+  return isHorizontal && css(["font-size:12px;padding:4px 4px 0 0;"]);
 });
-
 var WizardStepTitle = function WizardStepTitle(_ref6) {
   var isActive = _ref6.isActive,
       isHorizontal = _ref6.isHorizontal,
@@ -5322,48 +5094,46 @@ var WizardStepTitle = function WizardStepTitle(_ref6) {
       flag = _ref6.flag,
       onClick = _ref6.onClick,
       transitionDuration = _ref6.transitionDuration;
-  return /*#__PURE__*/React__default.createElement(StyledTitle, {
+  return /*#__PURE__*/React.createElement(StyledTitle, {
     onClick: onClick,
     isHorizontal: isHorizontal,
     isPassed: isPassed
-  }, /*#__PURE__*/React__default.createElement(Flag, {
+  }, /*#__PURE__*/React.createElement(Flag, {
     isActive: isActive,
     isPassed: isPassed,
     transitionDuration: transitionDuration
-  }, isPassed ? /*#__PURE__*/React__default.createElement("img", {
+  }, isPassed ? /*#__PURE__*/React.createElement("img", {
     src: img,
     alt: "passed-step"
-  }) : flag), /*#__PURE__*/React__default.createElement(Label$1, {
+  }) : flag), /*#__PURE__*/React.createElement(Label$1, {
     isActive: isActive,
     isHorizontal: isHorizontal,
     isPassed: isPassed,
     transitionDuration: transitionDuration
   }, label));
 };
-
 WizardStepTitle.propTypes = {
-  isActive: PropTypes__default.bool.isRequired,
-  isHorizontal: PropTypes__default.bool.isRequired,
-  isPassed: PropTypes__default.bool.isRequired,
-  label: PropTypes__default.node.isRequired,
-  flag: PropTypes__default.node.isRequired,
-  onClick: PropTypes__default.func,
-  transitionDuration: PropTypes__default.number.isRequired
+  isActive: PropTypes.bool.isRequired,
+  isHorizontal: PropTypes.bool.isRequired,
+  isPassed: PropTypes.bool.isRequired,
+  label: PropTypes.node.isRequired,
+  flag: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
+  transitionDuration: PropTypes.number.isRequired
 };
 WizardStepTitle.defaultProps = {
   onClick: function onClick() {}
 };
 
 var WizardPropTypes = _extends({
-  currentStepContent: PropTypes__default.node.isRequired,
-  currentStepIndex: PropTypes__default.number.isRequired,
-  nextStepMethod: PropTypes__default.oneOf(["submit", "button"]),
-  orientation: PropTypes__default.string,
-  setCurrentStepIndex: PropTypes__default.func.isRequired,
-  steps: PropTypes__default.arrayOf(PropTypes__default.string).isRequired,
-  transitionDuration: PropTypes__default.number
+  currentStepContent: PropTypes.node.isRequired,
+  currentStepIndex: PropTypes.number.isRequired,
+  nextStepMethod: PropTypes.oneOf(["submit", "button"]),
+  orientation: PropTypes.string,
+  setCurrentStepIndex: PropTypes.func.isRequired,
+  steps: PropTypes.arrayOf(PropTypes.string).isRequired,
+  transitionDuration: PropTypes.number
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-
 var WizardDefaultProps = {
   nextStepMethod: "submit",
   orientation: "horizontal",
@@ -5447,38 +5217,36 @@ function _templateObject$T() {
 
   return data;
 }
-
-var Wrapper$7 = styled__default.div(_templateObject$T(), function (theme) {
+var Wrapper$7 = styled.div(_templateObject$T(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StepsWrapper = styled__default.div(_templateObject2$l(), function (_ref) {
+var StepsWrapper = styled.div(_templateObject2$l(), function (_ref) {
   var isHorizontal = _ref.isHorizontal;
-  return isHorizontal && styled.css(["position:relative;::before{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,#ffffff 0%,rgba(255,255,255,0) 100% );transform:rotate(-180deg);position:absolute;top:0;left:0;z-index:2;}::after{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,#ffffff 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;right:0;z-index:2;}"]);
+  return isHorizontal && css(["position:relative;::before{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,#ffffff 0%,rgba(255,255,255,0) 100% );transform:rotate(-180deg);position:absolute;top:0;left:0;z-index:2;}::after{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,#ffffff 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;right:0;z-index:2;}"]);
 });
-var Steps = styled__default.div(_templateObject3$a(), function (_ref2) {
+var Steps = styled.div(_templateObject3$a(), function (_ref2) {
   var isHorizontal = _ref2.isHorizontal;
-  return isHorizontal && styled.css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}"]);
+  return isHorizontal && css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}"]);
 });
-var StepConnector = styled__default.div(_templateObject4$4(), function (props) {
+var StepConnector = styled.div(_templateObject4$4(), function (props) {
   return stepBorderAndTitleColor(props);
 }, function (_ref3) {
   var transitionDuration = _ref3.transitionDuration;
   return transitionDuration + "ms";
 }, function (_ref4) {
   var isHorizontal = _ref4.isHorizontal;
-  return isHorizontal && styled.css(["width:100%;border-left-width:0;border-top-width:2px;top:15px;left:8px;::before{content:\"\";width:100%;height:2px;display:inline-block;}"]);
+  return isHorizontal && css(["width:100%;border-left-width:0;border-top-width:2px;top:15px;left:8px;::before{content:\"\";width:100%;height:2px;display:inline-block;}"]);
 });
-var Step = styled__default.div(_templateObject5$2(), StepConnector, function (_ref5) {
+var Step = styled.div(_templateObject5$2(), StepConnector, function (_ref5) {
   var isActive = _ref5.isActive,
       isHorizontal = _ref5.isHorizontal;
   return (!isActive || isHorizontal) && "border: none";
 }, function (_ref6) {
   var isHorizontal = _ref6.isHorizontal;
-  return isHorizontal && styled.css(["width:100px;min-width:100px;"]);
+  return isHorizontal && css(["width:100px;min-width:100px;"]);
 });
-
 var Wizard = function Wizard(_ref7) {
   var currentStepContent = _ref7.currentStepContent,
       currentStepIndex = _ref7.currentStepIndex,
@@ -5489,18 +5257,18 @@ var Wizard = function Wizard(_ref7) {
       transitionDuration = _ref7.transitionDuration,
       props = _objectWithoutPropertiesLoose(_ref7, ["currentStepContent", "currentStepIndex", "nextStepMethod", "orientation", "setCurrentStepIndex", "steps", "transitionDuration"]);
 
-  var stepRef = React.useRef(null);
-  var wrapperRef = /*#__PURE__*/React.createRef();
+  var stepRef = useRef(null);
+  var wrapperRef = /*#__PURE__*/createRef();
   var isHorizontal = orientation === "horizontal";
   var stepCount = steps.length;
   var isLastStep = currentStepIndex === stepCount - 1;
   var isFirstStep = currentStepIndex === 0;
-  React.useEffect(function () {
+  useEffect(function () {
     if (isHorizontal) {
       handleScroll(wrapperRef.current);
     }
   }, []);
-  React.useEffect(function () {
+  useEffect(function () {
     if (isHorizontal && stepRef.current) stepRef.current.scrollIntoView({
       block: "end",
       behavior: "smooth"
@@ -5529,7 +5297,7 @@ var Wizard = function Wizard(_ref7) {
     }
   };
 
-  var content = /*#__PURE__*/React__default.createElement(WizardStepContent, {
+  var content = /*#__PURE__*/React.createElement(WizardStepContent, {
     content: currentStepContent,
     currentStep: currentStepIndex + 1,
     isHorizontal: isHorizontal,
@@ -5541,22 +5309,22 @@ var Wizard = function Wizard(_ref7) {
     transitionDuration: transitionDuration,
     stepCount: stepCount
   });
-  return /*#__PURE__*/React__default.createElement(Wrapper$7, props, /*#__PURE__*/React__default.createElement(StepsWrapper, {
+  return /*#__PURE__*/React.createElement(Wrapper$7, props, /*#__PURE__*/React.createElement(StepsWrapper, {
     isHorizontal: isHorizontal
-  }, /*#__PURE__*/React__default.createElement(Steps, {
+  }, /*#__PURE__*/React.createElement(Steps, {
     isHorizontal: isHorizontal,
     ref: wrapperRef
   }, steps.map(function (step, idx) {
     var isActive = idx === currentStepIndex;
     var isPassed = idx < currentStepIndex;
     var stepKey = "step-" + idx;
-    return /*#__PURE__*/React__default.createElement(Step, {
+    return /*#__PURE__*/React.createElement(Step, {
       isActive: isActive,
       isHorizontal: isHorizontal,
       isPassed: isPassed,
       key: stepKey,
       ref: isActive ? stepRef : null
-    }, /*#__PURE__*/React__default.createElement(WizardStepTitle, {
+    }, /*#__PURE__*/React.createElement(WizardStepTitle, {
       label: step,
       flag: idx + 1,
       isActive: isActive,
@@ -5566,7 +5334,7 @@ var Wizard = function Wizard(_ref7) {
         return handleStepClick(isPassed, idx);
       },
       transitionDuration: transitionDuration
-    }), !isHorizontal && isActive && content, /*#__PURE__*/React__default.createElement(StepConnector, {
+    }), !isHorizontal && isActive && content, /*#__PURE__*/React.createElement(StepConnector, {
       isActive: isActive,
       isHorizontal: isHorizontal,
       isPassed: isPassed,
@@ -5574,82 +5342,8 @@ var Wizard = function Wizard(_ref7) {
     }));
   }))), isHorizontal && content);
 };
-
 Wizard.propTypes = WizardPropTypes;
 Wizard.defaultProps = WizardDefaultProps;
-exports.Alert = Alert;
-exports.AppContainer = AppContainer;
-exports.AuthLayout = AuthLayout;
-exports.Box = Box;
-exports.BoxBase = BoxBase;
-exports.Button = Button;
-exports.ButtonBase = ButtonBase;
-exports.COLOR = COLOR;
-exports.COLOR_PROP_TYPES = COLOR_PROP_TYPES;
-exports.Checkbox = Checkbox;
-exports.ChipBadge = ChipBadge;
-exports.Collapse = Collapse;
-exports.CollapseButton = CollapseButton;
-exports.DIMENSION = DIMENSION;
-exports.DIMENSION_PROP_TYPES = DIMENSION_PROP_TYPES;
-exports.DISPLAY = DISPLAY;
-exports.DISPLAY_PROP_TYPES = DISPLAY_PROP_TYPES;
-exports.DetailsTable = DetailsTable;
-exports.DotsSpinner = DotsSpinner;
-exports.DownloadModule = DownloadModule;
-exports.Dropdown = Dropdown;
-exports.ExplorerLayout = ExplorerLayout;
-exports.FieldBase = FieldBase;
-exports.FieldWrapper = FieldWrapper;
-exports.Fieldset = Fieldset;
-exports.FileManager = FileManager;
-exports.FileUpload = FileUpload;
-exports.Flex = Flex;
-exports.FormError = FormError;
-exports.FormLabel = FormLabel;
-exports.FormRow = FormRow;
-exports.FreeBrandIconSet = FreeBrandIconSet;
-exports.FreeSolidIconSet = FreeSolidIconSet;
-exports.GlobalStyle = GlobalStyle;
-exports.H1 = H1;
-exports.H2 = H2;
-exports.H3 = H3;
-exports.H4 = H4;
-exports.H5 = H5;
-exports.H6 = H6;
-exports.HeadingBase = HeadingBase;
-exports.History = History;
-exports.Icon = Icon;
-exports.Image = Image;
-exports.ImageModal = ImageModal;
-exports.Input = Input;
-exports.KIT_COLORS = KIT_COLORS;
-exports.KIT_FONTS = KIT_FONTS;
-exports.KIT_ICON_SIZES = KIT_ICON_SIZES;
-exports.KIT_TYPOGRAPHY = KIT_TYPOGRAPHY;
-exports.Language = Language;
-exports.Modal = Modal;
-exports.OutlineButton = OutlineButton;
-exports.Paragraph = Paragraph;
-exports.Radio = Radio;
-exports.RadioBase = RadioBase;
-exports.ReactSelect = ReactSelect;
-exports.RocksKitIcons = RocksKitIcons;
-exports.RocksKitTheme = RocksKitTheme;
-exports.RocksSpinner = RocksSpinner;
-exports.SPACER = SPACER;
-exports.SPACER_FORMULA = SPACER_FORMULA;
-exports.SPACER_POSTFIX = SPACER_POSTFIX;
-exports.SPACER_PROP_TYPES = SPACER_PROP_TYPES;
-exports.Select = Select;
-exports.ShareModule = ShareModule;
-exports.Stepper = Stepper;
-exports.THEME_COLORS = THEME_COLORS;
-exports.Tab = Tab;
-exports.Text = Text;
-exports.TextBase = TextBase;
-exports.TextButton = TextButton;
-exports.Thumbnail = Thumbnail;
-exports.ToggleSwitch = ToggleSwitch;
-exports.Wizard = Wizard;
+
+export { Alert, AppContainer, AuthLayout, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, Checkbox, ChipBadge, Collapse, CollapseButton, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DetailsTable, DotsSpinner, DownloadModule, Dropdown, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FileUpload, Flex, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, History, Icon, Image, ImageModal, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, Modal, OutlineButton, Paragraph, Radio, RadioBase, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, Select, ShareModule, Stepper, THEME_COLORS, Tab, Text, TextBase, TextButton, Thumbnail, ToggleSwitch, Wizard };
 //# sourceMappingURL=rockskit.es.js.map
