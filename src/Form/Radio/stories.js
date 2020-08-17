@@ -1,5 +1,5 @@
 import React from "react";
-import { withKnobs, boolean } from "@storybook/addon-knobs";
+import { boolean } from "@storybook/addon-knobs";
 import { useForm } from "react-hook-form";
 
 import { StoryWrapper } from "../../../.storybook/decorators";
@@ -8,7 +8,7 @@ import { Radio } from "./Radio";
 export default {
   title: "Form/Radio",
   component: Radio,
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 export const main = () => {

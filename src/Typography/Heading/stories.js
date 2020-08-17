@@ -1,12 +1,11 @@
 import React from "react";
-import { withKnobs } from "@storybook/addon-knobs";
 
 import { StoryWrapper } from "../../../.storybook/decorators";
 import { H1, H2, H3, H4, H5, H6 } from "..";
 
 export default {
   title: "Typography/Headings",
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 const BaseComponent = ({ Component, title, ...props }) => {

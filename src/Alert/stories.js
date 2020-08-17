@@ -1,5 +1,5 @@
 import React from "react";
-import { withKnobs, select } from "@storybook/addon-knobs";
+import { select } from "@storybook/addon-knobs";
 
 import { StoryWrapper } from "../../.storybook/decorators";
 import { Alert } from "./Alert";
@@ -7,7 +7,7 @@ import { Alert } from "./Alert";
 export default {
   title: "Alert",
   component: Alert,
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 export const main = () => {

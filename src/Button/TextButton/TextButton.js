@@ -1,30 +1,42 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled, { css, useTheme } from "styled-components";
 
 import { ButtonBase, ButtonBasePropTypes } from "../Base";
 
 const StyledButton = styled(ButtonBase)`
   && {
-    ${({ color, theme }) => {
-      if (color === "secondary")
-        return css`
-          color: ${theme.palette.gray.dark};
-        `;
-
-      if (color === "subtle")
-        return css`
-          color: ${theme.palette.gray.medium};
-        `;
-
+    ${({ colors }) => {
       return css`
-        color: ${theme.palette.primary.main};
+        color: ${colors.color};
+        svg {
+          color: ${colors.color};
+        }
       `;
     }}
   }
 `;
 
-export const TextButton = (props) => {
-  return <StyledButton {...props} />;
+const colorMapper = (color, theme) => {
+  if (color === "secondary")
+    return {
+      color: theme.palette.gray.dark,
+    };
+
+  if (color === "subtle")
+    return {
+      color: theme.palette.gray.medium,
+    };
+
+  return {
+    color: theme.palette.primary.main,
+  };
+};
+
+export const TextButton = ({ color, ...props }) => {
+  const theme = useTheme();
+  const colors = colorMapper(color, theme);
+
+  return <StyledButton colors={colors} {...props} />;
 };
 
 TextButton.propTypes = ButtonBasePropTypes;

@@ -1,3 +1,5 @@
+export * from "./GlobalStyle";
+
 export * from "./icons";
 
 export * from "./kit";

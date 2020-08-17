@@ -1,5 +1,5 @@
 import React from "react";
-import { text, withKnobs, boolean, select } from "@storybook/addon-knobs";
+import { text, boolean, select } from "@storybook/addon-knobs";
 import { useForm } from "react-hook-form";
 
 import { Stepper } from ".";
@@ -8,7 +8,7 @@ import { StoryWrapper } from "../../../.storybook/decorators";
 export default {
   title: "Form/Stepper",
   component: Stepper,
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 export const main = (props = {}) => {

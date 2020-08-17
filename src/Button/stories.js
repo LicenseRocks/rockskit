@@ -1,5 +1,5 @@
 import React from "react";
-import { withKnobs, select, boolean } from "@storybook/addon-knobs";
+import { select, boolean, text } from "@storybook/addon-knobs";
 import styled from "styled-components";
 
 import { StoryWrapper } from "../../.storybook/decorators";
@@ -7,7 +7,7 @@ import { Button, H3, OutlineButton, TextButton } from "..";
 
 export default {
   title: "Button",
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 const BaseComponent = ({ Component, title, ...props }) => {
@@ -23,7 +23,10 @@ export const main = () => {
   const defaultProps = {
     color: select("Color", ["primary", "secondary", "subtle"], "primary"),
     disabled: boolean("Disabled", false),
+    loading: boolean("Loading", false),
+    endIcon: text("End icon", "arrow-left"),
     size: select("Size", ["xs", "sm", "md"], "md"),
+    startIcon: text("Start icon", "arrow-right"),
   };
 
   return (

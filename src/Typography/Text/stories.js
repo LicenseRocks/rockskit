@@ -1,12 +1,12 @@
 import React from "react";
-import { withKnobs, select } from "@storybook/addon-knobs";
+import { select } from "@storybook/addon-knobs";
 
 import { StoryWrapper } from "../../../.storybook/decorators";
 import { H3, Paragraph, Text } from "..";
 
 export default {
   title: "Typography/Text",
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 export const main = () => {

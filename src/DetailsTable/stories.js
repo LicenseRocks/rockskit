@@ -1,5 +1,4 @@
 import React from "react";
-import { withKnobs } from "@storybook/addon-knobs";
 
 import { StoryWrapper } from "../../.storybook/decorators";
 import { DetailsTable, H3 } from "..";
@@ -7,7 +6,7 @@ import { ChipBadge } from "../Badge/Chip";
 
 export default {
   title: "DetailsTable",
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 export const main = (props) => {

@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { withKnobs } from "@storybook/addon-knobs";
 
 import { StoryWrapper } from "../../.storybook/decorators";
 import { Tab } from ".";
 
 export default {
   title: "Tab",
-  decorators: [StoryWrapper, withKnobs],
+  decorators: [StoryWrapper],
 };
 
 const TABS = [

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import { SPACER_PROP_TYPES } from "../theme";
+import { DIMENSION_PROP_TYPES, SPACER_PROP_TYPES } from "../theme";
 
 export const FlexPropTypes = {
   alignItems: PropTypes.oneOf([
@@ -21,6 +21,7 @@ export const FlexPropTypes = {
     "space-evenly",
   ]),
   ...SPACER_PROP_TYPES,
+  ...DIMENSION_PROP_TYPES,
 };
 
 export const FlexDefaultProps = {
