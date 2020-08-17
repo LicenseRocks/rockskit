@@ -1,0 +1,62 @@
+import React from "react";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers";
+
+import {
+  Box,
+  FormRow,
+  getFormInputError,
+  Input,
+  TextButton,
+} from "../../../..";
+import { loginOAuthSchema } from "./schema";
+
+export const LoginTemplateBasic = () => {
+  const { errors, handleSubmit, register } = useForm({
+    resolver: yupResolver(loginOAuthSchema),
+  });
+
+  const onSubmit = (data) => {
+    console.log("data: ", data);
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)}>
+      <Box
+        headerTitle="Sign in to license.rocks"
+        footerActionTitle="Sign in"
+        footerRenderTitle={() => (
+          <>
+            <TextButton color="secondary" size="sm" p0>
+              Forgot password?
+            </TextButton>
+          </>
+        )}
+      >
+        <FormRow errors={errors} fields={["email"]} label="Email Address">
+          <Input
+            hasError={getFormInputError(errors, "email")}
+            name="email"
+            placeholder="Enter your email"
+            register={register}
+            startIcon="at"
+          />
+        </FormRow>
+
+        <FormRow errors={errors} fields={["password"]} label="Password">
+          <Input
+            hasError={getFormInputError(errors, "password")}
+            name="password"
+            placeholder="Enter your password"
+            register={register}
+            startIcon="key"
+          />
+        </FormRow>
+      </Box>
+    </form>
+  );
+};
+
+LoginTemplateBasic.propTypes = {};
+
+LoginTemplateBasic.defaultProps = {};

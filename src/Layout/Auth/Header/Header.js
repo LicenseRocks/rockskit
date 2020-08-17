@@ -25,13 +25,14 @@ const StyledLogo = styled(Image).attrs(() => ({
 `;
 
 export const AuthLayoutHeader = ({
+  backButtonOnClick,
   headerLeft,
   headerRight,
   logoAction,
   ...props
 }) => {
   const backButton = (
-    <TextButton color="secondary" size="sm">
+    <TextButton color="secondary" onClick={backButtonOnClick} size="sm">
       Back
     </TextButton>
   );

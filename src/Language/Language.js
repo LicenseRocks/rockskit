@@ -8,6 +8,7 @@ export const Language = ({ value, languages, onChange, ...props }) => {
 
   const handleClick = (val) => {
     onChange(val);
+    setAnchorEl(null);
   };
 
   const current = languages.find((l) => l.value === value);

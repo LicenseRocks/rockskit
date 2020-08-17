@@ -4,6 +4,7 @@ import { DISPLAY_PROP_TYPES, SPACER_PROP_TYPES } from "../../theme";
 import { IconPropTypes } from "../../Icon/props";
 
 export const ButtonBasePropTypes = {
+  block: PropTypes.bool,
   color: PropTypes.oneOf(["primary", "secondary", "subtle"]),
   content: PropTypes.string,
   children: PropTypes.node,
@@ -23,6 +24,7 @@ export const ButtonBasePropTypes = {
 };
 
 export const ButtonBaseDefaultProps = {
+  block: false,
   color: "primary",
   size: "md",
 };
