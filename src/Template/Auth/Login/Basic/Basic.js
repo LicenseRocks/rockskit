@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers";
 
@@ -11,7 +12,7 @@ import {
 } from "../../../..";
 import { loginOAuthSchema } from "./schema";
 
-export const LoginTemplateBasic = () => {
+export const LoginTemplateBasic = ({ switchLoginMethod }) => {
   const { errors, handleSubmit, register } = useForm({
     resolver: yupResolver(loginOAuthSchema),
   });
@@ -27,11 +28,15 @@ export const LoginTemplateBasic = () => {
         footerActionTitle="Sign in"
         footerRenderTitle={() => (
           <>
-            <TextButton color="secondary" size="sm" p0>
+            <TextButton dBlock onClick={switchLoginMethod} px={0} size="sm">
+              Login with Magic Link
+            </TextButton>
+            <TextButton color="secondary" px={0} size="sm">
               Forgot password?
             </TextButton>
           </>
         )}
+        transition
       >
         <FormRow errors={errors} fields={["email"]} label="Email Address">
           <Input
@@ -57,6 +62,8 @@ export const LoginTemplateBasic = () => {
   );
 };
 
-LoginTemplateBasic.propTypes = {};
+LoginTemplateBasic.propTypes = {
+  switchLoginMethod: PropTypes.func.isRequired,
+};
 
 LoginTemplateBasic.defaultProps = {};

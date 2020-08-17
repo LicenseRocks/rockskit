@@ -27,7 +27,7 @@ export const LoginTemplateOAuth = ({ switchLoginMethod }) => {
   };
 
   return (
-    <Box headerTitle="Sign in to license.rocks">
+    <Box headerTitle="Sign in to license.rocks" transition>
       <form onSubmit={handleSubmit(onSubmit)}>
         <FormRow errors={errors} fields={["email"]} label="Email Address">
           <Input

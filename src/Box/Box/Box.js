@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { BoxBase } from "..";
+import { BoxBase, PageTransition } from "../..";
 import { BoxFooter } from "./Footer";
 import { BoxHeader } from "./Header";
 import { BoxPropTypes, BoxDefaultProps } from "./props";
@@ -27,8 +27,26 @@ export const Box = ({
   headerTitle,
   headerTitleIcon,
   padding,
+  transition,
   ...props
 }) => {
+  const content = (
+    <>
+      <BoxContent padding={padding}>{children}</BoxContent>
+
+      <BoxFooter
+        action={footerAction}
+        actionDisabled={footerActionDisabled}
+        actionLoading={footerActionLoading}
+        actionTitle={footerActionTitle}
+        actionType={footerActionType}
+        padding={padding}
+        renderAction={footerRenderAction}
+        renderTitle={footerRenderTitle}
+      />
+    </>
+  );
+
   return (
     <BoxBase {...props}>
       {headerTitle && (
@@ -44,18 +62,7 @@ export const Box = ({
         />
       )}
 
-      <BoxContent padding={padding}>{children}</BoxContent>
-
-      <BoxFooter
-        action={footerAction}
-        actionDisabled={footerActionDisabled}
-        actionLoading={footerActionLoading}
-        actionTitle={footerActionTitle}
-        actionType={footerActionType}
-        padding={padding}
-        renderAction={footerRenderAction}
-        renderTitle={footerRenderTitle}
-      />
+      {transition ? <PageTransition>{content}</PageTransition> : content}
     </BoxBase>
   );
 };
