@@ -53,5 +53,3 @@ PageTransition.propTypes = {
 };
 
 PageTransition.defaultProps = {};
-
-export default PageTransition;

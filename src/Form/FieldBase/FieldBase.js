@@ -78,6 +78,7 @@ export const FieldBase = ({
   ...props
 }) => (
   <FieldWrapper
+    block={block}
     endIcon={endIcon}
     endIconColor={endIconColor}
     endIconOnClick={endIconOnClick}

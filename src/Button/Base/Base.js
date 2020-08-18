@@ -49,8 +49,8 @@ const StyledButton = styled(MuiButtonBase)`
       `;
     }}
 
-    ${(theme) => SPACER(theme)}
     ${(theme) => DISPLAY(theme)}
+    ${(theme) => SPACER(theme)}
   }
 `;
 

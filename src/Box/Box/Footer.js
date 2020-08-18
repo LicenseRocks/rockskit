@@ -31,7 +31,9 @@ export const BoxFooter = ({
 
   return (
     <StyledBoxFooter {...props}>
-      <Flex item>{renderTitle()}</Flex>
+      <Flex item sm={8}>
+        {renderTitle()}
+      </Flex>
 
       <Flex item>
         {renderAction() || (

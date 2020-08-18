@@ -19,27 +19,22 @@ const Wrapper = styled.div`
 `;
 
 const StyledLabel = styled(FormLabel)`
-  flex: 30% 0;
+  flex: 0 0 30%;
   padding-top: ${({ theme }) => theme.spacing(3)};
   ${({ theme }) => theme.breakpoints.down("sm")} {
-    flex: 100% 0;
+    flex: 1;
     margin-bottom: ${({ theme }) => theme.spacing(2)};
     padding-top: 0;
   }
 `;
 
 const FieldsAndErrorsWrapper = styled.div`
-  flex: ${({ fullWidth }) => (fullWidth ? "100%" : "70%")} 0;
-
-  ${({ theme }) => theme.breakpoints.down("sm")} {
-    flex: 100% 0;
-  }
+  flex: 1;
 `;
 
 const Fields = styled.div`
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   width: 100%;
 `;
 
