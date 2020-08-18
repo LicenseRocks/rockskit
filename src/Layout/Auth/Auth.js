@@ -12,7 +12,7 @@ const StyledContainer = styled(MuiContainer)`
 const Content = styled.div`
   flex: 1;
   width: 100%;
-  padding-top: ${({ theme }) => theme.spacing(20)};
+  padding: ${({ theme }) => theme.spacing(20, 0)};
 `;
 
 export const AuthLayout = ({
@@ -25,7 +25,16 @@ export const AuthLayout = ({
 }) => {
   return (
     <StyledContainer {...props}>
-      <Flex container direction="column" lg={5} md={8} xs={12} mAuto h100>
+      <Flex
+        container
+        direction="column"
+        lg={5}
+        md={8}
+        xs={12}
+        mAuto
+        h100
+        wrap="nowrap"
+      >
         <AuthLayoutHeader
           backButtonOnClick={headerBackButtonOnClick}
           headerLeft={headerLeft}

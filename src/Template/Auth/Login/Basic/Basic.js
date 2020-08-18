@@ -10,11 +10,11 @@ import {
   Input,
   TextButton,
 } from "../../../..";
-import { loginOAuthSchema } from "./schema";
+import { loginBasicSchema } from "./schema";
 
 export const LoginTemplateBasic = ({ switchLoginMethod }) => {
   const { errors, handleSubmit, register } = useForm({
-    resolver: yupResolver(loginOAuthSchema),
+    resolver: yupResolver(loginBasicSchema),
   });
 
   const onSubmit = (data) => {

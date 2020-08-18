@@ -1,11 +1,10 @@
 import React from "react";
 
-// UI
 import { AuthLayout, Language } from "../../..";
-import { LoginTemplate } from ".";
+import { RegisterTemplate } from ".";
 
 export default {
-  title: "Template/Auth/Login",
+  title: "Template/Auth/Register",
   parameters: {
     options: { showPanel: false },
   },
@@ -14,7 +13,7 @@ export default {
 export const main = () => {
   return (
     <AuthLayout
-      content={<LoginTemplate />}
+      content={<RegisterTemplate />}
       headerBackButtonOnClick={() => console.log("Go back")}
       headerRight={
         <Language
