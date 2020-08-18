@@ -10,9 +10,9 @@ const StyledHeader = styled(Flex).attrs(() => ({
   alignItems: "center",
   justify: "space-between",
 }))`
-  height: 120px;
+  flex: 0 0 120px;
   ${({ theme }) => theme.breakpoints.down("md")} {
-    height: 96px;
+    flex: 0 0 96px;
   }
 `;
 
