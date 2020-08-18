@@ -2,8 +2,7 @@
   "name": "@licenserocks/kit",
   "version": "1.0.7",
   "description": "",
-  "main": "dist/rockskit.common.js",
-  "module": "dist/rockskit.es.js",
+  "main": "src/index.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/LicenseRocks/rockskit"

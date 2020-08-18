@@ -12,7 +12,7 @@ const StyledContainer = styled(MuiContainer)`
 const Content = styled.div`
   flex: 1;
   width: 100%;
-  padding: ${({ theme }) => theme.spacing(20, 0)};
+  padding: ${({ theme }) => theme.spacing(10, 0)};
 `;
 
 export const AuthLayout = ({

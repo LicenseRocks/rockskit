@@ -5,7 +5,7 @@ import { FormError, FormLabel } from "..";
 import { FormRowPropTypes, FormRowDefaultProps } from "./props";
 import { DISPLAY, getFormRowErrors, SPACER } from "../..";
 
-const Wrapper = styled.div`
+const StyledRow = styled.div`
   display: flex;
   min-height: 40px;
   margin-bottom: ${({ theme }) => theme.spacing(2)};
@@ -51,7 +51,7 @@ export const FormRow = ({
     : getFormRowErrors(errors, fields);
 
   return (
-    <Wrapper show={show} {...props}>
+    <StyledRow show={show} {...props}>
       {label && <StyledLabel>{label}</StyledLabel>}
       <FieldsAndErrorsWrapper fullWidth={!label}>
         <Fields>{children}</Fields>
@@ -59,7 +59,7 @@ export const FormRow = ({
           <FormError key={err} message={err} />
         ))}
       </FieldsAndErrorsWrapper>
-    </Wrapper>
+    </StyledRow>
   );
 };
 

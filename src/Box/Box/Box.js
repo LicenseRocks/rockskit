@@ -24,6 +24,8 @@ export const Box = ({
   headerActionIconSize,
   headerRenderAction,
   headerRenderTitle,
+  headerSubTitle,
+  headerSubTitleColor,
   headerTitle,
   headerTitleIcon,
   padding,
@@ -59,6 +61,8 @@ export const Box = ({
           renderTitle={headerRenderTitle}
           title={headerTitle}
           titleIcon={headerTitleIcon}
+          subTitle={headerSubTitle}
+          subTitleColor={headerSubTitleColor}
         />
       )}
 
