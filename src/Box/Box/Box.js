@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { BoxBase } from "..";
+import { BoxBase, PageTransition } from "../..";
 import { BoxFooter } from "./Footer";
 import { BoxHeader } from "./Header";
 import { BoxPropTypes, BoxDefaultProps } from "./props";
@@ -16,6 +16,7 @@ export const Box = ({
   footerActionLoading,
   footerActionDisabled,
   footerActionTitle,
+  footerActionType,
   footerRenderAction,
   footerRenderTitle,
   headerAction,
@@ -23,11 +24,31 @@ export const Box = ({
   headerActionIconSize,
   headerRenderAction,
   headerRenderTitle,
+  headerSubTitle,
+  headerSubTitleColor,
   headerTitle,
   headerTitleIcon,
   padding,
+  transition,
   ...props
 }) => {
+  const content = (
+    <>
+      <BoxContent padding={padding}>{children}</BoxContent>
+
+      <BoxFooter
+        action={footerAction}
+        actionDisabled={footerActionDisabled}
+        actionLoading={footerActionLoading}
+        actionTitle={footerActionTitle}
+        actionType={footerActionType}
+        padding={padding}
+        renderAction={footerRenderAction}
+        renderTitle={footerRenderTitle}
+      />
+    </>
+  );
+
   return (
     <BoxBase {...props}>
       {headerTitle && (
@@ -40,20 +61,12 @@ export const Box = ({
           renderTitle={headerRenderTitle}
           title={headerTitle}
           titleIcon={headerTitleIcon}
+          subTitle={headerSubTitle}
+          subTitleColor={headerSubTitleColor}
         />
       )}
 
-      <BoxContent padding={padding}>{children}</BoxContent>
-
-      <BoxFooter
-        action={footerAction}
-        actionDisabled={footerActionDisabled}
-        actionLoading={footerActionLoading}
-        actionTitle={footerActionTitle}
-        padding={padding}
-        renderAction={footerRenderAction}
-        renderTitle={footerRenderTitle}
-      />
+      {transition ? <PageTransition>{content}</PageTransition> : content}
     </BoxBase>
   );
 };
