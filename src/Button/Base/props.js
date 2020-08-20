@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
 import { DISPLAY_PROP_TYPES, SPACER_PROP_TYPES } from "../../theme";
+import { IconPropTypes } from "../../Icon/props";
 
 export const ButtonBasePropTypes = {
   block: PropTypes.bool,
@@ -11,6 +12,9 @@ export const ButtonBasePropTypes = {
   loading: PropTypes.bool,
   endIcon: PropTypes.string,
   href: PropTypes.string,
+  icon: PropTypes.string,
+  iconProps: IconPropTypes,
+  noPadding: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(["md", "sm", "xs"]),
   startIcon: PropTypes.string,

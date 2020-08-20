@@ -22,6 +22,9 @@ const StyledInput = styled(
   box-sizing: border-box;
   transition: all 100ms ease-in-out;
   background-color: transparent;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 
   ::placeholder {
     font-weight: normal;

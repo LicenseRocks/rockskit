@@ -9,7 +9,8 @@ const StyledButton = styled(MuiButtonBase)`
   && {
     box-sizing: border-box;
     border-radius: 12px;
-    padding: ${({ theme }) => theme.spacing(0, 4)};
+    ${({ noPadding, theme }) =>
+      !noPadding && `padding: ${theme.spacing(0, 4)};`}
     min-width: 40px;
     height: 40px;
     transition: all 100ms ease-in-out;
@@ -31,6 +32,7 @@ const StyledButton = styled(MuiButtonBase)`
           font-size: ${theme.typography.button.fontSizeXs};
           padding: ${theme.spacing(0, 2)};
           height: 24px;
+          min-width: 24px;
           border-radius: 8px;
         `;
       }
@@ -40,6 +42,7 @@ const StyledButton = styled(MuiButtonBase)`
           font-size: ${theme.typography.button.fontSizeSm};
           padding: ${theme.spacing(0, 2)};
           height: 32px;
+          min-width: 32px;
           border-radius: 8px;
         `;
       }
@@ -72,6 +75,8 @@ export const ButtonBase = ({
   loading,
   endIcon,
   href,
+  icon,
+  iconProps,
   size,
   startIcon,
   ...props
@@ -90,6 +95,7 @@ export const ButtonBase = ({
       ) : (
         <>
           {startIcon && <Icon icon={startIcon} size={iconSize} mr={2} />}
+          {icon && <Icon icon={icon} size={iconSize} {...iconProps} />}
           {content || children}
           {endIcon && <Icon icon={endIcon} size={iconSize} ml={2} />}
         </>
