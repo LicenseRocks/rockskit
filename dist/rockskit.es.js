@@ -1208,6 +1208,9 @@ var ButtonBasePropTypes = _extends({
   loading: PropTypes.bool,
   endIcon: PropTypes.string,
   href: PropTypes.string,
+  icon: PropTypes.string,
+  iconProps: IconPropTypes,
+  noPadding: PropTypes.bool,
   onClick: PropTypes.func,
   size: PropTypes.oneOf(["md", "sm", "xs"]),
   startIcon: PropTypes.string,
@@ -1219,7 +1222,7 @@ var ButtonBaseDefaultProps = {
 };
 
 function _templateObject$c() {
-  var data = _taggedTemplateLiteralLoose(["\n  && {\n    box-sizing: border-box;\n    border-radius: 12px;\n    padding: ", ";\n    min-width: 40px;\n    height: 40px;\n    transition: all 100ms ease-in-out;\n\n    :hover {\n      opacity: 0.7;\n    }\n\n    :disabled {\n      opacity: 0.3;\n      cursor: not-allowed;\n      pointer-events: none;\n    }\n\n    ", "\n\n    ", "\n    ", "\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    box-sizing: border-box;\n    border-radius: 12px;\n    ", "\n    min-width: 40px;\n    height: 40px;\n    transition: all 100ms ease-in-out;\n\n    :hover {\n      opacity: 0.7;\n    }\n\n    :disabled {\n      opacity: 0.3;\n      cursor: not-allowed;\n      pointer-events: none;\n    }\n\n    ", "\n\n    ", "\n    ", "\n  }\n"]);
 
   _templateObject$c = function _templateObject() {
     return data;
@@ -1228,18 +1231,19 @@ function _templateObject$c() {
   return data;
 }
 var StyledButton = styled(MuiButtonBase)(_templateObject$c(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.spacing(0, 4);
+  var noPadding = _ref.noPadding,
+      theme = _ref.theme;
+  return !noPadding && "padding: " + theme.spacing(0, 4) + ";";
 }, function (_ref2) {
   var size = _ref2.size,
       theme = _ref2.theme;
 
   if (size === "xs") {
-    return css(["font-size:", ";padding:", ";height:24px;border-radius:8px;"], theme.typography.button.fontSizeXs, theme.spacing(0, 2));
+    return css(["font-size:", ";padding:", ";height:24px;min-width:24px;border-radius:8px;"], theme.typography.button.fontSizeXs, theme.spacing(0, 2));
   }
 
   if (size === "sm") {
-    return css(["font-size:", ";padding:", ";height:32px;border-radius:8px;"], theme.typography.button.fontSizeSm, theme.spacing(0, 2));
+    return css(["font-size:", ";padding:", ";height:32px;min-width:32px;border-radius:8px;"], theme.typography.button.fontSizeSm, theme.spacing(0, 2));
   }
 
   return css(["font-size:", ";"], theme.typography.button.fontSizeMd);
@@ -1269,9 +1273,11 @@ var ButtonBase = function ButtonBase(_ref3) {
       loading = _ref3.loading,
       endIcon = _ref3.endIcon,
       href = _ref3.href,
+      icon = _ref3.icon,
+      iconProps = _ref3.iconProps,
       size = _ref3.size,
       startIcon = _ref3.startIcon,
-      props = _objectWithoutPropertiesLoose(_ref3, ["colors", "content", "children", "loading", "endIcon", "href", "size", "startIcon"]);
+      props = _objectWithoutPropertiesLoose(_ref3, ["colors", "content", "children", "loading", "endIcon", "href", "icon", "iconProps", "size", "startIcon"]);
 
   var iconSize = getIconSize(size);
   return /*#__PURE__*/React.createElement(StyledButton, _extends({
@@ -1284,7 +1290,10 @@ var ButtonBase = function ButtonBase(_ref3) {
     icon: startIcon,
     size: iconSize,
     mr: 2
-  }), content || children, endIcon && /*#__PURE__*/React.createElement(Icon, {
+  }), icon && /*#__PURE__*/React.createElement(Icon, _extends({
+    icon: icon,
+    size: iconSize
+  }, iconProps)), content || children, endIcon && /*#__PURE__*/React.createElement(Icon, {
     icon: endIcon,
     size: iconSize,
     ml: 2
@@ -2098,7 +2107,7 @@ var FieldBaseDefaultProps = _extends({}, FieldWrapperDefaultProps, {
 });
 
 function _templateObject$q() {
-  var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 120%;\n  padding: 8px;\n  color: ", ";\n  outline: none;\n  border: none;\n  height: 100%;\n  box-sizing: border-box;\n  transition: all 100ms ease-in-out;\n  background-color: transparent;\n\n  ::placeholder {\n    font-weight: normal;\n  }\n\n  &:disabled {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none;\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 120%;\n  padding: 8px;\n  color: ", ";\n  outline: none;\n  border: none;\n  height: 100%;\n  box-sizing: border-box;\n  transition: all 100ms ease-in-out;\n  background-color: transparent;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n\n  ::placeholder {\n    font-weight: normal;\n  }\n\n  &:disabled {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none;\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
 
   _templateObject$q = function _templateObject() {
     return data;
@@ -3737,7 +3746,7 @@ Modal.defaultProps = {
 };
 
 function _templateObject$K() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n\n  && {\n    width: 40px;\n    height: 40px;\n    background-color: ", ";\n    svg {\n      color: ", ";\n    }\n\n    :hover {\n      background-color: ", ";\n\n      svg {\n        color: ", ";\n      }\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n\n  && {\n    background-color: ", ";\n    svg {\n      color: ", ";\n    }\n\n    :hover {\n      background-color: ", ";\n\n      svg {\n        color: ", ";\n      }\n    }\n  }\n"]);
 
   _templateObject$K = function _templateObject() {
     return data;
@@ -3759,27 +3768,31 @@ var Button$1 = styled(ButtonBase)(_templateObject$K(), function (_ref) {
   return theme.palette.primary.main;
 });
 var ShareModuleButton = function ShareModuleButton(_ref5) {
-  var href = _ref5.href,
+  var buttonProps = _ref5.buttonProps,
+      href = _ref5.href,
       icon = _ref5.icon,
       iconPrefix = _ref5.iconPrefix,
       onClick = _ref5.onClick;
-  return /*#__PURE__*/React.createElement(Button$1, {
+  return /*#__PURE__*/React.createElement(Button$1, _extends({
     href: href,
+    icon: icon,
+    iconProps: {
+      prefix: iconPrefix
+    },
+    noPadding: true,
     onClick: onClick,
     target: "_blank"
-  }, /*#__PURE__*/React.createElement(Icon, {
-    icon: icon,
-    prefix: iconPrefix,
-    size: "lg"
-  }));
+  }, buttonProps));
 };
 ShareModuleButton.propTypes = {
+  buttonProps: PropTypes.shape({}),
   href: PropTypes.string,
   icon: PropTypes.string.isRequired,
   iconPrefix: PropTypes.string,
   onClick: PropTypes.func
 };
 ShareModuleButton.defaultProps = {
+  buttonProps: {},
   href: null,
   iconPrefix: "fab",
   onClick: null
@@ -3788,6 +3801,7 @@ ShareModuleButton.defaultProps = {
 var SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "telegram", "whatsapp", "email", "navigator"];
 
 var ShareModulePropTypes = _extends({
+  buttonProps: PropTypes.shape(ButtonBasePropTypes),
   copyText: PropTypes.string,
   shareOptions: PropTypes.arrayOf(PropTypes.oneOf(SHARE_MODULE_SHARE_OPTIONS)),
   url: PropTypes.string
@@ -3848,39 +3862,47 @@ var StyledText$1 = styled(Text).attrs(function () {
   return css(["margin:", ";"], spacing(2, 0));
 });
 var ShareModule = function ShareModule(_ref3) {
-  var _window, _window$navigator, _window2, _window2$navigator;
+  var _navigator;
 
-  var copyText = _ref3.copyText,
+  var buttonProps = _ref3.buttonProps,
+      copyText = _ref3.copyText,
       shareOptions = _ref3.shareOptions,
       url = _ref3.url,
-      props = _objectWithoutPropertiesLoose(_ref3, ["copyText", "shareOptions", "url"]);
+      props = _objectWithoutPropertiesLoose(_ref3, ["buttonProps", "copyText", "shareOptions", "url"]);
 
   var theme = useTheme();
-  var navigatorShare = typeof window !== "undefined" && ((_window = window) == null ? void 0 : (_window$navigator = _window.navigator) == null ? void 0 : _window$navigator.share) ? (_window2 = window) == null ? void 0 : (_window2$navigator = _window2.navigator) == null ? void 0 : _window2$navigator.share : null;
   return /*#__PURE__*/React.createElement(Container$4, props, /*#__PURE__*/React.createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "twitter",
-    href: "https://twitter.com/intent/tweet?url=" + url
+    href: "https://twitter.com/intent/tweet?url=" + url,
+    buttonProps: buttonProps
   }), shareOptions.includes("facebook") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "facebook-f",
-    href: "https://www.facebook.com/sharer.php?u=" + url
+    href: "https://www.facebook.com/sharer.php?u=" + url,
+    buttonProps: buttonProps
   }), shareOptions.includes("telegram") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "telegram-plane",
-    href: "tg://msg?text=" + url
+    href: "tg://msg?text=" + url,
+    buttonProps: buttonProps
   }), shareOptions.includes("whatsapp") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "whatsapp",
-    href: "whatsapp://send?" + url
+    href: "whatsapp://send?" + url,
+    buttonProps: buttonProps
   }), shareOptions.includes("email") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "envelope",
     iconPrefix: theme.defaultIconSet,
-    href: "mailto:?body=" + url
-  }), shareOptions.includes("navigator") && navigatorShare && /*#__PURE__*/React.createElement(ShareModuleButton, {
+    href: "mailto:?body=" + url,
+    buttonProps: buttonProps
+  }), shareOptions.includes("navigator") && ((_navigator = navigator) == null ? void 0 : _navigator.share) && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "ellipsis-h",
     iconPrefix: theme.defaultIconSet,
     onClick: function onClick() {
-      return navigatorShare({
+      var _navigator2;
+
+      return (_navigator2 = navigator) == null ? void 0 : _navigator2.share({
         url: url
       });
-    }
+    },
+    buttonProps: buttonProps
   })), /*#__PURE__*/React.createElement(StyledText$1, {
     content: copyText
   }), /*#__PURE__*/React.createElement(Input, {
