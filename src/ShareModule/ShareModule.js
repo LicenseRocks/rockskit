@@ -36,12 +36,14 @@ const StyledText = styled(Text).attrs(() => ({
   }
 `;
 
-export const ShareModule = ({ copyText, shareOptions, url, ...props }) => {
+export const ShareModule = ({
+  buttonProps,
+  copyText,
+  shareOptions,
+  url,
+  ...props
+}) => {
   const theme = useTheme();
-  const navigatorShare =
-    typeof window !== "undefined" && window?.navigator?.share
-      ? window?.navigator?.share
-      : null;
 
   return (
     <Container {...props}>
@@ -50,6 +52,7 @@ export const ShareModule = ({ copyText, shareOptions, url, ...props }) => {
           <ShareModuleButton
             icon="twitter"
             href={`https://twitter.com/intent/tweet?url=${url}`}
+            buttonProps={buttonProps}
           />
         )}
 
@@ -57,6 +60,7 @@ export const ShareModule = ({ copyText, shareOptions, url, ...props }) => {
           <ShareModuleButton
             icon="facebook-f"
             href={`https://www.facebook.com/sharer.php?u=${url}`}
+            buttonProps={buttonProps}
           />
         )}
 
@@ -64,11 +68,16 @@ export const ShareModule = ({ copyText, shareOptions, url, ...props }) => {
           <ShareModuleButton
             icon="telegram-plane"
             href={`tg://msg?text=${url}`}
+            buttonProps={buttonProps}
           />
         )}
 
         {shareOptions.includes("whatsapp") && (
-          <ShareModuleButton icon="whatsapp" href={`whatsapp://send?${url}`} />
+          <ShareModuleButton
+            icon="whatsapp"
+            href={`whatsapp://send?${url}`}
+            buttonProps={buttonProps}
+          />
         )}
 
         {shareOptions.includes("email") && (
@@ -76,14 +85,16 @@ export const ShareModule = ({ copyText, shareOptions, url, ...props }) => {
             icon="envelope"
             iconPrefix={theme.defaultIconSet}
             href={`mailto:?body=${url}`}
+            buttonProps={buttonProps}
           />
         )}
 
-        {shareOptions.includes("navigator") && navigatorShare && (
+        {shareOptions.includes("navigator") && navigator?.share && (
           <ShareModuleButton
             icon="ellipsis-h"
             iconPrefix={theme.defaultIconSet}
-            onClick={() => navigatorShare({ url })}
+            onClick={() => navigator?.share({ url })}
+            buttonProps={buttonProps}
           />
         )}
       </ButtonsWrapper>
