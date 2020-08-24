@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { BoxBase, PageTransition } from "../..";
+import { Alert, BoxBase, PageTransition } from "../..";
 import { BoxFooter } from "./Footer";
 import { BoxHeader } from "./Header";
 import { BoxPropTypes, BoxDefaultProps } from "./props";
@@ -11,6 +11,8 @@ const BoxContent = styled.div`
 `;
 
 export const Box = ({
+  alert,
+  alertColor,
   children,
   footerAction,
   footerActionLoading,
@@ -34,6 +36,7 @@ export const Box = ({
 }) => {
   const content = (
     <>
+      {alert && <Alert content={alert} color={alertColor} noBorderRadius />}
       <BoxContent padding={padding}>{children}</BoxContent>
 
       <BoxFooter
