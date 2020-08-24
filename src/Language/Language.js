@@ -18,7 +18,9 @@ export const Language = ({ value, languages, onChange, ...props }) => {
       <TextButton
         content={current?.label}
         color="secondary"
+        endIcon="chevron-down"
         onClick={({ currentTarget }) => setAnchorEl(currentTarget)}
+        startIcon="globe"
         {...props}
       />
 
