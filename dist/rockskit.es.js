@@ -2146,7 +2146,7 @@ var FieldWrapperDefaultProps = {
 };
 
 function _templateObject$q() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  border-radius: ", ";\n  background-color: ", ";\n  border: 1px solid ", ";\n  padding: ", ";\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: all 100ms ease-in-out;\n\n  :not(:last-child) {\n    margin-right: ", ";\n  }\n\n  &:focus-within {\n    border: 1px solid ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  border-radius: ", ";\n  background-color: ", ";\n  border: 1px solid ", ";\n  padding: ", ";\n  outline: none;\n  height: 40px;\n  box-sizing: border-box;\n  transition: all 100ms ease-in-out;\n\n  &:focus-within {\n    border: 1px solid ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
   _templateObject$q = function _templateObject() {
     return data;
@@ -2168,38 +2168,35 @@ var StyledWrapper = styled.div(_templateObject$q(), function (_ref) {
   return theme.spacing(0, 4);
 }, function (_ref5) {
   var theme = _ref5.theme;
-  return theme.spacing(4);
-}, function (_ref6) {
-  var theme = _ref6.theme;
   return theme.palette.primary.main;
-}, function (_ref7) {
-  var hasError = _ref7.hasError;
-  return hasError && css(["border:1px solid ", ";"], function (_ref8) {
-    var theme = _ref8.theme;
+}, function (_ref6) {
+  var hasError = _ref6.hasError;
+  return hasError && css(["border:1px solid ", ";"], function (_ref7) {
+    var theme = _ref7.theme;
     return theme.palette.error.main;
   });
-}, function (_ref9) {
-  var disabled = _ref9.disabled;
+}, function (_ref8) {
+  var disabled = _ref8.disabled;
   return disabled && css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
-}, function (_ref10) {
-  var block = _ref10.block;
+}, function (_ref9) {
+  var block = _ref9.block;
   return block && css(["flex:1;"]);
 }, function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var FieldWrapper = function FieldWrapper(_ref11) {
-  var children = _ref11.children,
-      endIcon = _ref11.endIcon,
-      endIconColor = _ref11.endIconColor,
-      endIconOnClick = _ref11.endIconOnClick,
-      endIconPrefix = _ref11.endIconPrefix,
-      startIcon = _ref11.startIcon,
-      startIconColor = _ref11.startIconColor,
-      startIconOnClick = _ref11.startIconOnClick,
-      startIconPrefix = _ref11.startIconPrefix,
-      props = _objectWithoutPropertiesLoose(_ref11, ["children", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
+var FieldWrapper = function FieldWrapper(_ref10) {
+  var children = _ref10.children,
+      endIcon = _ref10.endIcon,
+      endIconColor = _ref10.endIconColor,
+      endIconOnClick = _ref10.endIconOnClick,
+      endIconPrefix = _ref10.endIconPrefix,
+      startIcon = _ref10.startIcon,
+      startIconColor = _ref10.startIconColor,
+      startIconOnClick = _ref10.startIconOnClick,
+      startIconPrefix = _ref10.startIconPrefix,
+      props = _objectWithoutPropertiesLoose(_ref10, ["children", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
 
   return /*#__PURE__*/React.createElement(StyledWrapper, props, startIcon && /*#__PURE__*/React.createElement(Icon, {
     color: startIconColor,
@@ -2301,6 +2298,7 @@ var FieldBase = function FieldBase(_ref10) {
     startIconOnClick: startIconOnClick,
     startIconPrefix: startIconPrefix
   }, /*#__PURE__*/React.createElement(StyledInput$1, _extends({
+    block: block,
     hasError: hasError,
     ref: register
   }, props)));
@@ -2309,7 +2307,7 @@ FieldBase.propTypes = FieldBasePropTypes;
 FieldBase.defaultProps = FieldBaseDefaultProps;
 
 function _templateObject$s() {
-  var data = _taggedTemplateLiteralLoose(["\n  border: none;\n  padding: 0%;\n  margin: 0;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  border: none;\n  padding: 0%;\n  margin: 0;\n  width: 100%;\n  flex: 1;\n"]);
 
   _templateObject$s = function _templateObject() {
     return data;
@@ -2737,7 +2735,7 @@ var FormRowDefaultProps = {
 };
 
 function _templateObject4$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  width: 100%;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  width: 100%;\n\n  & > * {\n    :not(:last-child) {\n      margin-right: ", ";\n    }\n  }\n"]);
 
   _templateObject4$1 = function _templateObject4() {
     return data;
@@ -2800,14 +2798,17 @@ var StyledLabel$3 = styled(FormLabel)(_templateObject2$8(), function (_ref4) {
   return theme.spacing(2);
 });
 var FieldsAndErrorsWrapper = styled.div(_templateObject3$2());
-var Fields = styled.div(_templateObject4$1());
-var FormRow = function FormRow(_ref7) {
-  var children = _ref7.children,
-      errors = _ref7.errors,
-      fields = _ref7.fields,
-      label = _ref7.label,
-      show = _ref7.show,
-      props = _objectWithoutPropertiesLoose(_ref7, ["children", "errors", "fields", "label", "show"]);
+var Fields = styled.div(_templateObject4$1(), function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.spacing(4);
+});
+var FormRow = function FormRow(_ref8) {
+  var children = _ref8.children,
+      errors = _ref8.errors,
+      fields = _ref8.fields,
+      label = _ref8.label,
+      show = _ref8.show,
+      props = _objectWithoutPropertiesLoose(_ref8, ["children", "errors", "fields", "label", "show"]);
 
   var rowErrors = Array.isArray(errors) ? errors : getFormRowErrors(errors, fields);
   return /*#__PURE__*/React.createElement(StyledRow, _extends({
