@@ -5,6 +5,7 @@ import MuiContainer from "@material-ui/core/Container";
 import Hidden from "@material-ui/core/Hidden";
 
 import { Text } from "../../Typography";
+import { PageLoading } from "../..";
 import {
   ExplorerLayoutHeader,
   ExplorerLayoutFooter,
@@ -39,9 +40,12 @@ export const ExplorerLayout = ({
   footerContent,
   headerLogoAction,
   headerRight,
+  loading,
   sidebar,
   ...props
 }) => {
+  if (loading) return <PageLoading />;
+
   return (
     <MuiContainer {...props}>
       <ExplorerLayoutHeader

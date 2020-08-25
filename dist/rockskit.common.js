@@ -691,12 +691,14 @@ Alert.defaultProps = AlertDefaultProps;
 var AppContainerPropTypes = {
   children: PropTypes__default.node.isRequired,
   icons: PropTypes__default.object,
+  pageLoading: PropTypes__default.bool,
   theme: PropTypes__default.object.isRequired
 };
 
 var AppContainer = function AppContainer(_ref) {
   var children = _ref.children,
       icons = _ref.icons,
+      pageLoading = _ref.pageLoading,
       theme = _ref.theme;
   if (icons) fontawesomeSvgCore.library.add(icons);
   return /*#__PURE__*/React__default.createElement(styles.ThemeProvider, {
@@ -705,7 +707,7 @@ var AppContainer = function AppContainer(_ref) {
     theme: theme
   }, /*#__PURE__*/React__default.createElement(notistack.SnackbarProvider, {
     maxSnack: 3
-  }, /*#__PURE__*/React__default.createElement(GlobalStyle, null), /*#__PURE__*/React__default.createElement(CssBaseline, null), children)));
+  }, /*#__PURE__*/React__default.createElement(GlobalStyle, null), /*#__PURE__*/React__default.createElement(CssBaseline, null), pageLoading ? /*#__PURE__*/React__default.createElement(PageLoading, null) : children)));
 };
 AppContainer.propTypes = AppContainerPropTypes;
 
@@ -3520,7 +3522,8 @@ var AuthLayoutPropTypes = {
   headerBackButtonOnClick: PropTypes__default.func,
   headerLeft: PropTypes__default.node,
   headerLogoAction: PropTypes__default.func,
-  headerRight: PropTypes__default.node
+  headerRight: PropTypes__default.node,
+  loading: PropTypes__default.bool
 };
 
 function _templateObject2$c() {
@@ -3553,8 +3556,10 @@ var AuthLayout = function AuthLayout(_ref2) {
       headerBackButtonOnClick = _ref2.headerBackButtonOnClick,
       headerLogoAction = _ref2.headerLogoAction,
       headerRight = _ref2.headerRight,
-      props = _objectWithoutPropertiesLoose(_ref2, ["content", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerRight"]);
+      loading = _ref2.loading,
+      props = _objectWithoutPropertiesLoose(_ref2, ["content", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerRight", "loading"]);
 
+  if (loading) return /*#__PURE__*/React__default.createElement(PageLoading, null);
   return /*#__PURE__*/React__default.createElement(StyledContainer$1, props, /*#__PURE__*/React__default.createElement(Flex, {
     container: true,
     direction: "column",
@@ -3680,7 +3685,8 @@ var DashboardLayoutPropTypes = {
   headerBackButtonOnClick: PropTypes__default.func,
   headerLeft: PropTypes__default.node,
   headerLogoAction: PropTypes__default.func,
-  headerRight: PropTypes__default.node
+  headerRight: PropTypes__default.node,
+  loading: PropTypes__default.bool
 };
 
 function _templateObject4$3() {
@@ -4102,11 +4108,13 @@ var DashboardLayout = function DashboardLayout(_ref6) {
       headerLogoAction = _ref6.headerLogoAction,
       headerRight = _ref6.headerRight,
       navigationItems = _ref6.navigationItems,
+      loading = _ref6.loading,
       sidebar = _ref6.sidebar,
       userMenuItems = _ref6.userMenuItems,
       userMenuOnClick = _ref6.userMenuOnClick,
-      props = _objectWithoutPropertiesLoose(_ref6, ["content", "footerContent", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerRight", "navigationItems", "sidebar", "userMenuItems", "userMenuOnClick"]);
+      props = _objectWithoutPropertiesLoose(_ref6, ["content", "footerContent", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerRight", "navigationItems", "loading", "sidebar", "userMenuItems", "userMenuOnClick"]);
 
+  if (loading) return /*#__PURE__*/React__default.createElement(PageLoading, null);
   return /*#__PURE__*/React__default.createElement(StyledContainer$2, props, /*#__PURE__*/React__default.createElement(Flex, {
     container: true,
     direction: "column",
@@ -4242,6 +4250,7 @@ var ExplorerLayoutPropTypes = {
   footerContent: PropTypes__default.node,
   headerLogoAction: PropTypes__default.func,
   headerRight: PropTypes__default.node,
+  loading: PropTypes__default.bool,
   sidebar: PropTypes__default.node
 };
 
@@ -4286,9 +4295,11 @@ var ExplorerLayout = function ExplorerLayout(_ref5) {
       footerContent = _ref5.footerContent,
       headerLogoAction = _ref5.headerLogoAction,
       headerRight = _ref5.headerRight,
+      loading = _ref5.loading,
       sidebar = _ref5.sidebar,
-      props = _objectWithoutPropertiesLoose(_ref5, ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "sidebar"]);
+      props = _objectWithoutPropertiesLoose(_ref5, ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "loading", "sidebar"]);
 
+  if (loading) return /*#__PURE__*/React__default.createElement(PageLoading, null);
   return /*#__PURE__*/React__default.createElement(MuiContainer, props, /*#__PURE__*/React__default.createElement(ExplorerLayoutHeader, {
     logoAction: headerLogoAction,
     headerRight: headerRight
@@ -4478,7 +4489,7 @@ Modal.defaultProps = {
 };
 
 function _templateObject$Q() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: auto;\n  transition: filter ", "ms ease-in-out;\n\n  ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"]);
 
   _templateObject$Q = function _templateObject() {
     return data;
@@ -4486,7 +4497,26 @@ function _templateObject$Q() {
 
   return data;
 }
-var StyledContent = styled__default.div(_templateObject$Q(), function (_ref) {
+var StyledLoading = styled__default.div(_templateObject$Q(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.common.white;
+});
+var PageLoading = function PageLoading(props) {
+  return /*#__PURE__*/React__default.createElement(StyledLoading, props, /*#__PURE__*/React__default.createElement(RocksSpinner, null));
+};
+PageLoading.propTypes = {};
+PageLoading.defaultProps = {};
+
+function _templateObject$R() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: auto;\n  transition: filter ", "ms ease-in-out;\n\n  ", ";\n"]);
+
+  _templateObject$R = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledContent = styled__default.div(_templateObject$R(), function (_ref) {
   var duration = _ref.duration;
   return duration / 2;
 }, function (_ref2) {
@@ -4532,16 +4562,16 @@ PageTransition.propTypes = {
 };
 PageTransition.defaultProps = {};
 
-function _templateObject$R() {
+function _templateObject$S() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n\n  && {\n    background-color: ", ";\n    svg {\n      color: ", ";\n    }\n\n    :hover {\n      background-color: ", ";\n\n      svg {\n        color: ", ";\n      }\n    }\n  }\n"]);
 
-  _templateObject$R = function _templateObject() {
+  _templateObject$S = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Button$1 = styled__default(ButtonBase)(_templateObject$R(), function (_ref) {
+var Button$1 = styled__default(ButtonBase)(_templateObject$S(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -4619,16 +4649,16 @@ function _templateObject2$j() {
   return data;
 }
 
-function _templateObject$S() {
+function _templateObject$T() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$S = function _templateObject() {
+  _templateObject$T = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$4 = styled__default.div(_templateObject$S(), function (theme) {
+var Container$4 = styled__default.div(_templateObject$T(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -4714,16 +4744,16 @@ var DotsSpinnerDefaultProps = {
   size: 60
 };
 
-function _templateObject$T() {
+function _templateObject$U() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  > div {\n    width: ", "px;\n    height: ", "px;\n    background-color: ", ";\n\n    border-radius: 100%;\n    display: inline-block;\n    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;\n    animation: sk-bouncedelay 1.4s infinite ease-in-out both;\n  }\n\n  .bounce1 {\n    -webkit-animation-delay: -0.32s;\n    animation-delay: -0.32s;\n  }\n\n  .bounce2 {\n    -webkit-animation-delay: -0.16s;\n    animation-delay: -0.16s;\n  }\n\n  @-webkit-keyframes sk-bouncedelay {\n    0%, 80%, 100% { -webkit-transform: scale(0) }\n    40% { -webkit-transform: scale(1.0) }\n  }\n\n  @keyframes sk-bouncedelay {\n    0%, 80%, 100% {\n      -webkit-transform: scale(0);\n      transform: scale(0);\n    } 40% {\n      -webkit-transform: scale(1.0);\n      transform: scale(1.0);\n    }\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$T = function _templateObject() {
+  _templateObject$U = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledDotsSpinner = styled__default.div(_templateObject$T(), function (_ref) {
+var StyledDotsSpinner = styled__default.div(_templateObject$U(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -4764,16 +4794,16 @@ var RocksSpinnerDefaultProps = {
   size: 60
 };
 
-function _templateObject$U() {
+function _templateObject$V() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  height: ", "px;\n  position: relative;\n\n  .dot {\n    width: ", "px;\n    height: ", "px;\n    background-color: ", ";\n    border-radius: 100%;\n    position: absolute;\n    bottom: 5px;\n    left: 0;\n\n    -webkit-animation: bounce 2.0s infinite ease-in-out;\n    animation: bounce 2.0s infinite ease-in-out;\n  }\n\n  .circle {\n    width: ", "px;\n    height: ", "px;\n    border: ", "px solid ", ";\n    border-radius: 100%;\n    position: absolute;\n    top: 5px;\n    right: 0;\n\n    -webkit-animation: bounce 2.0s infinite ease-in-out;\n    animation: bounce 2.0s infinite ease-in-out;\n    -webkit-animation-delay: -1.0s;\n    animation-delay: -1.0s;\n  }\n\n  @-webkit-keyframes bounce {\n    0%, 100% { -webkit-transform: scale(0.0) }\n    50% { -webkit-transform: scale(1.0) }\n  }\n\n  @keyframes bounce {\n    0%, 100% {\n      transform: scale(0.0);\n      -webkit-transform: scale(0.0);\n    } 50% {\n      transform: scale(1.0);\n      -webkit-transform: scale(1.0);\n    }\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$U = function _templateObject() {
+  _templateObject$V = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledRocksSpinner = styled__default.div(_templateObject$U(), function (_ref) {
+var StyledRocksSpinner = styled__default.div(_templateObject$V(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -4852,16 +4882,16 @@ function _templateObject2$k() {
   return data;
 }
 
-function _templateObject$V() {
+function _templateObject$W() {
   var data = _taggedTemplateLiteralLoose(["\n  margin-bottom: ", ";\n  ", "\n  ", "\n"]);
 
-  _templateObject$V = function _templateObject() {
+  _templateObject$W = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$5 = styled__default.div(_templateObject$V(), function (_ref) {
+var Wrapper$5 = styled__default.div(_templateObject$W(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (theme) {
@@ -4929,16 +4959,16 @@ function _templateObject2$l() {
   return data;
 }
 
-function _templateObject$W() {
+function _templateObject$X() {
   var data = _taggedTemplateLiteralLoose(["\n  text-align: center;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: ", ";\n"]);
 
-  _templateObject$W = function _templateObject() {
+  _templateObject$X = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var ErrorWrapper = styled__default.div(_templateObject$W(), function (_ref) {
+var ErrorWrapper = styled__default.div(_templateObject$X(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
@@ -4990,10 +5020,10 @@ function _templateObject2$m() {
   return data;
 }
 
-function _templateObject$X() {
+function _templateObject$Y() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  border-radius: 100%;\n  && {\n    margin: ", ";\n  }\n"]);
 
-  _templateObject$X = function _templateObject() {
+  _templateObject$Y = function _templateObject() {
     return data;
   };
 
@@ -5003,7 +5033,7 @@ var CloseModalIcon$1 = styled__default(Icon).attrs(function () {
   return {
     size: "lg"
   };
-})(_templateObject$X(), function (_ref) {
+})(_templateObject$Y(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
@@ -5064,16 +5094,16 @@ function _templateObject2$n() {
   return data;
 }
 
-function _templateObject$Y() {
+function _templateObject$Z() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  height: 48px;\n  width: 48px;\n  text-align: center;\n  border-radius: 8px;\n  overflow: hidden;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$Y = function _templateObject() {
+  _templateObject$Z = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$5 = styled__default.div(_templateObject$Y(), function (_ref) {
+var Container$5 = styled__default.div(_templateObject$Z(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
@@ -5193,16 +5223,16 @@ function _templateObject2$o() {
   return data;
 }
 
-function _templateObject$Z() {
+function _templateObject$_() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: 24px 24px 24px 40px;\n  transition: all ", "ms ease-in-out;\n\n  ", ";\n"]);
 
-  _templateObject$Z = function _templateObject() {
+  _templateObject$_ = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContent$1 = styled__default.div(_templateObject$Z(), function (_ref) {
+var StyledContent$1 = styled__default.div(_templateObject$_(), function (_ref) {
   var duration = _ref.duration;
   return duration / 2;
 }, function (_ref2) {
@@ -5329,16 +5359,16 @@ function _templateObject2$p() {
   return data;
 }
 
-function _templateObject$_() {
+function _templateObject$$() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: normal;\n\n  ", "\n\n  ", "\n"]);
 
-  _templateObject$_ = function _templateObject() {
+  _templateObject$$ = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTitle = styled__default.div(_templateObject$_(), function (_ref) {
+var StyledTitle = styled__default.div(_templateObject$$(), function (_ref) {
   var isPassed = _ref.isPassed;
   return isPassed && styled.css(["cursor:pointer;"]);
 }, function (_ref2) {
@@ -5456,16 +5486,16 @@ function _templateObject2$q() {
   return data;
 }
 
-function _templateObject$$() {
+function _templateObject$10() {
   var data = _taggedTemplateLiteralLoose(["\n  max-width: 680px;\n  margin: auto;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$$ = function _templateObject() {
+  _templateObject$10 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$6 = styled__default.div(_templateObject$$(), function (theme) {
+var Wrapper$6 = styled__default.div(_templateObject$10(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -5649,6 +5679,7 @@ exports.KIT_TYPOGRAPHY = KIT_TYPOGRAPHY;
 exports.Language = Language;
 exports.Modal = Modal;
 exports.OutlineButton = OutlineButton;
+exports.PageLoading = PageLoading;
 exports.PageTransition = PageTransition;
 exports.Paragraph = Paragraph;
 exports.Radio = Radio;

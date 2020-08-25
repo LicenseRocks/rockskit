@@ -7,8 +7,9 @@ import { SnackbarProvider } from "notistack";
 
 import { AppContainerPropTypes } from "./props";
 import { GlobalStyle } from "../theme";
+import { PageLoading } from "..";
 
-export const AppContainer = ({ children, icons, theme }) => {
+export const AppContainer = ({ children, icons, pageLoading, theme }) => {
   if (icons) library.add(icons);
 
   return (
@@ -17,7 +18,7 @@ export const AppContainer = ({ children, icons, theme }) => {
         <SnackbarProvider maxSnack={3}>
           <GlobalStyle />
           <CssBaseline />
-          {children}
+          {pageLoading ? <PageLoading /> : children}
         </SnackbarProvider>
       </ThemeProvider>
     </MuiThemeProvider>

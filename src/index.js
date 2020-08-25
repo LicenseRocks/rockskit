@@ -17,6 +17,7 @@ export * from "./Image";
 export * from "./Language";
 export * from "./Layout";
 export * from "./Modal";
+export * from "./PageLoading";
 export * from "./PageTransition";
 export * from "./ShareModule/ShareModule";
 export * from "./Spinner";

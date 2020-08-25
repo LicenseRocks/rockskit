@@ -6,4 +6,5 @@ export const AuthLayoutPropTypes = {
   headerLeft: PropTypes.node,
   headerLogoAction: PropTypes.func,
   headerRight: PropTypes.node,
+  loading: PropTypes.bool,
 };
