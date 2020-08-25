@@ -20,6 +20,7 @@ export const BoxPropTypes = {
   headerSubTitleColor: PropTypes.string,
   headerTitle: PropTypes.string,
   headerTitleIcon: PropTypes.string,
+  headerTitleSize: PropTypes.string,
   padding: PropTypes.number,
   transition: PropTypes.bool,
   ...BoxBasePropTypes,
