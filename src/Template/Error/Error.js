@@ -13,10 +13,12 @@ const ErrorWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: ${({ theme }) => theme.spacing(4)};
 `;
 
 const StyledImage = styled(Image)`
   max-width: 750px;
+  width: 100%;
 `;
 
 const getImg = (image, statusCode) => {
