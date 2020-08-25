@@ -21,6 +21,7 @@ export * from "./PageTransition";
 export * from "./ShareModule/ShareModule";
 export * from "./Spinner";
 export * from "./Tab";
+export * from "./Template";
 export * from "./theme";
 export * from "./Thumbnail";
 export * from "./Typography";
