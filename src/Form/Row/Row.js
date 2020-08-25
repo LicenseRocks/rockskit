@@ -22,7 +22,7 @@ const StyledLabel = styled(FormLabel)`
   flex: 0 0 30%;
   padding-top: ${({ theme }) => theme.spacing(3)};
   ${({ theme }) => theme.breakpoints.down("sm")} {
-    flex: 1;
+    flex: 100%;
     margin-bottom: ${({ theme }) => theme.spacing(2)};
     padding-top: 0;
   }

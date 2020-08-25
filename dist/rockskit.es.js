@@ -2757,7 +2757,7 @@ function _templateObject3$2() {
 }
 
 function _templateObject2$8() {
-  var data = _taggedTemplateLiteralLoose(["\n  flex: 0 0 30%;\n  padding-top: ", ";\n  ", " {\n    flex: 1;\n    margin-bottom: ", ";\n    padding-top: 0;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 0 0 30%;\n  padding-top: ", ";\n  ", " {\n    flex: 100%;\n    margin-bottom: ", ";\n    padding-top: 0;\n  }\n"]);
 
   _templateObject2$8 = function _templateObject2() {
     return data;
