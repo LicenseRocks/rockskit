@@ -116,23 +116,24 @@ export const NavigationMenu = ({ items }) => (
   <ImprovedList component="nav">
     {items
       .filter((m) => (typeof m.show === "boolean" ? m.show : true))
-      .map((m) => {
-        const {
+      .map(
+        ({
+          component = "a",
           title,
-          selected,
-          onClick,
           icon,
-          additional,
+          additional = null,
           dataCy,
-          nestedItems,
-        } = m;
-        const showNested = nestedItems && selected;
-        return (
-          <Fragment key={title}>
+          nestedItems = [],
+          WrapperComponent,
+          ...props
+        }) => {
+          const showNested = nestedItems.length > 0 && selected;
+
+          const item = () => (
             <ImprovedListItem
-              selected={selected}
-              href={onClick}
+              component={component}
               {...(dataCy ? { "data-cy": dataCy } : {})}
+              {...props}
             >
               <ImprovedListItemIcon>
                 <Icon icon={icon} />
@@ -140,19 +141,37 @@ export const NavigationMenu = ({ items }) => (
               <ListItemText primary={title} />
               {additional}
             </ImprovedListItem>
-            {showNested &&
-              nestedItems.map((n) => (
-                <NestedListItem
-                  selected={n.selected}
-                  href={n.onClick}
-                  key={n.title}
-                >
-                  <ListItemText primary={n.title} />
-                </NestedListItem>
-              ))}
-          </Fragment>
-        );
-      })}
+          );
+
+          const nestedItem = ({ component = "a", title, ...n }) => (
+            <NestedListItem component={component} key={n.title} {...n}>
+              <ListItemText primary={n.title} />
+            </NestedListItem>
+          );
+
+          const listItem = () =>
+            WrapperComponent ? (
+              <WrapperComponent>{item()}</WrapperComponent>
+            ) : (
+              item()
+            );
+
+          const nestedListItem = ({ WrapperComponent, ...nested }) =>
+            WrapperComponent ? (
+              <WrapperComponent>{item()}</WrapperComponent>
+            ) : (
+              nestedItem(nested)
+            );
+
+          return (
+            <Fragment key={title}>
+              {listItem()}
+
+              {showNested && nestedItems.map((n) => nestedListItem(n))}
+            </Fragment>
+          );
+        }
+      )}
   </ImprovedList>
 );
 

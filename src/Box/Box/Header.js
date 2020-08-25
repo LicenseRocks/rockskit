@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { H3, Icon, Text } from "../..";
+import { H3, H4, Icon, Text } from "../..";
 import { Flex } from "../../Flex";
 
 const StyledBoxHeader = styled(Flex).attrs(() => ({
@@ -27,6 +27,7 @@ export const BoxHeader = ({
   subTitleColor,
   title,
   titleIcon,
+  titleSize,
   ...props
 }) => {
   return (
@@ -36,7 +37,11 @@ export const BoxHeader = ({
           <Flex container>
             {titleIcon && <Icon colorBlack icon={titleIcon} mr={2} size="lg" />}
 
-            <H3 content={title} dInlineBlock />
+            {titleSize === "sm" ? (
+              <H4 content={title} dInlineBlock />
+            ) : (
+              <H3 content={title} dInlineBlock />
+            )}
 
             <Text
               content={subTitle}
@@ -75,7 +80,7 @@ BoxHeader.propTypes = {
   subTitleColor: PropTypes.string,
   title: PropTypes.string.isRequired,
   titleIcon: PropTypes.string,
-  titleComponent: PropTypes.string,
+  titleSize: PropTypes.string,
 };
 
 BoxHeader.defaultProps = {
@@ -86,6 +91,6 @@ BoxHeader.defaultProps = {
   renderTitle: () => {},
   subTitle: "",
   subTitleColor: "textSecondary",
-  titleComponent: "H3",
   titleIcon: "",
+  titleSize: "md",
 };
