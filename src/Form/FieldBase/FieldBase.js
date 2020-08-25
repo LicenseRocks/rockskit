@@ -81,6 +81,7 @@ export const FieldBase = ({
   ...props
 }) => (
   <FieldWrapper
+    block={block}
     endIcon={endIcon}
     endIconColor={endIconColor}
     endIconOnClick={endIconOnClick}
@@ -91,7 +92,7 @@ export const FieldBase = ({
     startIconOnClick={startIconOnClick}
     startIconPrefix={startIconPrefix}
   >
-    <StyledInput hasError={hasError} ref={register} {...props} />
+    <StyledInput block={block} hasError={hasError} ref={register} {...props} />
   </FieldWrapper>
 );
 

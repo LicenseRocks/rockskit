@@ -14,6 +14,7 @@ const StyledButton = styled(MuiButtonBase)`
     min-width: 40px;
     height: 40px;
     transition: all 100ms ease-in-out;
+    width: ${({ block }) => (block ? "100%" : "initial")};
 
     :hover {
       opacity: 0.7;
@@ -51,8 +52,8 @@ const StyledButton = styled(MuiButtonBase)`
       `;
     }}
 
-    ${(theme) => SPACER(theme)}
     ${(theme) => DISPLAY(theme)}
+    ${(theme) => SPACER(theme)}
   }
 `;
 

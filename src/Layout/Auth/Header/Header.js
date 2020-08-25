@@ -10,9 +10,9 @@ const StyledHeader = styled(Flex).attrs(() => ({
   alignItems: "center",
   justify: "space-between",
 }))`
-  height: 120px;
+  flex: 0 0 120px;
   ${({ theme }) => theme.breakpoints.down("md")} {
-    height: 96px;
+    flex: 0 0 96px;
   }
 `;
 
@@ -25,13 +25,14 @@ const StyledLogo = styled(Image).attrs(() => ({
 `;
 
 export const AuthLayoutHeader = ({
+  backButtonOnClick,
   headerLeft,
   headerRight,
   logoAction,
   ...props
 }) => {
   const backButton = (
-    <TextButton color="secondary" size="sm">
+    <TextButton color="secondary" onClick={backButtonOnClick} size="sm">
       Back
     </TextButton>
   );

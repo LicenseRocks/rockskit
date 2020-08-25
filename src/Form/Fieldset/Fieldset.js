@@ -6,6 +6,8 @@ const StyledFieldset = styled.fieldset`
   border: none;
   padding: 0%;
   margin: 0;
+  width: 100%;
+  flex: 1;
 `;
 export const Fieldset = ({ children }) => {
   return <StyledFieldset>{children}</StyledFieldset>;

@@ -11,12 +11,12 @@ const StyledMessage = styled.div`
   min-height: 40px;
   padding: 8px;
   font-size: 14px;
-  border-radius: 8px;
   background-color: ${({ theme }) => theme.palette.gray.semiLight};
   color: ${({ theme }) => theme.palette.text.primary};
   transition: all 100ms ease-in-out;
   display: flex;
   align-items: center;
+  ${({ noBorderRadius }) => !noBorderRadius && "border-radius: 8px;"}
 
   svg {
     color: ${({ theme }) => theme.palette.primary.main};

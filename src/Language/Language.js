@@ -8,6 +8,7 @@ export const Language = ({ value, languages, onChange, ...props }) => {
 
   const handleClick = (val) => {
     onChange(val);
+    setAnchorEl(null);
   };
 
   const current = languages.find((l) => l.value === value);
@@ -17,7 +18,9 @@ export const Language = ({ value, languages, onChange, ...props }) => {
       <TextButton
         content={current?.label}
         color="secondary"
+        endIcon="chevron-down"
         onClick={({ currentTarget }) => setAnchorEl(currentTarget)}
+        startIcon="globe"
         {...props}
       />
 

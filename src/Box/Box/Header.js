@@ -2,12 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
-import { H3, Icon } from "../..";
+import { H3, H4, Icon, Text } from "../..";
 import { Flex } from "../../Flex";
 
 const StyledBoxHeader = styled(Flex).attrs(() => ({
   container: true,
   justify: "space-between",
+  wrap: "nowrap",
 }))`
   width: 100%;
   box-sizing: border-box;
@@ -22,18 +23,34 @@ export const BoxHeader = ({
   actionIconSize,
   renderAction,
   renderTitle,
+  subTitle,
+  subTitleColor,
   title,
   titleIcon,
+  titleSize,
   ...props
 }) => {
   return (
     <StyledBoxHeader {...props}>
-      <Flex container item xs={6}>
+      <Flex item>
         {renderTitle() || (
-          <>
+          <Flex container>
             {titleIcon && <Icon colorBlack icon={titleIcon} mr={2} size="lg" />}
-            <H3 content={title} dInlineBlock />
-          </>
+
+            {titleSize === "sm" ? (
+              <H4 content={title} dInlineBlock />
+            ) : (
+              <H3 content={title} dInlineBlock />
+            )}
+
+            <Text
+              content={subTitle}
+              color={subTitleColor}
+              dBlock
+              fontStyle="italic"
+              fontSize="sm"
+            />
+          </Flex>
         )}
       </Flex>
 
@@ -59,9 +76,11 @@ BoxHeader.propTypes = {
   padding: PropTypes.number.isRequired,
   renderAction: PropTypes.func,
   renderTitle: PropTypes.func,
+  subTitle: PropTypes.string,
+  subTitleColor: PropTypes.string,
   title: PropTypes.string.isRequired,
   titleIcon: PropTypes.string,
-  titleComponent: PropTypes.string,
+  titleSize: PropTypes.string,
 };
 
 BoxHeader.defaultProps = {
@@ -70,6 +89,8 @@ BoxHeader.defaultProps = {
   actionIconSize: "lg",
   renderAction: () => {},
   renderTitle: () => {},
+  subTitle: "",
+  subTitleColor: "textSecondary",
   titleIcon: "",
-  titleComponent: "H3",
+  titleSize: "md",
 };

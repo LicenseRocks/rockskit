@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { BoxBase } from "..";
+import { Alert, BoxBase, PageTransition } from "../..";
 import { BoxFooter } from "./Footer";
 import { BoxHeader } from "./Header";
 import { BoxPropTypes, BoxDefaultProps } from "./props";
@@ -11,11 +11,14 @@ const BoxContent = styled.div`
 `;
 
 export const Box = ({
+  alert,
+  alertColor,
   children,
   footerAction,
   footerActionLoading,
   footerActionDisabled,
   footerActionTitle,
+  footerActionType,
   footerRenderAction,
   footerRenderTitle,
   headerAction,
@@ -23,11 +26,33 @@ export const Box = ({
   headerActionIconSize,
   headerRenderAction,
   headerRenderTitle,
+  headerSubTitle,
+  headerSubTitleColor,
   headerTitle,
   headerTitleIcon,
+  headerTitleSize,
   padding,
+  transition,
   ...props
 }) => {
+  const content = (
+    <>
+      {alert && <Alert content={alert} color={alertColor} noBorderRadius />}
+      <BoxContent padding={padding}>{children}</BoxContent>
+
+      <BoxFooter
+        action={footerAction}
+        actionDisabled={footerActionDisabled}
+        actionLoading={footerActionLoading}
+        actionTitle={footerActionTitle}
+        actionType={footerActionType}
+        padding={padding}
+        renderAction={footerRenderAction}
+        renderTitle={footerRenderTitle}
+      />
+    </>
+  );
+
   return (
     <BoxBase {...props}>
       {headerTitle && (
@@ -40,20 +65,13 @@ export const Box = ({
           renderTitle={headerRenderTitle}
           title={headerTitle}
           titleIcon={headerTitleIcon}
+          titleSize={headerTitleSize}
+          subTitle={headerSubTitle}
+          subTitleColor={headerSubTitleColor}
         />
       )}
 
-      <BoxContent padding={padding}>{children}</BoxContent>
-
-      <BoxFooter
-        action={footerAction}
-        actionDisabled={footerActionDisabled}
-        actionLoading={footerActionLoading}
-        actionTitle={footerActionTitle}
-        padding={padding}
-        renderAction={footerRenderAction}
-        renderTitle={footerRenderTitle}
-      />
+      {transition ? <PageTransition>{content}</PageTransition> : content}
     </BoxBase>
   );
 };
