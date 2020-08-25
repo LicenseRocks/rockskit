@@ -3,5 +3,6 @@
 
 node_modules
 node_modules_
+package-dev.json
 yarn-error.log
 .cache

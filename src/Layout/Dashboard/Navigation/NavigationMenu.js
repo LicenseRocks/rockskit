@@ -119,12 +119,13 @@ export const NavigationMenu = ({ items }) => (
       .map(
         ({
           component = "a",
+          selected,
           title,
           icon,
           additional = null,
           dataCy,
           nestedItems = [],
-          WrapperComponent,
+          WrapperComponent: Wrapper,
           ...props
         }) => {
           const showNested = nestedItems.length > 0 && selected;
@@ -132,6 +133,7 @@ export const NavigationMenu = ({ items }) => (
           const item = () => (
             <ImprovedListItem
               component={component}
+              selected={selected}
               {...(dataCy ? { "data-cy": dataCy } : {})}
               {...props}
             >
@@ -143,18 +145,14 @@ export const NavigationMenu = ({ items }) => (
             </ImprovedListItem>
           );
 
-          const nestedItem = ({ component = "a", title, ...n }) => (
-            <NestedListItem component={component} key={n.title} {...n}>
+          const nestedItem = (n) => (
+            <NestedListItem component={n.component || "a"} key={n.title} {...n}>
               <ListItemText primary={n.title} />
             </NestedListItem>
           );
 
           const listItem = () =>
-            WrapperComponent ? (
-              <WrapperComponent>{item()}</WrapperComponent>
-            ) : (
-              item()
-            );
+            Wrapper ? <Wrapper>{item()}</Wrapper> : item();
 
           const nestedListItem = ({ WrapperComponent, ...nested }) =>
             WrapperComponent ? (

@@ -1,8 +1,9 @@
 {
   "name": "@licenserocks/kit",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "",
-  "main": "src/index.js",
+  "main": "dist/rockskit.common.js",
+  "module": "dist/rockskit.es.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/LicenseRocks/rockskit"
@@ -31,6 +32,7 @@
     "react-dropzone": "^11.0.2",
     "react-hook-form": "^6.3.1",
     "react-select": "^3.1.0",
+    "react-transition-group": "^4.4.1",
     "styled-components": "^5.1.1"
   },
   "devDependencies": {

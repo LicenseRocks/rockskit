@@ -26,7 +26,7 @@ const getImg = (image, statusCode) => {
     case 404:
       return Image404;
     default:
-      image;
+      return image;
   }
 };
 

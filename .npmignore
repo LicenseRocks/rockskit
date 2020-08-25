@@ -11,3 +11,4 @@ jest.config.js
 jsconfig.json
 rollup.config.js
 yarn.lock
+package-dev.json
