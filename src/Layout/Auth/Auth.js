@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import MuiContainer from "@material-ui/core/Container";
 
-import { Flex } from "../..";
+import { Flex, PageLoading } from "../..";
 import { AuthLayoutHeader, AuthLayoutPropTypes } from ".";
 
 const StyledContainer = styled(MuiContainer)`
@@ -21,8 +21,11 @@ export const AuthLayout = ({
   headerBackButtonOnClick,
   headerLogoAction,
   headerRight,
+  loading,
   ...props
 }) => {
+  if (loading) return <PageLoading />;
+
   return (
     <StyledContainer {...props}>
       <Flex

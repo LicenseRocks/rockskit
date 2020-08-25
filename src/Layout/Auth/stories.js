@@ -1,6 +1,6 @@
 import React from "react";
+import { boolean } from "@storybook/addon-knobs";
 
-// UI
 import { Alert, AuthLayout, Language } from "../..";
 
 export default {
@@ -15,6 +15,7 @@ export const main = () => {
     <AuthLayout
       content={<Alert content="Welcome to Auth Layout!" />}
       headerRight={<Language onChange={() => {}} value="en" />}
+      loading={boolean("Loading", false)}
     />
   );
 };

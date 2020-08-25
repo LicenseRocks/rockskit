@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import MuiContainer from "@material-ui/core/Container";
 
-import { Flex } from "../..";
+import { Flex, PageLoading } from "../..";
 import { Text } from "../../Typography";
 import { DashboardLayoutPropTypes } from ".";
 import { DashboardLayoutNavigation } from "./Navigation";
@@ -65,11 +65,14 @@ export const DashboardLayout = ({
   headerLogoAction,
   headerRight,
   navigationItems,
+  loading,
   sidebar,
   userMenuItems,
   userMenuOnClick,
   ...props
 }) => {
+  if (loading) return <PageLoading />;
+
   return (
     <StyledContainer {...props}>
       <Flex

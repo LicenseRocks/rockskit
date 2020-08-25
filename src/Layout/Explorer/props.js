@@ -8,5 +8,6 @@ export const ExplorerLayoutPropTypes = {
   footerContent: PropTypes.node,
   headerLogoAction: PropTypes.func,
   headerRight: PropTypes.node,
+  loading: PropTypes.bool,
   sidebar: PropTypes.node,
 };

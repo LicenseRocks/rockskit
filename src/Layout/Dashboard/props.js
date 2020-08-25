@@ -6,4 +6,5 @@ export const DashboardLayoutPropTypes = {
   headerLeft: PropTypes.node,
   headerLogoAction: PropTypes.func,
   headerRight: PropTypes.node,
+  loading: PropTypes.bool,
 };
