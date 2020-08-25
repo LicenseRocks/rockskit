@@ -18,10 +18,6 @@ const StyledWrapper = styled.div`
   box-sizing: border-box;
   transition: all 100ms ease-in-out;
 
-  :not(:last-child) {
-    margin-right: ${({ theme }) => theme.spacing(4)};
-  }
-
   &:focus-within {
     border: 1px solid ${({ theme }) => theme.palette.primary.main};
   }

@@ -36,6 +36,12 @@ const Fields = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
+
+  & > * {
+    :not(:last-child) {
+      margin-right: ${({ theme }) => theme.spacing(4)};
+    }
+  }
 `;
 
 export const FormRow = ({
