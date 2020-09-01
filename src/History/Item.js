@@ -89,7 +89,7 @@ export const HistoryItem = ({
       <ItemConnector />
 
       <RowWrapper>
-        <StyledIcon bordered color={iconColor} icon={icon} />
+        <StyledIcon rounded color={iconColor} icon={icon} />
 
         <RowDetails>
           <Item lg={5}>

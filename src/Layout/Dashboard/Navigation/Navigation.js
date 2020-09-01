@@ -52,7 +52,9 @@ export const DashboardLayoutNavigation = ({
   const renderMainNav = () => (
     <>
       <NavigationMenu items={navigationItems} />
-      <UserMenu menuItems={userMenuItems} onClick={userMenuOnClick} />
+      {userMenuItems.length > 0 && (
+        <UserMenu menuItems={userMenuItems} onClick={userMenuOnClick} />
+      )}
     </>
   );
 

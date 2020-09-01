@@ -9,11 +9,11 @@ import {
 } from "../theme";
 
 export const IconPropTypes = {
-  bordered: PropTypes.bool,
   color: PropTypes.oneOf(THEME_COLORS),
   icon: PropTypes.string.isRequired,
   onClick: PropTypes.func,
   prefix: PropTypes.string,
+  rounded: PropTypes.bool,
   size: PropTypes.oneOf(Object.keys(KIT_ICON_SIZES)),
   ...COLOR_PROP_TYPES,
   ...SPACER_PROP_TYPES,
@@ -21,7 +21,7 @@ export const IconPropTypes = {
 };
 
 export const IconDefaultProps = {
-  bordered: false,
   color: "primary",
+  rounded: false,
   size: "md",
 };

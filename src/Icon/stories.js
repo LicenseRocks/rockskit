@@ -12,8 +12,9 @@ export default {
 
 export const main = () => {
   const defaultProps = {
-    bordered: boolean("Bordered", false),
     color: select("Color", THEME_COLORS, "primary"),
+    rounded: boolean("Rounded", false),
+    squared: boolean("Squared", false),
     size: select("Size", Object.keys(KIT_ICON_SIZES), "md"),
   };
 

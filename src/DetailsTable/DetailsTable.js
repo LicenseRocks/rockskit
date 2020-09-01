@@ -13,6 +13,7 @@ const Wrapper = styled.div`
 const Row = styled.div`
   display: flex;
   align-items: center;
+  ${({ justifyBetween }) => justifyBetween && "justify-content: space-between;"}
   height: 32px;
   margin-bottom: ${({ theme }) => theme.spacing(2)};
 `;
@@ -23,11 +24,11 @@ const Label = styled(Text).attrs(() => ({
   flex: 0 140px;
 `;
 
-export const DetailsTable = ({ rows, ...props }) => {
+export const DetailsTable = ({ rows, justifyBetween, ...props }) => {
   return (
     <Wrapper {...props}>
       {rows.map(({ label, value }) => (
-        <Row key={`${label}:${value}`}>
+        <Row key={`${label}:${value}`} justifyBetween={justifyBetween}>
           <Label content={label} />
           {value}
         </Row>

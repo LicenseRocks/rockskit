@@ -5,7 +5,7 @@ import styled, { css, useTheme } from "styled-components";
 import { COLOR, DISPLAY, SPACER, KIT_ICON_SIZES } from "../theme";
 import { IconPropTypes, IconDefaultProps } from "./props";
 
-const Bordered = styled.div`
+const Rounded = styled.div`
   ${({ color, theme }) =>
     css`
       width: 32px;
@@ -20,6 +20,23 @@ const Bordered = styled.div`
       position: relative;
     `}
 `;
+
+const Squared = styled.div`
+  ${({ color, theme }) =>
+    css`
+      width: 40px;
+      height: 40px;
+      border: solid 1px ${theme.palette[color].light};
+      background-color: transparent;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+      box-sizing: border-box;
+      position: relative;
+    `}
+`;
+
 const StyledIcon = styled(({ icon, prefix, size, ...props }) => (
   <FontAwesomeIcon icon={[prefix, icon]} {...props} />
 ))`
@@ -45,7 +62,14 @@ const StyledIcon = styled(({ icon, prefix, size, ...props }) => (
   ${(theme) => SPACER(theme)}
 `;
 
-export const Icon = ({ bordered, className, color, prefix, ...props }) => {
+export const Icon = ({
+  className,
+  color,
+  rounded,
+  squared,
+  prefix,
+  ...props
+}) => {
   const theme = useTheme();
   const defaultProps = {
     color,
@@ -53,10 +77,16 @@ export const Icon = ({ bordered, className, color, prefix, ...props }) => {
     ...props,
   };
 
-  return bordered ? (
-    <Bordered className={className} color={color} {...props}>
+  let Wrapper = null;
+
+  if (rounded) Wrapper = Rounded;
+
+  if (squared) Wrapper = Squared;
+
+  return Wrapper ? (
+    <Wrapper className={className} color={color} {...props}>
       <StyledIcon {...defaultProps} />
-    </Bordered>
+    </Wrapper>
   ) : (
     <StyledIcon className={className} {...defaultProps} />
   );
