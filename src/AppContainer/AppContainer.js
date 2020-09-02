@@ -7,9 +7,16 @@ import { SnackbarProvider } from "notistack";
 
 import { AppContainerPropTypes } from "./props";
 import { GlobalStyle } from "../theme";
-import { PageLoading } from "..";
+import { PageLoading, PageProgressBar } from "..";
 
-export const AppContainer = ({ children, icons, pageLoading, theme }) => {
+export const AppContainer = ({
+  children,
+  icons,
+  pageLoading,
+  pageProgressBar,
+  pageProgressBarListener,
+  theme,
+}) => {
   if (icons) library.add(icons);
 
   return (
@@ -18,6 +25,9 @@ export const AppContainer = ({ children, icons, pageLoading, theme }) => {
         <SnackbarProvider maxSnack={3}>
           <GlobalStyle />
           <CssBaseline />
+          {pageProgressBar && (
+            <PageProgressBar listener={pageProgressBarListener} />
+          )}
           {pageLoading ? <PageLoading /> : children}
         </SnackbarProvider>
       </ThemeProvider>

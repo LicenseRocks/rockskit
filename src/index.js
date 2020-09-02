@@ -20,6 +20,7 @@ export * from "./Layout";
 export * from "./MarketPlaceItem";
 export * from "./Modal";
 export * from "./PageLoading";
+export * from "./PageProgressBar";
 export * from "./PageTransition";
 export * from "./SearchBar";
 export * from "./ShareModule/ShareModule";
