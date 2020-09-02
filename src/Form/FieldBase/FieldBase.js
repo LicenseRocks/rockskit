@@ -68,6 +68,7 @@ const StyledInput = styled(
 
 export const FieldBase = ({
   block,
+  className,
   endIcon,
   endIconColor,
   endIconOnClick,
@@ -82,6 +83,7 @@ export const FieldBase = ({
 }) => (
   <FieldWrapper
     block={block}
+    className={className}
     endIcon={endIcon}
     endIconColor={endIconColor}
     endIconOnClick={endIconOnClick}

@@ -23,6 +23,8 @@ export const BoxHeader = ({
   actionIconSize,
   renderAction,
   renderTitle,
+  metaTitle,
+  metaTitleColor,
   subTitle,
   subTitleColor,
   title,
@@ -37,19 +39,32 @@ export const BoxHeader = ({
           <Flex container>
             {titleIcon && <Icon colorBlack icon={titleIcon} mr={2} size="lg" />}
 
-            {titleSize === "sm" ? (
-              <H4 content={title} dInlineBlock />
-            ) : (
-              <H3 content={title} dInlineBlock />
-            )}
+            <div>
+              {metaTitle && (
+                <Text
+                  content={metaTitle}
+                  color={metaTitleColor}
+                  dBlock
+                  fontSize="sm"
+                />
+              )}
 
-            <Text
-              content={subTitle}
-              color={subTitleColor}
-              dBlock
-              fontStyle="italic"
-              fontSize="sm"
-            />
+              {titleSize === "sm" ? (
+                <H4 content={title} />
+              ) : (
+                <H3 content={title} />
+              )}
+
+              {subTitle && (
+                <Text
+                  content={subTitle}
+                  color={subTitleColor}
+                  dBlock
+                  fontStyle="italic"
+                  fontSize="sm"
+                />
+              )}
+            </div>
           </Flex>
         )}
       </Flex>
@@ -87,6 +102,7 @@ BoxHeader.defaultProps = {
   action: () => {},
   actionIcon: "",
   actionIconSize: "lg",
+  metaTitleColor: "textSecondary",
   renderAction: () => {},
   renderTitle: () => {},
   subTitle: "",

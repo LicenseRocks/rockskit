@@ -1,6 +1,6 @@
 {
   "name": "@licenserocks/kit",
-  "version": "1.0.11",
+  "version": "1.0.12",
   "description": "",
   "main": "dist/rockskit.common.js",
   "module": "dist/rockskit.es.js",
@@ -29,6 +29,7 @@
     "notistack": "^0.9.17",
     "qrcode.react": "^1.0.0",
     "react-collapse": "^5.0.1",
+    "react-content-loader": "^5.1.0",
     "react-dropzone": "^11.0.2",
     "react-hook-form": "^6.3.1",
     "react-select": "^3.1.0",

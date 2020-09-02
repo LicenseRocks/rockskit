@@ -156,7 +156,7 @@ export const NavigationMenu = ({ items }) => (
 
           const nestedListItem = ({ WrapperComponent, ...nested }) =>
             WrapperComponent ? (
-              <WrapperComponent>{item()}</WrapperComponent>
+              <WrapperComponent>{nestedItem(nested)}</WrapperComponent>
             ) : (
               nestedItem(nested)
             );

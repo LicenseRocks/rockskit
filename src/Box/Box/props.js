@@ -14,6 +14,8 @@ export const BoxPropTypes = {
   headerAction: PropTypes.func,
   headerActionIcon: PropTypes.string,
   headerActionIconSize: PropTypes.string,
+  headerMetaTitle: PropTypes.string,
+  headerMetaTitleColor: PropTypes.string,
   headerRenderAction: PropTypes.func,
   headerRenderTitle: PropTypes.func,
   headerSubTitle: PropTypes.string,
