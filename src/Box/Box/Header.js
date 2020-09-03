@@ -20,6 +20,7 @@ const StyledBoxHeader = styled(Flex).attrs(() => ({
 export const BoxHeader = ({
   action,
   actionIcon,
+  actionIconProps,
   actionIconSize,
   renderAction,
   renderTitle,
@@ -29,6 +30,7 @@ export const BoxHeader = ({
   subTitleColor,
   title,
   titleIcon,
+  titleIconProps,
   titleSize,
   ...props
 }) => {
@@ -37,7 +39,15 @@ export const BoxHeader = ({
       <Flex item>
         {renderTitle() || (
           <Flex container>
-            {titleIcon && <Icon colorBlack icon={titleIcon} mr={2} size="lg" />}
+            {titleIcon && (
+              <Icon
+                colorBlack
+                icon={titleIcon}
+                mr={2}
+                size="lg"
+                {...titleIconProps}
+              />
+            )}
 
             <div>
               {metaTitle && (
@@ -77,6 +87,7 @@ export const BoxHeader = ({
               icon={actionIcon}
               size={actionIconSize}
               onClick={action}
+              {...actionIconProps}
             />
           ))}
       </Flex>
@@ -87,6 +98,7 @@ export const BoxHeader = ({
 BoxHeader.propTypes = {
   action: PropTypes.func,
   actionIcon: PropTypes.string,
+  actionIconProps: PropTypes.shape({}),
   actionIconSize: PropTypes.string,
   padding: PropTypes.number.isRequired,
   renderAction: PropTypes.func,
@@ -95,6 +107,7 @@ BoxHeader.propTypes = {
   subTitleColor: PropTypes.string,
   title: PropTypes.string.isRequired,
   titleIcon: PropTypes.string,
+  titleIconProps: PropTypes.shape({}),
   titleSize: PropTypes.string,
 };
 

@@ -87,4 +87,7 @@ RocksKitTheme.spacing = (...nums) => {
 
 RocksKitTheme.overrides.MuiButtonBase = {
   root: KIT_TYPOGRAPHY.button(),
+  disabled: {
+    opacity: 0.3,
+  },
 };
