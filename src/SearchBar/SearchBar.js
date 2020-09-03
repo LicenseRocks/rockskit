@@ -62,9 +62,17 @@ export const SearchBar = ({
     if (onChange) onChange(e.target.value);
   };
 
+  const handleClear = () => {
+    setInputValue("");
+    if (onChange) onChange("");
+    if (value && onSubmit) onSubmit("");
+  };
+
   return (
     <StyledSearchBar onSubmit={handleSubmit} {...props}>
       <SearchInput
+        endIcon={inputValue ? "times" : null}
+        endIconOnClick={handleClear}
         placeholder={placeholder}
         startIcon="search"
         startIconColor="secondary"

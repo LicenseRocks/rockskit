@@ -8,33 +8,41 @@ import { IconPropTypes, IconDefaultProps } from "./props";
 const Rounded = styled.div`
   ${({ color, theme }) =>
     css`
-      width: 32px;
-      height: 32px;
       border: solid 2px ${theme.palette.gray.regular};
       background-color: ${theme.palette[color].light};
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 100%;
-      box-sizing: border-box;
-      position: relative;
     `}
+  width: 32px;
+  height: 32px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 100%;
+  box-sizing: border-box;
+  position: relative;
+
+  ${(theme) => COLOR(theme)}
+  ${(theme) => DISPLAY(theme)}
+  ${(theme) => SPACER(theme)}
 `;
 
 const Squared = styled.div`
   ${({ color, theme }) =>
     css`
-      width: 40px;
-      height: 40px;
       border: solid 1px ${theme.palette[color].light};
-      background-color: transparent;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 8px;
-      box-sizing: border-box;
-      position: relative;
     `}
+  width: 40px;
+  height: 40px;
+  background-color: transparent;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-sizing: border-box;
+  position: relative;
+
+  ${(theme) => COLOR(theme)}
+  ${(theme) => DISPLAY(theme)}
+  ${(theme) => SPACER(theme)}
 `;
 
 const StyledIcon = styled(({ icon, prefix, size, ...props }) => (
@@ -57,9 +65,13 @@ const StyledIcon = styled(({ icon, prefix, size, ...props }) => (
       }
     `}
 
-  ${(theme) => COLOR(theme)}
-  ${(theme) => DISPLAY(theme)}
-  ${(theme) => SPACER(theme)}
+    ${({ simple }) =>
+    simple &&
+    css`
+      ${(theme) => COLOR(theme)}
+      ${(theme) => DISPLAY(theme)}
+      ${(theme) => SPACER(theme)}
+    `};
 `;
 
 export const Icon = ({
@@ -74,6 +86,9 @@ export const Icon = ({
   const defaultProps = {
     color,
     prefix: prefix || theme.defaultIconSet,
+    rounded,
+    squared,
+    simple: !rounded && !squared,
     ...props,
   };
 
