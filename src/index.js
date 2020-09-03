@@ -23,6 +23,7 @@ export * from "./NoItem";
 export * from "./PageLoading";
 export * from "./PageProgressBar";
 export * from "./PageTransition";
+export * from "./Pagination";
 export * from "./SearchBar";
 export * from "./ShareModule/ShareModule";
 export * from "./Spinner";

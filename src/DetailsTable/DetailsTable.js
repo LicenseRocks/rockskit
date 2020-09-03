@@ -30,7 +30,7 @@ export const DetailsTable = ({ rows, justifyBetween, ...props }) => {
       {rows.map(({ label, value }) => (
         <Row key={`${label}:${value}`} justifyBetween={justifyBetween}>
           <Label content={label} />
-          {value}
+          {value || "-"}
         </Row>
       ))}
     </Wrapper>
