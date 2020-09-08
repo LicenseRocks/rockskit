@@ -13,6 +13,7 @@ const StyledInput = styled(
   flex: 1;
   font-weight: 600;
   font-size: 14px;
+  font-family: inherit;
   line-height: 120%;
   padding: 8px;
   color: ${({ theme }) => theme.palette.text.primary};
@@ -73,6 +74,7 @@ export const FieldBase = ({
   endIconColor,
   endIconOnClick,
   endIconPrefix,
+  fixedHeight,
   hasError,
   register,
   startIcon,
@@ -88,6 +90,7 @@ export const FieldBase = ({
     endIconColor={endIconColor}
     endIconOnClick={endIconOnClick}
     endIconPrefix={endIconPrefix}
+    fixedHeight={fixedHeight}
     hasError={hasError}
     startIcon={startIcon}
     startIconColor={startIconColor}

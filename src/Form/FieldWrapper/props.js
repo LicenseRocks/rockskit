@@ -12,6 +12,7 @@ export const FieldWrapperPropTypes = {
   endIconColor: PropTypes.oneOf(THEME_COLORS),
   endIconOnClick: PropTypes.func,
   endIconPrefix: PropTypes.string,
+  fixedHeight: PropTypes.bool,
   startIcon: PropTypes.string,
   startIconColor: PropTypes.oneOf(THEME_COLORS),
   startIconOnClick: PropTypes.func,
@@ -24,6 +25,7 @@ export const FieldWrapperDefaultProps = {
   block: true,
   endIcon: "",
   endIconColor: "input",
+  fixedHeight: true,
   startIcon: "",
   startIconColor: "input",
 };
