@@ -13,4 +13,5 @@ export * from "./ReactSelect";
 export * from "./Row";
 export * from "./Select";
 export * from "./Stepper";
+export * from "./TextArea";
 export * from "./ToggleSwitch";

@@ -1,2 +1,2 @@
-// Input
-export * from "./Input";
+// TextArea
+export * from "./TextArea";

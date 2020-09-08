@@ -7,6 +7,12 @@ import "filepond/dist/filepond.min.css";
 import { DISPLAY, SPACER } from "../../theme";
 import { UploaderPreview } from "../FileUpload/UploaderPreview";
 
+const Wrapper = styled.div`
+  flex: 1;
+  width: 100%;
+  height: 100%;
+`;
+
 const Container = styled.div`
   width: 100%;
   height: 100%;
@@ -76,7 +82,7 @@ export const FilePondComponent = ({
   ...props
 }) => {
   return (
-    <>
+    <Wrapper>
       <Container disabled={disabled} hasError={hasError}>
         <StyledFilePond
           disabled={disabled}
@@ -103,7 +109,7 @@ export const FilePondComponent = ({
           onChange(value.filter((f) => f.id !== file.id));
         }}
       />
-    </>
+    </Wrapper>
   );
 };
 
