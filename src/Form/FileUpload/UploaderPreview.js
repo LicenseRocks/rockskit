@@ -9,11 +9,11 @@ const Item = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 16px;
+  padding: ${({ theme }) => theme.spacing(2, 4)};
   background-color: ${({ theme }) => theme.palette.success.main};
   color: ${({ theme }) => theme.palette.common.white};
   font-size: 12px;
-  margin-bottom: 8px;
+  margin-bottom: ${({ theme }) => theme.spacing(2)};
   border-radius: 8px;
 `;
 
@@ -28,23 +28,25 @@ function bytesToSize(bytes) {
   return `${Math.round(bytes / Math.pow(1024, i), 2)} ${sizes[i]}`;
 }
 
-export const DropzonePreview = ({ files, onRemoveClick }) => {
+export const UploaderPreview = ({ files, onRemoveClick }) => {
   return files.map((file) => (
     <Item key={file.name}>
       <div>
         <b>{file.name}</b>
         <div>{bytesToSize(file.size)}</div>
       </div>
-      <RemoveIcon icon="times" onClick={onRemoveClick} />
+      {onRemoveClick && (
+        <RemoveIcon icon="times" onClick={() => onRemoveClick(file)} />
+      )}
     </Item>
   ));
 };
 
-DropzonePreview.propTypes = {
+UploaderPreview.propTypes = {
   files: PropTypes.arrayOf(PropTypes.object),
   onRemoveClick: PropTypes.func.isRequired,
 };
 
-DropzonePreview.defaultProps = {
+UploaderPreview.defaultProps = {
   files: [],
 };

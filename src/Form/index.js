@@ -3,6 +3,7 @@ export * from "./Error";
 export * from "./FieldBase/FieldBase";
 export * from "./Fieldset";
 export * from "./FieldWrapper/FieldWrapper";
+export * from "./FilePond";
 export * from "./FileUpload";
 export * from "./Input";
 export * from "./Label";

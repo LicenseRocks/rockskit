@@ -6387,6 +6387,11 @@ filelist@^1.0.1:
   dependencies:
     minimatch "^3.0.4"
 
+filepond@^4.20.1:
+  version "4.20.1"
+  resolved "https://registry.yarnpkg.com/filepond/-/filepond-4.20.1.tgz#d0e2ce447dc785f8cc51abd207805b886090b2b7"
+  integrity sha512-qYwE/xSODJuAJH0E2BHeD8f3X66nxZ/aUQSaGhUTVXuAWe0wvIjxaRcMZUIsZm2f7truScxAe16l5ITzxi5TFw==
+
 filesize@6.0.1:
   version "6.0.1"
   resolved "https://registry.yarnpkg.com/filesize/-/filesize-6.0.1.tgz#f850b509909c7c86f7e450ea19006c31c2ed3d2f"
@@ -10751,6 +10756,11 @@ react-fast-compare@^3.0.1:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/react-fast-compare/-/react-fast-compare-3.2.0.tgz#641a9da81b6a6320f270e89724fb45a0b39e43bb"
   integrity sha512-rtGImPZ0YyLrscKI9xTpV8psd6I8VAtjKCzQDlzyDvqJA8XOW78TXYQwNRNd8g8JZnDu8q9Fu/1v4HPAVwVdHA==
+
+react-filepond@^7.0.1:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/react-filepond/-/react-filepond-7.0.1.tgz#caf96526287140884a31a1476b8328d9d6ecdee2"
+  integrity sha512-PitNM44JP0K5hXnkSYV3HRlkObsWbhqaJRWizMrdHpS3pPz9/iyiOGmRpc+4T4ST3vblmiUTLRYq/+1bDcSqQw==
 
 react-helmet-async@^1.0.2:
   version "1.0.6"
