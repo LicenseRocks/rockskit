@@ -1292,6 +1292,8 @@ var BoxPropTypes = _extends({
   headerTitleIcon: PropTypes.string,
   headerTitleIconProps: PropTypes.shape({}),
   headerTitleSize: PropTypes.string,
+  loading: PropTypes.bool,
+  loadingMessage: PropTypes.string,
   padding: PropTypes.number,
   transition: PropTypes.bool
 }, BoxBasePropTypes);
@@ -1339,9 +1341,11 @@ var Box = function Box(_ref2) {
       headerTitleIcon = _ref2.headerTitleIcon,
       headerTitleIconProps = _ref2.headerTitleIconProps,
       headerTitleSize = _ref2.headerTitleSize,
+      loading = _ref2.loading,
+      loadingMessage = _ref2.loadingMessage,
       padding = _ref2.padding,
       transition = _ref2.transition,
-      props = _objectWithoutPropertiesLoose(_ref2, ["alert", "alertColor", "children", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconProps", "headerTitleSize", "padding", "transition"]);
+      props = _objectWithoutPropertiesLoose(_ref2, ["alert", "alertColor", "children", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "padding", "transition"]);
 
   var content = /*#__PURE__*/React.createElement(React.Fragment, null, alert && /*#__PURE__*/React.createElement(Alert, {
     content: alert,
@@ -1359,7 +1363,10 @@ var Box = function Box(_ref2) {
     renderAction: footerRenderAction,
     renderTitle: footerRenderTitle
   }));
-  return /*#__PURE__*/React.createElement(BoxBase, props, headerTitle && /*#__PURE__*/React.createElement(BoxHeader, {
+  return /*#__PURE__*/React.createElement(BoxBase, props, loading && /*#__PURE__*/React.createElement(PageLoading, {
+    message: loadingMessage,
+    type: "box"
+  }), headerTitle && /*#__PURE__*/React.createElement(BoxHeader, {
     action: headerAction,
     actionIcon: headerActionIcon,
     actionIconProps: headerActionIconProps,
@@ -3381,6 +3388,28 @@ var Stepper = function Stepper(_ref) {
 Stepper.propTypes = StepperPropTypes;
 Stepper.defaultProps = StepperDefaultProps;
 
+var TextAreaPropTypes = _extends({}, FieldBasePropTypes, {
+  autoFocus: PropTypes.bool,
+  cols: PropTypes.number,
+  dir: PropTypes.oneOf(["ltr", "rtl"]),
+  rows: PropTypes.number,
+  spellCheck: PropTypes.bool,
+  tabIndex: PropTypes.number,
+  wrap: PropTypes.oneOf(["soft", "hard"])
+});
+var TextAreaDefaultProps = _extends({}, FieldBaseDefaultProps, {
+  rows: 5
+});
+
+var TextArea = function TextArea(props) {
+  return /*#__PURE__*/React.createElement(FieldBase, _extends({}, props, {
+    component: "textarea",
+    fixedHeight: false
+  }));
+};
+TextArea.propTypes = TextAreaPropTypes;
+TextArea.defaultProps = TextAreaDefaultProps;
+
 function _templateObject2$b() {
   var data = _taggedTemplateLiteralLoose(["\n  background: #fff;\n  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);\n  left: 2px;\n  position: absolute;\n  top: 2px;\n  transition: left 0.2s, transform 0.2s;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: bold;\n  font-size: 10px;\n  color: ", ";\n  text-transform: uppercase;\n  user-select: none;\n\n  ", ";\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
 
@@ -5204,8 +5233,16 @@ var NoItem = function NoItem(_ref) {
 NoItem.propTypes = NoItemPropTypes;
 NoItem.defaultProps = NoItemDefaultProps;
 
+var PageLoadingPropTypes = {
+  message: PropTypes.string,
+  type: PropTypes.oneOf(["page", "box"])
+};
+var PageLoadingDefaultProps = {
+  type: "page"
+};
+
 function _templateObject$V() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  width: ", ";\n  height: ", ";\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n"]);
 
   _templateObject$V = function _templateObject() {
     return data;
@@ -5214,14 +5251,31 @@ function _templateObject$V() {
   return data;
 }
 var StyledLoading = styled.div(_templateObject$V(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.palette.common.white;
+  var type = _ref.type;
+  return type === "page" ? "fixed" : "absolute";
+}, function (_ref2) {
+  var type = _ref2.type;
+  return type === "page" ? "100vw" : "100%";
+}, function (_ref3) {
+  var type = _ref3.type;
+  return type === "page" ? "100vh" : "100%";
+}, function (_ref4) {
+  var theme = _ref4.theme,
+      type = _ref4.type;
+  return type === "page" ? theme.palette.common.white : "rgba(0, 0, 0, 0.3)";
 });
-var PageLoading = function PageLoading(props) {
-  return /*#__PURE__*/React.createElement(StyledLoading, props, /*#__PURE__*/React.createElement(RocksSpinner, null));
+var PageLoading = function PageLoading(_ref5) {
+  var message = _ref5.message,
+      props = _objectWithoutPropertiesLoose(_ref5, ["message"]);
+
+  return /*#__PURE__*/React.createElement(StyledLoading, props, /*#__PURE__*/React.createElement(RocksSpinner, null), message && /*#__PURE__*/React.createElement(Text, {
+    content: message,
+    fontWeight: "bold",
+    mt: 4
+  }));
 };
-PageLoading.propTypes = {};
-PageLoading.defaultProps = {};
+PageLoading.propTypes = PageLoadingPropTypes;
+PageLoading.defaultProps = PageLoadingDefaultProps;
 
 var Container$5 = function Container(_ref) {
   var children = _ref.children,
@@ -6666,5 +6720,5 @@ var Wizard = function Wizard(_ref7) {
 Wizard.propTypes = WizardPropTypes;
 Wizard.defaultProps = WizardDefaultProps;
 
-export { Alert, AppContainer, AuthLayout, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FilePond, FileUpload, Flex, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, History, Icon, Image, ImageModal, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, MarketPlaceItem, MarketPlaceItemContentLoader, Modal, NoItem, OutlineButton, PageLoading, PageProgressBar, PageTransition, Pagination, Paragraph, Radio, RadioBase, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, Stepper, THEME_COLORS, Tab, Text, TextBase, TextButton, Thumbnail, ToggleSwitch, Wizard, getFormInputError, getFormRowErrors, handleScroll };
+export { Alert, AppContainer, AuthLayout, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FilePond, FileUpload, Flex, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, History, Icon, Image, ImageModal, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, MarketPlaceItem, MarketPlaceItemContentLoader, Modal, NoItem, OutlineButton, PageLoading, PageProgressBar, PageTransition, Pagination, Paragraph, Radio, RadioBase, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, Stepper, THEME_COLORS, Tab, Text, TextArea, TextBase, TextButton, Thumbnail, ToggleSwitch, Wizard, getFormInputError, getFormRowErrors, handleScroll };
 //# sourceMappingURL=rockskit.es.js.map

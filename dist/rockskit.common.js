@@ -1301,6 +1301,8 @@ var BoxPropTypes = _extends({
   headerTitleIcon: PropTypes__default.string,
   headerTitleIconProps: PropTypes__default.shape({}),
   headerTitleSize: PropTypes__default.string,
+  loading: PropTypes__default.bool,
+  loadingMessage: PropTypes__default.string,
   padding: PropTypes__default.number,
   transition: PropTypes__default.bool
 }, BoxBasePropTypes);
@@ -1348,9 +1350,11 @@ var Box = function Box(_ref2) {
       headerTitleIcon = _ref2.headerTitleIcon,
       headerTitleIconProps = _ref2.headerTitleIconProps,
       headerTitleSize = _ref2.headerTitleSize,
+      loading = _ref2.loading,
+      loadingMessage = _ref2.loadingMessage,
       padding = _ref2.padding,
       transition = _ref2.transition,
-      props = _objectWithoutPropertiesLoose(_ref2, ["alert", "alertColor", "children", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconProps", "headerTitleSize", "padding", "transition"]);
+      props = _objectWithoutPropertiesLoose(_ref2, ["alert", "alertColor", "children", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "padding", "transition"]);
 
   var content = /*#__PURE__*/React__default.createElement(React__default.Fragment, null, alert && /*#__PURE__*/React__default.createElement(Alert, {
     content: alert,
@@ -1368,7 +1372,10 @@ var Box = function Box(_ref2) {
     renderAction: footerRenderAction,
     renderTitle: footerRenderTitle
   }));
-  return /*#__PURE__*/React__default.createElement(BoxBase, props, headerTitle && /*#__PURE__*/React__default.createElement(BoxHeader, {
+  return /*#__PURE__*/React__default.createElement(BoxBase, props, loading && /*#__PURE__*/React__default.createElement(PageLoading, {
+    message: loadingMessage,
+    type: "box"
+  }), headerTitle && /*#__PURE__*/React__default.createElement(BoxHeader, {
     action: headerAction,
     actionIcon: headerActionIcon,
     actionIconProps: headerActionIconProps,
@@ -3390,6 +3397,28 @@ var Stepper = function Stepper(_ref) {
 Stepper.propTypes = StepperPropTypes;
 Stepper.defaultProps = StepperDefaultProps;
 
+var TextAreaPropTypes = _extends({}, FieldBasePropTypes, {
+  autoFocus: PropTypes__default.bool,
+  cols: PropTypes__default.number,
+  dir: PropTypes__default.oneOf(["ltr", "rtl"]),
+  rows: PropTypes__default.number,
+  spellCheck: PropTypes__default.bool,
+  tabIndex: PropTypes__default.number,
+  wrap: PropTypes__default.oneOf(["soft", "hard"])
+});
+var TextAreaDefaultProps = _extends({}, FieldBaseDefaultProps, {
+  rows: 5
+});
+
+var TextArea = function TextArea(props) {
+  return /*#__PURE__*/React__default.createElement(FieldBase, _extends({}, props, {
+    component: "textarea",
+    fixedHeight: false
+  }));
+};
+TextArea.propTypes = TextAreaPropTypes;
+TextArea.defaultProps = TextAreaDefaultProps;
+
 function _templateObject2$b() {
   var data = _taggedTemplateLiteralLoose(["\n  background: #fff;\n  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);\n  left: 2px;\n  position: absolute;\n  top: 2px;\n  transition: left 0.2s, transform 0.2s;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: bold;\n  font-size: 10px;\n  color: ", ";\n  text-transform: uppercase;\n  user-select: none;\n\n  ", ";\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
 
@@ -5213,8 +5242,16 @@ var NoItem = function NoItem(_ref) {
 NoItem.propTypes = NoItemPropTypes;
 NoItem.defaultProps = NoItemDefaultProps;
 
+var PageLoadingPropTypes = {
+  message: PropTypes__default.string,
+  type: PropTypes__default.oneOf(["page", "box"])
+};
+var PageLoadingDefaultProps = {
+  type: "page"
+};
+
 function _templateObject$V() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: fixed;\n  top: 0;\n  right: 0;\n  left: 0;\n  width: 100vw;\n  height: 100vh;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  width: ", ";\n  height: ", ";\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n"]);
 
   _templateObject$V = function _templateObject() {
     return data;
@@ -5223,14 +5260,31 @@ function _templateObject$V() {
   return data;
 }
 var StyledLoading = styled__default.div(_templateObject$V(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.palette.common.white;
+  var type = _ref.type;
+  return type === "page" ? "fixed" : "absolute";
+}, function (_ref2) {
+  var type = _ref2.type;
+  return type === "page" ? "100vw" : "100%";
+}, function (_ref3) {
+  var type = _ref3.type;
+  return type === "page" ? "100vh" : "100%";
+}, function (_ref4) {
+  var theme = _ref4.theme,
+      type = _ref4.type;
+  return type === "page" ? theme.palette.common.white : "rgba(0, 0, 0, 0.3)";
 });
-var PageLoading = function PageLoading(props) {
-  return /*#__PURE__*/React__default.createElement(StyledLoading, props, /*#__PURE__*/React__default.createElement(RocksSpinner, null));
+var PageLoading = function PageLoading(_ref5) {
+  var message = _ref5.message,
+      props = _objectWithoutPropertiesLoose(_ref5, ["message"]);
+
+  return /*#__PURE__*/React__default.createElement(StyledLoading, props, /*#__PURE__*/React__default.createElement(RocksSpinner, null), message && /*#__PURE__*/React__default.createElement(Text, {
+    content: message,
+    fontWeight: "bold",
+    mt: 4
+  }));
 };
-PageLoading.propTypes = {};
-PageLoading.defaultProps = {};
+PageLoading.propTypes = PageLoadingPropTypes;
+PageLoading.defaultProps = PageLoadingDefaultProps;
 
 var Container$5 = function Container(_ref) {
   var children = _ref.children,
@@ -6759,6 +6813,7 @@ exports.Stepper = Stepper;
 exports.THEME_COLORS = THEME_COLORS;
 exports.Tab = Tab;
 exports.Text = Text;
+exports.TextArea = TextArea;
 exports.TextBase = TextBase;
 exports.TextButton = TextButton;
 exports.Thumbnail = Thumbnail;
