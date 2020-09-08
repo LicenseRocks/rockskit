@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import { useDropzone } from "react-dropzone";
 import styled, { css } from "styled-components";
 
-import { DropzonePreview } from "./DropzonePreview";
+import { UploaderPreview } from "./UploaderPreview";
 import { DISPLAY, SPACER } from "../../theme";
 
 const StyledContainer = styled.div`
@@ -67,18 +67,9 @@ export const Dropzone = ({
   hasError,
   multiple,
   onChange,
+  value,
   ...props
 }) => {
-  const [files, setFiles] = useState(defaultValue);
-
-  useEffect(
-    () => () => {
-      // Make sure to revoke the data uris to avoid memory leaks
-      files.forEach((file) => URL.revokeObjectURL(file.preview));
-    },
-    [files]
-  );
-
   const {
     getRootProps,
     getInputProps,
@@ -96,22 +87,12 @@ export const Dropzone = ({
         })
       );
 
-      setFiles(accepted);
-
-      if (onChange) {
-        onChange(accepted);
-      }
+      onChange([...value, ...accepted]);
     },
   });
 
   const removeFile = (file) => {
-    const newFiles = [...files];
-    newFiles.splice(newFiles.indexOf(file), 1);
-    setFiles(newFiles);
-
-    if (onChange) {
-      onChange(newFiles);
-    }
+    onChange(value.filter((f) => f.preview !== file.preview));
   };
 
   return (
@@ -138,7 +119,8 @@ export const Dropzone = ({
           </>
         )}
       </DropzoneArea>
-      <DropzonePreview files={files} onRemoveClick={removeFile} />
+
+      <UploaderPreview files={value} onRemoveClick={removeFile} />
     </StyledContainer>
   );
 };
@@ -150,6 +132,7 @@ Dropzone.propTypes = {
   hasError: PropTypes.bool,
   multiple: PropTypes.bool,
   onChange: PropTypes.func,
+  value: PropTypes.arrayOf(PropTypes.shape),
 };
 
 Dropzone.defaultProps = {
@@ -159,4 +142,5 @@ Dropzone.defaultProps = {
   hasError: false,
   multiple: true,
   onChange: () => {},
+  value: [],
 };

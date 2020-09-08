@@ -1,32 +1,14 @@
 import React, { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
-import { Transition } from "react-transition-group";
 
-import { Button, Icon, OutlineButton } from "..";
+import { Button, Icon, OutlineButton, Text } from "..";
 
 const StyledContent = styled.div`
   width: 100%;
   height: 100%;
   flex: 1;
   padding: 24px 24px 24px 40px;
-  transition: all ${({ duration }) => duration / 2}ms ease-in-out;
-
-  ${({ state }) => {
-    switch (state) {
-      case "entering":
-      case "exited":
-        return css`
-          -webkit-filter: blur(1rem);
-          filter: blur(1rem);
-        `;
-      default:
-        return css`
-          -webkit-filter: blur(0);
-          filter: blur(0);
-        `;
-    }
-  }};
 `;
 
 const ActionWrapper = styled.div`
@@ -35,16 +17,6 @@ const ActionWrapper = styled.div`
   align-items: center;
   padding: 16px 0;
 `;
-
-const StepHint = styled.span`
-  font-style: italic;
-  font-weight: normal;
-  font-size: 14px;
-  color: ${({ theme }) => theme.palette.gray.medium};
-  margin-left: 8px;
-`;
-
-const duration = 500;
 
 export const WizardStepContent = ({
   children,
@@ -56,6 +28,8 @@ export const WizardStepContent = ({
   isLastStep,
   nextStepMethod,
   stepCount,
+  submitButtonDisabled,
+  submitButtonLoading,
   ...props
 }) => {
   const [mounted, setMounted] = useState(false);
@@ -67,32 +41,35 @@ export const WizardStepContent = ({
   }, []);
 
   return (
-    <Transition in={mounted} timeout={duration} unmountOnExit>
-      {(state) => (
-        <StyledContent duration={duration} state={state} {...props}>
-          {children || content}
-          <ActionWrapper>
-            <div>
-              <OutlineButton
-                color="secondary"
-                disabled={isFirstStep}
-                onClick={handlePrev}
-                px={2}
-              >
-                <Icon color="secondary" icon="arrow-left" />
-              </OutlineButton>
-              <StepHint>{`${currentStep} of ${stepCount} steps`}</StepHint>
-            </div>
-            <Button
-              content={isLastStep ? "Finish" : "Next"}
-              onClick={nextStepMethod === "button" ? handleNext : undefined}
-              type={nextStepMethod}
-              // disabled
-            />
-          </ActionWrapper>
-        </StyledContent>
-      )}
-    </Transition>
+    <StyledContent {...props}>
+      {children || content}
+      <ActionWrapper>
+        <div>
+          <OutlineButton
+            color="secondary"
+            disabled={isFirstStep}
+            icon="arrow-left"
+            iconProps={{
+              color: "secondary"
+            }}
+            noPadding
+            onClick={handlePrev}
+          />
+
+          <Text color="textSecondary" dInline fontStyle="italic" ml={2}>
+            {`${currentStep} of ${stepCount} steps`}
+          </Text>
+        </div>
+
+        <Button
+          content={isLastStep ? "Finish" : "Next"}
+          disabled={submitButtonDisabled}
+          loading={submitButtonLoading}
+          onClick={nextStepMethod === "button" ? handleNext : undefined}
+          type={nextStepMethod}
+        />
+      </ActionWrapper>
+    </StyledContent>
   );
 };
 

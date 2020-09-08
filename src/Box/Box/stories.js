@@ -19,7 +19,34 @@ export const main = () => {
     headerActionIcon: text("Header action icon", "chevron-right"),
     headerTitle: text("Header title", "Title"),
     headerTitleIcon: text("Header title icon", "box"),
+    loading: boolean("Loading", false),
+    loadingMessage: text("Loading message", "Loading... Thanks for waiting"),
   };
 
-  return <Box {...defaultProps}>Content</Box>;
+  return (
+    <Box {...defaultProps}>
+      Content
+      <br />
+      Content
+      <br />
+      Content
+      <br />
+      Content
+      <br />
+      Content
+      <br />
+      Content
+      <br />
+      Content
+      <br />
+      Content
+      <br />
+      Content
+      <br />
+      Content
+      <br />
+      Content
+      <br />
+    </Box>
+  );
 };

@@ -25,6 +25,8 @@ export const BoxPropTypes = {
   headerTitleIcon: PropTypes.string,
   headerTitleIconProps: PropTypes.shape({}),
   headerTitleSize: PropTypes.string,
+  loading: PropTypes.bool,
+  loadingMessage: PropTypes.string,
   padding: PropTypes.number,
   transition: PropTypes.bool,
   ...BoxBasePropTypes,

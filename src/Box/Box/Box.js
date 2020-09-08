@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { Alert, BoxBase, PageTransition } from "../..";
+import { Alert, BoxBase, PageLoading, PageTransition } from "../..";
 import { BoxFooter } from "./Footer";
 import { BoxHeader } from "./Header";
 import { BoxPropTypes, BoxDefaultProps } from "./props";
@@ -35,6 +35,8 @@ export const Box = ({
   headerTitleIcon,
   headerTitleIconProps,
   headerTitleSize,
+  loading,
+  loadingMessage,
   padding,
   transition,
   ...props
@@ -59,6 +61,7 @@ export const Box = ({
 
   return (
     <BoxBase {...props}>
+      {loading && <PageLoading message={loadingMessage} type="box" />}
       {headerTitle && (
         <BoxHeader
           action={headerAction}

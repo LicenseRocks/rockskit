@@ -14,9 +14,9 @@ const StyledWrapper = styled.div`
   border: 1px solid ${({ theme }) => theme.palette.gray.regular};
   padding: ${({ theme }) => theme.spacing(0, 4)};
   outline: none;
-  height: 40px;
   box-sizing: border-box;
   transition: all 100ms ease-in-out;
+  ${({ fixedHeight }) => fixedHeight && "height: 40px;"}
 
   &:focus-within {
     border: 1px solid ${({ theme }) => theme.palette.primary.main};
