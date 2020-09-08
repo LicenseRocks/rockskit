@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import { FilePond } from "react-filepond";
-import "filepond/dist/filepond.min.css";
 
 import { DISPLAY, SPACER } from "../../theme";
 import { UploaderPreview } from "../FileUpload/UploaderPreview";

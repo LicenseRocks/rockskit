@@ -27,7 +27,6 @@ var MenuItem = _interopDefault(require('@material-ui/core/MenuItem'));
 var QRCode = _interopDefault(require('qrcode.react'));
 var reactHookForm = require('react-hook-form');
 var reactFilepond = require('react-filepond');
-require('filepond/dist/filepond.min.css');
 var reactDropzone = require('react-dropzone');
 var axios = _interopDefault(require('axios'));
 var Select$1 = _interopDefault(require('react-select'));

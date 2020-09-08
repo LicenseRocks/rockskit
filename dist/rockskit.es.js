@@ -18,7 +18,6 @@ import MenuItem from '@material-ui/core/MenuItem';
 import QRCode from 'qrcode.react';
 import { Controller } from 'react-hook-form';
 import { FilePond as FilePond$1 } from 'react-filepond';
-import 'filepond/dist/filepond.min.css';
 import { useDropzone } from 'react-dropzone';
 import axios from 'axios';
 import Select$1 from 'react-select';
