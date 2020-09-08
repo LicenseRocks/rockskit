@@ -20,7 +20,7 @@ const Wrapper = styled.div`
 `;
 
 const StepsWrapper = styled.div`
-  ${({ isHorizontal }) =>
+  ${({ headerFadeColor, isHorizontal }) =>
     isHorizontal &&
     css`
       position: relative;
@@ -30,11 +30,10 @@ const StepsWrapper = styled.div`
         width: 80px;
         height: 100%;
         background: linear-gradient(
-          270deg,
-          #ffffff 0%,
+          90deg,
+          ${headerFadeColor} 0%,
           rgba(255, 255, 255, 0) 100%
         );
-        transform: rotate(-180deg);
         position: absolute;
         top: 0;
         left: 0;
@@ -48,7 +47,7 @@ const StepsWrapper = styled.div`
         height: 100%;
         background: linear-gradient(
           270deg,
-          #ffffff 0%,
+          ${headerFadeColor} 0%,
           rgba(255, 255, 255, 0) 100%
         );
         position: absolute;
@@ -140,10 +139,13 @@ const Step = styled.div`
 export const Wizard = ({
   currentStepContent,
   currentStepIndex,
+  headerFadeColor,
   nextStepMethod,
   orientation,
   setCurrentStepIndex,
   steps,
+  submitButtonDisabled,
+  submitButtonLoading,
   transitionDuration,
   ...props
 }) => {
@@ -195,12 +197,14 @@ export const Wizard = ({
       nextStepMethod={nextStepMethod}
       transitionDuration={transitionDuration}
       stepCount={stepCount}
+      submitButtonDisabled={submitButtonDisabled}
+      submitButtonLoading={submitButtonLoading}
     />
   );
 
   return (
     <Wrapper {...props}>
-      <StepsWrapper isHorizontal={isHorizontal}>
+      <StepsWrapper headerFadeColor={headerFadeColor} isHorizontal={isHorizontal}>
         <Steps isHorizontal={isHorizontal} ref={wrapperRef}>
           {steps.map((step, idx) => {
             const isActive = idx === currentStepIndex;

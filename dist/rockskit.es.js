@@ -892,7 +892,7 @@ var TextBaseDefaultProps = {
 };
 
 function _templateObject$4() {
-  var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n\n    ", "\n\n  font-style: ", ";\n\n  ", "\n  ", "\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n\n    ", "\n\n  font-style: ", ";\n\n    ", "\n    ", "\n  }\n"]);
 
   _templateObject$4 = function _templateObject() {
     return data;
@@ -6115,16 +6115,6 @@ var handleScroll = function handleScroll(el) {
   });
 };
 
-function _templateObject3$f() {
-  var data = _taggedTemplateLiteralLoose(["\n  font-style: italic;\n  font-weight: normal;\n  font-size: 14px;\n  color: ", ";\n  margin-left: 8px;\n"]);
-
-  _templateObject3$f = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject2$v() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 16px 0;\n"]);
 
@@ -6136,7 +6126,7 @@ function _templateObject2$v() {
 }
 
 function _templateObject$15() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: 24px 24px 24px 40px;\n  transition: all ", "ms ease-in-out;\n\n  ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: 24px 24px 24px 40px;\n"]);
 
   _templateObject$15 = function _templateObject() {
     return data;
@@ -6144,38 +6134,21 @@ function _templateObject$15() {
 
   return data;
 }
-var StyledContent$1 = styled.div(_templateObject$15(), function (_ref) {
-  var duration = _ref.duration;
-  return duration / 2;
-}, function (_ref2) {
-  var state = _ref2.state;
-
-  switch (state) {
-    case "entering":
-    case "exited":
-      return css(["-webkit-filter:blur(1rem);filter:blur(1rem);"]);
-
-    default:
-      return css(["-webkit-filter:blur(0);filter:blur(0);"]);
-  }
-});
+var StyledContent$1 = styled.div(_templateObject$15());
 var ActionWrapper = styled.div(_templateObject2$v());
-var StepHint = styled.span(_templateObject3$f(), function (_ref3) {
-  var theme = _ref3.theme;
-  return theme.palette.gray.medium;
-});
-var duration$1 = 500;
-var WizardStepContent = function WizardStepContent(_ref4) {
-  var children = _ref4.children,
-      content = _ref4.content,
-      currentStep = _ref4.currentStep,
-      handleNext = _ref4.handleNext,
-      handlePrev = _ref4.handlePrev,
-      isFirstStep = _ref4.isFirstStep,
-      isLastStep = _ref4.isLastStep,
-      nextStepMethod = _ref4.nextStepMethod,
-      stepCount = _ref4.stepCount,
-      props = _objectWithoutPropertiesLoose(_ref4, ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "nextStepMethod", "stepCount"]);
+var WizardStepContent = function WizardStepContent(_ref) {
+  var children = _ref.children,
+      content = _ref.content,
+      currentStep = _ref.currentStep,
+      handleNext = _ref.handleNext,
+      handlePrev = _ref.handlePrev,
+      isFirstStep = _ref.isFirstStep,
+      isLastStep = _ref.isLastStep,
+      nextStepMethod = _ref.nextStepMethod,
+      stepCount = _ref.stepCount,
+      submitButtonDisabled = _ref.submitButtonDisabled,
+      submitButtonLoading = _ref.submitButtonLoading,
+      props = _objectWithoutPropertiesLoose(_ref, ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "nextStepMethod", "stepCount", "submitButtonDisabled", "submitButtonLoading"]);
 
   var _useState = useState(false),
       mounted = _useState[0],
@@ -6187,29 +6160,27 @@ var WizardStepContent = function WizardStepContent(_ref4) {
       setMounted(false);
     };
   }, []);
-  return /*#__PURE__*/React.createElement(Transition, {
-    in: mounted,
-    timeout: duration$1,
-    unmountOnExit: true
-  }, function (state) {
-    return /*#__PURE__*/React.createElement(StyledContent$1, _extends({
-      duration: duration$1,
-      state: state
-    }, props), children || content, /*#__PURE__*/React.createElement(ActionWrapper, null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(OutlineButton, {
-      color: "secondary",
-      disabled: isFirstStep,
-      onClick: handlePrev,
-      px: 2
-    }, /*#__PURE__*/React.createElement(Icon, {
-      color: "secondary",
-      icon: "arrow-left"
-    })), /*#__PURE__*/React.createElement(StepHint, null, currentStep + " of " + stepCount + " steps")), /*#__PURE__*/React.createElement(Button, {
-      content: isLastStep ? "Finish" : "Next",
-      onClick: nextStepMethod === "button" ? handleNext : undefined,
-      type: nextStepMethod // disabled
-
-    })));
-  });
+  return /*#__PURE__*/React.createElement(StyledContent$1, props, children || content, /*#__PURE__*/React.createElement(ActionWrapper, null, /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(OutlineButton, {
+    color: "secondary",
+    disabled: isFirstStep,
+    icon: "arrow-left",
+    iconProps: {
+      color: "secondary"
+    },
+    noPadding: true,
+    onClick: handlePrev
+  }), /*#__PURE__*/React.createElement(Text, {
+    color: "textSecondary",
+    dInline: true,
+    fontStyle: "italic",
+    ml: 2
+  }, currentStep + " of " + stepCount + " steps")), /*#__PURE__*/React.createElement(Button, {
+    content: isLastStep ? "Finish" : "Next",
+    disabled: submitButtonDisabled,
+    loading: submitButtonLoading,
+    onClick: nextStepMethod === "button" ? handleNext : undefined,
+    type: nextStepMethod
+  })));
 };
 WizardStepContent.propTypes = {
   children: PropTypes.node,
@@ -6251,10 +6222,10 @@ var stepFlagBackgroundColor = function stepFlagBackgroundColor(_ref3) {
   return theme.palette.gray.regular;
 };
 
-function _templateObject3$g() {
+function _templateObject3$f() {
   var data = _taggedTemplateLiteralLoose(["\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 120%;\n  color: ", ";\n  padding-left: 8px;\n  transition: all ", "\n    ease-in-out;\n  ", "\n"]);
 
-  _templateObject3$g = function _templateObject3() {
+  _templateObject3$f = function _templateObject3() {
     return data;
   };
 
@@ -6295,7 +6266,7 @@ var Flag = styled.div(_templateObject2$w(), function (props) {
   var transitionDuration = _ref3.transitionDuration;
   return transitionDuration + "ms";
 });
-var Label$1 = styled.span(_templateObject3$g(), function (props) {
+var Label$1 = styled.span(_templateObject3$f(), function (props) {
   return stepBorderAndTitleColor(props);
 }, function (_ref4) {
   var transitionDuration = _ref4.transitionDuration;
@@ -6346,13 +6317,17 @@ WizardStepTitle.defaultProps = {
 var WizardPropTypes = _extends({
   currentStepContent: PropTypes.node.isRequired,
   currentStepIndex: PropTypes.number.isRequired,
+  headerFadeColor: PropTypes.string,
   nextStepMethod: PropTypes.oneOf(["submit", "button"]),
   orientation: PropTypes.string,
   setCurrentStepIndex: PropTypes.func.isRequired,
   steps: PropTypes.arrayOf(PropTypes.string).isRequired,
+  submitButtonDisabled: PropTypes.bool,
+  submitButtonLoading: PropTypes.bool,
   transitionDuration: PropTypes.number
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var WizardDefaultProps = {
+  headerFadeColor: "#ffffff",
   nextStepMethod: "submit",
   orientation: "horizontal",
   transitionDuration: 250
@@ -6378,10 +6353,10 @@ function _templateObject4$7() {
   return data;
 }
 
-function _templateObject3$h() {
+function _templateObject3$g() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject3$h = function _templateObject3() {
+  _templateObject3$g = function _templateObject3() {
     return data;
   };
 
@@ -6413,10 +6388,11 @@ var Wrapper$7 = styled.div(_templateObject$17(), function (theme) {
   return DISPLAY(theme);
 });
 var StepsWrapper = styled.div(_templateObject2$x(), function (_ref) {
-  var isHorizontal = _ref.isHorizontal;
-  return isHorizontal && css(["position:relative;::before{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,#ffffff 0%,rgba(255,255,255,0) 100% );transform:rotate(-180deg);position:absolute;top:0;left:0;z-index:2;}::after{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,#ffffff 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;right:0;z-index:2;}"]);
+  var headerFadeColor = _ref.headerFadeColor,
+      isHorizontal = _ref.isHorizontal;
+  return isHorizontal && css(["position:relative;::before{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 90deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;left:0;z-index:2;}::after{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;right:0;z-index:2;}"], headerFadeColor, headerFadeColor);
 });
-var Steps = styled.div(_templateObject3$h(), function (_ref2) {
+var Steps = styled.div(_templateObject3$g(), function (_ref2) {
   var isHorizontal = _ref2.isHorizontal;
   return isHorizontal && css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}"]);
 });
@@ -6440,12 +6416,15 @@ var Step = styled.div(_templateObject5$2(), StepConnector, function (_ref5) {
 var Wizard = function Wizard(_ref7) {
   var currentStepContent = _ref7.currentStepContent,
       currentStepIndex = _ref7.currentStepIndex,
+      headerFadeColor = _ref7.headerFadeColor,
       nextStepMethod = _ref7.nextStepMethod,
       orientation = _ref7.orientation,
       setCurrentStepIndex = _ref7.setCurrentStepIndex,
       steps = _ref7.steps,
+      submitButtonDisabled = _ref7.submitButtonDisabled,
+      submitButtonLoading = _ref7.submitButtonLoading,
       transitionDuration = _ref7.transitionDuration,
-      props = _objectWithoutPropertiesLoose(_ref7, ["currentStepContent", "currentStepIndex", "nextStepMethod", "orientation", "setCurrentStepIndex", "steps", "transitionDuration"]);
+      props = _objectWithoutPropertiesLoose(_ref7, ["currentStepContent", "currentStepIndex", "headerFadeColor", "nextStepMethod", "orientation", "setCurrentStepIndex", "steps", "submitButtonDisabled", "submitButtonLoading", "transitionDuration"]);
 
   var stepRef = useRef(null);
   var wrapperRef = /*#__PURE__*/createRef();
@@ -6497,9 +6476,12 @@ var Wizard = function Wizard(_ref7) {
     handlePrev: handlePrev,
     nextStepMethod: nextStepMethod,
     transitionDuration: transitionDuration,
-    stepCount: stepCount
+    stepCount: stepCount,
+    submitButtonDisabled: submitButtonDisabled,
+    submitButtonLoading: submitButtonLoading
   });
   return /*#__PURE__*/React.createElement(Wrapper$7, props, /*#__PURE__*/React.createElement(StepsWrapper, {
+    headerFadeColor: headerFadeColor,
     isHorizontal: isHorizontal
   }, /*#__PURE__*/React.createElement(Steps, {
     isHorizontal: isHorizontal,
