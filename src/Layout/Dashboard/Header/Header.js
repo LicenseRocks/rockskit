@@ -4,7 +4,10 @@ import Hidden from "@material-ui/core/Hidden";
 
 import Logo from "../../../assets/images/logo-symbol.svg";
 import { Flex, Image, TextButton } from "../../..";
-import { DashboardLayoutHeaderPropTypes } from "./props";
+import {
+  DashboardLayoutHeaderPropTypes,
+  DashboardLayoutHeaderDefaultProps,
+} from "./props";
 
 const StyledHeader = styled(Flex).attrs(() => ({
   container: true,
@@ -51,6 +54,7 @@ export const DashboardLayoutHeader = ({
   headerLeft,
   headerRight,
   logoAction,
+  renderLogo,
   ...props
 }) => {
   const backButton = (
@@ -62,7 +66,7 @@ export const DashboardLayoutHeader = ({
   return (
     <StyledHeader {...props}>
       <LogoContainer>
-        <Image alt="Logo" onClick={logoAction} src={Logo} />
+        {renderLogo() || <Image alt="Logo" onClick={logoAction} src={Logo} />}
       </LogoContainer>
 
       <Flex item md={6} xs={4}>
@@ -79,3 +83,5 @@ export const DashboardLayoutHeader = ({
 };
 
 DashboardLayoutHeader.propTypes = DashboardLayoutHeaderPropTypes;
+
+DashboardLayoutHeader.defaultProps = DashboardLayoutHeaderDefaultProps;

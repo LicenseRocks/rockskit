@@ -7,6 +7,8 @@ export const FormRowPropTypes = {
   errors: PropTypes.arrayOf(PropTypes.node).isRequired,
   fields: PropTypes.arrayOf(PropTypes.string).isRequired,
   label: PropTypes.node,
+  labelAlign: PropTypes.oneOf(["start", "center"]),
+  labelGutter: PropTypes.bool,
   show: PropTypes.bool.isRequired,
   ...SPACER_PROP_TYPES,
   ...DISPLAY_PROP_TYPES,
@@ -14,5 +16,7 @@ export const FormRowPropTypes = {
 
 export const FormRowDefaultProps = {
   label: "",
+  labelAlign: "center",
+  labelGutter: false,
   show: true,
 };

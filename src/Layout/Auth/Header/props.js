@@ -5,4 +5,9 @@ export const AuthLayoutHeaderPropTypes = {
   headerLeft: PropTypes.node,
   headerRight: PropTypes.node,
   logoAction: PropTypes.func,
+  renderLogo: PropTypes.func,
+};
+
+export const AuthLayoutHeaderDefaultProps = {
+  renderLogo: () => {},
 };

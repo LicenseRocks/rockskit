@@ -47,7 +47,7 @@ export const ExplorerLayout = ({
   if (loading) return <PageLoading />;
 
   return (
-    <MuiContainer {...props}>
+    <MuiContainer maxWidth="xl" {...props}>
       <ExplorerLayoutHeader
         logoAction={headerLogoAction}
         headerRight={headerRight}

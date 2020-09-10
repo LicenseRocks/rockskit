@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { FormError, FormLabel } from "..";
 import { FormRowPropTypes, FormRowDefaultProps } from "./props";
@@ -14,18 +14,30 @@ const StyledRow = styled.div`
     flex-wrap: wrap;
   }
 
+  ${({ labelAlign }) =>
+    labelAlign === "center" &&
+    css`
+      align-items: center;
+    `}
+
   ${(theme) => SPACER(theme)}
   ${(theme) => DISPLAY(theme)}
 `;
 
 const StyledLabel = styled(FormLabel)`
   flex: 0 0 30%;
-  padding-top: ${({ theme }) => theme.spacing(3)};
   ${({ theme }) => theme.breakpoints.down("sm")} {
     flex: 100%;
     margin-bottom: ${({ theme }) => theme.spacing(2)};
     padding-top: 0;
   }
+
+  ${({ labelAlign, labelGutter, theme }) =>
+    labelAlign === "start" &&
+    labelGutter &&
+    css`
+      padding-top: ${theme.spacing(3)};
+    `}
 `;
 
 const FieldsAndErrorsWrapper = styled.div`
@@ -49,6 +61,8 @@ export const FormRow = ({
   errors,
   fields,
   label,
+  labelAlign,
+  labelGutter,
   show,
   ...props
 }) => {
@@ -57,8 +71,12 @@ export const FormRow = ({
     : getFormRowErrors(errors, fields);
 
   return (
-    <StyledRow show={show} {...props}>
-      {label && <StyledLabel>{label}</StyledLabel>}
+    <StyledRow labelAlign={labelAlign} show={show} {...props}>
+      {label && (
+        <StyledLabel labelAlign={labelAlign} labelGutter={labelGutter}>
+          {label}
+        </StyledLabel>
+      )}
       <FieldsAndErrorsWrapper fullWidth={!label}>
         <Fields>{children}</Fields>
         {rowErrors.map((err) => (

@@ -68,11 +68,44 @@ const StyledInput = styled.input`
       cursor: default;
     }
   }
+
+  ${({ bordered, theme }) =>
+    bordered &&
+    css`
+      + label {
+        margin: 0;
+      }
+
+      + label:first-of-type {
+        margin: 0 0 0 -1px;
+      }
+
+      + label:last-of-type {
+        margin: 0 -1px 0 0;
+      }
+
+      &:checked + label {
+        border: 2px solid ${theme.palette.gray.dark};
+        border-radius: 12px;
+        height: 102%;
+      }
+    `}
 `;
 
-const StyledLabel = styled.label``;
+const StyledLabel = styled.label`
+  ${({ bordered }) =>
+    bordered &&
+    css`
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+    `}
+`;
 
 export const RadioBaseItem = ({
+  bordered,
   defaultValue,
   hasError,
   label,
@@ -91,6 +124,7 @@ export const RadioBaseItem = ({
   return (
     <>
       <StyledInput
+        bordered={bordered}
         defaultChecked={defaultChecked}
         hasError={hasError}
         id={id}
@@ -101,7 +135,9 @@ export const RadioBaseItem = ({
         value={value}
         {...props}
       />
-      <StyledLabel htmlFor={id}>{label}</StyledLabel>
+      <StyledLabel bordered={bordered} htmlFor={id}>
+        {label}
+      </StyledLabel>
     </>
   );
 };

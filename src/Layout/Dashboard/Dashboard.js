@@ -4,13 +4,13 @@ import MuiContainer from "@material-ui/core/Container";
 
 import { Flex, PageLoading } from "../..";
 import { Text } from "../../Typography";
-import { DashboardLayoutPropTypes } from ".";
+import { DashboardLayoutPropTypes, DashboardLayoutDefaultProps } from ".";
 import { DashboardLayoutNavigation } from "./Navigation";
 import { DashboardLayoutHeader } from "./Header";
 import { DashboardLayoutFooter } from "./Footer";
 
 const StyledContainer = styled(MuiContainer).attrs(() => ({
-  maxWidth: false,
+  maxWidth: "xl",
 }))`
   height: 100%;
 `;
@@ -64,6 +64,7 @@ export const DashboardLayout = ({
   headerBackButtonOnClick,
   headerLogoAction,
   headerRight,
+  headerRenderLogo,
   navigationItems,
   loading,
   sidebar,
@@ -89,6 +90,7 @@ export const DashboardLayout = ({
           headerLeft={headerLeft}
           headerRight={headerRight}
           logoAction={headerLogoAction}
+          renderLogo={headerRenderLogo}
         />
 
         <Flex
@@ -122,3 +124,5 @@ export const DashboardLayout = ({
 };
 
 DashboardLayout.propTypes = DashboardLayoutPropTypes;
+
+DashboardLayout.defaultProps = DashboardLayoutDefaultProps;

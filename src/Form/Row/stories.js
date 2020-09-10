@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { text } from "@storybook/addon-knobs";
+import { select, text } from "@storybook/addon-knobs";
 
 import { FormRow, Input } from "../..";
 import { StoryWrapper } from "../../../.storybook/decorators";
@@ -19,17 +19,17 @@ const StyledWrapper = styled.div`
 export const main = (props = {}) => {
   const defaultProps = {
     errors: [],
+    labelAlign: select("Label align", ["center", "start"], "center"),
   };
 
   return (
     <StyledWrapper width={text("Wrapper width", "50%")}>
-      <FormRow {...defaultProps}>
+      <FormRow label="Label" {...defaultProps}>
         <Input name="input1" placeholder="Input 1" />
         <Input name="input2" placeholder="Input 2" />
       </FormRow>
 
-      <FormRow {...defaultProps}>
-        <Input name="input1" placeholder="Input 1" />
+      <FormRow label="Label" {...defaultProps}>
         <RadioStory />
       </FormRow>
     </StyledWrapper>
