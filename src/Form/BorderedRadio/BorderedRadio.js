@@ -6,6 +6,7 @@ import { RadioBasePropTypes, RadioBaseDefaultProps } from "../RadioBase";
 import { DISPLAY, SPACER } from "../../theme";
 
 const Wrapper = styled.div`
+  width: ${({ block }) => (block ? "100%" : "initial")};
   border: 1px solid
     ${({ hasError, theme }) =>
       hasError ? theme.palette.error.main : theme.palette.gray.regular};
@@ -20,9 +21,9 @@ const Wrapper = styled.div`
   ${(theme) => DISPLAY(theme)}
 `;
 
-export const BorderedRadio = ({ hasError, options, ...props }) => {
+export const BorderedRadio = ({ block, hasError, options, ...props }) => {
   return (
-    <Wrapper hasError={hasError}>
+    <Wrapper block={block} hasError={hasError}>
       {options.map((opt) => {
         return (
           <RadioBaseItem

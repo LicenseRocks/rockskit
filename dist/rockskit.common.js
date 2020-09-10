@@ -2324,6 +2324,7 @@ FileManager.defaultProps = FileManagerDefaultProps;
 const img = "data:image/svg+xml,%3csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.5938 0.625L5.375 8.84375L2.375 5.8125C2.21875 5.6875 1.96875 5.6875 1.84375 5.8125L0.9375 6.71875C0.8125 6.84375 0.8125 7.09375 0.9375 7.25L5.125 11.4062C5.28125 11.5625 5.5 11.5625 5.65625 11.4062L15.0312 2.03125C15.1562 1.90625 15.1562 1.65625 15.0312 1.5L14.125 0.625C14 0.46875 13.75 0.46875 13.5938 0.625Z' fill='white'/%3e%3c/svg%3e";
 
 var RadioBasePropTypes = _extends({
+  block: PropTypes__default.bool,
   defaultValue: PropTypes__default.oneOfType([PropTypes__default.arrayOf(PropTypes__default.string), PropTypes__default.string]),
   hasError: PropTypes__default.bool,
   name: PropTypes__default.string,
@@ -2335,6 +2336,7 @@ var RadioBasePropTypes = _extends({
   stacked: PropTypes__default.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var RadioBaseDefaultProps = {
+  block: true,
   defaultValue: "",
   hasError: false,
   name: "radio",
@@ -2446,7 +2448,7 @@ RadioBase.propTypes = RadioBasePropTypes;
 RadioBase.defaultProps = RadioBaseDefaultProps;
 
 function _templateObject$q() {
-  var data = _taggedTemplateLiteralLoose(["\n  border: 1px solid\n    ", ";\n  border-radius: 12px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 100ms ease-in-out;\n\n  ", "\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n  border: 1px solid\n    ", ";\n  border-radius: 12px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 100ms ease-in-out;\n\n  ", "\n  ", "\n"]);
 
   _templateObject$q = function _templateObject() {
     return data;
@@ -2455,20 +2457,25 @@ function _templateObject$q() {
   return data;
 }
 var Wrapper$4 = styled__default.div(_templateObject$q(), function (_ref) {
-  var hasError = _ref.hasError,
-      theme = _ref.theme;
+  var block = _ref.block;
+  return block ? "100%" : "initial";
+}, function (_ref2) {
+  var hasError = _ref2.hasError,
+      theme = _ref2.theme;
   return hasError ? theme.palette.error.main : theme.palette.gray.regular;
 }, function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var BorderedRadio = function BorderedRadio(_ref2) {
-  var hasError = _ref2.hasError,
-      options = _ref2.options,
-      props = _objectWithoutPropertiesLoose(_ref2, ["hasError", "options"]);
+var BorderedRadio = function BorderedRadio(_ref3) {
+  var block = _ref3.block,
+      hasError = _ref3.hasError,
+      options = _ref3.options,
+      props = _objectWithoutPropertiesLoose(_ref3, ["block", "hasError", "options"]);
 
   return /*#__PURE__*/React__default.createElement(Wrapper$4, {
+    block: block,
     hasError: hasError
   }, options.map(function (opt) {
     return /*#__PURE__*/React__default.createElement(RadioBaseItem, _extends({

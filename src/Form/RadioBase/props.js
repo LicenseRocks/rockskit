@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { DISPLAY_PROP_TYPES, SPACER_PROP_TYPES } from "../../theme";
 
 export const RadioBasePropTypes = {
+  block: PropTypes.bool,
   defaultValue: PropTypes.oneOfType([
     PropTypes.arrayOf(PropTypes.string),
     PropTypes.string,
@@ -22,6 +23,7 @@ export const RadioBasePropTypes = {
 };
 
 export const RadioBaseDefaultProps = {
+  block: true,
   defaultValue: "",
   hasError: false,
   name: "radio",
