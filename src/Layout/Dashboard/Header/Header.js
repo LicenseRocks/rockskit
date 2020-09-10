@@ -54,6 +54,7 @@ export const DashboardLayoutHeader = ({
   headerLeft,
   headerRight,
   logoAction,
+  logoSrc,
   renderLogo,
   ...props
 }) => {
@@ -66,7 +67,9 @@ export const DashboardLayoutHeader = ({
   return (
     <StyledHeader {...props}>
       <LogoContainer>
-        {renderLogo() || <Image alt="Logo" onClick={logoAction} src={Logo} />}
+        {renderLogo() || (
+          <Image alt="Logo" onClick={logoAction} src={logoSrc || Logo} />
+        )}
       </LogoContainer>
 
       <Flex item md={6} xs={4}>

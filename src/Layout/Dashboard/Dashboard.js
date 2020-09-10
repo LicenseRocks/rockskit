@@ -63,6 +63,7 @@ export const DashboardLayout = ({
   headerLeft,
   headerBackButtonOnClick,
   headerLogoAction,
+  headerLogoSrc,
   headerRight,
   headerRenderLogo,
   navigationItems,
@@ -90,6 +91,7 @@ export const DashboardLayout = ({
           headerLeft={headerLeft}
           headerRight={headerRight}
           logoAction={headerLogoAction}
+          logoSrc={headerLogoSrc}
           renderLogo={headerRenderLogo}
         />
 

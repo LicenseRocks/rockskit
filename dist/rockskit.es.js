@@ -4041,6 +4041,7 @@ var AuthLayoutHeaderPropTypes = {
   headerLeft: PropTypes.node,
   headerRight: PropTypes.node,
   logoAction: PropTypes.func,
+  logoSrc: PropTypes.string,
   renderLogo: PropTypes.func
 };
 var AuthLayoutHeaderDefaultProps = {
@@ -4094,8 +4095,7 @@ var Item$3 = styled(Flex).attrs(function () {
 })(_templateObject2$d());
 var StyledLogo = styled(Image).attrs(function () {
   return {
-    alt: "Logo",
-    src: img$1
+    alt: "Logo"
   };
 })(_templateObject3$7());
 var AuthLayoutHeader = function AuthLayoutHeader(_ref2) {
@@ -4103,8 +4103,9 @@ var AuthLayoutHeader = function AuthLayoutHeader(_ref2) {
       headerLeft = _ref2.headerLeft,
       headerRight = _ref2.headerRight,
       logoAction = _ref2.logoAction,
+      logoSrc = _ref2.logoSrc,
       renderLogo = _ref2.renderLogo,
-      props = _objectWithoutPropertiesLoose(_ref2, ["backButtonOnClick", "headerLeft", "headerRight", "logoAction", "renderLogo"]);
+      props = _objectWithoutPropertiesLoose(_ref2, ["backButtonOnClick", "headerLeft", "headerRight", "logoAction", "logoSrc", "renderLogo"]);
 
   var backButton = /*#__PURE__*/React.createElement(TextButton, {
     color: "secondary",
@@ -4114,6 +4115,7 @@ var AuthLayoutHeader = function AuthLayoutHeader(_ref2) {
   return /*#__PURE__*/React.createElement(StyledHeader, props, /*#__PURE__*/React.createElement(Item$3, null, headerLeft || backButton), /*#__PURE__*/React.createElement(Item$3, {
     justify: "center"
   }, renderLogo() || /*#__PURE__*/React.createElement(StyledLogo, {
+    src: logoSrc || img$1,
     onClick: logoAction
   })), /*#__PURE__*/React.createElement(Item$3, {
     justify: "flex-end"
@@ -4127,6 +4129,7 @@ var AuthLayoutPropTypes = {
   headerBackButtonOnClick: PropTypes.func,
   headerLeft: PropTypes.node,
   headerLogoAction: PropTypes.func,
+  headerLogoSrc: PropTypes.string,
   headerRight: PropTypes.node,
   headerRenderLogo: PropTypes.func,
   loading: PropTypes.bool
@@ -4165,10 +4168,11 @@ var AuthLayout = function AuthLayout(_ref2) {
       headerLeft = _ref2.headerLeft,
       headerBackButtonOnClick = _ref2.headerBackButtonOnClick,
       headerLogoAction = _ref2.headerLogoAction,
+      headerLogoSrc = _ref2.headerLogoSrc,
       headerRight = _ref2.headerRight,
       headerRenderLogo = _ref2.headerRenderLogo,
       loading = _ref2.loading,
-      props = _objectWithoutPropertiesLoose(_ref2, ["content", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerRight", "headerRenderLogo", "loading"]);
+      props = _objectWithoutPropertiesLoose(_ref2, ["content", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "loading"]);
 
   if (loading) return /*#__PURE__*/React.createElement(PageLoading, null);
   return /*#__PURE__*/React.createElement(StyledContainer$1, props, /*#__PURE__*/React.createElement(Flex, {
@@ -4180,8 +4184,9 @@ var AuthLayout = function AuthLayout(_ref2) {
   }, /*#__PURE__*/React.createElement(AuthLayoutHeader, {
     backButtonOnClick: headerBackButtonOnClick,
     headerLeft: headerLeft,
-    headerLogoAction: headerLogoAction,
     headerRight: headerRight,
+    logoAction: headerLogoAction,
+    logoSrc: headerLogoSrc,
     renderLogo: headerRenderLogo
   }), /*#__PURE__*/React.createElement(Content$1, null, content)));
 };
@@ -4193,6 +4198,7 @@ var DashboardLayoutHeaderPropTypes = {
   headerLeft: PropTypes.node,
   headerRight: PropTypes.node,
   logoAction: PropTypes.func,
+  logoSrc: PropTypes.string,
   renderLogo: PropTypes.func
 };
 var DashboardLayoutHeaderDefaultProps = {
@@ -4267,8 +4273,9 @@ var DashboardLayoutHeader = function DashboardLayoutHeader(_ref4) {
       headerLeft = _ref4.headerLeft,
       headerRight = _ref4.headerRight,
       logoAction = _ref4.logoAction,
+      logoSrc = _ref4.logoSrc,
       renderLogo = _ref4.renderLogo,
-      props = _objectWithoutPropertiesLoose(_ref4, ["backButtonOnClick", "headerLeft", "headerRight", "logoAction", "renderLogo"]);
+      props = _objectWithoutPropertiesLoose(_ref4, ["backButtonOnClick", "headerLeft", "headerRight", "logoAction", "logoSrc", "renderLogo"]);
 
   var backButton = /*#__PURE__*/React.createElement(TextButton, {
     color: "secondary",
@@ -4279,7 +4286,7 @@ var DashboardLayoutHeader = function DashboardLayoutHeader(_ref4) {
   return /*#__PURE__*/React.createElement(StyledHeader$1, props, /*#__PURE__*/React.createElement(LogoContainer, null, renderLogo() || /*#__PURE__*/React.createElement(Image, {
     alt: "Logo",
     onClick: logoAction,
-    src: img$1
+    src: logoSrc || img$1
   })), /*#__PURE__*/React.createElement(Flex, {
     item: true,
     md: 6,
@@ -4300,6 +4307,7 @@ var DashboardLayoutPropTypes = {
   headerBackButtonOnClick: PropTypes.func,
   headerLeft: PropTypes.node,
   headerLogoAction: PropTypes.func,
+  headerLogoSrc: PropTypes.string,
   headerRight: PropTypes.node,
   headerRenderLogo: PropTypes.func,
   loading: PropTypes.bool,
@@ -4731,6 +4739,7 @@ var DashboardLayout = function DashboardLayout(_ref6) {
       headerLeft = _ref6.headerLeft,
       headerBackButtonOnClick = _ref6.headerBackButtonOnClick,
       headerLogoAction = _ref6.headerLogoAction,
+      headerLogoSrc = _ref6.headerLogoSrc,
       headerRight = _ref6.headerRight,
       headerRenderLogo = _ref6.headerRenderLogo,
       navigationItems = _ref6.navigationItems,
@@ -4738,7 +4747,7 @@ var DashboardLayout = function DashboardLayout(_ref6) {
       sidebar = _ref6.sidebar,
       userMenuItems = _ref6.userMenuItems,
       userMenuOnClick = _ref6.userMenuOnClick,
-      props = _objectWithoutPropertiesLoose(_ref6, ["content", "footerContent", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerRight", "headerRenderLogo", "navigationItems", "loading", "sidebar", "userMenuItems", "userMenuOnClick"]);
+      props = _objectWithoutPropertiesLoose(_ref6, ["content", "footerContent", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "navigationItems", "loading", "sidebar", "userMenuItems", "userMenuOnClick"]);
 
   if (loading) return /*#__PURE__*/React.createElement(PageLoading, null);
   return /*#__PURE__*/React.createElement(StyledContainer$2, props, /*#__PURE__*/React.createElement(Flex, {
@@ -4754,6 +4763,7 @@ var DashboardLayout = function DashboardLayout(_ref6) {
     headerLeft: headerLeft,
     headerRight: headerRight,
     logoAction: headerLogoAction,
+    logoSrc: headerLogoSrc,
     renderLogo: headerRenderLogo
   }), /*#__PURE__*/React.createElement(Flex, {
     item: true,

@@ -22,6 +22,7 @@ export const AuthLayout = ({
   headerLeft,
   headerBackButtonOnClick,
   headerLogoAction,
+  headerLogoSrc,
   headerRight,
   headerRenderLogo,
   loading,
@@ -35,8 +36,9 @@ export const AuthLayout = ({
         <AuthLayoutHeader
           backButtonOnClick={headerBackButtonOnClick}
           headerLeft={headerLeft}
-          headerLogoAction={headerLogoAction}
           headerRight={headerRight}
+          logoAction={headerLogoAction}
+          logoSrc={headerLogoSrc}
           renderLogo={headerRenderLogo}
         />
 

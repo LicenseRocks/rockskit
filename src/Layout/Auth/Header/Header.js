@@ -28,7 +28,6 @@ const Item = styled(Flex).attrs(() => ({
 
 const StyledLogo = styled(Image).attrs(() => ({
   alt: "Logo",
-  src: Logo,
 }))`
   width: 48px;
   height: 48px;
@@ -39,6 +38,7 @@ export const AuthLayoutHeader = ({
   headerLeft,
   headerRight,
   logoAction,
+  logoSrc,
   renderLogo,
   ...props
 }) => {
@@ -52,7 +52,9 @@ export const AuthLayoutHeader = ({
     <StyledHeader {...props}>
       <Item>{headerLeft || backButton}</Item>
       <Item justify="center">
-        {renderLogo() || <StyledLogo onClick={logoAction} />}
+        {renderLogo() || (
+          <StyledLogo src={logoSrc || Logo} onClick={logoAction} />
+        )}
       </Item>
       <Item justify="flex-end">{headerRight}</Item>
     </StyledHeader>

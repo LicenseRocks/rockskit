@@ -5,6 +5,7 @@ export const DashboardLayoutHeaderPropTypes = {
   headerLeft: PropTypes.node,
   headerRight: PropTypes.node,
   logoAction: PropTypes.func,
+  logoSrc: PropTypes.string,
   renderLogo: PropTypes.func,
 };
 
