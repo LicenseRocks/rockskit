@@ -3,11 +3,11 @@ import { boolean } from "@storybook/addon-knobs";
 import { useForm } from "react-hook-form";
 
 import { StoryWrapper } from "../../../.storybook/decorators";
-import { Radio } from "./Radio";
+import { BorderedRadio } from "./BorderedRadio";
 
 export default {
-  title: "Form/Radio",
-  component: Radio,
+  title: "Form/BorderedRadio",
+  component: BorderedRadio,
   decorators: [StoryWrapper],
 };
 
@@ -24,11 +24,10 @@ export const main = () => {
       { value: "third", label: "Third" },
     ],
     register,
-    stacked: boolean("Stacked", true),
   };
 
   const values = watch();
   console.log("values: ", values);
 
-  return <Radio {...defaultProps} />;
+  return <BorderedRadio {...defaultProps} />;
 };

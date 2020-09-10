@@ -4,10 +4,13 @@ import Drawer from "@material-ui/core/Drawer";
 import Fab from "@material-ui/core/Fab";
 import Hidden from "@material-ui/core/Hidden";
 
-import { Icon, TextButton } from "../../..";
+import { Icon } from "../../..";
 import { NavigationMenu } from "./NavigationMenu";
 import { UserMenu } from "./UserMenu";
-import { DashboardLayoutNavigationPropTypes } from "./props";
+import {
+  DashboardLayoutNavigationPropTypes,
+  DashboardLayoutNavigationDefaultProps,
+} from "./props";
 
 const MainNav = styled.div`
   display: flex;
@@ -90,3 +93,5 @@ export const DashboardLayoutNavigation = ({
 };
 
 DashboardLayoutNavigation.propTypes = DashboardLayoutNavigationPropTypes;
+
+DashboardLayoutNavigation.defaultProps = DashboardLayoutNavigationDefaultProps;

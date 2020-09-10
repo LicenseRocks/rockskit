@@ -4,7 +4,7 @@ import MuiContainer from "@material-ui/core/Container";
 
 import { Flex, PageLoading } from "../..";
 import { Text } from "../../Typography";
-import { DashboardLayoutPropTypes } from ".";
+import { DashboardLayoutPropTypes, DashboardLayoutDefaultProps } from ".";
 import { DashboardLayoutNavigation } from "./Navigation";
 import { DashboardLayoutHeader } from "./Header";
 import { DashboardLayoutFooter } from "./Footer";
@@ -122,3 +122,5 @@ export const DashboardLayout = ({
 };
 
 DashboardLayout.propTypes = DashboardLayoutPropTypes;
+
+DashboardLayout.defaultProps = DashboardLayoutDefaultProps;
