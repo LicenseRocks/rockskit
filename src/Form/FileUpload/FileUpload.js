@@ -13,7 +13,7 @@ export const FileUpload = ({
 }) => {
   return (
     <Controller
-      as={<Dropzone defaultValue={defaultValue} {...props} />}
+      as={<Dropzone {...props} />}
       control={control}
       defaultValue={defaultValue}
       name={name}
