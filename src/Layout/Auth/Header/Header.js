@@ -3,7 +3,10 @@ import styled from "styled-components";
 
 import Logo from "../../../assets/images/logo-symbol.svg";
 import { Flex, Image, TextButton } from "../../..";
-import { AuthLayoutHeaderPropTypes } from "./props";
+import {
+  AuthLayoutHeaderPropTypes,
+  AuthLayoutHeaderDefaultProps,
+} from "./props";
 
 const StyledHeader = styled(Flex).attrs(() => ({
   container: true,
@@ -14,6 +17,13 @@ const StyledHeader = styled(Flex).attrs(() => ({
   ${({ theme }) => theme.breakpoints.down("md")} {
     flex: 0 0 96px;
   }
+`;
+
+const Item = styled(Flex).attrs(() => ({
+  container: true,
+  item: true,
+}))`
+  flex: 1%;
 `;
 
 const StyledLogo = styled(Image).attrs(() => ({
@@ -29,6 +39,7 @@ export const AuthLayoutHeader = ({
   headerLeft,
   headerRight,
   logoAction,
+  renderLogo,
   ...props
 }) => {
   const backButton = (
@@ -39,13 +50,15 @@ export const AuthLayoutHeader = ({
 
   return (
     <StyledHeader {...props}>
-      <Flex item>{headerLeft || backButton}</Flex>
-      <Flex item>
-        <StyledLogo onClick={logoAction} />
-      </Flex>
-      <Flex item>{headerRight}</Flex>
+      <Item>{headerLeft || backButton}</Item>
+      <Item justify="center">
+        {renderLogo() || <StyledLogo onClick={logoAction} />}
+      </Item>
+      <Item justify="flex-end">{headerRight}</Item>
     </StyledHeader>
   );
 };
 
 AuthLayoutHeader.propTypes = AuthLayoutHeaderPropTypes;
+
+AuthLayoutHeader.defaultProps = AuthLayoutHeaderDefaultProps;

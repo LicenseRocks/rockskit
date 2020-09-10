@@ -5,7 +5,9 @@ import MuiContainer from "@material-ui/core/Container";
 import { Flex, PageLoading } from "../..";
 import { AuthLayoutHeader, AuthLayoutPropTypes } from ".";
 
-const StyledContainer = styled(MuiContainer)`
+const StyledContainer = styled(MuiContainer).attrs(() => ({
+  maxWidth: "xs",
+}))`
   height: 100%;
 `;
 
@@ -21,6 +23,7 @@ export const AuthLayout = ({
   headerBackButtonOnClick,
   headerLogoAction,
   headerRight,
+  headerRenderLogo,
   loading,
   ...props
 }) => {
@@ -28,21 +31,13 @@ export const AuthLayout = ({
 
   return (
     <StyledContainer {...props}>
-      <Flex
-        container
-        direction="column"
-        lg={5}
-        md={8}
-        xs={12}
-        mAuto
-        h100
-        wrap="nowrap"
-      >
+      <Flex container direction="column" mAuto h100 wrap="nowrap">
         <AuthLayoutHeader
           backButtonOnClick={headerBackButtonOnClick}
           headerLeft={headerLeft}
           headerLogoAction={headerLogoAction}
           headerRight={headerRight}
+          renderLogo={headerRenderLogo}
         />
 
         <Content>{content}</Content>
