@@ -67,6 +67,7 @@ export const ModernHorizontalItem = ({
   actionTitle,
   badges,
   coverSrc,
+  coverPlaceholderSrc,
   dataCy,
   details,
   highlight,
@@ -85,7 +86,7 @@ export const ModernHorizontalItem = ({
   const Item = () => (
     <>
       <StyledMarketPlaceItem data-cy={dataCy} {...props}>
-        <Cover imgSrc={coverSrc} />
+        <Cover imgSrc={coverSrc} placeholderSrc={coverPlaceholderSrc} />
 
         <Content>
           <Flex item xs={12} md={7} lg={8} pl={4}>

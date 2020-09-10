@@ -17,7 +17,7 @@ export default {
 
 export const main = () => {
   const defaultProps = {
-    coverSrc: "https://source.unsplash.com/featured?technology",
+    // coverSrc: "https://source.unsplash.com/featured?technology",
     badges: [
       {
         label: "Badge",
@@ -43,15 +43,11 @@ export const main = () => {
     megaTitle: "LIM MIRYANG",
     subTitle: "Size: 32 W x 25.5 H x 1 in",
     title: "Shooting",
-    type: select(
-      "Type",
-      ["legacy", "modern", "modernHorizontal"],
-      "modernHorizontal"
-    ),
+    type: select("Type", ["legacy", "modern", "modernHorizontal"], "modern"),
   };
 
   return (
-    <StyledWrapper width={text("Wrapper width", "100%")}>
+    <StyledWrapper width={text("Wrapper width", "240px")}>
       <MarketPlaceItem {...defaultProps} />
     </StyledWrapper>
   );

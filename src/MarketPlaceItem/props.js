@@ -9,6 +9,8 @@ export const MarketPlaceItemPropTypes = {
       color: PropTypes.string,
     })
   ),
+  coverSrc: PropTypes.string,
+  coverPlaceholderSrc: PropTypes.string,
   details: PropTypes.array,
   hoverEffect: PropTypes.bool,
   iconColor: PropTypes.string,

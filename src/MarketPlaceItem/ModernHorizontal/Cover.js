@@ -36,19 +36,21 @@ const StyledImage = styled(Image)`
   z-index: 2;
 `;
 
-export const Cover = ({ imgSrc, ...props }) => {
+export const Cover = ({ imgSrc, placeholderSrc, ...props }) => {
   return (
     <Wrapper {...props}>
-      <BGImage imgSrc={imgSrc} />
-      <StyledImage src={imgSrc} />
+      <BGImage imgSrc={imgSrc || placeholderSrc} />
+      <StyledImage src={imgSrc || placeholderSrc} />
     </Wrapper>
   );
 };
 
 Cover.propTypes = {
   imgSrc: PropTypes.string,
+  placeholderSrc: PropTypes.string,
 };
 
 Cover.defaultProps = {
   imgSrc: "",
+  placeholderSrc: "",
 };

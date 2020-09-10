@@ -4995,6 +4995,8 @@ var MarketPlaceItemPropTypes = {
     label: PropTypes__default.string,
     color: PropTypes__default.string
   })),
+  coverSrc: PropTypes__default.string,
+  coverPlaceholderSrc: PropTypes__default.string,
   details: PropTypes__default.array,
   hoverEffect: PropTypes__default.bool,
   iconColor: PropTypes__default.string,
@@ -5186,19 +5188,22 @@ var BGImage = styled__default.div(_templateObject2$m(), function (_ref) {
 var StyledImage = styled__default(Image)(_templateObject3$c());
 var Cover = function Cover(_ref2) {
   var imgSrc = _ref2.imgSrc,
-      props = _objectWithoutPropertiesLoose(_ref2, ["imgSrc"]);
+      placeholderSrc = _ref2.placeholderSrc,
+      props = _objectWithoutPropertiesLoose(_ref2, ["imgSrc", "placeholderSrc"]);
 
   return /*#__PURE__*/React__default.createElement(Wrapper$7, props, /*#__PURE__*/React__default.createElement(BGImage, {
-    imgSrc: imgSrc
+    imgSrc: imgSrc || placeholderSrc
   }), /*#__PURE__*/React__default.createElement(StyledImage, {
-    src: imgSrc
+    src: imgSrc || placeholderSrc
   }));
 };
 Cover.propTypes = {
-  imgSrc: PropTypes__default.string
+  imgSrc: PropTypes__default.string,
+  placeholderSrc: PropTypes__default.string
 };
 Cover.defaultProps = {
-  imgSrc: ""
+  imgSrc: "",
+  placeholderSrc: ""
 };
 
 function _templateObject4$6() {
@@ -5259,6 +5264,7 @@ var Highlight = styled__default.div(_templateObject4$6(), function (_ref4) {
 var ModernItem = function ModernItem(_ref5) {
   var badges = _ref5.badges,
       coverSrc = _ref5.coverSrc,
+      coverPlaceholderSrc = _ref5.coverPlaceholderSrc,
       dataCy = _ref5.dataCy,
       details = _ref5.details,
       highlight = _ref5.highlight,
@@ -5266,13 +5272,14 @@ var ModernItem = function ModernItem(_ref5) {
       subTitle = _ref5.subTitle,
       title = _ref5.title,
       Wrapper = _ref5.Wrapper,
-      props = _objectWithoutPropertiesLoose(_ref5, ["badges", "coverSrc", "dataCy", "details", "highlight", "megaTitle", "subTitle", "title", "Wrapper"]);
+      props = _objectWithoutPropertiesLoose(_ref5, ["badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "subTitle", "title", "Wrapper"]);
 
   var Item = function Item() {
     return /*#__PURE__*/React__default.createElement(StyledMarketPlaceItem$1, _extends({
       "data-cy": dataCy
     }, props), /*#__PURE__*/React__default.createElement(Cover, {
-      imgSrc: coverSrc
+      imgSrc: coverSrc,
+      placeholderSrc: coverPlaceholderSrc
     }), highlight && /*#__PURE__*/React__default.createElement(Highlight, null, /*#__PURE__*/React__default.createElement(Text, {
       colorWhite: true,
       content: highlight,
@@ -5349,19 +5356,22 @@ var BGImage$1 = styled__default.div(_templateObject2$o(), function (_ref) {
 var StyledImage$1 = styled__default(Image)(_templateObject3$e());
 var Cover$1 = function Cover(_ref2) {
   var imgSrc = _ref2.imgSrc,
-      props = _objectWithoutPropertiesLoose(_ref2, ["imgSrc"]);
+      placeholderSrc = _ref2.placeholderSrc,
+      props = _objectWithoutPropertiesLoose(_ref2, ["imgSrc", "placeholderSrc"]);
 
   return /*#__PURE__*/React__default.createElement(Wrapper$8, props, /*#__PURE__*/React__default.createElement(BGImage$1, {
-    imgSrc: imgSrc
+    imgSrc: imgSrc || placeholderSrc
   }), /*#__PURE__*/React__default.createElement(StyledImage$1, {
-    src: imgSrc
+    src: imgSrc || placeholderSrc
   }));
 };
 Cover$1.propTypes = {
-  imgSrc: PropTypes__default.string
+  imgSrc: PropTypes__default.string,
+  placeholderSrc: PropTypes__default.string
 };
 Cover$1.defaultProps = {
-  imgSrc: ""
+  imgSrc: "",
+  placeholderSrc: ""
 };
 
 function _templateObject3$f() {
@@ -5423,6 +5433,7 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
       actionTitle = _ref6.actionTitle,
       badges = _ref6.badges,
       coverSrc = _ref6.coverSrc,
+      coverPlaceholderSrc = _ref6.coverPlaceholderSrc,
       dataCy = _ref6.dataCy,
       details = _ref6.details,
       highlight = _ref6.highlight,
@@ -5432,7 +5443,7 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
       subTitle = _ref6.subTitle,
       title = _ref6.title,
       Wrapper = _ref6.Wrapper,
-      props = _objectWithoutPropertiesLoose(_ref6, ["ActionWrapper", "action", "actionTitle", "badges", "coverSrc", "dataCy", "details", "highlight", "megaTitle", "price", "priceLabel", "subTitle", "title", "Wrapper"]);
+      props = _objectWithoutPropertiesLoose(_ref6, ["ActionWrapper", "action", "actionTitle", "badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "price", "priceLabel", "subTitle", "title", "Wrapper"]);
 
   var actionButton = /*#__PURE__*/React__default.createElement(Button, {
     block: true,
@@ -5445,7 +5456,8 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
     return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(StyledMarketPlaceItem$2, _extends({
       "data-cy": dataCy
     }, props), /*#__PURE__*/React__default.createElement(Cover$1, {
-      imgSrc: coverSrc
+      imgSrc: coverSrc,
+      placeholderSrc: coverPlaceholderSrc
     }), /*#__PURE__*/React__default.createElement(Content$6, null, /*#__PURE__*/React__default.createElement(Flex, {
       item: true,
       xs: 12,

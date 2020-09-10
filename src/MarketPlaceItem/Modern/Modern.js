@@ -53,6 +53,7 @@ const Highlight = styled.div`
 export const ModernItem = ({
   badges,
   coverSrc,
+  coverPlaceholderSrc,
   dataCy,
   details,
   highlight,
@@ -64,7 +65,7 @@ export const ModernItem = ({
 }) => {
   const Item = () => (
     <StyledMarketPlaceItem data-cy={dataCy} {...props}>
-      <Cover imgSrc={coverSrc} />
+      <Cover imgSrc={coverSrc} placeholderSrc={coverPlaceholderSrc} />
 
       {highlight && (
         <Highlight>
