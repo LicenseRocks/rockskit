@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { text } from "@storybook/addon-knobs";
+import { select, text } from "@storybook/addon-knobs";
 
 import { StoryWrapper } from "../../.storybook/decorators";
 import { H3, MarketPlaceItem } from "..";
@@ -31,10 +31,6 @@ export const main = () => {
     ],
     details: [
       {
-        label: "Last updated",
-        value: "4 Feb",
-      },
-      {
         label: "Creator",
         value: "Majid",
       },
@@ -47,10 +43,15 @@ export const main = () => {
     megaTitle: "LIM MIRYANG",
     subTitle: "Size: 32 W x 25.5 H x 1 in",
     title: "Shooting",
+    type: select(
+      "Type",
+      ["legacy", "modern", "modernHorizontal"],
+      "modernHorizontal"
+    ),
   };
 
   return (
-    <StyledWrapper width={text("Wrapper width", "240px")}>
+    <StyledWrapper width={text("Wrapper width", "100%")}>
       <MarketPlaceItem {...defaultProps} />
     </StyledWrapper>
   );

@@ -12,7 +12,6 @@ const StyledMarketPlaceItem = styled(BoxBase)`
   border-radius: 8px;
   overflow: hidden;
   min-height: 360px;
-  margin-top: ${({ theme }) => theme.spacing(10)};
   width: 100%;
   display: flex;
   flex-direction: column;
