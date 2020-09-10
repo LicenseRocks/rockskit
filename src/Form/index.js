@@ -1,3 +1,4 @@
+export * from "./BorderedRadio";
 export * from "./Checkbox";
 export * from "./Error";
 export * from "./FieldBase/FieldBase";

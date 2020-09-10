@@ -2437,7 +2437,7 @@ RadioBase.propTypes = RadioBasePropTypes;
 RadioBase.defaultProps = RadioBaseDefaultProps;
 
 function _templateObject$q() {
-  var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  border: 1px solid\n    ", ";\n  border-radius: 12px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 100ms ease-in-out;\n\n  ", "\n  ", "\n"]);
 
   _templateObject$q = function _templateObject() {
     return data;
@@ -2445,7 +2445,46 @@ function _templateObject$q() {
 
   return data;
 }
-var StyledRadioBase = styled(RadioBase)(_templateObject$q(), function (theme) {
+var Wrapper$4 = styled.div(_templateObject$q(), function (_ref) {
+  var hasError = _ref.hasError,
+      theme = _ref.theme;
+  return hasError ? theme.palette.error.main : theme.palette.gray.regular;
+}, function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
+var BorderedRadio = function BorderedRadio(_ref2) {
+  var hasError = _ref2.hasError,
+      options = _ref2.options,
+      props = _objectWithoutPropertiesLoose(_ref2, ["hasError", "options"]);
+
+  return /*#__PURE__*/React.createElement(Wrapper$4, {
+    hasError: hasError
+  }, options.map(function (opt) {
+    return /*#__PURE__*/React.createElement(RadioBaseItem, _extends({
+      key: opt.value,
+      hasError: hasError
+    }, props, opt, {
+      bordered: true,
+      type: "radio",
+      stacked: false
+    }));
+  }));
+};
+BorderedRadio.propTypes = RadioBasePropTypes;
+BorderedRadio.defaultProps = RadioBaseDefaultProps;
+
+function _templateObject$r() {
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
+
+  _templateObject$r = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledRadioBase = styled(RadioBase)(_templateObject$r(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -2463,16 +2502,16 @@ var FormErrorPropTypes = _extends({
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FormErrorDefaultProps = {};
 
-function _templateObject$r() {
+function _templateObject$s() {
   var data = _taggedTemplateLiteralLoose(["\n  font-weight: 600;\n  font-size: 12px;\n  line-height: 120%;\n  color: ", ";\n  margin-top: ", ";\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$r = function _templateObject() {
+  _templateObject$s = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Error = styled.div(_templateObject$r(), function (_ref) {
+var Error = styled.div(_templateObject$s(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.error.main;
 }, function (_ref2) {
@@ -2513,16 +2552,16 @@ var FieldWrapperDefaultProps = {
   startIconColor: "input"
 };
 
-function _templateObject$s() {
+function _templateObject$t() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  border-radius: ", ";\n  background-color: ", ";\n  border: 1px solid ", ";\n  padding: ", ";\n  outline: none;\n  box-sizing: border-box;\n  transition: all 100ms ease-in-out;\n  ", "\n\n  &:focus-within {\n    border: 1px solid ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$s = function _templateObject() {
+  _templateObject$t = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledWrapper = styled.div(_templateObject$s(), function (_ref) {
+var StyledWrapper = styled.div(_templateObject$t(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(3);
 }, function (_ref2) {
@@ -2599,10 +2638,10 @@ var FieldBaseDefaultProps = _extends({}, FieldWrapperDefaultProps, {
   type: "text"
 });
 
-function _templateObject$t() {
+function _templateObject$u() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  font-weight: 600;\n  font-size: 14px;\n  font-family: inherit;\n  line-height: 120%;\n  padding: 8px;\n  color: ", ";\n  outline: none;\n  border: none;\n  height: 100%;\n  box-sizing: border-box;\n  transition: all 100ms ease-in-out;\n  background-color: transparent;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n\n  ::placeholder {\n    font-weight: normal;\n  }\n\n  &:disabled {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none;\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
 
-  _templateObject$t = function _templateObject() {
+  _templateObject$u = function _templateObject() {
     return data;
   };
 
@@ -2618,7 +2657,7 @@ forwardRef(function (_ref, ref) {
   return /*#__PURE__*/React.createElement(Component, _extends({
     ref: ref
   }, props));
-}))(_templateObject$t(), function (_ref2) {
+}))(_templateObject$u(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.palette.text.primary;
 }, function (_ref3) {
@@ -2681,16 +2720,16 @@ var FieldBase = function FieldBase(_ref10) {
 FieldBase.propTypes = FieldBasePropTypes;
 FieldBase.defaultProps = FieldBaseDefaultProps;
 
-function _templateObject$u() {
+function _templateObject$v() {
   var data = _taggedTemplateLiteralLoose(["\n  border: none;\n  padding: 0%;\n  margin: 0;\n  width: 100%;\n  flex: 1;\n"]);
 
-  _templateObject$u = function _templateObject() {
+  _templateObject$v = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledFieldset = styled.fieldset(_templateObject$u());
+var StyledFieldset = styled.fieldset(_templateObject$v());
 var Fieldset = function Fieldset(_ref) {
   var children = _ref.children;
   return /*#__PURE__*/React.createElement(StyledFieldset, null, children);
@@ -2710,16 +2749,16 @@ function _templateObject2$7() {
   return data;
 }
 
-function _templateObject$v() {
+function _templateObject$w() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: ", ";\n  background-color: ", ";\n  color: ", ";\n  font-size: 12px;\n  margin-bottom: ", ";\n  border-radius: 8px;\n"]);
 
-  _templateObject$v = function _templateObject() {
+  _templateObject$w = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Item$1 = styled.div(_templateObject$v(), function (_ref) {
+var Item$1 = styled.div(_templateObject$w(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2, 4);
 }, function (_ref2) {
@@ -2786,16 +2825,16 @@ function _templateObject2$8() {
   return data;
 }
 
-function _templateObject$w() {
+function _templateObject$x() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  width: 100%;\n  height: 100%;\n"]);
 
-  _templateObject$w = function _templateObject() {
+  _templateObject$x = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$4 = styled.div(_templateObject$w());
+var Wrapper$5 = styled.div(_templateObject$x());
 var Container$2 = styled.div(_templateObject2$8(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
@@ -2836,7 +2875,7 @@ var FilePondComponent = function FilePondComponent(_ref10) {
       value = _ref10.value,
       props = _objectWithoutPropertiesLoose(_ref10, ["disabled", "hasError", "onChange", "value"]);
 
-  return /*#__PURE__*/React.createElement(Wrapper$4, null, /*#__PURE__*/React.createElement(Container$2, {
+  return /*#__PURE__*/React.createElement(Wrapper$5, null, /*#__PURE__*/React.createElement(Container$2, {
     disabled: disabled,
     hasError: hasError
   }, /*#__PURE__*/React.createElement(StyledFilePond, _extends({
@@ -2926,16 +2965,16 @@ function _templateObject2$9() {
   return data;
 }
 
-function _templateObject$x() {
+function _templateObject$y() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$x = function _templateObject() {
+  _templateObject$y = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContainer = styled.div(_templateObject$x(), function (theme) {
+var StyledContainer = styled.div(_templateObject$y(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -3073,16 +3112,16 @@ var Input = function Input(props) {
 Input.propTypes = FieldBasePropTypes;
 Input.defaultProps = FieldBaseDefaultProps;
 
-function _templateObject$y() {
+function _templateObject$z() {
   var data = _taggedTemplateLiteralLoose(["\n  font-size: 14px;\n  line-height: 120%;\n  color: ", ";\n"]);
 
-  _templateObject$y = function _templateObject() {
+  _templateObject$z = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledLabel$2 = styled.label(_templateObject$y(), function (_ref) {
+var StyledLabel$2 = styled.label(_templateObject$z(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.medium;
 });
@@ -3092,16 +3131,16 @@ var FormLabel = function FormLabel(props) {
 FormLabel.propTypes = {};
 FormLabel.defaultProps = {};
 
-function _templateObject$z() {
+function _templateObject$A() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$z = function _templateObject() {
+  _templateObject$A = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledRadioBase$1 = styled(RadioBase)(_templateObject$z(), function (theme) {
+var StyledRadioBase$1 = styled(RadioBase)(_templateObject$A(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -3129,16 +3168,16 @@ var ReactSelectDefaultProps = {
   isRequired: false
 };
 
-function _templateObject$A() {
+function _templateObject$B() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n\n  .react-select__control {\n    border-radius: 12px;\n    color: ", ";\n    padding: ", ";\n    height: 40px;\n    box-sizing: border-box;\n    box-shadow: none;\n    border-color: ", ";\n    font-weight: 600;\n    font-size: 14px;\n    line-height: 120%;\n  }\n\n  .react-select__control--is-focused {\n    border-color: ", ";\n  }\n\n  .react-select__menu {\n    border-radius: 12px;\n  }\n\n  .react-select__option {\n    font-weight: 300;\n    font-size: 14px;\n    line-height: 160%;\n    padding: ", ";\n  }\n\n  .react-select__option--is-focused {\n    background-color: ", ";\n    color: ", ";\n  }\n\n  .react-select__option:hover,\n  .react-select__option--is-selected {\n    color: ", ";\n    background-color: ", ";\n  }\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$A = function _templateObject() {
+  _templateObject$B = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var ReactSelectWrapper = styled.div(_templateObject$A(), function (_ref) {
+var ReactSelectWrapper = styled.div(_templateObject$B(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.text.primary;
 }, function (_ref2) {
@@ -3281,16 +3320,16 @@ function _templateObject2$a() {
   return data;
 }
 
-function _templateObject$B() {
+function _templateObject$C() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  min-height: 40px;\n  margin-bottom: ", ";\n  ", ";\n  ", " {\n    flex-wrap: wrap;\n  }\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$B = function _templateObject() {
+  _templateObject$C = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledRow = styled.div(_templateObject$B(), function (_ref) {
+var StyledRow = styled.div(_templateObject$C(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 }, function (_ref2) {
@@ -3392,16 +3431,16 @@ var StepperDefaultProps = {
   value: 1
 };
 
-function _templateObject$C() {
+function _templateObject$D() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  ", "\n\n  user-select: none;\n\n  input {\n    border: none;\n    width: 40px;\n    outline: none;\n    font-weight: 600;\n    font-size: 16px;\n    text-align: center;\n  }\n\n  span {\n    font-size: 12px;\n    font-style: italic;\n  }\n"]);
 
-  _templateObject$C = function _templateObject() {
+  _templateObject$D = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$5 = styled.div(_templateObject$C(), function (_ref) {
+var Wrapper$6 = styled.div(_templateObject$D(), function (_ref) {
   var size = _ref.size;
   return size === "sm" && css(["flex-direction:column;"]);
 });
@@ -3431,7 +3470,7 @@ var StepperComponent = function StepperComponent(_ref2) {
     startIconOnClick: function startIconOnClick() {
       return handleChange("sub");
     }
-  }, props), /*#__PURE__*/React.createElement(Wrapper$5, {
+  }, props), /*#__PURE__*/React.createElement(Wrapper$6, {
     size: size
   }, /*#__PURE__*/React.createElement("input", {
     onChange: onChange,
@@ -3497,10 +3536,10 @@ function _templateObject2$b() {
   return data;
 }
 
-function _templateObject$D() {
+function _templateObject$E() {
   var data = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  background-color: ", ";\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  transition: background-color 0.2s;\n\n  ", "\n\n    ", "\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
 
-  _templateObject$D = function _templateObject() {
+  _templateObject$E = function _templateObject() {
     return data;
   };
 
@@ -3525,7 +3564,7 @@ var Switch = function Switch(_ref) {
   }, toggled ? "Yes" : "No"));
 };
 
-var StyledSwitchContainer = styled.div(_templateObject$D(), function (_ref2) {
+var StyledSwitchContainer = styled.div(_templateObject$E(), function (_ref2) {
   var theme = _ref2.theme,
       toggled = _ref2.toggled;
   return toggled ? theme.palette.primary.main : theme.palette.gray.regular;
@@ -3578,16 +3617,16 @@ Switch.defaultProps = {
   toggled: false
 };
 
-function _templateObject$E() {
+function _templateObject$F() {
   var data = _taggedTemplateLiteralLoose(["\n  display: inline-block;\n  position: relative;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$E = function _templateObject() {
+  _templateObject$F = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledToggle = styled.div(_templateObject$E(), function (theme) {
+var StyledToggle = styled.div(_templateObject$F(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -3729,16 +3768,16 @@ function _templateObject2$c() {
   return data;
 }
 
-function _templateObject$F() {
+function _templateObject$G() {
   var data = _taggedTemplateLiteralLoose(["\n  border-width: 0;\n  border-style: solid;\n  border-color: ", ";\n  border-left-width: 1px;\n  transition: all 0.1ms ease-in-out;\n  position: absolute;\n  bottom: 0;\n  left: 15px;\n  top: 0;\n  ::before {\n    content: \"\";\n    width: 1px;\n    height: 100%;\n    display: inline-block;\n  }\n"]);
 
-  _templateObject$F = function _templateObject() {
+  _templateObject$G = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var ItemConnector = styled.div(_templateObject$F(), function (_ref) {
+var ItemConnector = styled.div(_templateObject$G(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.regular;
 });
@@ -3841,16 +3880,16 @@ var HistoryPropTypes = _extends({
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-function _templateObject$G() {
+function _templateObject$H() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$G = function _templateObject() {
+  _templateObject$H = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$4 = styled.div(_templateObject$G(), function (theme) {
+var Container$4 = styled.div(_templateObject$H(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -3889,10 +3928,10 @@ var ImageDefaultProps = {
   thumbnail: false
 };
 
-function _templateObject$H() {
+function _templateObject$I() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$H = function _templateObject() {
+  _templateObject$I = function _templateObject() {
     return data;
   };
 
@@ -3905,7 +3944,7 @@ var Image = function Image(_ref) {
     itemProp: "contentUrl"
   }, props));
 };
-var StyledImg = styled.img(_templateObject$H(), function (_ref2) {
+var StyledImg = styled.img(_templateObject$I(), function (_ref2) {
   var width = _ref2.width;
   return width && "width: " + width + ";";
 }, function (_ref3) {
@@ -4021,10 +4060,10 @@ function _templateObject2$d() {
   return data;
 }
 
-function _templateObject$I() {
+function _templateObject$J() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 0 0 120px;\n  ", " {\n    flex: 0 0 96px;\n  }\n"]);
 
-  _templateObject$I = function _templateObject() {
+  _templateObject$J = function _templateObject() {
     return data;
   };
 
@@ -4036,7 +4075,7 @@ var StyledHeader = styled(Flex).attrs(function () {
     alignItems: "center",
     justify: "space-between"
   };
-})(_templateObject$I(), function (_ref) {
+})(_templateObject$J(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
@@ -4096,10 +4135,10 @@ function _templateObject2$e() {
   return data;
 }
 
-function _templateObject$J() {
+function _templateObject$K() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n"]);
 
-  _templateObject$J = function _templateObject() {
+  _templateObject$K = function _templateObject() {
     return data;
   };
 
@@ -4109,7 +4148,7 @@ var StyledContainer$1 = styled(MuiContainer).attrs(function () {
   return {
     maxWidth: "xs"
   };
-})(_templateObject$J());
+})(_templateObject$K());
 var Content$1 = styled.div(_templateObject2$e(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10, 0);
@@ -4173,10 +4212,10 @@ function _templateObject2$f() {
   return data;
 }
 
-function _templateObject$K() {
+function _templateObject$L() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 0 0 120px;\n  ", " {\n    flex: 0 0 96px;\n  }\n"]);
 
-  _templateObject$K = function _templateObject() {
+  _templateObject$L = function _templateObject() {
     return data;
   };
 
@@ -4188,7 +4227,7 @@ var StyledHeader$1 = styled(Flex).attrs(function () {
     alignItems: "center",
     justify: "space-between"
   };
-})(_templateObject$K(), function (_ref) {
+})(_templateObject$L(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
@@ -4293,16 +4332,16 @@ function _templateObject2$g() {
   return data;
 }
 
-function _templateObject$L() {
+function _templateObject$M() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    color: ", ";\n    display: flex;\n    padding: 0;\n    margin: 0;\n    padding-left: ", ";\n    margin-bottom: 2px;\n    cursor: pointer;\n\n    &.Mui-selected {\n      background: none;\n      color: ", ";\n\n      span {\n        font-weight: bold;\n      }\n\n      &:hover {\n        background: inherit;\n      }\n    }\n\n    div {\n      margin: 0;\n      span {\n        font-size: 14px;\n      }\n    }\n  }\n"]);
 
-  _templateObject$L = function _templateObject() {
+  _templateObject$M = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var NestedListItem = styled(ListItem)(_templateObject$L(), function (_ref) {
+var NestedListItem = styled(ListItem)(_templateObject$M(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.text.secondary;
 }, function (_ref2) {
@@ -4487,16 +4526,16 @@ function _templateObject2$h() {
   return data;
 }
 
-function _templateObject$M() {
+function _templateObject$N() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  box-sizing: border-box;\n  padding: ", ";\n  height: 100%;\n"]);
 
-  _templateObject$M = function _templateObject() {
+  _templateObject$N = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var MainNav = styled.div(_templateObject$M(), function (_ref) {
+var MainNav = styled.div(_templateObject$N(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(0, 8, 0, 4);
 });
@@ -4576,16 +4615,16 @@ var DashboardLayoutFooterPropTypes = {
   content: PropTypes.node
 };
 
-function _templateObject$N() {
+function _templateObject$O() {
   var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  height: 70px;\n  width: 100%;\n  text-align: center;\n  padding-top: ", ";\n"]);
 
-  _templateObject$N = function _templateObject() {
+  _templateObject$O = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledFooter = styled.div(_templateObject$N(), function (_ref) {
+var StyledFooter = styled.div(_templateObject$O(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
@@ -4627,10 +4666,10 @@ function _templateObject2$i() {
   return data;
 }
 
-function _templateObject$O() {
+function _templateObject$P() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n"]);
 
-  _templateObject$O = function _templateObject() {
+  _templateObject$P = function _templateObject() {
     return data;
   };
 
@@ -4640,7 +4679,7 @@ var StyledContainer$2 = styled(MuiContainer).attrs(function () {
   return {
     maxWidth: "xl"
   };
-})(_templateObject$O());
+})(_templateObject$P());
 var Content$2 = styled.div(_templateObject2$i());
 var NavigationContainer = styled(Flex).attrs(function () {
   return {
@@ -4738,16 +4777,16 @@ var ExplorerLayoutFooterPropTypes = {
   children: PropTypes.node
 };
 
-function _templateObject$P() {
+function _templateObject$Q() {
   var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  height: 80px;\n  text-align: center;\n  padding-top: ", ";\n"]);
 
-  _templateObject$P = function _templateObject() {
+  _templateObject$Q = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledFooter$1 = styled.div(_templateObject$P(), function (_ref) {
+var StyledFooter$1 = styled.div(_templateObject$Q(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
@@ -4776,10 +4815,10 @@ function _templateObject2$j() {
   return data;
 }
 
-function _templateObject$Q() {
+function _templateObject$R() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 128px;\n  ", " {\n    height: 96px;\n  }\n"]);
 
-  _templateObject$Q = function _templateObject() {
+  _templateObject$R = function _templateObject() {
     return data;
   };
 
@@ -4790,7 +4829,7 @@ var StyledHeader$2 = styled(Grid).attrs(function () {
     container: true,
     alignItems: "center"
   };
-})(_templateObject$Q(), function (_ref) {
+})(_templateObject$R(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
@@ -4836,10 +4875,10 @@ var ExplorerLayoutPropTypes = {
   sidebar: PropTypes.node
 };
 
-function _templateObject$R() {
+function _templateObject$S() {
   var data = _taggedTemplateLiteralLoose(["\n  padding-top: ", ";\n  padding-bottom: ", ";\n  ", " {\n    padding-top: ", ";\n  }\n"]);
 
-  _templateObject$R = function _templateObject() {
+  _templateObject$S = function _templateObject() {
     return data;
   };
 
@@ -4849,7 +4888,7 @@ var Content$3 = styled(Grid).attrs(function () {
   return {
     container: true
   };
-})(_templateObject$R(), function (_ref) {
+})(_templateObject$S(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(8);
 }, function (_ref2) {
@@ -4962,16 +5001,16 @@ function _templateObject2$k() {
   return data;
 }
 
-function _templateObject$S() {
+function _templateObject$T() {
   var data = _taggedTemplateLiteralLoose(["\n  margin-top: -", ";\n  margin-bottom: ", ";\n  position: relative;\n  background-image: url(\"", "\");\n  background-size: 90px 108px;\n  background-repeat: no-repeat;\n  width: 90px;\n  height: 108px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n"]);
 
-  _templateObject$S = function _templateObject() {
+  _templateObject$T = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var LicenseBoxWrapper = styled.div(_templateObject$S(), function (_ref) {
+var LicenseBoxWrapper = styled.div(_templateObject$T(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10);
 }, function (_ref2) {
@@ -5015,16 +5054,16 @@ function _templateObject2$l() {
   return data;
 }
 
-function _templateObject$T() {
+function _templateObject$U() {
   var data = _taggedTemplateLiteralLoose(["\n  border-radius: 8px;\n  overflow: initial;\n  min-height: 240px;\n  text-align: center;\n  margin-top: ", ";\n  width: 100%;\n"]);
 
-  _templateObject$T = function _templateObject() {
+  _templateObject$U = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledMarketPlaceItem = styled(BoxBase)(_templateObject$T(), function (_ref) {
+var StyledMarketPlaceItem = styled(BoxBase)(_templateObject$U(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10);
 });
@@ -5104,16 +5143,16 @@ function _templateObject2$m() {
   return data;
 }
 
-function _templateObject$U() {
+function _templateObject$V() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  height: 135px;\n"]);
 
-  _templateObject$U = function _templateObject() {
+  _templateObject$V = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$6 = styled.div(_templateObject$U());
+var Wrapper$7 = styled.div(_templateObject$V());
 var BGImage = styled.div(_templateObject2$m(), function (_ref) {
   var imgSrc = _ref.imgSrc;
   return imgSrc;
@@ -5123,7 +5162,7 @@ var Cover = function Cover(_ref2) {
   var imgSrc = _ref2.imgSrc,
       props = _objectWithoutPropertiesLoose(_ref2, ["imgSrc"]);
 
-  return /*#__PURE__*/React.createElement(Wrapper$6, props, /*#__PURE__*/React.createElement(BGImage, {
+  return /*#__PURE__*/React.createElement(Wrapper$7, props, /*#__PURE__*/React.createElement(BGImage, {
     imgSrc: imgSrc
   }), /*#__PURE__*/React.createElement(StyledImage, {
     src: imgSrc
@@ -5166,16 +5205,16 @@ function _templateObject2$n() {
   return data;
 }
 
-function _templateObject$V() {
+function _templateObject$W() {
   var data = _taggedTemplateLiteralLoose(["\n  border-radius: 8px;\n  overflow: hidden;\n  min-height: 360px;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  transition: all 200ms ease-in-out;\n\n  ", "\n"]);
 
-  _templateObject$V = function _templateObject() {
+  _templateObject$W = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledMarketPlaceItem$1 = styled(BoxBase)(_templateObject$V(), function (_ref) {
+var StyledMarketPlaceItem$1 = styled(BoxBase)(_templateObject$W(), function (_ref) {
   var hoverEffect = _ref.hoverEffect;
   return hoverEffect && css(["&:hover{transform:scale(1.03);}"]);
 });
@@ -5267,16 +5306,16 @@ function _templateObject2$o() {
   return data;
 }
 
-function _templateObject$W() {
+function _templateObject$X() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 140px;\n  width: 140px;\n  height: 140px;\n"]);
 
-  _templateObject$W = function _templateObject() {
+  _templateObject$X = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$7 = styled.div(_templateObject$W());
+var Wrapper$8 = styled.div(_templateObject$X());
 var BGImage$1 = styled.div(_templateObject2$o(), function (_ref) {
   var imgSrc = _ref.imgSrc;
   return imgSrc;
@@ -5286,7 +5325,7 @@ var Cover$1 = function Cover(_ref2) {
   var imgSrc = _ref2.imgSrc,
       props = _objectWithoutPropertiesLoose(_ref2, ["imgSrc"]);
 
-  return /*#__PURE__*/React.createElement(Wrapper$7, props, /*#__PURE__*/React.createElement(BGImage$1, {
+  return /*#__PURE__*/React.createElement(Wrapper$8, props, /*#__PURE__*/React.createElement(BGImage$1, {
     imgSrc: imgSrc
   }), /*#__PURE__*/React.createElement(StyledImage$1, {
     src: imgSrc
@@ -5319,16 +5358,16 @@ function _templateObject2$p() {
   return data;
 }
 
-function _templateObject$X() {
+function _templateObject$Y() {
   var data = _taggedTemplateLiteralLoose(["\n  border-radius: 8px;\n  height: 140px;\n  width: 100%;\n  display: flex;\n  align-items: center;\n  transition: all 200ms ease-in-out;\n\n  :not(:last-child) {\n    margin-bottom: ", ";\n  }\n\n  ", "\n"]);
 
-  _templateObject$X = function _templateObject() {
+  _templateObject$Y = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledMarketPlaceItem$2 = styled(BoxBase)(_templateObject$X(), function (_ref) {
+var StyledMarketPlaceItem$2 = styled(BoxBase)(_templateObject$Y(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (_ref2) {
@@ -5500,10 +5539,10 @@ function _templateObject2$q() {
   return data;
 }
 
-function _templateObject$Y() {
+function _templateObject$Z() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    padding: 0;\n    &:first-child {\n      padding-top: 0;\n    }\n  }\n"]);
 
-  _templateObject$Y = function _templateObject() {
+  _templateObject$Z = function _templateObject() {
     return data;
   };
 
@@ -5513,7 +5552,7 @@ var ContentWrapper = styled(DialogContent).attrs(function () {
   return {
     dividers: true
   };
-})(_templateObject$Y());
+})(_templateObject$Z());
 var Title = styled(DialogTitle).attrs(function () {
   return {
     disableTypography: true
@@ -5634,16 +5673,16 @@ function _templateObject2$r() {
   return data;
 }
 
-function _templateObject$Z() {
+function _templateObject$_() {
   var data = _taggedTemplateLiteralLoose(["\n  text-align: center;\n\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$Z = function _templateObject() {
+  _templateObject$_ = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$8 = styled.div(_templateObject$Z(), function (theme) {
+var Wrapper$9 = styled.div(_templateObject$_(), function (theme) {
   return COLOR(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -5664,7 +5703,7 @@ var NoItem = function NoItem(_ref) {
       text = _ref.text,
       props = _objectWithoutPropertiesLoose(_ref, ["buttonAction", "buttonHref", "buttonText", "dataCy", "text"]);
 
-  return /*#__PURE__*/React.createElement(Wrapper$8, _extends({
+  return /*#__PURE__*/React.createElement(Wrapper$9, _extends({
     "data-cy": dataCy
   }, props), /*#__PURE__*/React.createElement(StyledIcon$4, null), /*#__PURE__*/React.createElement(Text, {
     fontWeight: "bold",
@@ -5687,16 +5726,16 @@ var PageLoadingDefaultProps = {
   type: "page"
 };
 
-function _templateObject$_() {
+function _templateObject$$() {
   var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  width: ", ";\n  height: ", ";\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n"]);
 
-  _templateObject$_ = function _templateObject() {
+  _templateObject$$ = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledLoading = styled.div(_templateObject$_(), function (_ref) {
+var StyledLoading = styled.div(_templateObject$$(), function (_ref) {
   var type = _ref.type;
   return type === "page" ? "fixed" : "absolute";
 }, function (_ref2) {
@@ -5751,16 +5790,16 @@ function _templateObject2$s() {
   return data;
 }
 
-function _templateObject$$() {
+function _templateObject$10() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  height: 2px;\n  left: 0;\n  position: fixed;\n  top: 0;\n  width: 100%;\n  z-index: 1031;\n"]);
 
-  _templateObject$$ = function _templateObject() {
+  _templateObject$10 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledBar = styled.div(_templateObject$$(), function (_ref) {
+var StyledBar = styled.div(_templateObject$10(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.main;
 });
@@ -5846,16 +5885,16 @@ var PageProgressBar = function PageProgressBar(_ref) {
 PageProgressBar.propTypes = PageProgressBarPropTypes;
 PageProgressBar.defaultProps = PageProgressBarDefaultProps;
 
-function _templateObject$10() {
+function _templateObject$11() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: auto;\n  transition: filter ", "ms ease-in-out;\n\n  ", ";\n"]);
 
-  _templateObject$10 = function _templateObject() {
+  _templateObject$11 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContent = styled.div(_templateObject$10(), function (_ref) {
+var StyledContent = styled.div(_templateObject$11(), function (_ref) {
   var duration = _ref.duration;
   return duration / 2;
 }, function (_ref2) {
@@ -5923,16 +5962,16 @@ function _templateObject2$t() {
   return data;
 }
 
-function _templateObject$11() {
+function _templateObject$12() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"]);
 
-  _templateObject$11 = function _templateObject() {
+  _templateObject$12 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledPagination = styled(MuiPagination)(_templateObject$11());
+var StyledPagination = styled(MuiPagination)(_templateObject$12());
 var StyledPaginationItem = styled(PaginationItem)(_templateObject2$t(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
@@ -6024,16 +6063,16 @@ function _templateObject2$u() {
   return data;
 }
 
-function _templateObject$12() {
+function _templateObject$13() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: transparent;\n  ", "\n  width: 100%;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n"]);
 
-  _templateObject$12 = function _templateObject() {
+  _templateObject$13 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledSearchBar = styled.form(_templateObject$12(), function (_ref) {
+var StyledSearchBar = styled.form(_templateObject$13(), function (_ref) {
   var noBorderRadius = _ref.noBorderRadius;
   return !noBorderRadius && "border-radius: 12px;";
 });
@@ -6123,16 +6162,16 @@ var SearchBar = function SearchBar(_ref5) {
 SearchBar.propTypes = SearchBarPropTypes;
 SearchBar.defaultProps = SearchBarDefaultProps;
 
-function _templateObject$13() {
+function _templateObject$14() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n\n  && {\n    background-color: ", ";\n    svg {\n      color: ", ";\n    }\n\n    :hover {\n      background-color: ", ";\n\n      svg {\n        color: ", ";\n      }\n    }\n  }\n"]);
 
-  _templateObject$13 = function _templateObject() {
+  _templateObject$14 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Button$1 = styled(ButtonBase)(_templateObject$13(), function (_ref) {
+var Button$1 = styled(ButtonBase)(_templateObject$14(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -6210,16 +6249,16 @@ function _templateObject2$v() {
   return data;
 }
 
-function _templateObject$14() {
+function _templateObject$15() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$14 = function _templateObject() {
+  _templateObject$15 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$6 = styled.div(_templateObject$14(), function (theme) {
+var Container$6 = styled.div(_templateObject$15(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -6305,16 +6344,16 @@ var DotsSpinnerDefaultProps = {
   size: 60
 };
 
-function _templateObject$15() {
+function _templateObject$16() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  > div {\n    width: ", "px;\n    height: ", "px;\n    background-color: ", ";\n\n    border-radius: 100%;\n    display: inline-block;\n    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;\n    animation: sk-bouncedelay 1.4s infinite ease-in-out both;\n  }\n\n  .bounce1 {\n    -webkit-animation-delay: -0.32s;\n    animation-delay: -0.32s;\n  }\n\n  .bounce2 {\n    -webkit-animation-delay: -0.16s;\n    animation-delay: -0.16s;\n  }\n\n  @-webkit-keyframes sk-bouncedelay {\n    0%, 80%, 100% { -webkit-transform: scale(0) }\n    40% { -webkit-transform: scale(1.0) }\n  }\n\n  @keyframes sk-bouncedelay {\n    0%, 80%, 100% {\n      -webkit-transform: scale(0);\n      transform: scale(0);\n    } 40% {\n      -webkit-transform: scale(1.0);\n      transform: scale(1.0);\n    }\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$15 = function _templateObject() {
+  _templateObject$16 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledDotsSpinner = styled.div(_templateObject$15(), function (_ref) {
+var StyledDotsSpinner = styled.div(_templateObject$16(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -6355,16 +6394,16 @@ var RocksSpinnerDefaultProps = {
   size: 60
 };
 
-function _templateObject$16() {
+function _templateObject$17() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  height: ", "px;\n  position: relative;\n\n  .dot {\n    width: ", "px;\n    height: ", "px;\n    background-color: ", ";\n    border-radius: 100%;\n    position: absolute;\n    bottom: 5px;\n    left: 0;\n\n    -webkit-animation: bounce 2.0s infinite ease-in-out;\n    animation: bounce 2.0s infinite ease-in-out;\n  }\n\n  .circle {\n    width: ", "px;\n    height: ", "px;\n    border: ", "px solid ", ";\n    border-radius: 100%;\n    position: absolute;\n    top: 5px;\n    right: 0;\n\n    -webkit-animation: bounce 2.0s infinite ease-in-out;\n    animation: bounce 2.0s infinite ease-in-out;\n    -webkit-animation-delay: -1.0s;\n    animation-delay: -1.0s;\n  }\n\n  @-webkit-keyframes bounce {\n    0%, 100% { -webkit-transform: scale(0.0) }\n    50% { -webkit-transform: scale(1.0) }\n  }\n\n  @keyframes bounce {\n    0%, 100% {\n      transform: scale(0.0);\n      -webkit-transform: scale(0.0);\n    } 50% {\n      transform: scale(1.0);\n      -webkit-transform: scale(1.0);\n    }\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$16 = function _templateObject() {
+  _templateObject$17 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledRocksSpinner = styled.div(_templateObject$16(), function (_ref) {
+var StyledRocksSpinner = styled.div(_templateObject$17(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -6443,16 +6482,16 @@ function _templateObject2$w() {
   return data;
 }
 
-function _templateObject$17() {
+function _templateObject$18() {
   var data = _taggedTemplateLiteralLoose(["\n  margin-bottom: ", ";\n  ", "\n  ", "\n"]);
 
-  _templateObject$17 = function _templateObject() {
+  _templateObject$18 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$9 = styled.div(_templateObject$17(), function (_ref) {
+var Wrapper$a = styled.div(_templateObject$18(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (theme) {
@@ -6474,7 +6513,7 @@ var Tab = function Tab(_ref4) {
       _onChange = _ref4.onChange,
       props = _objectWithoutPropertiesLoose(_ref4, ["tabs", "currentTab", "onChange"]);
 
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Wrapper$9, props, /*#__PURE__*/React.createElement(StyledTabs, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Wrapper$a, props, /*#__PURE__*/React.createElement(StyledTabs, {
     value: currentTab,
     onChange: function onChange(e, newTab) {
       return _onChange(newTab);
@@ -6520,16 +6559,16 @@ function _templateObject2$x() {
   return data;
 }
 
-function _templateObject$18() {
+function _templateObject$19() {
   var data = _taggedTemplateLiteralLoose(["\n  text-align: center;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: ", ";\n"]);
 
-  _templateObject$18 = function _templateObject() {
+  _templateObject$19 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var ErrorWrapper = styled.div(_templateObject$18(), function (_ref) {
+var ErrorWrapper = styled.div(_templateObject$19(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
@@ -6581,10 +6620,10 @@ function _templateObject2$y() {
   return data;
 }
 
-function _templateObject$19() {
+function _templateObject$1a() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  border-radius: 100%;\n  && {\n    margin: ", ";\n  }\n"]);
 
-  _templateObject$19 = function _templateObject() {
+  _templateObject$1a = function _templateObject() {
     return data;
   };
 
@@ -6594,7 +6633,7 @@ var CloseModalIcon$1 = styled(Icon).attrs(function () {
   return {
     size: "lg"
   };
-})(_templateObject$19(), function (_ref) {
+})(_templateObject$1a(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
@@ -6655,16 +6694,16 @@ function _templateObject2$z() {
   return data;
 }
 
-function _templateObject$1a() {
+function _templateObject$1b() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  height: 48px;\n  width: 48px;\n  text-align: center;\n  border-radius: 8px;\n  overflow: hidden;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1a = function _templateObject() {
+  _templateObject$1b = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$7 = styled.div(_templateObject$1a(), function (_ref) {
+var Container$7 = styled.div(_templateObject$1b(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
@@ -6774,16 +6813,16 @@ function _templateObject2$A() {
   return data;
 }
 
-function _templateObject$1b() {
+function _templateObject$1c() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: 24px 24px 24px 40px;\n"]);
 
-  _templateObject$1b = function _templateObject() {
+  _templateObject$1c = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContent$1 = styled.div(_templateObject$1b());
+var StyledContent$1 = styled.div(_templateObject$1c());
 var ActionWrapper = styled.div(_templateObject2$A());
 var WizardStepContent = function WizardStepContent(_ref) {
   var children = _ref.children,
@@ -6891,16 +6930,16 @@ function _templateObject2$B() {
   return data;
 }
 
-function _templateObject$1c() {
+function _templateObject$1d() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: normal;\n\n  ", "\n\n  ", "\n"]);
 
-  _templateObject$1c = function _templateObject() {
+  _templateObject$1d = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTitle = styled.div(_templateObject$1c(), function (_ref) {
+var StyledTitle = styled.div(_templateObject$1d(), function (_ref) {
   var isPassed = _ref.isPassed;
   return isPassed && css(["cursor:pointer;"]);
 }, function (_ref2) {
@@ -7022,16 +7061,16 @@ function _templateObject2$C() {
   return data;
 }
 
-function _templateObject$1d() {
+function _templateObject$1e() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$1d = function _templateObject() {
+  _templateObject$1e = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$a = styled.div(_templateObject$1d(), function (theme) {
+var Wrapper$b = styled.div(_templateObject$1e(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -7129,7 +7168,7 @@ var Wizard = function Wizard(_ref7) {
     submitButtonDisabled: submitButtonDisabled,
     submitButtonLoading: submitButtonLoading
   });
-  return /*#__PURE__*/React.createElement(Wrapper$a, props, /*#__PURE__*/React.createElement(StepsWrapper, {
+  return /*#__PURE__*/React.createElement(Wrapper$b, props, /*#__PURE__*/React.createElement(StepsWrapper, {
     headerFadeColor: headerFadeColor,
     isHorizontal: isHorizontal
   }, /*#__PURE__*/React.createElement(Steps, {
@@ -7166,5 +7205,5 @@ var Wizard = function Wizard(_ref7) {
 Wizard.propTypes = WizardPropTypes;
 Wizard.defaultProps = WizardDefaultProps;
 
-export { Alert, AppContainer, AuthLayout, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FilePond, FileUpload, Flex, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, History, Icon, Image, ImageModal, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, MarketPlaceItem, Modal, NoItem, OutlineButton, PageLoading, PageProgressBar, PageTransition, Pagination, Paragraph, Radio, RadioBase, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, Stepper, THEME_COLORS, Tab, Text, TextArea, TextBase, TextButton, Thumbnail, TinyBadge, ToggleSwitch, Wizard, getFormInputError, getFormRowErrors, handleScroll };
+export { Alert, AppContainer, AuthLayout, BorderedRadio, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FilePond, FileUpload, Flex, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, History, Icon, Image, ImageModal, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, MarketPlaceItem, Modal, NoItem, OutlineButton, PageLoading, PageProgressBar, PageTransition, Pagination, Paragraph, Radio, RadioBase, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, Stepper, THEME_COLORS, Tab, Text, TextArea, TextBase, TextButton, Thumbnail, TinyBadge, ToggleSwitch, Wizard, getFormInputError, getFormRowErrors, handleScroll };
 //# sourceMappingURL=rockskit.es.js.map
