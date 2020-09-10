@@ -15,6 +15,8 @@ export const MarketPlaceItemPropTypes = {
   iconName: PropTypes.string,
   iconPrefix: PropTypes.string,
   megaTitle: PropTypes.string,
+  price: PropTypes.string,
+  priceLabel: PropTypes.string,
   subTitle: PropTypes.string,
   title: PropTypes.string,
   type: PropTypes.oneOf("legacy", "modern", "modernHorizontal"),

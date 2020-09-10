@@ -71,6 +71,8 @@ export const ModernHorizontalItem = ({
   details,
   highlight,
   megaTitle,
+  price,
+  priceLabel,
   subTitle,
   title,
   Wrapper,
@@ -135,13 +137,13 @@ export const ModernHorizontalItem = ({
           >
             <div>
               <Text
-                content="Unit price"
+                content={priceLabel}
                 fontStyle="italic"
                 fontSize="sm"
                 mb={2}
               />
 
-              <H3 content="4200" color="primary" noWrap />
+              <H3 content={price} color="primary" noWrap />
             </div>
 
             {ActionWrapper ? (
