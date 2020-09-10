@@ -14,7 +14,7 @@ const Row = styled.div`
   display: flex;
   align-items: center;
   ${({ justifyBetween }) => justifyBetween && "justify-content: space-between;"}
-  height: 32px;
+  height: ${({ size }) => (size === "md" ? "32px" : "16px")};
   margin-bottom: ${({ theme }) => theme.spacing(2)};
 `;
 
@@ -24,12 +24,22 @@ const Label = styled(Text).attrs(() => ({
   flex: 0 140px;
 `;
 
-export const DetailsTable = ({ rows, justifyBetween, ...props }) => {
+export const DetailsTable = ({
+  labelFontSize,
+  rows,
+  justifyBetween,
+  size,
+  ...props
+}) => {
   return (
     <Wrapper {...props}>
       {rows.map(({ label, value }) => (
-        <Row key={`${label}:${value}`} justifyBetween={justifyBetween}>
-          <Label content={label} />
+        <Row
+          key={`${label}:${value}`}
+          justifyBetween={justifyBetween}
+          size={size}
+        >
+          <Label content={label} fontSize={labelFontSize} />
           {value || "-"}
         </Row>
       ))}

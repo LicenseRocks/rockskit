@@ -1,6 +1,10 @@
 import PropTypes from "prop-types";
 
-import { DISPLAY_PROP_TYPES, SPACER_PROP_TYPES } from "../../../theme";
+import {
+  COLOR_PROP_TYPES,
+  DISPLAY_PROP_TYPES,
+  SPACER_PROP_TYPES,
+} from "../../../theme";
 
 export const TextBasePropTypes = {
   align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
@@ -21,8 +25,9 @@ export const TextBasePropTypes = {
   fontSize: PropTypes.oneOf(["sm", "md", "lg"]),
   gutterBottom: PropTypes.bool,
   noWrap: PropTypes.bool,
-  ...SPACER_PROP_TYPES,
+  ...COLOR_PROP_TYPES,
   ...DISPLAY_PROP_TYPES,
+  ...SPACER_PROP_TYPES,
 };
 
 export const TextBaseDefaultProps = {

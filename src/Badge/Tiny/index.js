@@ -1,2 +1,2 @@
-export * from "./Chip";
+// Tiny
 export * from "./Tiny";
