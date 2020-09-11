@@ -5792,6 +5792,7 @@ var PageLoading = function PageLoading(_ref5) {
       props = _objectWithoutPropertiesLoose(_ref5, ["message"]);
 
   return /*#__PURE__*/React__default.createElement(StyledLoading, props, /*#__PURE__*/React__default.createElement(RocksSpinner, null), message && /*#__PURE__*/React__default.createElement(Text, {
+    color: "primary",
     content: message,
     fontWeight: "bold",
     mt: 4

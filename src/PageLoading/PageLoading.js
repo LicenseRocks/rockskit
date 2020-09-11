@@ -24,7 +24,9 @@ export const PageLoading = ({ message, ...props }) => (
   <StyledLoading {...props}>
     <RocksSpinner />
 
-    {message && <Text content={message} fontWeight="bold" mt={4} />}
+    {message && (
+      <Text color="primary" content={message} fontWeight="bold" mt={4} />
+    )}
   </StyledLoading>
 );
 
