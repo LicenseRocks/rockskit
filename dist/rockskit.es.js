@@ -4939,7 +4939,7 @@ var ExplorerLayout = function ExplorerLayout(_ref5) {
 
   if (loading) return /*#__PURE__*/React.createElement(PageLoading, null);
   return /*#__PURE__*/React.createElement(MuiContainer, _extends({
-    maxWidth: "xl"
+    maxWidth: "lg"
   }, props), /*#__PURE__*/React.createElement(ExplorerLayoutHeader, {
     logoAction: headerLogoAction,
     headerRight: headerRight
