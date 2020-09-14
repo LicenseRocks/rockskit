@@ -10,7 +10,7 @@ import { DashboardLayoutHeader } from "./Header";
 import { DashboardLayoutFooter } from "./Footer";
 
 const StyledContainer = styled(MuiContainer).attrs(() => ({
-  maxWidth: "xl",
+  maxWidth: "lg",
 }))`
   height: 100%;
 `;

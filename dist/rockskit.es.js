@@ -4692,7 +4692,7 @@ function _templateObject$P() {
 }
 var StyledContainer$2 = styled(MuiContainer).attrs(function () {
   return {
-    maxWidth: "xl"
+    maxWidth: "lg"
   };
 })(_templateObject$P());
 var Content$2 = styled.div(_templateObject2$i());

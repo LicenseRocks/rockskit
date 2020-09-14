@@ -2,52 +2,78 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
 var React = require('react');
-var React__default = _interopDefault(React);
 var styled = require('styled-components');
-var styled__default = _interopDefault(styled);
 var reactFontawesome = require('@fortawesome/react-fontawesome');
 var freeBrandsSvgIcons = require('@fortawesome/free-brands-svg-icons');
 var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
 var styles = require('@material-ui/core/styles');
 var PropTypes = require('prop-types');
-var PropTypes__default = _interopDefault(PropTypes);
-var CssBaseline = _interopDefault(require('@material-ui/core/CssBaseline'));
+var CssBaseline = require('@material-ui/core/CssBaseline');
 var fontawesomeSvgCore = require('@fortawesome/fontawesome-svg-core');
 var notistack = require('notistack');
-var Typography = _interopDefault(require('@material-ui/core/Typography'));
-var Grid = _interopDefault(require('@material-ui/core/Grid'));
-var MuiButtonBase = _interopDefault(require('@material-ui/core/ButtonBase'));
-var RCL = _interopDefault(require('react-content-loader'));
+var Typography = require('@material-ui/core/Typography');
+var Grid = require('@material-ui/core/Grid');
+var MuiButtonBase = require('@material-ui/core/ButtonBase');
+var RCL = require('react-content-loader');
 var reactCollapse = require('react-collapse');
-var Menu = _interopDefault(require('@material-ui/core/Menu'));
-var MenuItem = _interopDefault(require('@material-ui/core/MenuItem'));
-var QRCode = _interopDefault(require('qrcode.react'));
+var Menu = require('@material-ui/core/Menu');
+var MenuItem = require('@material-ui/core/MenuItem');
+var QRCode = require('qrcode.react');
 var reactHookForm = require('react-hook-form');
 var reactFilepond = require('react-filepond');
 var reactDropzone = require('react-dropzone');
-var axios = _interopDefault(require('axios'));
-var Select$1 = _interopDefault(require('react-select'));
-var AsyncSelect = _interopDefault(require('react-select/async'));
-var MuiContainer = _interopDefault(require('@material-ui/core/Container'));
-var Hidden = _interopDefault(require('@material-ui/core/Hidden'));
-var Drawer = _interopDefault(require('@material-ui/core/Drawer'));
-var Fab = _interopDefault(require('@material-ui/core/Fab'));
+var axios = require('axios');
+var Select$1 = require('react-select');
+var AsyncSelect = require('react-select/async');
+var MuiContainer = require('@material-ui/core/Container');
+var Hidden = require('@material-ui/core/Hidden');
+var Drawer = require('@material-ui/core/Drawer');
+var Fab = require('@material-ui/core/Fab');
 var core = require('@material-ui/core');
-var CircularProgress = _interopDefault(require('@material-ui/core/CircularProgress'));
-var Dialog = _interopDefault(require('@material-ui/core/Dialog'));
-var DialogActions = _interopDefault(require('@material-ui/core/DialogActions'));
-var DialogContent = _interopDefault(require('@material-ui/core/DialogContent'));
-var DialogTitle = _interopDefault(require('@material-ui/core/DialogTitle'));
+var CircularProgress = require('@material-ui/core/CircularProgress');
+var Dialog = require('@material-ui/core/Dialog');
+var DialogActions = require('@material-ui/core/DialogActions');
+var DialogContent = require('@material-ui/core/DialogContent');
+var DialogTitle = require('@material-ui/core/DialogTitle');
 var reactNprogress = require('@tanem/react-nprogress');
 var reactTransitionGroup = require('react-transition-group');
-var MuiPagination = _interopDefault(require('@material-ui/lab/Pagination'));
-var PaginationItem = _interopDefault(require('@material-ui/lab/PaginationItem'));
-var copy = _interopDefault(require('copy-to-clipboard'));
-var MuiTabs = _interopDefault(require('@material-ui/core/Tabs'));
-var MuiTab = _interopDefault(require('@material-ui/core/Tab'));
+var MuiPagination = require('@material-ui/lab/Pagination');
+var PaginationItem = require('@material-ui/lab/PaginationItem');
+var copy = require('copy-to-clipboard');
+var MuiTabs = require('@material-ui/core/Tabs');
+var MuiTab = require('@material-ui/core/Tab');
+
+function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
+
+var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
+var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
+var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
+var CssBaseline__default = /*#__PURE__*/_interopDefaultLegacy(CssBaseline);
+var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography);
+var Grid__default = /*#__PURE__*/_interopDefaultLegacy(Grid);
+var MuiButtonBase__default = /*#__PURE__*/_interopDefaultLegacy(MuiButtonBase);
+var RCL__default = /*#__PURE__*/_interopDefaultLegacy(RCL);
+var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu);
+var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
+var QRCode__default = /*#__PURE__*/_interopDefaultLegacy(QRCode);
+var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
+var Select__default = /*#__PURE__*/_interopDefaultLegacy(Select$1);
+var AsyncSelect__default = /*#__PURE__*/_interopDefaultLegacy(AsyncSelect);
+var MuiContainer__default = /*#__PURE__*/_interopDefaultLegacy(MuiContainer);
+var Hidden__default = /*#__PURE__*/_interopDefaultLegacy(Hidden);
+var Drawer__default = /*#__PURE__*/_interopDefaultLegacy(Drawer);
+var Fab__default = /*#__PURE__*/_interopDefaultLegacy(Fab);
+var CircularProgress__default = /*#__PURE__*/_interopDefaultLegacy(CircularProgress);
+var Dialog__default = /*#__PURE__*/_interopDefaultLegacy(Dialog);
+var DialogActions__default = /*#__PURE__*/_interopDefaultLegacy(DialogActions);
+var DialogContent__default = /*#__PURE__*/_interopDefaultLegacy(DialogContent);
+var DialogTitle__default = /*#__PURE__*/_interopDefaultLegacy(DialogTitle);
+var MuiPagination__default = /*#__PURE__*/_interopDefaultLegacy(MuiPagination);
+var PaginationItem__default = /*#__PURE__*/_interopDefaultLegacy(PaginationItem);
+var copy__default = /*#__PURE__*/_interopDefaultLegacy(copy);
+var MuiTabs__default = /*#__PURE__*/_interopDefaultLegacy(MuiTabs);
+var MuiTab__default = /*#__PURE__*/_interopDefaultLegacy(MuiTab);
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -396,21 +422,21 @@ RocksKitTheme.overrides.MuiButtonBase = {
 };
 
 var COLOR_PROP_TYPES = {
-  colorPrimary: PropTypes__default.bool,
-  colorPrimaryLight: PropTypes__default.bool,
-  colorGrayLight: PropTypes__default.bool,
-  colorGraySemiLight: PropTypes__default.bool,
-  colorGrayRegular: PropTypes__default.bool,
-  colorGrayMedium: PropTypes__default.bool,
-  colorGrayDark: PropTypes__default.bool,
-  colorBlack: PropTypes__default.bool,
-  colorWhite: PropTypes__default.bool,
-  colorError: PropTypes__default.bool,
-  colorErrorLight: PropTypes__default.bool,
-  colorWarning: PropTypes__default.bool,
-  colorWarningLight: PropTypes__default.bool,
-  colorSuccess: PropTypes__default.bool,
-  colorSuccessLight: PropTypes__default.bool
+  colorPrimary: PropTypes__default['default'].bool,
+  colorPrimaryLight: PropTypes__default['default'].bool,
+  colorGrayLight: PropTypes__default['default'].bool,
+  colorGraySemiLight: PropTypes__default['default'].bool,
+  colorGrayRegular: PropTypes__default['default'].bool,
+  colorGrayMedium: PropTypes__default['default'].bool,
+  colorGrayDark: PropTypes__default['default'].bool,
+  colorBlack: PropTypes__default['default'].bool,
+  colorWhite: PropTypes__default['default'].bool,
+  colorError: PropTypes__default['default'].bool,
+  colorErrorLight: PropTypes__default['default'].bool,
+  colorWarning: PropTypes__default['default'].bool,
+  colorWarningLight: PropTypes__default['default'].bool,
+  colorSuccess: PropTypes__default['default'].bool,
+  colorSuccessLight: PropTypes__default['default'].bool
 };
 var COLOR = function COLOR(_ref) {
   var colorPrimary = _ref.colorPrimary,
@@ -448,10 +474,10 @@ var COLOR = function COLOR(_ref) {
 };
 
 var DIMENSION_PROP_TYPES = {
-  h100: PropTypes__default.bool,
-  w100: PropTypes__default.bool,
-  h100vh: PropTypes__default.bool,
-  w100vw: PropTypes__default.bool
+  h100: PropTypes__default['default'].bool,
+  w100: PropTypes__default['default'].bool,
+  h100vh: PropTypes__default['default'].bool,
+  w100vw: PropTypes__default['default'].bool
 };
 var DIMENSION = function DIMENSION(_ref) {
   var h100 = _ref.h100,
@@ -467,12 +493,12 @@ var DIMENSION = function DIMENSION(_ref) {
 };
 
 var DISPLAY_PROP_TYPES = {
-  dBlock: PropTypes__default.bool,
-  dFlex: PropTypes__default.bool,
-  dInline: PropTypes__default.bool,
-  dInlineBlock: PropTypes__default.bool,
-  dInlineFlex: PropTypes__default.bool,
-  dNone: PropTypes__default.bool
+  dBlock: PropTypes__default['default'].bool,
+  dFlex: PropTypes__default['default'].bool,
+  dInline: PropTypes__default['default'].bool,
+  dInlineBlock: PropTypes__default['default'].bool,
+  dInlineFlex: PropTypes__default['default'].bool,
+  dNone: PropTypes__default['default'].bool
 };
 var DISPLAY = function DISPLAY(_ref) {
   var dBlock = _ref.dBlock,
@@ -498,23 +524,23 @@ var SPACER_POSTFIX = function SPACER_POSTFIX(space) {
   return "" + (space > 0 ? "px" : "");
 };
 var SPACER_PROP_TYPES = {
-  m: PropTypes__default.number,
-  m0: PropTypes__default.bool,
-  mx: PropTypes__default.number,
-  my: PropTypes__default.number,
-  mt: PropTypes__default.number,
-  mb: PropTypes__default.number,
-  mr: PropTypes__default.number,
-  ml: PropTypes__default.number,
-  mAuto: PropTypes__default.bool,
-  p: PropTypes__default.number,
-  p0: PropTypes__default.bool,
-  px: PropTypes__default.number,
-  py: PropTypes__default.number,
-  pt: PropTypes__default.number,
-  pb: PropTypes__default.number,
-  pr: PropTypes__default.number,
-  pl: PropTypes__default.number
+  m: PropTypes__default['default'].number,
+  m0: PropTypes__default['default'].bool,
+  mx: PropTypes__default['default'].number,
+  my: PropTypes__default['default'].number,
+  mt: PropTypes__default['default'].number,
+  mb: PropTypes__default['default'].number,
+  mr: PropTypes__default['default'].number,
+  ml: PropTypes__default['default'].number,
+  mAuto: PropTypes__default['default'].bool,
+  p: PropTypes__default['default'].number,
+  p0: PropTypes__default['default'].bool,
+  px: PropTypes__default['default'].number,
+  py: PropTypes__default['default'].number,
+  pt: PropTypes__default['default'].number,
+  pb: PropTypes__default['default'].number,
+  pr: PropTypes__default['default'].number,
+  pl: PropTypes__default['default'].number
 };
 var SPACER = function SPACER(_ref) {
   var m = _ref.m,
@@ -558,12 +584,12 @@ var SPACER = function SPACER(_ref) {
 var THEME_COLORS = ["primary", "secondary", "success", "error", "warning"];
 
 var IconPropTypes = _extends({
-  color: PropTypes__default.oneOf(THEME_COLORS),
-  icon: PropTypes__default.string.isRequired,
-  onClick: PropTypes__default.func,
-  prefix: PropTypes__default.string,
-  rounded: PropTypes__default.bool,
-  size: PropTypes__default.oneOf(Object.keys(KIT_ICON_SIZES))
+  color: PropTypes__default['default'].oneOf(THEME_COLORS),
+  icon: PropTypes__default['default'].string.isRequired,
+  onClick: PropTypes__default['default'].func,
+  prefix: PropTypes__default['default'].string,
+  rounded: PropTypes__default['default'].bool,
+  size: PropTypes__default['default'].oneOf(Object.keys(KIT_ICON_SIZES))
 }, COLOR_PROP_TYPES, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var IconDefaultProps = {
   color: "primary",
@@ -600,7 +626,7 @@ function _templateObject$1() {
 
   return data;
 }
-var Rounded = styled__default.div(_templateObject$1(), function (_ref) {
+var Rounded = styled__default['default'].div(_templateObject$1(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
   return styled.css(["border:solid 2px ", ";background-color:", ";"], theme.palette.gray.regular, theme.palette[color].light);
@@ -611,7 +637,7 @@ var Rounded = styled__default.div(_templateObject$1(), function (_ref) {
 }, function (theme) {
   return SPACER(theme);
 });
-var Squared = styled__default.div(_templateObject2(), function (_ref2) {
+var Squared = styled__default['default'].div(_templateObject2(), function (_ref2) {
   var color = _ref2.color,
       theme = _ref2.theme;
   return styled.css(["border:solid 1px ", ";"], theme.palette[color].light);
@@ -622,13 +648,13 @@ var Squared = styled__default.div(_templateObject2(), function (_ref2) {
 }, function (theme) {
   return SPACER(theme);
 });
-var StyledIcon = styled__default(function (_ref3) {
+var StyledIcon = styled__default['default'](function (_ref3) {
   var icon = _ref3.icon,
       prefix = _ref3.prefix,
       size = _ref3.size,
       props = _objectWithoutPropertiesLoose(_ref3, ["icon", "prefix", "size"]);
 
-  return /*#__PURE__*/React__default.createElement(reactFontawesome.FontAwesomeIcon, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(reactFontawesome.FontAwesomeIcon, _extends({
     icon: [prefix, icon]
   }, props));
 })(_templateObject3(), function (_ref4) {
@@ -673,10 +699,10 @@ var Icon = function Icon(_ref8) {
   var Wrapper = null;
   if (rounded) Wrapper = Rounded;
   if (squared) Wrapper = Squared;
-  return Wrapper ? /*#__PURE__*/React__default.createElement(Wrapper, _extends({
+  return Wrapper ? /*#__PURE__*/React__default['default'].createElement(Wrapper, _extends({
     className: className,
     color: color
-  }, props), /*#__PURE__*/React__default.createElement(StyledIcon, defaultProps)) : /*#__PURE__*/React__default.createElement(StyledIcon, _extends({
+  }, props), /*#__PURE__*/React__default['default'].createElement(StyledIcon, defaultProps)) : /*#__PURE__*/React__default['default'].createElement(StyledIcon, _extends({
     className: className
   }, defaultProps));
 };
@@ -684,10 +710,10 @@ Icon.propTypes = IconPropTypes;
 Icon.defaultProps = IconDefaultProps;
 
 var AlertPropTypes = _extends({
-  content: PropTypes__default.node,
-  children: PropTypes__default.node,
-  color: PropTypes__default.oneOf(["info", "danger", "warning"]),
-  noBorderRadius: PropTypes__default.bool
+  content: PropTypes__default['default'].node,
+  children: PropTypes__default['default'].node,
+  color: PropTypes__default['default'].oneOf(["info", "danger", "warning"]),
+  noBorderRadius: PropTypes__default['default'].bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var AlertDefaultProps = {
   content: null,
@@ -704,7 +730,7 @@ function _templateObject$2() {
 
   return data;
 }
-var StyledMessage = styled__default.div(_templateObject$2(), function (_ref) {
+var StyledMessage = styled__default['default'].div(_templateObject$2(), function (_ref) {
   var noBorderRadius = _ref.noBorderRadius;
   return !noBorderRadius && "border-radius: 8px;";
 }, function (_ref2) {
@@ -762,9 +788,9 @@ var Alert = function Alert(_ref5) {
 
   var theme = styled.useTheme();
   var colors = getColors(color, theme);
-  return /*#__PURE__*/React__default.createElement(StyledMessage, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledMessage, _extends({
     colors: colors
-  }, props), /*#__PURE__*/React__default.createElement(Icon, {
+  }, props), /*#__PURE__*/React__default['default'].createElement(Icon, {
     icon: "info-circle",
     mr: 2
   }), content || children);
@@ -773,10 +799,10 @@ Alert.propTypes = AlertPropTypes;
 Alert.defaultProps = AlertDefaultProps;
 
 var AppContainerPropTypes = {
-  children: PropTypes__default.node.isRequired,
-  icons: PropTypes__default.object,
-  pageLoading: PropTypes__default.bool,
-  theme: PropTypes__default.object.isRequired
+  children: PropTypes__default['default'].node.isRequired,
+  icons: PropTypes__default['default'].object,
+  pageLoading: PropTypes__default['default'].bool,
+  theme: PropTypes__default['default'].object.isRequired
 };
 
 var AppContainer = function AppContainer(_ref) {
@@ -787,35 +813,35 @@ var AppContainer = function AppContainer(_ref) {
       pageProgressBarListener = _ref.pageProgressBarListener,
       theme = _ref.theme;
   if (icons) fontawesomeSvgCore.library.add(icons);
-  return /*#__PURE__*/React__default.createElement(styles.ThemeProvider, {
+  return /*#__PURE__*/React__default['default'].createElement(styles.ThemeProvider, {
     theme: theme
-  }, /*#__PURE__*/React__default.createElement(styled.ThemeProvider, {
+  }, /*#__PURE__*/React__default['default'].createElement(styled.ThemeProvider, {
     theme: theme
-  }, /*#__PURE__*/React__default.createElement(notistack.SnackbarProvider, {
+  }, /*#__PURE__*/React__default['default'].createElement(notistack.SnackbarProvider, {
     maxSnack: 3
-  }, /*#__PURE__*/React__default.createElement(GlobalStyle, null), /*#__PURE__*/React__default.createElement(CssBaseline, null), pageProgressBar && /*#__PURE__*/React__default.createElement(PageProgressBar, {
+  }, /*#__PURE__*/React__default['default'].createElement(GlobalStyle, null), /*#__PURE__*/React__default['default'].createElement(CssBaseline__default['default'], null), pageProgressBar && /*#__PURE__*/React__default['default'].createElement(PageProgressBar, {
     listener: pageProgressBarListener
-  }), pageLoading ? /*#__PURE__*/React__default.createElement(PageLoading, null) : children)));
+  }), pageLoading ? /*#__PURE__*/React__default['default'].createElement(PageLoading, null) : children)));
 };
 AppContainer.propTypes = AppContainerPropTypes;
 
 var ChipBadgePropTypes = _extends({
-  color: PropTypes__default.oneOf(THEME_COLORS),
-  label: PropTypes__default.string,
-  icon: PropTypes__default.string.isRequired
+  color: PropTypes__default['default'].oneOf(THEME_COLORS),
+  label: PropTypes__default['default'].string,
+  icon: PropTypes__default['default'].string.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ChipBadgeDefaultProps = {
   color: "primary"
 };
 
 var HeadingBasePropTypes = _extends({
-  align: PropTypes__default.oneOf(["inherit", "left", "center", "right", "justify"]),
-  children: PropTypes__default.node,
-  content: PropTypes__default.string,
-  color: PropTypes__default.oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
-  display: PropTypes__default.oneOf(["initial", "block", "inline"]),
-  gutterBottom: PropTypes__default.bool,
-  noWrap: PropTypes__default.bool
+  align: PropTypes__default['default'].oneOf(["inherit", "left", "center", "right", "justify"]),
+  children: PropTypes__default['default'].node,
+  content: PropTypes__default['default'].string,
+  color: PropTypes__default['default'].oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
+  display: PropTypes__default['default'].oneOf(["initial", "block", "inline"]),
+  gutterBottom: PropTypes__default['default'].bool,
+  noWrap: PropTypes__default['default'].bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
 function _templateObject$3() {
@@ -827,7 +853,7 @@ function _templateObject$3() {
 
   return data;
 }
-var StyledHeading = styled__default(Typography)(_templateObject$3(), function (theme) {
+var StyledHeading = styled__default['default'](Typography__default['default'])(_templateObject$3(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -837,63 +863,63 @@ var HeadingBase = function HeadingBase(_ref) {
       children = _ref.children,
       props = _objectWithoutPropertiesLoose(_ref, ["content", "children"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledHeading, props, content || children);
+  return /*#__PURE__*/React__default['default'].createElement(StyledHeading, props, content || children);
 };
 HeadingBase.propTypes = HeadingBasePropTypes;
 
 var H1 = function H1(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(HeadingBase, _extends({
     variant: "h1"
   }, props));
 };
 H1.propTypes = HeadingBasePropTypes;
 
 var H2 = function H2(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(HeadingBase, _extends({
     variant: "h2"
   }, props));
 };
 H2.propTypes = HeadingBasePropTypes;
 
 var H3 = function H3(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(HeadingBase, _extends({
     variant: "h3"
   }, props));
 };
 H3.propTypes = HeadingBasePropTypes;
 
 var H4 = function H4(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(HeadingBase, _extends({
     variant: "h4"
   }, props));
 };
 H4.propTypes = HeadingBasePropTypes;
 
 var H5 = function H5(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(HeadingBase, _extends({
     variant: "h5"
   }, props));
 };
 H5.propTypes = HeadingBasePropTypes;
 
 var H6 = function H6(props) {
-  return /*#__PURE__*/React__default.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(HeadingBase, _extends({
     variant: "h6"
   }, props));
 };
 H6.propTypes = HeadingBasePropTypes;
 
 var TextBasePropTypes = _extends({
-  align: PropTypes__default.oneOf(["inherit", "left", "center", "right", "justify"]),
-  children: PropTypes__default.node,
-  content: PropTypes__default.string,
-  color: PropTypes__default.oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
-  display: PropTypes__default.oneOf(["initial", "block", "inline"]),
-  fontStyle: PropTypes__default.oneOf(["normal", "italic"]),
-  fontWeight: PropTypes__default.oneOf(["light", "regular", "bold"]),
-  fontSize: PropTypes__default.oneOf(["sm", "md", "lg"]),
-  gutterBottom: PropTypes__default.bool,
-  noWrap: PropTypes__default.bool
+  align: PropTypes__default['default'].oneOf(["inherit", "left", "center", "right", "justify"]),
+  children: PropTypes__default['default'].node,
+  content: PropTypes__default['default'].string,
+  color: PropTypes__default['default'].oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
+  display: PropTypes__default['default'].oneOf(["initial", "block", "inline"]),
+  fontStyle: PropTypes__default['default'].oneOf(["normal", "italic"]),
+  fontWeight: PropTypes__default['default'].oneOf(["light", "regular", "bold"]),
+  fontSize: PropTypes__default['default'].oneOf(["sm", "md", "lg"]),
+  gutterBottom: PropTypes__default['default'].bool,
+  noWrap: PropTypes__default['default'].bool
 }, COLOR_PROP_TYPES, DISPLAY_PROP_TYPES, SPACER_PROP_TYPES);
 var TextBaseDefaultProps = {
   fontStyle: "normal",
@@ -910,7 +936,7 @@ function _templateObject$4() {
 
   return data;
 }
-var StyledText = styled__default(Typography)(_templateObject$4(), function (_ref) {
+var StyledText = styled__default['default'](Typography__default['default'])(_templateObject$4(), function (_ref) {
   var fontWeight = _ref.fontWeight,
       theme = _ref.theme;
 
@@ -952,7 +978,7 @@ var TextBase = function TextBase(_ref4) {
       children = _ref4.children,
       props = _objectWithoutPropertiesLoose(_ref4, ["content", "children"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledText, props, content || children);
+  return /*#__PURE__*/React__default['default'].createElement(StyledText, props, content || children);
 };
 TextBase.propTypes = TextBasePropTypes;
 TextBase.defaultProps = TextBaseDefaultProps;
@@ -966,12 +992,12 @@ function _templateObject$5() {
 
   return data;
 }
-var StyledParagraph = styled__default(TextBase)(_templateObject$5(), function (_ref) {
+var StyledParagraph = styled__default['default'](TextBase)(_templateObject$5(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
 var Paragraph = function Paragraph(props) {
-  return /*#__PURE__*/React__default.createElement(StyledParagraph, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledParagraph, _extends({
     variant: "body1",
     paragraph: true
   }, props));
@@ -979,7 +1005,7 @@ var Paragraph = function Paragraph(props) {
 Paragraph.propTypes = TextBasePropTypes;
 
 var Text = function Text(props) {
-  return /*#__PURE__*/React__default.createElement(TextBase, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(TextBase, _extends({
     component: "div",
     variant: "body2"
   }, props));
@@ -1005,7 +1031,7 @@ function _templateObject$6() {
 
   return data;
 }
-var StyledChip = styled__default.div(_templateObject$6(), function (_ref) {
+var StyledChip = styled__default['default'].div(_templateObject$6(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
   return styled.css(["padding:", ";background-color:", ";color:", ";"], theme.spacing(2), theme.palette[color].light, theme.palette[color].main);
@@ -1014,7 +1040,7 @@ var StyledChip = styled__default.div(_templateObject$6(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledLabel = styled__default(Text).attrs(function () {
+var StyledLabel = styled__default['default'](Text).attrs(function () {
   return {
     fontWeight: "bold"
   };
@@ -1028,19 +1054,19 @@ var ChipBadge = function ChipBadge(_ref3) {
       label = _ref3.label,
       props = _objectWithoutPropertiesLoose(_ref3, ["color", "icon", "label"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledChip, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledChip, _extends({
     color: color
-  }, props), /*#__PURE__*/React__default.createElement(Icon, {
+  }, props), /*#__PURE__*/React__default['default'].createElement(Icon, {
     color: color,
     icon: icon
-  }), label && /*#__PURE__*/React__default.createElement(StyledLabel, null, label));
+  }), label && /*#__PURE__*/React__default['default'].createElement(StyledLabel, null, label));
 };
 ChipBadge.propTypes = ChipBadgePropTypes;
 ChipBadge.defaultProps = ChipBadgeDefaultProps;
 
 var ChipBadgePropTypes$1 = _extends({
-  color: PropTypes__default.oneOf(THEME_COLORS),
-  label: PropTypes__default.string
+  color: PropTypes__default['default'].oneOf(THEME_COLORS),
+  label: PropTypes__default['default'].string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ChipBadgeDefaultProps$1 = {
   color: "secondary"
@@ -1055,7 +1081,7 @@ function _templateObject$7() {
 
   return data;
 }
-var StyledBadge = styled__default.div(_templateObject$7(), function (_ref) {
+var StyledBadge = styled__default['default'].div(_templateObject$7(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
   return styled.css(["padding:", ";border:1px solid ", ";color:", ";"], theme.spacing(0, 2), theme.palette[color].light, theme.palette[color].main);
@@ -1069,9 +1095,9 @@ var TinyBadge = function TinyBadge(_ref2) {
       label = _ref2.label,
       props = _objectWithoutPropertiesLoose(_ref2, ["color", "label"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledBadge, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledBadge, _extends({
     color: color
-  }, props), /*#__PURE__*/React__default.createElement(Text, {
+  }, props), /*#__PURE__*/React__default['default'].createElement(Text, {
     fontWeight: "bold",
     fontSize: "sm"
   }, label));
@@ -1080,7 +1106,7 @@ TinyBadge.propTypes = ChipBadgePropTypes$1;
 TinyBadge.defaultProps = ChipBadgeDefaultProps$1;
 
 var BoxBasePropTypes = _extends({
-  shadow: PropTypes__default.oneOf(["none", "normal", "long"])
+  shadow: PropTypes__default['default'].oneOf(["none", "normal", "long"])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var BoxBaseDefaultProps = {
   shadow: "normal"
@@ -1095,7 +1121,7 @@ function _templateObject$8() {
 
   return data;
 }
-var StyledBox = styled__default.div(_templateObject$8(), function (_ref) {
+var StyledBox = styled__default['default'].div(_templateObject$8(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
@@ -1109,16 +1135,16 @@ var StyledBox = styled__default.div(_templateObject$8(), function (_ref) {
   return DISPLAY(theme);
 });
 var BoxBase = function BoxBase(props) {
-  return /*#__PURE__*/React__default.createElement(StyledBox, props);
+  return /*#__PURE__*/React__default['default'].createElement(StyledBox, props);
 };
 BoxBase.propTypes = BoxBasePropTypes;
 BoxBase.defaultProps = BoxBaseDefaultProps;
 
 var FlexPropTypes = _extends({
-  alignItems: PropTypes__default.oneOf(["flex-start", "center", "flex-end", "stretch", "baseline"]),
-  container: PropTypes__default.bool,
-  item: PropTypes__default.bool,
-  justify: PropTypes__default.oneOf(["flex-start", "center", "flex-end", "space-between", "space-around", "space-evenly"])
+  alignItems: PropTypes__default['default'].oneOf(["flex-start", "center", "flex-end", "stretch", "baseline"]),
+  container: PropTypes__default['default'].bool,
+  item: PropTypes__default['default'].bool,
+  justify: PropTypes__default['default'].oneOf(["flex-start", "center", "flex-end", "space-between", "space-around", "space-evenly"])
 }, SPACER_PROP_TYPES, DIMENSION_PROP_TYPES);
 var FlexDefaultProps = {
   alignItems: "center",
@@ -1134,7 +1160,7 @@ function _templateObject$9() {
 
   return data;
 }
-var StyledFlex = styled__default(Grid)(_templateObject$9(), function (theme) {
+var StyledFlex = styled__default['default'](Grid__default['default'])(_templateObject$9(), function (theme) {
   return DIMENSION(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -1142,7 +1168,7 @@ var StyledFlex = styled__default(Grid)(_templateObject$9(), function (theme) {
   return SPACER(theme);
 });
 var Flex = function Flex(props) {
-  return /*#__PURE__*/React__default.createElement(StyledFlex, props);
+  return /*#__PURE__*/React__default['default'].createElement(StyledFlex, props);
 };
 Flex.propTypes = FlexPropTypes;
 Flex.defaultProps = FlexDefaultProps;
@@ -1156,7 +1182,7 @@ function _templateObject$a() {
 
   return data;
 }
-var StyledBoxFooter = styled__default(Flex).attrs(function () {
+var StyledBoxFooter = styled__default['default'](Flex).attrs(function () {
   return {
     container: true,
     alignItems: "center",
@@ -1184,12 +1210,12 @@ var BoxFooter = function BoxFooter(_ref4) {
       props = _objectWithoutPropertiesLoose(_ref4, ["action", "actionDisabled", "actionLoading", "actionTitle", "actionType", "renderAction", "renderTitle"]);
 
   if (!renderTitle || !renderAction || !actionTitle) return null;
-  return /*#__PURE__*/React__default.createElement(StyledBoxFooter, props, /*#__PURE__*/React__default.createElement(Flex, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledBoxFooter, props, /*#__PURE__*/React__default['default'].createElement(Flex, {
     item: true,
     sm: 8
-  }, renderTitle()), /*#__PURE__*/React__default.createElement(Flex, {
+  }, renderTitle()), /*#__PURE__*/React__default['default'].createElement(Flex, {
     item: true
-  }, renderAction() || /*#__PURE__*/React__default.createElement(Button, {
+  }, renderAction() || /*#__PURE__*/React__default['default'].createElement(Button, {
     content: actionTitle,
     disabled: actionDisabled,
     loading: actionLoading,
@@ -1198,14 +1224,14 @@ var BoxFooter = function BoxFooter(_ref4) {
   })));
 };
 BoxFooter.propTypes = {
-  action: PropTypes__default.func,
-  actionDisabled: PropTypes__default.bool,
-  actionLoading: PropTypes__default.bool,
-  actionTitle: PropTypes__default.string.isRequired,
-  actionType: PropTypes__default.string,
-  padding: PropTypes__default.number.isRequired,
-  renderAction: PropTypes__default.func,
-  renderTitle: PropTypes__default.func
+  action: PropTypes__default['default'].func,
+  actionDisabled: PropTypes__default['default'].bool,
+  actionLoading: PropTypes__default['default'].bool,
+  actionTitle: PropTypes__default['default'].string.isRequired,
+  actionType: PropTypes__default['default'].string,
+  padding: PropTypes__default['default'].number.isRequired,
+  renderAction: PropTypes__default['default'].func,
+  renderTitle: PropTypes__default['default'].func
 };
 BoxFooter.defaultProps = {
   action: function action() {},
@@ -1225,7 +1251,7 @@ function _templateObject$b() {
 
   return data;
 }
-var StyledBoxHeader = styled__default(Flex).attrs(function () {
+var StyledBoxHeader = styled__default['default'](Flex).attrs(function () {
   return {
     container: true,
     justify: "space-between",
@@ -1259,33 +1285,33 @@ var BoxHeader = function BoxHeader(_ref4) {
       titleSize = _ref4.titleSize,
       props = _objectWithoutPropertiesLoose(_ref4, ["action", "actionIcon", "actionIconProps", "actionIconSize", "renderAction", "renderTitle", "metaTitle", "metaTitleColor", "subTitle", "subTitleColor", "title", "titleIcon", "titleIconProps", "titleSize"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledBoxHeader, props, /*#__PURE__*/React__default.createElement(Flex, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledBoxHeader, props, /*#__PURE__*/React__default['default'].createElement(Flex, {
     item: true
-  }, renderTitle() || /*#__PURE__*/React__default.createElement(Flex, {
+  }, renderTitle() || /*#__PURE__*/React__default['default'].createElement(Flex, {
     container: true
-  }, titleIcon && /*#__PURE__*/React__default.createElement(Icon, _extends({
+  }, titleIcon && /*#__PURE__*/React__default['default'].createElement(Icon, _extends({
     colorBlack: true,
     icon: titleIcon,
     mr: 2,
     size: "lg"
-  }, titleIconProps)), /*#__PURE__*/React__default.createElement("div", null, metaTitle && /*#__PURE__*/React__default.createElement(Text, {
+  }, titleIconProps)), /*#__PURE__*/React__default['default'].createElement("div", null, metaTitle && /*#__PURE__*/React__default['default'].createElement(Text, {
     content: metaTitle,
     color: metaTitleColor,
     dBlock: true,
     fontSize: "sm"
-  }), titleSize === "sm" ? /*#__PURE__*/React__default.createElement(H4, {
+  }), titleSize === "sm" ? /*#__PURE__*/React__default['default'].createElement(H4, {
     content: title
-  }) : /*#__PURE__*/React__default.createElement(H3, {
+  }) : /*#__PURE__*/React__default['default'].createElement(H3, {
     content: title
-  }), subTitle && /*#__PURE__*/React__default.createElement(Text, {
+  }), subTitle && /*#__PURE__*/React__default['default'].createElement(Text, {
     content: subTitle,
     color: subTitleColor,
     dBlock: true,
     fontStyle: "italic",
     fontSize: "sm"
-  })))), /*#__PURE__*/React__default.createElement(Flex, {
+  })))), /*#__PURE__*/React__default['default'].createElement(Flex, {
     item: true
-  }, renderAction() || actionIcon && /*#__PURE__*/React__default.createElement(Icon, _extends({
+  }, renderAction() || actionIcon && /*#__PURE__*/React__default['default'].createElement(Icon, _extends({
     colorGrayMedium: true,
     icon: actionIcon,
     size: actionIconSize,
@@ -1293,19 +1319,19 @@ var BoxHeader = function BoxHeader(_ref4) {
   }, actionIconProps))));
 };
 BoxHeader.propTypes = {
-  action: PropTypes__default.func,
-  actionIcon: PropTypes__default.string,
-  actionIconProps: PropTypes__default.shape({}),
-  actionIconSize: PropTypes__default.string,
-  padding: PropTypes__default.number.isRequired,
-  renderAction: PropTypes__default.func,
-  renderTitle: PropTypes__default.func,
-  subTitle: PropTypes__default.string,
-  subTitleColor: PropTypes__default.string,
-  title: PropTypes__default.string.isRequired,
-  titleIcon: PropTypes__default.string,
-  titleIconProps: PropTypes__default.shape({}),
-  titleSize: PropTypes__default.string
+  action: PropTypes__default['default'].func,
+  actionIcon: PropTypes__default['default'].string,
+  actionIconProps: PropTypes__default['default'].shape({}),
+  actionIconSize: PropTypes__default['default'].string,
+  padding: PropTypes__default['default'].number.isRequired,
+  renderAction: PropTypes__default['default'].func,
+  renderTitle: PropTypes__default['default'].func,
+  subTitle: PropTypes__default['default'].string,
+  subTitleColor: PropTypes__default['default'].string,
+  title: PropTypes__default['default'].string.isRequired,
+  titleIcon: PropTypes__default['default'].string,
+  titleIconProps: PropTypes__default['default'].shape({}),
+  titleSize: PropTypes__default['default'].string
 };
 BoxHeader.defaultProps = {
   action: function action() {},
@@ -1321,32 +1347,32 @@ BoxHeader.defaultProps = {
 };
 
 var BoxPropTypes = _extends({
-  children: PropTypes__default.node.isRequired,
-  footerAction: PropTypes__default.func,
-  footerActionLoading: PropTypes__default.bool,
-  footerActionDisabled: PropTypes__default.bool,
-  footerActionTitle: PropTypes__default.string,
-  footerActionType: PropTypes__default.string,
-  footerRenderAction: PropTypes__default.func,
-  footerRenderTitle: PropTypes__default.func,
-  headerAction: PropTypes__default.func,
-  headerActionIcon: PropTypes__default.string,
-  headerActionIconProps: PropTypes__default.shape({}),
-  headerActionIconSize: PropTypes__default.string,
-  headerMetaTitle: PropTypes__default.string,
-  headerMetaTitleColor: PropTypes__default.string,
-  headerRenderAction: PropTypes__default.func,
-  headerRenderTitle: PropTypes__default.func,
-  headerSubTitle: PropTypes__default.string,
-  headerSubTitleColor: PropTypes__default.string,
-  headerTitle: PropTypes__default.string,
-  headerTitleIcon: PropTypes__default.string,
-  headerTitleIconProps: PropTypes__default.shape({}),
-  headerTitleSize: PropTypes__default.string,
-  loading: PropTypes__default.bool,
-  loadingMessage: PropTypes__default.string,
-  padding: PropTypes__default.number,
-  transition: PropTypes__default.bool
+  children: PropTypes__default['default'].node.isRequired,
+  footerAction: PropTypes__default['default'].func,
+  footerActionLoading: PropTypes__default['default'].bool,
+  footerActionDisabled: PropTypes__default['default'].bool,
+  footerActionTitle: PropTypes__default['default'].string,
+  footerActionType: PropTypes__default['default'].string,
+  footerRenderAction: PropTypes__default['default'].func,
+  footerRenderTitle: PropTypes__default['default'].func,
+  headerAction: PropTypes__default['default'].func,
+  headerActionIcon: PropTypes__default['default'].string,
+  headerActionIconProps: PropTypes__default['default'].shape({}),
+  headerActionIconSize: PropTypes__default['default'].string,
+  headerMetaTitle: PropTypes__default['default'].string,
+  headerMetaTitleColor: PropTypes__default['default'].string,
+  headerRenderAction: PropTypes__default['default'].func,
+  headerRenderTitle: PropTypes__default['default'].func,
+  headerSubTitle: PropTypes__default['default'].string,
+  headerSubTitleColor: PropTypes__default['default'].string,
+  headerTitle: PropTypes__default['default'].string,
+  headerTitleIcon: PropTypes__default['default'].string,
+  headerTitleIconProps: PropTypes__default['default'].shape({}),
+  headerTitleSize: PropTypes__default['default'].string,
+  loading: PropTypes__default['default'].bool,
+  loadingMessage: PropTypes__default['default'].string,
+  padding: PropTypes__default['default'].number,
+  transition: PropTypes__default['default'].bool
 }, BoxBasePropTypes);
 var BoxDefaultProps = _extends({
   padding: 6,
@@ -1362,7 +1388,7 @@ function _templateObject$c() {
 
   return data;
 }
-var BoxContent = styled__default.div(_templateObject$c(), function (_ref) {
+var BoxContent = styled__default['default'].div(_templateObject$c(), function (_ref) {
   var padding = _ref.padding,
       theme = _ref.theme;
   return theme.spacing(padding);
@@ -1398,13 +1424,13 @@ var Box = function Box(_ref2) {
       transition = _ref2.transition,
       props = _objectWithoutPropertiesLoose(_ref2, ["alert", "alertColor", "children", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "padding", "transition"]);
 
-  var content = /*#__PURE__*/React__default.createElement(React__default.Fragment, null, alert && /*#__PURE__*/React__default.createElement(Alert, {
+  var content = /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, alert && /*#__PURE__*/React__default['default'].createElement(Alert, {
     content: alert,
     color: alertColor,
     noBorderRadius: true
-  }), /*#__PURE__*/React__default.createElement(BoxContent, {
+  }), /*#__PURE__*/React__default['default'].createElement(BoxContent, {
     padding: padding
-  }, children), /*#__PURE__*/React__default.createElement(BoxFooter, {
+  }, children), /*#__PURE__*/React__default['default'].createElement(BoxFooter, {
     action: footerAction,
     actionDisabled: footerActionDisabled,
     actionLoading: footerActionLoading,
@@ -1414,10 +1440,10 @@ var Box = function Box(_ref2) {
     renderAction: footerRenderAction,
     renderTitle: footerRenderTitle
   }));
-  return /*#__PURE__*/React__default.createElement(BoxBase, props, loading && /*#__PURE__*/React__default.createElement(PageLoading, {
+  return /*#__PURE__*/React__default['default'].createElement(BoxBase, props, loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, {
     message: loadingMessage,
     type: "box"
-  }), headerTitle && /*#__PURE__*/React__default.createElement(BoxHeader, {
+  }), headerTitle && /*#__PURE__*/React__default['default'].createElement(BoxHeader, {
     action: headerAction,
     actionIcon: headerActionIcon,
     actionIconProps: headerActionIconProps,
@@ -1433,27 +1459,27 @@ var Box = function Box(_ref2) {
     titleIcon: headerTitleIcon,
     titleIconProps: headerTitleIconProps,
     titleSize: headerTitleSize
-  }), transition ? /*#__PURE__*/React__default.createElement(PageTransition, null, content) : content);
+  }), transition ? /*#__PURE__*/React__default['default'].createElement(PageTransition, null, content) : content);
 };
 Box.propTypes = BoxPropTypes;
 Box.defaultProps = BoxDefaultProps;
 
 var ButtonBasePropTypes = _extends({
-  block: PropTypes__default.bool,
-  color: PropTypes__default.oneOf(["primary", "secondary", "subtle"]),
-  content: PropTypes__default.string,
-  children: PropTypes__default.node,
-  disabled: PropTypes__default.bool,
-  loading: PropTypes__default.bool,
-  endIcon: PropTypes__default.string,
-  href: PropTypes__default.string,
-  icon: PropTypes__default.string,
+  block: PropTypes__default['default'].bool,
+  color: PropTypes__default['default'].oneOf(["primary", "secondary", "subtle"]),
+  content: PropTypes__default['default'].string,
+  children: PropTypes__default['default'].node,
+  disabled: PropTypes__default['default'].bool,
+  loading: PropTypes__default['default'].bool,
+  endIcon: PropTypes__default['default'].string,
+  href: PropTypes__default['default'].string,
+  icon: PropTypes__default['default'].string,
   iconProps: IconPropTypes,
-  noPadding: PropTypes__default.bool,
-  onClick: PropTypes__default.func,
-  size: PropTypes__default.oneOf(["md", "sm", "xs"]),
-  startIcon: PropTypes__default.string,
-  target: PropTypes__default.string
+  noPadding: PropTypes__default['default'].bool,
+  onClick: PropTypes__default['default'].func,
+  size: PropTypes__default['default'].oneOf(["md", "sm", "xs"]),
+  startIcon: PropTypes__default['default'].string,
+  target: PropTypes__default['default'].string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ButtonBaseDefaultProps = {
   block: false,
@@ -1470,7 +1496,7 @@ function _templateObject$d() {
 
   return data;
 }
-var StyledButton = styled__default(MuiButtonBase)(_templateObject$d(), function (_ref) {
+var StyledButton = styled__default['default'](MuiButtonBase__default['default'])(_templateObject$d(), function (_ref) {
   var noPadding = _ref.noPadding,
       theme = _ref.theme;
   return !noPadding && "padding: " + theme.spacing(0, 4) + ";";
@@ -1523,20 +1549,20 @@ var ButtonBase = function ButtonBase(_ref4) {
       props = _objectWithoutPropertiesLoose(_ref4, ["colors", "content", "children", "loading", "endIcon", "href", "icon", "iconProps", "size", "startIcon"]);
 
   var iconSize = getIconSize(size);
-  return /*#__PURE__*/React__default.createElement(StyledButton, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledButton, _extends({
     component: href ? "a" : "button",
     href: href,
     size: size
-  }, props), loading ? /*#__PURE__*/React__default.createElement(DotsSpinner, {
+  }, props), loading ? /*#__PURE__*/React__default['default'].createElement(DotsSpinner, {
     color: colors == null ? void 0 : colors.color
-  }) : /*#__PURE__*/React__default.createElement(React__default.Fragment, null, startIcon && /*#__PURE__*/React__default.createElement(Icon, {
+  }) : /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, startIcon && /*#__PURE__*/React__default['default'].createElement(Icon, {
     icon: startIcon,
     size: iconSize,
     mr: 2
-  }), icon && /*#__PURE__*/React__default.createElement(Icon, _extends({
+  }), icon && /*#__PURE__*/React__default['default'].createElement(Icon, _extends({
     icon: icon,
     size: iconSize
-  }, iconProps)), content || children, endIcon && /*#__PURE__*/React__default.createElement(Icon, {
+  }, iconProps)), content || children, endIcon && /*#__PURE__*/React__default['default'].createElement(Icon, {
     icon: endIcon,
     size: iconSize,
     ml: 2
@@ -1554,7 +1580,7 @@ function _templateObject$e() {
 
   return data;
 }
-var StyledButton$1 = styled__default(ButtonBase)(_templateObject$e(), function (_ref) {
+var StyledButton$1 = styled__default['default'](ButtonBase)(_templateObject$e(), function (_ref) {
   var colors = _ref.colors;
   return styled.css(["background-color:", ";color:", ";svg{color:", ";}"], colors.backgroundColor, colors.color, colors.color);
 });
@@ -1580,7 +1606,7 @@ var Button = function Button(_ref2) {
 
   var theme = styled.useTheme();
   var colors = colorMapper(color, theme);
-  return /*#__PURE__*/React__default.createElement(StyledButton$1, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledButton$1, _extends({
     colors: colors
   }, props));
 };
@@ -1595,7 +1621,7 @@ function _templateObject$f() {
 
   return data;
 }
-var StyledButton$2 = styled__default(ButtonBase)(_templateObject$f(), function (_ref) {
+var StyledButton$2 = styled__default['default'](ButtonBase)(_templateObject$f(), function (_ref) {
   var colors = _ref.colors;
   return styled.css(["border:1px solid ", ";color:", ";svg{color:", ";}:hover{background-color:", ";opacity:1;}"], colors.borderColor, colors.color, colors.color, colors.backgroundColorHover);
 });
@@ -1624,7 +1650,7 @@ var OutlineButton = function OutlineButton(_ref2) {
 
   var theme = styled.useTheme();
   var colors = colorMapper$1(color, theme);
-  return /*#__PURE__*/React__default.createElement(StyledButton$2, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledButton$2, _extends({
     colors: colors
   }, props));
 };
@@ -1639,7 +1665,7 @@ function _templateObject$g() {
 
   return data;
 }
-var StyledButton$3 = styled__default(ButtonBase)(_templateObject$g(), function (_ref) {
+var StyledButton$3 = styled__default['default'](ButtonBase)(_templateObject$g(), function (_ref) {
   var colors = _ref.colors;
   return styled.css(["color:", ";svg{color:", ";}"], colors.color, colors.color);
 });
@@ -1662,22 +1688,22 @@ var TextButton = function TextButton(_ref2) {
 
   var theme = styled.useTheme();
   var colors = colorMapper$2(color, theme);
-  return /*#__PURE__*/React__default.createElement(StyledButton$3, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledButton$3, _extends({
     colors: colors
   }, props));
 };
 TextButton.propTypes = ButtonBasePropTypes;
 
 var CategoryItemPropTypes = {
-  checked: PropTypes__default.bool.isRequired,
-  dataCy: PropTypes__default.string,
-  description: PropTypes__default.string,
-  iconName: PropTypes__default.string,
-  iconImage: PropTypes__default.string,
-  id: PropTypes__default.number.isRequired,
-  onChange: PropTypes__default.func.isRequired,
-  subCategory: PropTypes__default.bool,
-  name: PropTypes__default.string.isRequired
+  checked: PropTypes__default['default'].bool.isRequired,
+  dataCy: PropTypes__default['default'].string,
+  description: PropTypes__default['default'].string,
+  iconName: PropTypes__default['default'].string,
+  iconImage: PropTypes__default['default'].string,
+  id: PropTypes__default['default'].number.isRequired,
+  onChange: PropTypes__default['default'].func.isRequired,
+  subCategory: PropTypes__default['default'].bool,
+  name: PropTypes__default['default'].string.isRequired
 };
 var CategoryItemDefaultProps = {
   dataCy: "categoryItem",
@@ -1716,7 +1742,7 @@ function _templateObject$h() {
 
   return data;
 }
-var StyledCategoryItem = styled__default.div(_templateObject$h(), function (_ref) {
+var StyledCategoryItem = styled__default['default'].div(_templateObject$h(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (_ref2) {
@@ -1732,11 +1758,11 @@ var StyledCategoryItem = styled__default.div(_templateObject$h(), function (_ref
     return theme.palette.primary.main;
   });
 });
-var StyledIcon$1 = styled__default.img(_templateObject2$2(), function (_ref6) {
+var StyledIcon$1 = styled__default['default'].img(_templateObject2$2(), function (_ref6) {
   var theme = _ref6.theme;
   return theme.palette.primary.main;
 });
-var CheckIcon = styled__default.div(_templateObject3$1(), function (_ref7) {
+var CheckIcon = styled__default['default'].div(_templateObject3$1(), function (_ref7) {
   var theme = _ref7.theme;
   return theme.palette.primary.main;
 });
@@ -1752,28 +1778,28 @@ var CategoryItem = function CategoryItem(_ref8) {
       name = _ref8.name,
       props = _objectWithoutPropertiesLoose(_ref8, ["checked", "dataCy", "description", "iconName", "iconImage", "id", "onChange", "subCategory", "name"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledCategoryItem, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledCategoryItem, _extends({
     checked: checked,
     "data-cy": dataCy,
     onClick: function onClick() {
       return onChange(id);
     }
-  }, props), checked && /*#__PURE__*/React__default.createElement(CheckIcon, null, /*#__PURE__*/React__default.createElement(Icon, {
+  }, props), checked && /*#__PURE__*/React__default['default'].createElement(CheckIcon, null, /*#__PURE__*/React__default['default'].createElement(Icon, {
     icon: "check",
     size: "sm"
-  })), iconName && /*#__PURE__*/React__default.createElement(Icon, {
+  })), iconName && /*#__PURE__*/React__default['default'].createElement(Icon, {
     colorGrayMedium: true,
     icon: iconName,
     size: "lg"
-  }), iconImage && /*#__PURE__*/React__default.createElement(StyledIcon$1, {
+  }), iconImage && /*#__PURE__*/React__default['default'].createElement(StyledIcon$1, {
     src: iconImage,
     alt: name
-  }), /*#__PURE__*/React__default.createElement(Text, {
+  }), /*#__PURE__*/React__default['default'].createElement(Text, {
     color: subCategory ? "textPrimary" : "primary",
     fontWeight: "bold",
     noWrap: true,
     py: 2
-  }, name), /*#__PURE__*/React__default.createElement(Text, {
+  }, name), /*#__PURE__*/React__default['default'].createElement(Text, {
     color: "textSecondary",
     fontSize: "sm"
   }, description));
@@ -1797,7 +1823,7 @@ var DESC2_TOP = DESC_TOP + DESC_HEIGHT + 8;
 var CategoryItemContentLoader = function CategoryItemContentLoader(_ref) {
   var subCategory = _ref.subCategory;
   var theme = styled.useTheme();
-  return /*#__PURE__*/React__default.createElement(RCL, {
+  return /*#__PURE__*/React__default['default'].createElement(RCL__default['default'], {
     width: WIDTH,
     height: HEIGHT,
     backgroundColor: theme.palette.gray.light,
@@ -1807,28 +1833,28 @@ var CategoryItemContentLoader = function CategoryItemContentLoader(_ref) {
       backgroundColor: theme.palette.gray.light,
       borderRadius: 8
     }
-  }, /*#__PURE__*/React__default.createElement("rect", {
+  }, /*#__PURE__*/React__default['default'].createElement("rect", {
     x: WIDTH / 2 - ICON_SIZE / 2,
     y: ICON_TOP,
     rx: 4,
     ry: 4,
     width: ICON_SIZE,
     height: ICON_SIZE
-  }), /*#__PURE__*/React__default.createElement("rect", {
+  }), /*#__PURE__*/React__default['default'].createElement("rect", {
     x: WIDTH / 2 - TITLE_WIDTH / 2,
     y: TITLE_TOP,
     rx: 0,
     ry: 0,
     width: TITLE_WIDTH,
     height: TITLE_HEIGHT
-  }), !subCategory && /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement("rect", {
+  }), !subCategory && /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement("rect", {
     x: WIDTH / 2 - DESC_WIDTH / 2,
     y: DESC_TOP,
     rx: 0,
     ry: 0,
     width: DESC_WIDTH,
     height: DESC_HEIGHT
-  }), /*#__PURE__*/React__default.createElement("rect", {
+  }), /*#__PURE__*/React__default['default'].createElement("rect", {
     x: WIDTH / 2 - DESC2_WIDTH / 2,
     y: DESC2_TOP,
     rx: 0,
@@ -1838,14 +1864,14 @@ var CategoryItemContentLoader = function CategoryItemContentLoader(_ref) {
   })));
 };
 CategoryItemContentLoader.propTypes = {
-  subCategory: PropTypes__default.bool
+  subCategory: PropTypes__default['default'].bool
 };
 CategoryItemContentLoader.defaultProps = {
   subCategory: false
 };
 
 var CollapsePropTypes = {
-  isOpened: PropTypes__default.bool
+  isOpened: PropTypes__default['default'].bool
 };
 
 function _templateObject$i() {
@@ -1857,9 +1883,9 @@ function _templateObject$i() {
 
   return data;
 }
-var Wrapper = styled__default.div(_templateObject$i());
+var Wrapper = styled__default['default'].div(_templateObject$i());
 var Collapse = function Collapse(props) {
-  return /*#__PURE__*/React__default.createElement(Wrapper, null, /*#__PURE__*/React__default.createElement(reactCollapse.Collapse, props));
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper, null, /*#__PURE__*/React__default['default'].createElement(reactCollapse.Collapse, props));
 };
 Collapse.propTypes = CollapsePropTypes;
 
@@ -1867,23 +1893,23 @@ var CollapseButton = function CollapseButton(_ref) {
   var isOpened = _ref.isOpened,
       props = _objectWithoutPropertiesLoose(_ref, ["isOpened"]);
 
-  return /*#__PURE__*/React__default.createElement(Icon, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(Icon, _extends({
     icon: isOpened ? "chevron-up" : "chevron-down"
   }, props));
 };
 CollapseButton.propTypes = {
-  isOpened: PropTypes__default.bool.isRequired
+  isOpened: PropTypes__default['default'].bool.isRequired
 };
 
 var DetailsTablePropTypes = _extends({
-  justifyBetween: PropTypes__default.bool,
-  labelFontSize: PropTypes__default.string,
-  rows: PropTypes__default.arrayOf(PropTypes__default.shape({
-    label: PropTypes__default.string,
-    value: PropTypes__default.node,
-    expanded: PropTypes__default.bool
+  justifyBetween: PropTypes__default['default'].bool,
+  labelFontSize: PropTypes__default['default'].string,
+  rows: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({
+    label: PropTypes__default['default'].string,
+    value: PropTypes__default['default'].node,
+    expanded: PropTypes__default['default'].bool
   })),
-  size: PropTypes__default.oneOf(["sm", "md"])
+  size: PropTypes__default['default'].oneOf(["sm", "md"])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var DetailsTableDefaultProps = {
   labelFontSize: "md",
@@ -1919,12 +1945,12 @@ function _templateObject$j() {
 
   return data;
 }
-var Wrapper$1 = styled__default.div(_templateObject$j(), function (theme) {
+var Wrapper$1 = styled__default['default'].div(_templateObject$j(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var Row = styled__default.div(_templateObject2$3(), function (_ref) {
+var Row = styled__default['default'].div(_templateObject2$3(), function (_ref) {
   var justifyBetween = _ref.justifyBetween;
   return justifyBetween && "justify-content: space-between;";
 }, function (_ref2) {
@@ -1934,7 +1960,7 @@ var Row = styled__default.div(_templateObject2$3(), function (_ref) {
   var theme = _ref3.theme;
   return theme.spacing(2);
 });
-var Label = styled__default(Text).attrs(function () {
+var Label = styled__default['default'](Text).attrs(function () {
   return {
     color: "textSecondary"
   };
@@ -1946,14 +1972,14 @@ var DetailsTable = function DetailsTable(_ref4) {
       size = _ref4.size,
       props = _objectWithoutPropertiesLoose(_ref4, ["labelFontSize", "rows", "justifyBetween", "size"]);
 
-  return /*#__PURE__*/React__default.createElement(Wrapper$1, props, rows.map(function (_ref5) {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$1, props, rows.map(function (_ref5) {
     var label = _ref5.label,
         value = _ref5.value;
-    return /*#__PURE__*/React__default.createElement(Row, {
+    return /*#__PURE__*/React__default['default'].createElement(Row, {
       key: label + ":" + value,
       justifyBetween: justifyBetween,
       size: size
-    }, /*#__PURE__*/React__default.createElement(Label, {
+    }, /*#__PURE__*/React__default['default'].createElement(Label, {
       content: label,
       fontSize: labelFontSize
     }), value || "-");
@@ -1963,8 +1989,8 @@ DetailsTable.propTypes = DetailsTablePropTypes;
 DetailsTable.defaultProps = DetailsTableDefaultProps;
 
 var DividerPropTypes = _extends({
-  className: PropTypes__default.any,
-  thickness: PropTypes__default.number
+  className: PropTypes__default['default'].any,
+  thickness: PropTypes__default['default'].number
 }, SPACER_PROP_TYPES);
 var DividerDefaultProps = {
   thickness: 1
@@ -1979,7 +2005,7 @@ function _templateObject$k() {
 
   return data;
 }
-var StyledDivider = styled__default.hr(_templateObject$k(), function (_ref) {
+var StyledDivider = styled__default['default'].hr(_templateObject$k(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -2010,18 +2036,18 @@ var StyledDivider = styled__default.hr(_templateObject$k(), function (_ref) {
   return SPACER(props);
 });
 var Divider = function Divider(props) {
-  return /*#__PURE__*/React__default.createElement(StyledDivider, props);
+  return /*#__PURE__*/React__default['default'].createElement(StyledDivider, props);
 };
 Divider.propTypes = DividerPropTypes;
 Divider.defaultProps = DividerDefaultProps;
 
 var DropdownPropTypes = _extends({
-  anchorEl: PropTypes__default.object,
-  items: PropTypes__default.arrayOf(PropTypes__default.shape({
-    label: PropTypes__default.string
+  anchorEl: PropTypes__default['default'].object,
+  items: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({
+    label: PropTypes__default['default'].string
   })),
-  onClose: PropTypes__default.func,
-  open: PropTypes__default.bool.isRequired
+  onClose: PropTypes__default['default'].func,
+  open: PropTypes__default['default'].bool.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var DropdownDefaultProps = {
   anchorOrigin: {
@@ -2054,23 +2080,23 @@ function _templateObject$l() {
 
   return data;
 }
-var StyledDropdown = styled__default(Menu)(_templateObject$l(), function (theme) {
+var StyledDropdown = styled__default['default'](Menu__default['default'])(_templateObject$l(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledItem = styled__default(MenuItem)(_templateObject2$4());
+var StyledItem = styled__default['default'](MenuItem__default['default'])(_templateObject2$4());
 var Dropdown = function Dropdown(_ref) {
   var items = _ref.items,
       props = _objectWithoutPropertiesLoose(_ref, ["items"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledDropdown, props, items.map(function (_ref2) {
+  return /*#__PURE__*/React__default['default'].createElement(StyledDropdown, props, items.map(function (_ref2) {
     var label = _ref2.label,
         _onClick = _ref2.onClick,
         value = _ref2.value,
         itemProps = _objectWithoutPropertiesLoose(_ref2, ["label", "onClick", "value"]);
 
-    return /*#__PURE__*/React__default.createElement(StyledItem, _extends({
+    return /*#__PURE__*/React__default['default'].createElement(StyledItem, _extends({
       key: label,
       onClick: function onClick() {
         return _onClick(value);
@@ -2090,7 +2116,7 @@ function _templateObject$m() {
 
   return data;
 }
-var Wrapper$2 = styled__default.div(_templateObject$m(), function (_ref) {
+var Wrapper$2 = styled__default['default'].div(_templateObject$m(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.light;
 }, function (_ref2) {
@@ -2099,23 +2125,23 @@ var Wrapper$2 = styled__default.div(_templateObject$m(), function (_ref) {
 });
 var DownloadModuleButton = function DownloadModuleButton(_ref3) {
   var icon = _ref3.icon;
-  return /*#__PURE__*/React__default.createElement(Wrapper$2, null, /*#__PURE__*/React__default.createElement(Icon, {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$2, null, /*#__PURE__*/React__default['default'].createElement(Icon, {
     icon: icon,
     size: "lg"
   }));
 };
 DownloadModuleButton.propTypes = {
-  icon: PropTypes__default.string.isRequired
+  icon: PropTypes__default['default'].string.isRequired
 };
 
 var DownloadModulePropTypes = _extends({
-  downloadPdfText: PropTypes__default.string,
-  downloadPdfUrl: PropTypes__default.string,
-  downloadQrCodeDesc: PropTypes__default.string,
-  downloadQrCodeText: PropTypes__default.string,
-  downloadQrCodeUrl: PropTypes__default.string,
-  qrCodeUrl: PropTypes__default.string,
-  qrCodeValue: PropTypes__default.string
+  downloadPdfText: PropTypes__default['default'].string,
+  downloadPdfUrl: PropTypes__default['default'].string,
+  downloadQrCodeDesc: PropTypes__default['default'].string,
+  downloadQrCodeText: PropTypes__default['default'].string,
+  downloadQrCodeUrl: PropTypes__default['default'].string,
+  qrCodeUrl: PropTypes__default['default'].string,
+  qrCodeValue: PropTypes__default['default'].string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var DownloadModuleDefaultProps = {
   downloadPdfText: "Download as PDF",
@@ -2133,7 +2159,7 @@ function _templateObject$n() {
 
   return data;
 }
-var Container = styled__default.div(_templateObject$n(), function (_ref) {
+var Container = styled__default['default'].div(_templateObject$n(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -2154,28 +2180,28 @@ var DownloadModule = function DownloadModule(_ref3) {
       qrCodeValue = _ref3.qrCodeValue,
       props = _objectWithoutPropertiesLoose(_ref3, ["downloadPdfText", "downloadPdfUrl", "downloadQrCodeDesc", "downloadQrCodeText", "downloadQrCodeUrl", "qrCodeUrl", "qrCodeValue"]);
 
-  return /*#__PURE__*/React__default.createElement(Container, props, /*#__PURE__*/React__default.createElement(Flex, {
+  return /*#__PURE__*/React__default['default'].createElement(Container, props, /*#__PURE__*/React__default['default'].createElement(Flex, {
     container: true,
     mb: 8
-  }, /*#__PURE__*/React__default.createElement(DownloadModuleButton, {
+  }, /*#__PURE__*/React__default['default'].createElement(DownloadModuleButton, {
     icon: "file-pdf"
-  }), /*#__PURE__*/React__default.createElement(TextButton, {
+  }), /*#__PURE__*/React__default['default'].createElement(TextButton, {
     content: downloadPdfText,
     href: downloadPdfUrl,
     size: "sm"
-  })), /*#__PURE__*/React__default.createElement(Flex, {
+  })), /*#__PURE__*/React__default['default'].createElement(Flex, {
     container: true,
     wrap: "nowrap"
-  }, /*#__PURE__*/React__default.createElement(QRCode, {
+  }, /*#__PURE__*/React__default['default'].createElement(QRCode__default['default'], {
     includeMargin: true,
     size: 76,
     value: qrCodeValue
-  }), /*#__PURE__*/React__default.createElement(Flex, {
+  }), /*#__PURE__*/React__default['default'].createElement(Flex, {
     item: true
-  }, /*#__PURE__*/React__default.createElement(Text, {
+  }, /*#__PURE__*/React__default['default'].createElement(Text, {
     content: downloadQrCodeDesc,
     ml: 2
-  }), /*#__PURE__*/React__default.createElement(TextButton, {
+  }), /*#__PURE__*/React__default['default'].createElement(TextButton, {
     content: downloadQrCodeText,
     href: downloadQrCodeUrl,
     ml: 1,
@@ -2186,14 +2212,14 @@ DownloadModule.propTypes = DownloadModulePropTypes;
 DownloadModule.defaultProps = DownloadModuleDefaultProps;
 
 var FileManagerPropTypes = _extends({
-  data: PropTypes__default.arrayOf(PropTypes__default.shape({
-    label: PropTypes__default.string,
-    files: PropTypes__default.arrayOf(PropTypes__default.shape({
-      id: PropTypes__default.number,
-      name: PropTypes__default.string,
-      date: PropTypes__default.string,
-      description: PropTypes__default.string,
-      previewUrl: PropTypes__default.string
+  data: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({
+    label: PropTypes__default['default'].string,
+    files: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({
+      id: PropTypes__default['default'].number,
+      name: PropTypes__default['default'].string,
+      date: PropTypes__default['default'].string,
+      description: PropTypes__default['default'].string,
+      previewUrl: PropTypes__default['default'].string
     }))
   }))
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
@@ -2238,8 +2264,8 @@ function _templateObject$o() {
 
   return data;
 }
-var Container$1 = styled__default.div(_templateObject$o());
-var Wrapper$3 = styled__default.div(_templateObject2$5(), function (_ref) {
+var Container$1 = styled__default['default'].div(_templateObject$o());
+var Wrapper$3 = styled__default['default'].div(_templateObject2$5(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -2253,7 +2279,7 @@ var Wrapper$3 = styled__default.div(_templateObject2$5(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-var Row$1 = styled__default(Grid).attrs(function () {
+var Row$1 = styled__default['default'](Grid__default['default']).attrs(function () {
   return {
     container: true
   };
@@ -2261,7 +2287,7 @@ var Row$1 = styled__default(Grid).attrs(function () {
   var theme = _ref4.theme;
   return theme.spacing(2);
 });
-var Item = styled__default(Grid).attrs(function (_ref5) {
+var Item = styled__default['default'](Grid__default['default']).attrs(function (_ref5) {
   var lg = _ref5.lg;
   return {
     item: true,
@@ -2271,12 +2297,12 @@ var Item = styled__default(Grid).attrs(function (_ref5) {
 })(_templateObject4());
 var FileManager = function FileManager(_ref6) {
   var data = _ref6.data;
-  return /*#__PURE__*/React__default.createElement(Container$1, null, data.map(function (_ref7) {
+  return /*#__PURE__*/React__default['default'].createElement(Container$1, null, data.map(function (_ref7) {
     var label = _ref7.label,
         files = _ref7.files;
-    return /*#__PURE__*/React__default.createElement(Wrapper$3, {
+    return /*#__PURE__*/React__default['default'].createElement(Wrapper$3, {
       key: label
-    }, /*#__PURE__*/React__default.createElement(Text, {
+    }, /*#__PURE__*/React__default['default'].createElement(Text, {
       content: label,
       fontWeight: "bold",
       mb: 2
@@ -2286,30 +2312,30 @@ var FileManager = function FileManager(_ref6) {
           id = _ref8.id,
           name = _ref8.name,
           previewUrl = _ref8.previewUrl;
-      return /*#__PURE__*/React__default.createElement(Row$1, {
+      return /*#__PURE__*/React__default['default'].createElement(Row$1, {
         key: id
-      }, /*#__PURE__*/React__default.createElement(Item, {
+      }, /*#__PURE__*/React__default['default'].createElement(Item, {
         lg: 5,
         md: 5
-      }, /*#__PURE__*/React__default.createElement(Thumbnail, {
+      }, /*#__PURE__*/React__default['default'].createElement(Thumbnail, {
         imgSrc: previewUrl,
         hasPreview: true,
         mr: 4
-      }), /*#__PURE__*/React__default.createElement(Text, {
+      }), /*#__PURE__*/React__default['default'].createElement(Text, {
         content: name,
         color: "textSecondary",
         fontStyle: "italic",
         noWrap: true
-      })), /*#__PURE__*/React__default.createElement(Item, {
+      })), /*#__PURE__*/React__default['default'].createElement(Item, {
         lg: 4,
         md: 3
-      }, /*#__PURE__*/React__default.createElement(Text, {
+      }, /*#__PURE__*/React__default['default'].createElement(Text, {
         content: date,
         color: "textSecondary",
         fontWeight: "bold"
-      })), /*#__PURE__*/React__default.createElement(Item, {
+      })), /*#__PURE__*/React__default['default'].createElement(Item, {
         justify: "flex-end"
-      }, /*#__PURE__*/React__default.createElement(Text, {
+      }, /*#__PURE__*/React__default['default'].createElement(Text, {
         content: description,
         color: "textSecondary",
         fontWeight: "bold",
@@ -2324,16 +2350,16 @@ FileManager.defaultProps = FileManagerDefaultProps;
 const img = "data:image/svg+xml,%3csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.5938 0.625L5.375 8.84375L2.375 5.8125C2.21875 5.6875 1.96875 5.6875 1.84375 5.8125L0.9375 6.71875C0.8125 6.84375 0.8125 7.09375 0.9375 7.25L5.125 11.4062C5.28125 11.5625 5.5 11.5625 5.65625 11.4062L15.0312 2.03125C15.1562 1.90625 15.1562 1.65625 15.0312 1.5L14.125 0.625C14 0.46875 13.75 0.46875 13.5938 0.625Z' fill='white'/%3e%3c/svg%3e";
 
 var RadioBasePropTypes = _extends({
-  block: PropTypes__default.bool,
-  defaultValue: PropTypes__default.oneOfType([PropTypes__default.arrayOf(PropTypes__default.string), PropTypes__default.string]),
-  hasError: PropTypes__default.bool,
-  name: PropTypes__default.string,
-  options: PropTypes__default.arrayOf(PropTypes__default.shape({
-    label: PropTypes__default.node,
-    value: PropTypes__default.string
+  block: PropTypes__default['default'].bool,
+  defaultValue: PropTypes__default['default'].oneOfType([PropTypes__default['default'].arrayOf(PropTypes__default['default'].string), PropTypes__default['default'].string]),
+  hasError: PropTypes__default['default'].bool,
+  name: PropTypes__default['default'].string,
+  options: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({
+    label: PropTypes__default['default'].node,
+    value: PropTypes__default['default'].string
   })),
-  register: PropTypes__default.func.isRequired,
-  stacked: PropTypes__default.bool
+  register: PropTypes__default['default'].func.isRequired,
+  stacked: PropTypes__default['default'].bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var RadioBaseDefaultProps = {
   block: true,
@@ -2362,7 +2388,7 @@ function _templateObject$p() {
 
   return data;
 }
-var StyledInput = styled__default.input(_templateObject$p(), function (_ref) {
+var StyledInput = styled__default['default'].input(_templateObject$p(), function (_ref) {
   var stacked = _ref.stacked;
   return stacked && styled.css(["display:flex;:not(:last-child){margin:0 0 24px 0;}"]);
 }, function (_ref2) {
@@ -2397,7 +2423,7 @@ var StyledInput = styled__default.input(_templateObject$p(), function (_ref) {
       theme = _ref11.theme;
   return bordered && styled.css(["+ label{margin:0;}+ label:first-of-type{margin:0 0 0 -1px;}+ label:last-of-type{margin:0 -1px 0 0;}&:checked + label{border:2px solid ", ";border-radius:12px;height:102%;}"], theme.palette.gray.dark);
 });
-var StyledLabel$1 = styled__default.label(_templateObject2$6(), function (_ref12) {
+var StyledLabel$1 = styled__default['default'].label(_templateObject2$6(), function (_ref12) {
   var bordered = _ref12.bordered;
   return bordered && styled.css(["flex:1;display:flex;align-items:center;justify-content:center;height:100%;"]);
 });
@@ -2416,7 +2442,7 @@ var RadioBaseItem = function RadioBaseItem(_ref13) {
 
   var id = name + "-" + value;
   var defaultChecked = type === "checkbox" ? defaultValue.includes(value) : defaultValue === value;
-  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(StyledInput, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(StyledInput, _extends({
     bordered: bordered,
     defaultChecked: defaultChecked,
     hasError: hasError,
@@ -2426,7 +2452,7 @@ var RadioBaseItem = function RadioBaseItem(_ref13) {
     stacked: stacked,
     type: type,
     value: value
-  }, props)), /*#__PURE__*/React__default.createElement(StyledLabel$1, {
+  }, props)), /*#__PURE__*/React__default['default'].createElement(StyledLabel$1, {
     bordered: bordered,
     htmlFor: id
   }, label));
@@ -2438,8 +2464,8 @@ var RadioBase = function RadioBase(_ref) {
   var options = _ref.options,
       props = _objectWithoutPropertiesLoose(_ref, ["options"]);
 
-  return /*#__PURE__*/React__default.createElement(Fieldset, null, options.map(function (opt) {
-    return /*#__PURE__*/React__default.createElement(RadioBaseItem, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(Fieldset, null, options.map(function (opt) {
+    return /*#__PURE__*/React__default['default'].createElement(RadioBaseItem, _extends({
       key: opt.value
     }, opt, props));
   }));
@@ -2456,7 +2482,7 @@ function _templateObject$q() {
 
   return data;
 }
-var Wrapper$4 = styled__default.div(_templateObject$q(), function (_ref) {
+var Wrapper$4 = styled__default['default'].div(_templateObject$q(), function (_ref) {
   var block = _ref.block;
   return block ? "100%" : "initial";
 }, function (_ref2) {
@@ -2474,11 +2500,11 @@ var BorderedRadio = function BorderedRadio(_ref3) {
       options = _ref3.options,
       props = _objectWithoutPropertiesLoose(_ref3, ["block", "hasError", "options"]);
 
-  return /*#__PURE__*/React__default.createElement(Wrapper$4, {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$4, {
     block: block,
     hasError: hasError
   }, options.map(function (opt) {
-    return /*#__PURE__*/React__default.createElement(RadioBaseItem, _extends({
+    return /*#__PURE__*/React__default['default'].createElement(RadioBaseItem, _extends({
       key: opt.value,
       hasError: hasError
     }, props, opt, {
@@ -2500,13 +2526,13 @@ function _templateObject$r() {
 
   return data;
 }
-var StyledRadioBase = styled__default(RadioBase)(_templateObject$r(), function (theme) {
+var StyledRadioBase = styled__default['default'](RadioBase)(_templateObject$r(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
 var Checkbox = function Checkbox(props) {
-  return /*#__PURE__*/React__default.createElement(StyledRadioBase, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledRadioBase, _extends({
     type: "checkbox"
   }, props));
 };
@@ -2514,7 +2540,7 @@ Checkbox.propTypes = RadioBasePropTypes;
 Checkbox.defaultProps = RadioBaseDefaultProps;
 
 var FormErrorPropTypes = _extends({
-  message: PropTypes__default.node.isRequired
+  message: PropTypes__default['default'].node.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FormErrorDefaultProps = {};
 
@@ -2527,7 +2553,7 @@ function _templateObject$s() {
 
   return data;
 }
-var Error = styled__default.div(_templateObject$s(), function (_ref) {
+var Error = styled__default['default'].div(_templateObject$s(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.error.main;
 }, function (_ref2) {
@@ -2542,22 +2568,22 @@ var FormError = function FormError(_ref3) {
   var message = _ref3.message,
       props = _objectWithoutPropertiesLoose(_ref3, ["message"]);
 
-  return /*#__PURE__*/React__default.createElement(Error, props, message);
+  return /*#__PURE__*/React__default['default'].createElement(Error, props, message);
 };
 FormError.propTypes = FormErrorPropTypes;
 FormError.defaultProps = FormErrorDefaultProps;
 
 var FieldWrapperPropTypes = _extends({
-  block: PropTypes__default.bool,
-  endIcon: PropTypes__default.string,
-  endIconColor: PropTypes__default.oneOf(THEME_COLORS),
-  endIconOnClick: PropTypes__default.func,
-  endIconPrefix: PropTypes__default.string,
-  fixedHeight: PropTypes__default.bool,
-  startIcon: PropTypes__default.string,
-  startIconColor: PropTypes__default.oneOf(THEME_COLORS),
-  startIconOnClick: PropTypes__default.func,
-  startIconPrefix: PropTypes__default.string
+  block: PropTypes__default['default'].bool,
+  endIcon: PropTypes__default['default'].string,
+  endIconColor: PropTypes__default['default'].oneOf(THEME_COLORS),
+  endIconOnClick: PropTypes__default['default'].func,
+  endIconPrefix: PropTypes__default['default'].string,
+  fixedHeight: PropTypes__default['default'].bool,
+  startIcon: PropTypes__default['default'].string,
+  startIconColor: PropTypes__default['default'].oneOf(THEME_COLORS),
+  startIconOnClick: PropTypes__default['default'].func,
+  startIconPrefix: PropTypes__default['default'].string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FieldWrapperDefaultProps = {
   block: true,
@@ -2577,7 +2603,7 @@ function _templateObject$t() {
 
   return data;
 }
-var StyledWrapper = styled__default.div(_templateObject$t(), function (_ref) {
+var StyledWrapper = styled__default['default'].div(_templateObject$t(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(3);
 }, function (_ref2) {
@@ -2624,12 +2650,12 @@ var FieldWrapper = function FieldWrapper(_ref11) {
       startIconPrefix = _ref11.startIconPrefix,
       props = _objectWithoutPropertiesLoose(_ref11, ["children", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledWrapper, props, startIcon && /*#__PURE__*/React__default.createElement(Icon, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledWrapper, props, startIcon && /*#__PURE__*/React__default['default'].createElement(Icon, {
     color: startIconColor,
     icon: startIcon,
     onClick: startIconOnClick,
     prefix: startIconPrefix
-  }), children, endIcon && /*#__PURE__*/React__default.createElement(Icon, {
+  }), children, endIcon && /*#__PURE__*/React__default['default'].createElement(Icon, {
     color: endIconColor,
     icon: endIcon,
     onClick: endIconOnClick,
@@ -2640,11 +2666,11 @@ FieldWrapper.propTypes = FieldWrapperPropTypes;
 FieldWrapper.defaultProps = FieldWrapperDefaultProps;
 
 var FieldBasePropTypes = _extends({}, FieldWrapperPropTypes, {
-  disabled: PropTypes__default.bool,
-  hasError: PropTypes__default.bool,
-  readOnly: PropTypes__default.bool,
-  register: PropTypes__default.func,
-  type: PropTypes__default.string
+  disabled: PropTypes__default['default'].bool,
+  hasError: PropTypes__default['default'].bool,
+  readOnly: PropTypes__default['default'].bool,
+  register: PropTypes__default['default'].func,
+  type: PropTypes__default['default'].string
 });
 var FieldBaseDefaultProps = _extends({}, FieldWrapperDefaultProps, {
   disabled: false,
@@ -2663,14 +2689,14 @@ function _templateObject$u() {
 
   return data;
 }
-var StyledInput$1 = styled__default(
+var StyledInput$1 = styled__default['default'](
 /*#__PURE__*/
 // eslint-disable-next-line react/prop-types
 React.forwardRef(function (_ref, ref) {
   var Component = _ref.component,
       props = _objectWithoutPropertiesLoose(_ref, ["component"]);
 
-  return /*#__PURE__*/React__default.createElement(Component, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(Component, _extends({
     ref: ref
   }, props));
 }))(_templateObject$u(), function (_ref2) {
@@ -2714,7 +2740,7 @@ var FieldBase = function FieldBase(_ref10) {
       startIconPrefix = _ref10.startIconPrefix,
       props = _objectWithoutPropertiesLoose(_ref10, ["block", "className", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "fixedHeight", "hasError", "register", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
 
-  return /*#__PURE__*/React__default.createElement(FieldWrapper, {
+  return /*#__PURE__*/React__default['default'].createElement(FieldWrapper, {
     block: block,
     className: className,
     endIcon: endIcon,
@@ -2727,7 +2753,7 @@ var FieldBase = function FieldBase(_ref10) {
     startIconColor: startIconColor,
     startIconOnClick: startIconOnClick,
     startIconPrefix: startIconPrefix
-  }, /*#__PURE__*/React__default.createElement(StyledInput$1, _extends({
+  }, /*#__PURE__*/React__default['default'].createElement(StyledInput$1, _extends({
     block: block,
     hasError: hasError,
     ref: register
@@ -2745,13 +2771,13 @@ function _templateObject$v() {
 
   return data;
 }
-var StyledFieldset = styled__default.fieldset(_templateObject$v());
+var StyledFieldset = styled__default['default'].fieldset(_templateObject$v());
 var Fieldset = function Fieldset(_ref) {
   var children = _ref.children;
-  return /*#__PURE__*/React__default.createElement(StyledFieldset, null, children);
+  return /*#__PURE__*/React__default['default'].createElement(StyledFieldset, null, children);
 };
 Fieldset.propTypes = {
-  children: PropTypes__default.node.isRequired
+  children: PropTypes__default['default'].node.isRequired
 };
 Fieldset.defaultProps = {};
 
@@ -2774,7 +2800,7 @@ function _templateObject$w() {
 
   return data;
 }
-var Item$1 = styled__default.div(_templateObject$w(), function (_ref) {
+var Item$1 = styled__default['default'].div(_templateObject$w(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2, 4);
 }, function (_ref2) {
@@ -2787,7 +2813,7 @@ var Item$1 = styled__default.div(_templateObject$w(), function (_ref) {
   var theme = _ref4.theme;
   return theme.spacing(2);
 });
-var RemoveIcon = styled__default(Icon)(_templateObject2$7(), function (_ref5) {
+var RemoveIcon = styled__default['default'](Icon)(_templateObject2$7(), function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.common.white;
 });
@@ -2803,9 +2829,9 @@ var UploaderPreview = function UploaderPreview(_ref6) {
   var files = _ref6.files,
       onRemoveClick = _ref6.onRemoveClick;
   return files.map(function (file) {
-    return /*#__PURE__*/React__default.createElement(Item$1, {
+    return /*#__PURE__*/React__default['default'].createElement(Item$1, {
       key: file.name
-    }, /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement("b", null, file.name), /*#__PURE__*/React__default.createElement("div", null, bytesToSize(file.size))), onRemoveClick && /*#__PURE__*/React__default.createElement(RemoveIcon, {
+    }, /*#__PURE__*/React__default['default'].createElement("div", null, /*#__PURE__*/React__default['default'].createElement("b", null, file.name), /*#__PURE__*/React__default['default'].createElement("div", null, bytesToSize(file.size))), onRemoveClick && /*#__PURE__*/React__default['default'].createElement(RemoveIcon, {
       icon: "times",
       onClick: function onClick() {
         return onRemoveClick(file);
@@ -2814,8 +2840,8 @@ var UploaderPreview = function UploaderPreview(_ref6) {
   });
 };
 UploaderPreview.propTypes = {
-  files: PropTypes__default.arrayOf(PropTypes__default.object),
-  onRemoveClick: PropTypes__default.func.isRequired
+  files: PropTypes__default['default'].arrayOf(PropTypes__default['default'].object),
+  onRemoveClick: PropTypes__default['default'].func.isRequired
 };
 UploaderPreview.defaultProps = {
   files: []
@@ -2850,8 +2876,8 @@ function _templateObject$x() {
 
   return data;
 }
-var Wrapper$5 = styled__default.div(_templateObject$x());
-var Container$2 = styled__default.div(_templateObject2$8(), function (_ref) {
+var Wrapper$5 = styled__default['default'].div(_templateObject$x());
+var Container$2 = styled__default['default'].div(_templateObject2$8(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -2883,7 +2909,7 @@ var Container$2 = styled__default.div(_templateObject2$8(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledFilePond = styled__default(reactFilepond.FilePond)(_templateObject3$4());
+var StyledFilePond = styled__default['default'](reactFilepond.FilePond)(_templateObject3$4());
 var FilePondComponent = function FilePondComponent(_ref10) {
   var disabled = _ref10.disabled,
       hasError = _ref10.hasError,
@@ -2891,10 +2917,10 @@ var FilePondComponent = function FilePondComponent(_ref10) {
       value = _ref10.value,
       props = _objectWithoutPropertiesLoose(_ref10, ["disabled", "hasError", "onChange", "value"]);
 
-  return /*#__PURE__*/React__default.createElement(Wrapper$5, null, /*#__PURE__*/React__default.createElement(Container$2, {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$5, null, /*#__PURE__*/React__default['default'].createElement(Container$2, {
     disabled: disabled,
     hasError: hasError
-  }, /*#__PURE__*/React__default.createElement(StyledFilePond, _extends({
+  }, /*#__PURE__*/React__default['default'].createElement(StyledFilePond, _extends({
     disabled: disabled,
     onprocessfile: function onprocessfile(error, file) {
       if (file.status === 5) {
@@ -2906,7 +2932,7 @@ var FilePondComponent = function FilePondComponent(_ref10) {
         }]));
       }
     }
-  }, props))), /*#__PURE__*/React__default.createElement(UploaderPreview, {
+  }, props))), /*#__PURE__*/React__default['default'].createElement(UploaderPreview, {
     files: value,
     onRemoveClick: function onRemoveClick(file) {
       onChange(value.filter(function (f) {
@@ -2916,12 +2942,12 @@ var FilePondComponent = function FilePondComponent(_ref10) {
   }));
 };
 FilePondComponent.propTypes = {
-  accept: PropTypes__default.string,
-  disabled: PropTypes__default.bool,
-  hasError: PropTypes__default.bool,
-  multiple: PropTypes__default.bool,
-  onChange: PropTypes__default.func,
-  value: PropTypes__default.arrayOf(PropTypes__default.shape)
+  accept: PropTypes__default['default'].string,
+  disabled: PropTypes__default['default'].bool,
+  hasError: PropTypes__default['default'].bool,
+  multiple: PropTypes__default['default'].bool,
+  onChange: PropTypes__default['default'].func,
+  value: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape)
 };
 FilePondComponent.defaultProps = {
   accept: "image/*",
@@ -2933,13 +2959,13 @@ FilePondComponent.defaultProps = {
 };
 
 var FileUploadPropTypes = _extends({
-  allowRemove: PropTypes__default.bool,
-  allowRevert: PropTypes__default.bool,
-  allowMultiple: PropTypes__default.bool,
-  control: PropTypes__default.shape({}).isRequired,
-  defaultValue: PropTypes__default.arrayOf(PropTypes__default.object),
-  isRequired: PropTypes__default.string,
-  name: PropTypes__default.string
+  allowRemove: PropTypes__default['default'].bool,
+  allowRevert: PropTypes__default['default'].bool,
+  allowMultiple: PropTypes__default['default'].bool,
+  control: PropTypes__default['default'].shape({}).isRequired,
+  defaultValue: PropTypes__default['default'].arrayOf(PropTypes__default['default'].object),
+  isRequired: PropTypes__default['default'].string,
+  name: PropTypes__default['default'].string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FileUploadDefaultProps = {
   allowRemove: false,
@@ -2956,8 +2982,8 @@ var FilePond = function FilePond(_ref) {
       name = _ref.name,
       props = _objectWithoutPropertiesLoose(_ref, ["control", "defaultValue", "isRequired", "name"]);
 
-  return /*#__PURE__*/React__default.createElement(reactHookForm.Controller, {
-    as: /*#__PURE__*/React__default.createElement(FilePondComponent, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(reactHookForm.Controller, {
+    as: /*#__PURE__*/React__default['default'].createElement(FilePondComponent, _extends({
       defaultValue: defaultValue
     }, props)),
     control: control,
@@ -2990,12 +3016,12 @@ function _templateObject$y() {
 
   return data;
 }
-var StyledContainer = styled__default.div(_templateObject$y(), function (theme) {
+var StyledContainer = styled__default['default'].div(_templateObject$y(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var DropzoneArea = styled__default.div(_templateObject2$9(), function (_ref) {
+var DropzoneArea = styled__default['default'].div(_templateObject2$9(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -3059,25 +3085,25 @@ var Dropzone = function Dropzone(_ref10) {
     }));
   };
 
-  return /*#__PURE__*/React__default.createElement(StyledContainer, props, /*#__PURE__*/React__default.createElement(DropzoneArea, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledContainer, props, /*#__PURE__*/React__default['default'].createElement(DropzoneArea, _extends({
     dragActive: isDragActive,
     dragAccept: isDragAccept,
     dragReject: isDragReject,
     disabled: disabled,
     hasError: hasError
-  }, getRootProps()), /*#__PURE__*/React__default.createElement("input", getInputProps()), isDragAccept && /*#__PURE__*/React__default.createElement("p", null, "Accepted"), isDragReject && /*#__PURE__*/React__default.createElement("p", null, "Rejected"), isDragActive ? /*#__PURE__*/React__default.createElement("p", null, "Drop here") : /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement("p", null, "Drop, or click to select"), multiple ? /*#__PURE__*/React__default.createElement("p", null, "Accepts multiple files") : /*#__PURE__*/React__default.createElement("p", null, "Single file only"))), /*#__PURE__*/React__default.createElement(UploaderPreview, {
+  }, getRootProps()), /*#__PURE__*/React__default['default'].createElement("input", getInputProps()), isDragAccept && /*#__PURE__*/React__default['default'].createElement("p", null, "Accepted"), isDragReject && /*#__PURE__*/React__default['default'].createElement("p", null, "Rejected"), isDragActive ? /*#__PURE__*/React__default['default'].createElement("p", null, "Drop here") : /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement("p", null, "Drop, or click to select"), multiple ? /*#__PURE__*/React__default['default'].createElement("p", null, "Accepts multiple files") : /*#__PURE__*/React__default['default'].createElement("p", null, "Single file only"))), /*#__PURE__*/React__default['default'].createElement(UploaderPreview, {
     files: value,
     onRemoveClick: removeFile
   }));
 };
 Dropzone.propTypes = {
-  accept: PropTypes__default.string,
-  defaultValue: PropTypes__default.arrayOf(PropTypes__default.object),
-  disabled: PropTypes__default.bool,
-  hasError: PropTypes__default.bool,
-  multiple: PropTypes__default.bool,
-  onChange: PropTypes__default.func,
-  value: PropTypes__default.arrayOf(PropTypes__default.shape)
+  accept: PropTypes__default['default'].string,
+  defaultValue: PropTypes__default['default'].arrayOf(PropTypes__default['default'].object),
+  disabled: PropTypes__default['default'].bool,
+  hasError: PropTypes__default['default'].bool,
+  multiple: PropTypes__default['default'].bool,
+  onChange: PropTypes__default['default'].func,
+  value: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape)
 };
 Dropzone.defaultProps = {
   accept: "image/*",
@@ -3090,10 +3116,10 @@ Dropzone.defaultProps = {
 };
 
 var FileUploadPropTypes$1 = _extends({
-  control: PropTypes__default.shape({}).isRequired,
-  defaultValue: PropTypes__default.arrayOf(PropTypes__default.object),
-  isRequired: PropTypes__default.string,
-  name: PropTypes__default.string
+  control: PropTypes__default['default'].shape({}).isRequired,
+  defaultValue: PropTypes__default['default'].arrayOf(PropTypes__default['default'].object),
+  isRequired: PropTypes__default['default'].string,
+  name: PropTypes__default['default'].string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FileUploadDefaultProps$1 = {
   defaultValue: undefined,
@@ -3107,8 +3133,8 @@ var FileUpload = function FileUpload(_ref) {
       name = _ref.name,
       props = _objectWithoutPropertiesLoose(_ref, ["control", "defaultValue", "isRequired", "name"]);
 
-  return /*#__PURE__*/React__default.createElement(reactHookForm.Controller, {
-    as: /*#__PURE__*/React__default.createElement(Dropzone, props),
+  return /*#__PURE__*/React__default['default'].createElement(reactHookForm.Controller, {
+    as: /*#__PURE__*/React__default['default'].createElement(Dropzone, props),
     control: control,
     defaultValue: defaultValue,
     name: name,
@@ -3121,7 +3147,7 @@ FileUpload.propTypes = FileUploadPropTypes$1;
 FileUpload.defaultProps = FileUploadDefaultProps$1;
 
 var Input = function Input(props) {
-  return /*#__PURE__*/React__default.createElement(FieldBase, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(FieldBase, _extends({
     component: "input"
   }, props));
 };
@@ -3137,12 +3163,12 @@ function _templateObject$z() {
 
   return data;
 }
-var StyledLabel$2 = styled__default.label(_templateObject$z(), function (_ref) {
+var StyledLabel$2 = styled__default['default'].label(_templateObject$z(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.medium;
 });
 var FormLabel = function FormLabel(props) {
-  return /*#__PURE__*/React__default.createElement(StyledLabel$2, props);
+  return /*#__PURE__*/React__default['default'].createElement(StyledLabel$2, props);
 };
 FormLabel.propTypes = {};
 FormLabel.defaultProps = {};
@@ -3156,13 +3182,13 @@ function _templateObject$A() {
 
   return data;
 }
-var StyledRadioBase$1 = styled__default(RadioBase)(_templateObject$A(), function (theme) {
+var StyledRadioBase$1 = styled__default['default'](RadioBase)(_templateObject$A(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
 var Radio = function Radio(props) {
-  return /*#__PURE__*/React__default.createElement(StyledRadioBase$1, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledRadioBase$1, _extends({
     type: "radio"
   }, props));
 };
@@ -3170,13 +3196,13 @@ Radio.propTypes = RadioBasePropTypes;
 Radio.defaultProps = RadioBaseDefaultProps;
 
 var ReactSelectPropTypes = _extends({
-  async: PropTypes__default.bool,
-  defaultValue: PropTypes__default.oneOfType([PropTypes__default.array, PropTypes__default.object]),
-  endpoint: PropTypes__default.string,
-  endpointQueryFlag: PropTypes__default.string,
-  isClearable: PropTypes__default.bool,
-  isDisabled: PropTypes__default.bool,
-  isRequired: PropTypes__default.oneOfType([PropTypes__default.bool, PropTypes__default.string])
+  async: PropTypes__default['default'].bool,
+  defaultValue: PropTypes__default['default'].oneOfType([PropTypes__default['default'].array, PropTypes__default['default'].object]),
+  endpoint: PropTypes__default['default'].string,
+  endpointQueryFlag: PropTypes__default['default'].string,
+  isClearable: PropTypes__default['default'].bool,
+  isDisabled: PropTypes__default['default'].bool,
+  isRequired: PropTypes__default['default'].oneOfType([PropTypes__default['default'].bool, PropTypes__default['default'].string])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ReactSelectDefaultProps = {
   defaultValue: undefined,
@@ -3193,7 +3219,7 @@ function _templateObject$B() {
 
   return data;
 }
-var ReactSelectWrapper = styled__default.div(_templateObject$B(), function (_ref) {
+var ReactSelectWrapper = styled__default['default'].div(_templateObject$B(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.text.primary;
 }, function (_ref2) {
@@ -3248,7 +3274,7 @@ var ReactSelect = function ReactSelect(_ref12) {
       props = _objectWithoutPropertiesLoose(_ref12, ["async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "hasError", "loadOptions", "isRequired", "name", "options", "selectedOption"]);
 
   var loadOptionsfromEndpoint = function loadOptionsfromEndpoint(inputValue, callback) {
-    axios.get("" + endpoint + (endpointQueryFlag ? "?" + endpointQueryFlag + "=" + inputValue : "")).then(function (_ref13) {
+    axios__default['default'].get("" + endpoint + (endpointQueryFlag ? "?" + endpointQueryFlag + "=" + inputValue : "")).then(function (_ref13) {
       var data = _ref13.data;
       return callback(data.filter(function (item) {
         return item.label.toLowerCase().includes(inputValue);
@@ -3257,23 +3283,23 @@ var ReactSelect = function ReactSelect(_ref12) {
   };
 
   var Component = /*#__PURE__*/React.forwardRef(function (data, ref) {
-    return async ? /*#__PURE__*/React__default.createElement(AsyncSelect, _extends({
+    return async ? /*#__PURE__*/React__default['default'].createElement(AsyncSelect__default['default'], _extends({
       defaultOptions: defaultOptions,
       loadOptions: endpoint ? loadOptionsfromEndpoint : loadOptions,
       cacheOptions: cacheOptions,
       ref: ref
-    }, data)) : /*#__PURE__*/React__default.createElement(Select$1, _extends({
+    }, data)) : /*#__PURE__*/React__default['default'].createElement(Select__default['default'], _extends({
       ref: ref
     }, data));
   });
-  var As = /*#__PURE__*/React__default.createElement(Component, _extends({
+  var As = /*#__PURE__*/React__default['default'].createElement(Component, _extends({
     options: options,
     selectedOption: selectedOption,
     classNamePrefix: "react-select"
   }, props));
-  return /*#__PURE__*/React__default.createElement(ReactSelectWrapper, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(ReactSelectWrapper, _extends({
     hasError: hasError
-  }, props), /*#__PURE__*/React__default.createElement(reactHookForm.Controller, {
+  }, props), /*#__PURE__*/React__default['default'].createElement(reactHookForm.Controller, {
     as: As,
     control: control,
     defaultValue: defaultValue,
@@ -3291,13 +3317,13 @@ ReactSelect.propTypes = ReactSelectPropTypes;
 ReactSelect.defaultProps = ReactSelectDefaultProps;
 
 var FormRowPropTypes = _extends({
-  children: PropTypes__default.node.isRequired,
-  errors: PropTypes__default.arrayOf(PropTypes__default.node).isRequired,
-  fields: PropTypes__default.arrayOf(PropTypes__default.string).isRequired,
-  label: PropTypes__default.node,
-  labelAlign: PropTypes__default.oneOf(["start", "center"]),
-  labelGutter: PropTypes__default.bool,
-  show: PropTypes__default.bool.isRequired
+  children: PropTypes__default['default'].node.isRequired,
+  errors: PropTypes__default['default'].arrayOf(PropTypes__default['default'].node).isRequired,
+  fields: PropTypes__default['default'].arrayOf(PropTypes__default['default'].string).isRequired,
+  label: PropTypes__default['default'].node,
+  labelAlign: PropTypes__default['default'].oneOf(["start", "center"]),
+  labelGutter: PropTypes__default['default'].bool,
+  show: PropTypes__default['default'].bool.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FormRowDefaultProps = {
   label: "",
@@ -3345,7 +3371,7 @@ function _templateObject$C() {
 
   return data;
 }
-var StyledRow = styled__default.div(_templateObject$C(), function (_ref) {
+var StyledRow = styled__default['default'].div(_templateObject$C(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 }, function (_ref2) {
@@ -3362,7 +3388,7 @@ var StyledRow = styled__default.div(_templateObject$C(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledLabel$3 = styled__default(FormLabel)(_templateObject2$a(), function (_ref5) {
+var StyledLabel$3 = styled__default['default'](FormLabel)(_templateObject2$a(), function (_ref5) {
   var theme = _ref5.theme;
   return theme.breakpoints.down("sm");
 }, function (_ref6) {
@@ -3374,8 +3400,8 @@ var StyledLabel$3 = styled__default(FormLabel)(_templateObject2$a(), function (_
       theme = _ref7.theme;
   return labelAlign === "start" && labelGutter && styled.css(["padding-top:", ";"], theme.spacing(3));
 });
-var FieldsAndErrorsWrapper = styled__default.div(_templateObject3$5());
-var Fields = styled__default.div(_templateObject4$1(), function (_ref8) {
+var FieldsAndErrorsWrapper = styled__default['default'].div(_templateObject3$5());
+var Fields = styled__default['default'].div(_templateObject4$1(), function (_ref8) {
   var theme = _ref8.theme;
   return theme.spacing(4);
 });
@@ -3390,16 +3416,16 @@ var FormRow = function FormRow(_ref9) {
       props = _objectWithoutPropertiesLoose(_ref9, ["children", "errors", "fields", "label", "labelAlign", "labelGutter", "show"]);
 
   var rowErrors = Array.isArray(errors) ? errors : getFormRowErrors(errors, fields);
-  return /*#__PURE__*/React__default.createElement(StyledRow, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledRow, _extends({
     labelAlign: labelAlign,
     show: show
-  }, props), label && /*#__PURE__*/React__default.createElement(StyledLabel$3, {
+  }, props), label && /*#__PURE__*/React__default['default'].createElement(StyledLabel$3, {
     labelAlign: labelAlign,
     labelGutter: labelGutter
-  }, label), /*#__PURE__*/React__default.createElement(FieldsAndErrorsWrapper, {
+  }, label), /*#__PURE__*/React__default['default'].createElement(FieldsAndErrorsWrapper, {
     fullWidth: !label
-  }, /*#__PURE__*/React__default.createElement(Fields, null, children), rowErrors.map(function (err) {
-    return /*#__PURE__*/React__default.createElement(FormError, {
+  }, /*#__PURE__*/React__default['default'].createElement(Fields, null, children), rowErrors.map(function (err) {
+    return /*#__PURE__*/React__default['default'].createElement(FormError, {
       key: err,
       message: err
     });
@@ -3410,7 +3436,7 @@ FormRow.defaultProps = FormRowDefaultProps;
 
 var renderOptions = function renderOptions(options) {
   return options.map(function (opt) {
-    return /*#__PURE__*/React__default.createElement("option", {
+    return /*#__PURE__*/React__default['default'].createElement("option", {
       key: opt.value,
       value: opt.value
     }, opt.label);
@@ -3421,7 +3447,7 @@ var Select = function Select(_ref) {
   var options = _ref.options,
       props = _objectWithoutPropertiesLoose(_ref, ["options"]);
 
-  return /*#__PURE__*/React__default.createElement(FieldBase, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(FieldBase, _extends({
     component: "select"
   }, props), renderOptions(options));
 };
@@ -3429,14 +3455,14 @@ Select.propTypes = FieldBasePropTypes;
 Select.defaultProps = FieldBaseDefaultProps;
 
 var StepperPropTypes = {
-  control: PropTypes__default.object,
-  label: PropTypes__default.string,
-  min: PropTypes__default.number,
-  max: PropTypes__default.number,
-  name: PropTypes__default.string,
-  onChange: PropTypes__default.func,
-  size: PropTypes__default.oneOf(["sm", "normal"]),
-  value: PropTypes__default.number
+  control: PropTypes__default['default'].object,
+  label: PropTypes__default['default'].string,
+  min: PropTypes__default['default'].number,
+  max: PropTypes__default['default'].number,
+  name: PropTypes__default['default'].string,
+  onChange: PropTypes__default['default'].func,
+  size: PropTypes__default['default'].oneOf(["sm", "normal"]),
+  value: PropTypes__default['default'].number
 };
 var StepperDefaultProps = {
   label: "Days",
@@ -3456,7 +3482,7 @@ function _templateObject$D() {
 
   return data;
 }
-var Wrapper$6 = styled__default.div(_templateObject$D(), function (_ref) {
+var Wrapper$6 = styled__default['default'].div(_templateObject$D(), function (_ref) {
   var size = _ref.size;
   return size === "sm" && styled.css(["flex-direction:column;"]);
 });
@@ -3475,7 +3501,7 @@ var StepperComponent = function StepperComponent(_ref2) {
     onChange(newVal);
   };
 
-  return /*#__PURE__*/React__default.createElement(FieldWrapper, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(FieldWrapper, _extends({
     endIcon: "plus",
     endIconColor: "secondary",
     endIconOnClick: function endIconOnClick() {
@@ -3486,12 +3512,12 @@ var StepperComponent = function StepperComponent(_ref2) {
     startIconOnClick: function startIconOnClick() {
       return handleChange("sub");
     }
-  }, props), /*#__PURE__*/React__default.createElement(Wrapper$6, {
+  }, props), /*#__PURE__*/React__default['default'].createElement(Wrapper$6, {
     size: size
-  }, /*#__PURE__*/React__default.createElement("input", {
+  }, /*#__PURE__*/React__default['default'].createElement("input", {
     onChange: onChange,
     value: value
-  }), /*#__PURE__*/React__default.createElement("span", null, label)));
+  }), /*#__PURE__*/React__default['default'].createElement("span", null, label)));
 };
 StepperComponent.propTypes = StepperPropTypes;
 StepperComponent.defaultProps = StepperDefaultProps;
@@ -3503,9 +3529,9 @@ var Stepper = function Stepper(_ref) {
       name = _ref.name,
       props = _objectWithoutPropertiesLoose(_ref, ["control", "defaultValue", "isRequired", "name"]);
 
-  return /*#__PURE__*/React__default.createElement(reactHookForm.Controller, {
+  return /*#__PURE__*/React__default['default'].createElement(reactHookForm.Controller, {
     render: function render(events) {
-      return /*#__PURE__*/React__default.createElement(StepperComponent, _extends({
+      return /*#__PURE__*/React__default['default'].createElement(StepperComponent, _extends({
         defaultValue: defaultValue
       }, props, events));
     },
@@ -3521,20 +3547,20 @@ Stepper.propTypes = StepperPropTypes;
 Stepper.defaultProps = StepperDefaultProps;
 
 var TextAreaPropTypes = _extends({}, FieldBasePropTypes, {
-  autoFocus: PropTypes__default.bool,
-  cols: PropTypes__default.number,
-  dir: PropTypes__default.oneOf(["ltr", "rtl"]),
-  rows: PropTypes__default.number,
-  spellCheck: PropTypes__default.bool,
-  tabIndex: PropTypes__default.number,
-  wrap: PropTypes__default.oneOf(["soft", "hard"])
+  autoFocus: PropTypes__default['default'].bool,
+  cols: PropTypes__default['default'].number,
+  dir: PropTypes__default['default'].oneOf(["ltr", "rtl"]),
+  rows: PropTypes__default['default'].number,
+  spellCheck: PropTypes__default['default'].bool,
+  tabIndex: PropTypes__default['default'].number,
+  wrap: PropTypes__default['default'].oneOf(["soft", "hard"])
 });
 var TextAreaDefaultProps = _extends({}, FieldBaseDefaultProps, {
   rows: 5
 });
 
 var TextArea = function TextArea(props) {
-  return /*#__PURE__*/React__default.createElement(FieldBase, _extends({}, props, {
+  return /*#__PURE__*/React__default['default'].createElement(FieldBase, _extends({}, props, {
     component: "textarea",
     fixedHeight: false
   }));
@@ -3569,18 +3595,18 @@ var Switch = function Switch(_ref) {
       toggled = _ref.toggled,
       props = _objectWithoutPropertiesLoose(_ref, ["disabled", "handleToggle", "size", "toggled"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledSwitchContainer, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledSwitchContainer, _extends({
     disabled: disabled,
     onClick: handleToggle,
     size: size,
     toggled: toggled
-  }, props), /*#__PURE__*/React__default.createElement(StyledSwitch, {
+  }, props), /*#__PURE__*/React__default['default'].createElement(StyledSwitch, {
     size: size,
     toggled: toggled
   }, toggled ? "Yes" : "No"));
 };
 
-var StyledSwitchContainer = styled__default.div(_templateObject$E(), function (_ref2) {
+var StyledSwitchContainer = styled__default['default'].div(_templateObject$E(), function (_ref2) {
   var theme = _ref2.theme,
       toggled = _ref2.toggled;
   return toggled ? theme.palette.primary.main : theme.palette.gray.regular;
@@ -3603,7 +3629,7 @@ var StyledSwitchContainer = styled__default.div(_templateObject$E(), function (_
   var size = _ref8.size;
   return size === "lg" && styled.css(["border-radius:100px;height:50px;width:100px;"]);
 });
-var StyledSwitch = styled__default.span(_templateObject2$b(), function (_ref9) {
+var StyledSwitch = styled__default['default'].span(_templateObject2$b(), function (_ref9) {
   var theme = _ref9.theme;
   return theme.palette.gray.medium;
 }, function (_ref10) {
@@ -3642,7 +3668,7 @@ function _templateObject$F() {
 
   return data;
 }
-var StyledToggle = styled__default.div(_templateObject$F(), function (theme) {
+var StyledToggle = styled__default['default'].div(_templateObject$F(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -3658,7 +3684,7 @@ var Toggle = function Toggle(_ref) {
     onChange(!value);
   };
 
-  return /*#__PURE__*/React__default.createElement(StyledToggle, null, /*#__PURE__*/React__default.createElement(Switch, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledToggle, null, /*#__PURE__*/React__default['default'].createElement(Switch, _extends({
     disabled: disabled,
     handleToggle: !disabled ? handleToggle : undefined,
     size: size,
@@ -3679,10 +3705,10 @@ Toggle.defaultProps = {
 };
 
 var ToggleSwitchPropTypes = _extends({
-  control: PropTypes__default.shape({}).isRequired,
-  defaultValue: PropTypes__default.bool,
-  isRequired: PropTypes__default.string,
-  name: PropTypes__default.string
+  control: PropTypes__default['default'].shape({}).isRequired,
+  defaultValue: PropTypes__default['default'].bool,
+  isRequired: PropTypes__default['default'].string,
+  name: PropTypes__default['default'].string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ToggleSwitchDefaultProps = {
   defaultValue: undefined,
@@ -3697,9 +3723,9 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
       name = _ref.name,
       props = _objectWithoutPropertiesLoose(_ref, ["control", "defaultValue", "isRequired", "name"]);
 
-  return /*#__PURE__*/React__default.createElement(reactHookForm.Controller, {
+  return /*#__PURE__*/React__default['default'].createElement(reactHookForm.Controller, {
     render: function render(events) {
-      return /*#__PURE__*/React__default.createElement(Toggle, _extends({
+      return /*#__PURE__*/React__default['default'].createElement(Toggle, _extends({
         defaultValue: defaultValue
       }, props, events));
     },
@@ -3793,18 +3819,18 @@ function _templateObject$G() {
 
   return data;
 }
-var ItemConnector = styled__default.div(_templateObject$G(), function (_ref) {
+var ItemConnector = styled__default['default'].div(_templateObject$G(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.regular;
 });
-var Container$3 = styled__default.div(_templateObject2$c(), ItemConnector);
-var RowWrapper = styled__default.div(_templateObject3$6());
-var RowDetails = styled__default(Grid).attrs(function () {
+var Container$3 = styled__default['default'].div(_templateObject2$c(), ItemConnector);
+var RowWrapper = styled__default['default'].div(_templateObject3$6());
+var RowDetails = styled__default['default'](Grid__default['default']).attrs(function () {
   return {
     container: true
   };
 })(_templateObject4$2());
-var Item$2 = styled__default(Grid).attrs(function (_ref2) {
+var Item$2 = styled__default['default'](Grid__default['default']).attrs(function (_ref2) {
   var lg = _ref2.lg;
   return {
     item: true,
@@ -3812,18 +3838,18 @@ var Item$2 = styled__default(Grid).attrs(function (_ref2) {
     lg: lg || 3
   };
 })(_templateObject5());
-var StyledIcon$2 = styled__default(Icon)(_templateObject6(), function (_ref3) {
+var StyledIcon$2 = styled__default['default'](Icon)(_templateObject6(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(2);
 });
-var StyledCollapseButton = styled__default(CollapseButton)(_templateObject7(), function (_ref4) {
+var StyledCollapseButton = styled__default['default'](CollapseButton)(_templateObject7(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(4);
 }, function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.text.primary;
 });
-var Content = styled__default.div(_templateObject8(), function (_ref6) {
+var Content = styled__default['default'].div(_templateObject8(), function (_ref6) {
   var theme = _ref6.theme;
   return theme.spacing(4, 10);
 });
@@ -3841,58 +3867,58 @@ var HistoryItem = function HistoryItem(_ref7) {
       collapseOpen = _useState[0],
       setCollapseOpen = _useState[1];
 
-  return /*#__PURE__*/React__default.createElement(Container$3, {
+  return /*#__PURE__*/React__default['default'].createElement(Container$3, {
     "data-cy": "historyItem"
-  }, /*#__PURE__*/React__default.createElement(ItemConnector, null), /*#__PURE__*/React__default.createElement(RowWrapper, null, /*#__PURE__*/React__default.createElement(StyledIcon$2, {
+  }, /*#__PURE__*/React__default['default'].createElement(ItemConnector, null), /*#__PURE__*/React__default['default'].createElement(RowWrapper, null, /*#__PURE__*/React__default['default'].createElement(StyledIcon$2, {
     rounded: true,
     color: iconColor,
     icon: icon
-  }), /*#__PURE__*/React__default.createElement(RowDetails, null, /*#__PURE__*/React__default.createElement(Item$2, {
+  }), /*#__PURE__*/React__default['default'].createElement(RowDetails, null, /*#__PURE__*/React__default['default'].createElement(Item$2, {
     lg: 5
-  }, /*#__PURE__*/React__default.createElement(Text, {
+  }, /*#__PURE__*/React__default['default'].createElement(Text, {
     fontWeight: "bold"
-  }, title)), /*#__PURE__*/React__default.createElement(Item$2, {
+  }, title)), /*#__PURE__*/React__default['default'].createElement(Item$2, {
     lg: 4
-  }, /*#__PURE__*/React__default.createElement(Text, {
+  }, /*#__PURE__*/React__default['default'].createElement(Text, {
     color: "textSecondary",
     noWrap: true
-  }, description)), /*#__PURE__*/React__default.createElement(Item$2, {
+  }, description)), /*#__PURE__*/React__default['default'].createElement(Item$2, {
     justify: "flex-end"
-  }, /*#__PURE__*/React__default.createElement(Text, {
+  }, /*#__PURE__*/React__default['default'].createElement(Text, {
     color: "textSecondary",
     fontStyle: "italic"
-  }, moreInfo), collapsible && /*#__PURE__*/React__default.createElement(StyledCollapseButton, {
+  }, moreInfo), collapsible && /*#__PURE__*/React__default['default'].createElement(StyledCollapseButton, {
     isOpened: collapseOpen,
     onClick: function onClick() {
       return setCollapseOpen(function (prev) {
         return !prev;
       });
     }
-  })))), collapsible && /*#__PURE__*/React__default.createElement(Collapse, {
+  })))), collapsible && /*#__PURE__*/React__default['default'].createElement(Collapse, {
     isOpened: collapseOpen
-  }, /*#__PURE__*/React__default.createElement(Content, null, collapseContent)));
+  }, /*#__PURE__*/React__default['default'].createElement(Content, null, collapseContent)));
 };
 HistoryItem.propTypes = {
-  data: PropTypes__default.shape({
-    collapsible: PropTypes__default.bool,
-    collapseContent: PropTypes__default.node,
-    id: PropTypes__default.number.isRequired,
-    description: PropTypes__default.string,
-    moreInfo: PropTypes__default.string.isRequired,
-    title: PropTypes__default.string.isRequired,
-    icon: PropTypes__default.string.isRequired,
-    iconColor: PropTypes__default.string
+  data: PropTypes__default['default'].shape({
+    collapsible: PropTypes__default['default'].bool,
+    collapseContent: PropTypes__default['default'].node,
+    id: PropTypes__default['default'].number.isRequired,
+    description: PropTypes__default['default'].string,
+    moreInfo: PropTypes__default['default'].string.isRequired,
+    title: PropTypes__default['default'].string.isRequired,
+    icon: PropTypes__default['default'].string.isRequired,
+    iconColor: PropTypes__default['default'].string
   }).isRequired
 };
 
 var HistoryPropTypes = _extends({
-  rows: PropTypes__default.arrayOf(PropTypes__default.shape({
-    id: PropTypes__default.number.isRequired,
-    description: PropTypes__default.string,
-    moreInfo: PropTypes__default.string.isRequired,
-    title: PropTypes__default.string.isRequired,
-    icon: PropTypes__default.string.isRequired,
-    iconColor: PropTypes__default.string
+  rows: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({
+    id: PropTypes__default['default'].number.isRequired,
+    description: PropTypes__default['default'].string,
+    moreInfo: PropTypes__default['default'].string.isRequired,
+    title: PropTypes__default['default'].string.isRequired,
+    icon: PropTypes__default['default'].string.isRequired,
+    iconColor: PropTypes__default['default'].string
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
@@ -3905,7 +3931,7 @@ function _templateObject$H() {
 
   return data;
 }
-var Container$4 = styled__default.div(_templateObject$H(), function (theme) {
+var Container$4 = styled__default['default'].div(_templateObject$H(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -3914,8 +3940,8 @@ var History = function History(_ref) {
   var rows = _ref.rows,
       props = _objectWithoutPropertiesLoose(_ref, ["rows"]);
 
-  return /*#__PURE__*/React__default.createElement(Container$4, props, rows.map(function (h) {
-    return /*#__PURE__*/React__default.createElement(HistoryItem, {
+  return /*#__PURE__*/React__default['default'].createElement(Container$4, props, rows.map(function (h) {
+    return /*#__PURE__*/React__default['default'].createElement(HistoryItem, {
       key: h.id,
       data: h
     });
@@ -3924,18 +3950,18 @@ var History = function History(_ref) {
 History.propTypes = HistoryPropTypes;
 
 var ImagePropTypes = _extends({
-  alt: PropTypes__default.string.isRequired,
-  className: PropTypes__default.any,
-  cover: PropTypes__default.bool,
-  fluid: PropTypes__default.bool,
-  height: PropTypes__default.number,
-  onClick: PropTypes__default.func,
-  rounded: PropTypes__default.bool,
-  roundedCircle: PropTypes__default.bool,
-  src: PropTypes__default.string.isRequired,
-  style: PropTypes__default.object,
-  thumbnail: PropTypes__default.bool,
-  width: PropTypes__default.number
+  alt: PropTypes__default['default'].string.isRequired,
+  className: PropTypes__default['default'].any,
+  cover: PropTypes__default['default'].bool,
+  fluid: PropTypes__default['default'].bool,
+  height: PropTypes__default['default'].number,
+  onClick: PropTypes__default['default'].func,
+  rounded: PropTypes__default['default'].bool,
+  roundedCircle: PropTypes__default['default'].bool,
+  src: PropTypes__default['default'].string.isRequired,
+  style: PropTypes__default['default'].object,
+  thumbnail: PropTypes__default['default'].bool,
+  width: PropTypes__default['default'].number
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ImageDefaultProps = {
   fluid: false,
@@ -3956,11 +3982,11 @@ function _templateObject$I() {
 var Image = function Image(_ref) {
   var props = _extends({}, _ref);
 
-  return /*#__PURE__*/React__default.createElement(StyledImg, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledImg, _extends({
     itemProp: "contentUrl"
   }, props));
 };
-var StyledImg = styled__default.img(_templateObject$I(), function (_ref2) {
+var StyledImg = styled__default['default'].img(_templateObject$I(), function (_ref2) {
   var width = _ref2.width;
   return width && "width: " + width + ";";
 }, function (_ref3) {
@@ -3981,12 +4007,12 @@ Image.propTypes = ImagePropTypes;
 Image.defaultProps = ImageDefaultProps;
 
 var LanguagePropTypes = _extends({
-  languages: PropTypes__default.arrayOf(PropTypes__default.shape({
-    value: PropTypes__default.string,
-    label: PropTypes__default.string
+  languages: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({
+    value: PropTypes__default['default'].string,
+    label: PropTypes__default['default'].string
   })),
-  onChange: PropTypes__default.func.isRequired,
-  value: PropTypes__default.string.isRequired
+  onChange: PropTypes__default['default'].func.isRequired,
+  value: PropTypes__default['default'].string.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var LanguageDefaultProps = {
   languages: [{
@@ -4017,7 +4043,7 @@ var Language = function Language(_ref) {
   var current = languages.find(function (l) {
     return l.value === value;
   });
-  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(TextButton, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(TextButton, _extends({
     content: current == null ? void 0 : current.label,
     color: "secondary",
     endIcon: "chevron-down",
@@ -4026,7 +4052,7 @@ var Language = function Language(_ref) {
       return setAnchorEl(currentTarget);
     },
     startIcon: "globe"
-  }, props)), /*#__PURE__*/React__default.createElement(Dropdown, {
+  }, props)), /*#__PURE__*/React__default['default'].createElement(Dropdown, {
     anchorEl: anchorEl,
     items: languages.map(function (l) {
       return _extends({
@@ -4046,12 +4072,12 @@ Language.defaultProps = LanguageDefaultProps;
 const img$1 = "data:image/svg+xml,%3csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.20827 41.2468C9.85226 41.2468 12.484 44.0937 12.484 47.415C12.484 50.8719 9.85226 53.4477 6.20827 53.4477C2.56429 53.4477 0 50.8719 0 47.415C0 44.0937 2.56429 41.2468 6.20827 41.2468ZM35.9092 6C49.4054 6 60 16.5063 60 29.7916C60 43.0092 49.4054 53.4477 35.9092 53.4477C22.413 53.4477 11.8184 43.0092 11.8184 29.7916C11.8184 16.5063 22.413 6 35.9092 6ZM35.9092 43.2125C43.2647 43.2125 48.8656 37.5188 48.8656 29.7916C48.8656 21.9966 43.2647 16.2351 35.9092 16.2351C28.5538 16.2351 22.9528 21.9966 22.9528 29.7916C22.9528 37.5188 28.5538 43.2125 35.9092 43.2125Z' fill='%23AC00FC'/%3e%3c/svg%3e";
 
 var AuthLayoutHeaderPropTypes = {
-  backButtonOnClick: PropTypes__default.func,
-  headerLeft: PropTypes__default.node,
-  headerRight: PropTypes__default.node,
-  logoAction: PropTypes__default.func,
-  logoSrc: PropTypes__default.string,
-  renderLogo: PropTypes__default.func
+  backButtonOnClick: PropTypes__default['default'].func,
+  headerLeft: PropTypes__default['default'].node,
+  headerRight: PropTypes__default['default'].node,
+  logoAction: PropTypes__default['default'].func,
+  logoSrc: PropTypes__default['default'].string,
+  renderLogo: PropTypes__default['default'].func
 };
 var AuthLayoutHeaderDefaultProps = {
   renderLogo: function renderLogo() {}
@@ -4086,7 +4112,7 @@ function _templateObject$J() {
 
   return data;
 }
-var StyledHeader = styled__default(Flex).attrs(function () {
+var StyledHeader = styled__default['default'](Flex).attrs(function () {
   return {
     container: true,
     alignItems: "center",
@@ -4096,13 +4122,13 @@ var StyledHeader = styled__default(Flex).attrs(function () {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
-var Item$3 = styled__default(Flex).attrs(function () {
+var Item$3 = styled__default['default'](Flex).attrs(function () {
   return {
     container: true,
     item: true
   };
 })(_templateObject2$d());
-var StyledLogo = styled__default(Image).attrs(function () {
+var StyledLogo = styled__default['default'](Image).attrs(function () {
   return {
     alt: "Logo"
   };
@@ -4116,17 +4142,17 @@ var AuthLayoutHeader = function AuthLayoutHeader(_ref2) {
       renderLogo = _ref2.renderLogo,
       props = _objectWithoutPropertiesLoose(_ref2, ["backButtonOnClick", "headerLeft", "headerRight", "logoAction", "logoSrc", "renderLogo"]);
 
-  var backButton = /*#__PURE__*/React__default.createElement(TextButton, {
+  var backButton = /*#__PURE__*/React__default['default'].createElement(TextButton, {
     color: "secondary",
     onClick: backButtonOnClick,
     size: "sm"
   }, "Back");
-  return /*#__PURE__*/React__default.createElement(StyledHeader, props, /*#__PURE__*/React__default.createElement(Item$3, null, headerLeft || backButton), /*#__PURE__*/React__default.createElement(Item$3, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledHeader, props, /*#__PURE__*/React__default['default'].createElement(Item$3, null, headerLeft || backButton), /*#__PURE__*/React__default['default'].createElement(Item$3, {
     justify: "center"
-  }, renderLogo() || /*#__PURE__*/React__default.createElement(StyledLogo, {
+  }, renderLogo() || /*#__PURE__*/React__default['default'].createElement(StyledLogo, {
     src: logoSrc || img$1,
     onClick: logoAction
-  })), /*#__PURE__*/React__default.createElement(Item$3, {
+  })), /*#__PURE__*/React__default['default'].createElement(Item$3, {
     justify: "flex-end"
   }, headerRight));
 };
@@ -4134,14 +4160,14 @@ AuthLayoutHeader.propTypes = AuthLayoutHeaderPropTypes;
 AuthLayoutHeader.defaultProps = AuthLayoutHeaderDefaultProps;
 
 var AuthLayoutPropTypes = {
-  content: PropTypes__default.node.isRequired,
-  headerBackButtonOnClick: PropTypes__default.func,
-  headerLeft: PropTypes__default.node,
-  headerLogoAction: PropTypes__default.func,
-  headerLogoSrc: PropTypes__default.string,
-  headerRight: PropTypes__default.node,
-  headerRenderLogo: PropTypes__default.func,
-  loading: PropTypes__default.bool
+  content: PropTypes__default['default'].node.isRequired,
+  headerBackButtonOnClick: PropTypes__default['default'].func,
+  headerLeft: PropTypes__default['default'].node,
+  headerLogoAction: PropTypes__default['default'].func,
+  headerLogoSrc: PropTypes__default['default'].string,
+  headerRight: PropTypes__default['default'].node,
+  headerRenderLogo: PropTypes__default['default'].func,
+  loading: PropTypes__default['default'].bool
 };
 
 function _templateObject2$e() {
@@ -4163,12 +4189,12 @@ function _templateObject$K() {
 
   return data;
 }
-var StyledContainer$1 = styled__default(MuiContainer).attrs(function () {
+var StyledContainer$1 = styled__default['default'](MuiContainer__default['default']).attrs(function () {
   return {
     maxWidth: "xs"
   };
 })(_templateObject$K());
-var Content$1 = styled__default.div(_templateObject2$e(), function (_ref) {
+var Content$1 = styled__default['default'].div(_templateObject2$e(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10, 0);
 });
@@ -4183,32 +4209,32 @@ var AuthLayout = function AuthLayout(_ref2) {
       loading = _ref2.loading,
       props = _objectWithoutPropertiesLoose(_ref2, ["content", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "loading"]);
 
-  if (loading) return /*#__PURE__*/React__default.createElement(PageLoading, null);
-  return /*#__PURE__*/React__default.createElement(StyledContainer$1, props, /*#__PURE__*/React__default.createElement(Flex, {
+  if (loading) return /*#__PURE__*/React__default['default'].createElement(PageLoading, null);
+  return /*#__PURE__*/React__default['default'].createElement(StyledContainer$1, props, /*#__PURE__*/React__default['default'].createElement(Flex, {
     container: true,
     direction: "column",
     mAuto: true,
     h100: true,
     wrap: "nowrap"
-  }, /*#__PURE__*/React__default.createElement(AuthLayoutHeader, {
+  }, /*#__PURE__*/React__default['default'].createElement(AuthLayoutHeader, {
     backButtonOnClick: headerBackButtonOnClick,
     headerLeft: headerLeft,
     headerRight: headerRight,
     logoAction: headerLogoAction,
     logoSrc: headerLogoSrc,
     renderLogo: headerRenderLogo
-  }), /*#__PURE__*/React__default.createElement(Content$1, null, content)));
+  }), /*#__PURE__*/React__default['default'].createElement(Content$1, null, content)));
 };
 AuthLayout.propTypes = AuthLayoutPropTypes;
 AuthLayout.defaultProps = {};
 
 var DashboardLayoutHeaderPropTypes = {
-  backButtonOnClick: PropTypes__default.func,
-  headerLeft: PropTypes__default.node,
-  headerRight: PropTypes__default.node,
-  logoAction: PropTypes__default.func,
-  logoSrc: PropTypes__default.string,
-  renderLogo: PropTypes__default.func
+  backButtonOnClick: PropTypes__default['default'].func,
+  headerLeft: PropTypes__default['default'].node,
+  headerRight: PropTypes__default['default'].node,
+  logoAction: PropTypes__default['default'].func,
+  logoSrc: PropTypes__default['default'].string,
+  renderLogo: PropTypes__default['default'].func
 };
 var DashboardLayoutHeaderDefaultProps = {
   renderLogo: function renderLogo() {}
@@ -4243,7 +4269,7 @@ function _templateObject$L() {
 
   return data;
 }
-var StyledHeader$1 = styled__default(Flex).attrs(function () {
+var StyledHeader$1 = styled__default['default'](Flex).attrs(function () {
   return {
     container: true,
     alignItems: "center",
@@ -4253,7 +4279,7 @@ var StyledHeader$1 = styled__default(Flex).attrs(function () {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
-var LogoContainer = styled__default(Flex).attrs(function () {
+var LogoContainer = styled__default['default'](Flex).attrs(function () {
   return {
     container: true,
     item: true,
@@ -4265,7 +4291,7 @@ var LogoContainer = styled__default(Flex).attrs(function () {
   var theme = _ref2.theme;
   return theme.breakpoints.down("sm");
 });
-var HeaderRight = styled__default(Flex).attrs(function () {
+var HeaderRight = styled__default['default'](Flex).attrs(function () {
   return {
     container: true,
     item: true,
@@ -4286,24 +4312,24 @@ var DashboardLayoutHeader = function DashboardLayoutHeader(_ref4) {
       renderLogo = _ref4.renderLogo,
       props = _objectWithoutPropertiesLoose(_ref4, ["backButtonOnClick", "headerLeft", "headerRight", "logoAction", "logoSrc", "renderLogo"]);
 
-  var backButton = /*#__PURE__*/React__default.createElement(TextButton, {
+  var backButton = /*#__PURE__*/React__default['default'].createElement(TextButton, {
     color: "secondary",
     onClick: backButtonOnClick,
     px: 0,
     size: "sm"
   }, "Back");
-  return /*#__PURE__*/React__default.createElement(StyledHeader$1, props, /*#__PURE__*/React__default.createElement(LogoContainer, null, renderLogo() || /*#__PURE__*/React__default.createElement(Image, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledHeader$1, props, /*#__PURE__*/React__default['default'].createElement(LogoContainer, null, renderLogo() || /*#__PURE__*/React__default['default'].createElement(Image, {
     alt: "Logo",
     onClick: logoAction,
     src: logoSrc || img$1
-  })), /*#__PURE__*/React__default.createElement(Flex, {
+  })), /*#__PURE__*/React__default['default'].createElement(Flex, {
     item: true,
     md: 6,
     xs: 4
-  }, headerLeft || backButton), /*#__PURE__*/React__default.createElement(HeaderRight, null, headerRight), /*#__PURE__*/React__default.createElement(Hidden, {
+  }, headerLeft || backButton), /*#__PURE__*/React__default['default'].createElement(HeaderRight, null, headerRight), /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
     smDown: true,
     implementation: "js"
-  }, /*#__PURE__*/React__default.createElement(Flex, {
+  }, /*#__PURE__*/React__default['default'].createElement(Flex, {
     item: true,
     md: 2
   })));
@@ -4312,15 +4338,15 @@ DashboardLayoutHeader.propTypes = DashboardLayoutHeaderPropTypes;
 DashboardLayoutHeader.defaultProps = DashboardLayoutHeaderDefaultProps;
 
 var DashboardLayoutPropTypes = {
-  content: PropTypes__default.node.isRequired,
-  headerBackButtonOnClick: PropTypes__default.func,
-  headerLeft: PropTypes__default.node,
-  headerLogoAction: PropTypes__default.func,
-  headerLogoSrc: PropTypes__default.string,
-  headerRight: PropTypes__default.node,
-  headerRenderLogo: PropTypes__default.func,
-  loading: PropTypes__default.bool,
-  navigationItems: PropTypes__default.array
+  content: PropTypes__default['default'].node.isRequired,
+  headerBackButtonOnClick: PropTypes__default['default'].func,
+  headerLeft: PropTypes__default['default'].node,
+  headerLogoAction: PropTypes__default['default'].func,
+  headerLogoSrc: PropTypes__default['default'].string,
+  headerRight: PropTypes__default['default'].node,
+  headerRenderLogo: PropTypes__default['default'].func,
+  loading: PropTypes__default['default'].bool,
+  navigationItems: PropTypes__default['default'].array
 };
 var DashboardLayoutDefaultProps = {
   navigationItems: []
@@ -4365,7 +4391,7 @@ function _templateObject$M() {
 
   return data;
 }
-var NestedListItem = styled__default(core.ListItem)(_templateObject$M(), function (_ref) {
+var NestedListItem = styled__default['default'](core.ListItem)(_templateObject$M(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.text.secondary;
 }, function (_ref2) {
@@ -4375,7 +4401,7 @@ var NestedListItem = styled__default(core.ListItem)(_templateObject$M(), functio
   var theme = _ref3.theme;
   return theme.palette.text.primary;
 });
-var ImprovedListItem = styled__default(core.ListItem)(_templateObject2$g(), function (_ref4) {
+var ImprovedListItem = styled__default['default'](core.ListItem)(_templateObject2$g(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.palette.text.secondary;
 }, function (_ref5) {
@@ -4394,8 +4420,8 @@ var ImprovedListItem = styled__default(core.ListItem)(_templateObject2$g(), func
   var theme = _ref9.theme;
   return theme.palette.primary.main;
 });
-var ImprovedList = styled__default(core.List)(_templateObject3$9());
-var ImprovedListItemIcon = styled__default(core.ListItemIcon)(_templateObject4$3(), function (_ref10) {
+var ImprovedList = styled__default['default'](core.List)(_templateObject3$9());
+var ImprovedListItemIcon = styled__default['default'](core.ListItemIcon)(_templateObject4$3(), function (_ref10) {
   var theme = _ref10.theme;
   return theme.spacing(2);
 }, function (_ref11) {
@@ -4404,7 +4430,7 @@ var ImprovedListItemIcon = styled__default(core.ListItemIcon)(_templateObject4$3
 });
 var NavigationMenu = function NavigationMenu(_ref12) {
   var items = _ref12.items;
-  return /*#__PURE__*/React__default.createElement(ImprovedList, {
+  return /*#__PURE__*/React__default['default'].createElement(ImprovedList, {
     component: "nav"
   }, items.filter(function (m) {
     return typeof m.show === "boolean" ? m.show : true;
@@ -4425,39 +4451,39 @@ var NavigationMenu = function NavigationMenu(_ref12) {
     var showNested = nestedItems.length > 0 && selected;
 
     var item = function item() {
-      return /*#__PURE__*/React__default.createElement(ImprovedListItem, _extends({
+      return /*#__PURE__*/React__default['default'].createElement(ImprovedListItem, _extends({
         component: component,
         selected: selected
       }, dataCy ? {
         "data-cy": dataCy
-      } : {}, props), /*#__PURE__*/React__default.createElement(ImprovedListItemIcon, null, /*#__PURE__*/React__default.createElement(Icon, {
+      } : {}, props), /*#__PURE__*/React__default['default'].createElement(ImprovedListItemIcon, null, /*#__PURE__*/React__default['default'].createElement(Icon, {
         icon: icon
-      })), /*#__PURE__*/React__default.createElement(core.ListItemText, {
+      })), /*#__PURE__*/React__default['default'].createElement(core.ListItemText, {
         primary: title
       }), additional);
     };
 
     var nestedItem = function nestedItem(n) {
-      return /*#__PURE__*/React__default.createElement(NestedListItem, _extends({
+      return /*#__PURE__*/React__default['default'].createElement(NestedListItem, _extends({
         component: n.component || "a",
         key: n.title
-      }, n), /*#__PURE__*/React__default.createElement(core.ListItemText, {
+      }, n), /*#__PURE__*/React__default['default'].createElement(core.ListItemText, {
         primary: n.title
       }));
     };
 
     var listItem = function listItem() {
-      return Wrapper ? /*#__PURE__*/React__default.createElement(Wrapper, null, item()) : item();
+      return Wrapper ? /*#__PURE__*/React__default['default'].createElement(Wrapper, null, item()) : item();
     };
 
     var nestedListItem = function nestedListItem(_ref14) {
       var WrapperComponent = _ref14.WrapperComponent,
           nested = _objectWithoutPropertiesLoose(_ref14, ["WrapperComponent"]);
 
-      return WrapperComponent ? /*#__PURE__*/React__default.createElement(WrapperComponent, null, nestedItem(nested)) : nestedItem(nested);
+      return WrapperComponent ? /*#__PURE__*/React__default['default'].createElement(WrapperComponent, null, nestedItem(nested)) : nestedItem(nested);
     };
 
-    return /*#__PURE__*/React__default.createElement(React.Fragment, {
+    return /*#__PURE__*/React__default['default'].createElement(React.Fragment, {
       key: title
     }, listItem(), showNested && nestedItems.map(function (n) {
       return nestedListItem(n);
@@ -4465,7 +4491,7 @@ var NavigationMenu = function NavigationMenu(_ref12) {
   }));
 };
 NavigationMenu.propTypes = {
-  items: PropTypes__default.arrayOf(PropTypes__default.any).isRequired
+  items: PropTypes__default['default'].arrayOf(PropTypes__default['default'].any).isRequired
 };
 
 var UserMenu = function UserMenu(_ref) {
@@ -4477,7 +4503,7 @@ var UserMenu = function UserMenu(_ref) {
       anchorEl = _useState[0],
       setAnchorEl = _useState[1];
 
-  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(TextButton, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(TextButton, _extends({
     block: true,
     content: "John Seller",
     color: "subtle",
@@ -4487,7 +4513,7 @@ var UserMenu = function UserMenu(_ref) {
       var currentTarget = _ref2.currentTarget;
       return setAnchorEl(currentTarget);
     }
-  }, props)), /*#__PURE__*/React__default.createElement(Dropdown, {
+  }, props)), /*#__PURE__*/React__default['default'].createElement(Dropdown, {
     anchorEl: anchorEl,
     items: menuItems.map(function (l) {
       return _extends({
@@ -4503,7 +4529,7 @@ var UserMenu = function UserMenu(_ref) {
   }));
 };
 UserMenu.propTypes = {
-  menuItems: PropTypes__default.arrayOf(PropTypes__default.shape)
+  menuItems: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape)
 };
 UserMenu.defaultProps = {
   menuItems: [{
@@ -4513,8 +4539,8 @@ UserMenu.defaultProps = {
 };
 
 var DashboardLayoutNavigationPropTypes = {
-  navigationItems: PropTypes__default.arrayOf(PropTypes__default.shape).isRequired,
-  userMenuItems: PropTypes__default.arrayOf(PropTypes__default.shape)
+  navigationItems: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape).isRequired,
+  userMenuItems: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape)
 };
 var DashboardLayoutNavigationDefaultProps = {
   userMenuItems: []
@@ -4559,11 +4585,11 @@ function _templateObject$N() {
 
   return data;
 }
-var MainNav = styled__default.div(_templateObject$N(), function (_ref) {
+var MainNav = styled__default['default'].div(_templateObject$N(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(0, 8, 0, 4);
 });
-var StyledFab = styled__default(Fab).attrs(function () {
+var StyledFab = styled__default['default'](Fab__default['default']).attrs(function () {
   return {
     color: "primary",
     size: "small"
@@ -4575,13 +4601,13 @@ var StyledFab = styled__default(Fab).attrs(function () {
   var theme = _ref3.theme;
   return theme.spacing(4);
 });
-var NavIcon = styled__default(Icon).attrs(function () {
+var NavIcon = styled__default['default'](Icon).attrs(function () {
   return {
     icon: "bars",
     size: "lg"
   };
 })(_templateObject3$a());
-var DrawerWrapper = styled__default.div(_templateObject4$4(), function (_ref4) {
+var DrawerWrapper = styled__default['default'].div(_templateObject4$4(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(2, 10, 0, 2);
 }, function (_ref5) {
@@ -4598,26 +4624,26 @@ var DashboardLayoutNavigation = function DashboardLayoutNavigation(_ref6) {
       setMobileOpen = _useState[1];
 
   var renderMainNav = function renderMainNav() {
-    return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(NavigationMenu, {
+    return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(NavigationMenu, {
       items: navigationItems
-    }), userMenuItems.length > 0 && /*#__PURE__*/React__default.createElement(UserMenu, {
+    }), userMenuItems.length > 0 && /*#__PURE__*/React__default['default'].createElement(UserMenu, {
       menuItems: userMenuItems,
       onClick: userMenuOnClick
     }));
   };
 
-  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Hidden, {
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
     smUp: true,
     implementation: "js"
-  }, /*#__PURE__*/React__default.createElement(StyledFab, {
+  }, /*#__PURE__*/React__default['default'].createElement(StyledFab, {
     "aria-label": "toggleNavigation",
     onClick: function onClick() {
       return setMobileOpen(true);
     }
-  }, /*#__PURE__*/React__default.createElement(NavIcon, null))), /*#__PURE__*/React__default.createElement(Hidden, {
+  }, /*#__PURE__*/React__default['default'].createElement(NavIcon, null))), /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
     smUp: true,
     implementation: "js"
-  }, /*#__PURE__*/React__default.createElement(Drawer, {
+  }, /*#__PURE__*/React__default['default'].createElement(Drawer__default['default'], {
     variant: "temporary",
     anchor: "left",
     open: mobileOpen,
@@ -4627,16 +4653,16 @@ var DashboardLayoutNavigation = function DashboardLayoutNavigation(_ref6) {
     ModalProps: {
       keepMounted: true
     }
-  }, /*#__PURE__*/React__default.createElement(DrawerWrapper, null, renderMainNav()))), /*#__PURE__*/React__default.createElement(Hidden, {
+  }, /*#__PURE__*/React__default['default'].createElement(DrawerWrapper, null, renderMainNav()))), /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
     smDown: true,
     implementation: "js"
-  }, /*#__PURE__*/React__default.createElement(MainNav, null, renderMainNav())));
+  }, /*#__PURE__*/React__default['default'].createElement(MainNav, null, renderMainNav())));
 };
 DashboardLayoutNavigation.propTypes = DashboardLayoutNavigationPropTypes;
 DashboardLayoutNavigation.defaultProps = DashboardLayoutNavigationDefaultProps;
 
 var DashboardLayoutFooterPropTypes = {
-  content: PropTypes__default.node
+  content: PropTypes__default['default'].node
 };
 
 function _templateObject$O() {
@@ -4648,7 +4674,7 @@ function _templateObject$O() {
 
   return data;
 }
-var StyledFooter = styled__default.div(_templateObject$O(), function (_ref) {
+var StyledFooter = styled__default['default'].div(_templateObject$O(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
@@ -4656,7 +4682,7 @@ var DashboardLayoutFooter = function DashboardLayoutFooter(_ref2) {
   var content = _ref2.content,
       props = _objectWithoutPropertiesLoose(_ref2, ["content"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledFooter, props, content);
+  return /*#__PURE__*/React__default['default'].createElement(StyledFooter, props, content);
 };
 DashboardLayoutFooter.propTypes = DashboardLayoutFooterPropTypes;
 
@@ -4699,13 +4725,13 @@ function _templateObject$P() {
 
   return data;
 }
-var StyledContainer$2 = styled__default(MuiContainer).attrs(function () {
+var StyledContainer$2 = styled__default['default'](MuiContainer__default['default']).attrs(function () {
   return {
-    maxWidth: "xl"
+    maxWidth: "lg"
   };
 })(_templateObject$P());
-var Content$2 = styled__default.div(_templateObject2$i());
-var NavigationContainer = styled__default(Flex).attrs(function () {
+var Content$2 = styled__default['default'].div(_templateObject2$i());
+var NavigationContainer = styled__default['default'](Flex).attrs(function () {
   return {
     item: true,
     md: 2,
@@ -4718,7 +4744,7 @@ var NavigationContainer = styled__default(Flex).attrs(function () {
   var theme = _ref2.theme;
   return theme.breakpoints.down("sm");
 });
-var SidebarContainer = styled__default(Flex).attrs(function () {
+var SidebarContainer = styled__default['default'](Flex).attrs(function () {
   return {
     item: true,
     md: 2,
@@ -4734,10 +4760,10 @@ var SidebarContainer = styled__default(Flex).attrs(function () {
   var theme = _ref5.theme;
   return theme.spacing(0, 8);
 });
-var poweredBy = /*#__PURE__*/React__default.createElement(Text, {
+var poweredBy = /*#__PURE__*/React__default['default'].createElement(Text, {
   color: "textSecondary",
   fontStyle: "italic"
-}, "Powered by", /*#__PURE__*/React__default.createElement(Text, {
+}, "Powered by", /*#__PURE__*/React__default['default'].createElement(Text, {
   color: "textPrimary",
   fontWeight: "bold",
   dInline: true
@@ -4758,8 +4784,8 @@ var DashboardLayout = function DashboardLayout(_ref6) {
       userMenuOnClick = _ref6.userMenuOnClick,
       props = _objectWithoutPropertiesLoose(_ref6, ["content", "footerContent", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "navigationItems", "loading", "sidebar", "userMenuItems", "userMenuOnClick"]);
 
-  if (loading) return /*#__PURE__*/React__default.createElement(PageLoading, null);
-  return /*#__PURE__*/React__default.createElement(StyledContainer$2, props, /*#__PURE__*/React__default.createElement(Flex, {
+  if (loading) return /*#__PURE__*/React__default['default'].createElement(PageLoading, null);
+  return /*#__PURE__*/React__default['default'].createElement(StyledContainer$2, props, /*#__PURE__*/React__default['default'].createElement(Flex, {
     container: true,
     direction: "column",
     alignItems: "flex-start",
@@ -4767,32 +4793,32 @@ var DashboardLayout = function DashboardLayout(_ref6) {
     xs: 12,
     h100: true,
     wrap: "nowrap"
-  }, /*#__PURE__*/React__default.createElement(DashboardLayoutHeader, {
+  }, /*#__PURE__*/React__default['default'].createElement(DashboardLayoutHeader, {
     backButtonOnClick: headerBackButtonOnClick,
     headerLeft: headerLeft,
     headerRight: headerRight,
     logoAction: headerLogoAction,
     logoSrc: headerLogoSrc,
     renderLogo: headerRenderLogo
-  }), /*#__PURE__*/React__default.createElement(Flex, {
+  }), /*#__PURE__*/React__default['default'].createElement(Flex, {
     item: true,
     container: true,
     alignItems: "flex-start",
     justify: "flex-start",
     xs: 12
-  }, /*#__PURE__*/React__default.createElement(NavigationContainer, null, /*#__PURE__*/React__default.createElement(DashboardLayoutNavigation, {
+  }, /*#__PURE__*/React__default['default'].createElement(NavigationContainer, null, /*#__PURE__*/React__default['default'].createElement(DashboardLayoutNavigation, {
     navigationItems: navigationItems,
     userMenuItems: userMenuItems,
     userMenuOnClick: userMenuOnClick
-  })), /*#__PURE__*/React__default.createElement(Flex, {
+  })), /*#__PURE__*/React__default['default'].createElement(Flex, {
     item: true,
     md: 8,
     xs: 12
-  }, /*#__PURE__*/React__default.createElement(Content$2, null, content)), /*#__PURE__*/React__default.createElement(SidebarContainer, null, sidebar)), /*#__PURE__*/React__default.createElement(Flex, {
+  }, /*#__PURE__*/React__default['default'].createElement(Content$2, null, content)), /*#__PURE__*/React__default['default'].createElement(SidebarContainer, null, sidebar)), /*#__PURE__*/React__default['default'].createElement(Flex, {
     container: true,
     item: true,
     xs: 12
-  }, /*#__PURE__*/React__default.createElement(DashboardLayoutFooter, {
+  }, /*#__PURE__*/React__default['default'].createElement(DashboardLayoutFooter, {
     content: footerContent || poweredBy
   }))));
 };
@@ -4800,7 +4826,7 @@ DashboardLayout.propTypes = DashboardLayoutPropTypes;
 DashboardLayout.defaultProps = DashboardLayoutDefaultProps;
 
 var ExplorerLayoutFooterPropTypes = {
-  children: PropTypes__default.node
+  children: PropTypes__default['default'].node
 };
 
 function _templateObject$Q() {
@@ -4812,7 +4838,7 @@ function _templateObject$Q() {
 
   return data;
 }
-var StyledFooter$1 = styled__default.div(_templateObject$Q(), function (_ref) {
+var StyledFooter$1 = styled__default['default'].div(_templateObject$Q(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
@@ -4820,15 +4846,15 @@ var ExplorerLayoutFooter = function ExplorerLayoutFooter(_ref2) {
   var action = _ref2.action,
       props = _objectWithoutPropertiesLoose(_ref2, ["action"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledFooter$1, props);
+  return /*#__PURE__*/React__default['default'].createElement(StyledFooter$1, props);
 };
 ExplorerLayoutFooter.propTypes = ExplorerLayoutFooterPropTypes;
 
 const img$2 = "data:image/svg+xml,%3csvg width='194' height='60' viewBox='0 0 194 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 52.0601C88.0083 52.0601 89.3892 53.5534 89.3892 55.2955C89.3892 57.1088 88.0083 58.4599 86.0961 58.4599C84.184 58.4599 82.8384 57.1088 82.8384 55.2955C82.8384 53.5534 84.184 52.0601 86.0961 52.0601Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M103.965 40.1848C104.461 40.1848 104.815 40.2204 105.24 40.327L104.992 46.0158H103.965C99.9993 46.0158 97.8393 48.0779 97.8393 52.7V58.2821H92.1737V40.4337H97.8393V43.8469C99.114 41.7136 101.062 40.1848 103.965 40.1848Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M120.118 33.9272C127.2 33.9272 132.76 39.4382 132.76 46.4069C132.76 53.34 127.2 58.8155 120.118 58.8155C113.037 58.8155 107.477 53.34 107.477 46.4069C107.477 39.4382 113.037 33.9272 120.118 33.9272ZM120.118 53.4467C123.978 53.4467 126.917 50.4601 126.917 46.4069C126.917 42.3181 123.978 39.2959 120.118 39.2959C116.259 39.2959 113.32 42.3181 113.32 46.4069C113.32 50.4601 116.259 53.4467 120.118 53.4467Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M144.587 53.8378C146.392 53.8378 147.844 52.8778 148.446 50.709L153.651 51.8467C152.766 56.0777 149.013 58.8154 144.587 58.8154C139.275 58.8154 134.884 55.0111 134.884 49.3579C134.884 43.7403 139.275 39.9003 144.587 39.9003C148.907 39.9003 152.66 42.5669 153.651 46.7624L148.34 48.0424C147.844 45.8735 146.392 44.878 144.587 44.878C142.037 44.878 140.337 46.7624 140.337 49.3579C140.337 51.9889 142.037 53.8378 144.587 53.8378Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M175.992 58.2821H168.733L162.961 51.8467H161.934V58.2821H156.269V32.6828H161.934V46.5135H162.713L168.343 40.4337H175.177L167.387 48.9312L175.992 58.2821Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M176.087 53.6483L181.611 52.5105C181.859 54.0394 183.24 54.6083 184.762 54.6083C186.25 54.6083 187.064 53.9683 187.064 53.1861C187.064 52.5817 186.604 52.1194 185.294 51.8706L181.682 51.1595C178.389 50.555 176.512 48.7773 176.512 45.9685C176.512 42.3064 179.663 39.9242 184.16 39.9242C188.587 39.9242 191.526 41.9508 192.234 45.0441L187.064 46.0752C186.887 44.973 185.825 43.9774 184.09 43.9774C182.567 43.9774 182.071 44.7241 182.071 45.3641C182.071 45.8618 182.284 46.3596 183.417 46.6085L187.595 47.4618C190.959 48.1729 192.517 50.1995 192.517 52.8305C192.517 56.7771 189.118 58.8393 184.444 58.8393C180.265 58.8393 176.689 57.3104 176.087 53.6483Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M79.4906 27.4174H73.825V1.81807H79.4906V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M88.9289 27.4174H83.2634V9.569H88.9289V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 1.07143C88.0083 1.07143 89.3892 2.56472 89.3892 4.3069C89.3892 6.12019 88.0083 7.47127 86.0961 7.47127C84.184 7.47127 82.8384 6.12019 82.8384 4.3069C82.8384 2.56472 84.184 1.07143 86.0961 1.07143Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M101.853 22.9731C103.659 22.9731 105.111 22.0131 105.713 19.8443L110.918 20.982C110.033 25.213 106.28 27.9507 101.853 27.9507C96.542 27.9507 92.1512 24.1464 92.1512 18.4932C92.1512 12.8756 96.542 9.03566 101.853 9.03566C106.173 9.03566 109.927 11.7023 110.918 15.8977L105.607 17.1777C105.111 15.0088 103.659 14.0133 101.853 14.0133C99.3039 14.0133 97.6043 15.8977 97.6043 18.4932C97.6043 21.1242 99.3039 22.9731 101.853 22.9731Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M131.601 18.4932V19.9509H118.57C119.03 22.0842 120.482 23.3997 122.394 23.3997C123.704 23.3997 125.227 23.0798 126.183 21.3376L131.211 22.3687C129.689 26.1375 126.466 27.9507 122.394 27.9507C117.26 27.9507 113.011 24.1464 113.011 18.4932C113.011 12.8756 117.26 9.03566 122.43 9.03566C127.458 9.03566 131.495 12.6622 131.601 18.4932ZM122.43 13.6578C120.836 13.6578 119.207 14.6533 118.676 16.4666H126.006C125.475 14.5466 124.059 13.6578 122.43 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M145.659 9.03566C149.801 9.03566 152.563 11.9867 152.563 16.4666V27.4174H146.933V17.6754C146.933 15.5777 145.694 14.1555 143.888 14.1555C141.657 14.1555 140.205 15.6844 140.205 19.1332V27.4174H134.54V9.56898H140.205V11.2756C141.551 9.85342 143.428 9.03566 145.659 9.03566Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M155.219 22.7598L160.743 21.622C160.991 23.1509 162.372 23.7197 163.895 23.7197C165.382 23.7197 166.196 23.0798 166.196 22.2975C166.196 21.6931 165.736 21.2309 164.426 20.982L160.814 20.2709C157.521 19.6665 155.644 17.8888 155.644 15.08C155.644 11.4178 158.796 9.03566 163.293 9.03566C167.719 9.03566 170.658 11.0623 171.366 14.1555L166.196 15.1866C166.019 14.0844 164.957 13.0889 163.222 13.0889C161.699 13.0889 161.203 13.8355 161.203 14.4755C161.203 14.9733 161.416 15.4711 162.549 15.7199L166.727 16.5732C170.091 17.2843 171.649 19.311 171.649 21.942C171.649 25.8886 168.25 27.9507 163.576 27.9507C159.397 27.9507 155.821 26.4219 155.219 22.7598Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M192.403 18.4932V19.9509H179.372C179.832 22.0842 181.284 23.3997 183.196 23.3997C184.506 23.3997 186.029 23.0798 186.985 21.3376L192.013 22.3687C190.49 26.1375 187.268 27.9507 183.196 27.9507C178.062 27.9507 173.812 24.1464 173.812 18.4932C173.812 12.8756 178.062 9.03566 183.231 9.03566C188.26 9.03566 192.296 12.6622 192.403 18.4932ZM183.231 13.6578C181.638 13.6578 180.009 14.6533 179.478 16.4666H186.808C186.277 14.5466 184.86 13.6578 183.231 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.58723 46.6197C11.4115 46.6197 14.1734 49.6063 14.1734 53.0907C14.1734 56.7172 11.4115 59.4194 7.58723 59.4194C3.76298 59.4194 1.07184 56.7172 1.07184 53.0907C1.07184 49.6063 3.76298 46.6197 7.58723 46.6197ZM38.7574 9.64285C52.9213 9.64285 64.04 20.6648 64.04 34.6022C64.04 48.4685 52.9213 59.4194 38.7574 59.4194C24.5936 59.4194 13.4749 48.4685 13.4749 34.6022C13.4749 20.6648 24.5936 9.64285 38.7574 9.64285ZM38.7574 48.6819C46.4768 48.6819 52.3548 42.7087 52.3548 34.6022C52.3548 26.4247 46.4768 20.3804 38.7574 20.3804C31.0381 20.3804 25.1601 26.4247 25.1601 34.6022C25.1601 42.7087 31.0381 48.6819 38.7574 48.6819Z' fill='%23AC00FC'/%3e%3c/svg%3e";
 
 var ExplorerLayoutHeaderPropTypes = {
-  headerRight: PropTypes__default.node,
-  logoAction: PropTypes__default.func
+  headerRight: PropTypes__default['default'].node,
+  logoAction: PropTypes__default['default'].func
 };
 
 function _templateObject2$j() {
@@ -4850,7 +4876,7 @@ function _templateObject$R() {
 
   return data;
 }
-var StyledHeader$2 = styled__default(Grid).attrs(function () {
+var StyledHeader$2 = styled__default['default'](Grid__default['default']).attrs(function () {
   return {
     container: true,
     alignItems: "center"
@@ -4859,7 +4885,7 @@ var StyledHeader$2 = styled__default(Grid).attrs(function () {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
-var StyledLogo$1 = styled__default(Image).attrs(function () {
+var StyledLogo$1 = styled__default['default'](Image).attrs(function () {
   return {
     alt: "Logo",
     src: img$2
@@ -4873,13 +4899,13 @@ var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
       logoAction = _ref3.logoAction,
       props = _objectWithoutPropertiesLoose(_ref3, ["headerRight", "logoAction"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledHeader$2, props, /*#__PURE__*/React__default.createElement(Grid, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledHeader$2, props, /*#__PURE__*/React__default['default'].createElement(Grid__default['default'], {
     item: true,
     lg: 9,
     xs: 6
-  }, /*#__PURE__*/React__default.createElement(StyledLogo$1, {
+  }, /*#__PURE__*/React__default['default'].createElement(StyledLogo$1, {
     onClick: logoAction
-  })), /*#__PURE__*/React__default.createElement(Grid, {
+  })), /*#__PURE__*/React__default['default'].createElement(Grid__default['default'], {
     container: true,
     item: true,
     justify: "flex-end",
@@ -4890,15 +4916,15 @@ var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
 ExplorerLayoutHeader.propTypes = ExplorerLayoutHeaderPropTypes;
 
 var ExplorerLayoutPropTypes = {
-  ads: PropTypes__default.node,
-  content: PropTypes__default.node.isRequired,
-  extraContent: PropTypes__default.node,
-  extraSidebar: PropTypes__default.node,
-  footerContent: PropTypes__default.node,
-  headerLogoAction: PropTypes__default.func,
-  headerRight: PropTypes__default.node,
-  loading: PropTypes__default.bool,
-  sidebar: PropTypes__default.node
+  ads: PropTypes__default['default'].node,
+  content: PropTypes__default['default'].node.isRequired,
+  extraContent: PropTypes__default['default'].node,
+  extraSidebar: PropTypes__default['default'].node,
+  footerContent: PropTypes__default['default'].node,
+  headerLogoAction: PropTypes__default['default'].func,
+  headerRight: PropTypes__default['default'].node,
+  loading: PropTypes__default['default'].bool,
+  sidebar: PropTypes__default['default'].node
 };
 
 function _templateObject$S() {
@@ -4910,7 +4936,7 @@ function _templateObject$S() {
 
   return data;
 }
-var Content$3 = styled__default(Grid).attrs(function () {
+var Content$3 = styled__default['default'](Grid__default['default']).attrs(function () {
   return {
     container: true
   };
@@ -4927,10 +4953,10 @@ var Content$3 = styled__default(Grid).attrs(function () {
   var theme = _ref4.theme;
   return theme.spacing(2);
 });
-var poweredBy$1 = /*#__PURE__*/React__default.createElement(Text, {
+var poweredBy$1 = /*#__PURE__*/React__default['default'].createElement(Text, {
   color: "textSecondary",
   fontStyle: "italic"
-}, "Powered by", /*#__PURE__*/React__default.createElement(Text, {
+}, "Powered by", /*#__PURE__*/React__default['default'].createElement(Text, {
   color: "textPrimary",
   fontWeight: "bold"
 }, " ", "license.rocks"));
@@ -4946,42 +4972,42 @@ var ExplorerLayout = function ExplorerLayout(_ref5) {
       sidebar = _ref5.sidebar,
       props = _objectWithoutPropertiesLoose(_ref5, ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "loading", "sidebar"]);
 
-  if (loading) return /*#__PURE__*/React__default.createElement(PageLoading, null);
-  return /*#__PURE__*/React__default.createElement(MuiContainer, _extends({
+  if (loading) return /*#__PURE__*/React__default['default'].createElement(PageLoading, null);
+  return /*#__PURE__*/React__default['default'].createElement(MuiContainer__default['default'], _extends({
     maxWidth: "xl"
-  }, props), /*#__PURE__*/React__default.createElement(ExplorerLayoutHeader, {
+  }, props), /*#__PURE__*/React__default['default'].createElement(ExplorerLayoutHeader, {
     logoAction: headerLogoAction,
     headerRight: headerRight
-  }), /*#__PURE__*/React__default.createElement(Content$3, null, /*#__PURE__*/React__default.createElement(Hidden, {
+  }), /*#__PURE__*/React__default['default'].createElement(Content$3, null, /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
     mdDown: true
-  }, /*#__PURE__*/React__default.createElement(Grid, {
+  }, /*#__PURE__*/React__default['default'].createElement(Grid__default['default'], {
     item: true,
     lg: 9
-  }, content, extraContent), /*#__PURE__*/React__default.createElement(Grid, {
+  }, content, extraContent), /*#__PURE__*/React__default['default'].createElement(Grid__default['default'], {
     item: true,
     lg: 3
-  }, sidebar, extraSidebar, ads)), /*#__PURE__*/React__default.createElement(Hidden, {
+  }, sidebar, extraSidebar, ads)), /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
     lgUp: true
-  }, /*#__PURE__*/React__default.createElement(Grid, {
+  }, /*#__PURE__*/React__default['default'].createElement(Grid__default['default'], {
     item: true,
     xs: 12
-  }, content), /*#__PURE__*/React__default.createElement(Grid, {
+  }, content), /*#__PURE__*/React__default['default'].createElement(Grid__default['default'], {
     container: true,
     alignItems: "center",
     justify: "space-between",
     spacing: 4
-  }, /*#__PURE__*/React__default.createElement(Grid, {
+  }, /*#__PURE__*/React__default['default'].createElement(Grid__default['default'], {
     item: true,
     md: 6,
     xs: 12
-  }, sidebar), /*#__PURE__*/React__default.createElement(Grid, {
+  }, sidebar), /*#__PURE__*/React__default['default'].createElement(Grid__default['default'], {
     item: true,
     md: 6,
     xs: 12
-  }, extraSidebar)), /*#__PURE__*/React__default.createElement(Grid, {
+  }, extraSidebar)), /*#__PURE__*/React__default['default'].createElement(Grid__default['default'], {
     item: true,
     xs: 12
-  }, extraContent, ads))), footerContent && /*#__PURE__*/React__default.createElement(ExplorerLayoutFooter, null, footerContent || poweredBy$1));
+  }, extraContent, ads))), footerContent && /*#__PURE__*/React__default['default'].createElement(ExplorerLayoutFooter, null, footerContent || poweredBy$1));
 };
 ExplorerLayout.propTypes = ExplorerLayoutPropTypes;
 ExplorerLayout.defaultProps = {
@@ -4989,25 +5015,25 @@ ExplorerLayout.defaultProps = {
 };
 
 var MarketPlaceItemPropTypes = {
-  action: PropTypes__default.func,
-  actionTitle: PropTypes__default.string,
-  badges: PropTypes__default.arrayOf(PropTypes__default.shape({
-    label: PropTypes__default.string,
-    color: PropTypes__default.string
+  action: PropTypes__default['default'].func,
+  actionTitle: PropTypes__default['default'].string,
+  badges: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({
+    label: PropTypes__default['default'].string,
+    color: PropTypes__default['default'].string
   })),
-  coverSrc: PropTypes__default.string,
-  coverPlaceholderSrc: PropTypes__default.string,
-  details: PropTypes__default.array,
-  hoverEffect: PropTypes__default.bool,
-  iconColor: PropTypes__default.string,
-  iconName: PropTypes__default.string,
-  iconPrefix: PropTypes__default.string,
-  megaTitle: PropTypes__default.string,
-  price: PropTypes__default.string,
-  priceLabel: PropTypes__default.string,
-  subTitle: PropTypes__default.string,
-  title: PropTypes__default.string,
-  type: PropTypes__default.oneOf("legacy", "modern", "modernHorizontal")
+  coverSrc: PropTypes__default['default'].string,
+  coverPlaceholderSrc: PropTypes__default['default'].string,
+  details: PropTypes__default['default'].array,
+  hoverEffect: PropTypes__default['default'].bool,
+  iconColor: PropTypes__default['default'].string,
+  iconName: PropTypes__default['default'].string,
+  iconPrefix: PropTypes__default['default'].string,
+  megaTitle: PropTypes__default['default'].string,
+  price: PropTypes__default['default'].string,
+  priceLabel: PropTypes__default['default'].string,
+  subTitle: PropTypes__default['default'].string,
+  title: PropTypes__default['default'].string,
+  type: PropTypes__default['default'].oneOf("legacy", "modern", "modernHorizontal")
 };
 var MarketPlaceItemDefaultProps = {
   actionTitle: "More info",
@@ -5038,14 +5064,14 @@ function _templateObject$T() {
 
   return data;
 }
-var LicenseBoxWrapper = styled__default.div(_templateObject$T(), function (_ref) {
+var LicenseBoxWrapper = styled__default['default'].div(_templateObject$T(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10);
 }, function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(2);
 }, "" + img$3);
-var StyledIcon$3 = styled__default(Icon)(_templateObject2$k(), function (_ref3) {
+var StyledIcon$3 = styled__default['default'](Icon)(_templateObject2$k(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(6);
 });
@@ -5055,16 +5081,16 @@ var LicenseBox = function LicenseBox(_ref4) {
       iconColor = _ref4.iconColor,
       props = _objectWithoutPropertiesLoose(_ref4, ["iconName", "iconPrefix", "iconColor"]);
 
-  return /*#__PURE__*/React__default.createElement(LicenseBoxWrapper, props, /*#__PURE__*/React__default.createElement(StyledIcon$3, {
+  return /*#__PURE__*/React__default['default'].createElement(LicenseBoxWrapper, props, /*#__PURE__*/React__default['default'].createElement(StyledIcon$3, {
     color: iconColor,
     icon: iconName,
     prefix: iconPrefix
   }));
 };
 LicenseBox.propTypes = {
-  iconName: PropTypes__default.string,
-  iconPrefix: PropTypes__default.string,
-  iconColor: PropTypes__default.string
+  iconName: PropTypes__default['default'].string,
+  iconPrefix: PropTypes__default['default'].string,
+  iconColor: PropTypes__default['default'].string
 };
 LicenseBox.defaultProps = {
   iconName: "th-large",
@@ -5091,11 +5117,11 @@ function _templateObject$U() {
 
   return data;
 }
-var StyledMarketPlaceItem = styled__default(BoxBase)(_templateObject$U(), function (_ref) {
+var StyledMarketPlaceItem = styled__default['default'](BoxBase)(_templateObject$U(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10);
 });
-var Content$4 = styled__default.div(_templateObject2$l(), function (_ref2) {
+var Content$4 = styled__default['default'].div(_templateObject2$l(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(2, 4, 4, 4);
 }, function (_ref3) {
@@ -5116,37 +5142,37 @@ var LegacyItem = function LegacyItem(_ref4) {
       title = _ref4.title,
       props = _objectWithoutPropertiesLoose(_ref4, ["ActionWrapper", "action", "actionTitle", "dataCy", "details", "iconName", "iconPrefix", "iconColor", "megaTitle", "subTitle", "title"]);
 
-  var actionButton = /*#__PURE__*/React__default.createElement(Button, {
+  var actionButton = /*#__PURE__*/React__default['default'].createElement(Button, {
     block: true,
     content: actionTitle,
     color: "subtle",
     onClick: action
   });
-  return /*#__PURE__*/React__default.createElement(StyledMarketPlaceItem, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledMarketPlaceItem, _extends({
     "data-cy": dataCy
-  }, props), /*#__PURE__*/React__default.createElement(LicenseBox, {
+  }, props), /*#__PURE__*/React__default['default'].createElement(LicenseBox, {
     iconName: iconName,
     iconPrefix: iconPrefix,
     iconColor: iconColor
-  }), /*#__PURE__*/React__default.createElement(Content$4, null, /*#__PURE__*/React__default.createElement(Text, {
+  }), /*#__PURE__*/React__default['default'].createElement(Content$4, null, /*#__PURE__*/React__default['default'].createElement(Text, {
     content: megaTitle,
     color: "textSecondary",
     noWrap: true
-  }), /*#__PURE__*/React__default.createElement(H3, {
+  }), /*#__PURE__*/React__default['default'].createElement(H3, {
     content: title,
     noWrap: true
-  }), /*#__PURE__*/React__default.createElement(Text, {
+  }), /*#__PURE__*/React__default['default'].createElement(Text, {
     content: subTitle,
     color: "textSecondary",
     fontSize: "sm",
     fontStyle: "italic",
     noWrap: true
-  })), /*#__PURE__*/React__default.createElement(Divider, null), /*#__PURE__*/React__default.createElement(Content$4, {
+  })), /*#__PURE__*/React__default['default'].createElement(Divider, null), /*#__PURE__*/React__default['default'].createElement(Content$4, {
     initialTextAlign: true
-  }, /*#__PURE__*/React__default.createElement(DetailsTable, {
+  }, /*#__PURE__*/React__default['default'].createElement(DetailsTable, {
     justifyBetween: true,
     rows: details
-  }), ActionWrapper ? /*#__PURE__*/React__default.createElement(ActionWrapper, null, actionButton) : actionButton));
+  }), ActionWrapper ? /*#__PURE__*/React__default['default'].createElement(ActionWrapper, null, actionButton) : actionButton));
 };
 LegacyItem.propTypes = MarketPlaceItemPropTypes;
 LegacyItem.defaultProps = MarketPlaceItemDefaultProps;
@@ -5180,26 +5206,26 @@ function _templateObject$V() {
 
   return data;
 }
-var Wrapper$7 = styled__default.div(_templateObject$V());
-var BGImage = styled__default.div(_templateObject2$m(), function (_ref) {
+var Wrapper$7 = styled__default['default'].div(_templateObject$V());
+var BGImage = styled__default['default'].div(_templateObject2$m(), function (_ref) {
   var imgSrc = _ref.imgSrc;
   return imgSrc;
 });
-var StyledImage = styled__default(Image)(_templateObject3$c());
+var StyledImage = styled__default['default'](Image)(_templateObject3$c());
 var Cover = function Cover(_ref2) {
   var imgSrc = _ref2.imgSrc,
       placeholderSrc = _ref2.placeholderSrc,
       props = _objectWithoutPropertiesLoose(_ref2, ["imgSrc", "placeholderSrc"]);
 
-  return /*#__PURE__*/React__default.createElement(Wrapper$7, props, /*#__PURE__*/React__default.createElement(BGImage, {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$7, props, /*#__PURE__*/React__default['default'].createElement(BGImage, {
     imgSrc: imgSrc || placeholderSrc
-  }), /*#__PURE__*/React__default.createElement(StyledImage, {
+  }), /*#__PURE__*/React__default['default'].createElement(StyledImage, {
     src: imgSrc || placeholderSrc
   }));
 };
 Cover.propTypes = {
-  imgSrc: PropTypes__default.string,
-  placeholderSrc: PropTypes__default.string
+  imgSrc: PropTypes__default['default'].string,
+  placeholderSrc: PropTypes__default['default'].string
 };
 Cover.defaultProps = {
   imgSrc: "",
@@ -5245,19 +5271,19 @@ function _templateObject$W() {
 
   return data;
 }
-var StyledMarketPlaceItem$1 = styled__default(BoxBase)(_templateObject$W(), function (_ref) {
+var StyledMarketPlaceItem$1 = styled__default['default'](BoxBase)(_templateObject$W(), function (_ref) {
   var hoverEffect = _ref.hoverEffect;
   return hoverEffect && styled.css(["&:hover{transform:scale(1.03);}"]);
 });
-var Content$5 = styled__default.div(_templateObject2$n(), function (_ref2) {
+var Content$5 = styled__default['default'].div(_templateObject2$n(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(4);
 });
-var Badges = styled__default.div(_templateObject3$d(), function (_ref3) {
+var Badges = styled__default['default'].div(_templateObject3$d(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(4);
 });
-var Highlight = styled__default.div(_templateObject4$6(), function (_ref4) {
+var Highlight = styled__default['default'].div(_templateObject4$6(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.palette.primary.main;
 });
@@ -5275,37 +5301,37 @@ var ModernItem = function ModernItem(_ref5) {
       props = _objectWithoutPropertiesLoose(_ref5, ["badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "subTitle", "title", "Wrapper"]);
 
   var Item = function Item() {
-    return /*#__PURE__*/React__default.createElement(StyledMarketPlaceItem$1, _extends({
+    return /*#__PURE__*/React__default['default'].createElement(StyledMarketPlaceItem$1, _extends({
       "data-cy": dataCy
-    }, props), /*#__PURE__*/React__default.createElement(Cover, {
+    }, props), /*#__PURE__*/React__default['default'].createElement(Cover, {
       imgSrc: coverSrc,
       placeholderSrc: coverPlaceholderSrc
-    }), highlight && /*#__PURE__*/React__default.createElement(Highlight, null, /*#__PURE__*/React__default.createElement(Text, {
+    }), highlight && /*#__PURE__*/React__default['default'].createElement(Highlight, null, /*#__PURE__*/React__default['default'].createElement(Text, {
       colorWhite: true,
       content: highlight,
       fontWeight: "bold",
       fontSize: "sm"
-    })), /*#__PURE__*/React__default.createElement(Content$5, null, /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(H3, {
+    })), /*#__PURE__*/React__default['default'].createElement(Content$5, null, /*#__PURE__*/React__default['default'].createElement("div", null, /*#__PURE__*/React__default['default'].createElement(H3, {
       content: title,
       noWrap: true
-    }), /*#__PURE__*/React__default.createElement(Text, {
+    }), /*#__PURE__*/React__default['default'].createElement(Text, {
       content: megaTitle,
       color: "textSecondary",
       fontSize: "sm",
       fontStyle: "italic",
       noWrap: true
-    }), /*#__PURE__*/React__default.createElement(Text, {
+    }), /*#__PURE__*/React__default['default'].createElement(Text, {
       content: subTitle,
       color: "textSecondary",
       fontSize: "sm",
       fontStyle: "italic",
       noWrap: true
-    })), /*#__PURE__*/React__default.createElement(Badges, null, badges.map(function (badge) {
-      return /*#__PURE__*/React__default.createElement(TinyBadge, _extends({}, badge, {
+    })), /*#__PURE__*/React__default['default'].createElement(Badges, null, badges.map(function (badge) {
+      return /*#__PURE__*/React__default['default'].createElement(TinyBadge, _extends({}, badge, {
         mr: 1,
         mb: 1
       }));
-    })), /*#__PURE__*/React__default.createElement(DetailsTable, {
+    })), /*#__PURE__*/React__default['default'].createElement(DetailsTable, {
       justifyBetween: true,
       labelFontSize: "sm",
       mt: 4,
@@ -5314,7 +5340,7 @@ var ModernItem = function ModernItem(_ref5) {
     })));
   };
 
-  return Wrapper ? /*#__PURE__*/React__default.createElement(Wrapper, null, /*#__PURE__*/React__default.createElement(Item, null)) : /*#__PURE__*/React__default.createElement(Item, null);
+  return Wrapper ? /*#__PURE__*/React__default['default'].createElement(Wrapper, null, /*#__PURE__*/React__default['default'].createElement(Item, null)) : /*#__PURE__*/React__default['default'].createElement(Item, null);
 };
 ModernItem.propTypes = MarketPlaceItemPropTypes;
 ModernItem.defaultProps = MarketPlaceItemDefaultProps;
@@ -5348,26 +5374,26 @@ function _templateObject$X() {
 
   return data;
 }
-var Wrapper$8 = styled__default.div(_templateObject$X());
-var BGImage$1 = styled__default.div(_templateObject2$o(), function (_ref) {
+var Wrapper$8 = styled__default['default'].div(_templateObject$X());
+var BGImage$1 = styled__default['default'].div(_templateObject2$o(), function (_ref) {
   var imgSrc = _ref.imgSrc;
   return imgSrc;
 });
-var StyledImage$1 = styled__default(Image)(_templateObject3$e());
+var StyledImage$1 = styled__default['default'](Image)(_templateObject3$e());
 var Cover$1 = function Cover(_ref2) {
   var imgSrc = _ref2.imgSrc,
       placeholderSrc = _ref2.placeholderSrc,
       props = _objectWithoutPropertiesLoose(_ref2, ["imgSrc", "placeholderSrc"]);
 
-  return /*#__PURE__*/React__default.createElement(Wrapper$8, props, /*#__PURE__*/React__default.createElement(BGImage$1, {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$8, props, /*#__PURE__*/React__default['default'].createElement(BGImage$1, {
     imgSrc: imgSrc || placeholderSrc
-  }), /*#__PURE__*/React__default.createElement(StyledImage$1, {
+  }), /*#__PURE__*/React__default['default'].createElement(StyledImage$1, {
     src: imgSrc || placeholderSrc
   }));
 };
 Cover$1.propTypes = {
-  imgSrc: PropTypes__default.string,
-  placeholderSrc: PropTypes__default.string
+  imgSrc: PropTypes__default['default'].string,
+  placeholderSrc: PropTypes__default['default'].string
 };
 Cover$1.defaultProps = {
   imgSrc: "",
@@ -5403,14 +5429,14 @@ function _templateObject$Y() {
 
   return data;
 }
-var StyledMarketPlaceItem$2 = styled__default(BoxBase)(_templateObject$Y(), function (_ref) {
+var StyledMarketPlaceItem$2 = styled__default['default'](BoxBase)(_templateObject$Y(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (_ref2) {
   var hoverEffect = _ref2.hoverEffect;
   return hoverEffect && styled.css(["&:hover{transform:scale(1.02);}"]);
 });
-var Content$6 = styled__default(Flex).attrs(function () {
+var Content$6 = styled__default['default'](Flex).attrs(function () {
   return {
     container: true,
     alignItems: "flex-start",
@@ -5420,7 +5446,7 @@ var Content$6 = styled__default(Flex).attrs(function () {
   var theme = _ref3.theme;
   return theme.spacing(4);
 });
-var Highlight$1 = styled__default.div(_templateObject3$f(), function (_ref4) {
+var Highlight$1 = styled__default['default'].div(_templateObject3$f(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.palette.primary.light;
 }, function (_ref5) {
@@ -5445,7 +5471,7 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
       Wrapper = _ref6.Wrapper,
       props = _objectWithoutPropertiesLoose(_ref6, ["ActionWrapper", "action", "actionTitle", "badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "price", "priceLabel", "subTitle", "title", "Wrapper"]);
 
-  var actionButton = /*#__PURE__*/React__default.createElement(Button, {
+  var actionButton = /*#__PURE__*/React__default['default'].createElement(Button, {
     block: true,
     content: actionTitle,
     color: "subtle",
@@ -5453,49 +5479,49 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
   });
 
   var Item = function Item() {
-    return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(StyledMarketPlaceItem$2, _extends({
+    return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(StyledMarketPlaceItem$2, _extends({
       "data-cy": dataCy
-    }, props), /*#__PURE__*/React__default.createElement(Cover$1, {
+    }, props), /*#__PURE__*/React__default['default'].createElement(Cover$1, {
       imgSrc: coverSrc,
       placeholderSrc: coverPlaceholderSrc
-    }), /*#__PURE__*/React__default.createElement(Content$6, null, /*#__PURE__*/React__default.createElement(Flex, {
+    }), /*#__PURE__*/React__default['default'].createElement(Content$6, null, /*#__PURE__*/React__default['default'].createElement(Flex, {
       item: true,
       xs: 12,
       md: 7,
       lg: 8,
       pl: 4
-    }, /*#__PURE__*/React__default.createElement(H3, {
+    }, /*#__PURE__*/React__default['default'].createElement(H3, {
       content: title,
       noWrap: true
-    }), /*#__PURE__*/React__default.createElement(Text, {
+    }), /*#__PURE__*/React__default['default'].createElement(Text, {
       content: megaTitle,
       color: "textSecondary",
       fontSize: "sm",
       fontStyle: "italic",
       noWrap: true
-    }), /*#__PURE__*/React__default.createElement(Text, {
+    }), /*#__PURE__*/React__default['default'].createElement(Text, {
       content: subTitle,
       color: "textSecondary",
       fontSize: "sm",
       fontStyle: "italic",
       noWrap: true
-    }), /*#__PURE__*/React__default.createElement(Hidden, {
+    }), /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
       smDown: true
-    }, /*#__PURE__*/React__default.createElement(DetailsTable, {
+    }, /*#__PURE__*/React__default['default'].createElement(DetailsTable, {
       labelFontSize: "sm",
       mt: 4,
       size: "sm",
       rows: details
-    }))), /*#__PURE__*/React__default.createElement(Hidden, {
+    }))), /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
       smDown: true
-    }, /*#__PURE__*/React__default.createElement(Flex, {
+    }, /*#__PURE__*/React__default['default'].createElement(Flex, {
       item: true
     }, badges.map(function (badge) {
-      return /*#__PURE__*/React__default.createElement(TinyBadge, _extends({}, badge, {
+      return /*#__PURE__*/React__default['default'].createElement(TinyBadge, _extends({}, badge, {
         dBlock: true,
         mb: 1
       }));
-    }))), /*#__PURE__*/React__default.createElement(Flex, {
+    }))), /*#__PURE__*/React__default['default'].createElement(Flex, {
       item: true,
       lg: 2,
       md: 3,
@@ -5504,16 +5530,16 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
       justify: "space-between",
       alignItems: "flex-start",
       h100: true
-    }, /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(Text, {
+    }, /*#__PURE__*/React__default['default'].createElement("div", null, /*#__PURE__*/React__default['default'].createElement(Text, {
       content: priceLabel,
       fontStyle: "italic",
       fontSize: "sm",
       mb: 2
-    }), /*#__PURE__*/React__default.createElement(H3, {
+    }), /*#__PURE__*/React__default['default'].createElement(H3, {
       content: price,
       color: "primary",
       noWrap: true
-    })), ActionWrapper ? /*#__PURE__*/React__default.createElement(ActionWrapper, null, actionButton) : actionButton))), highlight && /*#__PURE__*/React__default.createElement(Highlight$1, null, /*#__PURE__*/React__default.createElement(Text, {
+    })), ActionWrapper ? /*#__PURE__*/React__default['default'].createElement(ActionWrapper, null, actionButton) : actionButton))), highlight && /*#__PURE__*/React__default['default'].createElement(Highlight$1, null, /*#__PURE__*/React__default['default'].createElement(Text, {
       color: "primary",
       content: highlight,
       fontWeight: "bold",
@@ -5521,7 +5547,7 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
     })));
   };
 
-  return Wrapper ? /*#__PURE__*/React__default.createElement(Wrapper, null, /*#__PURE__*/React__default.createElement(Item, null)) : /*#__PURE__*/React__default.createElement(Item, null);
+  return Wrapper ? /*#__PURE__*/React__default['default'].createElement(Wrapper, null, /*#__PURE__*/React__default['default'].createElement(Item, null)) : /*#__PURE__*/React__default['default'].createElement(Item, null);
 };
 ModernHorizontalItem.propTypes = MarketPlaceItemPropTypes;
 ModernHorizontalItem.defaultProps = MarketPlaceItemDefaultProps;
@@ -5530,9 +5556,9 @@ var MarketPlaceItem = function MarketPlaceItem(_ref) {
   var type = _ref.type,
       props = _objectWithoutPropertiesLoose(_ref, ["type"]);
 
-  if (type === "legacy") return /*#__PURE__*/React__default.createElement(LegacyItem, props);
-  if (type === "modernHorizontal") return /*#__PURE__*/React__default.createElement(ModernHorizontalItem, props);
-  return /*#__PURE__*/React__default.createElement(ModernItem, props);
+  if (type === "legacy") return /*#__PURE__*/React__default['default'].createElement(LegacyItem, props);
+  if (type === "modernHorizontal") return /*#__PURE__*/React__default['default'].createElement(ModernHorizontalItem, props);
+  return /*#__PURE__*/React__default['default'].createElement(ModernItem, props);
 };
 MarketPlaceItem.propTypes = MarketPlaceItemPropTypes;
 MarketPlaceItem.defaultProps = MarketPlaceItemDefaultProps;
@@ -5586,12 +5612,12 @@ function _templateObject$Z() {
 
   return data;
 }
-var ContentWrapper = styled__default(DialogContent).attrs(function () {
+var ContentWrapper = styled__default['default'](DialogContent__default['default']).attrs(function () {
   return {
     dividers: true
   };
 })(_templateObject$Z());
-var Title = styled__default(DialogTitle).attrs(function () {
+var Title = styled__default['default'](DialogTitle__default['default']).attrs(function () {
   return {
     disableTypography: true
   };
@@ -5602,7 +5628,7 @@ var Title = styled__default(DialogTitle).attrs(function () {
   var theme = _ref2.theme;
   return theme.spacing(3, 5);
 });
-var CloseModalIcon = styled__default(Icon).attrs(function () {
+var CloseModalIcon = styled__default['default'](Icon).attrs(function () {
   return {
     size: "lg"
   };
@@ -5610,11 +5636,11 @@ var CloseModalIcon = styled__default(Icon).attrs(function () {
   var theme = _ref3.theme;
   return theme.palette.secondary.dark;
 });
-var Actions = styled__default(DialogActions)(_templateObject4$7(), function (_ref4) {
+var Actions = styled__default['default'](DialogActions__default['default'])(_templateObject4$7(), function (_ref4) {
   var hasDesc = _ref4.hasDesc;
   return hasDesc ? "space-between" : "flex-end";
 });
-var LoadingWrapper = styled__default.div(_templateObject5$1(), function (_ref5) {
+var LoadingWrapper = styled__default['default'].div(_templateObject5$1(), function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.secondary.dark;
 });
@@ -5634,7 +5660,7 @@ var Modal = function Modal(_ref6) {
       disabled = _ref6.disabled,
       props = _objectWithoutPropertiesLoose(_ref6, ["action", "actionDescription", "actionLoading", "actionTitle", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled"]);
 
-  return /*#__PURE__*/React__default.createElement(Dialog, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(Dialog__default['default'], _extends({
     "data-cy": dataCy,
     fullScreen: typeof fullScreen !== "undefined" ? fullScreen : typeof window !== "undefined" && window.screen.width < 768,
     onClose: onClose,
@@ -5645,33 +5671,33 @@ var Modal = function Modal(_ref6) {
         position: "relative"
       }
     }
-  }, props), loading && /*#__PURE__*/React__default.createElement(LoadingWrapper, null, /*#__PURE__*/React__default.createElement(CircularProgress, {
+  }, props), loading && /*#__PURE__*/React__default['default'].createElement(LoadingWrapper, null, /*#__PURE__*/React__default['default'].createElement(CircularProgress__default['default'], {
     size: 60
-  })), title && /*#__PURE__*/React__default.createElement(Title, null, title, /*#__PURE__*/React__default.createElement(CloseModalIcon, {
+  })), title && /*#__PURE__*/React__default['default'].createElement(Title, null, title, /*#__PURE__*/React__default['default'].createElement(CloseModalIcon, {
     icon: "times",
     onClick: onClose
-  })), /*#__PURE__*/React__default.createElement(ContentWrapper, null, children), action && /*#__PURE__*/React__default.createElement(Actions, {
+  })), /*#__PURE__*/React__default['default'].createElement(ContentWrapper, null, children), action && /*#__PURE__*/React__default['default'].createElement(Actions, {
     hasDesc: !!actionDescription
-  }, /*#__PURE__*/React__default.createElement("div", null, actionDescription), /*#__PURE__*/React__default.createElement(Button, {
+  }, /*#__PURE__*/React__default['default'].createElement("div", null, actionDescription), /*#__PURE__*/React__default['default'].createElement(Button, {
     disabled: disabled,
     loading: actionLoading,
     onClick: action
   }, actionTitle)));
 };
 Modal.propTypes = {
-  action: PropTypes__default.func,
-  actionDescription: PropTypes__default.node,
-  actionLoading: PropTypes__default.bool,
-  actionTitle: PropTypes__default.string,
-  dataCy: PropTypes__default.string,
-  fullScreen: PropTypes__default.bool,
-  isOpen: PropTypes__default.bool.isRequired,
-  loading: PropTypes__default.bool,
-  onClose: PropTypes__default.func.isRequired,
-  children: PropTypes__default.oneOfType([PropTypes__default.any]).isRequired,
-  maxWidth: PropTypes__default.string,
-  title: PropTypes__default.string,
-  disabled: PropTypes__default.bool
+  action: PropTypes__default['default'].func,
+  actionDescription: PropTypes__default['default'].node,
+  actionLoading: PropTypes__default['default'].bool,
+  actionTitle: PropTypes__default['default'].string,
+  dataCy: PropTypes__default['default'].string,
+  fullScreen: PropTypes__default['default'].bool,
+  isOpen: PropTypes__default['default'].bool.isRequired,
+  loading: PropTypes__default['default'].bool,
+  onClose: PropTypes__default['default'].func.isRequired,
+  children: PropTypes__default['default'].oneOfType([PropTypes__default['default'].any]).isRequired,
+  maxWidth: PropTypes__default['default'].string,
+  title: PropTypes__default['default'].string,
+  disabled: PropTypes__default['default'].bool
 };
 Modal.defaultProps = {
   action: undefined,
@@ -5687,11 +5713,11 @@ Modal.defaultProps = {
 };
 
 var NoItemPropTypes = _extends({
-  buttonAction: PropTypes__default.func,
-  buttonHref: PropTypes__default.string,
-  buttonText: PropTypes__default.string,
-  dataCy: PropTypes__default.string,
-  text: PropTypes__default.string
+  buttonAction: PropTypes__default['default'].func,
+  buttonHref: PropTypes__default['default'].string,
+  buttonText: PropTypes__default['default'].string,
+  dataCy: PropTypes__default['default'].string,
+  text: PropTypes__default['default'].string
 }, COLOR_PROP_TYPES, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var NoItemDefaultProps = {
   buttonAction: null,
@@ -5720,14 +5746,14 @@ function _templateObject$_() {
 
   return data;
 }
-var Wrapper$9 = styled__default.div(_templateObject$_(), function (theme) {
+var Wrapper$9 = styled__default['default'].div(_templateObject$_(), function (theme) {
   return COLOR(theme);
 }, function (theme) {
   return DISPLAY(theme);
 }, function (theme) {
   return SPACER(theme);
 });
-var StyledIcon$4 = styled__default(Icon).attrs(function () {
+var StyledIcon$4 = styled__default['default'](Icon).attrs(function () {
   return {
     colorGrayRegular: true,
     icon: "sad-cry"
@@ -5741,12 +5767,12 @@ var NoItem = function NoItem(_ref) {
       text = _ref.text,
       props = _objectWithoutPropertiesLoose(_ref, ["buttonAction", "buttonHref", "buttonText", "dataCy", "text"]);
 
-  return /*#__PURE__*/React__default.createElement(Wrapper$9, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$9, _extends({
     "data-cy": dataCy
-  }, props), /*#__PURE__*/React__default.createElement(StyledIcon$4, null), /*#__PURE__*/React__default.createElement(Text, {
+  }, props), /*#__PURE__*/React__default['default'].createElement(StyledIcon$4, null), /*#__PURE__*/React__default['default'].createElement(Text, {
     fontWeight: "bold",
     my: 2
-  }, text), buttonText && /*#__PURE__*/React__default.createElement(Button, {
+  }, text), buttonText && /*#__PURE__*/React__default['default'].createElement(Button, {
     color: "subtle",
     href: buttonHref,
     onClick: buttonAction,
@@ -5757,8 +5783,8 @@ NoItem.propTypes = NoItemPropTypes;
 NoItem.defaultProps = NoItemDefaultProps;
 
 var PageLoadingPropTypes = {
-  message: PropTypes__default.string,
-  type: PropTypes__default.oneOf(["page", "box"])
+  message: PropTypes__default['default'].string,
+  type: PropTypes__default['default'].oneOf(["page", "box"])
 };
 var PageLoadingDefaultProps = {
   type: "page"
@@ -5773,7 +5799,7 @@ function _templateObject$$() {
 
   return data;
 }
-var StyledLoading = styled__default.div(_templateObject$$(), function (_ref) {
+var StyledLoading = styled__default['default'].div(_templateObject$$(), function (_ref) {
   var type = _ref.type;
   return type === "page" ? "fixed" : "absolute";
 }, function (_ref2) {
@@ -5791,7 +5817,7 @@ var PageLoading = function PageLoading(_ref5) {
   var message = _ref5.message,
       props = _objectWithoutPropertiesLoose(_ref5, ["message"]);
 
-  return /*#__PURE__*/React__default.createElement(StyledLoading, props, /*#__PURE__*/React__default.createElement(RocksSpinner, null), message && /*#__PURE__*/React__default.createElement(Text, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledLoading, props, /*#__PURE__*/React__default['default'].createElement(RocksSpinner, null), message && /*#__PURE__*/React__default['default'].createElement(Text, {
     color: "primary",
     content: message,
     fontWeight: "bold",
@@ -5805,7 +5831,7 @@ var Container$5 = function Container(_ref) {
   var children = _ref.children,
       isFinished = _ref.isFinished,
       animationDuration = _ref.animationDuration;
-  return /*#__PURE__*/React__default.createElement("div", {
+  return /*#__PURE__*/React__default['default'].createElement("div", {
     style: {
       opacity: isFinished ? 0 : 1,
       pointerEvents: "none",
@@ -5814,9 +5840,9 @@ var Container$5 = function Container(_ref) {
   }, children);
 };
 Container$5.propTypes = {
-  animationDuration: PropTypes__default.number.isRequired,
-  children: PropTypes__default.node.isRequired,
-  isFinished: PropTypes__default.bool.isRequired
+  animationDuration: PropTypes__default['default'].number.isRequired,
+  children: PropTypes__default['default'].node.isRequired,
+  isFinished: PropTypes__default['default'].bool.isRequired
 };
 
 function _templateObject2$s() {
@@ -5838,27 +5864,27 @@ function _templateObject$10() {
 
   return data;
 }
-var StyledBar = styled__default.div(_templateObject$10(), function (_ref) {
+var StyledBar = styled__default['default'].div(_templateObject$10(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.main;
 });
-var InnerBar = styled__default.div(_templateObject2$s(), function (_ref2) {
+var InnerBar = styled__default['default'].div(_templateObject2$s(), function (_ref2) {
   var theme = _ref2.theme;
   return "0 0 10px " + theme.palette.primary.main + ", 0 0 5px  " + theme.palette.primary.main;
 });
 var Bar = function Bar(_ref3) {
   var animationDuration = _ref3.animationDuration,
       progress = _ref3.progress;
-  return /*#__PURE__*/React__default.createElement(StyledBar, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledBar, {
     style: {
       marginLeft: (-1 + progress) * 100 + "%",
       transition: "margin-left " + animationDuration + "ms linear"
     }
-  }, /*#__PURE__*/React__default.createElement(InnerBar, null));
+  }, /*#__PURE__*/React__default['default'].createElement(InnerBar, null));
 };
 Bar.propTypes = {
-  animationDuration: PropTypes__default.number.isRequired,
-  progress: PropTypes__default.number.isRequired
+  animationDuration: PropTypes__default['default'].number.isRequired,
+  progress: PropTypes__default['default'].number.isRequired
 };
 
 var Progress = function Progress(_ref) {
@@ -5871,19 +5897,19 @@ var Progress = function Progress(_ref) {
       isFinished = _useNProgress.isFinished,
       progress = _useNProgress.progress;
 
-  return /*#__PURE__*/React__default.createElement(Container$5, {
+  return /*#__PURE__*/React__default['default'].createElement(Container$5, {
     animationDuration: animationDuration,
     isFinished: isFinished
-  }, /*#__PURE__*/React__default.createElement(Bar, {
+  }, /*#__PURE__*/React__default['default'].createElement(Bar, {
     animationDuration: animationDuration,
     progress: progress
   }));
 };
 
 var PageProgressBarPropTypes = {
-  isAnimating: PropTypes__default.bool,
-  instanceKey: PropTypes__default.string,
-  listener: PropTypes__default.func
+  isAnimating: PropTypes__default['default'].bool,
+  instanceKey: PropTypes__default['default'].string,
+  listener: PropTypes__default['default'].func
 };
 var PageProgressBarDefaultProps = {
   isAnimating: false,
@@ -5917,7 +5943,7 @@ var PageProgressBar = function PageProgressBar(_ref) {
       listener(routeChangeStartHandler, routeChangeEndHandler);
     }
   }, []);
-  return /*#__PURE__*/React__default.createElement(Progress, {
+  return /*#__PURE__*/React__default['default'].createElement(Progress, {
     isAnimating: isRouteChanging || isAnimating
   });
 };
@@ -5933,7 +5959,7 @@ function _templateObject$11() {
 
   return data;
 }
-var StyledContent = styled__default.div(_templateObject$11(), function (_ref) {
+var StyledContent = styled__default['default'].div(_templateObject$11(), function (_ref) {
   var duration = _ref.duration;
   return duration / 2;
 }, function (_ref2) {
@@ -5963,28 +5989,28 @@ var PageTransition = function PageTransition(_ref3) {
       setMounted(false);
     };
   }, []);
-  return /*#__PURE__*/React__default.createElement(reactTransitionGroup.Transition, {
+  return /*#__PURE__*/React__default['default'].createElement(reactTransitionGroup.Transition, {
     in: mounted,
     timeout: duration,
     unmountOnExit: true
   }, function (state) {
-    return /*#__PURE__*/React__default.createElement(StyledContent, _extends({
+    return /*#__PURE__*/React__default['default'].createElement(StyledContent, _extends({
       duration: duration,
       state: state
     }, props), children);
   });
 };
 PageTransition.propTypes = {
-  children: PropTypes__default.node.isRequired
+  children: PropTypes__default['default'].node.isRequired
 };
 PageTransition.defaultProps = {};
 
 var PaginationPropTypes = {
-  currentPage: PropTypes__default.number,
-  itemProps: PropTypes__default.shape({}),
-  nextText: PropTypes__default.string,
-  pageCount: PropTypes__default.number,
-  prevText: PropTypes__default.string
+  currentPage: PropTypes__default['default'].number,
+  itemProps: PropTypes__default['default'].shape({}),
+  nextText: PropTypes__default['default'].string,
+  pageCount: PropTypes__default['default'].number,
+  prevText: PropTypes__default['default'].string
 };
 var PaginationDefaultProps = {
   nextText: "Next",
@@ -6010,14 +6036,14 @@ function _templateObject$12() {
 
   return data;
 }
-var StyledPagination = styled__default(MuiPagination)(_templateObject$12());
-var StyledPaginationItem = styled__default(PaginationItem)(_templateObject2$t(), function (_ref) {
+var StyledPagination = styled__default['default'](MuiPagination__default['default'])(_templateObject$12());
+var StyledPaginationItem = styled__default['default'](PaginationItem__default['default'])(_templateObject2$t(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 });
 
 var prevButton = function prevButton(prevText, disabled) {
-  return /*#__PURE__*/React__default.createElement(OutlineButton, {
+  return /*#__PURE__*/React__default['default'].createElement(OutlineButton, {
     content: prevText,
     color: "secondary",
     disabled: disabled,
@@ -6028,7 +6054,7 @@ var prevButton = function prevButton(prevText, disabled) {
 };
 
 var nextButton = function nextButton(nextText, disabled) {
-  return /*#__PURE__*/React__default.createElement(OutlineButton, {
+  return /*#__PURE__*/React__default['default'].createElement(OutlineButton, {
     content: nextText,
     color: "secondary",
     disabled: disabled,
@@ -6050,14 +6076,14 @@ var Pagination = function Pagination(_ref2) {
   var _renderItem = function renderItem(item) {
     if (item.type === "previous") return prevButton(prevText, currentPage === 1);
     if (item.type === "next") return nextButton(nextText, currentPage === pageCount);
-    return /*#__PURE__*/React__default.createElement(StyledPaginationItem, _extends({}, item, itemProps));
+    return /*#__PURE__*/React__default['default'].createElement(StyledPaginationItem, _extends({}, item, itemProps));
   };
 
-  return /*#__PURE__*/React__default.createElement(StyledPagination, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledPagination, _extends({
     page: currentPage,
     count: pageCount,
     renderItem: function renderItem(item) {
-      return ItemWrapper ? /*#__PURE__*/React__default.createElement(ItemWrapper, {
+      return ItemWrapper ? /*#__PURE__*/React__default['default'].createElement(ItemWrapper, {
         page: item.page
       }, _renderItem(item)) : _renderItem(item);
     }
@@ -6067,14 +6093,14 @@ Pagination.propTypes = PaginationPropTypes;
 Pagination.defaultProps = PaginationDefaultProps;
 
 var SearchBarPropTypes = {
-  filterButtonText: PropTypes__default.string,
-  filterItems: PropTypes__default.array,
-  noBorderRadius: PropTypes__default.bool,
-  onChange: PropTypes__default.func,
-  onSubmit: PropTypes__default.func,
-  placeholder: PropTypes__default.string,
-  showFilter: PropTypes__default.nool,
-  value: PropTypes__default.string
+  filterButtonText: PropTypes__default['default'].string,
+  filterItems: PropTypes__default['default'].array,
+  noBorderRadius: PropTypes__default['default'].bool,
+  onChange: PropTypes__default['default'].func,
+  onSubmit: PropTypes__default['default'].func,
+  placeholder: PropTypes__default['default'].string,
+  showFilter: PropTypes__default['default'].nool,
+  value: PropTypes__default['default'].string
 };
 var SearchBarDefaultProps = {
   filterButtonText: "Filter",
@@ -6111,11 +6137,11 @@ function _templateObject$13() {
 
   return data;
 }
-var StyledSearchBar = styled__default.form(_templateObject$13(), function (_ref) {
+var StyledSearchBar = styled__default['default'].form(_templateObject$13(), function (_ref) {
   var noBorderRadius = _ref.noBorderRadius;
   return !noBorderRadius && "border-radius: 12px;";
 });
-var SearchInput = styled__default(FieldBase).attrs(function () {
+var SearchInput = styled__default['default'](FieldBase).attrs(function () {
   return {
     component: "input"
   };
@@ -6123,7 +6149,7 @@ var SearchInput = styled__default(FieldBase).attrs(function () {
   var theme = _ref2.theme;
   return theme.palette.gray.semiLight;
 });
-var FilterButton = styled__default(TextButton)(_templateObject3$h(), function (_ref3) {
+var FilterButton = styled__default['default'](TextButton)(_templateObject3$h(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(1);
 }, function (_ref4) {
@@ -6164,9 +6190,9 @@ var SearchBar = function SearchBar(_ref5) {
     if (value && onSubmit) onSubmit("");
   };
 
-  return /*#__PURE__*/React__default.createElement(StyledSearchBar, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(StyledSearchBar, _extends({
     onSubmit: handleSubmit
-  }, props), /*#__PURE__*/React__default.createElement(SearchInput, {
+  }, props), /*#__PURE__*/React__default['default'].createElement(SearchInput, {
     endIcon: inputValue ? "times" : null,
     endIconOnClick: handleClear,
     placeholder: placeholder,
@@ -6174,7 +6200,7 @@ var SearchBar = function SearchBar(_ref5) {
     startIconColor: "secondary",
     value: inputValue,
     onChange: handleChange
-  }), showFilter && /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(FilterButton, {
+  }), showFilter && /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(FilterButton, {
     content: filterButtonText,
     color: "secondary",
     onClick: function onClick(_ref6) {
@@ -6182,7 +6208,7 @@ var SearchBar = function SearchBar(_ref5) {
       return setAnchorEl(currentTarget);
     },
     startIcon: "filter"
-  }), /*#__PURE__*/React__default.createElement(Dropdown, {
+  }), /*#__PURE__*/React__default['default'].createElement(Dropdown, {
     anchorEl: anchorEl,
     items: filterItems.map(function (l) {
       var _current;
@@ -6210,7 +6236,7 @@ function _templateObject$14() {
 
   return data;
 }
-var Button$1 = styled__default(ButtonBase)(_templateObject$14(), function (_ref) {
+var Button$1 = styled__default['default'](ButtonBase)(_templateObject$14(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -6229,7 +6255,7 @@ var ShareModuleButton = function ShareModuleButton(_ref5) {
       icon = _ref5.icon,
       iconPrefix = _ref5.iconPrefix,
       onClick = _ref5.onClick;
-  return /*#__PURE__*/React__default.createElement(Button$1, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(Button$1, _extends({
     href: href,
     icon: icon,
     iconProps: {
@@ -6241,11 +6267,11 @@ var ShareModuleButton = function ShareModuleButton(_ref5) {
   }, buttonProps));
 };
 ShareModuleButton.propTypes = {
-  buttonProps: PropTypes__default.shape({}),
-  href: PropTypes__default.string,
-  icon: PropTypes__default.string.isRequired,
-  iconPrefix: PropTypes__default.string,
-  onClick: PropTypes__default.func
+  buttonProps: PropTypes__default['default'].shape({}),
+  href: PropTypes__default['default'].string,
+  icon: PropTypes__default['default'].string.isRequired,
+  iconPrefix: PropTypes__default['default'].string,
+  onClick: PropTypes__default['default'].func
 };
 ShareModuleButton.defaultProps = {
   buttonProps: {},
@@ -6257,10 +6283,10 @@ ShareModuleButton.defaultProps = {
 var SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "telegram", "whatsapp", "email", "navigator"];
 
 var ShareModulePropTypes = _extends({
-  buttonProps: PropTypes__default.shape(ButtonBasePropTypes),
-  copyText: PropTypes__default.string,
-  shareOptions: PropTypes__default.arrayOf(PropTypes__default.oneOf(SHARE_MODULE_SHARE_OPTIONS)),
-  url: PropTypes__default.string
+  buttonProps: PropTypes__default['default'].shape(ButtonBasePropTypes),
+  copyText: PropTypes__default['default'].string,
+  shareOptions: PropTypes__default['default'].arrayOf(PropTypes__default['default'].oneOf(SHARE_MODULE_SHARE_OPTIONS)),
+  url: PropTypes__default['default'].string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ShareModuleDefaultProps = {
   copyText: "Or copy the link",
@@ -6297,16 +6323,16 @@ function _templateObject$15() {
 
   return data;
 }
-var Container$6 = styled__default.div(_templateObject$15(), function (theme) {
+var Container$6 = styled__default['default'].div(_templateObject$15(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var ButtonsWrapper = styled__default.div(_templateObject2$v(), function (_ref) {
+var ButtonsWrapper = styled__default['default'].div(_templateObject2$v(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
-var StyledText$1 = styled__default(Text).attrs(function () {
+var StyledText$1 = styled__default['default'](Text).attrs(function () {
   return {
     component: "div",
     color: "textSecondary",
@@ -6327,28 +6353,28 @@ var ShareModule = function ShareModule(_ref3) {
       props = _objectWithoutPropertiesLoose(_ref3, ["buttonProps", "copyText", "shareOptions", "url"]);
 
   var theme = styled.useTheme();
-  return /*#__PURE__*/React__default.createElement(Container$6, props, /*#__PURE__*/React__default.createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React__default.createElement(ShareModuleButton, {
+  return /*#__PURE__*/React__default['default'].createElement(Container$6, props, /*#__PURE__*/React__default['default'].createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "twitter",
     href: "https://twitter.com/intent/tweet?url=" + url,
     buttonProps: buttonProps
-  }), shareOptions.includes("facebook") && /*#__PURE__*/React__default.createElement(ShareModuleButton, {
+  }), shareOptions.includes("facebook") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "facebook-f",
     href: "https://www.facebook.com/sharer.php?u=" + url,
     buttonProps: buttonProps
-  }), shareOptions.includes("telegram") && /*#__PURE__*/React__default.createElement(ShareModuleButton, {
+  }), shareOptions.includes("telegram") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "telegram-plane",
     href: "tg://msg?text=" + url,
     buttonProps: buttonProps
-  }), shareOptions.includes("whatsapp") && /*#__PURE__*/React__default.createElement(ShareModuleButton, {
+  }), shareOptions.includes("whatsapp") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "whatsapp",
     href: "whatsapp://send?" + url,
     buttonProps: buttonProps
-  }), shareOptions.includes("email") && /*#__PURE__*/React__default.createElement(ShareModuleButton, {
+  }), shareOptions.includes("email") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "envelope",
     iconPrefix: theme.defaultIconSet,
     href: "mailto:?body=" + url,
     buttonProps: buttonProps
-  }), shareOptions.includes("navigator") && ((_navigator = navigator) == null ? void 0 : _navigator.share) && /*#__PURE__*/React__default.createElement(ShareModuleButton, {
+  }), shareOptions.includes("navigator") && ((_navigator = navigator) == null ? void 0 : _navigator.share) && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "ellipsis-h",
     iconPrefix: theme.defaultIconSet,
     onClick: function onClick() {
@@ -6359,13 +6385,13 @@ var ShareModule = function ShareModule(_ref3) {
       });
     },
     buttonProps: buttonProps
-  })), /*#__PURE__*/React__default.createElement(StyledText$1, {
+  })), /*#__PURE__*/React__default['default'].createElement(StyledText$1, {
     content: copyText
-  }), /*#__PURE__*/React__default.createElement(Input, {
+  }), /*#__PURE__*/React__default['default'].createElement(Input, {
     endIcon: "copy",
     endIconColor: "secondary",
     endIconOnClick: function endIconOnClick() {
-      return copy(url);
+      return copy__default['default'](url);
     },
     readOnly: true,
     selectable: true,
@@ -6377,7 +6403,7 @@ ShareModule.propTypes = ShareModulePropTypes;
 ShareModule.defaultProps = ShareModuleDefaultProps;
 
 var DotsSpinnerPropTypes = _extends({
-  size: PropTypes__default.number
+  size: PropTypes__default['default'].number
 }, COLOR_PROP_TYPES, DISPLAY_PROP_TYPES, DIMENSION_PROP_TYPES, SPACER_PROP_TYPES);
 var DotsSpinnerDefaultProps = {
   size: 60
@@ -6392,7 +6418,7 @@ function _templateObject$16() {
 
   return data;
 }
-var StyledDotsSpinner = styled__default.div(_templateObject$16(), function (_ref) {
+var StyledDotsSpinner = styled__default['default'].div(_templateObject$16(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -6415,11 +6441,11 @@ var StyledDotsSpinner = styled__default.div(_templateObject$16(), function (_ref
   return SPACER(theme);
 });
 var DotsSpinner = function DotsSpinner(props) {
-  return /*#__PURE__*/React__default.createElement(StyledDotsSpinner, props, /*#__PURE__*/React__default.createElement("div", {
+  return /*#__PURE__*/React__default['default'].createElement(StyledDotsSpinner, props, /*#__PURE__*/React__default['default'].createElement("div", {
     className: "bounce1"
-  }), /*#__PURE__*/React__default.createElement("div", {
+  }), /*#__PURE__*/React__default['default'].createElement("div", {
     className: "bounce2"
-  }), /*#__PURE__*/React__default.createElement("div", {
+  }), /*#__PURE__*/React__default['default'].createElement("div", {
     className: "bounce3"
   }));
 };
@@ -6427,7 +6453,7 @@ DotsSpinner.propTypes = DotsSpinnerPropTypes;
 DotsSpinner.defaultProps = DotsSpinnerDefaultProps;
 
 var RocksSpinnerPropTypes = _extends({
-  size: PropTypes__default.number
+  size: PropTypes__default['default'].number
 }, COLOR_PROP_TYPES, DISPLAY_PROP_TYPES, DIMENSION_PROP_TYPES, SPACER_PROP_TYPES);
 var RocksSpinnerDefaultProps = {
   size: 60
@@ -6442,7 +6468,7 @@ function _templateObject$17() {
 
   return data;
 }
-var StyledRocksSpinner = styled__default.div(_templateObject$17(), function (_ref) {
+var StyledRocksSpinner = styled__default['default'].div(_templateObject$17(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -6481,9 +6507,9 @@ var StyledRocksSpinner = styled__default.div(_templateObject$17(), function (_re
   return SPACER(theme);
 });
 var RocksSpinner = function RocksSpinner(props) {
-  return /*#__PURE__*/React__default.createElement(StyledRocksSpinner, props, /*#__PURE__*/React__default.createElement("div", {
+  return /*#__PURE__*/React__default['default'].createElement(StyledRocksSpinner, props, /*#__PURE__*/React__default['default'].createElement("div", {
     className: "dot"
-  }), /*#__PURE__*/React__default.createElement("div", {
+  }), /*#__PURE__*/React__default['default'].createElement("div", {
     className: "circle"
   }));
 };
@@ -6491,13 +6517,13 @@ RocksSpinner.propTypes = RocksSpinnerPropTypes;
 RocksSpinner.defaultProps = RocksSpinnerDefaultProps;
 
 var TabPropTypes = _extends({
-  currentTab: PropTypes__default.number.isRequired,
-  onChange: PropTypes__default.func.isRequired,
-  tabs: PropTypes__default.arrayOf(PropTypes__default.shape({
-    index: PropTypes__default.number.isRequired,
-    label: PropTypes__default.string.isRequired,
-    disabled: PropTypes__default.bool,
-    showTab: PropTypes__default.bbol
+  currentTab: PropTypes__default['default'].number.isRequired,
+  onChange: PropTypes__default['default'].func.isRequired,
+  tabs: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({
+    index: PropTypes__default['default'].number.isRequired,
+    label: PropTypes__default['default'].string.isRequired,
+    disabled: PropTypes__default['default'].bool,
+    showTab: PropTypes__default['default'].bbol
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
@@ -6530,7 +6556,7 @@ function _templateObject$18() {
 
   return data;
 }
-var Wrapper$a = styled__default.div(_templateObject$18(), function (_ref) {
+var Wrapper$a = styled__default['default'].div(_templateObject$18(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (theme) {
@@ -6538,21 +6564,21 @@ var Wrapper$a = styled__default.div(_templateObject$18(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledTabs = styled__default(MuiTabs)(_templateObject2$w(), function (_ref2) {
+var StyledTabs = styled__default['default'](MuiTabs__default['default'])(_templateObject2$w(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(5);
 }, function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.primary.main;
 });
-var StyledTab = styled__default(MuiTab)(_templateObject3$j());
+var StyledTab = styled__default['default'](MuiTab__default['default'])(_templateObject3$j());
 var Tab = function Tab(_ref4) {
   var tabs = _ref4.tabs,
       currentTab = _ref4.currentTab,
       _onChange = _ref4.onChange,
       props = _objectWithoutPropertiesLoose(_ref4, ["tabs", "currentTab", "onChange"]);
 
-  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Wrapper$a, props, /*#__PURE__*/React__default.createElement(StyledTabs, {
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(Wrapper$a, props, /*#__PURE__*/React__default['default'].createElement(StyledTabs, {
     value: currentTab,
     onChange: function onChange(e, newTab) {
       return _onChange(newTab);
@@ -6562,7 +6588,7 @@ var Tab = function Tab(_ref4) {
   }, tabs.filter(function (t) {
     return typeof t.showTab === "boolean" ? t.showTab : true;
   }).map(function (t) {
-    return /*#__PURE__*/React__default.createElement(StyledTab, {
+    return /*#__PURE__*/React__default['default'].createElement(StyledTab, {
       disabled: t.disabled,
       value: t.index,
       disableRipple: true,
@@ -6574,11 +6600,11 @@ var Tab = function Tab(_ref4) {
 Tab.propTypes = TabPropTypes;
 
 var ErrorTemplatePropTypes = {
-  action: PropTypes__default.node,
-  image: PropTypes__default.string,
-  statusCode: PropTypes__default.number,
-  subTitle: PropTypes__default.string,
-  title: PropTypes__default.string
+  action: PropTypes__default['default'].node,
+  image: PropTypes__default['default'].string,
+  statusCode: PropTypes__default['default'].number,
+  subTitle: PropTypes__default['default'].string,
+  title: PropTypes__default['default'].string
 };
 var ErrorTemplateDefaultProps = {
   title: "oops!"
@@ -6607,11 +6633,11 @@ function _templateObject$19() {
 
   return data;
 }
-var ErrorWrapper = styled__default.div(_templateObject$19(), function (_ref) {
+var ErrorWrapper = styled__default['default'].div(_templateObject$19(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
-var StyledImage$2 = styled__default(Image)(_templateObject2$x());
+var StyledImage$2 = styled__default['default'](Image)(_templateObject2$x());
 
 var getImg = function getImg(image, statusCode) {
   switch (statusCode) {
@@ -6633,14 +6659,14 @@ var ErrorTemplate = function ErrorTemplate(_ref2) {
       subTitle = _ref2.subTitle,
       title = _ref2.title;
   var imgSrc = getImg(image, statusCode);
-  return /*#__PURE__*/React__default.createElement(ErrorWrapper, null, imgSrc && /*#__PURE__*/React__default.createElement(StyledImage$2, {
+  return /*#__PURE__*/React__default['default'].createElement(ErrorWrapper, null, imgSrc && /*#__PURE__*/React__default['default'].createElement(StyledImage$2, {
     src: imgSrc,
     alt: title,
     mb: 12
-  }), /*#__PURE__*/React__default.createElement(H1, {
+  }), /*#__PURE__*/React__default['default'].createElement(H1, {
     content: title,
     mb: 2
-  }), subTitle && /*#__PURE__*/React__default.createElement(Text, {
+  }), subTitle && /*#__PURE__*/React__default['default'].createElement(Text, {
     content: subTitle,
     color: "textSecondary",
     mb: 6
@@ -6668,7 +6694,7 @@ function _templateObject$1a() {
 
   return data;
 }
-var CloseModalIcon$1 = styled__default(Icon).attrs(function () {
+var CloseModalIcon$1 = styled__default['default'](Icon).attrs(function () {
   return {
     size: "lg"
   };
@@ -6676,36 +6702,36 @@ var CloseModalIcon$1 = styled__default(Icon).attrs(function () {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
-var StyledImg$1 = styled__default(Image)(_templateObject2$y());
+var StyledImg$1 = styled__default['default'](Image)(_templateObject2$y());
 var ImageModal = function ImageModal(_ref2) {
   var isOpen = _ref2.isOpen,
       onClose = _ref2.onClose,
       imgSrc = _ref2.imgSrc;
-  return /*#__PURE__*/React__default.createElement(Modal, {
+  return /*#__PURE__*/React__default['default'].createElement(Modal, {
     onClose: onClose,
     isOpen: isOpen
-  }, /*#__PURE__*/React__default.createElement(CloseModalIcon$1, {
+  }, /*#__PURE__*/React__default['default'].createElement(CloseModalIcon$1, {
     color: "secondary",
     icon: "times",
     onClick: onClose
-  }), /*#__PURE__*/React__default.createElement(StyledImg$1, {
+  }), /*#__PURE__*/React__default['default'].createElement(StyledImg$1, {
     src: imgSrc,
     alt: "Attachment preview"
   }));
 };
 ImageModal.propTypes = {
-  isOpen: PropTypes__default.bool.isRequired,
-  onClose: PropTypes__default.func.isRequired,
-  imgSrc: PropTypes__default.string
+  isOpen: PropTypes__default['default'].bool.isRequired,
+  onClose: PropTypes__default['default'].func.isRequired,
+  imgSrc: PropTypes__default['default'].string
 };
 ImageModal.defaultProps = {
   imgSrc: ""
 };
 
 var ThumbnailPropTypes = _extends({
-  hasPreview: PropTypes__default.bool,
-  imgSrc: PropTypes__default.string,
-  onClick: PropTypes__default.func
+  hasPreview: PropTypes__default['default'].bool,
+  imgSrc: PropTypes__default['default'].string,
+  onClick: PropTypes__default['default'].func
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ThumbnailDefaultProps = {
   hasPreview: false,
@@ -6742,7 +6768,7 @@ function _templateObject$1b() {
 
   return data;
 }
-var Container$7 = styled__default.div(_templateObject$1b(), function (_ref) {
+var Container$7 = styled__default['default'].div(_templateObject$1b(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
@@ -6750,8 +6776,8 @@ var Container$7 = styled__default.div(_templateObject$1b(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-var IconWrapper = styled__default.div(_templateObject2$z());
-var StyledIcon$5 = styled__default(Icon)(_templateObject3$k(), function (_ref2) {
+var IconWrapper = styled__default['default'].div(_templateObject2$z());
+var StyledIcon$5 = styled__default['default'](Icon)(_templateObject3$k(), function (_ref2) {
   var color = _ref2.color,
       theme = _ref2.theme;
   return !color && theme.palette.common.white;
@@ -6774,15 +6800,15 @@ var Thumbnail = function Thumbnail(_ref3) {
     if (hasPreview) setPreviewOpen(true);else onClick();
   };
 
-  return /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(Container$7, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(Container$7, _extends({
     onClick: handleClick
-  }, props), loadError ? /*#__PURE__*/React__default.createElement(StyledIcon$5, {
+  }, props), loadError ? /*#__PURE__*/React__default['default'].createElement(StyledIcon$5, {
     color: "secondary",
     icon: "file",
     size: "lg"
-  }) : /*#__PURE__*/React__default.createElement(React__default.Fragment, null, /*#__PURE__*/React__default.createElement(IconWrapper, null, /*#__PURE__*/React__default.createElement(StyledIcon$5, {
+  }) : /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(IconWrapper, null, /*#__PURE__*/React__default['default'].createElement(StyledIcon$5, {
     icon: "search-plus"
-  })), /*#__PURE__*/React__default.createElement(Image, {
+  })), /*#__PURE__*/React__default['default'].createElement(Image, {
     cover: true,
     src: imgSrc,
     alt: "Thumbnail",
@@ -6790,7 +6816,7 @@ var Thumbnail = function Thumbnail(_ref3) {
       return setLoadError(true);
     },
     width: "48px"
-  }))), hasPreview && /*#__PURE__*/React__default.createElement(ImageModal, {
+  }))), hasPreview && /*#__PURE__*/React__default['default'].createElement(ImageModal, {
     imgSrc: imgSrc,
     isOpen: previewOpen,
     onClose: function onClose() {
@@ -6861,8 +6887,8 @@ function _templateObject$1c() {
 
   return data;
 }
-var StyledContent$1 = styled__default.div(_templateObject$1c());
-var ActionWrapper = styled__default.div(_templateObject2$A());
+var StyledContent$1 = styled__default['default'].div(_templateObject$1c());
+var ActionWrapper = styled__default['default'].div(_templateObject2$A());
 var WizardStepContent = function WizardStepContent(_ref) {
   var children = _ref.children,
       content = _ref.content,
@@ -6887,7 +6913,7 @@ var WizardStepContent = function WizardStepContent(_ref) {
       setMounted(false);
     };
   }, []);
-  return /*#__PURE__*/React__default.createElement(StyledContent$1, props, children || content, /*#__PURE__*/React__default.createElement(ActionWrapper, null, /*#__PURE__*/React__default.createElement("div", null, /*#__PURE__*/React__default.createElement(OutlineButton, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledContent$1, props, children || content, /*#__PURE__*/React__default['default'].createElement(ActionWrapper, null, /*#__PURE__*/React__default['default'].createElement("div", null, /*#__PURE__*/React__default['default'].createElement(OutlineButton, {
     color: "secondary",
     disabled: isFirstStep,
     icon: "arrow-left",
@@ -6896,12 +6922,12 @@ var WizardStepContent = function WizardStepContent(_ref) {
     },
     noPadding: true,
     onClick: handlePrev
-  }), /*#__PURE__*/React__default.createElement(Text, {
+  }), /*#__PURE__*/React__default['default'].createElement(Text, {
     color: "textSecondary",
     dInline: true,
     fontStyle: "italic",
     ml: 2
-  }, currentStep + " of " + stepCount + " steps")), /*#__PURE__*/React__default.createElement(Button, {
+  }, currentStep + " of " + stepCount + " steps")), /*#__PURE__*/React__default['default'].createElement(Button, {
     content: isLastStep ? "Finish" : "Next",
     disabled: submitButtonDisabled,
     loading: submitButtonLoading,
@@ -6910,15 +6936,15 @@ var WizardStepContent = function WizardStepContent(_ref) {
   })));
 };
 WizardStepContent.propTypes = {
-  children: PropTypes__default.node,
-  content: PropTypes__default.node,
-  currentStep: PropTypes__default.number.isRequired,
-  handleNext: PropTypes__default.func.isRequired,
-  handlePrev: PropTypes__default.func.isRequired,
-  isFirstStep: PropTypes__default.bool.isRequired,
-  isLastStep: PropTypes__default.bool.isRequired,
-  nextStepMethod: PropTypes__default.string.isRequired,
-  stepCount: PropTypes__default.number.isRequired
+  children: PropTypes__default['default'].node,
+  content: PropTypes__default['default'].node,
+  currentStep: PropTypes__default['default'].number.isRequired,
+  handleNext: PropTypes__default['default'].func.isRequired,
+  handlePrev: PropTypes__default['default'].func.isRequired,
+  isFirstStep: PropTypes__default['default'].bool.isRequired,
+  isLastStep: PropTypes__default['default'].bool.isRequired,
+  nextStepMethod: PropTypes__default['default'].string.isRequired,
+  stepCount: PropTypes__default['default'].number.isRequired
 };
 WizardStepContent.defaultProps = {
   children: null,
@@ -6978,14 +7004,14 @@ function _templateObject$1d() {
 
   return data;
 }
-var StyledTitle = styled__default.div(_templateObject$1d(), function (_ref) {
+var StyledTitle = styled__default['default'].div(_templateObject$1d(), function (_ref) {
   var isPassed = _ref.isPassed;
   return isPassed && styled.css(["cursor:pointer;"]);
 }, function (_ref2) {
   var isHorizontal = _ref2.isHorizontal;
   return isHorizontal && styled.css(["flex-direction:column;align-items:flex-start;"]);
 });
-var Flag = styled__default.div(_templateObject2$B(), function (props) {
+var Flag = styled__default['default'].div(_templateObject2$B(), function (props) {
   return stepFlagBackgroundColor(props);
 }, function (props) {
   return stepFlagColor(props);
@@ -6993,7 +7019,7 @@ var Flag = styled__default.div(_templateObject2$B(), function (props) {
   var transitionDuration = _ref3.transitionDuration;
   return transitionDuration + "ms";
 });
-var Label$1 = styled__default.span(_templateObject3$l(), function (props) {
+var Label$1 = styled__default['default'].span(_templateObject3$l(), function (props) {
   return stepBorderAndTitleColor(props);
 }, function (_ref4) {
   var transitionDuration = _ref4.transitionDuration;
@@ -7010,18 +7036,18 @@ var WizardStepTitle = function WizardStepTitle(_ref6) {
       flag = _ref6.flag,
       onClick = _ref6.onClick,
       transitionDuration = _ref6.transitionDuration;
-  return /*#__PURE__*/React__default.createElement(StyledTitle, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledTitle, {
     onClick: onClick,
     isHorizontal: isHorizontal,
     isPassed: isPassed
-  }, /*#__PURE__*/React__default.createElement(Flag, {
+  }, /*#__PURE__*/React__default['default'].createElement(Flag, {
     isActive: isActive,
     isPassed: isPassed,
     transitionDuration: transitionDuration
-  }, isPassed ? /*#__PURE__*/React__default.createElement("img", {
+  }, isPassed ? /*#__PURE__*/React__default['default'].createElement("img", {
     src: img,
     alt: "passed-step"
-  }) : flag), /*#__PURE__*/React__default.createElement(Label$1, {
+  }) : flag), /*#__PURE__*/React__default['default'].createElement(Label$1, {
     isActive: isActive,
     isHorizontal: isHorizontal,
     isPassed: isPassed,
@@ -7029,29 +7055,29 @@ var WizardStepTitle = function WizardStepTitle(_ref6) {
   }, label));
 };
 WizardStepTitle.propTypes = {
-  isActive: PropTypes__default.bool.isRequired,
-  isHorizontal: PropTypes__default.bool.isRequired,
-  isPassed: PropTypes__default.bool.isRequired,
-  label: PropTypes__default.node.isRequired,
-  flag: PropTypes__default.node.isRequired,
-  onClick: PropTypes__default.func,
-  transitionDuration: PropTypes__default.number.isRequired
+  isActive: PropTypes__default['default'].bool.isRequired,
+  isHorizontal: PropTypes__default['default'].bool.isRequired,
+  isPassed: PropTypes__default['default'].bool.isRequired,
+  label: PropTypes__default['default'].node.isRequired,
+  flag: PropTypes__default['default'].node.isRequired,
+  onClick: PropTypes__default['default'].func,
+  transitionDuration: PropTypes__default['default'].number.isRequired
 };
 WizardStepTitle.defaultProps = {
   onClick: function onClick() {}
 };
 
 var WizardPropTypes = _extends({
-  currentStepContent: PropTypes__default.node.isRequired,
-  currentStepIndex: PropTypes__default.number.isRequired,
-  headerFadeColor: PropTypes__default.string,
-  nextStepMethod: PropTypes__default.oneOf(["submit", "button"]),
-  orientation: PropTypes__default.string,
-  setCurrentStepIndex: PropTypes__default.func.isRequired,
-  steps: PropTypes__default.arrayOf(PropTypes__default.string).isRequired,
-  submitButtonDisabled: PropTypes__default.bool,
-  submitButtonLoading: PropTypes__default.bool,
-  transitionDuration: PropTypes__default.number
+  currentStepContent: PropTypes__default['default'].node.isRequired,
+  currentStepIndex: PropTypes__default['default'].number.isRequired,
+  headerFadeColor: PropTypes__default['default'].string,
+  nextStepMethod: PropTypes__default['default'].oneOf(["submit", "button"]),
+  orientation: PropTypes__default['default'].string,
+  setCurrentStepIndex: PropTypes__default['default'].func.isRequired,
+  steps: PropTypes__default['default'].arrayOf(PropTypes__default['default'].string).isRequired,
+  submitButtonDisabled: PropTypes__default['default'].bool,
+  submitButtonLoading: PropTypes__default['default'].bool,
+  transitionDuration: PropTypes__default['default'].number
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var WizardDefaultProps = {
   headerFadeColor: "#ffffff",
@@ -7109,21 +7135,21 @@ function _templateObject$1e() {
 
   return data;
 }
-var Wrapper$b = styled__default.div(_templateObject$1e(), function (theme) {
+var Wrapper$b = styled__default['default'].div(_templateObject$1e(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StepsWrapper = styled__default.div(_templateObject2$C(), function (_ref) {
+var StepsWrapper = styled__default['default'].div(_templateObject2$C(), function (_ref) {
   var headerFadeColor = _ref.headerFadeColor,
       isHorizontal = _ref.isHorizontal;
   return isHorizontal && styled.css(["position:relative;::before{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 90deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;left:0;z-index:2;}::after{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;right:0;z-index:2;}"], headerFadeColor, headerFadeColor);
 });
-var Steps = styled__default.div(_templateObject3$m(), function (_ref2) {
+var Steps = styled__default['default'].div(_templateObject3$m(), function (_ref2) {
   var isHorizontal = _ref2.isHorizontal;
   return isHorizontal && styled.css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}"]);
 });
-var StepConnector = styled__default.div(_templateObject4$8(), function (props) {
+var StepConnector = styled__default['default'].div(_templateObject4$8(), function (props) {
   return stepBorderAndTitleColor(props);
 }, function (_ref3) {
   var transitionDuration = _ref3.transitionDuration;
@@ -7132,7 +7158,7 @@ var StepConnector = styled__default.div(_templateObject4$8(), function (props) {
   var isHorizontal = _ref4.isHorizontal;
   return isHorizontal && styled.css(["width:100%;border-left-width:0;border-top-width:2px;top:15px;left:8px;::before{content:\"\";width:100%;height:2px;display:inline-block;}"]);
 });
-var Step = styled__default.div(_templateObject5$2(), StepConnector, function (_ref5) {
+var Step = styled__default['default'].div(_templateObject5$2(), StepConnector, function (_ref5) {
   var isActive = _ref5.isActive,
       isHorizontal = _ref5.isHorizontal;
   return (!isActive || isHorizontal) && "border: none";
@@ -7193,7 +7219,7 @@ var Wizard = function Wizard(_ref7) {
     }
   };
 
-  var content = /*#__PURE__*/React__default.createElement(WizardStepContent, {
+  var content = /*#__PURE__*/React__default['default'].createElement(WizardStepContent, {
     content: currentStepContent,
     currentStep: currentStepIndex + 1,
     isHorizontal: isHorizontal,
@@ -7207,23 +7233,23 @@ var Wizard = function Wizard(_ref7) {
     submitButtonDisabled: submitButtonDisabled,
     submitButtonLoading: submitButtonLoading
   });
-  return /*#__PURE__*/React__default.createElement(Wrapper$b, props, /*#__PURE__*/React__default.createElement(StepsWrapper, {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$b, props, /*#__PURE__*/React__default['default'].createElement(StepsWrapper, {
     headerFadeColor: headerFadeColor,
     isHorizontal: isHorizontal
-  }, /*#__PURE__*/React__default.createElement(Steps, {
+  }, /*#__PURE__*/React__default['default'].createElement(Steps, {
     isHorizontal: isHorizontal,
     ref: wrapperRef
   }, steps.map(function (step, idx) {
     var isActive = idx === currentStepIndex;
     var isPassed = idx < currentStepIndex;
     var stepKey = "step-" + idx;
-    return /*#__PURE__*/React__default.createElement(Step, {
+    return /*#__PURE__*/React__default['default'].createElement(Step, {
       isActive: isActive,
       isHorizontal: isHorizontal,
       isPassed: isPassed,
       key: stepKey,
       ref: isActive ? stepRef : null
-    }, /*#__PURE__*/React__default.createElement(WizardStepTitle, {
+    }, /*#__PURE__*/React__default['default'].createElement(WizardStepTitle, {
       label: step,
       flag: idx + 1,
       isActive: isActive,
@@ -7233,7 +7259,7 @@ var Wizard = function Wizard(_ref7) {
         return handleStepClick(isPassed, idx);
       },
       transitionDuration: transitionDuration
-    }), !isHorizontal && isActive && content, /*#__PURE__*/React__default.createElement(StepConnector, {
+    }), !isHorizontal && isActive && content, /*#__PURE__*/React__default['default'].createElement(StepConnector, {
       isActive: isActive,
       isHorizontal: isHorizontal,
       isPassed: isPassed,
