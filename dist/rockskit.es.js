@@ -1869,6 +1869,7 @@ CollapseButton.propTypes = {
 var DetailsTablePropTypes = _extends({
   justifyBetween: PropTypes.bool,
   labelFontSize: PropTypes.string,
+  labelTextTransform: PropTypes.string,
   rows: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string,
     value: PropTypes.node,
@@ -1878,11 +1879,12 @@ var DetailsTablePropTypes = _extends({
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var DetailsTableDefaultProps = {
   labelFontSize: "md",
+  labelTextTransform: "initial",
   size: "md"
 };
 
 function _templateObject3$2() {
-  var data = _taggedTemplateLiteralLoose(["\n  flex: 0 140px;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 0 140px;\n  text-transform: ", ";\n"]);
 
   _templateObject3$2 = function _templateObject3() {
     return data;
@@ -1929,22 +1931,27 @@ var Label = styled(Text).attrs(function () {
   return {
     color: "textSecondary"
   };
-})(_templateObject3$2());
-var DetailsTable = function DetailsTable(_ref4) {
-  var labelFontSize = _ref4.labelFontSize,
-      rows = _ref4.rows,
-      justifyBetween = _ref4.justifyBetween,
-      size = _ref4.size,
-      props = _objectWithoutPropertiesLoose(_ref4, ["labelFontSize", "rows", "justifyBetween", "size"]);
+})(_templateObject3$2(), function (_ref4) {
+  var textTransform = _ref4.textTransform;
+  return textTransform;
+});
+var DetailsTable = function DetailsTable(_ref5) {
+  var labelTextTransform = _ref5.labelTextTransform,
+      labelFontSize = _ref5.labelFontSize,
+      rows = _ref5.rows,
+      justifyBetween = _ref5.justifyBetween,
+      size = _ref5.size,
+      props = _objectWithoutPropertiesLoose(_ref5, ["labelTextTransform", "labelFontSize", "rows", "justifyBetween", "size"]);
 
-  return /*#__PURE__*/React.createElement(Wrapper$1, props, rows.map(function (_ref5) {
-    var label = _ref5.label,
-        value = _ref5.value;
+  return /*#__PURE__*/React.createElement(Wrapper$1, props, rows.map(function (_ref6) {
+    var label = _ref6.label,
+        value = _ref6.value;
     return /*#__PURE__*/React.createElement(Row, {
       key: label + ":" + value,
       justifyBetween: justifyBetween,
       size: size
     }, /*#__PURE__*/React.createElement(Label, {
+      textTransform: labelTextTransform,
       content: label,
       fontSize: labelFontSize
     }), value || "-");

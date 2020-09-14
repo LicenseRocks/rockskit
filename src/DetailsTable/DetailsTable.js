@@ -22,9 +22,11 @@ const Label = styled(Text).attrs(() => ({
   color: "textSecondary",
 }))`
   flex: 0 140px;
+  text-transform: ${({ textTransform }) => textTransform};
 `;
 
 export const DetailsTable = ({
+  labelTextTransform,
   labelFontSize,
   rows,
   justifyBetween,
@@ -39,7 +41,11 @@ export const DetailsTable = ({
           justifyBetween={justifyBetween}
           size={size}
         >
-          <Label content={label} fontSize={labelFontSize} />
+          <Label
+            textTransform={labelTextTransform}
+            content={label}
+            fontSize={labelFontSize}
+          />
           {value || "-"}
         </Row>
       ))}
