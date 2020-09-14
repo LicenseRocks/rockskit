@@ -22,7 +22,9 @@ const Label = styled(Text).attrs(() => ({
   color: "textSecondary",
 }))`
   flex: 0 140px;
-  text-transform: ${({ textTransform }) => textTransform};
+  && {
+    text-transform: ${({ textTransform }) => textTransform};
+  }
 `;
 
 export const DetailsTable = ({

@@ -1884,7 +1884,7 @@ var DetailsTableDefaultProps = {
 };
 
 function _templateObject3$2() {
-  var data = _taggedTemplateLiteralLoose(["\n  flex: 0 140px;\n  text-transform: ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 0 140px;\n  && {\n    text-transform: ", ";\n  }\n"]);
 
   _templateObject3$2 = function _templateObject3() {
     return data;
