@@ -5535,6 +5535,60 @@ var MarketPlaceItem = function MarketPlaceItem(_ref) {
 MarketPlaceItem.propTypes = MarketPlaceItemPropTypes;
 MarketPlaceItem.defaultProps = MarketPlaceItemDefaultProps;
 
+var MetaPropTypes = {
+  description: PropTypes.string,
+  imgSrc: PropTypes.string,
+  title: PropTypes.string,
+  url: PropTypes.string
+};
+var MetaDefaultProps = {};
+
+var Meta = function Meta(_ref) {
+  var description = _ref.description,
+      imgSrc = _ref.imgSrc,
+      title = _ref.title,
+      url = _ref.url;
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("title", null, title), /*#__PURE__*/React.createElement("meta", {
+    name: "title",
+    content: title
+  }), /*#__PURE__*/React.createElement("meta", {
+    name: "description",
+    content: description
+  }), /*#__PURE__*/React.createElement("meta", {
+    property: "og:type",
+    content: "website"
+  }), /*#__PURE__*/React.createElement("meta", {
+    property: "og:url",
+    content: url
+  }), /*#__PURE__*/React.createElement("meta", {
+    property: "og:title",
+    content: title
+  }), /*#__PURE__*/React.createElement("meta", {
+    property: "og:description",
+    content: description
+  }), /*#__PURE__*/React.createElement("meta", {
+    property: "og:image",
+    content: imgSrc
+  }), /*#__PURE__*/React.createElement("meta", {
+    property: "twitter:card",
+    content: "summary_large_image"
+  }), /*#__PURE__*/React.createElement("meta", {
+    property: "twitter:url",
+    content: url
+  }), /*#__PURE__*/React.createElement("meta", {
+    property: "twitter:title",
+    content: title
+  }), /*#__PURE__*/React.createElement("meta", {
+    property: "twitter:description",
+    content: description
+  }), /*#__PURE__*/React.createElement("meta", {
+    property: "twitter:image",
+    content: imgSrc
+  }));
+};
+Meta.propTypes = MetaPropTypes;
+Meta.defaultProps = MetaDefaultProps;
+
 function _templateObject5$1() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: ", ";\n  z-index: 1;\n"]);
 
@@ -7242,5 +7296,5 @@ var Wizard = function Wizard(_ref7) {
 Wizard.propTypes = WizardPropTypes;
 Wizard.defaultProps = WizardDefaultProps;
 
-export { Alert, AppContainer, AuthLayout, BorderedRadio, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FilePond, FileUpload, Flex, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, History, Icon, Image, ImageModal, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, MarketPlaceItem, Modal, NoItem, OutlineButton, PageLoading, PageProgressBar, PageTransition, Pagination, Paragraph, Radio, RadioBase, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, Stepper, THEME_COLORS, Tab, Text, TextArea, TextBase, TextButton, Thumbnail, TinyBadge, ToggleSwitch, Wizard, getFormInputError, getFormRowErrors, handleScroll };
+export { Alert, AppContainer, AuthLayout, BorderedRadio, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FilePond, FileUpload, Flex, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, History, Icon, Image, ImageModal, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, MarketPlaceItem, Meta, Modal, NoItem, OutlineButton, PageLoading, PageProgressBar, PageTransition, Pagination, Paragraph, Radio, RadioBase, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, Stepper, THEME_COLORS, Tab, Text, TextArea, TextBase, TextButton, Thumbnail, TinyBadge, ToggleSwitch, Wizard, getFormInputError, getFormRowErrors, handleScroll };
 //# sourceMappingURL=rockskit.es.js.map

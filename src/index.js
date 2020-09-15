@@ -18,6 +18,7 @@ export * from "./Image";
 export * from "./Language";
 export * from "./Layout";
 export * from "./MarketPlaceItem";
+export * from "./Meta";
 export * from "./Modal";
 export * from "./NoItem";
 export * from "./PageLoading";

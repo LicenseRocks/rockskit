@@ -5570,6 +5570,60 @@ var MarketPlaceItem = function MarketPlaceItem(_ref) {
 MarketPlaceItem.propTypes = MarketPlaceItemPropTypes;
 MarketPlaceItem.defaultProps = MarketPlaceItemDefaultProps;
 
+var MetaPropTypes = {
+  description: PropTypes__default['default'].string,
+  imgSrc: PropTypes__default['default'].string,
+  title: PropTypes__default['default'].string,
+  url: PropTypes__default['default'].string
+};
+var MetaDefaultProps = {};
+
+var Meta = function Meta(_ref) {
+  var description = _ref.description,
+      imgSrc = _ref.imgSrc,
+      title = _ref.title,
+      url = _ref.url;
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement("title", null, title), /*#__PURE__*/React__default['default'].createElement("meta", {
+    name: "title",
+    content: title
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    name: "description",
+    content: description
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "og:type",
+    content: "website"
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "og:url",
+    content: url
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "og:title",
+    content: title
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "og:description",
+    content: description
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "og:image",
+    content: imgSrc
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "twitter:card",
+    content: "summary_large_image"
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "twitter:url",
+    content: url
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "twitter:title",
+    content: title
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "twitter:description",
+    content: description
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "twitter:image",
+    content: imgSrc
+  }));
+};
+Meta.propTypes = MetaPropTypes;
+Meta.defaultProps = MetaDefaultProps;
+
 function _templateObject5$1() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: ", ";\n  z-index: 1;\n"]);
 
@@ -7336,6 +7390,7 @@ exports.KIT_ICON_SIZES = KIT_ICON_SIZES;
 exports.KIT_TYPOGRAPHY = KIT_TYPOGRAPHY;
 exports.Language = Language;
 exports.MarketPlaceItem = MarketPlaceItem;
+exports.Meta = Meta;
 exports.Modal = Modal;
 exports.NoItem = NoItem;
 exports.OutlineButton = OutlineButton;
