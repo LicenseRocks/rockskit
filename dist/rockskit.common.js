@@ -5571,10 +5571,10 @@ MarketPlaceItem.propTypes = MarketPlaceItemPropTypes;
 MarketPlaceItem.defaultProps = MarketPlaceItemDefaultProps;
 
 var MetaPropTypes = {
-  description: PropTypes__default['default'].string,
-  imgSrc: PropTypes__default['default'].string,
-  title: PropTypes__default['default'].string,
-  url: PropTypes__default['default'].string
+  description: PropTypes__default['default'].string.isRequired,
+  imgSrc: PropTypes__default['default'].string.isRequired,
+  title: PropTypes__default['default'].string.isRequired,
+  url: PropTypes__default['default'].string.isRequired
 };
 var MetaDefaultProps = {};
 
@@ -5583,42 +5583,54 @@ var Meta = function Meta(_ref) {
       imgSrc = _ref.imgSrc,
       title = _ref.title,
       url = _ref.url;
-  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement("title", null, title), /*#__PURE__*/React__default['default'].createElement("meta", {
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement("meta", {
     name: "title",
-    content: title
+    content: title,
+    key: "metaTitle"
   }), /*#__PURE__*/React__default['default'].createElement("meta", {
     name: "description",
-    content: description
+    content: description,
+    key: "metaDesc"
   }), /*#__PURE__*/React__default['default'].createElement("meta", {
     property: "og:type",
-    content: "website"
+    content: "website",
+    key: "ogType"
   }), /*#__PURE__*/React__default['default'].createElement("meta", {
     property: "og:url",
-    content: url
+    content: url,
+    key: "ogUrl"
   }), /*#__PURE__*/React__default['default'].createElement("meta", {
     property: "og:title",
-    content: title
+    content: title,
+    key: "ogTitle"
   }), /*#__PURE__*/React__default['default'].createElement("meta", {
     property: "og:description",
-    content: description
+    content: description,
+    key: "ogDesc"
   }), /*#__PURE__*/React__default['default'].createElement("meta", {
     property: "og:image",
-    content: imgSrc
+    content: imgSrc,
+    key: "ogImage"
   }), /*#__PURE__*/React__default['default'].createElement("meta", {
     property: "twitter:card",
-    content: "summary_large_image"
+    content: "summary_large_image",
+    key: "twCard"
   }), /*#__PURE__*/React__default['default'].createElement("meta", {
     property: "twitter:url",
-    content: url
+    content: url,
+    key: "twUrl"
   }), /*#__PURE__*/React__default['default'].createElement("meta", {
     property: "twitter:title",
-    content: title
+    content: title,
+    key: "twTitle"
   }), /*#__PURE__*/React__default['default'].createElement("meta", {
     property: "twitter:description",
-    content: description
+    content: description,
+    key: "twDesc"
   }), /*#__PURE__*/React__default['default'].createElement("meta", {
     property: "twitter:image",
-    content: imgSrc
+    content: imgSrc,
+    key: "twImage"
   }));
 };
 Meta.propTypes = MetaPropTypes;

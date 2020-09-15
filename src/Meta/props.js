@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 
 export const MetaPropTypes = {
-  description: PropTypes.string,
-  imgSrc: PropTypes.string,
-  title: PropTypes.string,
-  url: PropTypes.string,
+  description: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
 };
 
 export const MetaDefaultProps = {};
