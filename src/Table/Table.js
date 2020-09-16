@@ -10,6 +10,8 @@ const StyledTable = styled.table`
   width: 100%;
   border-collapse: collapse;
   border-spacing: 0;
+  border-radius: 8px;
+  overflow: hidden;
 `;
 
 export const Table = ({ columns, rows, noDataProps, ...props }) => (

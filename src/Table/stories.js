@@ -45,6 +45,7 @@ export const main = () => {
         type: "icon",
       },
       {
+        hiddenLabelSm: true,
         key: "license",
         label: "License",
       },
@@ -64,8 +65,9 @@ export const main = () => {
         type: "text",
       },
       {
+        hiddenLabelSm: true,
+        flexSm: true,
         key: "action",
-        label: "",
         tdAlign: "right",
         type: "action",
       },
