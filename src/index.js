@@ -29,6 +29,7 @@ export * from "./SearchBar";
 export * from "./ShareModule/ShareModule";
 export * from "./Spinner";
 export * from "./Tab";
+export * from "./Table";
 export * from "./Template";
 export * from "./theme";
 export * from "./Thumbnail";
