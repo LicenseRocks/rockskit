@@ -143,6 +143,7 @@ export const Wizard = ({
   steps,
   submitButtonDisabled,
   submitButtonLoading,
+  showNavigationButtons,
   transitionDuration,
   ...props
 }) => {
@@ -184,7 +185,7 @@ export const Wizard = ({
 
   const content = (
     <WizardStepContent
-      content={currentStepContent}
+      content={steps[currentStepIndex]?.content || currentStepContent}
       currentStep={currentStepIndex + 1}
       isHorizontal={isHorizontal}
       isLastStep={isLastStep}
@@ -196,6 +197,7 @@ export const Wizard = ({
       stepCount={stepCount}
       submitButtonDisabled={submitButtonDisabled}
       submitButtonLoading={submitButtonLoading}
+      showNavigationButtons={showNavigationButtons}
     />
   );
 
@@ -220,12 +222,16 @@ export const Wizard = ({
                 ref={isActive ? stepRef : null}
               >
                 <WizardStepTitle
-                  label={step}
+                  disabled={step?.flagDisabled}
+                  label={step.title}
                   flag={idx + 1}
                   isActive={isActive}
                   isHorizontal={isHorizontal}
                   isPassed={isPassed}
-                  onClick={() => handleStepClick(isPassed, idx)}
+                  onClick={
+                    step?.onClick || (() => handleStepClick(isPassed, idx))
+                  }
+                  rightTitle={step?.rightTitle}
                   transitionDuration={transitionDuration}
                 />
                 {!isHorizontal && isActive && content}

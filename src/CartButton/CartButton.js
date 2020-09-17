@@ -14,9 +14,9 @@ const StyledButton = styled(ButtonBase)`
   }
 `;
 
-export const CartButton = ({ count }) => {
+export const CartButton = ({ count, ...props }) => {
   return (
-    <StyledButton>
+    <StyledButton {...props}>
       <Icon colorGrayMedium icon="shopping-cart" />
 
       <Indicator content={count} ml={1} />

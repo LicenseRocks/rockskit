@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { Alert, BoxBase, PageLoading, PageTransition } from "../..";
 import { BoxFooter } from "./Footer";
@@ -7,13 +7,24 @@ import { BoxHeader } from "./Header";
 import { BoxPropTypes, BoxDefaultProps } from "./props";
 
 const BoxContent = styled.div`
-  padding: ${({ padding, theme }) => theme.spacing(padding)};
+  ${({ contentPadding, padding, theme }) => css`
+    padding: ${theme.spacing(
+      padding,
+      padding,
+      padding,
+      contentPadding ? 20 : padding
+    )};
+    ${theme.breakpoints.down("sm")} {
+      padding: ${theme.spacing(padding)};
+    }
+  `}
 `;
 
 export const Box = ({
   alert,
   alertColor,
   children,
+  contentPadding,
   footerAction,
   footerActionLoading,
   footerActionDisabled,
@@ -44,7 +55,9 @@ export const Box = ({
   const content = (
     <>
       {alert && <Alert content={alert} color={alertColor} noBorderRadius />}
-      <BoxContent padding={padding}>{children}</BoxContent>
+      <BoxContent padding={padding} contentPadding={contentPadding}>
+        {children}
+      </BoxContent>
 
       <BoxFooter
         action={footerAction}
