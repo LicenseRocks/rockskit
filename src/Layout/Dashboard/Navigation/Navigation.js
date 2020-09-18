@@ -17,7 +17,7 @@ const MainNav = styled.div`
   flex-direction: column;
   justify-content: space-between;
   box-sizing: border-box;
-  padding: ${({ theme }) => theme.spacing(0, 8, 0, 4)};
+  padding: ${({ theme }) => theme.spacing(0, 4, 0, 4)};
   height: 100%;
 `;
 

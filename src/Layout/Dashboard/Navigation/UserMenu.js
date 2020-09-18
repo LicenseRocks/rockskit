@@ -16,6 +16,7 @@ export const UserMenu = ({ menuItems, onClick, ...props }) => {
         endIcon="chevron-down"
         startIcon="user-circle"
         onClick={({ currentTarget }) => setAnchorEl(currentTarget)}
+        size="sm"
         {...props}
       />
 
