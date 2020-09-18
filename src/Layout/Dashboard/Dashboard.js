@@ -42,7 +42,7 @@ const SidebarContainer = styled(Flex).attrs(() => ({
   padding: ${({ theme }) => theme.spacing(8, 0)};
 
   ${({ theme }) => theme.breakpoints.up("md")} {
-    padding: ${({ theme }) => theme.spacing(0, 8)};
+    padding: ${({ theme }) => theme.spacing(0, 4)};
     height: 100%;
   }
 `;

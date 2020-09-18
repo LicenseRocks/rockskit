@@ -1,8 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import PropTypes from "prop-types";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
-import { Button, Icon, OutlineButton, Text } from "..";
+import { Button, OutlineButton, Text } from "..";
 
 const StyledContent = styled.div`
   width: 100%;
@@ -26,49 +26,47 @@ export const WizardStepContent = ({
   handlePrev,
   isFirstStep,
   isLastStep,
+  isHorizontal,
   nextStepMethod,
   stepCount,
   submitButtonDisabled,
   submitButtonLoading,
+  showNavigationButtons,
   ...props
 }) => {
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => {
-    setMounted(true);
-    return () => {
-      setMounted(false);
-    };
-  }, []);
-
   return (
     <StyledContent {...props}>
       {children || content}
-      <ActionWrapper>
-        <div>
-          <OutlineButton
-            color="secondary"
-            disabled={isFirstStep}
-            icon="arrow-left"
-            iconProps={{
-              color: "secondary"
-            }}
-            noPadding
-            onClick={handlePrev}
+      {showNavigationButtons && (
+        <ActionWrapper>
+          {isHorizontal && (
+            <div>
+              <OutlineButton
+                color="secondary"
+                disabled={isFirstStep}
+                icon="arrow-left"
+                iconProps={{
+                  color: "secondary",
+                }}
+                noPadding
+                onClick={handlePrev}
+              />
+
+              <Text color="textSecondary" dInline fontStyle="italic" ml={2}>
+                {`${currentStep} of ${stepCount} steps`}
+              </Text>
+            </div>
+          )}
+
+          <Button
+            content={isLastStep ? "Finish" : "Next"}
+            disabled={submitButtonDisabled}
+            loading={submitButtonLoading}
+            onClick={nextStepMethod === "button" ? handleNext : undefined}
+            type={nextStepMethod}
           />
-
-          <Text color="textSecondary" dInline fontStyle="italic" ml={2}>
-            {`${currentStep} of ${stepCount} steps`}
-          </Text>
-        </div>
-
-        <Button
-          content={isLastStep ? "Finish" : "Next"}
-          disabled={submitButtonDisabled}
-          loading={submitButtonLoading}
-          onClick={nextStepMethod === "button" ? handleNext : undefined}
-          type={nextStepMethod}
-        />
-      </ActionWrapper>
+        </ActionWrapper>
+      )}
     </StyledContent>
   );
 };
@@ -80,12 +78,19 @@ WizardStepContent.propTypes = {
   handleNext: PropTypes.func.isRequired,
   handlePrev: PropTypes.func.isRequired,
   isFirstStep: PropTypes.bool.isRequired,
+  isHorizontal: PropTypes.bool.isRequired,
   isLastStep: PropTypes.bool.isRequired,
   nextStepMethod: PropTypes.string.isRequired,
   stepCount: PropTypes.number.isRequired,
+  submitButtonDisabled: PropTypes.bool,
+  submitButtonLoading: PropTypes.bool,
+  showNavigationButtons: PropTypes.bool,
 };
 
 WizardStepContent.defaultProps = {
   children: null,
   content: null,
+  submitButtonDisabled: false,
+  submitButtonLoading: false,
+  showNavigationButtons: true,
 };

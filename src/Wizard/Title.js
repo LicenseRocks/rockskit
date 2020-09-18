@@ -28,6 +28,12 @@ const StyledTitle = styled.div`
       flex-direction: column;
       align-items: flex-start;
     `}
+
+    ${({ disabled }) =>
+    disabled &&
+    css`
+      cursor: not-allowed;
+    `}
 `;
 
 const Flag = styled.div`
@@ -63,17 +69,25 @@ const Label = styled.span`
     `}
 `;
 
+const RightTitle = styled.div`
+  flex: 1;
+  text-align: right;
+`;
+
 export const WizardStepTitle = ({
+  disabled,
   isActive,
   isHorizontal,
   isPassed,
   label,
   flag,
   onClick,
+  rightTitle,
   transitionDuration,
 }) => {
   return (
     <StyledTitle
+      disabled={disabled}
       onClick={onClick}
       isHorizontal={isHorizontal}
       isPassed={isPassed}
@@ -93,11 +107,14 @@ export const WizardStepTitle = ({
       >
         {label}
       </Label>
+
+      {rightTitle && !isHorizontal && <RightTitle>{rightTitle}</RightTitle>}
     </StyledTitle>
   );
 };
 
 WizardStepTitle.propTypes = {
+  disabled: PropTypes.bool.isRequired,
   isActive: PropTypes.bool.isRequired,
   isHorizontal: PropTypes.bool.isRequired,
   isPassed: PropTypes.bool.isRequired,

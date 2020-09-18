@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled, { ThemeProvider } from "styled-components";
 
-import { Dropdown, FieldBase, TextButton } from "..";
+import { DISPLAY, Dropdown, FieldBase, SPACER, TextButton } from "..";
 import { SearchBarPropTypes, SearchBarDefaultProps } from "./props";
 
 const StyledSearchBar = styled.form`
@@ -13,6 +13,9 @@ const StyledSearchBar = styled.form`
   align-items: center;
   justify-content: center;
   overflow: hidden;
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 const SearchInput = styled(FieldBase).attrs(() => ({
