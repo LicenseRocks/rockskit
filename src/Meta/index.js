@@ -1,2 +1,0 @@
-// Meta
-export * from "./Meta";

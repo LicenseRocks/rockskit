@@ -5922,72 +5922,6 @@ var MarketPlaceItem = function MarketPlaceItem(_ref) {
 MarketPlaceItem.propTypes = MarketPlaceItemPropTypes;
 MarketPlaceItem.defaultProps = MarketPlaceItemDefaultProps;
 
-var MetaPropTypes = {
-  description: PropTypes__default['default'].string.isRequired,
-  imgSrc: PropTypes__default['default'].string.isRequired,
-  title: PropTypes__default['default'].string.isRequired,
-  url: PropTypes__default['default'].string.isRequired
-};
-var MetaDefaultProps = {};
-
-var Meta = function Meta(_ref) {
-  var description = _ref.description,
-      imgSrc = _ref.imgSrc,
-      title = _ref.title,
-      url = _ref.url;
-  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement("meta", {
-    name: "title",
-    content: title,
-    key: "metaTitle"
-  }), /*#__PURE__*/React__default['default'].createElement("meta", {
-    name: "description",
-    content: description,
-    key: "metaDesc"
-  }), /*#__PURE__*/React__default['default'].createElement("meta", {
-    property: "og:type",
-    content: "website",
-    key: "ogType"
-  }), /*#__PURE__*/React__default['default'].createElement("meta", {
-    property: "og:url",
-    content: url,
-    key: "ogUrl"
-  }), /*#__PURE__*/React__default['default'].createElement("meta", {
-    property: "og:title",
-    content: title,
-    key: "ogTitle"
-  }), /*#__PURE__*/React__default['default'].createElement("meta", {
-    property: "og:description",
-    content: description,
-    key: "ogDesc"
-  }), /*#__PURE__*/React__default['default'].createElement("meta", {
-    property: "og:image",
-    content: imgSrc,
-    key: "ogImage"
-  }), /*#__PURE__*/React__default['default'].createElement("meta", {
-    property: "twitter:card",
-    content: "summary_large_image",
-    key: "twCard"
-  }), /*#__PURE__*/React__default['default'].createElement("meta", {
-    property: "twitter:url",
-    content: url,
-    key: "twUrl"
-  }), /*#__PURE__*/React__default['default'].createElement("meta", {
-    property: "twitter:title",
-    content: title,
-    key: "twTitle"
-  }), /*#__PURE__*/React__default['default'].createElement("meta", {
-    property: "twitter:description",
-    content: description,
-    key: "twDesc"
-  }), /*#__PURE__*/React__default['default'].createElement("meta", {
-    property: "twitter:image",
-    content: imgSrc,
-    key: "twImage"
-  }));
-};
-Meta.propTypes = MetaPropTypes;
-Meta.defaultProps = MetaDefaultProps;
-
 function _templateObject5$1() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: ", ";\n  z-index: 1;\n"]);
 
@@ -6251,6 +6185,77 @@ var PageLoading = function PageLoading(_ref5) {
 };
 PageLoading.propTypes = PageLoadingPropTypes;
 PageLoading.defaultProps = PageLoadingDefaultProps;
+
+var pageMetaPropTypes = {
+  children: PropTypes__default['default'].node,
+  description: PropTypes__default['default'].string.isRequired,
+  imgSrc: PropTypes__default['default'].string.isRequired,
+  title: PropTypes__default['default'].string.isRequired,
+  url: PropTypes__default['default'].string.isRequired,
+  Wrapper: PropTypes__default['default'].node
+};
+var pageMetaDefaultProps = {};
+
+var PageMeta = function PageMeta(_ref) {
+  var children = _ref.children,
+      description = _ref.description,
+      imgSrc = _ref.imgSrc,
+      title = _ref.title,
+      url = _ref.url,
+      Wrapper = _ref.Wrapper;
+  var meta = /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement("title", null, title), /*#__PURE__*/React__default['default'].createElement("meta", {
+    name: "title",
+    content: title,
+    key: "metaTitle"
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    name: "description",
+    content: description,
+    key: "metaDesc"
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "og:type",
+    content: "website",
+    key: "ogType"
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "og:url",
+    content: url,
+    key: "ogUrl"
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "og:title",
+    content: title,
+    key: "ogTitle"
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "og:description",
+    content: description,
+    key: "ogDesc"
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "og:image",
+    content: imgSrc,
+    key: "ogImage"
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "twitter:card",
+    content: "summary_large_image",
+    key: "twCard"
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "twitter:url",
+    content: url,
+    key: "twUrl"
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "twitter:title",
+    content: title,
+    key: "twTitle"
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "twitter:description",
+    content: description,
+    key: "twDesc"
+  }), /*#__PURE__*/React__default['default'].createElement("meta", {
+    property: "twitter:image",
+    content: imgSrc,
+    key: "twImage"
+  }), children);
+  return Wrapper ? /*#__PURE__*/React__default['default'].createElement(Wrapper, null, meta) : meta;
+};
+PageMeta.propTypes = pageMetaPropTypes;
+PageMeta.defaultProps = pageMetaDefaultProps;
 
 var Container$5 = function Container(_ref) {
   var children = _ref.children,
@@ -7984,11 +7989,11 @@ exports.KIT_ICON_SIZES = KIT_ICON_SIZES;
 exports.KIT_TYPOGRAPHY = KIT_TYPOGRAPHY;
 exports.Language = Language;
 exports.MarketPlaceItem = MarketPlaceItem;
-exports.Meta = Meta;
 exports.Modal = Modal;
 exports.NoItem = NoItem;
 exports.OutlineButton = OutlineButton;
 exports.PageLoading = PageLoading;
+exports.PageMeta = PageMeta;
 exports.PageProgressBar = PageProgressBar;
 exports.PageTransition = PageTransition;
 exports.Pagination = Pagination;
