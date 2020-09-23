@@ -2220,12 +2220,18 @@ var DetailsTablePropTypes = _extends({
   labelTextTransform: PropTypes__default['default'].string,
   labelWidth: PropTypes__default['default'].number,
   rows: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({
+    columnSm: PropTypes__default['default'].bool,
+    divider: PropTypes__default['default'].bool,
+    dividerSize: PropTypes__default['default'].number,
+    expandable: PropTypes__default['default'].bool,
     icon: PropTypes__default['default'].string,
     iconProps: PropTypes__default['default'].shape({}),
     label: PropTypes__default['default'].string,
+    labelHint: PropTypes__default['default'].bool,
+    labelHintIcon: PropTypes__default['default'].string,
+    labelHintContent: PropTypes__default['default'].string,
     renderLabel: PropTypes__default['default'].func,
-    value: PropTypes__default['default'].node,
-    expanded: PropTypes__default['default'].bool
+    value: PropTypes__default['default'].node
   })),
   size: PropTypes__default['default'].oneOf(["sm", "md"])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
