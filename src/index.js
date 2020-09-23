@@ -36,6 +36,7 @@ export * from "./Table";
 export * from "./Template";
 export * from "./theme";
 export * from "./Thumbnail";
+export * from "./Tooltip";
 export * from "./Typography";
 export * from "./utils";
 export * from "./Wizard/Wizard";
