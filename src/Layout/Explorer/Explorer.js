@@ -20,6 +20,9 @@ const Content = styled(Grid).attrs(() => ({
   ${({ theme }) => theme.breakpoints.down("md")} {
     padding-top: ${({ theme }) => theme.spacing(2)};
   }
+  ${({ theme }) => theme.breakpoints.up("md")} {
+    padding-right: ${({ theme }) => theme.spacing(6)};
+  }
 `;
 
 const poweredBy = (

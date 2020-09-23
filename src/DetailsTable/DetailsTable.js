@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
+import { DISPLAY, OutlineButton, SPACER, Divider, Tooltip } from "..";
+import { Text } from "../Typography";
+import { Icon } from "../Icon";
 
 import { DetailsTablePropTypes, DetailsTableDefaultProps } from "./props";
-import { Text } from "../Typography";
-import { DISPLAY, SPACER } from "../theme";
 
 const Wrapper = styled.div`
   ${(theme) => SPACER(theme)}
@@ -14,43 +15,128 @@ const Row = styled.div`
   display: flex;
   align-items: center;
   ${({ justifyBetween }) => justifyBetween && "justify-content: space-between;"}
-  height: ${({ size }) => (size === "md" ? "32px" : "16px")};
+  min-height: ${({ size }) => (size === "md" ? "32px" : "16px")};
   margin-bottom: ${({ theme }) => theme.spacing(2)};
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    ${({ columnSm }) => columnSm && "flex-direction: column;"}
+  }
+`;
+
+const LabelWrapper = styled.div`
+  flex: 0 0 ${({ labelWidth }) => labelWidth}px;
+  max-width: ${({ labelWidth }) => labelWidth}px;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  padding-right: ${({ theme }) => theme.spacing(6)};
 `;
 
 const Label = styled(Text).attrs(() => ({
   color: "textSecondary",
 }))`
-  flex: 0 140px;
   && {
     text-transform: ${({ textTransform }) => textTransform};
   }
 `;
 
+const Hint = styled.div`
+  background: ${({ theme }) => theme.palette.gray.semiLight};
+  margin-left: ${({ theme }) => theme.spacing(2)};
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  svg {
+    color: ${({ theme }) => theme.palette.gray.medium};
+    font-size: 10px;
+  }
+`;
+
 export const DetailsTable = ({
+  expandButtonTitle,
   labelTextTransform,
   labelFontSize,
-  rows,
+  labelWidth,
   justifyBetween,
+  rows,
   size,
   ...props
 }) => {
+  const [expanded, setExpanded] = useState(false);
+  const showExpandButton = rows?.some((row) => row.expandable);
+
+  const renderRow = ({
+    columnSm,
+    divider,
+    dividerSize = 6,
+    icon,
+    iconProps,
+    label,
+    labelHint,
+    labelHintIcon,
+    labelHintContent,
+    renderLabel = () => {},
+    value,
+  }) => (
+    <>
+      <Row
+        columnSm={columnSm}
+        key={`${label}:${value}`}
+        justifyBetween={justifyBetween}
+        size={size}
+      >
+        <LabelWrapper labelWidth={labelWidth}>
+          {renderLabel() || (
+            <>
+              {icon && (
+                <Hint icon={icon} mr={2} colorGrayRegular {...iconProps} />
+              )}
+
+              <Label
+                textTransform={labelTextTransform}
+                content={label}
+                fontSize={labelFontSize}
+              />
+
+              {labelHint && (
+                <Tooltip content={labelHintContent}>
+                  <Hint>
+                    <Icon icon={labelHintIcon} />
+                  </Hint>
+                </Tooltip>
+              )}
+            </>
+          )}
+        </LabelWrapper>
+
+        {value || "-"}
+      </Row>
+      {divider && <Divider py={dividerSize} />}
+    </>
+  );
+
   return (
     <Wrapper {...props}>
-      {rows.map(({ label, value }) => (
-        <Row
-          key={`${label}:${value}`}
-          justifyBetween={justifyBetween}
-          size={size}
-        >
-          <Label
-            textTransform={labelTextTransform}
-            content={label}
-            fontSize={labelFontSize}
-          />
-          {value || "-"}
-        </Row>
-      ))}
+      {rows.filter((row) => !row.expandable).map((row) => renderRow(row))}
+      {showExpandButton && (
+        <>
+          <OutlineButton
+            color="secondary"
+            endIcon={expanded ? "chevron-up" : "chevron-down"}
+            onClick={() => setExpanded((prev) => !prev)}
+            size="xs"
+            mb={4}
+          >
+            {expandButtonTitle}
+          </OutlineButton>
+          {expanded &&
+            rows.filter((row) => row.expandable).map((row) => renderRow(row))}
+        </>
+      )}
     </Wrapper>
   );
 };

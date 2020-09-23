@@ -43,6 +43,7 @@ var PaginationItem = require('@material-ui/lab/PaginationItem');
 var copy = require('copy-to-clipboard');
 var MuiTabs = require('@material-ui/core/Tabs');
 var MuiTab = require('@material-ui/core/Tab');
+var MuiTooltip = require('@material-ui/core/Tooltip');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -74,6 +75,7 @@ var PaginationItem__default = /*#__PURE__*/_interopDefaultLegacy(PaginationItem)
 var copy__default = /*#__PURE__*/_interopDefaultLegacy(copy);
 var MuiTabs__default = /*#__PURE__*/_interopDefaultLegacy(MuiTabs);
 var MuiTab__default = /*#__PURE__*/_interopDefaultLegacy(MuiTab);
+var MuiTooltip__default = /*#__PURE__*/_interopDefaultLegacy(MuiTooltip);
 
 function _extends() {
   _extends = Object.assign || function (target) {
@@ -2212,24 +2214,51 @@ CollapseButton.propTypes = {
 };
 
 var DetailsTablePropTypes = _extends({
+  expandButtonTitle: PropTypes__default['default'].string,
   justifyBetween: PropTypes__default['default'].bool,
   labelFontSize: PropTypes__default['default'].string,
   labelTextTransform: PropTypes__default['default'].string,
+  labelWidth: PropTypes__default['default'].number,
   rows: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({
+    icon: PropTypes__default['default'].string,
+    iconProps: PropTypes__default['default'].shape({}),
     label: PropTypes__default['default'].string,
+    renderLabel: PropTypes__default['default'].func,
     value: PropTypes__default['default'].node,
     expanded: PropTypes__default['default'].bool
   })),
   size: PropTypes__default['default'].oneOf(["sm", "md"])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var DetailsTableDefaultProps = {
+  expandButtonTitle: "Expandable items",
   labelFontSize: "md",
   labelTextTransform: "initial",
+  labelWidth: 140,
   size: "md"
 };
 
+function _templateObject5() {
+  var data = _taggedTemplateLiteralLoose(["\n  background: ", ";\n  margin-left: ", ";\n  border-radius: 100%;\n  width: 20px;\n  height: 20px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  svg {\n    color: ", ";\n    font-size: 10px;\n  }\n"]);
+
+  _templateObject5 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4() {
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    text-transform: ", ";\n  }\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject3$3() {
-  var data = _taggedTemplateLiteralLoose(["\n  flex: 0 140px;\n  && {\n    text-transform: ", ";\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 0 0 ", "px;\n  max-width: ", "px;\n  display: flex;\n  align-items: center;\n  height: 100%;\n  padding-right: ", ";\n"]);
 
   _templateObject3$3 = function _templateObject3() {
     return data;
@@ -2239,7 +2268,7 @@ function _templateObject3$3() {
 }
 
 function _templateObject2$5() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  ", "\n  height: ", ";\n  margin-bottom: ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  ", "\n  min-height: ", ";\n  margin-bottom: ", ";\n\n  ", " {\n    ", "\n  }\n"]);
 
   _templateObject2$5 = function _templateObject2() {
     return data;
@@ -2271,36 +2300,116 @@ var Row = styled__default['default'].div(_templateObject2$5(), function (_ref) {
 }, function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(2);
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.breakpoints.down("sm");
+}, function (_ref5) {
+  var columnSm = _ref5.columnSm;
+  return columnSm && "flex-direction: column;";
+});
+var LabelWrapper = styled__default['default'].div(_templateObject3$3(), function (_ref6) {
+  var labelWidth = _ref6.labelWidth;
+  return labelWidth;
+}, function (_ref7) {
+  var labelWidth = _ref7.labelWidth;
+  return labelWidth;
+}, function (_ref8) {
+  var theme = _ref8.theme;
+  return theme.spacing(6);
 });
 var Label = styled__default['default'](Text).attrs(function () {
   return {
     color: "textSecondary"
   };
-})(_templateObject3$3(), function (_ref4) {
-  var textTransform = _ref4.textTransform;
+})(_templateObject4(), function (_ref9) {
+  var textTransform = _ref9.textTransform;
   return textTransform;
 });
-var DetailsTable = function DetailsTable(_ref5) {
-  var labelTextTransform = _ref5.labelTextTransform,
-      labelFontSize = _ref5.labelFontSize,
-      rows = _ref5.rows,
-      justifyBetween = _ref5.justifyBetween,
-      size = _ref5.size,
-      props = _objectWithoutPropertiesLoose(_ref5, ["labelTextTransform", "labelFontSize", "rows", "justifyBetween", "size"]);
+var Hint = styled__default['default'].div(_templateObject5(), function (_ref10) {
+  var theme = _ref10.theme;
+  return theme.palette.gray.semiLight;
+}, function (_ref11) {
+  var theme = _ref11.theme;
+  return theme.spacing(2);
+}, function (_ref12) {
+  var theme = _ref12.theme;
+  return theme.palette.gray.medium;
+});
+var DetailsTable = function DetailsTable(_ref13) {
+  var expandButtonTitle = _ref13.expandButtonTitle,
+      labelTextTransform = _ref13.labelTextTransform,
+      labelFontSize = _ref13.labelFontSize,
+      labelWidth = _ref13.labelWidth,
+      justifyBetween = _ref13.justifyBetween,
+      rows = _ref13.rows,
+      size = _ref13.size,
+      props = _objectWithoutPropertiesLoose(_ref13, ["expandButtonTitle", "labelTextTransform", "labelFontSize", "labelWidth", "justifyBetween", "rows", "size"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(Wrapper$1, props, rows.map(function (_ref6) {
-    var label = _ref6.label,
-        value = _ref6.value;
-    return /*#__PURE__*/React__default['default'].createElement(Row, {
+  var _useState = React.useState(false),
+      expanded = _useState[0],
+      setExpanded = _useState[1];
+
+  var showExpandButton = rows == null ? void 0 : rows.some(function (row) {
+    return row.expandable;
+  });
+
+  var renderRow = function renderRow(_ref14) {
+    var columnSm = _ref14.columnSm,
+        divider = _ref14.divider,
+        _ref14$dividerSize = _ref14.dividerSize,
+        dividerSize = _ref14$dividerSize === void 0 ? 6 : _ref14$dividerSize,
+        icon = _ref14.icon,
+        iconProps = _ref14.iconProps,
+        label = _ref14.label,
+        labelHint = _ref14.labelHint,
+        labelHintIcon = _ref14.labelHintIcon,
+        labelHintContent = _ref14.labelHintContent,
+        _ref14$renderLabel = _ref14.renderLabel,
+        renderLabel = _ref14$renderLabel === void 0 ? function () {} : _ref14$renderLabel,
+        value = _ref14.value;
+    return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(Row, {
+      columnSm: columnSm,
       key: label + ":" + value,
       justifyBetween: justifyBetween,
       size: size
-    }, /*#__PURE__*/React__default['default'].createElement(Label, {
+    }, /*#__PURE__*/React__default['default'].createElement(LabelWrapper, {
+      labelWidth: labelWidth
+    }, renderLabel() || /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, icon && /*#__PURE__*/React__default['default'].createElement(Hint, _extends({
+      icon: icon,
+      mr: 2,
+      colorGrayRegular: true
+    }, iconProps)), /*#__PURE__*/React__default['default'].createElement(Label, {
       textTransform: labelTextTransform,
       content: label,
       fontSize: labelFontSize
-    }), value || "-");
-  }));
+    }), labelHint && /*#__PURE__*/React__default['default'].createElement(Tooltip, {
+      content: labelHintContent
+    }, /*#__PURE__*/React__default['default'].createElement(Hint, null, /*#__PURE__*/React__default['default'].createElement(Icon, {
+      icon: labelHintIcon
+    }))))), value || "-"), divider && /*#__PURE__*/React__default['default'].createElement(Divider, {
+      py: dividerSize
+    }));
+  };
+
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$1, props, rows.filter(function (row) {
+    return !row.expandable;
+  }).map(function (row) {
+    return renderRow(row);
+  }), showExpandButton && /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(OutlineButton, {
+    color: "secondary",
+    endIcon: expanded ? "chevron-up" : "chevron-down",
+    onClick: function onClick() {
+      return setExpanded(function (prev) {
+        return !prev;
+      });
+    },
+    size: "xs",
+    mb: 4
+  }, expandButtonTitle), expanded && rows.filter(function (row) {
+    return row.expandable;
+  }).map(function (row) {
+    return renderRow(row);
+  })));
 };
 DetailsTable.propTypes = DetailsTablePropTypes;
 DetailsTable.defaultProps = DetailsTableDefaultProps;
@@ -2542,10 +2651,10 @@ var FileManagerPropTypes = _extends({
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FileManagerDefaultProps = {};
 
-function _templateObject4() {
+function _templateObject4$1() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n"]);
 
-  _templateObject4 = function _templateObject4() {
+  _templateObject4$1 = function _templateObject4() {
     return data;
   };
 
@@ -2611,7 +2720,7 @@ var Item = styled__default['default'](Grid__default['default']).attrs(function (
     xs: 4,
     lg: lg || 3
   };
-})(_templateObject4());
+})(_templateObject4$1());
 var FileManager = function FileManager(_ref6) {
   var data = _ref6.data;
   return /*#__PURE__*/React__default['default'].createElement(Container$1, null, data.map(function (_ref7) {
@@ -3649,10 +3758,10 @@ var FormRowDefaultProps = {
   show: true
 };
 
-function _templateObject4$1() {
+function _templateObject4$2() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  width: 100%;\n\n  & > * {\n    :not(:last-child) {\n      margin-right: ", ";\n    }\n  }\n"]);
 
-  _templateObject4$1 = function _templateObject4() {
+  _templateObject4$2 = function _templateObject4() {
     return data;
   };
 
@@ -3718,7 +3827,7 @@ var StyledLabel$3 = styled__default['default'](FormLabel)(_templateObject2$c(), 
   return labelAlign === "start" && labelGutter && styled.css(["padding-top:", ";"], theme.spacing(3));
 });
 var FieldsAndErrorsWrapper = styled__default['default'].div(_templateObject3$6());
-var Fields = styled__default['default'].div(_templateObject4$1(), function (_ref8) {
+var Fields = styled__default['default'].div(_templateObject4$2(), function (_ref8) {
   var theme = _ref8.theme;
   return theme.spacing(4);
 });
@@ -4087,20 +4196,20 @@ function _templateObject6() {
   return data;
 }
 
-function _templateObject5() {
+function _templateObject5$1() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n"]);
 
-  _templateObject5 = function _templateObject5() {
+  _templateObject5$1 = function _templateObject5() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject4$2() {
+function _templateObject4$3() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n"]);
 
-  _templateObject4$2 = function _templateObject4() {
+  _templateObject4$3 = function _templateObject4() {
     return data;
   };
 
@@ -4146,7 +4255,7 @@ var RowDetails = styled__default['default'](Grid__default['default']).attrs(func
   return {
     container: true
   };
-})(_templateObject4$2());
+})(_templateObject4$3());
 var Item$2 = styled__default['default'](Grid__default['default']).attrs(function (_ref2) {
   var lg = _ref2.lg;
   return {
@@ -4154,7 +4263,7 @@ var Item$2 = styled__default['default'](Grid__default['default']).attrs(function
     xs: 4,
     lg: lg || 3
   };
-})(_templateObject5());
+})(_templateObject5$1());
 var StyledIcon$2 = styled__default['default'](Icon)(_templateObject6(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(2);
@@ -4710,10 +4819,10 @@ var DashboardLayoutDefaultProps = {
   navigationItems: []
 };
 
-function _templateObject4$3() {
+function _templateObject4$4() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    justify-content: center;\n    align-items: center;\n    min-width: 40px;\n    width: 40px;\n    height: 40px;\n    border-radius: 50%;\n    background-color: #fff;\n    margin-right: ", ";\n    svg {\n      color: ", ";\n    }\n  }\n"]);
 
-  _templateObject4$3 = function _templateObject4() {
+  _templateObject4$4 = function _templateObject4() {
     return data;
   };
 
@@ -4779,7 +4888,7 @@ var ImprovedListItem = styled__default['default'](core.ListItem)(_templateObject
   return theme.palette.primary.main;
 });
 var ImprovedList = styled__default['default'](core.List)(_templateObject3$a());
-var ImprovedListItemIcon = styled__default['default'](core.ListItemIcon)(_templateObject4$3(), function (_ref10) {
+var ImprovedListItemIcon = styled__default['default'](core.ListItemIcon)(_templateObject4$4(), function (_ref10) {
   var theme = _ref10.theme;
   return theme.spacing(2);
 }, function (_ref11) {
@@ -4905,10 +5014,10 @@ var DashboardLayoutNavigationDefaultProps = {
   userMenuItems: []
 };
 
-function _templateObject4$4() {
+function _templateObject4$5() {
   var data = _taggedTemplateLiteralLoose(["\n  padding: ", ";\n  height: 100%;\n  box-sizing: border-box;\n  overflow: hidden;\n  background-color: ", ";\n"]);
 
-  _templateObject4$4 = function _templateObject4() {
+  _templateObject4$5 = function _templateObject4() {
     return data;
   };
 
@@ -4966,7 +5075,7 @@ var NavIcon = styled__default['default'](Icon).attrs(function () {
     size: "lg"
   };
 })(_templateObject3$b());
-var DrawerWrapper = styled__default['default'].div(_templateObject4$4(), function (_ref4) {
+var DrawerWrapper = styled__default['default'].div(_templateObject4$5(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(2, 10, 0, 2);
 }, function (_ref5) {
@@ -5045,10 +5154,10 @@ var DashboardLayoutFooter = function DashboardLayoutFooter(_ref2) {
 };
 DashboardLayoutFooter.propTypes = DashboardLayoutFooterPropTypes;
 
-function _templateObject4$5() {
+function _templateObject4$6() {
   var data = _taggedTemplateLiteralLoose(["\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n    height: 100%;\n  }\n"]);
 
-  _templateObject4$5 = function _templateObject4() {
+  _templateObject4$6 = function _templateObject4() {
     return data;
   };
 
@@ -5109,7 +5218,7 @@ var SidebarContainer = styled__default['default'](Flex).attrs(function () {
     md: 2,
     xs: 12
   };
-})(_templateObject4$5(), function (_ref3) {
+})(_templateObject4$6(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(8, 0);
 }, function (_ref4) {
@@ -5287,7 +5396,7 @@ var ExplorerLayoutPropTypes = {
 };
 
 function _templateObject$X() {
-  var data = _taggedTemplateLiteralLoose(["\n  padding-top: ", ";\n  padding-bottom: ", ";\n  ", " {\n    padding-top: ", ";\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  padding-top: ", ";\n  padding-bottom: ", ";\n  ", " {\n    padding-top: ", ";\n  }\n  ", " {\n    padding-right: ", ";\n  }\n"]);
 
   _templateObject$X = function _templateObject() {
     return data;
@@ -5311,6 +5420,12 @@ var Content$4 = styled__default['default'](Grid__default['default']).attrs(funct
 }, function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(2);
+}, function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.breakpoints.up("md");
+}, function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.spacing(6);
 });
 var poweredBy$1 = /*#__PURE__*/React__default['default'].createElement(Text, {
   color: "textSecondary",
@@ -5319,17 +5434,17 @@ var poweredBy$1 = /*#__PURE__*/React__default['default'].createElement(Text, {
   color: "textPrimary",
   fontWeight: "bold"
 }, " ", "license.rocks"));
-var ExplorerLayout = function ExplorerLayout(_ref5) {
-  var ads = _ref5.ads,
-      content = _ref5.content,
-      extraContent = _ref5.extraContent,
-      extraSidebar = _ref5.extraSidebar,
-      footerContent = _ref5.footerContent,
-      headerLogoAction = _ref5.headerLogoAction,
-      headerRight = _ref5.headerRight,
-      loading = _ref5.loading,
-      sidebar = _ref5.sidebar,
-      props = _objectWithoutPropertiesLoose(_ref5, ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "loading", "sidebar"]);
+var ExplorerLayout = function ExplorerLayout(_ref7) {
+  var ads = _ref7.ads,
+      content = _ref7.content,
+      extraContent = _ref7.extraContent,
+      extraSidebar = _ref7.extraSidebar,
+      footerContent = _ref7.footerContent,
+      headerLogoAction = _ref7.headerLogoAction,
+      headerRight = _ref7.headerRight,
+      loading = _ref7.loading,
+      sidebar = _ref7.sidebar,
+      props = _objectWithoutPropertiesLoose(_ref7, ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "loading", "sidebar"]);
 
   if (loading) return /*#__PURE__*/React__default['default'].createElement(PageLoading, null);
   return /*#__PURE__*/React__default['default'].createElement(MuiContainer__default['default'], _extends({
@@ -5591,10 +5706,10 @@ Cover.defaultProps = {
   placeholderSrc: ""
 };
 
-function _templateObject4$6() {
+function _templateObject4$7() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 16px;\n  background-color: ", ";\n  z-index: 1;\n"]);
 
-  _templateObject4$6 = function _templateObject4() {
+  _templateObject4$7 = function _templateObject4() {
     return data;
   };
 
@@ -5642,7 +5757,7 @@ var Badges = styled__default['default'].div(_templateObject3$e(), function (_ref
   var theme = _ref3.theme;
   return theme.spacing(4);
 });
-var Highlight = styled__default['default'].div(_templateObject4$6(), function (_ref4) {
+var Highlight = styled__default['default'].div(_templateObject4$7(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.palette.primary.main;
 });
@@ -5922,20 +6037,20 @@ var MarketPlaceItem = function MarketPlaceItem(_ref) {
 MarketPlaceItem.propTypes = MarketPlaceItemPropTypes;
 MarketPlaceItem.defaultProps = MarketPlaceItemDefaultProps;
 
-function _templateObject5$1() {
+function _templateObject5$2() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: ", ";\n  z-index: 1;\n"]);
 
-  _templateObject5$1 = function _templateObject5() {
+  _templateObject5$2 = function _templateObject5() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject4$7() {
+function _templateObject4$8() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    justify-content: ", ";\n  }\n"]);
 
-  _templateObject4$7 = function _templateObject4() {
+  _templateObject4$8 = function _templateObject4() {
     return data;
   };
 
@@ -5995,11 +6110,11 @@ var CloseModalIcon = styled__default['default'](Icon).attrs(function () {
   var theme = _ref3.theme;
   return theme.palette.secondary.dark;
 });
-var Actions = styled__default['default'](DialogActions__default['default'])(_templateObject4$7(), function (_ref4) {
+var Actions = styled__default['default'](DialogActions__default['default'])(_templateObject4$8(), function (_ref4) {
   var hasDesc = _ref4.hasDesc;
   return hasDesc ? "space-between" : "flex-end";
 });
-var LoadingWrapper = styled__default['default'].div(_templateObject5$1(), function (_ref5) {
+var LoadingWrapper = styled__default['default'].div(_templateObject5$2(), function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.secondary.dark;
 });
@@ -7461,6 +7576,65 @@ var Thumbnail = function Thumbnail(_ref3) {
 Thumbnail.propTypes = ThumbnailPropTypes;
 Thumbnail.defaultProps = ThumbnailDefaultProps;
 
+var TooltipPropTypes = {
+  arrow: PropTypes__default['default'].bool,
+  children: PropTypes__default['default'].node.isRequired,
+  content: PropTypes__default['default'].node,
+  contentProps: PropTypes__default['default'].shape({}),
+  interactive: PropTypes__default['default'].bool,
+  placement: PropTypes__default['default'].string,
+  renderContent: PropTypes__default['default'].func
+};
+var TooltipDefaultProps = {
+  arrow: true,
+  interactive: true,
+  placement: "top",
+  renderContent: function renderContent() {}
+};
+
+function _templateObject$1m() {
+  var data = _taggedTemplateLiteralLoose(["\n  & .MuiTooltip-tooltip {\n    background-color: ", ";\n    color: ", ";\n  }\n\n  & .MuiTooltip-arrow {\n    color: ", ";\n  }\n"]);
+
+  _templateObject$1m = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledTooltip = styled__default['default'](function (props) {
+  return /*#__PURE__*/React__default['default'].createElement(MuiTooltip__default['default'], _extends({
+    classes: {
+      popper: props.className,
+      tooltip: "tooltip"
+    }
+  }, props));
+})(_templateObject$1m(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.common.white;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.palette.text.primary;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.palette.common.white;
+});
+var Tooltip = function Tooltip(_ref4) {
+  var children = _ref4.children,
+      content = _ref4.content,
+      contentProps = _ref4.contentProps,
+      renderContent = _ref4.renderContent,
+      props = _objectWithoutPropertiesLoose(_ref4, ["children", "content", "contentProps", "renderContent"]);
+
+  return /*#__PURE__*/React__default['default'].createElement(StyledTooltip, _extends({
+    title: renderContent() || /*#__PURE__*/React__default['default'].createElement(Text, _extends({
+      fontStyle: "italic",
+      size: "sm"
+    }, contentProps), content)
+  }, props), /*#__PURE__*/React__default['default'].createElement("span", null, children));
+};
+Tooltip.propTypes = TooltipPropTypes;
+Tooltip.defaultProps = TooltipDefaultProps;
+
 // Get an array of error messages for a form row
 var getFormRowErrors = function getFormRowErrors(errors, fields) {
   return Object.keys(errors).map(function (errKey) {
@@ -7512,16 +7686,16 @@ function _templateObject2$C() {
   return data;
 }
 
-function _templateObject$1m() {
+function _templateObject$1n() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: 24px 24px 24px 40px;\n"]);
 
-  _templateObject$1m = function _templateObject() {
+  _templateObject$1n = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContent$1 = styled__default['default'].div(_templateObject$1m());
+var StyledContent$1 = styled__default['default'].div(_templateObject$1n());
 var ActionWrapper = styled__default['default'].div(_templateObject2$C());
 var WizardStepContent = function WizardStepContent(_ref) {
   var children = _ref.children,
@@ -7608,10 +7782,10 @@ var stepFlagBackgroundColor = function stepFlagBackgroundColor(_ref3) {
   return theme.palette.gray.regular;
 };
 
-function _templateObject4$8() {
+function _templateObject4$9() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  text-align: right;\n"]);
 
-  _templateObject4$8 = function _templateObject4() {
+  _templateObject4$9 = function _templateObject4() {
     return data;
   };
 
@@ -7638,16 +7812,16 @@ function _templateObject2$D() {
   return data;
 }
 
-function _templateObject$1n() {
+function _templateObject$1o() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: normal;\n\n  ", "\n\n  ", "\n\n    ", "\n"]);
 
-  _templateObject$1n = function _templateObject() {
+  _templateObject$1o = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTitle = styled__default['default'].div(_templateObject$1n(), function (_ref) {
+var StyledTitle = styled__default['default'].div(_templateObject$1o(), function (_ref) {
   var isPassed = _ref.isPassed;
   return isPassed && styled.css(["cursor:pointer;"]);
 }, function (_ref2) {
@@ -7674,7 +7848,7 @@ var Label$1 = styled__default['default'].span(_templateObject3$m(), function (pr
   var isHorizontal = _ref6.isHorizontal;
   return isHorizontal && styled.css(["font-size:12px;padding:4px 4px 0 0;"]);
 });
-var RightTitle = styled__default['default'].div(_templateObject4$8());
+var RightTitle = styled__default['default'].div(_templateObject4$9());
 var WizardStepTitle = function WizardStepTitle(_ref7) {
   var disabled = _ref7.disabled,
       isActive = _ref7.isActive,
@@ -7737,20 +7911,20 @@ var WizardDefaultProps = {
   transitionDuration: 250
 };
 
-function _templateObject5$2() {
+function _templateObject5$3() {
   var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  position: relative;\n  min-height: 60px;\n\n  :last-child {\n    ", " {\n      ", ";\n    }\n  }\n\n  ", "\n"]);
 
-  _templateObject5$2 = function _templateObject5() {
+  _templateObject5$3 = function _templateObject5() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject4$9() {
+function _templateObject4$a() {
   var data = _taggedTemplateLiteralLoose(["\n  border-width: 0;\n  border-style: dashed;\n  border-color: ", ";\n  border-left-width: 2px;\n  transition: all ", "\n    ease-in-out;\n  position: absolute;\n  top: 0;\n  left: 15px;\n  bottom: 0;\n  ::before {\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    display: inline-block;\n  }\n\n  ", "\n"]);
 
-  _templateObject4$9 = function _templateObject4() {
+  _templateObject4$a = function _templateObject4() {
     return data;
   };
 
@@ -7777,16 +7951,16 @@ function _templateObject2$E() {
   return data;
 }
 
-function _templateObject$1o() {
+function _templateObject$1p() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$1o = function _templateObject() {
+  _templateObject$1p = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$b = styled__default['default'].div(_templateObject$1o(), function (theme) {
+var Wrapper$b = styled__default['default'].div(_templateObject$1p(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -7800,7 +7974,7 @@ var Steps = styled__default['default'].div(_templateObject3$n(), function (_ref2
   var isHorizontal = _ref2.isHorizontal;
   return isHorizontal && styled.css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}"]);
 });
-var StepConnector = styled__default['default'].div(_templateObject4$9(), function (props) {
+var StepConnector = styled__default['default'].div(_templateObject4$a(), function (props) {
   return stepBorderAndTitleColor(props);
 }, function (_ref3) {
   var transitionDuration = _ref3.transitionDuration;
@@ -7809,7 +7983,7 @@ var StepConnector = styled__default['default'].div(_templateObject4$9(), functio
   var isHorizontal = _ref4.isHorizontal;
   return isHorizontal && styled.css(["width:100%;border-left-width:0;border-top-width:2px;top:15px;left:8px;::before{content:\"\";width:100%;height:2px;display:inline-block;}"]);
 });
-var Step = styled__default['default'].div(_templateObject5$2(), StepConnector, function (_ref5) {
+var Step = styled__default['default'].div(_templateObject5$3(), StepConnector, function (_ref5) {
   var isActive = _ref5.isActive,
       isHorizontal = _ref5.isHorizontal;
   return (!isActive || isHorizontal) && "border: none";
@@ -8022,6 +8196,7 @@ exports.TextButton = TextButton;
 exports.Thumbnail = Thumbnail;
 exports.TinyBadge = TinyBadge;
 exports.ToggleSwitch = ToggleSwitch;
+exports.Tooltip = Tooltip;
 exports.Wizard = Wizard;
 exports.getFormInputError = getFormInputError;
 exports.getFormRowErrors = getFormRowErrors;
