@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { Button } from "../..";
 import { Flex } from "../../Flex";
@@ -10,11 +10,13 @@ const StyledBoxFooter = styled(Flex).attrs(() => ({
   alignItems: "center",
   justify: "space-between",
 }))`
-  width: 100%;
-  box-sizing: border-box;
-  background-color: ${({ theme }) => theme.palette.common.white};
-  padding: ${({ padding, theme }) => theme.spacing(4, padding)};
-  border-top: 1px solid ${({ theme }) => theme.palette.gray.semiLight};
+  ${({ contentPadding, padding, theme }) => css`
+    width: 100%;
+    box-sizing: border-box;
+    background-color: ${theme.palette.common.white};
+    padding: ${theme.spacing(4, padding, 4, contentPadding ? 20 : padding)};
+    border-top: 1px solid ${theme.palette.gray.semiLight};
+  `}
 `;
 
 export const BoxFooter = ({

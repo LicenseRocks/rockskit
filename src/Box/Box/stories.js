@@ -12,6 +12,7 @@ export default {
 
 export const main = () => {
   const defaultProps = {
+    contentPadding: boolean("Content padding", false),
     footerActionTitle: text("Footer action title", "Submit"),
     footerActionDisabled: boolean("Footer action disabled", false),
     footerActionLoading: boolean("Footer action loading", false),
@@ -21,6 +22,27 @@ export const main = () => {
     headerTitleIcon: text("Header title icon", "box"),
     loading: boolean("Loading", false),
     loadingMessage: text("Loading message", "Loading... Thanks for waiting"),
+    tabs: [
+      {
+        index: 0,
+        value: "first",
+        label: "First tab",
+        showTab: true,
+        showContent: true,
+        render: () => "First Tab",
+      },
+      {
+        index: 1,
+        value: "second",
+        label: "Second tab",
+        showTab: true,
+        showContent: true,
+        render: () => "Second Tab",
+      },
+    ],
+    tabsProps: {
+      currentTab: 0,
+    },
   };
 
   return (

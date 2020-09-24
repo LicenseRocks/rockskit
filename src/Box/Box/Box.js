@@ -49,6 +49,8 @@ export const Box = ({
   loading,
   loadingMessage,
   padding,
+  tabs,
+  tabsProps,
   transition,
   ...props
 }) => {
@@ -65,6 +67,7 @@ export const Box = ({
         actionLoading={footerActionLoading}
         actionTitle={footerActionTitle}
         actionType={footerActionType}
+        contentPadding={contentPadding}
         padding={padding}
         renderAction={footerRenderAction}
         renderTitle={footerRenderTitle}
@@ -81,6 +84,7 @@ export const Box = ({
           actionIcon={headerActionIcon}
           actionIconProps={headerActionIconProps}
           actionIconSize={headerActionIconSize}
+          contentPadding={contentPadding}
           padding={padding}
           metaTitle={headerMetaTitle}
           metaTitleColor={headerMetaTitleColor}
@@ -88,6 +92,8 @@ export const Box = ({
           renderTitle={headerRenderTitle}
           subTitle={headerSubTitle}
           subTitleColor={headerSubTitleColor}
+          tabs={tabs}
+          tabsProps={tabsProps}
           title={headerTitle}
           titleIcon={headerTitleIcon}
           titleIconProps={headerTitleIconProps}

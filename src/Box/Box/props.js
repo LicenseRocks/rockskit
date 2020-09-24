@@ -28,6 +28,8 @@ export const BoxPropTypes = {
   loading: PropTypes.bool,
   loadingMessage: PropTypes.string,
   padding: PropTypes.number,
+  tabs: PropTypes.arrayOf(PropTypes.shape({})),
+  tabsProps: PropTypes.shape({}),
   transition: PropTypes.bool,
   ...BoxBasePropTypes,
 };
