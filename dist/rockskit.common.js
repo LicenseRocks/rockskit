@@ -1675,7 +1675,7 @@ BoxBase.propTypes = BoxBasePropTypes;
 BoxBase.defaultProps = BoxBaseDefaultProps;
 
 function _templateObject$h() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  box-sizing: border-box;\n  background-color: ", ";\n  padding: ", ";\n  border-top: 1px solid ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
   _templateObject$h = function _templateObject() {
     return data;
@@ -1690,25 +1690,20 @@ var StyledBoxFooter = styled__default['default'](Flex).attrs(function () {
     justify: "space-between"
   };
 })(_templateObject$h(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.palette.common.white;
-}, function (_ref2) {
-  var padding = _ref2.padding,
-      theme = _ref2.theme;
-  return theme.spacing(4, padding);
-}, function (_ref3) {
-  var theme = _ref3.theme;
-  return theme.palette.gray.semiLight;
+  var contentPadding = _ref.contentPadding,
+      padding = _ref.padding,
+      theme = _ref.theme;
+  return styled.css(["width:100%;box-sizing:border-box;background-color:", ";padding:", ";border-top:1px solid ", ";"], theme.palette.common.white, theme.spacing(4, padding, 4, contentPadding ? 20 : padding), theme.palette.gray.semiLight);
 });
-var BoxFooter = function BoxFooter(_ref4) {
-  var action = _ref4.action,
-      actionDisabled = _ref4.actionDisabled,
-      actionLoading = _ref4.actionLoading,
-      actionTitle = _ref4.actionTitle,
-      actionType = _ref4.actionType,
-      renderAction = _ref4.renderAction,
-      renderTitle = _ref4.renderTitle,
-      props = _objectWithoutPropertiesLoose(_ref4, ["action", "actionDisabled", "actionLoading", "actionTitle", "actionType", "renderAction", "renderTitle"]);
+var BoxFooter = function BoxFooter(_ref2) {
+  var action = _ref2.action,
+      actionDisabled = _ref2.actionDisabled,
+      actionLoading = _ref2.actionLoading,
+      actionTitle = _ref2.actionTitle,
+      actionType = _ref2.actionType,
+      renderAction = _ref2.renderAction,
+      renderTitle = _ref2.renderTitle,
+      props = _objectWithoutPropertiesLoose(_ref2, ["action", "actionDisabled", "actionLoading", "actionTitle", "actionType", "renderAction", "renderTitle"]);
 
   if (!renderTitle || !renderAction || !actionTitle) return null;
   return /*#__PURE__*/React__default['default'].createElement(StyledBoxFooter, props, /*#__PURE__*/React__default['default'].createElement(Flex, {
@@ -1743,8 +1738,28 @@ BoxFooter.defaultProps = {
   renderTitle: function renderTitle() {}
 };
 
+function _templateObject3$2() {
+  var data = _taggedTemplateLiteralLoose(["\n  padding: ", ";\n"]);
+
+  _templateObject3$2 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$4() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  box-sizing: border-box;\n  background-color: ", ";\n  padding: ", ";\n"]);
+
+  _templateObject2$4 = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject$i() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  box-sizing: border-box;\n  background-color: ", ";\n  padding: ", ";\n  border-bottom: 1px solid ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  background-color: ", ";\n  border-bottom: 1px solid ", ";\n"]);
 
   _templateObject$i = function _templateObject() {
     return data;
@@ -1752,41 +1767,53 @@ function _templateObject$i() {
 
   return data;
 }
+var Wrapper = styled__default['default'].div(_templateObject$i(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.common.white;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.palette.gray.semiLight;
+});
 var StyledBoxHeader = styled__default['default'](Flex).attrs(function () {
   return {
     container: true,
     justify: "space-between",
     wrap: "nowrap"
   };
-})(_templateObject$i(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.palette.common.white;
-}, function (_ref2) {
-  var padding = _ref2.padding,
-      theme = _ref2.theme;
-  return theme.spacing(padding);
-}, function (_ref3) {
+})(_templateObject2$4(), function (_ref3) {
   var theme = _ref3.theme;
-  return theme.palette.gray.semiLight;
+  return theme.palette.common.white;
+}, function (_ref4) {
+  var padding = _ref4.padding,
+      theme = _ref4.theme;
+  return theme.spacing(padding);
 });
-var BoxHeader = function BoxHeader(_ref4) {
-  var action = _ref4.action,
-      actionIcon = _ref4.actionIcon,
-      actionIconProps = _ref4.actionIconProps,
-      actionIconSize = _ref4.actionIconSize,
-      renderAction = _ref4.renderAction,
-      renderTitle = _ref4.renderTitle,
-      metaTitle = _ref4.metaTitle,
-      metaTitleColor = _ref4.metaTitleColor,
-      subTitle = _ref4.subTitle,
-      subTitleColor = _ref4.subTitleColor,
-      title = _ref4.title,
-      titleIcon = _ref4.titleIcon,
-      titleIconProps = _ref4.titleIconProps,
-      titleSize = _ref4.titleSize,
-      props = _objectWithoutPropertiesLoose(_ref4, ["action", "actionIcon", "actionIconProps", "actionIconSize", "renderAction", "renderTitle", "metaTitle", "metaTitleColor", "subTitle", "subTitleColor", "title", "titleIcon", "titleIconProps", "titleSize"]);
+var Content$1 = styled__default['default'].div(_templateObject3$2(), function (_ref5) {
+  var contentPadding = _ref5.contentPadding,
+      padding = _ref5.padding,
+      theme = _ref5.theme;
+  return theme.spacing(0, contentPadding ? 20 : padding);
+});
+var BoxHeader = function BoxHeader(_ref6) {
+  var action = _ref6.action,
+      actionIcon = _ref6.actionIcon,
+      actionIconProps = _ref6.actionIconProps,
+      actionIconSize = _ref6.actionIconSize,
+      renderAction = _ref6.renderAction,
+      renderTitle = _ref6.renderTitle,
+      metaTitle = _ref6.metaTitle,
+      metaTitleColor = _ref6.metaTitleColor,
+      subTitle = _ref6.subTitle,
+      subTitleColor = _ref6.subTitleColor,
+      tabs = _ref6.tabs,
+      tabsProps = _ref6.tabsProps,
+      title = _ref6.title,
+      titleIcon = _ref6.titleIcon,
+      titleIconProps = _ref6.titleIconProps,
+      titleSize = _ref6.titleSize,
+      props = _objectWithoutPropertiesLoose(_ref6, ["action", "actionIcon", "actionIconProps", "actionIconSize", "renderAction", "renderTitle", "metaTitle", "metaTitleColor", "subTitle", "subTitleColor", "tabs", "tabsProps", "title", "titleIcon", "titleIconProps", "titleSize"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(StyledBoxHeader, props, /*#__PURE__*/React__default['default'].createElement(Flex, {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper, null, /*#__PURE__*/React__default['default'].createElement(StyledBoxHeader, props, /*#__PURE__*/React__default['default'].createElement(Flex, {
     item: true
   }, renderTitle() || /*#__PURE__*/React__default['default'].createElement(Flex, {
     container: true
@@ -1817,18 +1844,25 @@ var BoxHeader = function BoxHeader(_ref4) {
     icon: actionIcon,
     size: actionIconSize,
     onClick: action
-  }, actionIconProps))));
+  }, actionIconProps)))), /*#__PURE__*/React__default['default'].createElement(Content$1, props, tabs.length > 0 && /*#__PURE__*/React__default['default'].createElement(Tab, _extends({
+    tabs: tabs,
+    mb: 0
+  }, tabsProps))));
 };
 BoxHeader.propTypes = {
   action: PropTypes__default['default'].func,
   actionIcon: PropTypes__default['default'].string,
   actionIconProps: PropTypes__default['default'].shape({}),
   actionIconSize: PropTypes__default['default'].string,
+  metaTitle: PropTypes__default['default'].string,
+  metaTitleColor: PropTypes__default['default'].string,
   padding: PropTypes__default['default'].number.isRequired,
   renderAction: PropTypes__default['default'].func,
   renderTitle: PropTypes__default['default'].func,
   subTitle: PropTypes__default['default'].string,
   subTitleColor: PropTypes__default['default'].string,
+  tabs: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({})),
+  tabsProps: PropTypes__default['default'].shape({}),
   title: PropTypes__default['default'].string.isRequired,
   titleIcon: PropTypes__default['default'].string,
   titleIconProps: PropTypes__default['default'].shape({}),
@@ -1837,13 +1871,18 @@ BoxHeader.propTypes = {
 BoxHeader.defaultProps = {
   action: function action() {},
   actionIcon: "",
+  actionIconProps: {},
   actionIconSize: "lg",
+  metaTitle: "",
   metaTitleColor: "textSecondary",
   renderAction: function renderAction() {},
   renderTitle: function renderTitle() {},
   subTitle: "",
   subTitleColor: "textSecondary",
+  tabs: [],
+  tabsProps: {},
   titleIcon: "",
+  titleIconProps: {},
   titleSize: "md"
 };
 
@@ -1873,6 +1912,8 @@ var BoxPropTypes = _extends({
   loading: PropTypes__default['default'].bool,
   loadingMessage: PropTypes__default['default'].string,
   padding: PropTypes__default['default'].number,
+  tabs: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({})),
+  tabsProps: PropTypes__default['default'].shape({}),
   transition: PropTypes__default['default'].bool
 }, BoxBasePropTypes);
 var BoxDefaultProps = _extends({
@@ -1924,8 +1965,10 @@ var Box = function Box(_ref2) {
       loading = _ref2.loading,
       loadingMessage = _ref2.loadingMessage,
       padding = _ref2.padding,
+      tabs = _ref2.tabs,
+      tabsProps = _ref2.tabsProps,
       transition = _ref2.transition,
-      props = _objectWithoutPropertiesLoose(_ref2, ["alert", "alertColor", "children", "contentPadding", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "padding", "transition"]);
+      props = _objectWithoutPropertiesLoose(_ref2, ["alert", "alertColor", "children", "contentPadding", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "padding", "tabs", "tabsProps", "transition"]);
 
   var content = /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, alert && /*#__PURE__*/React__default['default'].createElement(Alert, {
     content: alert,
@@ -1940,6 +1983,7 @@ var Box = function Box(_ref2) {
     actionLoading: footerActionLoading,
     actionTitle: footerActionTitle,
     actionType: footerActionType,
+    contentPadding: contentPadding,
     padding: padding,
     renderAction: footerRenderAction,
     renderTitle: footerRenderTitle
@@ -1952,6 +1996,7 @@ var Box = function Box(_ref2) {
     actionIcon: headerActionIcon,
     actionIconProps: headerActionIconProps,
     actionIconSize: headerActionIconSize,
+    contentPadding: contentPadding,
     padding: padding,
     metaTitle: headerMetaTitle,
     metaTitleColor: headerMetaTitleColor,
@@ -1959,6 +2004,8 @@ var Box = function Box(_ref2) {
     renderTitle: headerRenderTitle,
     subTitle: headerSubTitle,
     subTitleColor: headerSubTitleColor,
+    tabs: tabs,
+    tabsProps: tabsProps,
     title: headerTitle,
     titleIcon: headerTitleIcon,
     titleIconProps: headerTitleIconProps,
@@ -1987,20 +2034,20 @@ var CategoryItemDefaultProps = {
   subCategory: false
 };
 
-function _templateObject3$2() {
+function _templateObject3$3() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 24px;\n  height: 24px;\n  border-bottom-right-radius: 4px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: ", ";\n  svg {\n    color: #ffffff;\n  }\n"]);
 
-  _templateObject3$2 = function _templateObject3() {
+  _templateObject3$3 = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$4() {
+function _templateObject2$5() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 32px;\n  height: 32px;\n  background-color: ", ";\n"]);
 
-  _templateObject2$4 = function _templateObject2() {
+  _templateObject2$5 = function _templateObject2() {
     return data;
   };
 
@@ -2032,11 +2079,11 @@ var StyledCategoryItem = styled__default['default'].div(_templateObject$k(), fun
     return theme.palette.primary.main;
   });
 });
-var StyledIcon$1 = styled__default['default'].img(_templateObject2$4(), function (_ref6) {
+var StyledIcon$1 = styled__default['default'].img(_templateObject2$5(), function (_ref6) {
   var theme = _ref6.theme;
   return theme.palette.primary.main;
 });
-var CheckIcon = styled__default['default'].div(_templateObject3$2(), function (_ref7) {
+var CheckIcon = styled__default['default'].div(_templateObject3$3(), function (_ref7) {
   var theme = _ref7.theme;
   return theme.palette.primary.main;
 });
@@ -2195,9 +2242,9 @@ function _templateObject$m() {
 
   return data;
 }
-var Wrapper = styled__default['default'].div(_templateObject$m());
+var Wrapper$1 = styled__default['default'].div(_templateObject$m());
 var Collapse = function Collapse(props) {
-  return /*#__PURE__*/React__default['default'].createElement(Wrapper, null, /*#__PURE__*/React__default['default'].createElement(reactCollapse.Collapse, props));
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$1, null, /*#__PURE__*/React__default['default'].createElement(reactCollapse.Collapse, props));
 };
 Collapse.propTypes = CollapsePropTypes;
 
@@ -2263,20 +2310,20 @@ function _templateObject4() {
   return data;
 }
 
-function _templateObject3$3() {
+function _templateObject3$4() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 0 0 ", "px;\n  max-width: ", "px;\n  display: flex;\n  align-items: center;\n  height: 100%;\n  padding-right: ", ";\n"]);
 
-  _templateObject3$3 = function _templateObject3() {
+  _templateObject3$4 = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$5() {
+function _templateObject2$6() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  ", "\n  min-height: ", ";\n  margin-bottom: ", ";\n\n  ", " {\n    ", "\n  }\n"]);
 
-  _templateObject2$5 = function _templateObject2() {
+  _templateObject2$6 = function _templateObject2() {
     return data;
   };
 
@@ -2292,12 +2339,12 @@ function _templateObject$n() {
 
   return data;
 }
-var Wrapper$1 = styled__default['default'].div(_templateObject$n(), function (theme) {
+var Wrapper$2 = styled__default['default'].div(_templateObject$n(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var Row = styled__default['default'].div(_templateObject2$5(), function (_ref) {
+var Row = styled__default['default'].div(_templateObject2$6(), function (_ref) {
   var justifyBetween = _ref.justifyBetween;
   return justifyBetween && "justify-content: space-between;";
 }, function (_ref2) {
@@ -2313,7 +2360,7 @@ var Row = styled__default['default'].div(_templateObject2$5(), function (_ref) {
   var columnSm = _ref5.columnSm;
   return columnSm && "flex-direction: column;";
 });
-var LabelWrapper = styled__default['default'].div(_templateObject3$3(), function (_ref6) {
+var LabelWrapper = styled__default['default'].div(_templateObject3$4(), function (_ref6) {
   var labelWidth = _ref6.labelWidth;
   return labelWidth;
 }, function (_ref7) {
@@ -2368,7 +2415,8 @@ var DetailsTable = function DetailsTable(_ref13) {
         iconProps = _ref14.iconProps,
         label = _ref14.label,
         labelHint = _ref14.labelHint,
-        labelHintIcon = _ref14.labelHintIcon,
+        _ref14$labelHintIcon = _ref14.labelHintIcon,
+        labelHintIcon = _ref14$labelHintIcon === void 0 ? "question" : _ref14$labelHintIcon,
         labelHintContent = _ref14.labelHintContent,
         _ref14$renderLabel = _ref14.renderLabel,
         renderLabel = _ref14$renderLabel === void 0 ? function () {} : _ref14$renderLabel,
@@ -2397,7 +2445,7 @@ var DetailsTable = function DetailsTable(_ref13) {
     }));
   };
 
-  return /*#__PURE__*/React__default['default'].createElement(Wrapper$1, props, rows.filter(function (row) {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$2, props, rows.filter(function (row) {
     return !row.expandable;
   }).map(function (row) {
     return renderRow(row);
@@ -2493,10 +2541,10 @@ var DropdownDefaultProps = {
   }
 };
 
-function _templateObject2$6() {
+function _templateObject2$7() {
   var data = _taggedTemplateLiteralLoose([""]);
 
-  _templateObject2$6 = function _templateObject2() {
+  _templateObject2$7 = function _templateObject2() {
     return data;
   };
 
@@ -2517,7 +2565,7 @@ var StyledDropdown = styled__default['default'](Menu__default['default'])(_templ
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledItem = styled__default['default'](MenuItem__default['default'])(_templateObject2$6());
+var StyledItem = styled__default['default'](MenuItem__default['default'])(_templateObject2$7());
 var Dropdown = function Dropdown(_ref) {
   var items = _ref.items,
       props = _objectWithoutPropertiesLoose(_ref, ["items"]);
@@ -2548,7 +2596,7 @@ function _templateObject$q() {
 
   return data;
 }
-var Wrapper$2 = styled__default['default'].div(_templateObject$q(), function (_ref) {
+var Wrapper$3 = styled__default['default'].div(_templateObject$q(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.light;
 }, function (_ref2) {
@@ -2557,7 +2605,7 @@ var Wrapper$2 = styled__default['default'].div(_templateObject$q(), function (_r
 });
 var DownloadModuleButton = function DownloadModuleButton(_ref3) {
   var icon = _ref3.icon;
-  return /*#__PURE__*/React__default['default'].createElement(Wrapper$2, null, /*#__PURE__*/React__default['default'].createElement(Icon, {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$3, null, /*#__PURE__*/React__default['default'].createElement(Icon, {
     icon: icon,
     size: "lg"
   }));
@@ -2667,20 +2715,20 @@ function _templateObject4$1() {
   return data;
 }
 
-function _templateObject3$4() {
+function _templateObject3$5() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 48px;\n  margin-bottom: ", ";\n"]);
 
-  _templateObject3$4 = function _templateObject3() {
+  _templateObject3$5 = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$7() {
+function _templateObject2$8() {
   var data = _taggedTemplateLiteralLoose(["\n  border: 1px solid ", ";\n  padding: ", ";\n  margin-bottom: ", ";\n  border-radius: 8px;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject2$7 = function _templateObject2() {
+  _templateObject2$8 = function _templateObject2() {
     return data;
   };
 
@@ -2697,7 +2745,7 @@ function _templateObject$s() {
   return data;
 }
 var Container$1 = styled__default['default'].div(_templateObject$s());
-var Wrapper$3 = styled__default['default'].div(_templateObject2$7(), function (_ref) {
+var Wrapper$4 = styled__default['default'].div(_templateObject2$8(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -2715,7 +2763,7 @@ var Row$1 = styled__default['default'](Grid__default['default']).attrs(function 
   return {
     container: true
   };
-})(_templateObject3$4(), function (_ref4) {
+})(_templateObject3$5(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(2);
 });
@@ -2732,7 +2780,7 @@ var FileManager = function FileManager(_ref6) {
   return /*#__PURE__*/React__default['default'].createElement(Container$1, null, data.map(function (_ref7) {
     var label = _ref7.label,
         files = _ref7.files;
-    return /*#__PURE__*/React__default['default'].createElement(Wrapper$3, {
+    return /*#__PURE__*/React__default['default'].createElement(Wrapper$4, {
       key: label
     }, /*#__PURE__*/React__default['default'].createElement(Text, {
       content: label,
@@ -2801,10 +2849,10 @@ var RadioBaseDefaultProps = {
   stacked: true
 };
 
-function _templateObject2$8() {
+function _templateObject2$9() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject2$8 = function _templateObject2() {
+  _templateObject2$9 = function _templateObject2() {
     return data;
   };
 
@@ -2855,7 +2903,7 @@ var StyledInput = styled__default['default'].input(_templateObject$t(), function
       theme = _ref11.theme;
   return bordered && styled.css(["+ label{margin:0;}+ label:first-of-type{margin:0 0 0 -1px;}+ label:last-of-type{margin:0 -1px 0 0;}&:checked + label{border:2px solid ", ";border-radius:12px;height:102%;}"], theme.palette.gray.dark);
 });
-var StyledLabel$1 = styled__default['default'].label(_templateObject2$8(), function (_ref12) {
+var StyledLabel$1 = styled__default['default'].label(_templateObject2$9(), function (_ref12) {
   var bordered = _ref12.bordered;
   return bordered && styled.css(["flex:1;display:flex;align-items:center;justify-content:center;height:100%;"]);
 });
@@ -2914,7 +2962,7 @@ function _templateObject$u() {
 
   return data;
 }
-var Wrapper$4 = styled__default['default'].div(_templateObject$u(), function (_ref) {
+var Wrapper$5 = styled__default['default'].div(_templateObject$u(), function (_ref) {
   var block = _ref.block;
   return block ? "100%" : "initial";
 }, function (_ref2) {
@@ -2932,7 +2980,7 @@ var BorderedRadio = function BorderedRadio(_ref3) {
       options = _ref3.options,
       props = _objectWithoutPropertiesLoose(_ref3, ["block", "hasError", "options"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(Wrapper$4, {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$5, {
     block: block,
     hasError: hasError
   }, options.map(function (opt) {
@@ -3213,10 +3261,10 @@ Fieldset.propTypes = {
 };
 Fieldset.defaultProps = {};
 
-function _templateObject2$9() {
+function _templateObject2$a() {
   var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n"]);
 
-  _templateObject2$9 = function _templateObject2() {
+  _templateObject2$a = function _templateObject2() {
     return data;
   };
 
@@ -3245,7 +3293,7 @@ var Item$1 = styled__default['default'].div(_templateObject$A(), function (_ref)
   var theme = _ref4.theme;
   return theme.spacing(2);
 });
-var RemoveIcon = styled__default['default'](Icon)(_templateObject2$9(), function (_ref5) {
+var RemoveIcon = styled__default['default'](Icon)(_templateObject2$a(), function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.common.white;
 });
@@ -3279,20 +3327,20 @@ UploaderPreview.defaultProps = {
   files: []
 };
 
-function _templateObject3$5() {
+function _templateObject3$6() {
   var data = _taggedTemplateLiteralLoose(["\n  &.filepond--root {\n    font-weight: unset;\n    font-family: unset;\n    font-size: unset;\n    overflow: hidden;\n  }\n\n  .filepond--drop-label {\n    color: unset;\n  }\n\n  && {\n    .filepond--panel,\n    .filepond--panel-root,\n    .filepond--drip,\n    .filepond--drop-label {\n      background-color: transparent !important;\n    }\n  }\n"]);
 
-  _templateObject3$5 = function _templateObject3() {
+  _templateObject3$6 = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$a() {
+function _templateObject2$b() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  background-color: ", ";\n  border-color: ", ";\n  border-radius: 16px;\n  border-style: dashed;\n  border-width: 2px;\n  cursor: pointer;\n  min-height: 125px;\n  outline: none;\n  transition: all 100ms ease-in-out;\n  color: ", ";\n  margin-bottom: ", ";\n  overflow: hidden;\n\n  &:hover {\n    border-color: ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-  _templateObject2$a = function _templateObject2() {
+  _templateObject2$b = function _templateObject2() {
     return data;
   };
 
@@ -3308,8 +3356,8 @@ function _templateObject$B() {
 
   return data;
 }
-var Wrapper$5 = styled__default['default'].div(_templateObject$B());
-var Container$2 = styled__default['default'].div(_templateObject2$a(), function (_ref) {
+var Wrapper$6 = styled__default['default'].div(_templateObject$B());
+var Container$2 = styled__default['default'].div(_templateObject2$b(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -3341,7 +3389,7 @@ var Container$2 = styled__default['default'].div(_templateObject2$a(), function 
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledFilePond = styled__default['default'](reactFilepond.FilePond)(_templateObject3$5());
+var StyledFilePond = styled__default['default'](reactFilepond.FilePond)(_templateObject3$6());
 var FilePondComponent = function FilePondComponent(_ref10) {
   var disabled = _ref10.disabled,
       hasError = _ref10.hasError,
@@ -3349,7 +3397,7 @@ var FilePondComponent = function FilePondComponent(_ref10) {
       value = _ref10.value,
       props = _objectWithoutPropertiesLoose(_ref10, ["disabled", "hasError", "onChange", "value"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(Wrapper$5, null, /*#__PURE__*/React__default['default'].createElement(Container$2, {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$6, null, /*#__PURE__*/React__default['default'].createElement(Container$2, {
     disabled: disabled,
     hasError: hasError
   }, /*#__PURE__*/React__default['default'].createElement(StyledFilePond, _extends({
@@ -3429,10 +3477,10 @@ var FilePond = function FilePond(_ref) {
 FilePond.propTypes = FileUploadPropTypes;
 FilePond.defaultProps = FileUploadDefaultProps;
 
-function _templateObject2$b() {
+function _templateObject2$c() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  border-color: ", ";\n  border-radius: 16px;\n  border-style: dashed;\n  border-width: 2px;\n  cursor: pointer;\n  min-height: 125px;\n  outline: none;\n  transition: all 100ms ease-in-out;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  color: ", ";\n  margin-bottom: 8px;\n\n  &:hover {\n    border-color: ", ";\n  }\n\n\n  ", "\n\n\n  ", "\n\n  ", "\n"]);
 
-  _templateObject2$b = function _templateObject2() {
+  _templateObject2$c = function _templateObject2() {
     return data;
   };
 
@@ -3453,7 +3501,7 @@ var StyledContainer = styled__default['default'].div(_templateObject$C(), functi
 }, function (theme) {
   return DISPLAY(theme);
 });
-var DropzoneArea = styled__default['default'].div(_templateObject2$b(), function (_ref) {
+var DropzoneArea = styled__default['default'].div(_templateObject2$c(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -3774,20 +3822,20 @@ function _templateObject4$2() {
   return data;
 }
 
-function _templateObject3$6() {
+function _templateObject3$7() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n"]);
 
-  _templateObject3$6 = function _templateObject3() {
+  _templateObject3$7 = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$c() {
+function _templateObject2$d() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 0 0 30%;\n  ", " {\n    flex: 100%;\n    margin-bottom: ", ";\n    padding-top: 0;\n  }\n\n  ", "\n"]);
 
-  _templateObject2$c = function _templateObject2() {
+  _templateObject2$d = function _templateObject2() {
     return data;
   };
 
@@ -3820,7 +3868,7 @@ var StyledRow = styled__default['default'].div(_templateObject$G(), function (_r
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledLabel$3 = styled__default['default'](FormLabel)(_templateObject2$c(), function (_ref5) {
+var StyledLabel$3 = styled__default['default'](FormLabel)(_templateObject2$d(), function (_ref5) {
   var theme = _ref5.theme;
   return theme.breakpoints.down("sm");
 }, function (_ref6) {
@@ -3832,7 +3880,7 @@ var StyledLabel$3 = styled__default['default'](FormLabel)(_templateObject2$c(), 
       theme = _ref7.theme;
   return labelAlign === "start" && labelGutter && styled.css(["padding-top:", ";"], theme.spacing(3));
 });
-var FieldsAndErrorsWrapper = styled__default['default'].div(_templateObject3$6());
+var FieldsAndErrorsWrapper = styled__default['default'].div(_templateObject3$7());
 var Fields = styled__default['default'].div(_templateObject4$2(), function (_ref8) {
   var theme = _ref8.theme;
   return theme.spacing(4);
@@ -3914,7 +3962,7 @@ function _templateObject$H() {
 
   return data;
 }
-var Wrapper$6 = styled__default['default'].div(_templateObject$H(), function (_ref) {
+var Wrapper$7 = styled__default['default'].div(_templateObject$H(), function (_ref) {
   var size = _ref.size;
   return size === "sm" && styled.css(["flex-direction:column;"]);
 });
@@ -3944,7 +3992,7 @@ var StepperComponent = function StepperComponent(_ref2) {
     startIconOnClick: function startIconOnClick() {
       return handleChange("sub");
     }
-  }, props), /*#__PURE__*/React__default['default'].createElement(Wrapper$6, {
+  }, props), /*#__PURE__*/React__default['default'].createElement(Wrapper$7, {
     size: size
   }, /*#__PURE__*/React__default['default'].createElement("input", {
     onChange: onChange,
@@ -4000,10 +4048,10 @@ var TextArea = function TextArea(props) {
 TextArea.propTypes = TextAreaPropTypes;
 TextArea.defaultProps = TextAreaDefaultProps;
 
-function _templateObject2$d() {
+function _templateObject2$e() {
   var data = _taggedTemplateLiteralLoose(["\n  background: #fff;\n  box-shadow: 0 0 2px 0 rgba(10, 10, 10, 0.29);\n  left: 2px;\n  position: absolute;\n  top: 2px;\n  transition: left 0.2s, transform 0.2s;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  font-weight: bold;\n  font-size: 10px;\n  color: ", ";\n  text-transform: uppercase;\n  user-select: none;\n\n  ", ";\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
 
-  _templateObject2$d = function _templateObject2() {
+  _templateObject2$e = function _templateObject2() {
     return data;
   };
 
@@ -4061,7 +4109,7 @@ var StyledSwitchContainer = styled__default['default'].div(_templateObject$I(), 
   var size = _ref8.size;
   return size === "lg" && styled.css(["border-radius:100px;height:50px;width:100px;"]);
 });
-var StyledSwitch = styled__default['default'].span(_templateObject2$d(), function (_ref9) {
+var StyledSwitch = styled__default['default'].span(_templateObject2$e(), function (_ref9) {
   var theme = _ref9.theme;
   return theme.palette.gray.medium;
 }, function (_ref10) {
@@ -4222,20 +4270,20 @@ function _templateObject4$3() {
   return data;
 }
 
-function _templateObject3$7() {
+function _templateObject3$8() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n"]);
 
-  _templateObject3$7 = function _templateObject3() {
+  _templateObject3$8 = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$e() {
+function _templateObject2$f() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  min-height: 40px;\n\n  :last-child {\n    ", " {\n      border-left-width: 0;\n    }\n  }\n"]);
 
-  _templateObject2$e = function _templateObject2() {
+  _templateObject2$f = function _templateObject2() {
     return data;
   };
 
@@ -4255,8 +4303,8 @@ var ItemConnector = styled__default['default'].div(_templateObject$K(), function
   var theme = _ref.theme;
   return theme.palette.gray.regular;
 });
-var Container$3 = styled__default['default'].div(_templateObject2$e(), ItemConnector);
-var RowWrapper = styled__default['default'].div(_templateObject3$7());
+var Container$3 = styled__default['default'].div(_templateObject2$f(), ItemConnector);
+var RowWrapper = styled__default['default'].div(_templateObject3$8());
 var RowDetails = styled__default['default'](Grid__default['default']).attrs(function () {
   return {
     container: true
@@ -4281,7 +4329,7 @@ var StyledCollapseButton = styled__default['default'](CollapseButton)(_templateO
   var theme = _ref5.theme;
   return theme.palette.text.primary;
 });
-var Content$1 = styled__default['default'].div(_templateObject8(), function (_ref6) {
+var Content$2 = styled__default['default'].div(_templateObject8(), function (_ref6) {
   var theme = _ref6.theme;
   return theme.spacing(4, 10);
 });
@@ -4328,7 +4376,7 @@ var HistoryItem = function HistoryItem(_ref7) {
     }
   })))), collapsible && /*#__PURE__*/React__default['default'].createElement(Collapse, {
     isOpened: collapseOpen
-  }, /*#__PURE__*/React__default['default'].createElement(Content$1, null, collapseContent)));
+  }, /*#__PURE__*/React__default['default'].createElement(Content$2, null, collapseContent)));
 };
 HistoryItem.propTypes = {
   data: PropTypes__default['default'].shape({
@@ -4556,20 +4604,20 @@ var AuthLayoutHeaderDefaultProps = {
   renderLogo: function renderLogo() {}
 };
 
-function _templateObject3$8() {
+function _templateObject3$9() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 48px;\n  height: 48px;\n"]);
 
-  _templateObject3$8 = function _templateObject3() {
+  _templateObject3$9 = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$f() {
+function _templateObject2$g() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1%;\n"]);
 
-  _templateObject2$f = function _templateObject2() {
+  _templateObject2$g = function _templateObject2() {
     return data;
   };
 
@@ -4600,12 +4648,12 @@ var Item$3 = styled__default['default'](Flex).attrs(function () {
     container: true,
     item: true
   };
-})(_templateObject2$f());
+})(_templateObject2$g());
 var StyledLogo = styled__default['default'](Image).attrs(function () {
   return {
     alt: "Logo"
   };
-})(_templateObject3$8());
+})(_templateObject3$9());
 var AuthLayoutHeader = function AuthLayoutHeader(_ref2) {
   var backButtonOnClick = _ref2.backButtonOnClick,
       headerLeft = _ref2.headerLeft,
@@ -4643,10 +4691,10 @@ var AuthLayoutPropTypes = {
   loading: PropTypes__default['default'].bool
 };
 
-function _templateObject2$g() {
+function _templateObject2$h() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  width: 100%;\n  padding: ", ";\n"]);
 
-  _templateObject2$g = function _templateObject2() {
+  _templateObject2$h = function _templateObject2() {
     return data;
   };
 
@@ -4667,7 +4715,7 @@ var StyledContainer$1 = styled__default['default'](MuiContainer__default['defaul
     maxWidth: "xs"
   };
 })(_templateObject$P());
-var Content$2 = styled__default['default'].div(_templateObject2$g(), function (_ref) {
+var Content$3 = styled__default['default'].div(_templateObject2$h(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10, 0);
 });
@@ -4696,7 +4744,7 @@ var AuthLayout = function AuthLayout(_ref2) {
     logoAction: headerLogoAction,
     logoSrc: headerLogoSrc,
     renderLogo: headerRenderLogo
-  }), /*#__PURE__*/React__default['default'].createElement(Content$2, null, content)));
+  }), /*#__PURE__*/React__default['default'].createElement(Content$3, null, content)));
 };
 AuthLayout.propTypes = AuthLayoutPropTypes;
 AuthLayout.defaultProps = {};
@@ -4713,20 +4761,20 @@ var DashboardLayoutHeaderDefaultProps = {
   renderLogo: function renderLogo() {}
 };
 
-function _templateObject3$9() {
+function _templateObject3$a() {
   var data = _taggedTemplateLiteralLoose(["\n  ", " {\n    order: 2;\n  }\n"]);
 
-  _templateObject3$9 = function _templateObject3() {
+  _templateObject3$a = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$h() {
+function _templateObject2$i() {
   var data = _taggedTemplateLiteralLoose(["\n  ", " {\n    order: 1;\n  }\n\n  img {\n    width: 48px;\n    height: 48px;\n  }\n"]);
 
-  _templateObject2$h = function _templateObject2() {
+  _templateObject2$i = function _templateObject2() {
     return data;
   };
 
@@ -4760,7 +4808,7 @@ var LogoContainer = styled__default['default'](Flex).attrs(function () {
     xs: 4,
     justify: "center"
   };
-})(_templateObject2$h(), function (_ref2) {
+})(_templateObject2$i(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.breakpoints.down("sm");
 });
@@ -4772,7 +4820,7 @@ var HeaderRight = styled__default['default'](Flex).attrs(function () {
     xs: 4,
     justify: "flex-end"
   };
-})(_templateObject3$9(), function (_ref3) {
+})(_templateObject3$a(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.breakpoints.down("sm");
 });
@@ -4835,20 +4883,20 @@ function _templateObject4$4() {
   return data;
 }
 
-function _templateObject3$a() {
+function _templateObject3$b() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    box-shadow: initial;\n    max-height: unset;\n    height: 100%;\n  }\n"]);
 
-  _templateObject3$a = function _templateObject3() {
+  _templateObject3$b = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$i() {
+function _templateObject2$j() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    color: ", ";\n    flex-direction: row;\n    margin-top: ", ";\n    height: 40px;\n    padding: 0;\n    cursor: pointer;\n\n    span {\n      font-size: 14px;\n    }\n\n    .MuiListItemText-root {\n      margin: 0;\n      .MuiTypography-root {\n        font-size: 16px;\n      }\n    }\n\n    &.Mui-selected {\n      background: none;\n      color: ", ";\n\n      .MuiTypography-root {\n        font-weight: 600;\n      }\n\n      svg {\n        color: ", ";\n      }\n    }\n\n    &.MuiListItem-root:hover {\n      color: ", ";\n      background: none;\n\n      svg {\n        color: ", ";\n      }\n    }\n\n    &:first-child {\n      margin-top: 0;\n    }\n  }\n"]);
 
-  _templateObject2$i = function _templateObject2() {
+  _templateObject2$j = function _templateObject2() {
     return data;
   };
 
@@ -4874,7 +4922,7 @@ var NestedListItem = styled__default['default'](core.ListItem)(_templateObject$R
   var theme = _ref3.theme;
   return theme.palette.text.primary;
 });
-var ImprovedListItem = styled__default['default'](core.ListItem)(_templateObject2$i(), function (_ref4) {
+var ImprovedListItem = styled__default['default'](core.ListItem)(_templateObject2$j(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.palette.text.secondary;
 }, function (_ref5) {
@@ -4893,7 +4941,7 @@ var ImprovedListItem = styled__default['default'](core.ListItem)(_templateObject
   var theme = _ref9.theme;
   return theme.palette.primary.main;
 });
-var ImprovedList = styled__default['default'](core.List)(_templateObject3$a());
+var ImprovedList = styled__default['default'](core.List)(_templateObject3$b());
 var ImprovedListItemIcon = styled__default['default'](core.ListItemIcon)(_templateObject4$4(), function (_ref10) {
   var theme = _ref10.theme;
   return theme.spacing(2);
@@ -5030,20 +5078,20 @@ function _templateObject4$5() {
   return data;
 }
 
-function _templateObject3$b() {
+function _templateObject3$c() {
   var data = _taggedTemplateLiteralLoose(["\n  color: #fff;\n"]);
 
-  _templateObject3$b = function _templateObject3() {
+  _templateObject3$c = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$j() {
+function _templateObject2$k() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    position: fixed;\n    bottom: ", ";\n    right: ", ";\n    z-index: 10;\n  }\n"]);
 
-  _templateObject2$j = function _templateObject2() {
+  _templateObject2$k = function _templateObject2() {
     return data;
   };
 
@@ -5068,7 +5116,7 @@ var StyledFab = styled__default['default'](Fab__default['default']).attrs(functi
     color: "primary",
     size: "small"
   };
-})(_templateObject2$j(), function (_ref2) {
+})(_templateObject2$k(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(4);
 }, function (_ref3) {
@@ -5080,7 +5128,7 @@ var NavIcon = styled__default['default'](Icon).attrs(function () {
     icon: "bars",
     size: "lg"
   };
-})(_templateObject3$b());
+})(_templateObject3$c());
 var DrawerWrapper = styled__default['default'].div(_templateObject4$5(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(2, 10, 0, 2);
@@ -5170,20 +5218,20 @@ function _templateObject4$6() {
   return data;
 }
 
-function _templateObject3$c() {
+function _templateObject3$d() {
   var data = _taggedTemplateLiteralLoose(["\n  ", " {\n    height: 100%;\n  }\n\n  ", " {\n    order: 2;\n  }\n"]);
 
-  _templateObject3$c = function _templateObject3() {
+  _templateObject3$d = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$k() {
+function _templateObject2$l() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  width: 100%;\n"]);
 
-  _templateObject2$k = function _templateObject2() {
+  _templateObject2$l = function _templateObject2() {
     return data;
   };
 
@@ -5204,14 +5252,14 @@ var StyledContainer$2 = styled__default['default'](MuiContainer__default['defaul
     maxWidth: "lg"
   };
 })(_templateObject$U());
-var Content$3 = styled__default['default'].div(_templateObject2$k());
+var Content$4 = styled__default['default'].div(_templateObject2$l());
 var NavigationContainer = styled__default['default'](Flex).attrs(function () {
   return {
     item: true,
     md: 2,
     xs: 4
   };
-})(_templateObject3$c(), function (_ref) {
+})(_templateObject3$d(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.up("md");
 }, function (_ref2) {
@@ -5288,7 +5336,7 @@ var DashboardLayout = function DashboardLayout(_ref6) {
     item: true,
     md: 8,
     xs: 12
-  }, /*#__PURE__*/React__default['default'].createElement(Content$3, null, content)), /*#__PURE__*/React__default['default'].createElement(SidebarContainer, null, sidebar)), /*#__PURE__*/React__default['default'].createElement(Flex, {
+  }, /*#__PURE__*/React__default['default'].createElement(Content$4, null, content)), /*#__PURE__*/React__default['default'].createElement(SidebarContainer, null, sidebar)), /*#__PURE__*/React__default['default'].createElement(Flex, {
     container: true,
     item: true,
     xs: 12
@@ -5331,10 +5379,10 @@ var ExplorerLayoutHeaderPropTypes = {
   logoAction: PropTypes__default['default'].func
 };
 
-function _templateObject2$l() {
+function _templateObject2$m() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 155px;\n  ", " {\n    width: 103px;\n  }\n"]);
 
-  _templateObject2$l = function _templateObject2() {
+  _templateObject2$m = function _templateObject2() {
     return data;
   };
 
@@ -5364,7 +5412,7 @@ var StyledLogo$1 = styled__default['default'](Image).attrs(function () {
     alt: "Logo",
     src: img$2
   };
-})(_templateObject2$l(), function (_ref2) {
+})(_templateObject2$m(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.breakpoints.down("md");
 });
@@ -5410,7 +5458,7 @@ function _templateObject$X() {
 
   return data;
 }
-var Content$4 = styled__default['default'](Grid__default['default']).attrs(function () {
+var Content$5 = styled__default['default'](Grid__default['default']).attrs(function () {
   return {
     container: true
   };
@@ -5458,7 +5506,7 @@ var ExplorerLayout = function ExplorerLayout(_ref7) {
   }, props), /*#__PURE__*/React__default['default'].createElement(ExplorerLayoutHeader, {
     logoAction: headerLogoAction,
     headerRight: headerRight
-  }), /*#__PURE__*/React__default['default'].createElement(Content$4, null, /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
+  }), /*#__PURE__*/React__default['default'].createElement(Content$5, null, /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
     mdDown: true
   }, /*#__PURE__*/React__default['default'].createElement(Grid__default['default'], {
     item: true,
@@ -5525,10 +5573,10 @@ var MarketPlaceItemDefaultProps = {
 
 const img$3 = "data:image/svg+xml,%3csvg width='92' height='109' viewBox='0 0 92 109' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M32 2.00015C36 3.00015 36 10.0002 36 10.0002C36 10.0002 37.2536 109.627 34 108C33.7765 107.888 22.7735 108 22 108C14 108 22 3.00015 22 3.00015C24 2.00015 28 1.00015 32 2.00015Z' fill='white' stroke='%23F0F0F4' stroke-width='1.5' stroke-linejoin='round'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M27 8.11923C27 4.39928 30.3502 1.57581 34.0163 2.20593L84.3551 10.8579C88.1942 11.5178 91 14.8469 91 18.7423V100C91 104.418 87.4183 108 83 108H33C29.6863 108 27 105.314 27 102V8.11923Z' fill='white' stroke='%23F0F0F4' stroke-width='1.5' stroke-linejoin='round'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M27 10.0534C27 5.75785 22.6182 2.85385 18.6622 4.52755L5.88288 9.93417C2.92312 11.1864 1 14.0882 1 17.3019V100C1 104.418 4.58172 108 9 108H21C24.3137 108 27 105.314 27 102V10.0534Z' fill='white' stroke='%23F0F0F4' stroke-width='1.5' stroke-linejoin='round'/%3e%3c/svg%3e";
 
-function _templateObject2$m() {
+function _templateObject2$n() {
   var data = _taggedTemplateLiteralLoose(["\n  font-size: 24px;\n  margin-left: ", ";\n"]);
 
-  _templateObject2$m = function _templateObject2() {
+  _templateObject2$n = function _templateObject2() {
     return data;
   };
 
@@ -5551,7 +5599,7 @@ var LicenseBoxWrapper = styled__default['default'].div(_templateObject$Y(), func
   var theme = _ref2.theme;
   return theme.spacing(2);
 }, "" + img$3);
-var StyledIcon$3 = styled__default['default'](Icon)(_templateObject2$m(), function (_ref3) {
+var StyledIcon$3 = styled__default['default'](Icon)(_templateObject2$n(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(6);
 });
@@ -5578,10 +5626,10 @@ LicenseBox.defaultProps = {
   iconColor: "primary"
 };
 
-function _templateObject2$n() {
+function _templateObject2$o() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  padding: ", ";\n  box-sizing: border-box;\n  ", "\n"]);
 
-  _templateObject2$n = function _templateObject2() {
+  _templateObject2$o = function _templateObject2() {
     return data;
   };
 
@@ -5601,7 +5649,7 @@ var StyledMarketPlaceItem = styled__default['default'](BoxBase)(_templateObject$
   var theme = _ref.theme;
   return theme.spacing(10);
 });
-var Content$5 = styled__default['default'].div(_templateObject2$n(), function (_ref2) {
+var Content$6 = styled__default['default'].div(_templateObject2$o(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(2, 4, 4, 4);
 }, function (_ref3) {
@@ -5634,7 +5682,7 @@ var LegacyItem = function LegacyItem(_ref4) {
     iconName: iconName,
     iconPrefix: iconPrefix,
     iconColor: iconColor
-  }), /*#__PURE__*/React__default['default'].createElement(Content$5, null, /*#__PURE__*/React__default['default'].createElement(Text, {
+  }), /*#__PURE__*/React__default['default'].createElement(Content$6, null, /*#__PURE__*/React__default['default'].createElement(Text, {
     content: megaTitle,
     color: "textSecondary",
     noWrap: true
@@ -5647,7 +5695,7 @@ var LegacyItem = function LegacyItem(_ref4) {
     fontSize: "sm",
     fontStyle: "italic",
     noWrap: true
-  })), /*#__PURE__*/React__default['default'].createElement(Divider, null), /*#__PURE__*/React__default['default'].createElement(Content$5, {
+  })), /*#__PURE__*/React__default['default'].createElement(Divider, null), /*#__PURE__*/React__default['default'].createElement(Content$6, {
     initialTextAlign: true
   }, /*#__PURE__*/React__default['default'].createElement(DetailsTable, {
     justifyBetween: true,
@@ -5657,20 +5705,20 @@ var LegacyItem = function LegacyItem(_ref4) {
 LegacyItem.propTypes = MarketPlaceItemPropTypes;
 LegacyItem.defaultProps = MarketPlaceItemDefaultProps;
 
-function _templateObject3$d() {
+function _templateObject3$e() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n  object-fit: contain;\n  z-index: 2;\n"]);
 
-  _templateObject3$d = function _templateObject3() {
+  _templateObject3$e = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$o() {
+function _templateObject2$p() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  background-image: url(", ");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  width: 100%;\n  height: 100%;\n  filter: blur(8px);\n  -webkit-filter: blur(8px);\n  z-index: 1;\n"]);
 
-  _templateObject2$o = function _templateObject2() {
+  _templateObject2$p = function _templateObject2() {
     return data;
   };
 
@@ -5686,18 +5734,18 @@ function _templateObject$_() {
 
   return data;
 }
-var Wrapper$7 = styled__default['default'].div(_templateObject$_());
-var BGImage = styled__default['default'].div(_templateObject2$o(), function (_ref) {
+var Wrapper$8 = styled__default['default'].div(_templateObject$_());
+var BGImage = styled__default['default'].div(_templateObject2$p(), function (_ref) {
   var imgSrc = _ref.imgSrc;
   return imgSrc;
 });
-var StyledImage = styled__default['default'](Image)(_templateObject3$d());
+var StyledImage = styled__default['default'](Image)(_templateObject3$e());
 var Cover = function Cover(_ref2) {
   var imgSrc = _ref2.imgSrc,
       placeholderSrc = _ref2.placeholderSrc,
       props = _objectWithoutPropertiesLoose(_ref2, ["imgSrc", "placeholderSrc"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(Wrapper$7, props, /*#__PURE__*/React__default['default'].createElement(BGImage, {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$8, props, /*#__PURE__*/React__default['default'].createElement(BGImage, {
     imgSrc: imgSrc || placeholderSrc
   }), /*#__PURE__*/React__default['default'].createElement(StyledImage, {
     src: imgSrc || placeholderSrc
@@ -5722,20 +5770,20 @@ function _templateObject4$7() {
   return data;
 }
 
-function _templateObject3$e() {
+function _templateObject3$f() {
   var data = _taggedTemplateLiteralLoose(["\n  margin-top: ", ";\n"]);
 
-  _templateObject3$e = function _templateObject3() {
+  _templateObject3$f = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$p() {
+function _templateObject2$q() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  width: 100%;\n  padding: ", ";\n  box-sizing: border-box;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  z-index: 1;\n"]);
 
-  _templateObject2$p = function _templateObject2() {
+  _templateObject2$q = function _templateObject2() {
     return data;
   };
 
@@ -5755,11 +5803,11 @@ var StyledMarketPlaceItem$1 = styled__default['default'](BoxBase)(_templateObjec
   var hoverEffect = _ref.hoverEffect;
   return hoverEffect && styled.css(["&:hover{transform:scale(1.03);}"]);
 });
-var Content$6 = styled__default['default'].div(_templateObject2$p(), function (_ref2) {
+var Content$7 = styled__default['default'].div(_templateObject2$q(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(4);
 });
-var Badges = styled__default['default'].div(_templateObject3$e(), function (_ref3) {
+var Badges = styled__default['default'].div(_templateObject3$f(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(4);
 });
@@ -5791,7 +5839,7 @@ var ModernItem = function ModernItem(_ref5) {
       content: highlight,
       fontWeight: "bold",
       fontSize: "sm"
-    })), /*#__PURE__*/React__default['default'].createElement(Content$6, null, /*#__PURE__*/React__default['default'].createElement("div", null, /*#__PURE__*/React__default['default'].createElement(H3, {
+    })), /*#__PURE__*/React__default['default'].createElement(Content$7, null, /*#__PURE__*/React__default['default'].createElement("div", null, /*#__PURE__*/React__default['default'].createElement(H3, {
       content: title,
       noWrap: true
     }), /*#__PURE__*/React__default['default'].createElement(Text, {
@@ -5825,20 +5873,20 @@ var ModernItem = function ModernItem(_ref5) {
 ModernItem.propTypes = MarketPlaceItemPropTypes;
 ModernItem.defaultProps = MarketPlaceItemDefaultProps;
 
-function _templateObject3$f() {
+function _templateObject3$g() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n  width: 100%;\n  object-fit: contain;\n  z-index: 2;\n"]);
 
-  _templateObject3$f = function _templateObject3() {
+  _templateObject3$g = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$q() {
+function _templateObject2$r() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  background-image: url(", ");\n  background-size: cover;\n  background-repeat: no-repeat;\n  background-position: center;\n  width: 100%;\n  height: 100%;\n  filter: blur(8px);\n  -webkit-filter: blur(8px);\n  z-index: 1;\n"]);
 
-  _templateObject2$q = function _templateObject2() {
+  _templateObject2$r = function _templateObject2() {
     return data;
   };
 
@@ -5854,18 +5902,18 @@ function _templateObject$10() {
 
   return data;
 }
-var Wrapper$8 = styled__default['default'].div(_templateObject$10());
-var BGImage$1 = styled__default['default'].div(_templateObject2$q(), function (_ref) {
+var Wrapper$9 = styled__default['default'].div(_templateObject$10());
+var BGImage$1 = styled__default['default'].div(_templateObject2$r(), function (_ref) {
   var imgSrc = _ref.imgSrc;
   return imgSrc;
 });
-var StyledImage$1 = styled__default['default'](Image)(_templateObject3$f());
+var StyledImage$1 = styled__default['default'](Image)(_templateObject3$g());
 var Cover$1 = function Cover(_ref2) {
   var imgSrc = _ref2.imgSrc,
       placeholderSrc = _ref2.placeholderSrc,
       props = _objectWithoutPropertiesLoose(_ref2, ["imgSrc", "placeholderSrc"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(Wrapper$8, props, /*#__PURE__*/React__default['default'].createElement(BGImage$1, {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$9, props, /*#__PURE__*/React__default['default'].createElement(BGImage$1, {
     imgSrc: imgSrc || placeholderSrc
   }), /*#__PURE__*/React__default['default'].createElement(StyledImage$1, {
     src: imgSrc || placeholderSrc
@@ -5880,20 +5928,20 @@ Cover$1.defaultProps = {
   placeholderSrc: ""
 };
 
-function _templateObject3$g() {
+function _templateObject3$h() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: flex-end;\n  background-color: ", ";\n  padding: ", ";\n  height: 36px;\n  border-radius: 8px;\n  margin-top: -16px;\n  z-index: 1;\n"]);
 
-  _templateObject3$g = function _templateObject3() {
+  _templateObject3$h = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$r() {
+function _templateObject2$s() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  padding: ", ";\n  box-sizing: border-box;\n  z-index: 1;\n"]);
 
-  _templateObject2$r = function _templateObject2() {
+  _templateObject2$s = function _templateObject2() {
     return data;
   };
 
@@ -5916,17 +5964,17 @@ var StyledMarketPlaceItem$2 = styled__default['default'](BoxBase)(_templateObjec
   var hoverEffect = _ref2.hoverEffect;
   return hoverEffect && styled.css(["&:hover{transform:scale(1.02);}"]);
 });
-var Content$7 = styled__default['default'](Flex).attrs(function () {
+var Content$8 = styled__default['default'](Flex).attrs(function () {
   return {
     container: true,
     alignItems: "flex-start",
     justify: "space-between"
   };
-})(_templateObject2$r(), function (_ref3) {
+})(_templateObject2$s(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(4);
 });
-var Highlight$1 = styled__default['default'].div(_templateObject3$g(), function (_ref4) {
+var Highlight$1 = styled__default['default'].div(_templateObject3$h(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.palette.primary.light;
 }, function (_ref5) {
@@ -5964,7 +6012,7 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
     }, props), /*#__PURE__*/React__default['default'].createElement(Cover$1, {
       imgSrc: coverSrc,
       placeholderSrc: coverPlaceholderSrc
-    }), /*#__PURE__*/React__default['default'].createElement(Content$7, null, /*#__PURE__*/React__default['default'].createElement(Flex, {
+    }), /*#__PURE__*/React__default['default'].createElement(Content$8, null, /*#__PURE__*/React__default['default'].createElement(Flex, {
       item: true,
       xs: 12,
       md: 7,
@@ -6063,20 +6111,20 @@ function _templateObject4$8() {
   return data;
 }
 
-function _templateObject3$h() {
+function _templateObject3$i() {
   var data = _taggedTemplateLiteralLoose(["\n  cursor: pointer;\n  background-color: white;\n  && {\n    color: ", ";\n  }\n"]);
 
-  _templateObject3$h = function _templateObject3() {
+  _templateObject3$i = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$s() {
+function _templateObject2$t() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    font-size: 16px;\n    font-weight: 500;\n    color: ", ";\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n    padding: ", "px;\n  }\n"]);
 
-  _templateObject2$s = function _templateObject2() {
+  _templateObject2$t = function _templateObject2() {
     return data;
   };
 
@@ -6101,7 +6149,7 @@ var Title = styled__default['default'](DialogTitle__default['default']).attrs(fu
   return {
     disableTypography: true
   };
-})(_templateObject2$s(), function (_ref) {
+})(_templateObject2$t(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.darkIndigo;
 }, function (_ref2) {
@@ -6112,7 +6160,7 @@ var CloseModalIcon = styled__default['default'](Icon).attrs(function () {
   return {
     size: "lg"
   };
-})(_templateObject3$h(), function (_ref3) {
+})(_templateObject3$i(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.secondary.dark;
 });
@@ -6207,10 +6255,10 @@ var NoItemDefaultProps = {
   text: "Nothing yet..."
 };
 
-function _templateObject2$t() {
+function _templateObject2$u() {
   var data = _taggedTemplateLiteralLoose(["\n  font-size: 32px;\n"]);
 
-  _templateObject2$t = function _templateObject2() {
+  _templateObject2$u = function _templateObject2() {
     return data;
   };
 
@@ -6226,7 +6274,7 @@ function _templateObject$13() {
 
   return data;
 }
-var Wrapper$9 = styled__default['default'].div(_templateObject$13(), function (theme) {
+var Wrapper$a = styled__default['default'].div(_templateObject$13(), function (theme) {
   return COLOR(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -6238,7 +6286,7 @@ var StyledIcon$4 = styled__default['default'](Icon).attrs(function () {
     colorGrayRegular: true,
     icon: "sad-cry"
   };
-})(_templateObject2$t());
+})(_templateObject2$u());
 var NoItem = function NoItem(_ref) {
   var buttonAction = _ref.buttonAction,
       buttonHref = _ref.buttonHref,
@@ -6247,7 +6295,7 @@ var NoItem = function NoItem(_ref) {
       text = _ref.text,
       props = _objectWithoutPropertiesLoose(_ref, ["buttonAction", "buttonHref", "buttonText", "dataCy", "text"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(Wrapper$9, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$a, _extends({
     "data-cy": dataCy
   }, props), /*#__PURE__*/React__default['default'].createElement(StyledIcon$4, null), /*#__PURE__*/React__default['default'].createElement(Text, {
     fontWeight: "bold",
@@ -6396,10 +6444,10 @@ Container$5.propTypes = {
   isFinished: PropTypes__default['default'].bool.isRequired
 };
 
-function _templateObject2$u() {
+function _templateObject2$v() {
   var data = _taggedTemplateLiteralLoose(["\n  box-shadow: ", ";\n  display: block;\n  height: 100%;\n  opacity: 1;\n  position: absolute;\n  right: 0;\n  transform: rotate(3deg) translate(0px, -4px);\n  width: 100;\n"]);
 
-  _templateObject2$u = function _templateObject2() {
+  _templateObject2$v = function _templateObject2() {
     return data;
   };
 
@@ -6419,7 +6467,7 @@ var StyledBar = styled__default['default'].div(_templateObject$15(), function (_
   var theme = _ref.theme;
   return theme.palette.primary.main;
 });
-var InnerBar = styled__default['default'].div(_templateObject2$u(), function (_ref2) {
+var InnerBar = styled__default['default'].div(_templateObject2$v(), function (_ref2) {
   var theme = _ref2.theme;
   return "0 0 10px " + theme.palette.primary.main + ", 0 0 5px  " + theme.palette.primary.main;
 });
@@ -6568,10 +6616,10 @@ var PaginationDefaultProps = {
   prevText: "Prev"
 };
 
-function _templateObject2$v() {
+function _templateObject2$w() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    width: 24px;\n    min-width: 24px;\n    height: 24px;\n    background: ", ";\n    border-radius: 8px;\n    padding: 0;\n  }\n"]);
 
-  _templateObject2$v = function _templateObject2() {
+  _templateObject2$w = function _templateObject2() {
     return data;
   };
 
@@ -6588,7 +6636,7 @@ function _templateObject$17() {
   return data;
 }
 var StyledPagination = styled__default['default'](MuiPagination__default['default'])(_templateObject$17());
-var StyledPaginationItem = styled__default['default'](PaginationItem__default['default'])(_templateObject2$v(), function (_ref) {
+var StyledPaginationItem = styled__default['default'](PaginationItem__default['default'])(_templateObject2$w(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 });
@@ -6659,20 +6707,20 @@ var SearchBarDefaultProps = {
   placeholder: "Type and press Enter"
 };
 
-function _templateObject3$i() {
+function _templateObject3$j() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    margin-left: ", ";\n    border-radius: unset;\n    background-color: ", ";\n\n    svg {\n      font-size: 16px;\n    }\n  }\n"]);
 
-  _templateObject3$i = function _templateObject3() {
+  _templateObject3$j = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$w() {
+function _templateObject2$x() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    background-color: ", ";\n    height: 100%;\n    border: none;\n    outline: none;\n    border-radius: unset;\n  }\n"]);
 
-  _templateObject2$w = function _templateObject2() {
+  _templateObject2$x = function _templateObject2() {
     return data;
   };
 
@@ -6700,11 +6748,11 @@ var SearchInput = styled__default['default'](FieldBase).attrs(function () {
   return {
     component: "input"
   };
-})(_templateObject2$w(), function (_ref2) {
+})(_templateObject2$x(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.palette.gray.semiLight;
 });
-var FilterButton = styled__default['default'](TextButton)(_templateObject3$i(), function (_ref3) {
+var FilterButton = styled__default['default'](TextButton)(_templateObject3$j(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(1);
 }, function (_ref4) {
@@ -6849,20 +6897,20 @@ var ShareModuleDefaultProps = {
   url: "#"
 };
 
-function _templateObject3$j() {
+function _templateObject3$k() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n  }\n"]);
 
-  _templateObject3$j = function _templateObject3() {
+  _templateObject3$k = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$x() {
+function _templateObject2$y() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: ", ";\n"]);
 
-  _templateObject2$x = function _templateObject2() {
+  _templateObject2$y = function _templateObject2() {
     return data;
   };
 
@@ -6883,7 +6931,7 @@ var Container$6 = styled__default['default'].div(_templateObject$1a(), function 
 }, function (theme) {
   return DISPLAY(theme);
 });
-var ButtonsWrapper = styled__default['default'].div(_templateObject2$x(), function (_ref) {
+var ButtonsWrapper = styled__default['default'].div(_templateObject2$y(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
@@ -6894,7 +6942,7 @@ var StyledText$1 = styled__default['default'](Text).attrs(function () {
     fontSize: "sm",
     fontStyle: "italic"
   };
-})(_templateObject3$j(), function (_ref2) {
+})(_templateObject3$k(), function (_ref2) {
   var spacing = _ref2.theme.spacing;
   return styled.css(["margin:", ";"], spacing(2, 0));
 });
@@ -6908,26 +6956,27 @@ var ShareModule = function ShareModule(_ref3) {
       props = _objectWithoutPropertiesLoose(_ref3, ["buttonProps", "copyText", "shareOptions", "url"]);
 
   var theme = styled.useTheme();
+  var encodedUrl = encodeURIComponent(url);
   return /*#__PURE__*/React__default['default'].createElement(Container$6, props, /*#__PURE__*/React__default['default'].createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "twitter",
-    href: "https://twitter.com/intent/tweet?url=" + url,
+    href: "https://twitter.com/intent/tweet?url=" + encodedUrl,
     buttonProps: buttonProps
   }), shareOptions.includes("facebook") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "facebook-f",
-    href: "https://www.facebook.com/sharer.php?u=" + url,
+    href: "https://www.facebook.com/sharer.php?u=" + encodedUrl,
     buttonProps: buttonProps
   }), shareOptions.includes("telegram") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "telegram-plane",
-    href: "tg://msg?text=" + url,
+    href: "tg://msg?text=" + encodedUrl,
     buttonProps: buttonProps
   }), shareOptions.includes("whatsapp") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "whatsapp",
-    href: "whatsapp://send?" + url,
+    href: "whatsapp://send?" + encodedUrl,
     buttonProps: buttonProps
   }), shareOptions.includes("email") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "envelope",
     iconPrefix: theme.defaultIconSet,
-    href: "mailto:?body=" + url,
+    href: "mailto:?body=" + encodedUrl,
     buttonProps: buttonProps
   }), shareOptions.includes("navigator") && ((_navigator = navigator) == null ? void 0 : _navigator.share) && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "ellipsis-h",
@@ -6936,7 +6985,7 @@ var ShareModule = function ShareModule(_ref3) {
       var _navigator2;
 
       return (_navigator2 = navigator) == null ? void 0 : _navigator2.share({
-        url: url
+        url: encodedUrl
       });
     },
     buttonProps: buttonProps
@@ -6946,7 +6995,7 @@ var ShareModule = function ShareModule(_ref3) {
     endIcon: "copy",
     endIconColor: "secondary",
     endIconOnClick: function endIconOnClick() {
-      return copy__default['default'](url);
+      return copy__default['default'](encodedUrl);
     },
     readOnly: true,
     selectable: true,
@@ -7082,20 +7131,20 @@ var TabPropTypes = _extends({
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-function _templateObject3$k() {
+function _templateObject3$l() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    text-transform: initial;\n  }\n"]);
 
-  _templateObject3$k = function _templateObject3() {
+  _templateObject3$l = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$y() {
+function _templateObject2$z() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    min-height: fit-content;\n\n    .MuiTab-root {\n      min-height: 24px;\n    }\n  }\n\n  .MuiTabs-indicator {\n    display: none;\n  }\n\n  button {\n    min-width: fit-content;\n    margin-right: ", ";\n    padding: 0;\n    font-weight: normal;\n    font-size: 14px;\n    line-height: 120%;\n\n    &.Mui-selected {\n      font-weight: 600;\n    }\n  }\n\n  .Mui-selected {\n    &::after {\n      content: \"\";\n      position: absolute;\n      width: 100%;\n      left: 0;\n      bottom: 0;\n      height: 2px;\n      background-color: ", ";\n      border-radius: 2px 2px 0 0;\n    }\n  }\n"]);
 
-  _templateObject2$y = function _templateObject2() {
+  _templateObject2$z = function _templateObject2() {
     return data;
   };
 
@@ -7111,7 +7160,7 @@ function _templateObject$1d() {
 
   return data;
 }
-var Wrapper$a = styled__default['default'].div(_templateObject$1d(), function (_ref) {
+var Wrapper$b = styled__default['default'].div(_templateObject$1d(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (theme) {
@@ -7119,21 +7168,21 @@ var Wrapper$a = styled__default['default'].div(_templateObject$1d(), function (_
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledTabs = styled__default['default'](MuiTabs__default['default'])(_templateObject2$y(), function (_ref2) {
+var StyledTabs = styled__default['default'](MuiTabs__default['default'])(_templateObject2$z(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(5);
 }, function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.primary.main;
 });
-var StyledTab = styled__default['default'](MuiTab__default['default'])(_templateObject3$k());
+var StyledTab = styled__default['default'](MuiTab__default['default'])(_templateObject3$l());
 var Tab = function Tab(_ref4) {
   var tabs = _ref4.tabs,
       currentTab = _ref4.currentTab,
       _onChange = _ref4.onChange,
       props = _objectWithoutPropertiesLoose(_ref4, ["tabs", "currentTab", "onChange"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(Wrapper$a, props, /*#__PURE__*/React__default['default'].createElement(StyledTabs, {
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(Wrapper$b, props, /*#__PURE__*/React__default['default'].createElement(StyledTabs, {
     value: currentTab,
     onChange: function onChange(e, newTab) {
       return _onChange(newTab);
@@ -7369,10 +7418,10 @@ const img$4 = "data:image/svg+xml,%3csvg width='754' height='278' viewBox='0 0 7
 
 const img$5 = "data:image/svg+xml,%3csvg width='881' height='421' viewBox='0 0 881 421' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3ccircle cx='33.5' cy='301.5' r='23.5' fill='%23FFE94E'/%3e%3ccircle cx='7' cy='326' r='7' fill='%23FFE94E'/%3e%3cpath d='M29 385.5H229' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M95.1285 392.315C93.2079 391.114 91.1262 391.219 91.1262 391.219C91.1262 391.219 54.4023 389.016 63.6534 394.507C66.6721 396.298 68.902 396.897 72.3362 397.588C79.0015 398.931 79.0518 396.561 87.1919 396.561C90.7583 396.561 98.1601 394.212 95.1285 392.315Z' fill='%23292839' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M66.0752 394.391H81.6397C84.4768 394.391 87.1176 392.898 88.3377 390.337C89.7743 387.321 91.4741 383.127 91.8314 379.555C92.3141 374.728 91.2101 368.443 90.7858 366.286C90.7017 365.859 90.2916 365.586 89.8634 365.665C87.3704 366.125 79.3233 367.526 73.7873 367.526C68.2473 367.526 60.1924 366.123 57.7058 365.664C57.2799 365.586 56.8716 365.853 56.7846 366.277C56.3309 368.488 55.119 375.069 55.7433 379.555C56.2256 383.021 57.869 387.15 59.254 390.172C60.4675 392.819 63.1631 394.391 66.0752 394.391Z' fill='white' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M75.3913 281.717C78.8713 297.3 79.401 316.602 69.7775 320.612C53.8001 327.269 48.5256 281.717 48.5256 281.717C48.5256 281.717 45.3179 240.416 54.1393 242.421C58.8828 243.499 58.8254 248.473 60.956 252.846C68.5746 268.484 72.7653 269.958 75.3913 281.717Z' fill='white' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M53.3375 246.029C53.3375 246.029 74.1883 307.379 72.5844 367.526' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M100.653 303.369C89.8313 311.717 78.5991 332.641 88.6234 337.452C91.8314 338.992 101.71 321.819 110.677 312.191C120.426 301.723 141.954 293.827 136.741 286.528C134.736 283.721 114.687 292.543 100.653 303.369Z' fill='white' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M79.802 366.723C79.802 366.723 83.0098 322.616 134.736 289.335' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M90.6281 279.311C90.164 291.147 88.6232 306.978 78.1978 306.978C64.1636 306.978 64.1635 291.949 64.1636 280.112C64.1637 263.672 72.9854 234 79.8017 234C87.8215 234 91.4301 258.861 90.6281 279.311Z' fill='white' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M79.401 240.416C79.401 240.416 76.9952 327.027 72.9854 367.526' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M102.658 299.761C101.455 313.661 93.4356 329.625 83.4112 327.027C71.7915 324.015 78.1553 302.166 80.2033 297.756C85.4167 286.528 95.4405 259.662 105.465 262.469C115.489 265.276 103.861 285.86 102.658 299.761Z' fill='white' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M81.7528 310.046C82.2744 308.008 82.7297 307.631 84.0129 307.632C85.2961 307.633 82.8127 315.96 81.7915 315.317C80.7704 314.674 81.2624 311.963 81.7528 310.046Z' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M74.2842 282.549C74.8353 283.909 74.6358 284.342 73.5564 284.987C72.477 285.633 70.5218 279.899 71.6923 279.731C72.8629 279.562 73.7659 281.27 74.2842 282.549Z' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M104.663 265.677C104.663 265.677 78.1981 329.032 75.7923 367.125' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M68.1736 295.751C69.953 307.098 74.8563 319.625 64.1637 323.819C52.0045 328.588 48.8104 309.38 43.7138 297.355C37.1007 281.751 31.6848 255.653 40.1052 255.653C44.405 255.653 44.9367 258.491 47.3227 262.068C51.8696 268.885 65.5955 279.31 68.1736 295.751Z' fill='white' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M52.7675 301.084C53.3187 302.444 53.1191 302.877 52.0398 303.522C50.9604 304.168 49.0052 298.434 50.1757 298.266C51.3462 298.097 52.2493 299.805 52.7675 301.084Z' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M40.5062 259.262C40.5062 259.262 65.3668 311.389 73.7874 367.526' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M58.9512 323.418C67.3947 339.039 60.1547 342.264 57.3475 341.462C54.5404 340.66 48.9347 328.735 42.5114 321.413C34.1061 311.832 16.2075 304.973 18.4527 299.359C20.0563 295.349 50.9316 308.582 58.9512 323.418Z' fill='white' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M20.4573 302.166C20.4573 302.166 58.5502 318.606 67.3717 367.125' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M90.6284 365.521C90.6284 365.521 73.7873 360.308 56.9463 365.521' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3ccircle cx='727' cy='114' r='90' fill='%23AC00FC'/%3e%3ccircle cx='815.5' cy='217.5' r='23.5' fill='%23AC00FC'/%3e%3cpath d='M698.52 181.119C698.52 181.119 664.348 203.198 643.292 188.807C631.046 180.439 621.548 177.008 619.006 162.395C616.764 149.513 628.208 132.707 628.208 132.707L634.527 156.209C635.44 159.607 639.902 160.397 641.927 157.52C642.636 156.513 642.861 155.244 642.541 154.054L638.043 137.323C636.29 130.806 638.658 123.877 644.032 119.795L667.258 102.156L667.504 135.032C667.504 135.032 671.787 109.442 684.009 100.516C695.558 92.0818 717.14 95.905 717.14 95.905C717.14 95.905 728.968 115.318 721.037 126.367C713.793 136.46 691.39 138.636 691.39 138.636C691.39 138.636 698.024 143.109 702.898 144.135C708.807 145.379 718.306 142.857 718.306 142.857L711.83 159.914C709.209 166.819 702.342 171.161 694.981 170.568L666.415 168.267C666.415 168.267 661.257 170.38 662.512 175.046C663.948 180.389 698.52 181.119 698.52 181.119Z' fill='white' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M622 210C622 210 661.925 138.68 713.153 100.054' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M657.425 158.53C657.425 158.53 649.371 142.056 653.591 126.942' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M664.875 147.725C664.875 147.725 674.88 157.978 695.067 154.104' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M347.065 165.829C347.065 165.829 340.452 192.96 323.165 195.725C313.111 197.332 306.758 200.104 298.594 194.02C291.397 188.657 289.171 174.88 289.171 174.88L303.412 183.612C305.47 184.875 308.067 183.163 307.719 180.774C307.597 179.937 307.11 179.198 306.389 178.756L296.251 172.539C292.302 170.118 290.212 165.546 290.965 160.976L294.217 141.222L309.855 157.493C309.855 157.493 299.913 142.717 301.793 132.5C303.569 122.845 316.131 114.566 316.131 114.566C316.131 114.566 331.189 118.66 332.45 127.911C333.602 136.36 323.462 148.017 323.462 148.017C323.462 148.017 328.88 147.116 331.794 145.327C335.326 143.159 338.871 137.419 338.871 137.419L343.693 148.977C345.645 153.656 344.271 159.061 340.322 162.24L324.997 174.574C324.997 174.574 323.423 178.061 326.251 179.795C329.488 181.78 347.065 165.829 347.065 165.829Z' fill='white' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M322.553 216.337C322.553 216.337 308.796 161.945 316.102 118.516' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M315.92 173.963C315.92 173.963 304.131 169.552 299.102 160.027' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M314.535 165.061C314.535 165.061 324.361 165.45 332.595 153.993' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M713.681 108.382C704.114 134.908 711.569 181.455 711.569 181.455C711.569 181.455 751.039 155.099 761.381 126.58C770.871 100.411 762.887 55 762.887 55C762.887 55 724.085 79.5329 713.681 108.382Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M763.035 55.3499C763.035 55.3499 765.62 126.851 711.717 181.805' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M763.035 55.3499C763.035 55.3499 711.354 104.828 711.717 181.805' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M762.887 55L711.919 181.308' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M420 269.117C429.313 288.84 458.889 310.166 458.889 310.166C458.889 310.166 465.994 274.148 456.012 252.913C446.852 233.427 417.61 213.012 417.61 213.012C417.61 213.012 409.871 247.667 420 269.117Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M417.882 213.122C417.882 213.122 458.474 250.738 459.162 310.276' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M417.882 213.122C417.882 213.122 416.782 268.453 459.162 310.276' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M417.61 213.012L458.999 309.894' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M549.555 97.5645C555.604 108.276 566.737 108.601 571.902 119.765C583.236 144.262 542.763 182.44 542.763 182.44C542.763 182.44 508.209 181.372 502.047 165.249C497.581 153.563 510.966 145.906 507.954 133.764C504.194 118.602 482.325 120.95 479.578 105.572C476.925 90.7227 494.814 85.2492 495.018 70.166C495.182 58.0263 483.333 52.4 485.728 40.4978C487.504 31.6737 493.525 28.7997 498.039 21.0119C502.128 13.9568 507.878 2.59478 507.878 2.59478C507.878 2.59478 514.436 24.8129 525.303 33.297C532.963 39.2774 541.064 36.2967 548.315 42.7675C564.285 57.02 539.03 78.9258 549.555 97.5645Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M507.523 2.24229C501.332 37.044 523.27 121.251 543.02 186.5' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M511.256 62.3345C511.256 62.3345 496.398 59.5548 485.742 44.7404' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M517.727 94.8402C517.727 94.8402 502.17 94.8912 489.408 84.3264' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M527.39 130.518C527.39 130.518 515.385 135.507 505.462 128.468' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M538.835 170.786C538.835 170.786 517.986 174.036 502.047 165.249' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M508.589 45.1928C508.589 45.1928 517.193 40.0409 521.756 29.7727' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M514.845 78.5861C514.845 78.5861 543.771 58.6921 546.542 41.0052' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M522.027 112.504C522.027 112.504 539.698 110.324 548.13 94.0332' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M533.257 151.147C533.257 151.147 552.196 148.114 572.619 122.591' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M584.578 115.586C580.088 123.537 571.825 123.778 567.991 132.065C559.578 150.248 589.62 178.586 589.62 178.586C589.62 178.586 615.268 177.793 619.841 165.826C623.156 157.152 613.221 151.468 615.457 142.455C618.248 131.201 634.481 132.944 636.52 121.53C638.489 110.508 625.211 106.445 625.059 95.2493C624.937 86.2385 633.733 82.0623 631.954 73.2278C630.636 66.6779 626.167 64.5447 622.817 58.7642C619.782 53.5274 615.514 45.0938 615.514 45.0938C615.514 45.0938 610.646 61.5855 602.58 67.8829C596.894 72.3219 590.88 70.1094 585.499 74.9125C573.645 85.4916 592.39 101.751 584.578 115.586Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M615.777 44.8323C620.843 73.3132 600.53 146.372 584.994 196' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M613.006 89.4366C613.006 89.4366 624.035 87.3733 631.944 76.3772' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M608.203 113.564C608.203 113.564 619.75 113.602 629.223 105.76' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M601.031 140.046C601.031 140.046 609.941 143.75 617.306 138.525' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M592.535 169.936C592.535 169.936 608.01 172.348 619.841 165.826' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M614.986 76.7129C614.986 76.7129 608.599 72.8888 605.212 65.2672' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M610.342 101.499C610.342 101.499 588.871 86.7329 586.815 73.6046' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M605.011 126.675C605.011 126.675 591.895 125.058 585.636 112.965' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M596.676 155.359C596.676 155.359 582.618 153.108 567.459 134.163' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M612.759 248.799C607.602 254.452 600.808 253.1 596.124 259.15C585.847 272.424 605.073 301.196 605.073 301.196C605.073 301.196 626.168 305.353 632.145 296.437C636.478 289.974 629.429 283.471 632.943 276.529C637.331 267.861 650.262 272.325 654.065 263.385C657.739 254.752 647.656 248.947 649.629 239.775C651.218 232.393 659.184 230.63 659.387 223.082C659.537 217.486 656.287 214.906 654.634 209.557C653.136 204.712 651.231 197.025 651.231 197.025C651.231 197.025 644.165 209.581 636.398 213.213C630.923 215.773 626.426 212.84 621.131 215.754C609.468 222.173 621.731 238.964 612.759 248.799Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M575.437 351.867C575.437 351.867 649.606 235.028 651.494 196.86' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M640.875 232.769C640.875 232.769 650.269 233.15 658.788 225.652' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M632.432 251.574C632.432 251.574 641.855 253.768 651.061 249.139' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M621.613 271.858C621.613 271.858 628.196 276.552 635.19 273.665' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M609.074 294.677C609.074 294.677 621.261 299.547 632.145 296.437' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M644.876 222.749C644.876 222.749 640.376 218.429 639.038 211.57' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M636.439 242.122C636.439 242.122 621.671 226.039 622.451 214.932' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M627.369 261.684C627.369 261.684 616.96 257.905 614.114 246.857' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M615.187 283.548C615.187 283.548 604.128 279.076 595.297 260.763' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M417.435 199.867C433.924 200.072 455.047 179.655 455.047 179.655C455.047 179.655 464.972 177.188 469.913 173.243C476.938 167.633 478.53 161.766 481.209 153.185C487.039 134.508 472.777 103.799 472.777 103.799C472.777 103.799 460.74 115.65 457.42 125.481C455.434 131.358 455.441 139.842 455.712 145.262C455.854 148.111 453.714 150.637 450.866 150.804C448.348 150.951 446.126 149.19 445.802 146.688C445.194 141.992 444.47 134.466 445.154 128.969C446.012 122.072 450.486 113.105 454.976 105.553C460.207 96.7547 459.003 85.2044 451.228 78.5471L425.684 56.676L420.238 93.8202C419.949 95.7906 418.316 97.2872 416.328 97.4036C413.764 97.5536 411.636 95.3916 411.683 92.8236C411.84 84.1856 411.016 66.3045 402.21 58.0492C389.575 46.2049 361.925 56.2499 361.925 56.2499C361.925 56.2499 356.056 82.8551 364.267 96.293C373.083 110.719 386.434 117.003 393.24 119.395C395.546 120.205 397.024 122.663 396.388 125.022C395.778 127.283 393.451 128.622 391.19 128.013L361.498 120.009L375.296 156.34C377.807 162.951 384.317 167.167 391.377 166.754L422.231 164.949C423.156 164.895 424.053 165.279 424.651 165.987C426.162 167.774 425.086 170.524 422.763 170.811L385.523 175.41C385.523 175.41 399.85 199.649 417.435 199.867Z' fill='white' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M482.5 233.5C482.5 233.5 420.5 103.5 373.834 65.469' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M425.108 128.582C425.108 128.582 440.382 107.153 436.044 84.3677' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M435.115 145.526C435.115 145.526 402.081 154.471 384.496 144.982' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M451.342 174.628C451.342 174.628 422.299 191.854 406.299 183.775' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M449.054 169.753C449.054 169.753 473.251 155.315 471.499 125.367' stroke='black' stroke-width='1.2' stroke-linecap='round'/%3e%3cpath d='M432.09 306.936V306.336H431.49H407.461V159.328V158.728H406.861H350.78H350.446L350.27 159.012L253.252 315.606L253.162 315.752V315.922V350.203V350.803H253.762H350.18V401.625V402.225H350.78H406.861H407.461V401.625V350.803H431.49H432.09V350.203V306.936ZM350.18 234.496V306.336H308.224L347.796 238.357L347.8 238.35L350.18 234.496Z' fill='%23292839' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M494.952 172.941L494.95 172.943C477.349 188.056 465.783 211.826 460.184 244.154L452.631 287.77C447.069 319.882 450.033 346.111 461.616 366.39C473.211 386.69 492.408 399.136 519.116 403.761C545.605 408.349 567.696 403.11 585.314 387.983C603.025 372.888 614.645 349.128 620.244 316.799L627.77 273.347C633.35 241.126 630.396 214.843 618.812 194.563C607.218 174.264 588.076 161.827 561.476 157.22C534.879 152.614 512.678 157.834 494.952 172.941ZM572.521 217.11L572.522 217.113C575.5 226.166 575.545 239.226 572.578 256.357L562.356 315.383C559.279 332.497 554.819 344.602 549.034 351.796C546.16 355.326 542.872 357.752 539.171 359.104C535.469 360.456 531.32 360.745 526.704 359.946C521.924 359.118 517.996 357.401 514.893 354.815C511.791 352.231 509.485 348.753 507.984 344.357C504.99 335.418 504.989 322.089 508.071 304.297L518.634 243.305C521.72 227.438 526.055 216.036 531.591 209.018C534.398 205.537 537.649 203.148 541.343 201.824C545.04 200.498 549.216 200.226 553.888 201.035C558.664 201.863 562.583 203.618 565.671 206.283C568.758 208.947 571.046 212.546 572.521 217.11Z' fill='%23292839' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M805.85 385.409L794.678 335.83L818.119 330.548L818.705 330.416L818.573 329.831L809.061 287.622L808.929 287.037L808.344 287.168L784.903 292.451L752.586 149.039L752.454 148.454L751.869 148.585L697.16 160.914L696.834 160.987L696.725 161.303L636.503 335.394L636.448 335.555L636.485 335.722L644.021 369.164L644.153 369.75L644.738 369.618L738.809 348.42L747.917 385.683L748.029 386.14L748.5 386.14L805.265 386.14L806.015 386.14L805.85 385.409ZM713.231 234.96L729.023 305.043L688.093 314.266L711.753 239.25L711.756 239.243L713.231 234.96Z' fill='%23292839' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M292 385.5H880' stroke='%23292839' stroke-width='1.2' stroke-linecap='round'/%3e%3crect x='285' y='386' width='587' height='24' fill='white'/%3e%3cpath d='M195.095 101.784V99.0328C195.095 98.558 194.71 98.1731 194.235 98.1731C193.76 98.1731 193.375 98.558 193.375 99.0328V101.784C193.375 102.259 193.76 102.644 194.235 102.644C194.71 102.644 195.095 102.259 195.095 101.784Z' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M291.005 95.7656L197.126 97.8289V102.987L291.005 104.706C291.005 104.706 292.042 101.878 292 100C291.962 98.3018 291.005 95.7656 291.005 95.7656Z' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M225.014 99.0395L225.614 96.0355C225.835 94.9315 225.131 93.857 224.023 93.6597C222.424 93.3749 220.168 93.0341 218.447 93.0148C216.241 92.9902 212.432 93.4748 210.215 93.7883C209.21 93.9304 208.474 94.7933 208.474 95.8079V98.128C208.474 99.2849 209.425 100.216 210.582 100.201C212.613 100.175 215.633 100.155 217.415 100.236C219.048 100.311 221.2 100.528 222.729 100.699C223.806 100.819 224.801 100.101 225.014 99.0395Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M221.886 107.114C220.247 110.348 221.886 115.711 221.886 115.711L212.945 117.086C212.945 117.086 216.384 108.145 212.945 107.114C209.887 106.196 206.755 103.331 206.755 103.331L224.293 103.675C224.293 103.675 222.578 105.748 221.886 107.114Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M252.835 96.4534H249.052C249.052 96.4534 251.142 100.587 250.772 103.331C250.426 105.891 248.714 106.811 247.677 109.177C244.863 115.594 243.894 126.715 243.894 126.715L237.36 121.557C237.36 121.557 241.569 113.356 241.143 107.801C240.792 103.225 236.51 101.359 237.016 96.7973C237.36 93.7024 247.677 90.9513 250.772 92.6707C252.243 93.4879 252.835 96.4534 252.835 96.4534Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M222.23 147.692C226.012 140.126 226.356 123.276 225.325 115.367C224.921 112.272 221.725 115.515 218.447 115.367C214.731 115.199 212.601 111.24 211.225 115.367C209.562 120.357 209.85 147.692 209.85 147.692L175.118 135.312L178.557 147.692C178.557 147.692 214.294 163.563 222.23 147.692Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M195.483 378.817L192.5 366.5H185.5L184.785 376.333L189.649 380.482L195.483 378.817Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M162.815 378.817L159.5 366.5L153.196 367.532L152.116 376.333L156.98 380.482L162.815 378.817Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M183.343 384.265L184.785 376.333C184.785 376.333 188.434 377.624 190.753 378.091C192.627 378.468 194.312 378.189 196.047 377.66C197.169 377.317 198.39 377.445 199.364 378.098L209.14 384.653C209.744 385.058 209.457 386 208.731 386H184.79C183.872 386 183.179 385.168 183.343 384.265Z' fill='%23292839' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M150.674 384.265L152.116 376.333C152.116 376.333 155.765 377.624 158.084 378.091C159.958 378.468 161.644 378.189 163.379 377.66C164.501 377.317 165.721 377.445 166.696 378.098L176.472 384.653C177.076 385.058 176.789 386 176.062 386H152.122C151.204 386 150.51 385.168 150.674 384.265Z' fill='%23292839' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M207.443 301.062C207.443 285.201 192.312 218.531 192.312 218.531L161.019 214.06C161.019 214.06 162.319 236.936 168.241 256.701C174.677 278.186 185.778 296.931 185.778 303.125C185.778 310.304 178.816 350.131 183 367.5C183.649 370.193 186.575 367.564 190 367.5C193.441 367.435 197.38 369.923 198 367.5C201.036 355.631 207.443 313.743 207.443 301.062Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cmask id='mask0' mask-type='alpha' maskUnits='userSpaceOnUse' x='160' y='213' width='49' height='157'%3e%3cpath d='M207.443 301.062C207.443 285.201 192.312 218.531 192.312 218.531L161.019 214.06C161.019 214.06 162.319 236.936 168.241 256.701C174.677 278.186 185.778 296.931 185.778 303.125C185.778 310.304 178.816 350.131 183 367.5C183.649 370.193 186.575 367.564 190 367.5C193.441 367.435 197.38 369.923 198 367.5C201.036 355.631 207.443 313.743 207.443 301.062Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3c/mask%3e%3cg mask='url(%23mask0)'%3e%3cpath d='M196 359C196 342 207.5 297 207.5 297C207.5 297 214 360.5 202 371.5C195.465 377.49 179.5 371.5 179.5 368.5C179.5 363.56 196 365.206 196 359Z' fill='%23FFE94E'/%3e%3c/g%3e%3cpath d='M207.443 301.062C207.443 285.201 192.312 218.531 192.312 218.531L161.019 214.06C161.019 214.06 162.319 236.936 168.241 256.701C174.677 278.186 185.778 296.931 185.778 303.125C185.778 310.304 178.816 350.131 183 367.5C183.649 370.193 186.575 367.564 190 367.5C193.441 367.435 197.38 369.923 198 367.5C201.036 355.631 207.443 313.743 207.443 301.062Z' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M176.5 273.5L187 221L181.5 220L174.5 275.5L176.5 273.5Z' fill='%23292839'/%3e%3cpath d='M177.181 264.61C178.54 243.124 183.371 214.404 183.371 214.404H155.22C155.22 214.404 149.13 227.985 146.92 237.196C140.261 264.956 153.454 294.528 153.454 305.188C153.454 310.003 145.5 356 150.5 368C151.609 370.661 154.544 367.852 157.5 368C160.839 368.167 164.205 370.951 165 368C169.058 352.943 176.023 319.975 177.181 308.627C177.989 300.718 176.107 281.594 177.181 264.61Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M171.679 118.118L172.711 130.498L165.489 134.968L160.331 130.498L165.489 115.711L160.331 91.9832L186.81 94.3903C186.81 94.3903 189.905 113.304 179.245 121.901C175.497 124.923 171.679 118.118 171.679 118.118Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M148.639 180.016C148.511 159.631 158.956 126.715 158.956 126.715C158.956 126.715 161.466 130.097 164.458 131.185C168.241 132.561 172.711 130.498 172.711 130.498C172.711 130.498 183.549 141.297 186.466 150.786C190.294 163.238 185.226 171.175 186.466 184.143C188.023 200.426 197.377 216.67 194.719 218.531C184.747 225.511 164.802 213.372 156.893 216.467C143.752 221.609 148.728 194.127 148.639 180.016Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3cmask id='mask1' mask-type='alpha' maskUnits='userSpaceOnUse' x='147' y='125' width='49' height='97'%3e%3cpath d='M148.639 180.016C148.511 159.631 158.956 126.715 158.956 126.715C158.956 126.715 161.466 130.097 164.458 131.185C168.241 132.561 172.711 130.498 172.711 130.498C172.711 130.498 183.549 141.297 186.466 150.786C190.294 163.238 185.226 171.175 186.466 184.143C188.023 200.426 197.377 216.67 194.719 218.531C184.747 225.511 164.802 213.372 156.893 216.467C143.752 221.609 148.728 194.127 148.639 180.016Z' fill='white' stroke='%23292839' stroke-width='1.2'/%3e%3c/mask%3e%3cg mask='url(%23mask1)'%3e%3cpath d='M161.5 170C165.112 153.39 162.5 129.5 162.5 129.5L141.5 157L147 209C147 209 158.196 185.192 161.5 170Z' fill='%23FFE94E'/%3e%3c/g%3e%3cpath d='M148.639 180.016C148.511 159.631 158.956 126.715 158.956 126.715C158.956 126.715 161.466 130.097 164.458 131.185C168.241 132.561 172.711 130.498 172.711 130.498C172.711 130.498 183.549 141.297 186.466 150.786C190.294 163.238 185.226 171.175 186.466 184.143C188.023 200.426 197.377 216.67 194.719 218.531C184.747 225.511 164.802 213.372 156.893 216.467C143.752 221.609 148.728 194.127 148.639 180.016Z' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M177.525 80.979C184.372 83.561 190.812 86.4 191.28 93.7025C191.892 103.244 169.96 105.738 169.96 105.738C169.96 105.738 165.855 102.21 163.77 103.675C161.215 105.471 167.209 110.896 167.209 110.896C167.209 110.896 164.873 119.542 162.738 125.683C159.658 134.547 161.047 138.316 160.675 147.692C160.16 160.677 157.157 168.253 150.359 179.328C141.031 194.525 124.912 214.116 115.283 208.558C107.03 203.794 118.583 184.275 117.69 166.949C116.915 151.908 103.565 141.093 112.188 128.778C118.345 119.985 128.504 120.428 138.667 112.96C153.507 102.054 160.294 74.4809 177.525 80.979Z' fill='%23292839' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M217.071 162.822C206.325 171.419 163.082 162.822 163.082 162.822L169.616 138.407C169.616 138.407 199.877 149.28 211.569 144.597C217.071 142.393 229.107 124.996 235.641 118.118C237.347 116.322 238.522 119.728 241.143 121.557C244.093 123.615 248.708 122.588 246.645 126.715C243.999 132.007 234.265 149.067 217.071 162.822Z' fill='white' stroke='white' stroke-width='1.2'/%3e%3cpath d='M175 164.5C175 164.5 206.325 171.419 217.071 162.822C234.265 149.067 243.999 132.007 246.645 126.715C248.708 122.588 244.093 123.615 241.143 121.557C238.522 119.728 237.347 116.322 235.641 118.118C229.107 124.996 217.071 142.393 211.569 144.597C199.877 149.28 169.616 138.407 169.616 138.407' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M265 96.5V104' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M268 96.5V104' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M290.5 96C290.5 96 287.5 100 290.5 104.5' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M169.5 114.5L172 118.5L172.5 130.5L169.5 114.5Z' fill='%23292839' stroke='%23292839' stroke-width='1.2'/%3e%3cpath d='M185 171C184.643 167.428 176.5 165 176.5 165L187 167L186 175.5L186.5 184C186.5 184 185.5 176 185 171Z' fill='%23292839' stroke='%23292839' stroke-width='1.2'/%3e%3c/svg%3e";
 
-function _templateObject2$z() {
+function _templateObject2$A() {
   var data = _taggedTemplateLiteralLoose(["\n  max-width: 750px;\n  width: 100%;\n"]);
 
-  _templateObject2$z = function _templateObject2() {
+  _templateObject2$A = function _templateObject2() {
     return data;
   };
 
@@ -7392,7 +7441,7 @@ var ErrorWrapper = styled__default['default'].div(_templateObject$1j(), function
   var theme = _ref.theme;
   return theme.spacing(4);
 });
-var StyledImage$2 = styled__default['default'](Image)(_templateObject2$z());
+var StyledImage$2 = styled__default['default'](Image)(_templateObject2$A());
 
 var getImg = function getImg(image, statusCode) {
   switch (statusCode) {
@@ -7430,10 +7479,10 @@ var ErrorTemplate = function ErrorTemplate(_ref2) {
 ErrorTemplate.propTypes = ErrorTemplatePropTypes;
 ErrorTemplate.defaultProps = ErrorTemplateDefaultProps;
 
-function _templateObject2$A() {
+function _templateObject2$B() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 500px;\n  max-width: 500px;\n  user-select: none;\n"]);
 
-  _templateObject2$A = function _templateObject2() {
+  _templateObject2$B = function _templateObject2() {
     return data;
   };
 
@@ -7457,7 +7506,7 @@ var CloseModalIcon$1 = styled__default['default'](Icon).attrs(function () {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
-var StyledImg$1 = styled__default['default'](Image)(_templateObject2$A());
+var StyledImg$1 = styled__default['default'](Image)(_templateObject2$B());
 var ImageModal = function ImageModal(_ref2) {
   var isOpen = _ref2.isOpen,
       onClose = _ref2.onClose,
@@ -7494,20 +7543,20 @@ var ThumbnailDefaultProps = {
   imgSrc: ""
 };
 
-function _templateObject3$l() {
+function _templateObject3$m() {
   var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n"]);
 
-  _templateObject3$l = function _templateObject3() {
+  _templateObject3$m = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$B() {
+function _templateObject2$C() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  transition: all 0.1s ease-in-out;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  cursor: pointer;\n\n  :hover {\n    background-color: rgba(0, 0, 0, 0.2);\n  }\n"]);
 
-  _templateObject2$B = function _templateObject2() {
+  _templateObject2$C = function _templateObject2() {
     return data;
   };
 
@@ -7531,8 +7580,8 @@ var Container$7 = styled__default['default'].div(_templateObject$1l(), function 
 }, function (theme) {
   return DISPLAY(theme);
 });
-var IconWrapper = styled__default['default'].div(_templateObject2$B());
-var StyledIcon$5 = styled__default['default'](Icon)(_templateObject3$l(), function (_ref2) {
+var IconWrapper = styled__default['default'].div(_templateObject2$C());
+var StyledIcon$5 = styled__default['default'](Icon)(_templateObject3$m(), function (_ref2) {
   var color = _ref2.color,
       theme = _ref2.theme;
   return !color && theme.palette.common.white;
@@ -7682,10 +7731,10 @@ var handleScroll = function handleScroll(el) {
   });
 };
 
-function _templateObject2$C() {
+function _templateObject2$D() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 16px 0;\n"]);
 
-  _templateObject2$C = function _templateObject2() {
+  _templateObject2$D = function _templateObject2() {
     return data;
   };
 
@@ -7702,7 +7751,7 @@ function _templateObject$1n() {
   return data;
 }
 var StyledContent$1 = styled__default['default'].div(_templateObject$1n());
-var ActionWrapper = styled__default['default'].div(_templateObject2$C());
+var ActionWrapper = styled__default['default'].div(_templateObject2$D());
 var WizardStepContent = function WizardStepContent(_ref) {
   var children = _ref.children,
       content = _ref.content,
@@ -7798,20 +7847,20 @@ function _templateObject4$9() {
   return data;
 }
 
-function _templateObject3$m() {
+function _templateObject3$n() {
   var data = _taggedTemplateLiteralLoose(["\n  font-weight: 600;\n  font-size: 16px;\n  line-height: 120%;\n  color: ", ";\n  padding-left: 8px;\n  transition: all ", "\n    ease-in-out;\n  ", "\n"]);
 
-  _templateObject3$m = function _templateObject3() {
+  _templateObject3$n = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$D() {
+function _templateObject2$E() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 100%;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 120%;\n  z-index: 1;\n  transition: all ", "\n    ease-in-out;\n"]);
 
-  _templateObject2$D = function _templateObject2() {
+  _templateObject2$E = function _templateObject2() {
     return data;
   };
 
@@ -7837,7 +7886,7 @@ var StyledTitle = styled__default['default'].div(_templateObject$1o(), function 
   var disabled = _ref3.disabled;
   return disabled && styled.css(["cursor:not-allowed;"]);
 });
-var Flag = styled__default['default'].div(_templateObject2$D(), function (props) {
+var Flag = styled__default['default'].div(_templateObject2$E(), function (props) {
   return stepFlagBackgroundColor(props);
 }, function (props) {
   return stepFlagColor(props);
@@ -7845,7 +7894,7 @@ var Flag = styled__default['default'].div(_templateObject2$D(), function (props)
   var transitionDuration = _ref4.transitionDuration;
   return transitionDuration + "ms";
 });
-var Label$1 = styled__default['default'].span(_templateObject3$m(), function (props) {
+var Label$1 = styled__default['default'].span(_templateObject3$n(), function (props) {
   return stepBorderAndTitleColor(props);
 }, function (_ref5) {
   var transitionDuration = _ref5.transitionDuration;
@@ -7937,20 +7986,20 @@ function _templateObject4$a() {
   return data;
 }
 
-function _templateObject3$n() {
+function _templateObject3$o() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject3$n = function _templateObject3() {
+  _templateObject3$o = function _templateObject3() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject2$E() {
+function _templateObject2$F() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject2$E = function _templateObject2() {
+  _templateObject2$F = function _templateObject2() {
     return data;
   };
 
@@ -7966,17 +8015,17 @@ function _templateObject$1p() {
 
   return data;
 }
-var Wrapper$b = styled__default['default'].div(_templateObject$1p(), function (theme) {
+var Wrapper$c = styled__default['default'].div(_templateObject$1p(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StepsWrapper = styled__default['default'].div(_templateObject2$E(), function (_ref) {
+var StepsWrapper = styled__default['default'].div(_templateObject2$F(), function (_ref) {
   var headerFadeColor = _ref.headerFadeColor,
       isHorizontal = _ref.isHorizontal;
   return isHorizontal && styled.css(["position:relative;::before{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 90deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;left:0;z-index:2;}::after{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;right:0;z-index:2;}"], headerFadeColor, headerFadeColor);
 });
-var Steps = styled__default['default'].div(_templateObject3$n(), function (_ref2) {
+var Steps = styled__default['default'].div(_templateObject3$o(), function (_ref2) {
   var isHorizontal = _ref2.isHorizontal;
   return isHorizontal && styled.css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}"]);
 });
@@ -8068,7 +8117,7 @@ var Wizard = function Wizard(_ref7) {
     submitButtonLoading: submitButtonLoading,
     showNavigationButtons: showNavigationButtons
   });
-  return /*#__PURE__*/React__default['default'].createElement(Wrapper$b, props, /*#__PURE__*/React__default['default'].createElement(StepsWrapper, {
+  return /*#__PURE__*/React__default['default'].createElement(Wrapper$c, props, /*#__PURE__*/React__default['default'].createElement(StepsWrapper, {
     headerFadeColor: headerFadeColor,
     isHorizontal: isHorizontal
   }, /*#__PURE__*/React__default['default'].createElement(Steps, {

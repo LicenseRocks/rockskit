@@ -77,7 +77,7 @@ export const DetailsTable = ({
     iconProps,
     label,
     labelHint,
-    labelHintIcon,
+    labelHintIcon = "question",
     labelHintContent,
     renderLabel = () => {},
     value,
