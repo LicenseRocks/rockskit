@@ -44,6 +44,7 @@ export const ShareModule = ({
   ...props
 }) => {
   const theme = useTheme();
+  const encodedUrl = encodeURIComponent(url);
 
   return (
     <Container {...props}>
@@ -51,7 +52,7 @@ export const ShareModule = ({
         {shareOptions.includes("twitter") && (
           <ShareModuleButton
             icon="twitter"
-            href={`https://twitter.com/intent/tweet?url=${url}`}
+            href={`https://twitter.com/intent/tweet?url=${encodedUrl}`}
             buttonProps={buttonProps}
           />
         )}
@@ -59,7 +60,7 @@ export const ShareModule = ({
         {shareOptions.includes("facebook") && (
           <ShareModuleButton
             icon="facebook-f"
-            href={`https://www.facebook.com/sharer.php?u=${url}`}
+            href={`https://www.facebook.com/sharer.php?u=${encodedUrl}`}
             buttonProps={buttonProps}
           />
         )}
@@ -67,7 +68,7 @@ export const ShareModule = ({
         {shareOptions.includes("telegram") && (
           <ShareModuleButton
             icon="telegram-plane"
-            href={`tg://msg?text=${url}`}
+            href={`tg://msg?text=${encodedUrl}`}
             buttonProps={buttonProps}
           />
         )}
@@ -75,7 +76,7 @@ export const ShareModule = ({
         {shareOptions.includes("whatsapp") && (
           <ShareModuleButton
             icon="whatsapp"
-            href={`whatsapp://send?${url}`}
+            href={`whatsapp://send?${encodedUrl}`}
             buttonProps={buttonProps}
           />
         )}
@@ -84,7 +85,7 @@ export const ShareModule = ({
           <ShareModuleButton
             icon="envelope"
             iconPrefix={theme.defaultIconSet}
-            href={`mailto:?body=${url}`}
+            href={`mailto:?body=${encodedUrl}`}
             buttonProps={buttonProps}
           />
         )}
@@ -93,7 +94,7 @@ export const ShareModule = ({
           <ShareModuleButton
             icon="ellipsis-h"
             iconPrefix={theme.defaultIconSet}
-            onClick={() => navigator?.share({ url })}
+            onClick={() => navigator?.share({ url: encodedUrl })}
             buttonProps={buttonProps}
           />
         )}
@@ -104,7 +105,7 @@ export const ShareModule = ({
       <Input
         endIcon="copy"
         endIconColor="secondary"
-        endIconOnClick={() => copy(url)}
+        endIconOnClick={() => copy(encodedUrl)}
         readOnly
         selectable
         startIcon="link"
