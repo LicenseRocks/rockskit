@@ -2392,7 +2392,7 @@ var DetailsTable = function DetailsTable(_ref13) {
       size: size
     }, /*#__PURE__*/React.createElement(LabelWrapper, {
       labelWidth: labelWidth
-    }, renderLabel() || /*#__PURE__*/React.createElement(React.Fragment, null, icon && /*#__PURE__*/React.createElement(Hint, _extends({
+    }, renderLabel() || /*#__PURE__*/React.createElement(React.Fragment, null, icon && /*#__PURE__*/React.createElement(Icon, _extends({
       icon: icon,
       mr: 2,
       colorGrayRegular: true

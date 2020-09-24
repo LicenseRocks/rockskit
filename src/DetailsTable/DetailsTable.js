@@ -93,7 +93,7 @@ export const DetailsTable = ({
           {renderLabel() || (
             <>
               {icon && (
-                <Hint icon={icon} mr={2} colorGrayRegular {...iconProps} />
+                <Icon icon={icon} mr={2} colorGrayRegular {...iconProps} />
               )}
 
               <Label

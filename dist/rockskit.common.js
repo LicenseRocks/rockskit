@@ -2428,7 +2428,7 @@ var DetailsTable = function DetailsTable(_ref13) {
       size: size
     }, /*#__PURE__*/React__default['default'].createElement(LabelWrapper, {
       labelWidth: labelWidth
-    }, renderLabel() || /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, icon && /*#__PURE__*/React__default['default'].createElement(Hint, _extends({
+    }, renderLabel() || /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, icon && /*#__PURE__*/React__default['default'].createElement(Icon, _extends({
       icon: icon,
       mr: 2,
       colorGrayRegular: true
