@@ -1,4 +1,4 @@
-import React, { useState, forwardRef, Fragment, useEffect, useRef, createRef } from 'react';
+import React, { createContext, useContext, useState, forwardRef, Fragment, useEffect, useRef, createRef } from 'react';
 import PropTypes, { bool, func, oneOf } from 'prop-types';
 import styled, { createGlobalStyle, css, useTheme, ThemeProvider as ThemeProvider$1 } from 'styled-components';
 import Grid from '@material-ui/core/Grid';
@@ -1297,6 +1297,7 @@ Alert.propTypes = AlertPropTypes;
 Alert.defaultProps = AlertDefaultProps;
 
 var AppContainerPropTypes = {
+  appConfig: PropTypes.shape({}),
   children: PropTypes.node.isRequired,
   icons: PropTypes.object,
   pageLoading: PropTypes.bool,
@@ -1304,14 +1305,17 @@ var AppContainerPropTypes = {
 };
 
 var AppContainer = function AppContainer(_ref) {
-  var children = _ref.children,
+  var appConfig = _ref.appConfig,
+      children = _ref.children,
       icons = _ref.icons,
       pageLoading = _ref.pageLoading,
       pageProgressBar = _ref.pageProgressBar,
       pageProgressBarListener = _ref.pageProgressBarListener,
       theme = _ref.theme;
   if (icons) library.add(icons);
-  return /*#__PURE__*/React.createElement(ThemeProvider, {
+  return /*#__PURE__*/React.createElement(AppContextProvider, {
+    config: appConfig
+  }, /*#__PURE__*/React.createElement(ThemeProvider, {
     theme: theme
   }, /*#__PURE__*/React.createElement(ThemeProvider$1, {
     theme: theme
@@ -1319,7 +1323,7 @@ var AppContainer = function AppContainer(_ref) {
     maxSnack: 3
   }, /*#__PURE__*/React.createElement(GlobalStyle, null), /*#__PURE__*/React.createElement(CssBaseline, null), pageProgressBar && /*#__PURE__*/React.createElement(PageProgressBar, {
     listener: pageProgressBarListener
-  }), pageLoading ? /*#__PURE__*/React.createElement(PageLoading, null) : children)));
+  }), pageLoading ? /*#__PURE__*/React.createElement(PageLoading, null) : children))));
 };
 AppContainer.propTypes = AppContainerPropTypes;
 
@@ -2222,6 +2226,27 @@ var CollapseButton = function CollapseButton(_ref) {
 };
 CollapseButton.propTypes = {
   isOpened: PropTypes.bool.isRequired
+};
+
+var AppContext = /*#__PURE__*/createContext();
+
+var AppContextProvider = function AppContextProvider(_ref) {
+  var config = _ref.config,
+      props = _objectWithoutPropertiesLoose(_ref, ["config"]);
+
+  return /*#__PURE__*/React.createElement(AppContext.Provider, _extends({
+    value: config
+  }, props));
+};
+AppContextProvider.propTypes = {
+  config: PropTypes.shape({})
+};
+AppContextProvider.defaultProps = {
+  config: {}
+};
+
+var useAppContext = function useAppContext() {
+  return useContext(AppContext);
 };
 
 var DetailsTablePropTypes = _extends({
@@ -8120,5 +8145,5 @@ var Wizard = function Wizard(_ref7) {
 Wizard.propTypes = WizardPropTypes;
 Wizard.defaultProps = WizardDefaultProps;
 
-export { AdvancedLineItem, Alert, AppContainer, AuthLayout, BorderedRadio, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CartButton, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FilePond, FileUpload, Flex, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, History, Icon, Image, ImageModal, Indicator, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, MarketPlaceItem, Modal, NoItem, OutlineButton, PageLoading, PageMeta, PageProgressBar, PageTransition, Pagination, Paragraph, Radio, RadioBase, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, Stepper, THEME_COLORS, Tab, Table, Text, TextArea, TextBase, TextButton, Thumbnail, TinyBadge, ToggleSwitch, Tooltip, Wizard, getFormInputError, getFormRowErrors, handleScroll };
+export { AdvancedLineItem, Alert, AppContainer, AppContext, AppContextProvider, AuthLayout, BorderedRadio, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CartButton, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FilePond, FileUpload, Flex, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, History, Icon, Image, ImageModal, Indicator, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, MarketPlaceItem, Modal, NoItem, OutlineButton, PageLoading, PageMeta, PageProgressBar, PageTransition, Pagination, Paragraph, Radio, RadioBase, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, Stepper, THEME_COLORS, Tab, Table, Text, TextArea, TextBase, TextButton, Thumbnail, TinyBadge, ToggleSwitch, Tooltip, Wizard, getFormInputError, getFormRowErrors, handleScroll, useAppContext };
 //# sourceMappingURL=rockskit.es.js.map
