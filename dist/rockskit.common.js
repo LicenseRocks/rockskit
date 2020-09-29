@@ -1333,6 +1333,7 @@ Alert.propTypes = AlertPropTypes;
 Alert.defaultProps = AlertDefaultProps;
 
 var AppContainerPropTypes = {
+  appConfig: PropTypes__default['default'].shape({}),
   children: PropTypes__default['default'].node.isRequired,
   icons: PropTypes__default['default'].object,
   pageLoading: PropTypes__default['default'].bool,
@@ -1340,14 +1341,17 @@ var AppContainerPropTypes = {
 };
 
 var AppContainer = function AppContainer(_ref) {
-  var children = _ref.children,
+  var appConfig = _ref.appConfig,
+      children = _ref.children,
       icons = _ref.icons,
       pageLoading = _ref.pageLoading,
       pageProgressBar = _ref.pageProgressBar,
       pageProgressBarListener = _ref.pageProgressBarListener,
       theme = _ref.theme;
   if (icons) fontawesomeSvgCore.library.add(icons);
-  return /*#__PURE__*/React__default['default'].createElement(styles.ThemeProvider, {
+  return /*#__PURE__*/React__default['default'].createElement(AppContextProvider, {
+    config: appConfig
+  }, /*#__PURE__*/React__default['default'].createElement(styles.ThemeProvider, {
     theme: theme
   }, /*#__PURE__*/React__default['default'].createElement(styled.ThemeProvider, {
     theme: theme
@@ -1355,7 +1359,7 @@ var AppContainer = function AppContainer(_ref) {
     maxSnack: 3
   }, /*#__PURE__*/React__default['default'].createElement(GlobalStyle, null), /*#__PURE__*/React__default['default'].createElement(CssBaseline__default['default'], null), pageProgressBar && /*#__PURE__*/React__default['default'].createElement(PageProgressBar, {
     listener: pageProgressBarListener
-  }), pageLoading ? /*#__PURE__*/React__default['default'].createElement(PageLoading, null) : children)));
+  }), pageLoading ? /*#__PURE__*/React__default['default'].createElement(PageLoading, null) : children))));
 };
 AppContainer.propTypes = AppContainerPropTypes;
 
@@ -2258,6 +2262,27 @@ var CollapseButton = function CollapseButton(_ref) {
 };
 CollapseButton.propTypes = {
   isOpened: PropTypes__default['default'].bool.isRequired
+};
+
+var AppContext = /*#__PURE__*/React.createContext();
+
+var AppContextProvider = function AppContextProvider(_ref) {
+  var config = _ref.config,
+      props = _objectWithoutPropertiesLoose(_ref, ["config"]);
+
+  return /*#__PURE__*/React__default['default'].createElement(AppContext.Provider, _extends({
+    value: config
+  }, props));
+};
+AppContextProvider.propTypes = {
+  config: PropTypes__default['default'].shape({})
+};
+AppContextProvider.defaultProps = {
+  config: {}
+};
+
+var useAppContext = function useAppContext() {
+  return React.useContext(AppContext);
 };
 
 var DetailsTablePropTypes = _extends({
@@ -8159,6 +8184,8 @@ Wizard.defaultProps = WizardDefaultProps;
 exports.AdvancedLineItem = AdvancedLineItem;
 exports.Alert = Alert;
 exports.AppContainer = AppContainer;
+exports.AppContext = AppContext;
+exports.AppContextProvider = AppContextProvider;
 exports.AuthLayout = AuthLayout;
 exports.BorderedRadio = BorderedRadio;
 exports.Box = Box;
@@ -8256,4 +8283,5 @@ exports.Wizard = Wizard;
 exports.getFormInputError = getFormInputError;
 exports.getFormRowErrors = getFormRowErrors;
 exports.handleScroll = handleScroll;
+exports.useAppContext = useAppContext;
 //# sourceMappingURL=rockskit.common.js.map
