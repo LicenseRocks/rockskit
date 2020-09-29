@@ -10,6 +10,7 @@ export * from "./Input";
 export * from "./Label";
 export * from "./Radio";
 export * from "./RadioBase/RadioBase";
+export * from "./RangeSlider";
 export * from "./ReactSelect";
 export * from "./Row";
 export * from "./Select";
