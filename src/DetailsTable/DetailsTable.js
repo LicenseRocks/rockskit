@@ -58,6 +58,7 @@ const Hint = styled.div`
 
 export const DetailsTable = ({
   expandButtonTitle,
+  expandButtonProps,
   labelTextTransform,
   labelFontSize,
   labelWidth,
@@ -130,6 +131,7 @@ export const DetailsTable = ({
             onClick={() => setExpanded((prev) => !prev)}
             size="xs"
             mb={4}
+            {...expandButtonProps}
           >
             {expandButtonTitle}
           </OutlineButton>

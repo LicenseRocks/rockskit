@@ -4,6 +4,7 @@ import { DISPLAY_PROP_TYPES, SPACER_PROP_TYPES } from "../theme";
 
 export const DetailsTablePropTypes = {
   expandButtonTitle: PropTypes.string,
+  expandButtonProps: PropTypes.shape({}),
   justifyBetween: PropTypes.bool,
   labelFontSize: PropTypes.string,
   labelTextTransform: PropTypes.string,
@@ -31,6 +32,7 @@ export const DetailsTablePropTypes = {
 
 export const DetailsTableDefaultProps = {
   expandButtonTitle: "Expandable items",
+  expandButtonProps: {},
   labelFontSize: "md",
   labelTextTransform: "initial",
   labelWidth: 140,
