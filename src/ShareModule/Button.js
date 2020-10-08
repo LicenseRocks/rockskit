@@ -10,6 +10,7 @@ const Button = styled(ButtonBase)`
 
   && {
     background-color: ${({ theme }) => theme.palette.gray.semiLight};
+    margin-right: ${({ theme }) => theme.spacing(2)};
     svg {
       color: ${({ theme }) => theme.palette.text.primary};
     }

@@ -1,5 +1,6 @@
 import React from "react";
 import styled, { css, useTheme } from "styled-components";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import copy from "copy-to-clipboard";
 
 import {
@@ -18,8 +19,8 @@ const Container = styled.div`
 
 const ButtonsWrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  justify-content: space-between;
   margin-bottom: ${({ theme }) => theme.spacing(2)};
 `;
 
@@ -44,6 +45,7 @@ export const ShareModule = ({
   ...props
 }) => {
   const theme = useTheme();
+  const matches = useMediaQuery(theme.breakpoints.down("md"));
   const encodedUrl = encodeURIComponent(url);
 
   return (
@@ -65,7 +67,7 @@ export const ShareModule = ({
           />
         )}
 
-        {shareOptions.includes("telegram") && (
+        {shareOptions.includes("telegram") && matches && (
           <ShareModuleButton
             icon="telegram-plane"
             href={`tg://msg?text=${encodedUrl}`}
@@ -73,7 +75,7 @@ export const ShareModule = ({
           />
         )}
 
-        {shareOptions.includes("whatsapp") && (
+        {shareOptions.includes("whatsapp") && matches && (
           <ShareModuleButton
             icon="whatsapp"
             href={`whatsapp://send?${encodedUrl}`}

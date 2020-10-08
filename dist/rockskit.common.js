@@ -41,6 +41,7 @@ var reactNprogress = require('@tanem/react-nprogress');
 var reactTransitionGroup = require('react-transition-group');
 var MuiPagination = require('@material-ui/lab/Pagination');
 var PaginationItem = require('@material-ui/lab/PaginationItem');
+var useMediaQuery = require('@material-ui/core/useMediaQuery');
 var copy = require('copy-to-clipboard');
 var MuiTabs = require('@material-ui/core/Tabs');
 var MuiTab = require('@material-ui/core/Tab');
@@ -74,6 +75,7 @@ var DialogContent__default = /*#__PURE__*/_interopDefaultLegacy(DialogContent);
 var DialogTitle__default = /*#__PURE__*/_interopDefaultLegacy(DialogTitle);
 var MuiPagination__default = /*#__PURE__*/_interopDefaultLegacy(MuiPagination);
 var PaginationItem__default = /*#__PURE__*/_interopDefaultLegacy(PaginationItem);
+var useMediaQuery__default = /*#__PURE__*/_interopDefaultLegacy(useMediaQuery);
 var copy__default = /*#__PURE__*/_interopDefaultLegacy(copy);
 var MuiTabs__default = /*#__PURE__*/_interopDefaultLegacy(MuiTabs);
 var MuiTab__default = /*#__PURE__*/_interopDefaultLegacy(MuiTab);
@@ -6965,7 +6967,7 @@ SearchBar.propTypes = SearchBarPropTypes;
 SearchBar.defaultProps = SearchBarDefaultProps;
 
 function _templateObject$1a() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n\n  && {\n    background-color: ", ";\n    svg {\n      color: ", ";\n    }\n\n    :hover {\n      background-color: ", ";\n\n      svg {\n        color: ", ";\n      }\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n\n  && {\n    background-color: ", ";\n    margin-right: ", ";\n    svg {\n      color: ", ";\n    }\n\n    :hover {\n      background-color: ", ";\n\n      svg {\n        color: ", ";\n      }\n    }\n  }\n"]);
 
   _templateObject$1a = function _templateObject() {
     return data;
@@ -6978,20 +6980,23 @@ var Button$1 = styled__default['default'](ButtonBase)(_templateObject$1a(), func
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
   var theme = _ref2.theme;
-  return theme.palette.text.primary;
+  return theme.spacing(2);
 }, function (_ref3) {
   var theme = _ref3.theme;
-  return theme.palette.primary.light;
+  return theme.palette.text.primary;
 }, function (_ref4) {
   var theme = _ref4.theme;
+  return theme.palette.primary.light;
+}, function (_ref5) {
+  var theme = _ref5.theme;
   return theme.palette.primary.main;
 });
-var ShareModuleButton = function ShareModuleButton(_ref5) {
-  var buttonProps = _ref5.buttonProps,
-      href = _ref5.href,
-      icon = _ref5.icon,
-      iconPrefix = _ref5.iconPrefix,
-      onClick = _ref5.onClick;
+var ShareModuleButton = function ShareModuleButton(_ref6) {
+  var buttonProps = _ref6.buttonProps,
+      href = _ref6.href,
+      icon = _ref6.icon,
+      iconPrefix = _ref6.iconPrefix,
+      onClick = _ref6.onClick;
   return /*#__PURE__*/React__default['default'].createElement(Button$1, _extends({
     href: href,
     icon: icon,
@@ -7042,7 +7047,7 @@ function _templateObject3$k() {
 }
 
 function _templateObject2$z() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  margin-bottom: ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  flex-wrap: wrap;\n  align-items: center;\n  margin-bottom: ", ";\n"]);
 
   _templateObject2$z = function _templateObject2() {
     return data;
@@ -7090,6 +7095,7 @@ var ShareModule = function ShareModule(_ref3) {
       props = _objectWithoutPropertiesLoose(_ref3, ["buttonProps", "copyText", "shareOptions", "url"]);
 
   var theme = styled.useTheme();
+  var matches = useMediaQuery__default['default'](theme.breakpoints.down("md"));
   var encodedUrl = encodeURIComponent(url);
   return /*#__PURE__*/React__default['default'].createElement(Container$6, props, /*#__PURE__*/React__default['default'].createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "twitter",
@@ -7099,11 +7105,11 @@ var ShareModule = function ShareModule(_ref3) {
     icon: "facebook-f",
     href: "https://www.facebook.com/sharer.php?u=" + encodedUrl,
     buttonProps: buttonProps
-  }), shareOptions.includes("telegram") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
+  }), shareOptions.includes("telegram") && matches && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "telegram-plane",
     href: "tg://msg?text=" + encodedUrl,
     buttonProps: buttonProps
-  }), shareOptions.includes("whatsapp") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
+  }), shareOptions.includes("whatsapp") && matches && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "whatsapp",
     href: "whatsapp://send?" + encodedUrl,
     buttonProps: buttonProps
