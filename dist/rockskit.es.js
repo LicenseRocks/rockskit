@@ -22,8 +22,10 @@ import { FilePond as FilePond$1 } from 'react-filepond';
 import { useDropzone } from 'react-dropzone';
 import MuiSlider from '@material-ui/core/Slider';
 import axios from 'axios';
-import Select$1 from 'react-select';
 import AsyncSelect from 'react-select/async';
+import ReactSelect$1, { components } from 'react-select';
+import flatMap from 'lodash/flatMap';
+import makeAnimated from 'react-select/animated';
 import MuiContainer from '@material-ui/core/Container';
 import Hidden from '@material-ui/core/Hidden';
 import Drawer from '@material-ui/core/Drawer';
@@ -3876,6 +3878,123 @@ var RangeSlider = function RangeSlider(_ref) {
 RangeSlider.propTypes = RangeSliderPropTypes;
 RangeSlider.defaultProps = RangeSliderDefaultProps;
 
+var Option = function Option(props) {
+  var isSelected = props.isSelected,
+      label = props.label;
+  return /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(components.Option, props, /*#__PURE__*/React.createElement("input", {
+    type: "checkbox",
+    checked: isSelected,
+    onChange: function onChange() {
+      return null;
+    }
+  }), /*#__PURE__*/React.createElement("label", {
+    htmlFor: label
+  }, label)));
+};
+var allOption = {
+  label: "Select all",
+  value: "*"
+};
+var ValueContainer = function ValueContainer(_ref) {
+  var children = _ref.children,
+      props = _objectWithoutPropertiesLoose(_ref, ["children"]);
+
+  var getValue = props.getValue;
+  var currentValues = getValue();
+  var toBeRendered = children;
+
+  if (currentValues.some(function (val) {
+    return val.value === allOption.value;
+  })) {
+    toBeRendered = [[children[0][0]], children[1]];
+  }
+
+  return /*#__PURE__*/React.createElement(components.ValueContainer, props, toBeRendered);
+};
+var MultiValue = function MultiValue(props) {
+  var data = props.data;
+  var labelToBeDisplayed = data.label;
+
+  if (data.value === allOption.value) {
+    labelToBeDisplayed = "All is selected";
+  }
+
+  return /*#__PURE__*/React.createElement(components.MultiValue, props, /*#__PURE__*/React.createElement("span", null, labelToBeDisplayed));
+};
+var animatedComponents = makeAnimated();
+
+var CustomSelect = function CustomSelect(props) {
+  var allOption = props.allOption,
+      allowSelectAll = props.allowSelectAll,
+      isGrouped = props.isGrouped,
+      _onChange = props.onChange,
+      rawOpts = props.options; // Handle grouped options
+
+  var options = [];
+  if (isGrouped) options = flatMap(rawOpts, function (opt) {
+    return opt.options;
+  });else options = rawOpts;
+
+  if (allowSelectAll) {
+    return /*#__PURE__*/React.createElement(ReactSelect$1, _extends({}, props, {
+      components: {
+        Option: Option,
+        MultiValue: MultiValue,
+        ValueContainer: ValueContainer,
+        animatedComponents: animatedComponents
+      },
+      closeMenuOnSelect: false,
+      hideSelectedOptions: false,
+      isMulti: true,
+      options: [allOption].concat(rawOpts),
+      onChange: function onChange(selected, event) {
+        if (selected !== null && selected.length > 0) {
+          if (selected[selected.length - 1].value === allOption.value) {
+            return _onChange([allOption].concat(options));
+          }
+
+          var result = [];
+
+          if (selected.length === options.length) {
+            if (selected.includes(allOption)) {
+              result = selected.filter(function (option) {
+                return option.value !== allOption.value;
+              });
+            } else if (event.action === "select-option") {
+              result = [allOption].concat(options);
+            }
+
+            return _onChange(result);
+          }
+        }
+
+        return _onChange(selected);
+      }
+    }));
+  }
+
+  return /*#__PURE__*/React.createElement(ReactSelect$1, props);
+};
+CustomSelect.propTypes = {
+  allowSelectAll: PropTypes.bool,
+  allOption: PropTypes.shape({
+    label: PropTypes.string,
+    value: PropTypes.string
+  }),
+  isGrouped: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  value: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired
+};
+CustomSelect.defaultProps = {
+  allowSelectAll: false,
+  allOption: {
+    label: "Select all",
+    value: "*"
+  },
+  isGrouped: false
+};
+
 var ReactSelectPropTypes = _extends({
   async: PropTypes.bool,
   defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
@@ -3939,7 +4058,8 @@ var ReactSelectWrapper = styled.div(_templateObject$H(), function (_ref) {
   return DISPLAY(theme);
 });
 var ReactSelect = function ReactSelect(_ref12) {
-  var async = _ref12.async,
+  var allOption = _ref12.allOption,
+      async = _ref12.async,
       cacheOptions = _ref12.cacheOptions,
       control = _ref12.control,
       defaultOptions = _ref12.defaultOptions,
@@ -3952,7 +4072,7 @@ var ReactSelect = function ReactSelect(_ref12) {
       name = _ref12.name,
       options = _ref12.options,
       selectedOption = _ref12.selectedOption,
-      props = _objectWithoutPropertiesLoose(_ref12, ["async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "hasError", "loadOptions", "isRequired", "name", "options", "selectedOption"]);
+      props = _objectWithoutPropertiesLoose(_ref12, ["allOption", "async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "hasError", "loadOptions", "isRequired", "name", "options", "selectedOption"]);
 
   var loadOptionsfromEndpoint = function loadOptionsfromEndpoint(inputValue, callback) {
     axios.get("" + endpoint + (endpointQueryFlag ? "?" + endpointQueryFlag + "=" + inputValue : "")).then(function (_ref13) {
@@ -3969,7 +4089,7 @@ var ReactSelect = function ReactSelect(_ref12) {
       loadOptions: endpoint ? loadOptionsfromEndpoint : loadOptions,
       cacheOptions: cacheOptions,
       ref: ref
-    }, data)) : /*#__PURE__*/React.createElement(Select$1, _extends({
+    }, data)) : /*#__PURE__*/React.createElement(CustomSelect, _extends({
       ref: ref
     }, data));
   });

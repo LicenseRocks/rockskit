@@ -26,8 +26,10 @@ var reactFilepond = require('react-filepond');
 var reactDropzone = require('react-dropzone');
 var MuiSlider = require('@material-ui/core/Slider');
 var axios = require('axios');
-var Select$1 = require('react-select');
 var AsyncSelect = require('react-select/async');
+var ReactSelect$1 = require('react-select');
+var flatMap = require('lodash/flatMap');
+var makeAnimated = require('react-select/animated');
 var MuiContainer = require('@material-ui/core/Container');
 var Hidden = require('@material-ui/core/Hidden');
 var Drawer = require('@material-ui/core/Drawer');
@@ -62,8 +64,10 @@ var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
 var QRCode__default = /*#__PURE__*/_interopDefaultLegacy(QRCode);
 var MuiSlider__default = /*#__PURE__*/_interopDefaultLegacy(MuiSlider);
 var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
-var Select__default = /*#__PURE__*/_interopDefaultLegacy(Select$1);
 var AsyncSelect__default = /*#__PURE__*/_interopDefaultLegacy(AsyncSelect);
+var ReactSelect__default = /*#__PURE__*/_interopDefaultLegacy(ReactSelect$1);
+var flatMap__default = /*#__PURE__*/_interopDefaultLegacy(flatMap);
+var makeAnimated__default = /*#__PURE__*/_interopDefaultLegacy(makeAnimated);
 var MuiContainer__default = /*#__PURE__*/_interopDefaultLegacy(MuiContainer);
 var Hidden__default = /*#__PURE__*/_interopDefaultLegacy(Hidden);
 var Drawer__default = /*#__PURE__*/_interopDefaultLegacy(Drawer);
@@ -3914,6 +3918,123 @@ var RangeSlider = function RangeSlider(_ref) {
 RangeSlider.propTypes = RangeSliderPropTypes;
 RangeSlider.defaultProps = RangeSliderDefaultProps;
 
+var Option = function Option(props) {
+  var isSelected = props.isSelected,
+      label = props.label;
+  return /*#__PURE__*/React__default['default'].createElement("div", null, /*#__PURE__*/React__default['default'].createElement(ReactSelect$1.components.Option, props, /*#__PURE__*/React__default['default'].createElement("input", {
+    type: "checkbox",
+    checked: isSelected,
+    onChange: function onChange() {
+      return null;
+    }
+  }), /*#__PURE__*/React__default['default'].createElement("label", {
+    htmlFor: label
+  }, label)));
+};
+var allOption = {
+  label: "Select all",
+  value: "*"
+};
+var ValueContainer = function ValueContainer(_ref) {
+  var children = _ref.children,
+      props = _objectWithoutPropertiesLoose(_ref, ["children"]);
+
+  var getValue = props.getValue;
+  var currentValues = getValue();
+  var toBeRendered = children;
+
+  if (currentValues.some(function (val) {
+    return val.value === allOption.value;
+  })) {
+    toBeRendered = [[children[0][0]], children[1]];
+  }
+
+  return /*#__PURE__*/React__default['default'].createElement(ReactSelect$1.components.ValueContainer, props, toBeRendered);
+};
+var MultiValue = function MultiValue(props) {
+  var data = props.data;
+  var labelToBeDisplayed = data.label;
+
+  if (data.value === allOption.value) {
+    labelToBeDisplayed = "All is selected";
+  }
+
+  return /*#__PURE__*/React__default['default'].createElement(ReactSelect$1.components.MultiValue, props, /*#__PURE__*/React__default['default'].createElement("span", null, labelToBeDisplayed));
+};
+var animatedComponents = makeAnimated__default['default']();
+
+var CustomSelect = function CustomSelect(props) {
+  var allOption = props.allOption,
+      allowSelectAll = props.allowSelectAll,
+      isGrouped = props.isGrouped,
+      _onChange = props.onChange,
+      rawOpts = props.options; // Handle grouped options
+
+  var options = [];
+  if (isGrouped) options = flatMap__default['default'](rawOpts, function (opt) {
+    return opt.options;
+  });else options = rawOpts;
+
+  if (allowSelectAll) {
+    return /*#__PURE__*/React__default['default'].createElement(ReactSelect__default['default'], _extends({}, props, {
+      components: {
+        Option: Option,
+        MultiValue: MultiValue,
+        ValueContainer: ValueContainer,
+        animatedComponents: animatedComponents
+      },
+      closeMenuOnSelect: false,
+      hideSelectedOptions: false,
+      isMulti: true,
+      options: [allOption].concat(rawOpts),
+      onChange: function onChange(selected, event) {
+        if (selected !== null && selected.length > 0) {
+          if (selected[selected.length - 1].value === allOption.value) {
+            return _onChange([allOption].concat(options));
+          }
+
+          var result = [];
+
+          if (selected.length === options.length) {
+            if (selected.includes(allOption)) {
+              result = selected.filter(function (option) {
+                return option.value !== allOption.value;
+              });
+            } else if (event.action === "select-option") {
+              result = [allOption].concat(options);
+            }
+
+            return _onChange(result);
+          }
+        }
+
+        return _onChange(selected);
+      }
+    }));
+  }
+
+  return /*#__PURE__*/React__default['default'].createElement(ReactSelect__default['default'], props);
+};
+CustomSelect.propTypes = {
+  allowSelectAll: PropTypes__default['default'].bool,
+  allOption: PropTypes__default['default'].shape({
+    label: PropTypes__default['default'].string,
+    value: PropTypes__default['default'].string
+  }),
+  isGrouped: PropTypes__default['default'].bool,
+  onChange: PropTypes__default['default'].func.isRequired,
+  options: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({})).isRequired,
+  value: PropTypes__default['default'].oneOfType([PropTypes__default['default'].array, PropTypes__default['default'].object]).isRequired
+};
+CustomSelect.defaultProps = {
+  allowSelectAll: false,
+  allOption: {
+    label: "Select all",
+    value: "*"
+  },
+  isGrouped: false
+};
+
 var ReactSelectPropTypes = _extends({
   async: PropTypes__default['default'].bool,
   defaultValue: PropTypes__default['default'].oneOfType([PropTypes__default['default'].array, PropTypes__default['default'].object]),
@@ -3977,7 +4098,8 @@ var ReactSelectWrapper = styled__default['default'].div(_templateObject$H(), fun
   return DISPLAY(theme);
 });
 var ReactSelect = function ReactSelect(_ref12) {
-  var async = _ref12.async,
+  var allOption = _ref12.allOption,
+      async = _ref12.async,
       cacheOptions = _ref12.cacheOptions,
       control = _ref12.control,
       defaultOptions = _ref12.defaultOptions,
@@ -3990,7 +4112,7 @@ var ReactSelect = function ReactSelect(_ref12) {
       name = _ref12.name,
       options = _ref12.options,
       selectedOption = _ref12.selectedOption,
-      props = _objectWithoutPropertiesLoose(_ref12, ["async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "hasError", "loadOptions", "isRequired", "name", "options", "selectedOption"]);
+      props = _objectWithoutPropertiesLoose(_ref12, ["allOption", "async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "hasError", "loadOptions", "isRequired", "name", "options", "selectedOption"]);
 
   var loadOptionsfromEndpoint = function loadOptionsfromEndpoint(inputValue, callback) {
     axios__default['default'].get("" + endpoint + (endpointQueryFlag ? "?" + endpointQueryFlag + "=" + inputValue : "")).then(function (_ref13) {
@@ -4007,7 +4129,7 @@ var ReactSelect = function ReactSelect(_ref12) {
       loadOptions: endpoint ? loadOptionsfromEndpoint : loadOptions,
       cacheOptions: cacheOptions,
       ref: ref
-    }, data)) : /*#__PURE__*/React__default['default'].createElement(Select__default['default'], _extends({
+    }, data)) : /*#__PURE__*/React__default['default'].createElement(CustomSelect, _extends({
       ref: ref
     }, data));
   });
