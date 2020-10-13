@@ -22,6 +22,24 @@ const OPTIONS = [
   { value: "silver", label: "Silver" },
 ];
 
+const OPTIONS2 = [
+  { value: "vanilla", label: "Vanilla", rating: "safe" },
+  { value: "chocolate", label: "Chocolate", rating: "good" },
+  { value: "strawberry", label: "Strawberry", rating: "wild" },
+  { value: "salted-caramel", label: "Salted Caramel", rating: "crazy" },
+];
+
+const groupedOptions = [
+  {
+    label: "Colours",
+    options: OPTIONS,
+  },
+  {
+    label: "Flavours",
+    options: OPTIONS2,
+  },
+];
+
 export default {
   title: "Form/ReactSelect",
   component: ReactSelect,
@@ -35,6 +53,7 @@ export const main = (props = {}) => {
     control,
     errors,
     hasError: boolean("Has error", false),
+    isMulti: boolean("isMulti", false),
     isClearable: true,
     name: "reactSelect",
     options: OPTIONS,
@@ -77,4 +96,25 @@ export const async = (props = {}) => {
       <Button content="Submit" mt={8} type="submit" />
     </form>
   );
+};
+
+export const withSelectAll = (props = {}) => {
+  const { control, errors, watch } = useForm();
+
+  const defaultProps = {
+    allowSelectAll: true,
+    control,
+    errors,
+    hasError: boolean("Has error", false),
+    isClearable: true,
+    isGrouped: true,
+    name: "reactSelect",
+    options: groupedOptions,
+    ...props,
+  };
+
+  const values = watch();
+  console.log("values: ", values);
+
+  return <ReactSelect {...defaultProps} />;
 };

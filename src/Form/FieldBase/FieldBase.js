@@ -76,30 +76,44 @@ export const FieldBase = ({
   endIconPrefix,
   fixedHeight,
   hasError,
+  hasWrapper,
   register,
   startIcon,
   startIconColor,
   startIconOnClick,
   startIconPrefix,
   ...props
-}) => (
-  <FieldWrapper
-    block={block}
-    className={className}
-    endIcon={endIcon}
-    endIconColor={endIconColor}
-    endIconOnClick={endIconOnClick}
-    endIconPrefix={endIconPrefix}
-    fixedHeight={fixedHeight}
-    hasError={hasError}
-    startIcon={startIcon}
-    startIconColor={startIconColor}
-    startIconOnClick={startIconOnClick}
-    startIconPrefix={startIconPrefix}
-  >
-    <StyledInput block={block} hasError={hasError} ref={register} {...props} />
-  </FieldWrapper>
-);
+}) => {
+  const input = () => (
+    <StyledInput
+      block={block}
+      className={hasWrapper ? "" : className}
+      hasError={hasError}
+      ref={register}
+      {...props}
+    />
+  );
+  if (!hasWrapper) return input();
+
+  return (
+    <FieldWrapper
+      block={block}
+      className={className}
+      endIcon={endIcon}
+      endIconColor={endIconColor}
+      endIconOnClick={endIconOnClick}
+      endIconPrefix={endIconPrefix}
+      fixedHeight={fixedHeight}
+      hasError={hasError}
+      startIcon={startIcon}
+      startIconColor={startIconColor}
+      startIconOnClick={startIconOnClick}
+      startIconPrefix={startIconPrefix}
+    >
+      {input()}
+    </FieldWrapper>
+  );
+};
 
 FieldBase.propTypes = FieldBasePropTypes;
 

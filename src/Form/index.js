@@ -8,6 +8,7 @@ export * from "./FilePond";
 export * from "./FileUpload";
 export * from "./Input";
 export * from "./Label";
+export * from "./Price";
 export * from "./Radio";
 export * from "./RadioBase/RadioBase";
 export * from "./RangeSlider";

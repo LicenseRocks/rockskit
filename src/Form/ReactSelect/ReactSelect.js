@@ -6,10 +6,10 @@ import React, { forwardRef } from "react";
 import axios from "axios";
 import styled, { css } from "styled-components";
 import { Controller } from "react-hook-form";
-import Select from "react-select";
 import AsyncSelect from "react-select/async";
 
 // Components
+import { CustomSelect } from "./CustomSelect";
 import { ReactSelectDefaultProps, ReactSelectPropTypes } from "./props";
 import { DISPLAY, SPACER } from "../../theme";
 
@@ -107,7 +107,7 @@ export const ReactSelect = ({
         {...data}
       />
     ) : (
-      <Select ref={ref} {...data} />
+      <CustomSelect ref={ref} {...data} />
     );
   });
 
