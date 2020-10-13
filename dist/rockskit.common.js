@@ -4098,8 +4098,7 @@ var ReactSelectWrapper = styled__default['default'].div(_templateObject$H(), fun
   return DISPLAY(theme);
 });
 var ReactSelect = function ReactSelect(_ref12) {
-  var allOption = _ref12.allOption,
-      async = _ref12.async,
+  var async = _ref12.async,
       cacheOptions = _ref12.cacheOptions,
       control = _ref12.control,
       defaultOptions = _ref12.defaultOptions,
@@ -4112,7 +4111,7 @@ var ReactSelect = function ReactSelect(_ref12) {
       name = _ref12.name,
       options = _ref12.options,
       selectedOption = _ref12.selectedOption,
-      props = _objectWithoutPropertiesLoose(_ref12, ["allOption", "async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "hasError", "loadOptions", "isRequired", "name", "options", "selectedOption"]);
+      props = _objectWithoutPropertiesLoose(_ref12, ["async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "hasError", "loadOptions", "isRequired", "name", "options", "selectedOption"]);
 
   var loadOptionsfromEndpoint = function loadOptionsfromEndpoint(inputValue, callback) {
     axios__default['default'].get("" + endpoint + (endpointQueryFlag ? "?" + endpointQueryFlag + "=" + inputValue : "")).then(function (_ref13) {

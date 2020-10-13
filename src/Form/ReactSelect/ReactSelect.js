@@ -68,7 +68,6 @@ const ReactSelectWrapper = styled.div`
 `;
 
 export const ReactSelect = ({
-  allOption,
   async,
   cacheOptions,
   control,
