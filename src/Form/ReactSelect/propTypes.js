@@ -1,4 +1,13 @@
-import { array, bool, func, string, number, object, oneOf, oneOfType } from 'prop-types'
+import {
+  array,
+  bool,
+  func,
+  string,
+  number,
+  object,
+  oneOf,
+  oneOfType,
+} from "prop-types";
 
 export const reactSelectPropTypes = {
   // Whether select is async or not
@@ -90,10 +99,10 @@ export const reactSelectPropTypes = {
 
   // Default placement of the menu in relation to the control. 'auto' will flip when there isn't
   // enough space below the control.
-  menuPlacement: oneOf(['auto', 'bottom', 'top']),
+  menuPlacement: oneOf(["auto", "bottom", "top"]),
 
   // The CSS position value of the menu, when "fixed" extra layout management is required
-  menuPosition: oneOf(['absolute', 'fixed']),
+  menuPosition: oneOf(["absolute", "fixed"]),
 
   // Whether to block scroll events when the menu is open
   menuShouldBlockScroll: bool,
@@ -150,5 +159,5 @@ export const reactSelectPropTypes = {
   tabIndex: string,
 
   // Select the currently focused option when the user presses tab
-  tabSelectsValue: bool
-}
+  tabSelectsValue: bool,
+};
