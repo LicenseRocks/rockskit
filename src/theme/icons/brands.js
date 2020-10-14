@@ -1,5 +1,4 @@
 import {
-  faAdobe as fabAdobe,
   faFacebookF as fabFacebookF,
   faTelegramPlane as fabTelegramPlane,
   faTwitter as fabTwitter,
@@ -8,7 +7,6 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 export const FreeBrandIconSet = {
-  fabAdobe,
   fabFacebookF,
   fabTelegramPlane,
   fabTwitter,
