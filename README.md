@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://raw.githubusercontent.com/LicenseRocks/rockskit/master/logo.jpg">
+  <img src="https://license.rocks/wp-content/uploads/2020/08/logo-horizontal.png" width="250">
 </p>
 
 <h1 align="center">RocksKit</h1>
