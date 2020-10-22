@@ -2548,7 +2548,7 @@ function _templateObject2$7() {
 }
 
 function _templateObject$p() {
-  var data = _taggedTemplateLiteralLoose(["\n  border-radius: 24px;\n\n  ", "\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  .MuiMenu-paper {\n    border-radius: 16px;\n    background-color: ", ";\n  }\n\n  ", "\n  ", "\n"]);
 
   _templateObject$p = function _templateObject() {
     return data;
@@ -2556,21 +2556,24 @@ function _templateObject$p() {
 
   return data;
 }
-var StyledDropdown = styled(Menu)(_templateObject$p(), function (theme) {
+var StyledDropdown = styled(Menu)(_templateObject$p(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.common.white;
+}, function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
 var StyledItem = styled(MenuItem)(_templateObject2$7());
-var Dropdown = function Dropdown(_ref) {
-  var items = _ref.items,
-      props = _objectWithoutPropertiesLoose(_ref, ["items"]);
+var Dropdown = function Dropdown(_ref2) {
+  var items = _ref2.items,
+      props = _objectWithoutPropertiesLoose(_ref2, ["items"]);
 
-  return /*#__PURE__*/React.createElement(StyledDropdown, props, items.map(function (_ref2) {
-    var label = _ref2.label,
-        _onClick = _ref2.onClick,
-        value = _ref2.value,
-        itemProps = _objectWithoutPropertiesLoose(_ref2, ["label", "onClick", "value"]);
+  return /*#__PURE__*/React.createElement(StyledDropdown, props, items.map(function (_ref3) {
+    var label = _ref3.label,
+        _onClick = _ref3.onClick,
+        value = _ref3.value,
+        itemProps = _objectWithoutPropertiesLoose(_ref3, ["label", "onClick", "value"]);
 
     return /*#__PURE__*/React.createElement(StyledItem, _extends({
       key: label,
