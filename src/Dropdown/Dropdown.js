@@ -7,7 +7,10 @@ import { DISPLAY, SPACER } from "../theme";
 import { DropdownDefaultProps, DropdownPropTypes } from "./props";
 
 const StyledDropdown = styled(Menu)`
-  border-radius: 24px;
+  .MuiMenu-paper {
+    border-radius: 16px;
+    background-color: ${({ theme }) => theme.palette.common.white};
+  }
 
   ${(theme) => SPACER(theme)}
   ${(theme) => DISPLAY(theme)}
