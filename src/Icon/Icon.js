@@ -20,6 +20,16 @@ const Rounded = styled.div`
   box-sizing: border-box;
   position: relative;
 
+  ${({ onClick }) =>
+    onClick &&
+    css`
+      cursor: pointer;
+      transition: all 0.1s ease-in-out;
+      :hover {
+        opacity: 0.7;
+      }
+    `}
+
   ${(theme) => COLOR(theme)}
   ${(theme) => DISPLAY(theme)}
   ${(theme) => SPACER(theme)}
@@ -39,6 +49,16 @@ const Squared = styled.div`
   border-radius: 8px;
   box-sizing: border-box;
   position: relative;
+
+  ${({ onClick }) =>
+    onClick &&
+    css`
+      cursor: pointer;
+      transition: all 0.1s ease-in-out;
+      :hover {
+        opacity: 0.7;
+      }
+    `}
 
   ${(theme) => COLOR(theme)}
   ${(theme) => DISPLAY(theme)}
@@ -77,6 +97,7 @@ const StyledIcon = styled(({ icon, prefix, size, ...props }) => (
 export const Icon = ({
   className,
   color,
+  onClick,
   rounded,
   squared,
   prefix,
@@ -99,11 +120,11 @@ export const Icon = ({
   if (squared) Wrapper = Squared;
 
   return Wrapper ? (
-    <Wrapper className={className} color={color} {...props}>
+    <Wrapper className={className} color={color} onClick={onClick} {...props}>
       <StyledIcon {...defaultProps} />
     </Wrapper>
   ) : (
-    <StyledIcon className={className} {...defaultProps} />
+    <StyledIcon className={className} onClick={onClick} {...defaultProps} />
   );
 };
 
