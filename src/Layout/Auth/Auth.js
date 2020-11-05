@@ -18,6 +18,7 @@ const Content = styled.div`
 `;
 
 export const AuthLayout = ({
+  children,
   content,
   headerLeft,
   headerBackButtonOnClick,
@@ -27,26 +28,23 @@ export const AuthLayout = ({
   headerRenderLogo,
   loading,
   ...props
-}) => {
-  if (loading) return <PageLoading />;
+}) => (
+  <StyledContainer {...props}>
+    {loading && <PageLoading />}
+    <Flex container direction="column" mAuto h100 wrap="nowrap">
+      <AuthLayoutHeader
+        backButtonOnClick={headerBackButtonOnClick}
+        headerLeft={headerLeft}
+        headerRight={headerRight}
+        logoAction={headerLogoAction}
+        logoSrc={headerLogoSrc}
+        renderLogo={headerRenderLogo}
+      />
 
-  return (
-    <StyledContainer {...props}>
-      <Flex container direction="column" mAuto h100 wrap="nowrap">
-        <AuthLayoutHeader
-          backButtonOnClick={headerBackButtonOnClick}
-          headerLeft={headerLeft}
-          headerRight={headerRight}
-          logoAction={headerLogoAction}
-          logoSrc={headerLogoSrc}
-          renderLogo={headerRenderLogo}
-        />
-
-        <Content>{content}</Content>
-      </Flex>
-    </StyledContainer>
-  );
-};
+      <Content>{children || content}</Content>
+    </Flex>
+  </StyledContainer>
+);
 
 AuthLayout.propTypes = AuthLayoutPropTypes;
 

@@ -9,8 +9,10 @@ const StyledLoading = styled.div`
   top: 0;
   right: 0;
   left: 0;
-  width: ${({ type }) => (type === "page" ? "100vw" : "100%")};
-  height: ${({ type }) => (type === "page" ? "100vh" : "100%")};
+  min-width: ${({ type }) => (type === "page" ? "100vw" : "100%")};
+  min-height: ${({ type }) => (type === "page" ? "100vh" : "100%")};
+  width: 100%;
+  height: 100%;
   background-color: ${({ theme, type }) =>
     type === "page" ? theme.palette.common.white : "rgba(0, 0, 0, 0.3)"};
   display: flex;

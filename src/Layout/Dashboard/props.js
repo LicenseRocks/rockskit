@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
 export const DashboardLayoutPropTypes = {
+  children: PropTypes.node.isRequired,
   content: PropTypes.node.isRequired,
   headerBackButtonOnClick: PropTypes.func,
   headerLeft: PropTypes.node,

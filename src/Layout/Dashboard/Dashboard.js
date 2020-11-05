@@ -58,6 +58,7 @@ const poweredBy = (
 );
 
 export const DashboardLayout = ({
+  children,
   content,
   footerContent,
   headerLeft,
@@ -72,58 +73,49 @@ export const DashboardLayout = ({
   userMenuItems,
   userMenuOnClick,
   ...props
-}) => {
-  if (loading) return <PageLoading />;
+}) => (
+  <StyledContainer {...props}>
+    {loading && <PageLoading />}
+    <Flex
+      container
+      direction="column"
+      alignItems="flex-start"
+      justify="flex-start"
+      xs={12}
+      h100
+      wrap="nowrap"
+    >
+      <DashboardLayoutHeader
+        backButtonOnClick={headerBackButtonOnClick}
+        headerLeft={headerLeft}
+        headerRight={headerRight}
+        logoAction={headerLogoAction}
+        logoSrc={headerLogoSrc}
+        renderLogo={headerRenderLogo}
+      />
 
-  return (
-    <StyledContainer {...props}>
-      <Flex
-        container
-        direction="column"
-        alignItems="flex-start"
-        justify="flex-start"
-        xs={12}
-        h100
-        wrap="nowrap"
-      >
-        <DashboardLayoutHeader
-          backButtonOnClick={headerBackButtonOnClick}
-          headerLeft={headerLeft}
-          headerRight={headerRight}
-          logoAction={headerLogoAction}
-          logoSrc={headerLogoSrc}
-          renderLogo={headerRenderLogo}
-        />
+      <Flex item container alignItems="flex-start" justify="flex-start" xs={12}>
+        <NavigationContainer>
+          <DashboardLayoutNavigation
+            navigationItems={navigationItems}
+            userMenuItems={userMenuItems}
+            userMenuOnClick={userMenuOnClick}
+          />
+        </NavigationContainer>
 
-        <Flex
-          item
-          container
-          alignItems="flex-start"
-          justify="flex-start"
-          xs={12}
-        >
-          <NavigationContainer>
-            <DashboardLayoutNavigation
-              navigationItems={navigationItems}
-              userMenuItems={userMenuItems}
-              userMenuOnClick={userMenuOnClick}
-            />
-          </NavigationContainer>
-
-          <Flex item md={8} xs={12}>
-            <Content>{content}</Content>
-          </Flex>
-
-          <SidebarContainer>{sidebar}</SidebarContainer>
+        <Flex item md={8} xs={12}>
+          <Content>{children || content}</Content>
         </Flex>
 
-        <Flex container item xs={12}>
-          <DashboardLayoutFooter content={footerContent || poweredBy} />
-        </Flex>
+        <SidebarContainer>{sidebar}</SidebarContainer>
       </Flex>
-    </StyledContainer>
-  );
-};
+
+      <Flex container item xs={12}>
+        <DashboardLayoutFooter content={footerContent || poweredBy} />
+      </Flex>
+    </Flex>
+  </StyledContainer>
+);
 
 DashboardLayout.propTypes = DashboardLayoutPropTypes;
 

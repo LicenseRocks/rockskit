@@ -47,6 +47,7 @@ export const ShareModule = ({
   const theme = useTheme();
   const matches = useMediaQuery(theme.breakpoints.down("md"));
   const encodedUrl = encodeURIComponent(url);
+  const canUseNavigator = typeof window !== "undefined" && navigator?.share;
 
   return (
     <Container {...props}>
@@ -92,7 +93,7 @@ export const ShareModule = ({
           />
         )}
 
-        {shareOptions.includes("navigator") && navigator?.share && (
+        {shareOptions.includes("navigator") && canUseNavigator && (
           <ShareModuleButton
             icon="ellipsis-h"
             iconPrefix={theme.defaultIconSet}

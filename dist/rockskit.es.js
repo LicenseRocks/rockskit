@@ -4992,6 +4992,7 @@ AuthLayoutHeader.propTypes = AuthLayoutHeaderPropTypes;
 AuthLayoutHeader.defaultProps = AuthLayoutHeaderDefaultProps;
 
 var AuthLayoutPropTypes = {
+  children: PropTypes.node.isRequired,
   content: PropTypes.node.isRequired,
   headerBackButtonOnClick: PropTypes.func,
   headerLeft: PropTypes.node,
@@ -5031,7 +5032,8 @@ var Content$3 = styled.div(_templateObject2$i(), function (_ref) {
   return theme.spacing(10, 0);
 });
 var AuthLayout = function AuthLayout(_ref2) {
-  var content = _ref2.content,
+  var children = _ref2.children,
+      content = _ref2.content,
       headerLeft = _ref2.headerLeft,
       headerBackButtonOnClick = _ref2.headerBackButtonOnClick,
       headerLogoAction = _ref2.headerLogoAction,
@@ -5039,10 +5041,9 @@ var AuthLayout = function AuthLayout(_ref2) {
       headerRight = _ref2.headerRight,
       headerRenderLogo = _ref2.headerRenderLogo,
       loading = _ref2.loading,
-      props = _objectWithoutPropertiesLoose(_ref2, ["content", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "loading"]);
+      props = _objectWithoutPropertiesLoose(_ref2, ["children", "content", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "loading"]);
 
-  if (loading) return /*#__PURE__*/React.createElement(PageLoading, null);
-  return /*#__PURE__*/React.createElement(StyledContainer$1, props, /*#__PURE__*/React.createElement(Flex, {
+  return /*#__PURE__*/React.createElement(StyledContainer$1, props, loading && /*#__PURE__*/React.createElement(PageLoading, null), /*#__PURE__*/React.createElement(Flex, {
     container: true,
     direction: "column",
     mAuto: true,
@@ -5055,7 +5056,7 @@ var AuthLayout = function AuthLayout(_ref2) {
     logoAction: headerLogoAction,
     logoSrc: headerLogoSrc,
     renderLogo: headerRenderLogo
-  }), /*#__PURE__*/React.createElement(Content$3, null, content)));
+  }), /*#__PURE__*/React.createElement(Content$3, null, children || content)));
 };
 AuthLayout.propTypes = AuthLayoutPropTypes;
 AuthLayout.defaultProps = {};
@@ -5693,6 +5694,7 @@ DashboardLayoutHeader.propTypes = DashboardLayoutHeaderPropTypes;
 DashboardLayoutHeader.defaultProps = DashboardLayoutHeaderDefaultProps;
 
 var DashboardLayoutPropTypes = {
+  children: PropTypes.node.isRequired,
   content: PropTypes.node.isRequired,
   headerBackButtonOnClick: PropTypes.func,
   headerLeft: PropTypes.node,
@@ -6125,7 +6127,8 @@ var poweredBy = /*#__PURE__*/React.createElement(Text, {
   dInline: true
 }, " ", "license.rocks"));
 var DashboardLayout = function DashboardLayout(_ref6) {
-  var content = _ref6.content,
+  var children = _ref6.children,
+      content = _ref6.content,
       footerContent = _ref6.footerContent,
       headerLeft = _ref6.headerLeft,
       headerBackButtonOnClick = _ref6.headerBackButtonOnClick,
@@ -6138,10 +6141,9 @@ var DashboardLayout = function DashboardLayout(_ref6) {
       sidebar = _ref6.sidebar,
       userMenuItems = _ref6.userMenuItems,
       userMenuOnClick = _ref6.userMenuOnClick,
-      props = _objectWithoutPropertiesLoose(_ref6, ["content", "footerContent", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "navigationItems", "loading", "sidebar", "userMenuItems", "userMenuOnClick"]);
+      props = _objectWithoutPropertiesLoose(_ref6, ["children", "content", "footerContent", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "navigationItems", "loading", "sidebar", "userMenuItems", "userMenuOnClick"]);
 
-  if (loading) return /*#__PURE__*/React.createElement(PageLoading, null);
-  return /*#__PURE__*/React.createElement(StyledContainer$3, props, /*#__PURE__*/React.createElement(Flex, {
+  return /*#__PURE__*/React.createElement(StyledContainer$3, props, loading && /*#__PURE__*/React.createElement(PageLoading, null), /*#__PURE__*/React.createElement(Flex, {
     container: true,
     direction: "column",
     alignItems: "flex-start",
@@ -6170,7 +6172,7 @@ var DashboardLayout = function DashboardLayout(_ref6) {
     item: true,
     md: 8,
     xs: 12
-  }, /*#__PURE__*/React.createElement(Content$6, null, content)), /*#__PURE__*/React.createElement(SidebarContainer, null, sidebar)), /*#__PURE__*/React.createElement(Flex, {
+  }, /*#__PURE__*/React.createElement(Content$6, null, children || content)), /*#__PURE__*/React.createElement(SidebarContainer, null, sidebar)), /*#__PURE__*/React.createElement(Flex, {
     container: true,
     item: true,
     xs: 12
@@ -7153,7 +7155,7 @@ var PageLoadingDefaultProps = {
 };
 
 function _templateObject$1c() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  width: ", ";\n  height: ", ";\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  min-width: ", ";\n  min-height: ", ";\n  width: 100%;\n  height: 100%;\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n"]);
 
   _templateObject$1c = function _templateObject() {
     return data;
@@ -7795,6 +7797,7 @@ var ShareModule = function ShareModule(_ref3) {
   var theme = useTheme();
   var matches = useMediaQuery(theme.breakpoints.down("md"));
   var encodedUrl = encodeURIComponent(url);
+  var canUseNavigator = typeof window !== "undefined" && ((_navigator = navigator) == null ? void 0 : _navigator.share);
   return /*#__PURE__*/React.createElement(Container$7, props, /*#__PURE__*/React.createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "twitter",
     href: "https://twitter.com/intent/tweet?url=" + encodedUrl,
@@ -7816,7 +7819,7 @@ var ShareModule = function ShareModule(_ref3) {
     iconPrefix: theme.defaultIconSet,
     href: "mailto:?body=" + encodedUrl,
     buttonProps: buttonProps
-  }), shareOptions.includes("navigator") && ((_navigator = navigator) == null ? void 0 : _navigator.share) && /*#__PURE__*/React.createElement(ShareModuleButton, {
+  }), shareOptions.includes("navigator") && canUseNavigator && /*#__PURE__*/React.createElement(ShareModuleButton, {
     icon: "ellipsis-h",
     iconPrefix: theme.defaultIconSet,
     onClick: function onClick() {
