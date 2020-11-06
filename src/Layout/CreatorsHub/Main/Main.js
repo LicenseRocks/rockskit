@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 import MuiContainer from "@material-ui/core/Container";
 
 import { Flex } from "../../..";
-import { CreatorsHubHeader } from "../Common";
+import { CreatorsHubHeader, CreatorsHubFooter } from "../Common";
 import {
   CreatorsHubMainLayoutPropTypes,
   CreatorsHubMainLayoutDefaultProps,
@@ -30,15 +30,10 @@ const Content = styled(Flex).attrs(() => ({
   padding: ${({ theme }) => theme.spacing(12, 0)};
 `;
 
-const Footer = styled.div`
-  height: 70px;
-  width: 100%;
-  text-align: center;
-`;
-
 export const CreatorsHubMainLayout = ({
   children,
   footer,
+  footerProps,
   headerProps,
   sidebar,
 }) => {
@@ -63,10 +58,16 @@ export const CreatorsHubMainLayout = ({
               </Flex>
             )}
           </Content>
-
-          {footer && <Footer>{footer}</Footer>}
         </Container>
       </FluidContainer>
+
+      {footer && (
+        <FluidContainer white>
+          <Container>
+            <CreatorsHubFooter {...footerProps} />
+          </Container>
+        </FluidContainer>
+      )}
     </>
   );
 };

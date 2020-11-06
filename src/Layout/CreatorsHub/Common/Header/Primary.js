@@ -69,6 +69,11 @@ const PrimaryListItem = styled.li`
   :not(:first-child) {
     margin-left: ${({ theme }) => theme.spacing(6)};
   }
+
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.palette.text.primary};
+  }
 `;
 
 export const PrimaryHeader = ({

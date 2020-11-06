@@ -13,7 +13,28 @@ export default {
 
 export const main = () => {
   const defaultProps = {
-    footer: "Footer content",
+    footer: true,
+    footerProps: {
+      navCols: [
+        {
+          title: "Company",
+          items: [
+            {
+              key: "product",
+              render: () => "Product",
+            },
+            {
+              key: "service",
+              render: () => "Service",
+            },
+            {
+              key: "about",
+              render: () => "About",
+            },
+          ],
+        },
+      ],
+    },
     headerProps: {
       primaryNavItems: [
         {

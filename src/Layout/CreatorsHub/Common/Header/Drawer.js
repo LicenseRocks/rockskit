@@ -44,10 +44,21 @@ const ListItem = styled.li`
     margin-bottom: ${({ theme }) => theme.spacing(4)};
   }
 
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.palette.text.secondary};
+  }
+
   ${({ active }) =>
     active &&
     css`
       color: ${({ theme }) => theme.palette.text.primary};
+
+      a {
+        text-decoration: none;
+        color: ${({ theme }) => theme.palette.text.primary};
+      }
+
       ::before {
         content: "";
         position: absolute;

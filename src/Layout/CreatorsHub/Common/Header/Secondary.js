@@ -41,10 +41,21 @@ const SecondaryListItem = styled.li`
     margin-right: ${({ theme }) => theme.spacing(8)};
   }
 
+  a {
+    text-decoration: none;
+    color: ${({ theme }) => theme.palette.text.secondary};
+  }
+
   ${({ active }) =>
     active &&
     css`
       color: ${({ theme }) => theme.palette.text.primary};
+
+      a {
+        text-decoration: none;
+        color: ${({ theme }) => theme.palette.text.primary};
+      }
+
       ::before {
         content: "";
         position: absolute;
@@ -59,10 +70,10 @@ const SecondaryListItem = styled.li`
 `;
 
 const SecondaryRight = styled.div`
+  display: flex;
+  align-items: center;
   ${({ theme }) => theme.breakpoints.down("sm")} {
     flex: 1;
-    display: flex;
-    align-items: center;
     justify-content: space-between;
   }
 `;
