@@ -5744,11 +5744,11 @@ var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref4) {
   return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, null), /*#__PURE__*/React__default['default'].createElement(FluidContainer, {
     white: true
   }, /*#__PURE__*/React__default['default'].createElement(Container$5, null, /*#__PURE__*/React__default['default'].createElement(CreatorsHubHeader, headerProps))), /*#__PURE__*/React__default['default'].createElement(FluidContainer, null, /*#__PURE__*/React__default['default'].createElement(Container$5, null, /*#__PURE__*/React__default['default'].createElement(Content$5, {
-    spacing: 8
+    spacing: sidebar ? 8 : false
   }, /*#__PURE__*/React__default['default'].createElement(Flex, {
     item: true,
     xs: 12,
-    md: !sidebar ? 12 : 10
+    md: sidebar ? 10 : 12
   }, children), sidebar && /*#__PURE__*/React__default['default'].createElement(Flex, {
     item: true,
     xs: 12,

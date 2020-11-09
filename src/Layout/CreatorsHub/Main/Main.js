@@ -51,8 +51,8 @@ export const CreatorsHubMainLayout = ({
 
       <FluidContainer>
         <Container>
-          <Content spacing={8}>
-            <Flex item xs={12} md={!sidebar ? 12 : 10}>
+          <Content spacing={sidebar ? 8 : false}>
+            <Flex item xs={12} md={sidebar ? 10 : 12}>
               {children}
             </Flex>
 
