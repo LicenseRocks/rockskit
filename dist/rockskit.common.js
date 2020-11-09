@@ -18,8 +18,10 @@ var notistack = require('notistack');
 var Typography = require('@material-ui/core/Typography');
 var RCL = require('react-content-loader');
 var reactCollapse = require('react-collapse');
+var Dialog = require('@material-ui/core/Dialog');
 var Menu = require('@material-ui/core/Menu');
 var MenuItem = require('@material-ui/core/MenuItem');
+var useMediaQuery = require('@material-ui/core/useMediaQuery');
 var QRCode = require('qrcode.react');
 var reactHookForm = require('react-hook-form');
 var reactFilepond = require('react-filepond');
@@ -35,7 +37,6 @@ var Hidden = require('@material-ui/core/Hidden');
 var Drawer = require('@material-ui/core/Drawer');
 var Fab = require('@material-ui/core/Fab');
 var CircularProgress = require('@material-ui/core/CircularProgress');
-var Dialog = require('@material-ui/core/Dialog');
 var DialogActions = require('@material-ui/core/DialogActions');
 var DialogContent = require('@material-ui/core/DialogContent');
 var DialogTitle = require('@material-ui/core/DialogTitle');
@@ -43,7 +44,6 @@ var reactNprogress = require('@tanem/react-nprogress');
 var reactTransitionGroup = require('react-transition-group');
 var MuiPagination = require('@material-ui/lab/Pagination');
 var PaginationItem = require('@material-ui/lab/PaginationItem');
-var useMediaQuery = require('@material-ui/core/useMediaQuery');
 var copy = require('copy-to-clipboard');
 var MuiTabs = require('@material-ui/core/Tabs');
 var MuiTab = require('@material-ui/core/Tab');
@@ -59,8 +59,10 @@ var MuiButtonBase__default = /*#__PURE__*/_interopDefaultLegacy(MuiButtonBase);
 var CssBaseline__default = /*#__PURE__*/_interopDefaultLegacy(CssBaseline);
 var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography);
 var RCL__default = /*#__PURE__*/_interopDefaultLegacy(RCL);
+var Dialog__default = /*#__PURE__*/_interopDefaultLegacy(Dialog);
 var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu);
 var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
+var useMediaQuery__default = /*#__PURE__*/_interopDefaultLegacy(useMediaQuery);
 var QRCode__default = /*#__PURE__*/_interopDefaultLegacy(QRCode);
 var MuiSlider__default = /*#__PURE__*/_interopDefaultLegacy(MuiSlider);
 var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
@@ -73,13 +75,11 @@ var Hidden__default = /*#__PURE__*/_interopDefaultLegacy(Hidden);
 var Drawer__default = /*#__PURE__*/_interopDefaultLegacy(Drawer);
 var Fab__default = /*#__PURE__*/_interopDefaultLegacy(Fab);
 var CircularProgress__default = /*#__PURE__*/_interopDefaultLegacy(CircularProgress);
-var Dialog__default = /*#__PURE__*/_interopDefaultLegacy(Dialog);
 var DialogActions__default = /*#__PURE__*/_interopDefaultLegacy(DialogActions);
 var DialogContent__default = /*#__PURE__*/_interopDefaultLegacy(DialogContent);
 var DialogTitle__default = /*#__PURE__*/_interopDefaultLegacy(DialogTitle);
 var MuiPagination__default = /*#__PURE__*/_interopDefaultLegacy(MuiPagination);
 var PaginationItem__default = /*#__PURE__*/_interopDefaultLegacy(PaginationItem);
-var useMediaQuery__default = /*#__PURE__*/_interopDefaultLegacy(useMediaQuery);
 var copy__default = /*#__PURE__*/_interopDefaultLegacy(copy);
 var MuiTabs__default = /*#__PURE__*/_interopDefaultLegacy(MuiTabs);
 var MuiTab__default = /*#__PURE__*/_interopDefaultLegacy(MuiTab);
@@ -2568,11 +2568,13 @@ Divider.defaultProps = DividerDefaultProps;
 
 var DropdownPropTypes = _extends({
   anchorEl: PropTypes__default['default'].object,
+  children: PropTypes__default['default'].node,
   items: PropTypes__default['default'].arrayOf(PropTypes__default['default'].shape({
     label: PropTypes__default['default'].string
   })),
   onClose: PropTypes__default['default'].func,
-  open: PropTypes__default['default'].bool.isRequired
+  open: PropTypes__default['default'].bool.isRequired,
+  responsive: PropTypes__default['default'].bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var DropdownDefaultProps = {
   anchorOrigin: {
@@ -2586,6 +2588,16 @@ var DropdownDefaultProps = {
   }
 };
 
+function _templateObject3$5() {
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    .MuiDialog-paper {\n      position: relative;\n      background-color: ", ";\n    }\n  }\n"]);
+
+  _templateObject3$5 = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject2$7() {
   var data = _taggedTemplateLiteralLoose([""]);
 
@@ -2597,7 +2609,7 @@ function _templateObject2$7() {
 }
 
 function _templateObject$p() {
-  var data = _taggedTemplateLiteralLoose(["\n  .MuiMenu-paper {\n    border-radius: 16px;\n    background-color: ", ";\n  }\n\n  ", "\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  .MuiMenu-paper {\n    border-radius: 12px;\n    background-color: ", ";\n    box-shadow: 0px 16px 56px rgba(41, 40, 57, 0.16);\n  }\n\n  ", "\n  ", "\n"]);
 
   _templateObject$p = function _templateObject() {
     return data;
@@ -2614,15 +2626,32 @@ var StyledDropdown = styled__default['default'](Menu__default['default'])(_templ
   return DISPLAY(theme);
 });
 var StyledItem = styled__default['default'](MenuItem__default['default'])(_templateObject2$7());
-var Dropdown = function Dropdown(_ref2) {
-  var items = _ref2.items,
-      props = _objectWithoutPropertiesLoose(_ref2, ["items"]);
+var StyledDialog = styled__default['default'](Dialog__default['default']).attrs(function () {
+  return {
+    fullScreen: true,
+    hideBackdrop: true
+  };
+})(_templateObject3$5(), function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.palette.common.white;
+});
+var Dropdown = function Dropdown(_ref3) {
+  var children = _ref3.children,
+      items = _ref3.items,
+      responsive = _ref3.responsive,
+      props = _objectWithoutPropertiesLoose(_ref3, ["children", "items", "responsive"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(StyledDropdown, props, items.map(function (_ref3) {
-    var label = _ref3.label,
-        _onClick = _ref3.onClick,
-        value = _ref3.value,
-        itemProps = _objectWithoutPropertiesLoose(_ref3, ["label", "onClick", "value"]);
+  var theme = styled.useTheme();
+  var isMobile = useMediaQuery__default['default'](theme.breakpoints.down("sm"));
+  if (responsive && isMobile) return /*#__PURE__*/React__default['default'].createElement(StyledDialog, _extends({
+    fullScreen: true,
+    hideBackdrop: true
+  }, props), children);
+  return /*#__PURE__*/React__default['default'].createElement(StyledDropdown, props, children || items.map(function (_ref4) {
+    var label = _ref4.label,
+        _onClick = _ref4.onClick,
+        value = _ref4.value,
+        itemProps = _objectWithoutPropertiesLoose(_ref4, ["label", "onClick", "value"]);
 
     return /*#__PURE__*/React__default['default'].createElement(StyledItem, _extends({
       key: label,
@@ -2763,10 +2792,10 @@ function _templateObject4$1() {
   return data;
 }
 
-function _templateObject3$5() {
+function _templateObject3$6() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 48px;\n  margin-bottom: ", ";\n"]);
 
-  _templateObject3$5 = function _templateObject3() {
+  _templateObject3$6 = function _templateObject3() {
     return data;
   };
 
@@ -2811,7 +2840,7 @@ var Row$1 = styled__default['default'](Grid__default['default']).attrs(function 
   return {
     container: true
   };
-})(_templateObject3$5(), function (_ref4) {
+})(_templateObject3$6(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(2);
 });
@@ -3384,10 +3413,10 @@ UploaderPreview.defaultProps = {
   files: []
 };
 
-function _templateObject3$6() {
+function _templateObject3$7() {
   var data = _taggedTemplateLiteralLoose(["\n  &.filepond--root {\n    font-weight: unset;\n    font-family: unset;\n    font-size: unset;\n    overflow: hidden;\n  }\n\n  .filepond--drop-label {\n    color: unset;\n  }\n\n  && {\n    .filepond--panel,\n    .filepond--panel-root,\n    .filepond--drip,\n    .filepond--drop-label {\n      background-color: transparent !important;\n    }\n  }\n"]);
 
-  _templateObject3$6 = function _templateObject3() {
+  _templateObject3$7 = function _templateObject3() {
     return data;
   };
 
@@ -3446,7 +3475,7 @@ var Container$2 = styled__default['default'].div(_templateObject2$b(), function 
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledFilePond = styled__default['default'](reactFilepond.FilePond)(_templateObject3$6());
+var StyledFilePond = styled__default['default'](reactFilepond.FilePond)(_templateObject3$7());
 var FilePondComponent = function FilePondComponent(_ref10) {
   var disabled = _ref10.disabled,
       hasError = _ref10.hasError,
@@ -4193,10 +4222,10 @@ function _templateObject4$2() {
   return data;
 }
 
-function _templateObject3$7() {
+function _templateObject3$8() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n"]);
 
-  _templateObject3$7 = function _templateObject3() {
+  _templateObject3$8 = function _templateObject3() {
     return data;
   };
 
@@ -4251,7 +4280,7 @@ var StyledLabel$3 = styled__default['default'](FormLabel)(_templateObject2$e(), 
       theme = _ref7.theme;
   return labelAlign === "start" && labelGutter && styled.css(["padding-top:", ";"], theme.spacing(3));
 });
-var FieldsAndErrorsWrapper = styled__default['default'].div(_templateObject3$7());
+var FieldsAndErrorsWrapper = styled__default['default'].div(_templateObject3$8());
 var Fields = styled__default['default'].div(_templateObject4$2(), function (_ref8) {
   var theme = _ref8.theme;
   return theme.spacing(4);
@@ -4621,10 +4650,10 @@ function _templateObject4$3() {
   return data;
 }
 
-function _templateObject3$8() {
+function _templateObject3$9() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n"]);
 
-  _templateObject3$8 = function _templateObject3() {
+  _templateObject3$9 = function _templateObject3() {
     return data;
   };
 
@@ -4655,7 +4684,7 @@ var ItemConnector = styled__default['default'].div(_templateObject$M(), function
   return theme.palette.gray.regular;
 });
 var Container$3 = styled__default['default'].div(_templateObject2$g(), ItemConnector);
-var RowWrapper = styled__default['default'].div(_templateObject3$8());
+var RowWrapper = styled__default['default'].div(_templateObject3$9());
 var RowDetails = styled__default['default'](Grid__default['default']).attrs(function () {
   return {
     container: true
@@ -4955,10 +4984,10 @@ var AuthLayoutHeaderDefaultProps = {
   renderLogo: function renderLogo() {}
 };
 
-function _templateObject3$9() {
+function _templateObject3$a() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 48px;\n  height: 48px;\n"]);
 
-  _templateObject3$9 = function _templateObject3() {
+  _templateObject3$a = function _templateObject3() {
     return data;
   };
 
@@ -5004,7 +5033,7 @@ var StyledLogo = styled__default['default'](Image).attrs(function () {
   return {
     alt: "Logo"
   };
-})(_templateObject3$9());
+})(_templateObject3$a());
 var AuthLayoutHeader = function AuthLayoutHeader(_ref2) {
   var backButtonOnClick = _ref2.backButtonOnClick,
       headerLeft = _ref2.headerLeft,
@@ -5118,10 +5147,10 @@ function _templateObject4$4() {
   return data;
 }
 
-function _templateObject3$a() {
+function _templateObject3$b() {
   var data = _taggedTemplateLiteralLoose(["\n  list-style: none;\n  padding: 0;\n  margin: 0;\n"]);
 
-  _templateObject3$a = function _templateObject3() {
+  _templateObject3$b = function _templateObject3() {
     return data;
   };
 
@@ -5174,7 +5203,7 @@ var BottomSection = styled__default['default'].div(_templateObject2$j(), functio
   var theme = _ref7.theme;
   return theme.spacing(8);
 });
-var Col = styled__default['default'].ul(_templateObject3$a());
+var Col = styled__default['default'].ul(_templateObject3$b());
 var ColItem = styled__default['default'].li(_templateObject4$4(), function (_ref8) {
   var theme = _ref8.theme;
   return theme.spacing(2);
@@ -5260,10 +5289,10 @@ function _templateObject4$5() {
   return data;
 }
 
-function _templateObject3$b() {
+function _templateObject3$c() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n"]);
 
-  _templateObject3$b = function _templateObject3() {
+  _templateObject3$c = function _templateObject3() {
     return data;
   };
 
@@ -5326,7 +5355,7 @@ var MenuIconButton = styled__default['default'](Icon).attrs(function () {
   var theme = _ref10.theme;
   return theme.palette.gray.medium;
 });
-var LogoContainer = styled__default['default'].div(_templateObject3$b());
+var LogoContainer = styled__default['default'].div(_templateObject3$c());
 var PrimaryList = styled__default['default'].ul(_templateObject4$5());
 var PrimaryListItem = styled__default['default'].li(_templateObject5$2(), function (_ref11) {
   var theme = _ref11.theme;
@@ -5382,10 +5411,10 @@ function _templateObject4$6() {
   return data;
 }
 
-function _templateObject3$c() {
+function _templateObject3$d() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n  color: ", ";\n  font-weight: 600;\n  height: 100%;\n  :not(:last-child) {\n    margin-right: ", ";\n  }\n\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n\n  ", "\n"]);
 
-  _templateObject3$c = function _templateObject3() {
+  _templateObject3$d = function _templateObject3() {
     return data;
   };
 
@@ -5419,7 +5448,7 @@ var StyledHeader$2 = styled__default['default'].div(_templateObject$U(), functio
   return theme.breakpoints.down("sm");
 });
 var SecondaryList = styled__default['default'].ul(_templateObject2$l());
-var SecondaryListItem = styled__default['default'].li(_templateObject3$c(), function (_ref3) {
+var SecondaryListItem = styled__default['default'].li(_templateObject3$d(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.text.secondary;
 }, function (_ref4) {
@@ -5462,10 +5491,10 @@ var SecondaryHeader = function SecondaryHeader(_ref11) {
 SecondaryHeader.propTypes = CreatorsHubHeaderPropTypes;
 SecondaryHeader.defaultProps = CreatorsHubHeaderDefaultProps;
 
-function _templateObject3$d() {
+function _templateObject3$e() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  height: 32px;\n  width: 100%;\n  font-weight: 600;\n  color: ", ";\n  padding-left: ", ";\n  :not(:last-child) {\n    margin-bottom: ", ";\n  }\n\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n\n  ", "\n"]);
 
-  _templateObject3$d = function _templateObject3() {
+  _templateObject3$e = function _templateObject3() {
     return data;
   };
 
@@ -5505,7 +5534,7 @@ var StyledDrawer = styled__default['default'](Drawer__default['default'])(_templ
   return theme.spacing(4, 0);
 });
 var List = styled__default['default'].ul(_templateObject2$m());
-var ListItem = styled__default['default'].li(_templateObject3$d(), function (_ref5) {
+var ListItem = styled__default['default'].li(_templateObject3$e(), function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.text.secondary;
 }, function (_ref6) {
@@ -5615,10 +5644,10 @@ var CreatorsHubAuthLayoutPropTypes = {
 };
 var CreatorsHubAuthLayoutDefaultProps = {};
 
-function _templateObject3$e() {
+function _templateObject3$f() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  justify-content: center;\n  align-items: center;\n"]);
 
-  _templateObject3$e = function _templateObject3() {
+  _templateObject3$f = function _templateObject3() {
     return data;
   };
 
@@ -5658,7 +5687,7 @@ var InnerContainer = styled__default['default'](MuiContainer__default['default']
     maxWidth: "xs"
   };
 })(_templateObject2$n());
-var Content$4 = styled__default['default'].div(_templateObject3$e());
+var Content$4 = styled__default['default'].div(_templateObject3$f());
 var CreatorsHubAuthLayout = function CreatorsHubAuthLayout(_ref) {
   var children = _ref.children,
       headerProps = _ref.headerProps,
@@ -5680,10 +5709,10 @@ var CreatorsHubMainLayoutPropTypes = {
 };
 var CreatorsHubMainLayoutDefaultProps = {};
 
-function _templateObject3$f() {
+function _templateObject3$g() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n  padding: ", ";\n"]);
 
-  _templateObject3$f = function _templateObject3() {
+  _templateObject3$g = function _templateObject3() {
     return data;
   };
 
@@ -5730,7 +5759,7 @@ var Content$5 = styled__default['default'](Flex).attrs(function () {
     container: true,
     alignItems: "flex-start"
   };
-})(_templateObject3$f(), function (_ref3) {
+})(_templateObject3$g(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(12, 0);
 });
@@ -5772,10 +5801,10 @@ var DashboardLayoutHeaderDefaultProps = {
   renderLogo: function renderLogo() {}
 };
 
-function _templateObject3$g() {
+function _templateObject3$h() {
   var data = _taggedTemplateLiteralLoose(["\n  ", " {\n    order: 2;\n  }\n"]);
 
-  _templateObject3$g = function _templateObject3() {
+  _templateObject3$h = function _templateObject3() {
     return data;
   };
 
@@ -5831,7 +5860,7 @@ var HeaderRight = styled__default['default'](Flex).attrs(function () {
     xs: 4,
     justify: "flex-end"
   };
-})(_templateObject3$g(), function (_ref3) {
+})(_templateObject3$h(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.breakpoints.down("sm");
 });
@@ -5895,10 +5924,10 @@ function _templateObject4$7() {
   return data;
 }
 
-function _templateObject3$h() {
+function _templateObject3$i() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    display: flex;\n    flex-direction: column;\n    padding: 0;\n    box-shadow: initial;\n    max-height: unset;\n    height: 100%;\n  }\n"]);
 
-  _templateObject3$h = function _templateObject3() {
+  _templateObject3$i = function _templateObject3() {
     return data;
   };
 
@@ -5953,7 +5982,7 @@ var ImprovedListItem = styled__default['default'](core.ListItem)(_templateObject
   var theme = _ref9.theme;
   return theme.palette.primary.main;
 });
-var ImprovedList = styled__default['default'](core.List)(_templateObject3$h());
+var ImprovedList = styled__default['default'](core.List)(_templateObject3$i());
 var ImprovedListItemIcon = styled__default['default'](core.ListItemIcon)(_templateObject4$7(), function (_ref10) {
   var theme = _ref10.theme;
   return theme.spacing(2);
@@ -6090,10 +6119,10 @@ function _templateObject4$8() {
   return data;
 }
 
-function _templateObject3$i() {
+function _templateObject3$j() {
   var data = _taggedTemplateLiteralLoose(["\n  color: #fff;\n"]);
 
-  _templateObject3$i = function _templateObject3() {
+  _templateObject3$j = function _templateObject3() {
     return data;
   };
 
@@ -6140,7 +6169,7 @@ var NavIcon = styled__default['default'](Icon).attrs(function () {
     icon: "bars",
     size: "lg"
   };
-})(_templateObject3$i());
+})(_templateObject3$j());
 var DrawerWrapper = styled__default['default'].div(_templateObject4$8(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(2, 10, 0, 2);
@@ -6230,10 +6259,10 @@ function _templateObject4$9() {
   return data;
 }
 
-function _templateObject3$j() {
+function _templateObject3$k() {
   var data = _taggedTemplateLiteralLoose(["\n  ", " {\n    height: 100%;\n  }\n\n  ", " {\n    order: 2;\n  }\n"]);
 
-  _templateObject3$j = function _templateObject3() {
+  _templateObject3$k = function _templateObject3() {
     return data;
   };
 
@@ -6271,7 +6300,7 @@ var NavigationContainer = styled__default['default'](Flex).attrs(function () {
     md: 2,
     xs: 4
   };
-})(_templateObject3$j(), function (_ref) {
+})(_templateObject3$k(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.up("md");
 }, function (_ref2) {
@@ -6717,10 +6746,10 @@ var LegacyItem = function LegacyItem(_ref4) {
 LegacyItem.propTypes = MarketPlaceItemPropTypes;
 LegacyItem.defaultProps = MarketPlaceItemDefaultProps;
 
-function _templateObject3$k() {
+function _templateObject3$l() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n  object-fit: contain;\n  z-index: 2;\n"]);
 
-  _templateObject3$k = function _templateObject3() {
+  _templateObject3$l = function _templateObject3() {
     return data;
   };
 
@@ -6751,7 +6780,7 @@ var BGImage = styled__default['default'].div(_templateObject2$w(), function (_re
   var imgSrc = _ref.imgSrc;
   return imgSrc;
 });
-var StyledImage = styled__default['default'](Image)(_templateObject3$k());
+var StyledImage = styled__default['default'](Image)(_templateObject3$l());
 var Cover = function Cover(_ref2) {
   var imgSrc = _ref2.imgSrc,
       placeholderSrc = _ref2.placeholderSrc,
@@ -6782,10 +6811,10 @@ function _templateObject4$a() {
   return data;
 }
 
-function _templateObject3$l() {
+function _templateObject3$m() {
   var data = _taggedTemplateLiteralLoose(["\n  margin-top: ", ";\n"]);
 
-  _templateObject3$l = function _templateObject3() {
+  _templateObject3$m = function _templateObject3() {
     return data;
   };
 
@@ -6819,7 +6848,7 @@ var Content$9 = styled__default['default'].div(_templateObject2$x(), function (_
   var theme = _ref2.theme;
   return theme.spacing(4);
 });
-var Badges = styled__default['default'].div(_templateObject3$l(), function (_ref3) {
+var Badges = styled__default['default'].div(_templateObject3$m(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(4);
 });
@@ -6885,10 +6914,10 @@ var ModernItem = function ModernItem(_ref5) {
 ModernItem.propTypes = MarketPlaceItemPropTypes;
 ModernItem.defaultProps = MarketPlaceItemDefaultProps;
 
-function _templateObject3$m() {
+function _templateObject3$n() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n  width: 100%;\n  object-fit: contain;\n  z-index: 2;\n"]);
 
-  _templateObject3$m = function _templateObject3() {
+  _templateObject3$n = function _templateObject3() {
     return data;
   };
 
@@ -6919,7 +6948,7 @@ var BGImage$1 = styled__default['default'].div(_templateObject2$y(), function (_
   var imgSrc = _ref.imgSrc;
   return imgSrc;
 });
-var StyledImage$1 = styled__default['default'](Image)(_templateObject3$m());
+var StyledImage$1 = styled__default['default'](Image)(_templateObject3$n());
 var Cover$1 = function Cover(_ref2) {
   var imgSrc = _ref2.imgSrc,
       placeholderSrc = _ref2.placeholderSrc,
@@ -6940,10 +6969,10 @@ Cover$1.defaultProps = {
   placeholderSrc: ""
 };
 
-function _templateObject3$n() {
+function _templateObject3$o() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: flex-end;\n  background-color: ", ";\n  padding: ", ";\n  height: 36px;\n  border-radius: 8px;\n  margin-top: -16px;\n  z-index: 1;\n"]);
 
-  _templateObject3$n = function _templateObject3() {
+  _templateObject3$o = function _templateObject3() {
     return data;
   };
 
@@ -6986,7 +7015,7 @@ var Content$a = styled__default['default'](Flex).attrs(function () {
   var theme = _ref3.theme;
   return theme.spacing(4);
 });
-var Highlight$1 = styled__default['default'].div(_templateObject3$n(), function (_ref4) {
+var Highlight$1 = styled__default['default'].div(_templateObject3$o(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.palette.primary.light;
 }, function (_ref5) {
@@ -7123,10 +7152,10 @@ function _templateObject4$b() {
   return data;
 }
 
-function _templateObject3$o() {
+function _templateObject3$p() {
   var data = _taggedTemplateLiteralLoose(["\n  cursor: pointer;\n  background-color: white;\n  && {\n    color: ", ";\n  }\n"]);
 
-  _templateObject3$o = function _templateObject3() {
+  _templateObject3$p = function _templateObject3() {
     return data;
   };
 
@@ -7172,7 +7201,7 @@ var CloseModalIcon = styled__default['default'](Icon).attrs(function () {
   return {
     size: "lg"
   };
-})(_templateObject3$o(), function (_ref3) {
+})(_templateObject3$p(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.secondary.dark;
 });
@@ -7719,18 +7748,8 @@ var SearchBarDefaultProps = {
   placeholder: "Type and press Enter"
 };
 
-function _templateObject3$p() {
-  var data = _taggedTemplateLiteralLoose(["\n  && {\n    margin-left: ", ";\n    border-radius: unset;\n    background-color: ", ";\n\n    svg {\n      font-size: 16px;\n    }\n  }\n"]);
-
-  _templateObject3$p = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject2$E() {
-  var data = _taggedTemplateLiteralLoose(["\n  && {\n    background-color: ", ";\n    height: 100%;\n    border: none;\n    outline: none;\n    border-radius: unset;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n    background-color: ", ";\n    height: 100%;\n    border: none;\n    outline: none;\n  }\n"]);
 
   _templateObject2$E = function _templateObject2() {
     return data;
@@ -7740,7 +7759,7 @@ function _templateObject2$E() {
 }
 
 function _templateObject$1h() {
-  var data = _taggedTemplateLiteralLoose(["\n  background-color: transparent;\n  ", "\n  width: 100%;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n\n  ", "\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  background-color: transparent;\n  width: 100%;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n\n  ", "\n  ", "\n"]);
 
   _templateObject$1h = function _templateObject() {
     return data;
@@ -7748,10 +7767,7 @@ function _templateObject$1h() {
 
   return data;
 }
-var StyledSearchBar = styled__default['default'].form(_templateObject$1h(), function (_ref) {
-  var noBorderRadius = _ref.noBorderRadius;
-  return !noBorderRadius && "border-radius: 12px;";
-}, function (theme) {
+var StyledSearchBar = styled__default['default'].form(_templateObject$1h(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -7760,34 +7776,26 @@ var SearchInput = styled__default['default'](FieldBase).attrs(function () {
   return {
     component: "input"
   };
-})(_templateObject2$E(), function (_ref2) {
+})(_templateObject2$E(), function (_ref) {
+  var noBorderRadius = _ref.noBorderRadius;
+  return "border-radius: " + (noBorderRadius ? "unset" : "12px") + ";";
+}, function (_ref2) {
   var theme = _ref2.theme;
   return theme.palette.gray.semiLight;
 });
-var FilterButton = styled__default['default'](TextButton)(_templateObject3$p(), function (_ref3) {
-  var theme = _ref3.theme;
-  return theme.spacing(1);
-}, function (_ref4) {
-  var theme = _ref4.theme;
-  return theme.palette.gray.semiLight;
-});
-var SearchBar = function SearchBar(_ref5) {
-  var filterButtonText = _ref5.filterButtonText,
-      filterItems = _ref5.filterItems,
-      onChange = _ref5.onChange,
-      onSubmit = _ref5.onSubmit,
-      placeholder = _ref5.placeholder,
-      showFilter = _ref5.showFilter,
-      value = _ref5.value,
-      props = _objectWithoutPropertiesLoose(_ref5, ["filterButtonText", "filterItems", "onChange", "onSubmit", "placeholder", "showFilter", "value"]);
+var SearchBar = function SearchBar(_ref3) {
+  var inputProps = _ref3.inputProps,
+      noBorderRadius = _ref3.noBorderRadius,
+      onChange = _ref3.onChange,
+      onSubmit = _ref3.onSubmit,
+      placeholder = _ref3.placeholder,
+      showSearchIconEnd = _ref3.showSearchIconEnd,
+      value = _ref3.value,
+      props = _objectWithoutPropertiesLoose(_ref3, ["inputProps", "noBorderRadius", "onChange", "onSubmit", "placeholder", "showSearchIconEnd", "value"]);
 
   var _useState = React.useState(value),
       inputValue = _useState[0],
       setInputValue = _useState[1];
-
-  var _useState2 = React.useState(null),
-      anchorEl = _useState2[0],
-      setAnchorEl = _useState2[1];
 
   var handleSubmit = function handleSubmit(e) {
     e.preventDefault();
@@ -7805,39 +7813,25 @@ var SearchBar = function SearchBar(_ref5) {
     if (value && onSubmit) onSubmit("");
   };
 
+  var endIcon = null;
+  if (inputValue) endIcon = "times";else if (showSearchIconEnd) endIcon = "search";
+  var endIconColor = "input";
+  if (endIcon === "search") endIconColor = "secondary";
+  var startIcon = null;
+  if (!showSearchIconEnd) startIcon = "search";
   return /*#__PURE__*/React__default['default'].createElement(StyledSearchBar, _extends({
     onSubmit: handleSubmit
-  }, props), /*#__PURE__*/React__default['default'].createElement(SearchInput, {
-    endIcon: inputValue ? "times" : null,
-    endIconOnClick: handleClear,
+  }, props), /*#__PURE__*/React__default['default'].createElement(SearchInput, _extends({
+    endIcon: endIcon,
+    endIconColor: endIconColor,
+    endIconOnClick: inputValue ? handleClear : undefined,
+    noBorderRadius: noBorderRadius,
+    onChange: handleChange,
     placeholder: placeholder,
-    startIcon: "search",
+    startIcon: startIcon,
     startIconColor: "secondary",
-    value: inputValue,
-    onChange: handleChange
-  }), showFilter && /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(FilterButton, {
-    content: filterButtonText,
-    color: "secondary",
-    onClick: function onClick(_ref6) {
-      var currentTarget = _ref6.currentTarget;
-      return setAnchorEl(currentTarget);
-    },
-    startIcon: "filter"
-  }), /*#__PURE__*/React__default['default'].createElement(Dropdown, {
-    anchorEl: anchorEl,
-    items: filterItems.map(function (l) {
-      var _current;
-
-      return _extends({
-        onClick: handleClick,
-        selected: l.value === ((_current = current) == null ? void 0 : _current.value)
-      }, l);
-    }),
-    open: Boolean(anchorEl),
-    onClose: function onClose() {
-      return setAnchorEl(null);
-    }
-  })));
+    value: inputValue
+  }, inputProps)));
 };
 SearchBar.propTypes = SearchBarPropTypes;
 SearchBar.defaultProps = SearchBarDefaultProps;
