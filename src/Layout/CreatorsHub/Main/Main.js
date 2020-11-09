@@ -2,7 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 import MuiContainer from "@material-ui/core/Container";
 
-import { Flex } from "../../..";
+import { Flex, PageLoading } from "../../..";
 import { CreatorsHubHeader, CreatorsHubFooter } from "../Common";
 import {
   CreatorsHubMainLayoutPropTypes,
@@ -25,6 +25,7 @@ const Container = styled(MuiContainer).attrs(() => ({
 
 const Content = styled(Flex).attrs(() => ({
   container: true,
+  alignItems: "flex-start",
 }))`
   height: 100%;
   padding: ${({ theme }) => theme.spacing(12, 0)};
@@ -35,10 +36,13 @@ export const CreatorsHubMainLayout = ({
   footer,
   footerProps,
   headerProps,
+  loading,
   sidebar,
 }) => {
   return (
     <>
+      {loading && <PageLoading />}
+
       <FluidContainer white>
         <Container>
           <CreatorsHubHeader {...headerProps} />

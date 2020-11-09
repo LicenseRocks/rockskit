@@ -5570,7 +5570,8 @@ CreatorsHubHeader.defaultProps = CreatorsHubHeaderDefaultProps;
 
 var CreatorsHubAuthLayoutPropTypes = {
   children: PropTypes.node,
-  headerProps: PropTypes.shape(CreatorsHubHeaderPropTypes)
+  headerProps: PropTypes.shape(CreatorsHubHeaderPropTypes),
+  loading: PropTypes.bool
 };
 var CreatorsHubAuthLayoutDefaultProps = {};
 
@@ -5621,9 +5622,10 @@ var Content$4 = styled.div(_templateObject3$e());
 var CreatorsHubAuthLayout = function CreatorsHubAuthLayout(_ref) {
   var children = _ref.children,
       headerProps = _ref.headerProps,
-      props = _objectWithoutPropertiesLoose(_ref, ["children", "headerProps"]);
+      loading = _ref.loading,
+      props = _objectWithoutPropertiesLoose(_ref, ["children", "headerProps", "loading"]);
 
-  return /*#__PURE__*/React.createElement(StyledContainer$2, props, /*#__PURE__*/React.createElement(CreatorsHubHeader, headerProps), /*#__PURE__*/React.createElement(InnerContainer, null, /*#__PURE__*/React.createElement(Content$4, null, children)));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, loading && /*#__PURE__*/React.createElement(PageLoading, null), /*#__PURE__*/React.createElement(StyledContainer$2, props, /*#__PURE__*/React.createElement(CreatorsHubHeader, headerProps), /*#__PURE__*/React.createElement(InnerContainer, null, /*#__PURE__*/React.createElement(Content$4, null, children))));
 };
 CreatorsHubAuthLayout.propTypes = CreatorsHubAuthLayoutPropTypes;
 CreatorsHubAuthLayout.defaultProps = CreatorsHubAuthLayoutDefaultProps;
@@ -5633,6 +5635,7 @@ var CreatorsHubMainLayoutPropTypes = {
   footer: PropTypes.bool,
   footerProps: PropTypes.shape(CreatorsHubFooterPropTypes),
   headerProps: PropTypes.shape(CreatorsHubHeaderPropTypes),
+  loading: PropTypes.bool,
   sidebar: PropTypes.node
 };
 var CreatorsHubMainLayoutDefaultProps = {};
@@ -5684,7 +5687,8 @@ var Container$5 = styled(MuiContainer).attrs(function () {
 })(_templateObject2$o());
 var Content$5 = styled(Flex).attrs(function () {
   return {
-    container: true
+    container: true,
+    alignItems: "flex-start"
   };
 })(_templateObject3$f(), function (_ref3) {
   var theme = _ref3.theme;
@@ -5695,8 +5699,9 @@ var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref4) {
       footer = _ref4.footer,
       footerProps = _ref4.footerProps,
       headerProps = _ref4.headerProps,
+      loading = _ref4.loading,
       sidebar = _ref4.sidebar;
-  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(FluidContainer, {
+  return /*#__PURE__*/React.createElement(React.Fragment, null, loading && /*#__PURE__*/React.createElement(PageLoading, null), /*#__PURE__*/React.createElement(FluidContainer, {
     white: true
   }, /*#__PURE__*/React.createElement(Container$5, null, /*#__PURE__*/React.createElement(CreatorsHubHeader, headerProps))), /*#__PURE__*/React.createElement(FluidContainer, null, /*#__PURE__*/React.createElement(Container$5, null, /*#__PURE__*/React.createElement(Content$5, {
     spacing: 8

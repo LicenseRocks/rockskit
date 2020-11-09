@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import MuiContainer from "@material-ui/core/Container";
 
-import { DISPLAY, SPACER } from "../../..";
+import { DISPLAY, PageLoading, SPACER } from "../../..";
 import { CreatorsHubHeader } from "../Common";
 import {
   CreatorsHubAuthLayoutPropTypes,
@@ -38,15 +38,24 @@ const Content = styled.div`
   align-items: center;
 `;
 
-export const CreatorsHubAuthLayout = ({ children, headerProps, ...props }) => {
+export const CreatorsHubAuthLayout = ({
+  children,
+  headerProps,
+  loading,
+  ...props
+}) => {
   return (
-    <StyledContainer {...props}>
-      <CreatorsHubHeader {...headerProps} />
+    <>
+      {loading && <PageLoading />}
 
-      <InnerContainer>
-        <Content>{children}</Content>
-      </InnerContainer>
-    </StyledContainer>
+      <StyledContainer {...props}>
+        <CreatorsHubHeader {...headerProps} />
+
+        <InnerContainer>
+          <Content>{children}</Content>
+        </InnerContainer>
+      </StyledContainer>
+    </>
   );
 };
 

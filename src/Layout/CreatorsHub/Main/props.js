@@ -8,6 +8,7 @@ export const CreatorsHubMainLayoutPropTypes = {
   footer: PropTypes.bool,
   footerProps: PropTypes.shape(CreatorsHubFooterPropTypes),
   headerProps: PropTypes.shape(CreatorsHubHeaderPropTypes),
+  loading: PropTypes.bool,
   sidebar: PropTypes.node,
 };
 

@@ -5610,7 +5610,8 @@ CreatorsHubHeader.defaultProps = CreatorsHubHeaderDefaultProps;
 
 var CreatorsHubAuthLayoutPropTypes = {
   children: PropTypes__default['default'].node,
-  headerProps: PropTypes__default['default'].shape(CreatorsHubHeaderPropTypes)
+  headerProps: PropTypes__default['default'].shape(CreatorsHubHeaderPropTypes),
+  loading: PropTypes__default['default'].bool
 };
 var CreatorsHubAuthLayoutDefaultProps = {};
 
@@ -5661,9 +5662,10 @@ var Content$4 = styled__default['default'].div(_templateObject3$e());
 var CreatorsHubAuthLayout = function CreatorsHubAuthLayout(_ref) {
   var children = _ref.children,
       headerProps = _ref.headerProps,
-      props = _objectWithoutPropertiesLoose(_ref, ["children", "headerProps"]);
+      loading = _ref.loading,
+      props = _objectWithoutPropertiesLoose(_ref, ["children", "headerProps", "loading"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(StyledContainer$2, props, /*#__PURE__*/React__default['default'].createElement(CreatorsHubHeader, headerProps), /*#__PURE__*/React__default['default'].createElement(InnerContainer, null, /*#__PURE__*/React__default['default'].createElement(Content$4, null, children)));
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, null), /*#__PURE__*/React__default['default'].createElement(StyledContainer$2, props, /*#__PURE__*/React__default['default'].createElement(CreatorsHubHeader, headerProps), /*#__PURE__*/React__default['default'].createElement(InnerContainer, null, /*#__PURE__*/React__default['default'].createElement(Content$4, null, children))));
 };
 CreatorsHubAuthLayout.propTypes = CreatorsHubAuthLayoutPropTypes;
 CreatorsHubAuthLayout.defaultProps = CreatorsHubAuthLayoutDefaultProps;
@@ -5673,6 +5675,7 @@ var CreatorsHubMainLayoutPropTypes = {
   footer: PropTypes__default['default'].bool,
   footerProps: PropTypes__default['default'].shape(CreatorsHubFooterPropTypes),
   headerProps: PropTypes__default['default'].shape(CreatorsHubHeaderPropTypes),
+  loading: PropTypes__default['default'].bool,
   sidebar: PropTypes__default['default'].node
 };
 var CreatorsHubMainLayoutDefaultProps = {};
@@ -5724,7 +5727,8 @@ var Container$5 = styled__default['default'](MuiContainer__default['default']).a
 })(_templateObject2$o());
 var Content$5 = styled__default['default'](Flex).attrs(function () {
   return {
-    container: true
+    container: true,
+    alignItems: "flex-start"
   };
 })(_templateObject3$f(), function (_ref3) {
   var theme = _ref3.theme;
@@ -5735,8 +5739,9 @@ var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref4) {
       footer = _ref4.footer,
       footerProps = _ref4.footerProps,
       headerProps = _ref4.headerProps,
+      loading = _ref4.loading,
       sidebar = _ref4.sidebar;
-  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(FluidContainer, {
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, null), /*#__PURE__*/React__default['default'].createElement(FluidContainer, {
     white: true
   }, /*#__PURE__*/React__default['default'].createElement(Container$5, null, /*#__PURE__*/React__default['default'].createElement(CreatorsHubHeader, headerProps))), /*#__PURE__*/React__default['default'].createElement(FluidContainer, null, /*#__PURE__*/React__default['default'].createElement(Container$5, null, /*#__PURE__*/React__default['default'].createElement(Content$5, {
     spacing: 8
