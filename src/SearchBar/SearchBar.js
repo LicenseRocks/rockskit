@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import styled, { ThemeProvider } from "styled-components";
+import styled from "styled-components";
 
-import { DISPLAY, Dropdown, FieldBase, SPACER, TextButton } from "..";
+import { DISPLAY, FieldBase, SPACER } from "..";
 import { SearchBarPropTypes, SearchBarDefaultProps } from "./props";
 
 const StyledSearchBar = styled.form`
   background-color: transparent;
-  ${({ noBorderRadius }) => !noBorderRadius && "border-radius: 12px;"}
   width: 100%;
   height: 40px;
   display: flex;
@@ -22,38 +21,26 @@ const SearchInput = styled(FieldBase).attrs(() => ({
   component: "input",
 }))`
   && {
+    ${({ noBorderRadius }) =>
+      `border-radius: ${noBorderRadius ? "unset" : "12px"};`}
     background-color: ${({ theme }) => theme.palette.gray.semiLight};
     height: 100%;
     border: none;
     outline: none;
-    border-radius: unset;
-  }
-`;
-
-const FilterButton = styled(TextButton)`
-  && {
-    margin-left: ${({ theme }) => theme.spacing(1)};
-    border-radius: unset;
-    background-color: ${({ theme }) => theme.palette.gray.semiLight};
-
-    svg {
-      font-size: 16px;
-    }
   }
 `;
 
 export const SearchBar = ({
-  filterButtonText,
-  filterItems,
+  inputProps,
+  noBorderRadius,
   onChange,
   onSubmit,
   placeholder,
-  showFilter,
+  showSearchIconEnd,
   value,
   ...props
 }) => {
   const [inputValue, setInputValue] = useState(value);
-  const [anchorEl, setAnchorEl] = useState(null);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -71,39 +58,30 @@ export const SearchBar = ({
     if (value && onSubmit) onSubmit("");
   };
 
+  let endIcon = null;
+  if (inputValue) endIcon = "times";
+  else if (showSearchIconEnd) endIcon = "search";
+
+  let endIconColor = "input";
+  if (endIcon === "search") endIconColor = "secondary";
+
+  let startIcon = null;
+  if (!showSearchIconEnd) startIcon = "search";
+
   return (
     <StyledSearchBar onSubmit={handleSubmit} {...props}>
       <SearchInput
-        endIcon={inputValue ? "times" : null}
-        endIconOnClick={handleClear}
+        endIcon={endIcon}
+        endIconColor={endIconColor}
+        endIconOnClick={inputValue ? handleClear : undefined}
+        noBorderRadius={noBorderRadius}
+        onChange={handleChange}
         placeholder={placeholder}
-        startIcon="search"
+        startIcon={startIcon}
         startIconColor="secondary"
         value={inputValue}
-        onChange={handleChange}
+        {...inputProps}
       />
-
-      {showFilter && (
-        <>
-          <FilterButton
-            content={filterButtonText}
-            color="secondary"
-            onClick={({ currentTarget }) => setAnchorEl(currentTarget)}
-            startIcon="filter"
-          />
-
-          <Dropdown
-            anchorEl={anchorEl}
-            items={filterItems.map((l) => ({
-              onClick: handleClick,
-              selected: l.value === current?.value,
-              ...l,
-            }))}
-            open={Boolean(anchorEl)}
-            onClose={() => setAnchorEl(null)}
-          />
-        </>
-      )}
     </StyledSearchBar>
   );
 };
