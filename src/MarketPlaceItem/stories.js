@@ -17,7 +17,7 @@ export default {
 
 export const main = () => {
   const defaultProps = {
-    // coverSrc: "https://source.unsplash.com/featured?technology",
+    coverSrc: "https://creatorshub.s3.eu-central-1.amazonaws.com/0x5a4e206426c168a62db840d653a420b629b402ae/nftFiles/10/cover/joker.jpg",
     badges: [
       {
         label: "Badge",
