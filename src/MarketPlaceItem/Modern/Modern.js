@@ -11,7 +11,7 @@ import { Cover } from "./Cover";
 const StyledMarketPlaceItem = styled(BoxBase)`
   border-radius: 8px;
   overflow: hidden;
-  min-height: 360px;
+  min-height: 112px;
   width: 100%;
   display: flex;
   flex-direction: column;
