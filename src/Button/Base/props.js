@@ -16,7 +16,7 @@ export const ButtonBasePropTypes = {
   iconProps: IconPropTypes,
   noPadding: PropTypes.bool,
   onClick: PropTypes.func,
-  size: PropTypes.oneOf(["md", "sm", "xs"]),
+  size: PropTypes.oneOf(["lg", "md", "sm", "xs"]),
   startIcon: PropTypes.string,
   target: PropTypes.string,
   ...SPACER_PROP_TYPES,

@@ -25,7 +25,7 @@ export const main = () => {
     disabled: boolean("Disabled", false),
     loading: boolean("Loading", false),
     endIcon: text("End icon", "arrow-left"),
-    size: select("Size", ["xs", "sm", "md"], "md"),
+    size: select("Size", ["xs", "sm", "md", "lg"], "md"),
     startIcon: text("Start icon", "arrow-right"),
   };
 

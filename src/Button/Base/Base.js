@@ -47,6 +47,16 @@ const StyledButton = styled(MuiButtonBase)`
         `;
       }
 
+      if (size === "lg") {
+        return css`
+          font-size: ${theme.typography.button.fontSizeLg};
+          padding: ${theme.spacing(0, 8)};
+          height: 48px;
+          min-width: 48px;
+          border-radius: 8px;
+        `;
+      }
+
       return css`
         font-size: ${theme.typography.button.fontSizeMd};
       `;

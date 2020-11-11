@@ -299,6 +299,7 @@ var KIT_TYPOGRAPHY = {
   button: function button() {
     return {
       fontFamily: KIT_FONTS.Inter.name,
+      fontSizeLg: "16px",
       fontSizeMd: "16px",
       fontSizeSm: "12px",
       fontSizeXs: "10px",
@@ -617,7 +618,7 @@ var ButtonBasePropTypes = _extends({
   iconProps: IconPropTypes,
   noPadding: PropTypes.bool,
   onClick: PropTypes.func,
-  size: PropTypes.oneOf(["md", "sm", "xs"]),
+  size: PropTypes.oneOf(["lg", "md", "sm", "xs"]),
   startIcon: PropTypes.string,
   target: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
@@ -653,6 +654,10 @@ var StyledButton = styled(MuiButtonBase)(_templateObject$2(), function (_ref) {
 
   if (size === "sm") {
     return css(["font-size:", ";padding:", ";height:32px;min-width:32px;border-radius:8px;"], theme.typography.button.fontSizeSm, theme.spacing(0, 2));
+  }
+
+  if (size === "lg") {
+    return css(["font-size:", ";padding:", ";height:48px;min-width:48px;border-radius:8px;"], theme.typography.button.fontSizeLg, theme.spacing(0, 8));
   }
 
   return css(["font-size:", ";"], theme.typography.button.fontSizeMd);
