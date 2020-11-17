@@ -8534,7 +8534,7 @@ var StyledTable = styled__default['default'].table(_templateObject$1r(), functio
   var theme = _ref.theme;
   return theme.breakpoints.down("sm");
 });
-var StyledTbody = styled__default['default'].table(_templateObject2$G(), function (_ref2) {
+var StyledTbody = styled__default['default'].tbody(_templateObject2$G(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.breakpoints.down("sm");
 });

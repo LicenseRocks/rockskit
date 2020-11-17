@@ -8494,7 +8494,7 @@ var StyledTable = styled.table(_templateObject$1r(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("sm");
 });
-var StyledTbody = styled.table(_templateObject2$G(), function (_ref2) {
+var StyledTbody = styled.tbody(_templateObject2$G(), function (_ref2) {
   var theme = _ref2.theme;
   return theme.breakpoints.down("sm");
 });

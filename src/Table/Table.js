@@ -17,7 +17,7 @@ const StyledTable = styled.table`
   }
 `;
 
-const StyledTbody = styled.table`
+const StyledTbody = styled.tbody`
   ${({ theme }) => theme.breakpoints.down("sm")} {
     display: block;
   }
