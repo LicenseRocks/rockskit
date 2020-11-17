@@ -1,9 +1,10 @@
 import React from "react";
-import styled from "styled-components";
-import Grid from "@material-ui/core/Grid";
+import styled, { css } from "styled-components";
 
 import { FileManagerPropTypes, FileManagerDefaultProps } from "./props";
-import { DISPLAY, SPACER, Text, Thumbnail } from "..";
+import { DISPLAY, Image, SPACER, Text, Thumbnail } from "..";
+import { Flex } from "../Flex";
+import fileIcon from "../assets/icons/file.svg";
 
 const Container = styled.div``;
 
@@ -13,60 +14,126 @@ const Wrapper = styled.div`
   margin-bottom: ${({ theme }) => theme.spacing(2)};
   border-radius: 8px;
 
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    background-color: ${({ theme }) => theme.palette.common.white};
+  }
+
   ${(theme) => SPACER(theme)}
   ${(theme) => DISPLAY(theme)}
 `;
 
-const Row = styled(Grid).attrs(() => ({
-  container: true,
-}))`
+const Row = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
   width: 100%;
   height: 48px;
   margin-bottom: ${({ theme }) => theme.spacing(2)};
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    margin-bottom: ${({ theme }) => theme.spacing(4)};
+  }
 `;
 
-const Item = styled(Grid).attrs(({ lg }) => ({
+const DetailsWrapper = styled.div`
+  min-width: 0;
+  flex: 1;
+`;
+
+const Item = styled(Flex).attrs(({ lg, md, xs }) => ({
   item: true,
-  xs: 4,
-  lg: lg || 3,
+  xs: xs || 12,
+  md: md || 4,
+  lg: lg || 4,
 }))`
   display: flex;
   align-items: center;
+
+  ${({ align, theme }) =>
+    align &&
+    css`
+      ${theme.breakpoints.up("sm")} {
+        justify-content: ${align};
+      }
+    `}
 `;
 
-export const FileManager = ({ data }) => {
+export const FileManager = ({ data, noItemsText }) => {
   return (
     <Container>
       {data.map(({ label, files }) => (
         <Wrapper key={label}>
           <Text content={label} fontWeight="bold" mb={2} />
 
-          {files.map(({ date, description, id, name, previewUrl }) => (
-            <Row key={id}>
-              <Item lg={5} md={5}>
-                <Thumbnail imgSrc={previewUrl} hasPreview mr={4} />
-                <Text
-                  content={name}
-                  color="textSecondary"
-                  fontStyle="italic"
-                  noWrap
-                />
-              </Item>
+          {files.length > 0 ? (
+            files.map(
+              ({
+                date,
+                description,
+                id,
+                name,
+                previewUrl,
+                renderDate = () => {},
+                renderDescription = () => {},
+                renderName = () => {},
+                renderPreview = () => {},
+              }) => (
+                <Row key={id}>
+                  {renderPreview() || (
+                    <Thumbnail imgSrc={previewUrl} hasPreview mr={4} />
+                  )}
 
-              <Item lg={4} md={3}>
-                <Text content={date} color="textSecondary" fontWeight="bold" />
-              </Item>
+                  <DetailsWrapper>
+                    <Flex container>
+                      <Item>
+                        {renderName() || (
+                          <Text
+                            content={name}
+                            color="textSecondary"
+                            fontSize="sm"
+                            noWrap
+                          />
+                        )}
+                      </Item>
 
-              <Item justify="flex-end">
-                <Text
-                  content={description}
-                  color="textSecondary"
-                  fontWeight="bold"
-                  noWrap
-                />
-              </Item>
-            </Row>
-          ))}
+                      <Item>
+                        {renderDate() || (
+                          <Text
+                            content={date}
+                            color="textSecondary"
+                            fontWeight="bold"
+                          />
+                        )}
+                      </Item>
+
+                      <Item align="flex-end">
+                        {renderDescription() || (
+                          <Text
+                            content={description}
+                            color="textSecondary"
+                            fontWeight="bold"
+                            noWrap
+                          />
+                        )}
+                      </Item>
+                    </Flex>
+                  </DetailsWrapper>
+                </Row>
+              )
+            )
+          ) : (
+            <Item xs={12}>
+              <Image src={fileIcon} mr={4} />
+
+              <Text
+                content={noItemsText}
+                color="textSecondary"
+                dInline
+                fontSize="sm"
+                noWrap
+              />
+            </Item>
+          )}
         </Wrapper>
       ))}
     </Container>

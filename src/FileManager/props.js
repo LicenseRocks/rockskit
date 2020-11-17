@@ -13,12 +13,19 @@ export const FileManagerPropTypes = {
           date: PropTypes.string,
           description: PropTypes.string,
           previewUrl: PropTypes.string,
+          renderDate: PropTypes.func,
+          renderDescription: PropTypes.func,
+          renderName: PropTypes.func,
+          renderPreview: PropTypes.func,
         })
       ),
     })
   ),
+  noItemsText: PropTypes.string,
   ...SPACER_PROP_TYPES,
   ...DISPLAY_PROP_TYPES,
 };
 
-export const FileManagerDefaultProps = {};
+export const FileManagerDefaultProps = {
+  noItemsText: "No items yet",
+};

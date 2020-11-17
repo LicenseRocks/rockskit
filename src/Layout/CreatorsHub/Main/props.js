@@ -9,7 +9,12 @@ export const CreatorsHubMainLayoutPropTypes = {
   footerProps: PropTypes.shape(CreatorsHubFooterPropTypes),
   headerProps: PropTypes.shape(CreatorsHubHeaderPropTypes),
   loading: PropTypes.bool,
+  renderFooter: PropTypes.func,
+  renderHeader: PropTypes.func,
   sidebar: PropTypes.node,
 };
 
-export const CreatorsHubMainLayoutDefaultProps = {};
+export const CreatorsHubMainLayoutDefaultProps = {
+  renderFooter: () => {},
+  renderHeader: () => {},
+};

@@ -26,18 +26,19 @@ export const Heading = ({ columns, hasData }) =>
   columns.length > 0 && (
     <StyledThead hasData={hasData}>
       <Row size="sm" hasData={hasData}>
-        {columns.map((col) => (
+        {columns.map(({ label = "", render = () => {} }) => (
           <th>
-            {col?.label && (
-              <Text
-                align="left"
-                color="textSecondary"
-                content={col.label}
-                fontSize="sm"
-                fontStyle="italic"
-                fontWeight="normal"
-              />
-            )}
+            {render() ||
+              (label && (
+                <Text
+                  align="left"
+                  color="textSecondary"
+                  content={label}
+                  fontSize="sm"
+                  fontStyle="italic"
+                  fontWeight="normal"
+                />
+              ))}
           </th>
         ))}
       </Row>

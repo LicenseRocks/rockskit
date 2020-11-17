@@ -21,7 +21,6 @@ export const main = (props) => {
     rows: [
       {
         columnSm: true,
-        divider: true,
         renderLabel: () => (
           <StyledImage src="https://source.unsplash.com/random" />
         ),

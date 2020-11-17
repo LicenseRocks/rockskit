@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Grid from "@material-ui/core/Grid";
 
 import { Text } from "..";
@@ -28,6 +28,7 @@ const ItemConnector = styled.div`
 const Container = styled.div`
   position: relative;
   min-height: 40px;
+  padding-bottom: ${({ theme }) => theme.spacing(4)};
 
   :last-child {
     ${ItemConnector} {
@@ -39,6 +40,10 @@ const Container = styled.div`
 const RowWrapper = styled.div`
   display: flex;
   align-items: center;
+
+  ${({ theme }) => theme.breakpoints.down("md")} {
+    align-items: flex-start;
+  }
 `;
 
 const RowDetails = styled(Grid).attrs(() => ({
@@ -50,11 +55,23 @@ const RowDetails = styled(Grid).attrs(() => ({
 
 const Item = styled(Grid).attrs(({ lg }) => ({
   item: true,
-  xs: 4,
+  xs: 12,
   lg: lg || 3,
 }))`
   display: flex;
   align-items: center;
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    margin-bottom: ${({ theme }) => theme.spacing(1)};
+  }
+
+  ${({ align, theme }) =>
+    align &&
+    css`
+      ${theme.breakpoints.up("sm")} {
+        justify-content: ${align};
+      }
+    `}
 `;
 
 const StyledIcon = styled(Icon)`
@@ -65,10 +82,20 @@ const StyledIcon = styled(Icon)`
 const StyledCollapseButton = styled(CollapseButton)`
   margin-left: ${({ theme }) => theme.spacing(4)};
   color: ${({ theme }) => theme.palette.text.primary};
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
 `;
 
 const Content = styled.div`
   padding: ${({ theme }) => theme.spacing(4, 10)};
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    padding: ${({ theme }) => theme.spacing(2, 4, 4, 10)};
+  }
 `;
 
 export const HistoryItem = ({
@@ -102,7 +129,7 @@ export const HistoryItem = ({
             </Text>
           </Item>
 
-          <Item justify="flex-end">
+          <Item align="flex-end">
             <Text color="textSecondary" fontStyle="italic">
               {moreInfo}
             </Text>

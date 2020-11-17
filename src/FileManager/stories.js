@@ -40,6 +40,10 @@ export const main = () => {
           },
         ],
       },
+      {
+        label: "Transfer Documents",
+        files: [],
+      },
     ],
   };
 

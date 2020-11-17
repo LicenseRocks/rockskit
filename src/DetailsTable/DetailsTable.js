@@ -20,6 +20,9 @@ const Row = styled.div`
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
     ${({ columnSm }) => columnSm && "flex-direction: column;"}
+    margin-bottom: ${({ theme }) => theme.spacing(6)};
+    flex-wrap: wrap;
+    align-items: flex-start;
   }
 `;
 
@@ -30,6 +33,12 @@ const LabelWrapper = styled.div`
   align-items: center;
   height: 100%;
   padding-right: ${({ theme }) => theme.spacing(6)};
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    flex: 0 0 100%;
+    max-width: 100%;
+    margin-bottom: ${({ theme }) => theme.spacing(2)};
+  }
 `;
 
 const Label = styled(Text).attrs(() => ({
@@ -62,6 +71,7 @@ export const DetailsTable = ({
   labelTextTransform,
   labelFontSize,
   labelWidth,
+  labelWidthSm,
   justifyBetween,
   rows,
   size,

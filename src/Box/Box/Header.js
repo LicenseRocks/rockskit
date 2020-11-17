@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { H3, H4, Icon, Tab, Text } from "../..";
 import { Flex } from "../../Flex";
@@ -23,8 +23,13 @@ const StyledBoxHeader = styled(Flex).attrs(() => ({
 `;
 
 const Content = styled.div`
-  padding: ${({ contentPadding, padding, theme }) =>
-    theme.spacing(0, contentPadding ? 20 : padding)};
+  ${({ contentPadding, padding, theme }) => css`
+    padding: ${theme.spacing(0, contentPadding ? 20 : padding)};
+
+    ${theme.breakpoints.down("sm")} {
+      padding: ${theme.spacing(padding)};
+    }
+  `}
 `;
 
 export const BoxHeader = ({

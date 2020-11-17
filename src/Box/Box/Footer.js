@@ -16,6 +16,10 @@ const StyledBoxFooter = styled(Flex).attrs(() => ({
     background-color: ${theme.palette.common.white};
     padding: ${theme.spacing(4, padding, 4, contentPadding ? 20 : padding)};
     border-top: 1px solid ${theme.palette.gray.semiLight};
+
+    ${theme.breakpoints.down("sm")} {
+      padding: ${theme.spacing(padding)};
+    }
   `}
 `;
 
@@ -33,9 +37,7 @@ export const BoxFooter = ({
 
   return (
     <StyledBoxFooter {...props}>
-      <Flex item sm={8}>
-        {renderTitle()}
-      </Flex>
+      <Flex item>{renderTitle()}</Flex>
 
       <Flex item>
         {renderAction() || (

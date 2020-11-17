@@ -37,6 +37,8 @@ export const CreatorsHubMainLayout = ({
   footerProps,
   headerProps,
   loading,
+  renderFooter,
+  renderHeader,
   sidebar,
 }) => {
   return (
@@ -45,7 +47,7 @@ export const CreatorsHubMainLayout = ({
 
       <FluidContainer white>
         <Container>
-          <CreatorsHubHeader {...headerProps} />
+          {renderHeader() || <CreatorsHubHeader {...headerProps} />}
         </Container>
       </FluidContainer>
 
@@ -65,10 +67,10 @@ export const CreatorsHubMainLayout = ({
         </Container>
       </FluidContainer>
 
-      {footer && (
+      {(footer || renderFooter) && (
         <FluidContainer white>
           <Container>
-            <CreatorsHubFooter {...footerProps} />
+            {renderFooter() || <CreatorsHubFooter {...footerProps} />}
           </Container>
         </FluidContainer>
       )}

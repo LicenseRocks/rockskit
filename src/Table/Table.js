@@ -14,13 +14,25 @@ const StyledTable = styled.table`
   overflow: hidden;
 `;
 
-export const Table = ({ columns, rows, noDataProps, ...props }) => (
+export const Table = ({
+  columns,
+  rows,
+  noDataProps,
+  rowsBottomBorderSm,
+  rowsSize,
+  ...props
+}) => (
   <StyledTable {...props}>
     <Heading columns={columns} hasData={rows.length > 0} />
 
     <tbody>
       {rows.length > 0 ? (
-        <Rows columns={columns} rows={rows} />
+        <Rows
+          columns={columns}
+          rows={rows}
+          rowsBottomBorderSm={rowsBottomBorderSm}
+          rowsSize={rowsSize}
+        />
       ) : (
         <NoData columnsCount={columns.length} {...noDataProps} />
       )}

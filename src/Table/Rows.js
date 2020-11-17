@@ -5,23 +5,27 @@ import { Icon, Text } from "..";
 import { Row } from "./Row";
 
 const StyledTd = styled.td`
-  ${({ align, hiddenLabelSm, flexSm, theme }) => css`
+  ${({ align, hiddenLabelSm, flexSm, rowsBottomBorderSm, theme }) => css`
     ${align && `text-align: ${align};`}
     ${theme.breakpoints.down("sm")} {
       display: ${({ hiddenSm }) => (hiddenSm ? "none" : "block")};
-      padding: ${theme.spacing(2)};
-      border-bottom: 1px solid ${theme.palette.gray.semiLight};
-      text-align: right;
+      margin-bottom: ${theme.spacing(4)};
+
+      ${rowsBottomBorderSm &&
+      css`
+        border-bottom: 1px solid ${theme.palette.gray.semiLight};
+      `}
+
       ${hiddenLabelSm && "text-align: left;"}
 
       ${!hiddenLabelSm &&
       css`
         ::before {
           content: attr(data-label);
-          float: left;
           color: ${theme.palette.text.secondary};
+          padding-bottom: ${theme.spacing(2)};
+          display: block;
           font-weight: normal;
-          font-style: italic;
           font-size: 12px;
           line-height: 120%;
         }
@@ -36,6 +40,7 @@ const StyledTd = styled.td`
 
       :last-child {
         border-bottom: 0;
+        margin-bottom: 0;
       }
     }
   `}
@@ -58,9 +63,9 @@ const getContentByColType = (content, col) => {
   }
 };
 
-export const Rows = ({ columns, rows }) =>
+export const Rows = ({ columns, rows, rowsBottomBorderSm, rowsSize }) =>
   rows.map((row) => (
-    <Row hasData={rows.length > 0}>
+    <Row hasData={rows.length > 0} size={rowsSize}>
       {Object.keys(row).map((td) => {
         const col = columns.find((c) => c.key === td);
         const content = row[td];
@@ -72,6 +77,7 @@ export const Rows = ({ columns, rows }) =>
             flexSm={col?.flexSm}
             hiddenSm={col?.hiddenSm}
             hiddenLabelSm={col?.hiddenLabelSm}
+            rowsBottomBorderSm={rowsBottomBorderSm}
           >
             {getContentByColType(content, col)}
           </StyledTd>

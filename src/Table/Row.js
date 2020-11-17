@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Row = styled.tr`
-  height: ${({ size }) => (size === "sm" ? 28 : 52)}px;
+  height: ${({ size }) => (size === "sm" ? 32 : 64)}px;
   border-bottom: 1px solid ${({ theme }) => theme.palette.gray.semiLight};
   background-color: ${({ theme }) => theme.palette.common.white};
 
@@ -13,6 +13,7 @@ export const Row = styled.tr`
         display: block;
         border-bottom: 0;
         margin-bottom: ${theme.spacing(2)};
+        padding: ${theme.spacing(4)};
         border-radius: 8px;
       }
     `}
