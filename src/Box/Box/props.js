@@ -31,11 +31,13 @@ export const BoxPropTypes = {
   tabs: PropTypes.arrayOf(PropTypes.shape({})),
   tabsProps: PropTypes.shape({}),
   transition: PropTypes.bool,
+  transparentSm: PropTypes.bool,
   ...BoxBasePropTypes,
 };
 
 export const BoxDefaultProps = {
   padding: 6,
   transition: false,
+  transparentSm: false,
   ...BoxBaseDefaultProps,
 };

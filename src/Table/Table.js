@@ -12,6 +12,15 @@ const StyledTable = styled.table`
   border-spacing: 0;
   border-radius: 8px;
   overflow: hidden;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    display: block;
+  }
+`;
+
+const StyledTbody = styled.table`
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    display: block;
+  }
 `;
 
 export const Table = ({
@@ -25,7 +34,7 @@ export const Table = ({
   <StyledTable {...props}>
     <Heading columns={columns} hasData={rows.length > 0} />
 
-    <tbody>
+    <StyledTbody>
       {rows.length > 0 ? (
         <Rows
           columns={columns}
@@ -36,7 +45,7 @@ export const Table = ({
       ) : (
         <NoData columnsCount={columns.length} {...noDataProps} />
       )}
-    </tbody>
+    </StyledTbody>
   </StyledTable>
 );
 

@@ -9,6 +9,14 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.palette.common.white};
   border-bottom: 1px solid ${({ theme }) => theme.palette.gray.semiLight};
+
+  ${({ transparentSm, theme }) =>
+    transparentSm &&
+    css`
+      ${theme.breakpoints.down("sm")} {
+        background-color: transparent;
+      }
+    `}
 `;
 
 const StyledBoxHeader = styled(Flex).attrs(() => ({
@@ -20,6 +28,15 @@ const StyledBoxHeader = styled(Flex).attrs(() => ({
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.palette.common.white};
   padding: ${({ padding, theme }) => theme.spacing(padding)};
+
+  ${({ padding, transparentSm, theme }) =>
+    transparentSm &&
+    css`
+      ${theme.breakpoints.down("sm")} {
+        background-color: transparent;
+        padding: ${theme.spacing(padding, 0)};
+      }
+    `}
 `;
 
 const Content = styled.div`
@@ -27,9 +44,17 @@ const Content = styled.div`
     padding: ${theme.spacing(0, contentPadding ? 20 : padding)};
 
     ${theme.breakpoints.down("sm")} {
-      padding: ${theme.spacing(padding)};
+      padding: ${theme.spacing(0, padding)};
     }
   `}
+
+  ${({ transparentSm, theme }) =>
+    transparentSm &&
+    css`
+      ${theme.breakpoints.down("sm")} {
+        padding: 0;
+      }
+    `}
 `;
 
 export const BoxHeader = ({
@@ -49,11 +74,12 @@ export const BoxHeader = ({
   titleIcon,
   titleIconProps,
   titleSize,
+  transparentSm,
   ...props
 }) => {
   return (
-    <Wrapper>
-      <StyledBoxHeader {...props}>
+    <Wrapper transparentSm={transparentSm}>
+      <StyledBoxHeader transparentSm={transparentSm} {...props}>
         <Flex item>
           {renderTitle() || (
             <Flex container>
@@ -110,7 +136,7 @@ export const BoxHeader = ({
             ))}
         </Flex>
       </StyledBoxHeader>
-      <Content {...props}>
+      <Content transparentSm={transparentSm} {...props}>
         {tabs.length > 0 && <Tab tabs={tabs} mb={0} {...tabsProps} />}
       </Content>
     </Wrapper>
@@ -135,6 +161,7 @@ BoxHeader.propTypes = {
   titleIcon: PropTypes.string,
   titleIconProps: PropTypes.shape({}),
   titleSize: PropTypes.string,
+  transparentSm: PropTypes.bool.isRequired,
 };
 
 BoxHeader.defaultProps = {

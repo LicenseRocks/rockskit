@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { DISPLAY, SPACER } from "../..";
 import { BoxBasePropTypes, BoxBaseDefaultProps } from "./props";
@@ -17,6 +17,15 @@ const StyledBox = styled.div`
     if (shadow === "normal") return "0px 8px 32px rgba(41, 40, 57, 0.08)";
     return "none";
   }};
+
+  ${({ transparentSm, theme }) =>
+    transparentSm &&
+    css`
+      ${theme.breakpoints.down("sm")} {
+        box-shadow: none;
+        background-color: transparent;
+      }
+    `}
 
   ${(theme) => SPACER(theme)}
   ${(theme) => DISPLAY(theme)}

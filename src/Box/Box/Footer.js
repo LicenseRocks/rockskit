@@ -21,6 +21,16 @@ const StyledBoxFooter = styled(Flex).attrs(() => ({
       padding: ${theme.spacing(padding)};
     }
   `}
+
+  ${({ padding, transparentSm, theme }) =>
+    transparentSm &&
+    css`
+      ${theme.breakpoints.down("sm")} {
+        background-color: transparent;
+        border-top: none;
+        padding: ${theme.spacing(padding, 0)};
+      }
+    `}
 `;
 
 export const BoxFooter = ({

@@ -14,10 +14,19 @@ const BoxContent = styled.div`
       padding,
       contentPadding ? 20 : padding
     )};
+
     ${theme.breakpoints.down("sm")} {
       padding: ${theme.spacing(padding)};
     }
   `}
+
+  ${({ padding, transparentSm, theme }) =>
+    transparentSm &&
+    css`
+      ${theme.breakpoints.down("sm")} {
+        padding: ${theme.spacing(padding, 0)};
+      }
+    `}
 `;
 
 export const Box = ({
@@ -52,12 +61,17 @@ export const Box = ({
   tabs,
   tabsProps,
   transition,
+  transparentSm,
   ...props
 }) => {
   const content = (
     <>
       {alert && <Alert content={alert} color={alertColor} noBorderRadius />}
-      <BoxContent padding={padding} contentPadding={contentPadding}>
+      <BoxContent
+        padding={padding}
+        contentPadding={contentPadding}
+        transparentSm={transparentSm}
+      >
         {children}
       </BoxContent>
 
@@ -71,12 +85,13 @@ export const Box = ({
         padding={padding}
         renderAction={footerRenderAction}
         renderTitle={footerRenderTitle}
+        transparentSm={transparentSm}
       />
     </>
   );
 
   return (
-    <BoxBase {...props}>
+    <BoxBase transparentSm={transparentSm} {...props}>
       {loading && <PageLoading message={loadingMessage} type="box" />}
       {headerTitle && (
         <BoxHeader
@@ -98,6 +113,7 @@ export const Box = ({
           titleIcon={headerTitleIcon}
           titleIconProps={headerTitleIconProps}
           titleSize={headerTitleSize}
+          transparentSm={transparentSm}
         />
       )}
 

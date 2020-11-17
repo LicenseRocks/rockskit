@@ -43,6 +43,7 @@ export const main = () => {
     tabsProps: {
       currentTab: 0,
     },
+    transparentSm: boolean("Transparent SM", false),
   };
 
   return (
