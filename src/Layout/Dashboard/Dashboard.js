@@ -75,7 +75,7 @@ export const DashboardLayout = ({
   ...props
 }) => (
   <StyledContainer {...props}>
-    {loading && <PageLoading />}
+    {loading && <PageLoading fullScreen />}
     <Flex
       container
       direction="column"

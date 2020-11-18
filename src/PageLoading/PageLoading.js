@@ -5,16 +5,16 @@ import { RocksSpinner, Text } from "..";
 import { PageLoadingPropTypes, PageLoadingDefaultProps } from "./props";
 
 const StyledLoading = styled.div`
-  position: ${({ type }) => (type === "page" ? "fixed" : "absolute")};
+  position: ${({ fullScreen }) => (fullScreen ? "fixed" : "absolute")};
   top: 0;
   right: 0;
   left: 0;
-  min-width: ${({ type }) => (type === "page" ? "100vw" : "100%")};
-  min-height: ${({ type }) => (type === "page" ? "100vh" : "100%")};
+  min-width: ${({ fullScreen }) => (fullScreen ? "100vw" : "100%")};
+  min-height: ${({ fullScreen }) => (fullScreen ? "100vh" : "100%")};
   width: 100%;
   height: 100%;
-  background-color: ${({ theme, type }) =>
-    type === "page" ? theme.palette.common.white : "rgba(0, 0, 0, 0.3)"};
+  background-color: ${({ transparent, theme }) =>
+    transparent ? "rgba(0, 0, 0, 0.3)" : theme.palette.common.white};
   display: flex;
   flex-direction: column;
   align-items: center;

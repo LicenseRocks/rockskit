@@ -1,8 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
 import Drawer from "@material-ui/core/Drawer";
-import Hidden from "@material-ui/core/Hidden";
 
+import { Hidden } from "../../../..";
 import {
   CreatorsHubHeaderPropTypes,
   CreatorsHubHeaderDefaultProps,

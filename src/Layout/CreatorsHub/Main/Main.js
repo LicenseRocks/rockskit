@@ -43,7 +43,7 @@ export const CreatorsHubMainLayout = ({
 }) => {
   return (
     <>
-      {loading && <PageLoading />}
+      {loading && <PageLoading fullScreen />}
 
       <FluidContainer white>
         <Container>

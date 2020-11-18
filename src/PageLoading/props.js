@@ -1,10 +1,9 @@
 import PropTypes from "prop-types";
 
 export const PageLoadingPropTypes = {
+  fullScreen: PropTypes.bool,
   message: PropTypes.string,
-  type: PropTypes.oneOf(["page", "box"]),
+  transparent: PropTypes.bool,
 };
 
-export const PageLoadingDefaultProps = {
-  type: "page",
-};
+export const PageLoadingDefaultProps = {};

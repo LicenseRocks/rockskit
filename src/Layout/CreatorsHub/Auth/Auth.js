@@ -46,7 +46,7 @@ export const CreatorsHubAuthLayout = ({
 }) => {
   return (
     <>
-      {loading && <PageLoading />}
+      {loading && <PageLoading fullScreen />}
 
       <StyledContainer {...props}>
         <CreatorsHubHeader {...headerProps} />

@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import Hidden from "@material-ui/core/Hidden";
 
+import { Hidden } from "../../../..";
 import {
   CreatorsHubHeaderPropTypes,
   CreatorsHubHeaderDefaultProps,

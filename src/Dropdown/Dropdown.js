@@ -3,8 +3,8 @@ import styled, { useTheme } from "styled-components";
 import Dialog from "@material-ui/core/Dialog";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
 
+import { useMediaQuery } from "..";
 import { DISPLAY, SPACER } from "../theme";
 import { DropdownDefaultProps, DropdownPropTypes } from "./props";
 

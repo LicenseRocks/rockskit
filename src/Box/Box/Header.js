@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 
 import { H3, H4, Icon, Tab, Text } from "../..";
 import { Flex } from "../../Flex";
+import { useMediaQuery } from "../../hooks";
 
 const Wrapper = styled.div`
   box-sizing: border-box;
@@ -72,18 +73,22 @@ export const BoxHeader = ({
   tabsProps,
   title,
   titleIcon,
+  titleIconHideSm,
   titleIconProps,
   titleSize,
   transparentSm,
   ...props
 }) => {
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
+  const showTitleIcon = titleIcon || (!titleIconHideSm && isMobile);
+
   return (
     <Wrapper transparentSm={transparentSm}>
       <StyledBoxHeader transparentSm={transparentSm} {...props}>
         <Flex item>
           {renderTitle() || (
             <Flex container>
-              {titleIcon && (
+              {showTitleIcon && (
                 <Icon
                   colorBlack
                   icon={titleIcon}
@@ -159,6 +164,7 @@ BoxHeader.propTypes = {
   tabsProps: PropTypes.shape({}),
   title: PropTypes.string.isRequired,
   titleIcon: PropTypes.string,
+  titleIconHideSm: PropTypes.bool,
   titleIconProps: PropTypes.shape({}),
   titleSize: PropTypes.string,
   transparentSm: PropTypes.bool.isRequired,
@@ -178,6 +184,7 @@ BoxHeader.defaultProps = {
   tabs: [],
   tabsProps: {},
   titleIcon: "",
+  titleIconHideSm: false,
   titleIconProps: {},
   titleSize: "md",
 };

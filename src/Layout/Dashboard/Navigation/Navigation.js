@@ -2,9 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 import Drawer from "@material-ui/core/Drawer";
 import Fab from "@material-ui/core/Fab";
-import Hidden from "@material-ui/core/Hidden";
 
-import { Icon } from "../../..";
+import { Hidden, Icon } from "../../..";
 import { NavigationMenu } from "./NavigationMenu";
 import { UserMenu } from "./UserMenu";
 import {

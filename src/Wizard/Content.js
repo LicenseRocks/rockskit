@@ -9,6 +9,10 @@ const StyledContent = styled.div`
   height: 100%;
   flex: 1;
   padding: 24px 24px 24px 40px;
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    padding: 16px 16px 16px 16px;
+  }
 `;
 
 const ActionWrapper = styled.div`

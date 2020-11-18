@@ -1,7 +1,13 @@
 import React from "react";
 import styled, { css } from "styled-components";
 
-import { Alert, BoxBase, PageLoading, PageTransition } from "../..";
+import {
+  Alert,
+  BoxBase,
+  PageLoading,
+  PageTransition,
+  useMediaQuery,
+} from "../..";
 import { BoxFooter } from "./Footer";
 import { BoxHeader } from "./Header";
 import { BoxPropTypes, BoxDefaultProps } from "./props";
@@ -64,6 +70,8 @@ export const Box = ({
   transparentSm,
   ...props
 }) => {
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("md"));
+
   const content = (
     <>
       {alert && <Alert content={alert} color={alertColor} noBorderRadius />}
@@ -92,7 +100,14 @@ export const Box = ({
 
   return (
     <BoxBase transparentSm={transparentSm} {...props}>
-      {loading && <PageLoading message={loadingMessage} type="box" />}
+      {loading && (
+        <PageLoading
+          message={loadingMessage}
+          transparent
+          fullScreen={isMobile && transparentSm}
+        />
+      )}
+
       {headerTitle && (
         <BoxHeader
           action={headerAction}

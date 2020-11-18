@@ -30,7 +30,7 @@ export const AuthLayout = ({
   ...props
 }) => (
   <StyledContainer {...props}>
-    {loading && <PageLoading />}
+    {loading && <PageLoading fullScreen />}
     <Flex container direction="column" mAuto h100 wrap="nowrap">
       <AuthLayoutHeader
         backButtonOnClick={headerBackButtonOnClick}

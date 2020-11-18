@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { css, useTheme } from "styled-components";
-import useMediaQuery from "@material-ui/core/useMediaQuery";
+// import useMediaQuery from "@material-ui/core/useMediaQuery"
 import copy from "copy-to-clipboard";
 
 import {
@@ -10,6 +10,7 @@ import {
 } from ".";
 import { Text } from "../Typography";
 import { Input } from "../Form";
+import { useMediaQuery } from "../hooks/useMediaQuery";
 import { DISPLAY, SPACER } from "../theme";
 
 const Container = styled.div`

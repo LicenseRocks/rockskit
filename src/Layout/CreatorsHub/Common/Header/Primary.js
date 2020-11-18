@@ -1,9 +1,8 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import Hidden from "@material-ui/core/Hidden";
 
 import Logo from "../../../../assets/images/logo-symbol.svg";
-import { Icon, Image } from "../../../..";
+import { Hidden, Icon, Image } from "../../../..";
 import {
   CreatorsHubHeaderPropTypes,
   CreatorsHubHeaderDefaultProps,

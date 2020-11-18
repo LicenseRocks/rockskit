@@ -17,9 +17,16 @@ export const main = () => {
       currentStepContent={`Step ${currentStep + 1} content`}
       currentStepIndex={currentStep}
       nextStepMethod="button"
-      orientation="vertical"
+      orientation="horizontal"
       setCurrentStepIndex={setCurrentStep}
-      steps={["Step 1", "Step 2"]}
+      steps={[
+        {
+          title: "Step 1",
+        },
+        {
+          title: "Step 2",
+        },
+      ]}
     />
   );
 };

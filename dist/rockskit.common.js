@@ -16,12 +16,12 @@ var CssBaseline = require('@material-ui/core/CssBaseline');
 var fontawesomeSvgCore = require('@fortawesome/fontawesome-svg-core');
 var notistack = require('notistack');
 var Typography = require('@material-ui/core/Typography');
+var MuiUseMediaQuery = require('@material-ui/core/useMediaQuery');
 var RCL = require('react-content-loader');
 var reactCollapse = require('react-collapse');
 var Dialog = require('@material-ui/core/Dialog');
 var Menu = require('@material-ui/core/Menu');
 var MenuItem = require('@material-ui/core/MenuItem');
-var useMediaQuery = require('@material-ui/core/useMediaQuery');
 var QRCode = require('qrcode.react');
 var reactHookForm = require('react-hook-form');
 var reactFilepond = require('react-filepond');
@@ -32,8 +32,8 @@ var AsyncSelect = require('react-select/async');
 var ReactSelect$1 = require('react-select');
 var flatMap = require('lodash/flatMap');
 var makeAnimated = require('react-select/animated');
+var MuiHidden = require('@material-ui/core/Hidden');
 var MuiContainer = require('@material-ui/core/Container');
-var Hidden = require('@material-ui/core/Hidden');
 var Drawer = require('@material-ui/core/Drawer');
 var Fab = require('@material-ui/core/Fab');
 var CircularProgress = require('@material-ui/core/CircularProgress');
@@ -58,11 +58,11 @@ var Grid__default = /*#__PURE__*/_interopDefaultLegacy(Grid);
 var MuiButtonBase__default = /*#__PURE__*/_interopDefaultLegacy(MuiButtonBase);
 var CssBaseline__default = /*#__PURE__*/_interopDefaultLegacy(CssBaseline);
 var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography);
+var MuiUseMediaQuery__default = /*#__PURE__*/_interopDefaultLegacy(MuiUseMediaQuery);
 var RCL__default = /*#__PURE__*/_interopDefaultLegacy(RCL);
 var Dialog__default = /*#__PURE__*/_interopDefaultLegacy(Dialog);
 var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu);
 var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
-var useMediaQuery__default = /*#__PURE__*/_interopDefaultLegacy(useMediaQuery);
 var QRCode__default = /*#__PURE__*/_interopDefaultLegacy(QRCode);
 var MuiSlider__default = /*#__PURE__*/_interopDefaultLegacy(MuiSlider);
 var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
@@ -70,8 +70,8 @@ var AsyncSelect__default = /*#__PURE__*/_interopDefaultLegacy(AsyncSelect);
 var ReactSelect__default = /*#__PURE__*/_interopDefaultLegacy(ReactSelect$1);
 var flatMap__default = /*#__PURE__*/_interopDefaultLegacy(flatMap);
 var makeAnimated__default = /*#__PURE__*/_interopDefaultLegacy(makeAnimated);
+var MuiHidden__default = /*#__PURE__*/_interopDefaultLegacy(MuiHidden);
 var MuiContainer__default = /*#__PURE__*/_interopDefaultLegacy(MuiContainer);
-var Hidden__default = /*#__PURE__*/_interopDefaultLegacy(Hidden);
 var Drawer__default = /*#__PURE__*/_interopDefaultLegacy(Drawer);
 var Fab__default = /*#__PURE__*/_interopDefaultLegacy(Fab);
 var CircularProgress__default = /*#__PURE__*/_interopDefaultLegacy(CircularProgress);
@@ -1381,7 +1381,9 @@ var AppContainer = function AppContainer(_ref) {
     maxSnack: 3
   }, /*#__PURE__*/React__default['default'].createElement(GlobalStyle, null), /*#__PURE__*/React__default['default'].createElement(CssBaseline__default['default'], null), pageProgressBar && /*#__PURE__*/React__default['default'].createElement(PageProgressBar, {
     listener: pageProgressBarListener
-  }), pageLoading ? /*#__PURE__*/React__default['default'].createElement(PageLoading, null) : children))));
+  }), pageLoading ? /*#__PURE__*/React__default['default'].createElement(PageLoading, {
+    fullScreen: true
+  }) : children))));
 };
 AppContainer.propTypes = AppContainerPropTypes;
 
@@ -1772,6 +1774,9 @@ BoxFooter.defaultProps = {
   renderTitle: function renderTitle() {}
 };
 
+/* eslint-disable global-require */
+var useMediaQuery = MuiUseMediaQuery__default['default'];
+
 function _templateObject3$2() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n\n  ", "\n"]);
 
@@ -1856,11 +1861,16 @@ var BoxHeader = function BoxHeader(_ref9) {
       tabsProps = _ref9.tabsProps,
       title = _ref9.title,
       titleIcon = _ref9.titleIcon,
+      titleIconHideSm = _ref9.titleIconHideSm,
       titleIconProps = _ref9.titleIconProps,
       titleSize = _ref9.titleSize,
       transparentSm = _ref9.transparentSm,
-      props = _objectWithoutPropertiesLoose(_ref9, ["action", "actionIcon", "actionIconProps", "actionIconSize", "renderAction", "renderTitle", "metaTitle", "metaTitleColor", "subTitle", "subTitleColor", "tabs", "tabsProps", "title", "titleIcon", "titleIconProps", "titleSize", "transparentSm"]);
+      props = _objectWithoutPropertiesLoose(_ref9, ["action", "actionIcon", "actionIconProps", "actionIconSize", "renderAction", "renderTitle", "metaTitle", "metaTitleColor", "subTitle", "subTitleColor", "tabs", "tabsProps", "title", "titleIcon", "titleIconHideSm", "titleIconProps", "titleSize", "transparentSm"]);
 
+  var isMobile = useMediaQuery(function (theme) {
+    return theme.breakpoints.down("sm");
+  });
+  var showTitleIcon = titleIcon || !titleIconHideSm && isMobile;
   return /*#__PURE__*/React__default['default'].createElement(Wrapper, {
     transparentSm: transparentSm
   }, /*#__PURE__*/React__default['default'].createElement(StyledBoxHeader, _extends({
@@ -1869,7 +1879,7 @@ var BoxHeader = function BoxHeader(_ref9) {
     item: true
   }, renderTitle() || /*#__PURE__*/React__default['default'].createElement(Flex, {
     container: true
-  }, titleIcon && /*#__PURE__*/React__default['default'].createElement(Icon, _extends({
+  }, showTitleIcon && /*#__PURE__*/React__default['default'].createElement(Icon, _extends({
     colorBlack: true,
     icon: titleIcon,
     mr: 2,
@@ -1919,6 +1929,7 @@ BoxHeader.propTypes = {
   tabsProps: PropTypes__default['default'].shape({}),
   title: PropTypes__default['default'].string.isRequired,
   titleIcon: PropTypes__default['default'].string,
+  titleIconHideSm: PropTypes__default['default'].bool,
   titleIconProps: PropTypes__default['default'].shape({}),
   titleSize: PropTypes__default['default'].string,
   transparentSm: PropTypes__default['default'].bool.isRequired
@@ -1937,6 +1948,7 @@ BoxHeader.defaultProps = {
   tabs: [],
   tabsProps: {},
   titleIcon: "",
+  titleIconHideSm: false,
   titleIconProps: {},
   titleSize: "md"
 };
@@ -2033,6 +2045,9 @@ var Box = function Box(_ref3) {
       transparentSm = _ref3.transparentSm,
       props = _objectWithoutPropertiesLoose(_ref3, ["alert", "alertColor", "children", "contentPadding", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "padding", "tabs", "tabsProps", "transition", "transparentSm"]);
 
+  var isMobile = useMediaQuery(function (theme) {
+    return theme.breakpoints.down("md");
+  });
   var content = /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, alert && /*#__PURE__*/React__default['default'].createElement(Alert, {
     content: alert,
     color: alertColor,
@@ -2057,7 +2072,8 @@ var Box = function Box(_ref3) {
     transparentSm: transparentSm
   }, props), loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, {
     message: loadingMessage,
-    type: "box"
+    transparent: true,
+    fullScreen: isMobile && transparentSm
   }), headerTitle && /*#__PURE__*/React__default['default'].createElement(BoxHeader, {
     action: headerAction,
     actionIcon: headerActionIcon,
@@ -2699,7 +2715,7 @@ var Dropdown = function Dropdown(_ref3) {
       props = _objectWithoutPropertiesLoose(_ref3, ["children", "items", "responsive"]);
 
   var theme = styled.useTheme();
-  var isMobile = useMediaQuery__default['default'](theme.breakpoints.down("sm"));
+  var isMobile = useMediaQuery(theme.breakpoints.down("sm"));
   if (responsive && isMobile) return /*#__PURE__*/React__default['default'].createElement(StyledDialog, _extends({
     fullScreen: true,
     hideBackdrop: true
@@ -4708,6 +4724,24 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
 ToggleSwitch.propTypes = ToggleSwitchPropTypes;
 ToggleSwitch.defaultProps = ToggleSwitchDefaultProps;
 
+function _templateObject$M() {
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
+
+  _templateObject$M = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledHidden = styled__default['default'](MuiHidden__default['default'])(_templateObject$M(), function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
+var Hidden = function Hidden(props) {
+  return /*#__PURE__*/React__default['default'].createElement(StyledHidden, props);
+};
+
 function _templateObject8() {
   var data = _taggedTemplateLiteralLoose(["\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n  }\n"]);
 
@@ -4778,16 +4812,16 @@ function _templateObject2$g() {
   return data;
 }
 
-function _templateObject$M() {
+function _templateObject$N() {
   var data = _taggedTemplateLiteralLoose(["\n  border-width: 0;\n  border-style: solid;\n  border-color: ", ";\n  border-left-width: 1px;\n  transition: all 0.1ms ease-in-out;\n  position: absolute;\n  bottom: 0;\n  left: 15px;\n  top: 0;\n  ::before {\n    content: \"\";\n    width: 1px;\n    height: 100%;\n    display: inline-block;\n  }\n"]);
 
-  _templateObject$M = function _templateObject() {
+  _templateObject$N = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var ItemConnector = styled__default['default'].div(_templateObject$M(), function (_ref) {
+var ItemConnector = styled__default['default'].div(_templateObject$N(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.regular;
 });
@@ -4915,16 +4949,16 @@ var HistoryPropTypes = _extends({
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-function _templateObject$N() {
+function _templateObject$O() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$N = function _templateObject() {
+  _templateObject$O = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$4 = styled__default['default'].div(_templateObject$N(), function (theme) {
+var Container$4 = styled__default['default'].div(_templateObject$O(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -4963,10 +4997,10 @@ var ImageDefaultProps = {
   thumbnail: false
 };
 
-function _templateObject$O() {
+function _templateObject$P() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$O = function _templateObject() {
+  _templateObject$P = function _templateObject() {
     return data;
   };
 
@@ -4979,7 +5013,7 @@ var Image = function Image(_ref) {
     itemProp: "contentUrl"
   }, props));
 };
-var StyledImg = styled__default['default'].img(_templateObject$O(), function (_ref2) {
+var StyledImg = styled__default['default'].img(_templateObject$P(), function (_ref2) {
   var width = _ref2.width;
   return width && "width: " + width + ";";
 }, function (_ref3) {
@@ -5008,16 +5042,16 @@ var IndicatorDefaultProps = {
   color: "primary"
 };
 
-function _templateObject$P() {
+function _templateObject$Q() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    background-color: ", ";\n    color: ", ";\n    border-radius: 100%;\n    min-height: 20px;\n    min-width: 20px;\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n\n    ", "\n    ", "\n  }\n"]);
 
-  _templateObject$P = function _templateObject() {
+  _templateObject$Q = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledIndicator = styled__default['default'].div(_templateObject$P(), function (_ref) {
+var StyledIndicator = styled__default['default'].div(_templateObject$Q(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
   return theme.palette[color].main;
@@ -5137,10 +5171,10 @@ function _templateObject2$h() {
   return data;
 }
 
-function _templateObject$Q() {
+function _templateObject$R() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 0 0 120px;\n  ", " {\n    flex: 0 0 96px;\n  }\n"]);
 
-  _templateObject$Q = function _templateObject() {
+  _templateObject$R = function _templateObject() {
     return data;
   };
 
@@ -5152,7 +5186,7 @@ var StyledHeader = styled__default['default'](Flex).attrs(function () {
     alignItems: "center",
     justify: "space-between"
   };
-})(_templateObject$Q(), function (_ref) {
+})(_templateObject$R(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
@@ -5215,10 +5249,10 @@ function _templateObject2$i() {
   return data;
 }
 
-function _templateObject$R() {
+function _templateObject$S() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n"]);
 
-  _templateObject$R = function _templateObject() {
+  _templateObject$S = function _templateObject() {
     return data;
   };
 
@@ -5228,7 +5262,7 @@ var StyledContainer$1 = styled__default['default'](MuiContainer__default['defaul
   return {
     maxWidth: "xs"
   };
-})(_templateObject$R());
+})(_templateObject$S());
 var Content$3 = styled__default['default'].div(_templateObject2$i(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10, 0);
@@ -5245,7 +5279,9 @@ var AuthLayout = function AuthLayout(_ref2) {
       loading = _ref2.loading,
       props = _objectWithoutPropertiesLoose(_ref2, ["children", "content", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "loading"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(StyledContainer$1, props, loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, null), /*#__PURE__*/React__default['default'].createElement(Flex, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledContainer$1, props, loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, {
+    fullScreen: true
+  }), /*#__PURE__*/React__default['default'].createElement(Flex, {
     container: true,
     direction: "column",
     mAuto: true,
@@ -5300,16 +5336,16 @@ function _templateObject2$j() {
   return data;
 }
 
-function _templateObject$S() {
+function _templateObject$T() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  background-color: ", ";\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n  }\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$S = function _templateObject() {
+  _templateObject$T = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Footer = styled__default['default'].div(_templateObject$S(), function (_ref) {
+var Footer = styled__default['default'].div(_templateObject$T(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
@@ -5442,16 +5478,16 @@ function _templateObject2$k() {
   return data;
 }
 
-function _templateObject$T() {
+function _templateObject$U() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  padding: ", ";\n  height: 80px;\n  max-height: 80px;\n  box-sizing: border-box;\n  align-items: center;\n  justify-content: space-between;\n\n  ", " {\n    height: ", ";\n    max-height: ", ";\n  }\n\n  ", "\n\n  ", "\n"]);
 
-  _templateObject$T = function _templateObject() {
+  _templateObject$U = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledHeader$1 = styled__default['default'].div(_templateObject$T(), function (_ref) {
+var StyledHeader$1 = styled__default['default'].div(_templateObject$U(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4, 0);
 }, function (_ref2) {
@@ -5506,7 +5542,7 @@ var PrimaryHeader = function PrimaryHeader(_ref13) {
       setDrawerOpen = _ref13.setDrawerOpen,
       props = _objectWithoutPropertiesLoose(_ref13, ["drawerOpen", "logoSrc", "logoAction", "primaryNavItems", "renderLogo", "setDrawerOpen"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(StyledHeader$1, props, /*#__PURE__*/React__default['default'].createElement(LogoContainer, null, /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(StyledHeader$1, props, /*#__PURE__*/React__default['default'].createElement(LogoContainer, null, /*#__PURE__*/React__default['default'].createElement(Hidden, {
     implementation: "js",
     mdUp: true
   }, /*#__PURE__*/React__default['default'].createElement(MenuIconButton, {
@@ -5522,7 +5558,7 @@ var PrimaryHeader = function PrimaryHeader(_ref13) {
     onClick: logoAction,
     src: logoSrc || img$2
   })), /*#__PURE__*/React__default['default'].createElement(PrimaryList, null, primaryNavItems == null ? void 0 : primaryNavItems.map(function (item) {
-    return /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
+    return /*#__PURE__*/React__default['default'].createElement(Hidden, {
       implementation: "js",
       smDown: !item.showSm,
       key: item.key
@@ -5564,16 +5600,16 @@ function _templateObject2$l() {
   return data;
 }
 
-function _templateObject$U() {
+function _templateObject$V() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  height: 80px;\n  max-height: 80px;\n  box-sizing: border-box;\n  align-items: center;\n  justify-content: space-between;\n  background-color: ", ";\n\n  ", " {\n    height: 64px;\n    max-height: 64px;\n  }\n"]);
 
-  _templateObject$U = function _templateObject() {
+  _templateObject$V = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledHeader$2 = styled__default['default'].div(_templateObject$U(), function (_ref) {
+var StyledHeader$2 = styled__default['default'].div(_templateObject$V(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
@@ -5612,7 +5648,7 @@ var SecondaryHeader = function SecondaryHeader(_ref11) {
       secondaryRenderRight = _ref11.secondaryRenderRight,
       props = _objectWithoutPropertiesLoose(_ref11, ["secondaryNavItems", "secondaryRenderRight"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(StyledHeader$2, props, /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
+  return /*#__PURE__*/React__default['default'].createElement(StyledHeader$2, props, /*#__PURE__*/React__default['default'].createElement(Hidden, {
     implementation: "js",
     smDown: true
   }, /*#__PURE__*/React__default['default'].createElement(SecondaryList, null, secondaryNavItems == null ? void 0 : secondaryNavItems.map(function (item) {
@@ -5644,16 +5680,16 @@ function _templateObject2$m() {
   return data;
 }
 
-function _templateObject$V() {
+function _templateObject$W() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100vw;\n  height: 100vh;\n  && {\n    top: ", " !important;\n  }\n\n  .MuiPaper-root {\n    box-shadow: none;\n    width: 100%;\n    height: 100%;\n    top: ", " !important;\n    background-color: ", ";\n    padding: ", ";\n  }\n"]);
 
-  _templateObject$V = function _templateObject() {
+  _templateObject$W = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledDrawer = styled__default['default'](Drawer__default['default'])(_templateObject$V(), function (_ref) {
+var StyledDrawer = styled__default['default'](Drawer__default['default'])(_templateObject$W(), function (_ref) {
   var offsetTop = _ref.offsetTop;
   return offsetTop;
 }, function (_ref2) {
@@ -5696,7 +5732,7 @@ var HeaderDrawer = function HeaderDrawer(_ref13) {
   var navItems = _ref13.navItems,
       props = _objectWithoutPropertiesLoose(_ref13, ["navItems"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
+  return /*#__PURE__*/React__default['default'].createElement(Hidden, {
     implementation: "js",
     mdUp: true
   }, /*#__PURE__*/React__default['default'].createElement(StyledDrawer, _extends({
@@ -5713,17 +5749,17 @@ var HeaderDrawer = function HeaderDrawer(_ref13) {
 HeaderDrawer.propTypes = CreatorsHubHeaderPropTypes;
 HeaderDrawer.defaultProps = CreatorsHubHeaderDefaultProps;
 
-function _templateObject$W() {
+function _templateObject$X() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$W = function _templateObject() {
+  _templateObject$X = function _templateObject() {
     return data;
   };
 
   return data;
 }
 var HEADER_SM_HEIGHT = "72px";
-var Header = styled__default['default'].div(_templateObject$W(), function (theme) {
+var Header = styled__default['default'].div(_templateObject$X(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -5797,10 +5833,10 @@ function _templateObject2$n() {
   return data;
 }
 
-function _templateObject$X() {
+function _templateObject$Y() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n  }\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$X = function _templateObject() {
+  _templateObject$Y = function _templateObject() {
     return data;
   };
 
@@ -5810,7 +5846,7 @@ var StyledContainer$2 = styled__default['default'](MuiContainer__default['defaul
   return {
     maxWidth: "lg"
   };
-})(_templateObject$X(), function (theme) {
+})(_templateObject$Y(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -5827,7 +5863,9 @@ var CreatorsHubAuthLayout = function CreatorsHubAuthLayout(_ref) {
       loading = _ref.loading,
       props = _objectWithoutPropertiesLoose(_ref, ["children", "headerProps", "loading"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, null), /*#__PURE__*/React__default['default'].createElement(StyledContainer$2, props, /*#__PURE__*/React__default['default'].createElement(CreatorsHubHeader, headerProps), /*#__PURE__*/React__default['default'].createElement(InnerContainer, null, /*#__PURE__*/React__default['default'].createElement(Content$4, null, children))));
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, {
+    fullScreen: true
+  }), /*#__PURE__*/React__default['default'].createElement(StyledContainer$2, props, /*#__PURE__*/React__default['default'].createElement(CreatorsHubHeader, headerProps), /*#__PURE__*/React__default['default'].createElement(InnerContainer, null, /*#__PURE__*/React__default['default'].createElement(Content$4, null, children))));
 };
 CreatorsHubAuthLayout.propTypes = CreatorsHubAuthLayoutPropTypes;
 CreatorsHubAuthLayout.defaultProps = CreatorsHubAuthLayoutDefaultProps;
@@ -5867,10 +5905,10 @@ function _templateObject2$o() {
   return data;
 }
 
-function _templateObject$Y() {
+function _templateObject$Z() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject$Y = function _templateObject() {
+  _templateObject$Z = function _templateObject() {
     return data;
   };
 
@@ -5880,7 +5918,7 @@ var FluidContainer = styled__default['default'](MuiContainer__default['default']
   return {
     maxWidth: false
   };
-})(_templateObject$Y(), function (_ref) {
+})(_templateObject$Z(), function (_ref) {
   var white = _ref.white;
   return white && styled.css(["background-color:", ";"], function (_ref2) {
     var theme = _ref2.theme;
@@ -5910,7 +5948,9 @@ var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref4) {
       renderFooter = _ref4.renderFooter,
       renderHeader = _ref4.renderHeader,
       sidebar = _ref4.sidebar;
-  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, null), /*#__PURE__*/React__default['default'].createElement(FluidContainer, {
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, {
+    fullScreen: true
+  }), /*#__PURE__*/React__default['default'].createElement(FluidContainer, {
     white: true
   }, /*#__PURE__*/React__default['default'].createElement(Container$5, null, renderHeader() || /*#__PURE__*/React__default['default'].createElement(CreatorsHubHeader, headerProps))), /*#__PURE__*/React__default['default'].createElement(FluidContainer, null, /*#__PURE__*/React__default['default'].createElement(Container$5, null, /*#__PURE__*/React__default['default'].createElement(Content$5, {
     spacing: sidebar ? 8 : false
@@ -5961,10 +6001,10 @@ function _templateObject2$p() {
   return data;
 }
 
-function _templateObject$Z() {
+function _templateObject$_() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 0 0 120px;\n  ", " {\n    flex: 0 0 96px;\n  }\n"]);
 
-  _templateObject$Z = function _templateObject() {
+  _templateObject$_ = function _templateObject() {
     return data;
   };
 
@@ -5976,7 +6016,7 @@ var StyledHeader$3 = styled__default['default'](Flex).attrs(function () {
     alignItems: "center",
     justify: "space-between"
   };
-})(_templateObject$Z(), function (_ref) {
+})(_templateObject$_(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
@@ -6027,7 +6067,7 @@ var DashboardLayoutHeader = function DashboardLayoutHeader(_ref4) {
     item: true,
     md: 6,
     xs: 4
-  }, headerLeft || backButton), /*#__PURE__*/React__default['default'].createElement(HeaderRight, null, headerRight), /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
+  }, headerLeft || backButton), /*#__PURE__*/React__default['default'].createElement(HeaderRight, null, headerRight), /*#__PURE__*/React__default['default'].createElement(Hidden, {
     smDown: true,
     implementation: "js"
   }, /*#__PURE__*/React__default['default'].createElement(Flex, {
@@ -6084,16 +6124,16 @@ function _templateObject2$q() {
   return data;
 }
 
-function _templateObject$_() {
+function _templateObject$$() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    color: ", ";\n    display: flex;\n    padding: 0;\n    margin: 0;\n    padding-left: ", ";\n    margin-bottom: 2px;\n    cursor: pointer;\n\n    &.Mui-selected {\n      background: none;\n      color: ", ";\n\n      span {\n        font-weight: bold;\n      }\n\n      &:hover {\n        background: inherit;\n      }\n    }\n\n    div {\n      margin: 0;\n      span {\n        font-size: 14px;\n      }\n    }\n  }\n"]);
 
-  _templateObject$_ = function _templateObject() {
+  _templateObject$$ = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var NestedListItem = styled__default['default'](core.ListItem)(_templateObject$_(), function (_ref) {
+var NestedListItem = styled__default['default'](core.ListItem)(_templateObject$$(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.text.secondary;
 }, function (_ref2) {
@@ -6279,16 +6319,16 @@ function _templateObject2$r() {
   return data;
 }
 
-function _templateObject$$() {
+function _templateObject$10() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  box-sizing: border-box;\n  padding: ", ";\n  height: 100%;\n"]);
 
-  _templateObject$$ = function _templateObject() {
+  _templateObject$10 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var MainNav = styled__default['default'].div(_templateObject$$(), function (_ref) {
+var MainNav = styled__default['default'].div(_templateObject$10(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(0, 4, 0, 4);
 });
@@ -6335,7 +6375,7 @@ var DashboardLayoutNavigation = function DashboardLayoutNavigation(_ref6) {
     }));
   };
 
-  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(Hidden, {
     smUp: true,
     implementation: "js"
   }, /*#__PURE__*/React__default['default'].createElement(StyledFab, {
@@ -6343,7 +6383,7 @@ var DashboardLayoutNavigation = function DashboardLayoutNavigation(_ref6) {
     onClick: function onClick() {
       return setMobileOpen(true);
     }
-  }, /*#__PURE__*/React__default['default'].createElement(NavIcon, null))), /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
+  }, /*#__PURE__*/React__default['default'].createElement(NavIcon, null))), /*#__PURE__*/React__default['default'].createElement(Hidden, {
     smUp: true,
     implementation: "js"
   }, /*#__PURE__*/React__default['default'].createElement(Drawer__default['default'], {
@@ -6356,7 +6396,7 @@ var DashboardLayoutNavigation = function DashboardLayoutNavigation(_ref6) {
     ModalProps: {
       keepMounted: true
     }
-  }, /*#__PURE__*/React__default['default'].createElement(DrawerWrapper, null, renderMainNav()))), /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
+  }, /*#__PURE__*/React__default['default'].createElement(DrawerWrapper, null, renderMainNav()))), /*#__PURE__*/React__default['default'].createElement(Hidden, {
     smDown: true,
     implementation: "js"
   }, /*#__PURE__*/React__default['default'].createElement(MainNav, null, renderMainNav())));
@@ -6368,16 +6408,16 @@ var DashboardLayoutFooterPropTypes = {
   content: PropTypes__default['default'].node
 };
 
-function _templateObject$10() {
+function _templateObject$11() {
   var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  height: 70px;\n  width: 100%;\n  text-align: center;\n  padding-top: ", ";\n"]);
 
-  _templateObject$10 = function _templateObject() {
+  _templateObject$11 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledFooter = styled__default['default'].div(_templateObject$10(), function (_ref) {
+var StyledFooter = styled__default['default'].div(_templateObject$11(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
@@ -6419,10 +6459,10 @@ function _templateObject2$s() {
   return data;
 }
 
-function _templateObject$11() {
+function _templateObject$12() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n"]);
 
-  _templateObject$11 = function _templateObject() {
+  _templateObject$12 = function _templateObject() {
     return data;
   };
 
@@ -6432,7 +6472,7 @@ var StyledContainer$3 = styled__default['default'](MuiContainer__default['defaul
   return {
     maxWidth: "lg"
   };
-})(_templateObject$11());
+})(_templateObject$12());
 var Content$6 = styled__default['default'].div(_templateObject2$s());
 var NavigationContainer = styled__default['default'](Flex).attrs(function () {
   return {
@@ -6488,7 +6528,9 @@ var DashboardLayout = function DashboardLayout(_ref6) {
       userMenuOnClick = _ref6.userMenuOnClick,
       props = _objectWithoutPropertiesLoose(_ref6, ["children", "content", "footerContent", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "navigationItems", "loading", "sidebar", "userMenuItems", "userMenuOnClick"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(StyledContainer$3, props, loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, null), /*#__PURE__*/React__default['default'].createElement(Flex, {
+  return /*#__PURE__*/React__default['default'].createElement(StyledContainer$3, props, loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, {
+    fullScreen: true
+  }), /*#__PURE__*/React__default['default'].createElement(Flex, {
     container: true,
     direction: "column",
     alignItems: "flex-start",
@@ -6532,16 +6574,16 @@ var ExplorerLayoutFooterPropTypes = {
   children: PropTypes__default['default'].node
 };
 
-function _templateObject$12() {
+function _templateObject$13() {
   var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  height: 80px;\n  text-align: center;\n  padding-top: ", ";\n"]);
 
-  _templateObject$12 = function _templateObject() {
+  _templateObject$13 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledFooter$1 = styled__default['default'].div(_templateObject$12(), function (_ref) {
+var StyledFooter$1 = styled__default['default'].div(_templateObject$13(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
@@ -6570,10 +6612,10 @@ function _templateObject2$t() {
   return data;
 }
 
-function _templateObject$13() {
+function _templateObject$14() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 128px;\n  ", " {\n    height: 96px;\n  }\n"]);
 
-  _templateObject$13 = function _templateObject() {
+  _templateObject$14 = function _templateObject() {
     return data;
   };
 
@@ -6584,7 +6626,7 @@ var StyledHeader$4 = styled__default['default'](Grid__default['default']).attrs(
     container: true,
     alignItems: "center"
   };
-})(_templateObject$13(), function (_ref) {
+})(_templateObject$14(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
@@ -6630,10 +6672,10 @@ var ExplorerLayoutPropTypes = {
   sidebar: PropTypes__default['default'].node
 };
 
-function _templateObject$14() {
+function _templateObject$15() {
   var data = _taggedTemplateLiteralLoose(["\n  padding-top: ", ";\n  padding-bottom: ", ";\n  ", " {\n    padding-top: ", ";\n  }\n  ", " {\n    padding-right: ", ";\n  }\n"]);
 
-  _templateObject$14 = function _templateObject() {
+  _templateObject$15 = function _templateObject() {
     return data;
   };
 
@@ -6643,7 +6685,7 @@ var Content$7 = styled__default['default'](Grid__default['default']).attrs(funct
   return {
     container: true
   };
-})(_templateObject$14(), function (_ref) {
+})(_templateObject$15(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(8);
 }, function (_ref2) {
@@ -6681,13 +6723,15 @@ var ExplorerLayout = function ExplorerLayout(_ref7) {
       sidebar = _ref7.sidebar,
       props = _objectWithoutPropertiesLoose(_ref7, ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "loading", "sidebar"]);
 
-  if (loading) return /*#__PURE__*/React__default['default'].createElement(PageLoading, null);
+  if (loading) return /*#__PURE__*/React__default['default'].createElement(PageLoading, {
+    fullScreen: true
+  });
   return /*#__PURE__*/React__default['default'].createElement(MuiContainer__default['default'], _extends({
     maxWidth: "lg"
   }, props), /*#__PURE__*/React__default['default'].createElement(ExplorerLayoutHeader, {
     logoAction: headerLogoAction,
     headerRight: headerRight
-  }), /*#__PURE__*/React__default['default'].createElement(Content$7, null, /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
+  }), /*#__PURE__*/React__default['default'].createElement(Content$7, null, /*#__PURE__*/React__default['default'].createElement(Hidden, {
     mdDown: true
   }, /*#__PURE__*/React__default['default'].createElement(Grid__default['default'], {
     item: true,
@@ -6695,7 +6739,7 @@ var ExplorerLayout = function ExplorerLayout(_ref7) {
   }, content, extraContent), /*#__PURE__*/React__default['default'].createElement(Grid__default['default'], {
     item: true,
     lg: 3
-  }, sidebar, extraSidebar, ads)), /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
+  }, sidebar, extraSidebar, ads)), /*#__PURE__*/React__default['default'].createElement(Hidden, {
     lgUp: true
   }, /*#__PURE__*/React__default['default'].createElement(Grid__default['default'], {
     item: true,
@@ -6764,16 +6808,16 @@ function _templateObject2$u() {
   return data;
 }
 
-function _templateObject$15() {
+function _templateObject$16() {
   var data = _taggedTemplateLiteralLoose(["\n  margin-top: -", ";\n  margin-bottom: ", ";\n  position: relative;\n  background-image: url(\"", "\");\n  background-size: 90px 108px;\n  background-repeat: no-repeat;\n  width: 90px;\n  height: 108px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n"]);
 
-  _templateObject$15 = function _templateObject() {
+  _templateObject$16 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var LicenseBoxWrapper = styled__default['default'].div(_templateObject$15(), function (_ref) {
+var LicenseBoxWrapper = styled__default['default'].div(_templateObject$16(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10);
 }, function (_ref2) {
@@ -6817,16 +6861,16 @@ function _templateObject2$v() {
   return data;
 }
 
-function _templateObject$16() {
+function _templateObject$17() {
   var data = _taggedTemplateLiteralLoose(["\n  border-radius: 8px;\n  overflow: initial;\n  min-height: 240px;\n  text-align: center;\n  margin-top: ", ";\n  width: 100%;\n"]);
 
-  _templateObject$16 = function _templateObject() {
+  _templateObject$17 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledMarketPlaceItem = styled__default['default'](BoxBase)(_templateObject$16(), function (_ref) {
+var StyledMarketPlaceItem = styled__default['default'](BoxBase)(_templateObject$17(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10);
 });
@@ -6886,16 +6930,16 @@ var LegacyItem = function LegacyItem(_ref4) {
 LegacyItem.propTypes = MarketPlaceItemPropTypes;
 LegacyItem.defaultProps = MarketPlaceItemDefaultProps;
 
-function _templateObject$17() {
+function _templateObject$18() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  object-fit: contain;\n  z-index: 2;\n"]);
 
-  _templateObject$17 = function _templateObject() {
+  _templateObject$18 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledImage = styled__default['default'](Image)(_templateObject$17());
+var StyledImage = styled__default['default'](Image)(_templateObject$18());
 var Cover = function Cover(_ref) {
   var imgSrc = _ref.imgSrc,
       placeholderSrc = _ref.placeholderSrc,
@@ -6944,16 +6988,16 @@ function _templateObject2$w() {
   return data;
 }
 
-function _templateObject$18() {
+function _templateObject$19() {
   var data = _taggedTemplateLiteralLoose(["\n  border-radius: 8px;\n  overflow: hidden;\n  min-height: 112px;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  transition: all 200ms ease-in-out;\n\n  ", "\n"]);
 
-  _templateObject$18 = function _templateObject() {
+  _templateObject$19 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledMarketPlaceItem$1 = styled__default['default'](BoxBase)(_templateObject$18(), function (_ref) {
+var StyledMarketPlaceItem$1 = styled__default['default'](BoxBase)(_templateObject$19(), function (_ref) {
   var hoverEffect = _ref.hoverEffect;
   return hoverEffect && styled.css(["&:hover{transform:scale(1.03);}"]);
 });
@@ -7047,16 +7091,16 @@ function _templateObject2$x() {
   return data;
 }
 
-function _templateObject$19() {
+function _templateObject$1a() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 140px;\n  width: 140px;\n  height: 140px;\n"]);
 
-  _templateObject$19 = function _templateObject() {
+  _templateObject$1a = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$8 = styled__default['default'].div(_templateObject$19());
+var Wrapper$8 = styled__default['default'].div(_templateObject$1a());
 var BGImage = styled__default['default'].div(_templateObject2$x(), function (_ref) {
   var imgSrc = _ref.imgSrc;
   return imgSrc;
@@ -7102,16 +7146,16 @@ function _templateObject2$y() {
   return data;
 }
 
-function _templateObject$1a() {
+function _templateObject$1b() {
   var data = _taggedTemplateLiteralLoose(["\n  border-radius: 8px;\n  height: 140px;\n  width: 100%;\n  display: flex;\n  align-items: center;\n  transition: all 200ms ease-in-out;\n\n  :not(:last-child) {\n    margin-bottom: ", ";\n  }\n\n  ", "\n"]);
 
-  _templateObject$1a = function _templateObject() {
+  _templateObject$1b = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledMarketPlaceItem$2 = styled__default['default'](BoxBase)(_templateObject$1a(), function (_ref) {
+var StyledMarketPlaceItem$2 = styled__default['default'](BoxBase)(_templateObject$1b(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (_ref2) {
@@ -7187,14 +7231,14 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
       fontSize: "sm",
       fontStyle: "italic",
       noWrap: true
-    }), /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
+    }), /*#__PURE__*/React__default['default'].createElement(Hidden, {
       smDown: true
     }, /*#__PURE__*/React__default['default'].createElement(DetailsTable, {
       labelFontSize: "sm",
       mt: 4,
       size: "sm",
       rows: details
-    }))), /*#__PURE__*/React__default['default'].createElement(Hidden__default['default'], {
+    }))), /*#__PURE__*/React__default['default'].createElement(Hidden, {
       smDown: true
     }, /*#__PURE__*/React__default['default'].createElement(Flex, {
       item: true
@@ -7285,10 +7329,10 @@ function _templateObject2$z() {
   return data;
 }
 
-function _templateObject$1b() {
+function _templateObject$1c() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    padding: 0;\n    &:first-child {\n      padding-top: 0;\n    }\n  }\n"]);
 
-  _templateObject$1b = function _templateObject() {
+  _templateObject$1c = function _templateObject() {
     return data;
   };
 
@@ -7298,7 +7342,7 @@ var ContentWrapper = styled__default['default'](DialogContent__default['default'
   return {
     dividers: true
   };
-})(_templateObject$1b());
+})(_templateObject$1c());
 var Title = styled__default['default'](DialogTitle__default['default']).attrs(function () {
   return {
     disableTypography: true
@@ -7419,16 +7463,16 @@ function _templateObject2$A() {
   return data;
 }
 
-function _templateObject$1c() {
+function _templateObject$1d() {
   var data = _taggedTemplateLiteralLoose(["\n  text-align: center;\n\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$1c = function _templateObject() {
+  _templateObject$1d = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$9 = styled__default['default'].div(_templateObject$1c(), function (theme) {
+var Wrapper$9 = styled__default['default'].div(_templateObject$1d(), function (theme) {
   return COLOR(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -7465,35 +7509,34 @@ NoItem.propTypes = NoItemPropTypes;
 NoItem.defaultProps = NoItemDefaultProps;
 
 var PageLoadingPropTypes = {
+  fullScreen: PropTypes__default['default'].bool,
   message: PropTypes__default['default'].string,
-  type: PropTypes__default['default'].oneOf(["page", "box"])
+  transparent: PropTypes__default['default'].bool
 };
-var PageLoadingDefaultProps = {
-  type: "page"
-};
+var PageLoadingDefaultProps = {};
 
-function _templateObject$1d() {
+function _templateObject$1e() {
   var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  min-width: ", ";\n  min-height: ", ";\n  width: 100%;\n  height: 100%;\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n"]);
 
-  _templateObject$1d = function _templateObject() {
+  _templateObject$1e = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledLoading = styled__default['default'].div(_templateObject$1d(), function (_ref) {
-  var type = _ref.type;
-  return type === "page" ? "fixed" : "absolute";
+var StyledLoading = styled__default['default'].div(_templateObject$1e(), function (_ref) {
+  var fullScreen = _ref.fullScreen;
+  return fullScreen ? "fixed" : "absolute";
 }, function (_ref2) {
-  var type = _ref2.type;
-  return type === "page" ? "100vw" : "100%";
+  var fullScreen = _ref2.fullScreen;
+  return fullScreen ? "100vw" : "100%";
 }, function (_ref3) {
-  var type = _ref3.type;
-  return type === "page" ? "100vh" : "100%";
+  var fullScreen = _ref3.fullScreen;
+  return fullScreen ? "100vh" : "100%";
 }, function (_ref4) {
-  var theme = _ref4.theme,
-      type = _ref4.type;
-  return type === "page" ? theme.palette.common.white : "rgba(0, 0, 0, 0.3)";
+  var transparent = _ref4.transparent,
+      theme = _ref4.theme;
+  return transparent ? "rgba(0, 0, 0, 0.3)" : theme.palette.common.white;
 });
 var PageLoading = function PageLoading(_ref5) {
   var message = _ref5.message,
@@ -7608,16 +7651,16 @@ function _templateObject2$B() {
   return data;
 }
 
-function _templateObject$1e() {
+function _templateObject$1f() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  height: 2px;\n  left: 0;\n  position: fixed;\n  top: 0;\n  width: 100%;\n  z-index: 1031;\n"]);
 
-  _templateObject$1e = function _templateObject() {
+  _templateObject$1f = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledBar = styled__default['default'].div(_templateObject$1e(), function (_ref) {
+var StyledBar = styled__default['default'].div(_templateObject$1f(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.main;
 });
@@ -7703,16 +7746,16 @@ var PageProgressBar = function PageProgressBar(_ref) {
 PageProgressBar.propTypes = PageProgressBarPropTypes;
 PageProgressBar.defaultProps = PageProgressBarDefaultProps;
 
-function _templateObject$1f() {
+function _templateObject$1g() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: auto;\n  transition: filter ", "ms ease-in-out;\n\n  ", ";\n"]);
 
-  _templateObject$1f = function _templateObject() {
+  _templateObject$1g = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContent = styled__default['default'].div(_templateObject$1f(), function (_ref) {
+var StyledContent = styled__default['default'].div(_templateObject$1g(), function (_ref) {
   var duration = _ref.duration;
   return duration / 2;
 }, function (_ref2) {
@@ -7780,16 +7823,16 @@ function _templateObject2$C() {
   return data;
 }
 
-function _templateObject$1g() {
+function _templateObject$1h() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"]);
 
-  _templateObject$1g = function _templateObject() {
+  _templateObject$1h = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledPagination = styled__default['default'](MuiPagination__default['default'])(_templateObject$1g());
+var StyledPagination = styled__default['default'](MuiPagination__default['default'])(_templateObject$1h());
 var StyledPaginationItem = styled__default['default'](PaginationItem__default['default'])(_templateObject2$C(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
@@ -7871,16 +7914,16 @@ function _templateObject2$D() {
   return data;
 }
 
-function _templateObject$1h() {
+function _templateObject$1i() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: transparent;\n  width: 100%;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1h = function _templateObject() {
+  _templateObject$1i = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledSearchBar = styled__default['default'].form(_templateObject$1h(), function (theme) {
+var StyledSearchBar = styled__default['default'].form(_templateObject$1i(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -7949,16 +7992,16 @@ var SearchBar = function SearchBar(_ref3) {
 SearchBar.propTypes = SearchBarPropTypes;
 SearchBar.defaultProps = SearchBarDefaultProps;
 
-function _templateObject$1i() {
+function _templateObject$1j() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n\n  && {\n    background-color: ", ";\n    margin-right: ", ";\n    svg {\n      color: ", ";\n    }\n\n    :hover {\n      background-color: ", ";\n\n      svg {\n        color: ", ";\n      }\n    }\n  }\n"]);
 
-  _templateObject$1i = function _templateObject() {
+  _templateObject$1j = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Button$1 = styled__default['default'](ButtonBase)(_templateObject$1i(), function (_ref) {
+var Button$1 = styled__default['default'](ButtonBase)(_templateObject$1j(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -8039,16 +8082,16 @@ function _templateObject2$E() {
   return data;
 }
 
-function _templateObject$1j() {
+function _templateObject$1k() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$1j = function _templateObject() {
+  _templateObject$1k = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$7 = styled__default['default'].div(_templateObject$1j(), function (theme) {
+var Container$7 = styled__default['default'].div(_templateObject$1k(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -8078,7 +8121,7 @@ var ShareModule = function ShareModule(_ref3) {
       props = _objectWithoutPropertiesLoose(_ref3, ["buttonProps", "copyText", "shareOptions", "url"]);
 
   var theme = styled.useTheme();
-  var matches = useMediaQuery__default['default'](theme.breakpoints.down("md"));
+  var matches = useMediaQuery(theme.breakpoints.down("md"));
   var encodedUrl = encodeURIComponent(url);
   var canUseNavigator = typeof window !== "undefined" && ((_navigator = navigator) == null ? void 0 : _navigator.share);
   return /*#__PURE__*/React__default['default'].createElement(Container$7, props, /*#__PURE__*/React__default['default'].createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
@@ -8137,16 +8180,16 @@ var DotsSpinnerDefaultProps = {
   size: 60
 };
 
-function _templateObject$1k() {
+function _templateObject$1l() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  > div {\n    width: ", "px;\n    height: ", "px;\n    background-color: ", ";\n\n    border-radius: 100%;\n    display: inline-block;\n    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;\n    animation: sk-bouncedelay 1.4s infinite ease-in-out both;\n  }\n\n  .bounce1 {\n    -webkit-animation-delay: -0.32s;\n    animation-delay: -0.32s;\n  }\n\n  .bounce2 {\n    -webkit-animation-delay: -0.16s;\n    animation-delay: -0.16s;\n  }\n\n  @-webkit-keyframes sk-bouncedelay {\n    0%, 80%, 100% { -webkit-transform: scale(0) }\n    40% { -webkit-transform: scale(1.0) }\n  }\n\n  @keyframes sk-bouncedelay {\n    0%, 80%, 100% {\n      -webkit-transform: scale(0);\n      transform: scale(0);\n    } 40% {\n      -webkit-transform: scale(1.0);\n      transform: scale(1.0);\n    }\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$1k = function _templateObject() {
+  _templateObject$1l = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledDotsSpinner = styled__default['default'].div(_templateObject$1k(), function (_ref) {
+var StyledDotsSpinner = styled__default['default'].div(_templateObject$1l(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -8187,16 +8230,16 @@ var RocksSpinnerDefaultProps = {
   size: 60
 };
 
-function _templateObject$1l() {
+function _templateObject$1m() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  height: ", "px;\n  position: relative;\n\n  .dot {\n    width: ", "px;\n    height: ", "px;\n    background-color: ", ";\n    border-radius: 100%;\n    position: absolute;\n    bottom: 5px;\n    left: 0;\n\n    -webkit-animation: bounce 2.0s infinite ease-in-out;\n    animation: bounce 2.0s infinite ease-in-out;\n  }\n\n  .circle {\n    width: ", "px;\n    height: ", "px;\n    border: ", "px solid ", ";\n    border-radius: 100%;\n    position: absolute;\n    top: 5px;\n    right: 0;\n\n    -webkit-animation: bounce 2.0s infinite ease-in-out;\n    animation: bounce 2.0s infinite ease-in-out;\n    -webkit-animation-delay: -1.0s;\n    animation-delay: -1.0s;\n  }\n\n  @-webkit-keyframes bounce {\n    0%, 100% { -webkit-transform: scale(0.0) }\n    50% { -webkit-transform: scale(1.0) }\n  }\n\n  @keyframes bounce {\n    0%, 100% {\n      transform: scale(0.0);\n      -webkit-transform: scale(0.0);\n    } 50% {\n      transform: scale(1.0);\n      -webkit-transform: scale(1.0);\n    }\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$1l = function _templateObject() {
+  _templateObject$1m = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledRocksSpinner = styled__default['default'].div(_templateObject$1l(), function (_ref) {
+var StyledRocksSpinner = styled__default['default'].div(_templateObject$1m(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -8275,16 +8318,16 @@ function _templateObject2$F() {
   return data;
 }
 
-function _templateObject$1m() {
+function _templateObject$1n() {
   var data = _taggedTemplateLiteralLoose(["\n  margin-bottom: ", ";\n  ", "\n  ", "\n"]);
 
-  _templateObject$1m = function _templateObject() {
+  _templateObject$1n = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$a = styled__default['default'].div(_templateObject$1m(), function (_ref) {
+var Wrapper$a = styled__default['default'].div(_templateObject$1n(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (theme) {
@@ -8341,16 +8384,16 @@ var TableDefaultProps = {
   rowsSize: "lg"
 };
 
-function _templateObject$1n() {
+function _templateObject$1o() {
   var data = _taggedTemplateLiteralLoose(["\n  height: ", "px;\n  border-bottom: 1px solid ", ";\n  background-color: ", ";\n\n  ", "\n"]);
 
-  _templateObject$1n = function _templateObject() {
+  _templateObject$1o = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Row$2 = styled__default['default'].tr(_templateObject$1n(), function (_ref) {
+var Row$2 = styled__default['default'].tr(_templateObject$1o(), function (_ref) {
   var size = _ref.size;
   return size === "sm" ? 32 : 64;
 }, function (_ref2) {
@@ -8365,16 +8408,16 @@ var Row$2 = styled__default['default'].tr(_templateObject$1n(), function (_ref) 
   return hasData && styled.css(["", "{height:unset;display:block;border-bottom:0;margin-bottom:", ";padding:", ";border-radius:8px;}"], theme.breakpoints.down("sm"), theme.spacing(2), theme.spacing(4));
 });
 
-function _templateObject$1o() {
+function _templateObject$1p() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject$1o = function _templateObject() {
+  _templateObject$1p = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTd = styled__default['default'].td(_templateObject$1o(), function (_ref) {
+var StyledTd = styled__default['default'].td(_templateObject$1p(), function (_ref) {
   var align = _ref.align,
       hiddenLabelSm = _ref.hiddenLabelSm,
       flexSm = _ref.flexSm,
@@ -8442,16 +8485,16 @@ var Rows = function Rows(_ref3) {
   });
 };
 
-function _templateObject$1p() {
+function _templateObject$1q() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject$1p = function _templateObject() {
+  _templateObject$1q = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledThead = styled__default['default'].thead(_templateObject$1p(), function (_ref) {
+var StyledThead = styled__default['default'].thead(_templateObject$1q(), function (_ref) {
   var hasData = _ref.hasData,
       theme = _ref.theme;
   return hasData && styled.css(["", "{border:none;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;}"], theme.breakpoints.down("sm"));
@@ -8484,16 +8527,16 @@ Heading.propTypes = {
   hasData: PropTypes__default['default'].bool.isRequired
 };
 
-function _templateObject$1q() {
+function _templateObject$1r() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n"]);
 
-  _templateObject$1q = function _templateObject() {
+  _templateObject$1r = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTr = styled__default['default'].tr(_templateObject$1q(), function (_ref) {
+var StyledTr = styled__default['default'].tr(_templateObject$1r(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 });
@@ -8521,16 +8564,16 @@ function _templateObject2$G() {
   return data;
 }
 
-function _templateObject$1r() {
+function _templateObject$1s() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  border-collapse: collapse;\n  border-spacing: 0;\n  border-radius: 8px;\n  overflow: hidden;\n  ", " {\n    display: block;\n  }\n"]);
 
-  _templateObject$1r = function _templateObject() {
+  _templateObject$1s = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTable = styled__default['default'].table(_templateObject$1r(), function (_ref) {
+var StyledTable = styled__default['default'].table(_templateObject$1s(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("sm");
 });
@@ -8586,16 +8629,16 @@ function _templateObject2$H() {
   return data;
 }
 
-function _templateObject$1s() {
+function _templateObject$1t() {
   var data = _taggedTemplateLiteralLoose(["\n  text-align: center;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: ", ";\n"]);
 
-  _templateObject$1s = function _templateObject() {
+  _templateObject$1t = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var ErrorWrapper = styled__default['default'].div(_templateObject$1s(), function (_ref) {
+var ErrorWrapper = styled__default['default'].div(_templateObject$1t(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
@@ -8647,10 +8690,10 @@ function _templateObject2$I() {
   return data;
 }
 
-function _templateObject$1t() {
+function _templateObject$1u() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  border-radius: 100%;\n  && {\n    margin: ", ";\n  }\n"]);
 
-  _templateObject$1t = function _templateObject() {
+  _templateObject$1u = function _templateObject() {
     return data;
   };
 
@@ -8660,7 +8703,7 @@ var CloseModalIcon$1 = styled__default['default'](Icon).attrs(function () {
   return {
     size: "lg"
   };
-})(_templateObject$1t(), function (_ref) {
+})(_templateObject$1u(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
@@ -8721,16 +8764,16 @@ function _templateObject2$J() {
   return data;
 }
 
-function _templateObject$1u() {
+function _templateObject$1v() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  height: 48px;\n  width: 48px;\n  text-align: center;\n  border-radius: 8px;\n  overflow: hidden;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1u = function _templateObject() {
+  _templateObject$1v = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$8 = styled__default['default'].div(_templateObject$1u(), function (_ref) {
+var Container$8 = styled__default['default'].div(_templateObject$1v(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
@@ -8805,10 +8848,10 @@ var TooltipDefaultProps = {
   renderContent: function renderContent() {}
 };
 
-function _templateObject$1v() {
+function _templateObject$1w() {
   var data = _taggedTemplateLiteralLoose(["\n  & .MuiTooltip-tooltip {\n    background-color: ", ";\n    color: ", ";\n  }\n\n  & .MuiTooltip-arrow {\n    color: ", ";\n  }\n"]);
 
-  _templateObject$1v = function _templateObject() {
+  _templateObject$1w = function _templateObject() {
     return data;
   };
 
@@ -8821,7 +8864,7 @@ var StyledTooltip = styled__default['default'](function (props) {
       tooltip: "tooltip"
     }
   }, props));
-})(_templateObject$1v(), function (_ref) {
+})(_templateObject$1w(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
@@ -8899,32 +8942,35 @@ function _templateObject2$K() {
   return data;
 }
 
-function _templateObject$1w() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: 24px 24px 24px 40px;\n"]);
+function _templateObject$1x() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: 24px 24px 24px 40px;\n\n  ", " {\n    padding: 16px 16px 16px 16px;\n  }\n"]);
 
-  _templateObject$1w = function _templateObject() {
+  _templateObject$1x = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContent$1 = styled__default['default'].div(_templateObject$1w());
+var StyledContent$1 = styled__default['default'].div(_templateObject$1x(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.breakpoints.down("sm");
+});
 var ActionWrapper = styled__default['default'].div(_templateObject2$K());
-var WizardStepContent = function WizardStepContent(_ref) {
-  var children = _ref.children,
-      content = _ref.content,
-      currentStep = _ref.currentStep,
-      handleNext = _ref.handleNext,
-      handlePrev = _ref.handlePrev,
-      isFirstStep = _ref.isFirstStep,
-      isLastStep = _ref.isLastStep,
-      isHorizontal = _ref.isHorizontal,
-      nextStepMethod = _ref.nextStepMethod,
-      stepCount = _ref.stepCount,
-      submitButtonDisabled = _ref.submitButtonDisabled,
-      submitButtonLoading = _ref.submitButtonLoading,
-      showNavigationButtons = _ref.showNavigationButtons,
-      props = _objectWithoutPropertiesLoose(_ref, ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "isHorizontal", "nextStepMethod", "stepCount", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons"]);
+var WizardStepContent = function WizardStepContent(_ref2) {
+  var children = _ref2.children,
+      content = _ref2.content,
+      currentStep = _ref2.currentStep,
+      handleNext = _ref2.handleNext,
+      handlePrev = _ref2.handlePrev,
+      isFirstStep = _ref2.isFirstStep,
+      isLastStep = _ref2.isLastStep,
+      isHorizontal = _ref2.isHorizontal,
+      nextStepMethod = _ref2.nextStepMethod,
+      stepCount = _ref2.stepCount,
+      submitButtonDisabled = _ref2.submitButtonDisabled,
+      submitButtonLoading = _ref2.submitButtonLoading,
+      showNavigationButtons = _ref2.showNavigationButtons,
+      props = _objectWithoutPropertiesLoose(_ref2, ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "isHorizontal", "nextStepMethod", "stepCount", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons"]);
 
   return /*#__PURE__*/React__default['default'].createElement(StyledContent$1, props, children || content, showNavigationButtons && /*#__PURE__*/React__default['default'].createElement(ActionWrapper, null, isHorizontal && /*#__PURE__*/React__default['default'].createElement("div", null, /*#__PURE__*/React__default['default'].createElement(OutlineButton, {
     color: "secondary",
@@ -9025,16 +9071,16 @@ function _templateObject2$L() {
   return data;
 }
 
-function _templateObject$1x() {
+function _templateObject$1y() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: normal;\n\n  ", "\n\n  ", "\n\n    ", "\n"]);
 
-  _templateObject$1x = function _templateObject() {
+  _templateObject$1y = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTitle = styled__default['default'].div(_templateObject$1x(), function (_ref) {
+var StyledTitle = styled__default['default'].div(_templateObject$1y(), function (_ref) {
   var isPassed = _ref.isPassed;
   return isPassed && styled.css(["cursor:pointer;"]);
 }, function (_ref2) {
@@ -9164,28 +9210,30 @@ function _templateObject2$M() {
   return data;
 }
 
-function _templateObject$1y() {
+function _templateObject$1z() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$1y = function _templateObject() {
+  _templateObject$1z = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$b = styled__default['default'].div(_templateObject$1y(), function (theme) {
+var Wrapper$b = styled__default['default'].div(_templateObject$1z(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
 var StepsWrapper = styled__default['default'].div(_templateObject2$M(), function (_ref) {
   var headerFadeColor = _ref.headerFadeColor,
-      isHorizontal = _ref.isHorizontal;
-  return isHorizontal && styled.css(["position:relative;::before{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 90deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;left:0;z-index:2;}::after{content:\"\";display:inline-block;width:80px;height:100%;background:linear-gradient( 270deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;right:0;z-index:2;}"], headerFadeColor, headerFadeColor);
+      isHorizontal = _ref.isHorizontal,
+      theme = _ref.theme;
+  return isHorizontal && styled.css(["position:relative;::before{content:\"\";display:inline-block;width:64px;height:100%;background:linear-gradient( 90deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;left:0;z-index:2;}::after{content:\"\";display:inline-block;width:64px;height:100%;background:linear-gradient( 270deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;right:0;z-index:2;}", "{::before{width:32px;}::after{content:\"\";width:32px;}}"], headerFadeColor, headerFadeColor, theme.breakpoints.down("sm"));
 });
 var Steps = styled__default['default'].div(_templateObject3$t(), function (_ref2) {
-  var isHorizontal = _ref2.isHorizontal;
-  return isHorizontal && styled.css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}"]);
+  var isHorizontal = _ref2.isHorizontal,
+      theme = _ref2.theme;
+  return isHorizontal && styled.css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}", "{padding:0 32px;}"], theme.breakpoints.down("sm"));
 });
 var StepConnector = styled__default['default'].div(_templateObject4$d(), function (props) {
   return stepBorderAndTitleColor(props);
@@ -9368,6 +9416,7 @@ exports.H4 = H4;
 exports.H5 = H5;
 exports.H6 = H6;
 exports.HeadingBase = HeadingBase;
+exports.Hidden = Hidden;
 exports.History = History;
 exports.Icon = Icon;
 exports.Image = Image;
@@ -9421,4 +9470,5 @@ exports.getFormInputError = getFormInputError;
 exports.getFormRowErrors = getFormRowErrors;
 exports.handleScroll = handleScroll;
 exports.useAppContext = useAppContext;
+exports.useMediaQuery = useMediaQuery;
 //# sourceMappingURL=rockskit.common.js.map

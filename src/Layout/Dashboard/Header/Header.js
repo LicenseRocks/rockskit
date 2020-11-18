@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import Hidden from "@material-ui/core/Hidden";
 
 import Logo from "../../../assets/images/logo-symbol.svg";
-import { Flex, Image, TextButton } from "../../..";
+import { Flex, Hidden, Image, TextButton } from "../../..";
 import {
   DashboardLayoutHeaderPropTypes,
   DashboardLayoutHeaderDefaultProps,

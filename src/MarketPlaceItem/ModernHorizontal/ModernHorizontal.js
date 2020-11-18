@@ -1,6 +1,5 @@
 import React from "react";
 import styled, { css } from "styled-components";
-import Hidden from "@material-ui/core/Hidden";
 
 import {
   BoxBase,
@@ -8,6 +7,7 @@ import {
   DetailsTable,
   Flex,
   H3,
+  Hidden,
   Text,
   TinyBadge,
 } from "../..";

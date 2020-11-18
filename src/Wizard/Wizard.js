@@ -17,14 +17,14 @@ const Wrapper = styled.div`
 `;
 
 const StepsWrapper = styled.div`
-  ${({ headerFadeColor, isHorizontal }) =>
+  ${({ headerFadeColor, isHorizontal, theme }) =>
     isHorizontal &&
     css`
       position: relative;
       ::before {
         content: "";
         display: inline-block;
-        width: 80px;
+        width: 64px;
         height: 100%;
         background: linear-gradient(
           90deg,
@@ -40,7 +40,7 @@ const StepsWrapper = styled.div`
       ::after {
         content: "";
         display: inline-block;
-        width: 80px;
+        width: 64px;
         height: 100%;
         background: linear-gradient(
           270deg,
@@ -52,11 +52,22 @@ const StepsWrapper = styled.div`
         right: 0;
         z-index: 2;
       }
+
+      ${theme.breakpoints.down("sm")} {
+        ::before {
+          width: 32px;
+        }
+
+        ::after {
+          content: "";
+          width: 32px;
+        }
+      }
     `}
 `;
 
 const Steps = styled.div`
-  ${({ isHorizontal }) =>
+  ${({ isHorizontal, theme }) =>
     isHorizontal &&
     css`
       display: flex;
@@ -74,6 +85,10 @@ const Steps = styled.div`
       &.active {
         cursor: grabbing;
         cursor: -webkit-grabbing;
+      }
+
+      ${theme.breakpoints.down("sm")} {
+        padding: 0 32px;
       }
     `}
 `;

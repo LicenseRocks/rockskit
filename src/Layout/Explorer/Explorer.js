@@ -2,10 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import Grid from "@material-ui/core/Grid";
 import MuiContainer from "@material-ui/core/Container";
-import Hidden from "@material-ui/core/Hidden";
 
 import { Text } from "../../Typography";
-import { PageLoading } from "../..";
+import { Hidden, PageLoading } from "../..";
 import {
   ExplorerLayoutHeader,
   ExplorerLayoutFooter,
@@ -47,7 +46,7 @@ export const ExplorerLayout = ({
   sidebar,
   ...props
 }) => {
-  if (loading) return <PageLoading />;
+  if (loading) return <PageLoading fullScreen />;
 
   return (
     <MuiContainer maxWidth="lg" {...props}>

@@ -30,7 +30,7 @@ export const AppContainer = ({
             {pageProgressBar && (
               <PageProgressBar listener={pageProgressBarListener} />
             )}
-            {pageLoading ? <PageLoading /> : children}
+            {pageLoading ? <PageLoading fullScreen /> : children}
           </SnackbarProvider>
         </ThemeProvider>
       </MuiThemeProvider>
