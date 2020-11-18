@@ -1654,7 +1654,7 @@ var StyledBox = styled.div(_templateObject$g(), function (_ref) {
 }, function (_ref3) {
   var transparentSm = _ref3.transparentSm,
       theme = _ref3.theme;
-  return transparentSm && css(["", "{box-shadow:none;background-color:transparent;}"], theme.breakpoints.down("sm"));
+  return transparentSm && css(["", "{box-shadow:none;background-color:transparent;border-radius:0;}"], theme.breakpoints.down("sm"));
 }, function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -1775,7 +1775,7 @@ var Wrapper = styled.div(_templateObject$i(), function (_ref) {
 }, function (_ref3) {
   var transparentSm = _ref3.transparentSm,
       theme = _ref3.theme;
-  return transparentSm && css(["", "{background-color:transparent;}"], theme.breakpoints.down("sm"));
+  return transparentSm && css(["", "{background-color:transparent;border-bottom:none;}"], theme.breakpoints.down("sm"));
 });
 var StyledBoxHeader = styled(Flex).attrs(function () {
   return {
@@ -1791,10 +1791,9 @@ var StyledBoxHeader = styled(Flex).attrs(function () {
       theme = _ref5.theme;
   return theme.spacing(padding);
 }, function (_ref6) {
-  var padding = _ref6.padding,
-      transparentSm = _ref6.transparentSm,
+  var transparentSm = _ref6.transparentSm,
       theme = _ref6.theme;
-  return transparentSm && css(["", "{background-color:transparent;padding:", ";}"], theme.breakpoints.down("sm"), theme.spacing(0, 0, padding, 0));
+  return transparentSm && css(["", "{background-color:transparent;padding:", ";}"], theme.breakpoints.down("sm"), theme.spacing(0));
 });
 var Content$1 = styled.div(_templateObject3$2(), function (_ref7) {
   var contentPadding = _ref7.contentPadding,

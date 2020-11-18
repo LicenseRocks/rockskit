@@ -24,6 +24,7 @@ const StyledBox = styled.div`
       ${theme.breakpoints.down("sm")} {
         box-shadow: none;
         background-color: transparent;
+        border-radius: 0;
       }
     `}
 

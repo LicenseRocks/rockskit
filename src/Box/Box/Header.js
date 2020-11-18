@@ -16,6 +16,7 @@ const Wrapper = styled.div`
     css`
       ${theme.breakpoints.down("sm")} {
         background-color: transparent;
+        border-bottom: none;
       }
     `}
 `;
@@ -30,12 +31,12 @@ const StyledBoxHeader = styled(Flex).attrs(() => ({
   background-color: ${({ theme }) => theme.palette.common.white};
   padding: ${({ padding, theme }) => theme.spacing(padding)};
 
-  ${({ padding, transparentSm, theme }) =>
+  ${({ transparentSm, theme }) =>
     transparentSm &&
     css`
       ${theme.breakpoints.down("sm")} {
         background-color: transparent;
-        padding: ${theme.spacing(0, 0, padding, 0)};
+        padding: ${theme.spacing(0)};
       }
     `}
 `;
