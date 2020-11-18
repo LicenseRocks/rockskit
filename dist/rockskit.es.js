@@ -1685,7 +1685,7 @@ var StyledBoxFooter = styled(Flex).attrs(function () {
   var contentPadding = _ref.contentPadding,
       padding = _ref.padding,
       theme = _ref.theme;
-  return css(["width:100%;box-sizing:border-box;background-color:", ";padding:", ";border-top:1px solid ", ";", "{padding:", ";}"], theme.palette.common.white, theme.spacing(4, padding, 4, contentPadding ? 20 : padding), theme.palette.gray.semiLight, theme.breakpoints.down("sm"), theme.spacing(padding));
+  return css(["width:100%;box-sizing:border-box;background-color:", ";padding:", ";border-top:1px solid ", ";", "{padding:", ";}"], theme.palette.common.white, theme.spacing(4, padding, 4, contentPadding ? 20 : padding), theme.palette.gray.semiLight, theme.breakpoints.down("sm"), theme.spacing(padding, padding, 0, padding));
 }, function (_ref2) {
   var padding = _ref2.padding,
       transparentSm = _ref2.transparentSm,
@@ -1794,7 +1794,7 @@ var StyledBoxHeader = styled(Flex).attrs(function () {
   var padding = _ref6.padding,
       transparentSm = _ref6.transparentSm,
       theme = _ref6.theme;
-  return transparentSm && css(["", "{background-color:transparent;padding:", ";}"], theme.breakpoints.down("sm"), theme.spacing(padding, 0));
+  return transparentSm && css(["", "{background-color:transparent;padding:", ";}"], theme.breakpoints.down("sm"), theme.spacing(0, 0, padding, 0));
 });
 var Content$1 = styled.div(_templateObject3$2(), function (_ref7) {
   var contentPadding = _ref7.contentPadding,
@@ -5846,7 +5846,7 @@ var CreatorsHubMainLayoutDefaultProps = {
 };
 
 function _templateObject3$g() {
-  var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n  padding: ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n  }\n"]);
 
   _templateObject3$g = function _templateObject3() {
     return data;
@@ -5898,16 +5898,22 @@ var Content$5 = styled(Flex).attrs(function () {
 })(_templateObject3$g(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(12, 0);
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.breakpoints.up("sm");
+}, function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.spacing(10, 0);
 });
-var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref4) {
-  var children = _ref4.children,
-      footer = _ref4.footer,
-      footerProps = _ref4.footerProps,
-      headerProps = _ref4.headerProps,
-      loading = _ref4.loading,
-      renderFooter = _ref4.renderFooter,
-      renderHeader = _ref4.renderHeader,
-      sidebar = _ref4.sidebar;
+var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref6) {
+  var children = _ref6.children,
+      footer = _ref6.footer,
+      footerProps = _ref6.footerProps,
+      headerProps = _ref6.headerProps,
+      loading = _ref6.loading,
+      renderFooter = _ref6.renderFooter,
+      renderHeader = _ref6.renderHeader,
+      sidebar = _ref6.sidebar;
   return /*#__PURE__*/React.createElement(React.Fragment, null, loading && /*#__PURE__*/React.createElement(PageLoading, {
     fullScreen: true
   }), /*#__PURE__*/React.createElement(FluidContainer, {
