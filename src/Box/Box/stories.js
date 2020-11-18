@@ -20,6 +20,7 @@ export const main = () => {
     headerActionIcon: text("Header action icon", "chevron-right"),
     headerTitle: text("Header title", "Title"),
     headerTitleIcon: text("Header title icon", "box"),
+    headerTitleIconHiddenSm: false,
     loading: boolean("Loading", false),
     loadingMessage: text("Loading message", "Loading... Thanks for waiting"),
     tabs: [

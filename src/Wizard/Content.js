@@ -8,10 +8,11 @@ const StyledContent = styled.div`
   width: 100%;
   height: 100%;
   flex: 1;
-  padding: 24px 24px 24px 40px;
+  padding: ${({ theme }) => theme.spacing(6, 6, 6, 10)};
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
-    padding: 16px 16px 16px 16px;
+    padding: ${({ isHorizontal, theme }) =>
+      theme.spacing(4, 4, 4, isHorizontal ? 4 : 8)};
   }
 `;
 
@@ -39,7 +40,7 @@ export const WizardStepContent = ({
   ...props
 }) => {
   return (
-    <StyledContent {...props}>
+    <StyledContent isHorizontal={isHorizontal} {...props}>
       {children || content}
       {showNavigationButtons && (
         <ActionWrapper>

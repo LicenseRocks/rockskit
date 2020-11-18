@@ -73,14 +73,14 @@ export const BoxHeader = ({
   tabsProps,
   title,
   titleIcon,
-  titleIconHideSm,
+  titleIconHiddenSm,
   titleIconProps,
   titleSize,
   transparentSm,
   ...props
 }) => {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
-  const showTitleIcon = titleIcon || (!titleIconHideSm && isMobile);
+  const showTitleIcon = isMobile ? !titleIconHiddenSm : !!titleIcon;
 
   return (
     <Wrapper transparentSm={transparentSm}>
@@ -164,7 +164,7 @@ BoxHeader.propTypes = {
   tabsProps: PropTypes.shape({}),
   title: PropTypes.string.isRequired,
   titleIcon: PropTypes.string,
-  titleIconHideSm: PropTypes.bool,
+  titleIconHiddenSm: PropTypes.bool,
   titleIconProps: PropTypes.shape({}),
   titleSize: PropTypes.string,
   transparentSm: PropTypes.bool.isRequired,
@@ -184,7 +184,7 @@ BoxHeader.defaultProps = {
   tabs: [],
   tabsProps: {},
   titleIcon: "",
-  titleIconHideSm: false,
+  titleIconHiddenSm: false,
   titleIconProps: {},
   titleSize: "md",
 };

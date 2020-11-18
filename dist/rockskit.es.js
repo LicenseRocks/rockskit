@@ -1821,16 +1821,16 @@ var BoxHeader = function BoxHeader(_ref9) {
       tabsProps = _ref9.tabsProps,
       title = _ref9.title,
       titleIcon = _ref9.titleIcon,
-      titleIconHideSm = _ref9.titleIconHideSm,
+      titleIconHiddenSm = _ref9.titleIconHiddenSm,
       titleIconProps = _ref9.titleIconProps,
       titleSize = _ref9.titleSize,
       transparentSm = _ref9.transparentSm,
-      props = _objectWithoutPropertiesLoose(_ref9, ["action", "actionIcon", "actionIconProps", "actionIconSize", "renderAction", "renderTitle", "metaTitle", "metaTitleColor", "subTitle", "subTitleColor", "tabs", "tabsProps", "title", "titleIcon", "titleIconHideSm", "titleIconProps", "titleSize", "transparentSm"]);
+      props = _objectWithoutPropertiesLoose(_ref9, ["action", "actionIcon", "actionIconProps", "actionIconSize", "renderAction", "renderTitle", "metaTitle", "metaTitleColor", "subTitle", "subTitleColor", "tabs", "tabsProps", "title", "titleIcon", "titleIconHiddenSm", "titleIconProps", "titleSize", "transparentSm"]);
 
   var isMobile = useMediaQuery(function (theme) {
     return theme.breakpoints.down("sm");
   });
-  var showTitleIcon = titleIcon || !titleIconHideSm && isMobile;
+  var showTitleIcon = isMobile ? !titleIconHiddenSm : !!titleIcon;
   return /*#__PURE__*/React.createElement(Wrapper, {
     transparentSm: transparentSm
   }, /*#__PURE__*/React.createElement(StyledBoxHeader, _extends({
@@ -1889,7 +1889,7 @@ BoxHeader.propTypes = {
   tabsProps: PropTypes.shape({}),
   title: PropTypes.string.isRequired,
   titleIcon: PropTypes.string,
-  titleIconHideSm: PropTypes.bool,
+  titleIconHiddenSm: PropTypes.bool,
   titleIconProps: PropTypes.shape({}),
   titleSize: PropTypes.string,
   transparentSm: PropTypes.bool.isRequired
@@ -1908,7 +1908,7 @@ BoxHeader.defaultProps = {
   tabs: [],
   tabsProps: {},
   titleIcon: "",
-  titleIconHideSm: false,
+  titleIconHiddenSm: false,
   titleIconProps: {},
   titleSize: "md"
 };
@@ -2053,7 +2053,7 @@ var Box = function Box(_ref3) {
     tabsProps: tabsProps,
     title: headerTitle,
     titleIcon: headerTitleIcon,
-    titleIconHideSm: headerTitleIconHiddenSm,
+    titleIconHiddenSm: headerTitleIconHiddenSm,
     titleIconProps: headerTitleIconProps,
     titleSize: headerTitleSize,
     transparentSm: transparentSm
@@ -8912,7 +8912,7 @@ function _templateObject2$K() {
 }
 
 function _templateObject$1x() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: 24px 24px 24px 40px;\n\n  ", " {\n    padding: 16px 16px 16px 16px;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n  }\n"]);
 
   _templateObject$1x = function _templateObject() {
     return data;
@@ -8922,26 +8922,35 @@ function _templateObject$1x() {
 }
 var StyledContent$1 = styled.div(_templateObject$1x(), function (_ref) {
   var theme = _ref.theme;
+  return theme.spacing(6, 6, 6, 10);
+}, function (_ref2) {
+  var theme = _ref2.theme;
   return theme.breakpoints.down("sm");
+}, function (_ref3) {
+  var isHorizontal = _ref3.isHorizontal,
+      theme = _ref3.theme;
+  return theme.spacing(4, 4, 4, isHorizontal ? 4 : 8);
 });
 var ActionWrapper = styled.div(_templateObject2$K());
-var WizardStepContent = function WizardStepContent(_ref2) {
-  var children = _ref2.children,
-      content = _ref2.content,
-      currentStep = _ref2.currentStep,
-      handleNext = _ref2.handleNext,
-      handlePrev = _ref2.handlePrev,
-      isFirstStep = _ref2.isFirstStep,
-      isLastStep = _ref2.isLastStep,
-      isHorizontal = _ref2.isHorizontal,
-      nextStepMethod = _ref2.nextStepMethod,
-      stepCount = _ref2.stepCount,
-      submitButtonDisabled = _ref2.submitButtonDisabled,
-      submitButtonLoading = _ref2.submitButtonLoading,
-      showNavigationButtons = _ref2.showNavigationButtons,
-      props = _objectWithoutPropertiesLoose(_ref2, ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "isHorizontal", "nextStepMethod", "stepCount", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons"]);
+var WizardStepContent = function WizardStepContent(_ref4) {
+  var children = _ref4.children,
+      content = _ref4.content,
+      currentStep = _ref4.currentStep,
+      handleNext = _ref4.handleNext,
+      handlePrev = _ref4.handlePrev,
+      isFirstStep = _ref4.isFirstStep,
+      isLastStep = _ref4.isLastStep,
+      isHorizontal = _ref4.isHorizontal,
+      nextStepMethod = _ref4.nextStepMethod,
+      stepCount = _ref4.stepCount,
+      submitButtonDisabled = _ref4.submitButtonDisabled,
+      submitButtonLoading = _ref4.submitButtonLoading,
+      showNavigationButtons = _ref4.showNavigationButtons,
+      props = _objectWithoutPropertiesLoose(_ref4, ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "isHorizontal", "nextStepMethod", "stepCount", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons"]);
 
-  return /*#__PURE__*/React.createElement(StyledContent$1, props, children || content, showNavigationButtons && /*#__PURE__*/React.createElement(ActionWrapper, null, isHorizontal && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(OutlineButton, {
+  return /*#__PURE__*/React.createElement(StyledContent$1, _extends({
+    isHorizontal: isHorizontal
+  }, props), children || content, showNavigationButtons && /*#__PURE__*/React.createElement(ActionWrapper, null, isHorizontal && /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement(OutlineButton, {
     color: "secondary",
     disabled: isFirstStep,
     icon: "arrow-left",
