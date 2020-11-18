@@ -59,6 +59,7 @@ export const Box = ({
   headerSubTitleColor,
   headerTitle,
   headerTitleIcon,
+  headerTitleIconHiddenSm,
   headerTitleIconProps,
   headerTitleSize,
   loading,
@@ -126,6 +127,7 @@ export const Box = ({
           tabsProps={tabsProps}
           title={headerTitle}
           titleIcon={headerTitleIcon}
+          titleIconHideSm={headerTitleIconHiddenSm}
           titleIconProps={headerTitleIconProps}
           titleSize={headerTitleSize}
           transparentSm={transparentSm}

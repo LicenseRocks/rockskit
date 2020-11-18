@@ -23,6 +23,7 @@ export const BoxPropTypes = {
   headerSubTitleColor: PropTypes.string,
   headerTitle: PropTypes.string,
   headerTitleIcon: PropTypes.string,
+  headerTitleIconHiddenSm: PropTypes.string,
   headerTitleIconProps: PropTypes.shape({}),
   headerTitleSize: PropTypes.string,
   loading: PropTypes.bool,

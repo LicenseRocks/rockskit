@@ -1934,6 +1934,7 @@ var BoxPropTypes = _extends({
   headerSubTitleColor: PropTypes.string,
   headerTitle: PropTypes.string,
   headerTitleIcon: PropTypes.string,
+  headerTitleIconHiddenSm: PropTypes.string,
   headerTitleIconProps: PropTypes.shape({}),
   headerTitleSize: PropTypes.string,
   loading: PropTypes.bool,
@@ -1994,6 +1995,7 @@ var Box = function Box(_ref3) {
       headerSubTitleColor = _ref3.headerSubTitleColor,
       headerTitle = _ref3.headerTitle,
       headerTitleIcon = _ref3.headerTitleIcon,
+      headerTitleIconHiddenSm = _ref3.headerTitleIconHiddenSm,
       headerTitleIconProps = _ref3.headerTitleIconProps,
       headerTitleSize = _ref3.headerTitleSize,
       loading = _ref3.loading,
@@ -2003,7 +2005,7 @@ var Box = function Box(_ref3) {
       tabsProps = _ref3.tabsProps,
       transition = _ref3.transition,
       transparentSm = _ref3.transparentSm,
-      props = _objectWithoutPropertiesLoose(_ref3, ["alert", "alertColor", "children", "contentPadding", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "padding", "tabs", "tabsProps", "transition", "transparentSm"]);
+      props = _objectWithoutPropertiesLoose(_ref3, ["alert", "alertColor", "children", "contentPadding", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconHiddenSm", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "padding", "tabs", "tabsProps", "transition", "transparentSm"]);
 
   var isMobile = useMediaQuery(function (theme) {
     return theme.breakpoints.down("md");
@@ -2051,6 +2053,7 @@ var Box = function Box(_ref3) {
     tabsProps: tabsProps,
     title: headerTitle,
     titleIcon: headerTitleIcon,
+    titleIconHideSm: headerTitleIconHiddenSm,
     titleIconProps: headerTitleIconProps,
     titleSize: headerTitleSize,
     transparentSm: transparentSm
