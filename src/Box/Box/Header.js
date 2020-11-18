@@ -35,7 +35,7 @@ const StyledBoxHeader = styled(Flex).attrs(() => ({
     css`
       ${theme.breakpoints.down("sm")} {
         background-color: transparent;
-        padding: ${theme.spacing(padding, 0)};
+        padding: ${theme.spacing(0, 0, padding, 0)};
       }
     `}
 `;

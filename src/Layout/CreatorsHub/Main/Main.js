@@ -29,6 +29,10 @@ const Content = styled(Flex).attrs(() => ({
 }))`
   height: 100%;
   padding: ${({ theme }) => theme.spacing(12, 0)};
+
+  ${({ theme }) => theme.breakpoints.up("sm")} {
+    padding: ${({ theme }) => theme.spacing(10, 0)};
+  }
 `;
 
 export const CreatorsHubMainLayout = ({
