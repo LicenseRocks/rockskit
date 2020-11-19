@@ -87,6 +87,7 @@ export const CreatorsHubMainLayout = ({
       offsetTop={PRIMARY_HEADER_HEIGHT}
       offsetTopSm={PRIMARY_HEADER_HEIGHT_SM}
       white
+      zIndex={98}
     >
       <Container>
         <SecondaryHeader
@@ -104,7 +105,7 @@ export const CreatorsHubMainLayout = ({
     <>
       {loading && <PageLoading fullScreen />}
 
-      <FluidContainer sticky={headerFixed} white zIndex={1}>
+      <FluidContainer sticky={headerFixed} white zIndex={99}>
         <Container>
           {renderHeader() || (
             <MainHeader

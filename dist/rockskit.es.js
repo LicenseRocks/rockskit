@@ -5979,7 +5979,8 @@ var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref12) {
       sticky: headerFixed,
       offsetTop: PRIMARY_HEADER_HEIGHT,
       offsetTopSm: PRIMARY_HEADER_HEIGHT_SM,
-      white: true
+      white: true,
+      zIndex: 98
     }, /*#__PURE__*/React.createElement(Container$5, null, /*#__PURE__*/React.createElement(SecondaryHeader, {
       fixed: headerProps.fixed,
       secondaryHasBorder: headerProps.secondaryHasBorder,
@@ -5994,7 +5995,7 @@ var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref12) {
   }), /*#__PURE__*/React.createElement(FluidContainer, {
     sticky: headerFixed,
     white: true,
-    zIndex: 1
+    zIndex: 99
   }, /*#__PURE__*/React.createElement(Container$5, null, renderHeader() || /*#__PURE__*/React.createElement(MainHeader, _extends({
     fixed: headerFixed,
     height: PRIMARY_HEADER_HEIGHT,
