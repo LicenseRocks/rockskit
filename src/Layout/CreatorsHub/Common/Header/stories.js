@@ -2,7 +2,7 @@ import React from "react";
 import { boolean } from "@storybook/addon-knobs";
 
 // UI
-import { CreatorsHubHeader } from ".";
+import { MainHeader } from ".";
 import { CartButton, OutlineButton } from "../../../..";
 
 export default {
@@ -59,5 +59,5 @@ export const main = () => {
     ),
   };
 
-  return <CreatorsHubHeader {...defaultProps} />;
+  return <MainHeader {...defaultProps} />;
 };

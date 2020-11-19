@@ -7,24 +7,23 @@ import {
   CreatorsHubHeaderDefaultProps,
 } from "./props";
 import { PrimaryHeader } from "./Primary";
-import { SecondaryHeader } from "./Secondary";
 import { HeaderDrawer } from "./Drawer";
-
-const HEADER_SM_HEIGHT = "72px";
 
 const Header = styled.div`
   ${(theme) => SPACER(theme)}
   ${(theme) => DISPLAY(theme)}
 `;
 
-export const CreatorsHubHeader = ({
+export const MainHeader = ({
+  fixed,
+  heightSm,
   logoSrc,
   logoAction,
   primaryNavItems,
-  primaryHasBorder,
   primaryWhite,
   renderLogo,
   secondary,
+  secondaryHideOnScroll,
   secondaryNavItems,
   secondaryRenderRight,
   smNavItems,
@@ -37,34 +36,26 @@ export const CreatorsHubHeader = ({
       <Header {...props}>
         <PrimaryHeader
           drawerOpen={drawerOpen}
-          headerSmHeight={HEADER_SM_HEIGHT}
+          headerSmHeight={`${heightSm}px`}
           logoSrc={logoSrc}
           logoAction={logoAction}
           primaryNavItems={primaryNavItems}
-          primaryHasBorder={primaryHasBorder}
           primaryWhite={primaryWhite}
           renderLogo={renderLogo}
           setDrawerOpen={setDrawerOpen}
         />
-
-        {secondary && (
-          <SecondaryHeader
-            secondaryNavItems={secondaryNavItems}
-            secondaryRenderRight={secondaryRenderRight}
-          />
-        )}
       </Header>
 
       <HeaderDrawer
         navItems={smNavItems || secondaryNavItems || primaryNavItems}
         open={drawerOpen}
         onClose={() => setDrawerOpen(false)}
-        offsetTop={HEADER_SM_HEIGHT}
+        offsetTop={`${heightSm}px`}
       />
     </>
   );
 };
 
-CreatorsHubHeader.propTypes = CreatorsHubHeaderPropTypes;
+MainHeader.propTypes = CreatorsHubHeaderPropTypes;
 
-CreatorsHubHeader.defaultProps = CreatorsHubHeaderDefaultProps;
+MainHeader.defaultProps = CreatorsHubHeaderDefaultProps;

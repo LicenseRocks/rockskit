@@ -23,12 +23,6 @@ const StyledHeader = styled.div`
     max-height: ${({ headerSmHeight }) => headerSmHeight};
   }
 
-  ${({ primaryHasBorder }) =>
-    primaryHasBorder &&
-    css`
-      border-bottom: 1px solid ${({ theme }) => theme.palette.gray.semiLight};
-    `}
-
   ${({ primaryWhite }) =>
     primaryWhite &&
     css`

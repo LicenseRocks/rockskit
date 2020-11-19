@@ -3,7 +3,7 @@ import styled from "styled-components";
 import MuiContainer from "@material-ui/core/Container";
 
 import { DISPLAY, PageLoading, SPACER } from "../../..";
-import { CreatorsHubHeader } from "../Common";
+import { MainHeader } from "../Common";
 import {
   CreatorsHubAuthLayoutPropTypes,
   CreatorsHubAuthLayoutDefaultProps,
@@ -16,6 +16,10 @@ const StyledContainer = styled(MuiContainer).attrs(() => ({
     display: flex;
     flex-direction: column;
     height: 100%;
+  }
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    padding: ${({ theme }) => theme.spacing(0, 4)};
   }
 
   ${(theme) => SPACER(theme)}
@@ -49,7 +53,7 @@ export const CreatorsHubAuthLayout = ({
       {loading && <PageLoading fullScreen />}
 
       <StyledContainer {...props}>
-        <CreatorsHubHeader {...headerProps} />
+        <MainHeader {...headerProps} />
 
         <InnerContainer>
           <Content>{children}</Content>

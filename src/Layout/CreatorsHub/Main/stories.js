@@ -35,6 +35,7 @@ export const main = () => {
         },
       ],
     },
+    headerFixed: true,
     headerProps: {
       primaryNavItems: [
         {
@@ -55,9 +56,10 @@ export const main = () => {
           showSm: true,
         },
       ],
-      primaryHasBorder: true,
       primaryWhite: true,
       secondary: true,
+      secondaryHasBorder: true,
+      secondaryHideOnScroll: true,
       secondaryNavItems: [
         {
           active: true,

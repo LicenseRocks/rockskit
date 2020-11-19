@@ -32,6 +32,8 @@ var AsyncSelect = require('react-select/async');
 var ReactSelect$1 = require('react-select');
 var flatMap = require('lodash/flatMap');
 var makeAnimated = require('react-select/animated');
+var useScrollTrigger = require('@material-ui/core/useScrollTrigger');
+var Slide = require('@material-ui/core/Slide');
 var MuiHidden = require('@material-ui/core/Hidden');
 var MuiContainer = require('@material-ui/core/Container');
 var Drawer = require('@material-ui/core/Drawer');
@@ -70,6 +72,8 @@ var AsyncSelect__default = /*#__PURE__*/_interopDefaultLegacy(AsyncSelect);
 var ReactSelect__default = /*#__PURE__*/_interopDefaultLegacy(ReactSelect$1);
 var flatMap__default = /*#__PURE__*/_interopDefaultLegacy(flatMap);
 var makeAnimated__default = /*#__PURE__*/_interopDefaultLegacy(makeAnimated);
+var useScrollTrigger__default = /*#__PURE__*/_interopDefaultLegacy(useScrollTrigger);
+var Slide__default = /*#__PURE__*/_interopDefaultLegacy(Slide);
 var MuiHidden__default = /*#__PURE__*/_interopDefaultLegacy(MuiHidden);
 var MuiContainer__default = /*#__PURE__*/_interopDefaultLegacy(MuiContainer);
 var Drawer__default = /*#__PURE__*/_interopDefaultLegacy(Drawer);
@@ -4726,6 +4730,29 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
 ToggleSwitch.propTypes = ToggleSwitchPropTypes;
 ToggleSwitch.defaultProps = ToggleSwitchDefaultProps;
 
+var HideOnScrollPropTypes = {
+  children: PropTypes__default['default'].element.isRequired,
+  threshold: PropTypes__default['default'].number
+};
+var HideOnScrollDefaultProps = {
+  threshold: 100
+};
+
+var HideOnScroll = function HideOnScroll(_ref) {
+  var children = _ref.children,
+      threshold = _ref.threshold;
+  var trigger = useScrollTrigger__default['default']({
+    threshold: threshold
+  });
+  return /*#__PURE__*/React__default['default'].createElement(Slide__default['default'], {
+    appear: false,
+    direction: "down",
+    in: !trigger
+  }, children);
+};
+HideOnScroll.propTypes = HideOnScrollPropTypes;
+HideOnScroll.defaultProps = HideOnScrollDefaultProps;
+
 function _templateObject$M() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
@@ -5425,13 +5452,15 @@ CreatorsHubFooter.propTypes = CreatorsHubFooterPropTypes;
 CreatorsHubFooter.defaultProps = CreatorsHubFooterDefaultProps;
 
 var CreatorsHubHeaderPropTypes = {
+  fixed: PropTypes__default['default'].bool,
   logoAction: PropTypes__default['default'].func,
   logoSrc: PropTypes__default['default'].string,
   primaryNavItems: PropTypes__default['default'].array,
-  primaryHasBorder: PropTypes__default['default'].bool,
   primaryWhite: PropTypes__default['default'].bool,
   renderLogo: PropTypes__default['default'].func,
   secondary: PropTypes__default['default'].bool,
+  secondaryHasBorder: PropTypes__default['default'].bool,
+  secondaryHideOnScroll: PropTypes__default['default'].bool,
   secondaryNavItems: PropTypes__default['default'].array,
   secondaryRenderRight: PropTypes__default['default'].func
 };
@@ -5481,7 +5510,7 @@ function _templateObject2$k() {
 }
 
 function _templateObject$U() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  padding: ", ";\n  height: 80px;\n  max-height: 80px;\n  box-sizing: border-box;\n  align-items: center;\n  justify-content: space-between;\n\n  ", " {\n    height: ", ";\n    max-height: ", ";\n  }\n\n  ", "\n\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  padding: ", ";\n  height: 80px;\n  max-height: 80px;\n  box-sizing: border-box;\n  align-items: center;\n  justify-content: space-between;\n\n  ", " {\n    height: ", ";\n    max-height: ", ";\n  }\n\n  ", "\n"]);
 
   _templateObject$U = function _templateObject() {
     return data;
@@ -5502,15 +5531,9 @@ var StyledHeader$1 = styled__default['default'].div(_templateObject$U(), functio
   var headerSmHeight = _ref4.headerSmHeight;
   return headerSmHeight;
 }, function (_ref5) {
-  var primaryHasBorder = _ref5.primaryHasBorder;
-  return primaryHasBorder && styled.css(["border-bottom:1px solid ", ";"], function (_ref6) {
+  var primaryWhite = _ref5.primaryWhite;
+  return primaryWhite && styled.css(["background-color:", ";"], function (_ref6) {
     var theme = _ref6.theme;
-    return theme.palette.gray.semiLight;
-  });
-}, function (_ref7) {
-  var primaryWhite = _ref7.primaryWhite;
-  return primaryWhite && styled.css(["background-color:", ";"], function (_ref8) {
-    var theme = _ref8.theme;
     return theme.palette.common.white;
   });
 });
@@ -5519,30 +5542,30 @@ var MenuIconButton = styled__default['default'](Icon).attrs(function () {
     squared: true,
     mr: 4
   };
-})(_templateObject2$k(), function (_ref9) {
-  var theme = _ref9.theme;
+})(_templateObject2$k(), function (_ref7) {
+  var theme = _ref7.theme;
   return theme.palette.gray.semiLight;
-}, function (_ref10) {
-  var theme = _ref10.theme;
+}, function (_ref8) {
+  var theme = _ref8.theme;
   return theme.palette.gray.medium;
 });
 var LogoContainer = styled__default['default'].div(_templateObject3$c());
 var PrimaryList = styled__default['default'].ul(_templateObject4$5());
-var PrimaryListItem = styled__default['default'].li(_templateObject5$3(), function (_ref11) {
-  var theme = _ref11.theme;
+var PrimaryListItem = styled__default['default'].li(_templateObject5$3(), function (_ref9) {
+  var theme = _ref9.theme;
   return theme.spacing(6);
-}, function (_ref12) {
-  var theme = _ref12.theme;
+}, function (_ref10) {
+  var theme = _ref10.theme;
   return theme.palette.text.primary;
 });
-var PrimaryHeader = function PrimaryHeader(_ref13) {
-  var drawerOpen = _ref13.drawerOpen,
-      logoSrc = _ref13.logoSrc,
-      logoAction = _ref13.logoAction,
-      primaryNavItems = _ref13.primaryNavItems,
-      renderLogo = _ref13.renderLogo,
-      setDrawerOpen = _ref13.setDrawerOpen,
-      props = _objectWithoutPropertiesLoose(_ref13, ["drawerOpen", "logoSrc", "logoAction", "primaryNavItems", "renderLogo", "setDrawerOpen"]);
+var PrimaryHeader = function PrimaryHeader(_ref11) {
+  var drawerOpen = _ref11.drawerOpen,
+      logoSrc = _ref11.logoSrc,
+      logoAction = _ref11.logoAction,
+      primaryNavItems = _ref11.primaryNavItems,
+      renderLogo = _ref11.renderLogo,
+      setDrawerOpen = _ref11.setDrawerOpen,
+      props = _objectWithoutPropertiesLoose(_ref11, ["drawerOpen", "logoSrc", "logoAction", "primaryNavItems", "renderLogo", "setDrawerOpen"]);
 
   return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(StyledHeader$1, props, /*#__PURE__*/React__default['default'].createElement(LogoContainer, null, /*#__PURE__*/React__default['default'].createElement(Hidden, {
     implementation: "js",
@@ -5572,18 +5595,8 @@ var PrimaryHeader = function PrimaryHeader(_ref13) {
 PrimaryHeader.propTypes = CreatorsHubHeaderPropTypes;
 PrimaryHeader.defaultProps = CreatorsHubHeaderDefaultProps;
 
-function _templateObject4$6() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  ", " {\n    flex: 1;\n    justify-content: space-between;\n  }\n"]);
-
-  _templateObject4$6 = function _templateObject4() {
-    return data;
-  };
-
-  return data;
-}
-
 function _templateObject3$d() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n  color: ", ";\n  font-weight: 600;\n  height: 100%;\n  :not(:last-child) {\n    margin-right: ", ";\n  }\n\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  height: 32px;\n  width: 100%;\n  font-weight: 600;\n  color: ", ";\n  padding-left: ", ";\n  :not(:last-child) {\n    margin-bottom: ", ";\n  }\n\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n\n  ", "\n"]);
 
   _templateObject3$d = function _templateObject3() {
     return data;
@@ -5593,7 +5606,7 @@ function _templateObject3$d() {
 }
 
 function _templateObject2$l() {
-  var data = _taggedTemplateLiteralLoose(["\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  height: 100%;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  list-style: none;\n  padding: 0;\n  margin: 0;\n"]);
 
   _templateObject2$l = function _templateObject2() {
     return data;
@@ -5603,7 +5616,7 @@ function _templateObject2$l() {
 }
 
 function _templateObject$V() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  height: 80px;\n  max-height: 80px;\n  box-sizing: border-box;\n  align-items: center;\n  justify-content: space-between;\n  background-color: ", ";\n\n  ", " {\n    height: 64px;\n    max-height: 64px;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100vw;\n  height: 100vh;\n  && {\n    top: ", " !important;\n  }\n\n  .MuiPaper-root {\n    box-shadow: none;\n    width: 100%;\n    height: 100%;\n    top: ", " !important;\n    background-color: ", ";\n    padding: ", ";\n  }\n"]);
 
   _templateObject$V = function _templateObject() {
     return data;
@@ -5611,87 +5624,7 @@ function _templateObject$V() {
 
   return data;
 }
-var StyledHeader$2 = styled__default['default'].div(_templateObject$V(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.palette.common.white;
-}, function (_ref2) {
-  var theme = _ref2.theme;
-  return theme.breakpoints.down("sm");
-});
-var SecondaryList = styled__default['default'].ul(_templateObject2$l());
-var SecondaryListItem = styled__default['default'].li(_templateObject3$d(), function (_ref3) {
-  var theme = _ref3.theme;
-  return theme.palette.text.secondary;
-}, function (_ref4) {
-  var theme = _ref4.theme;
-  return theme.spacing(8);
-}, function (_ref5) {
-  var theme = _ref5.theme;
-  return theme.palette.text.secondary;
-}, function (_ref6) {
-  var active = _ref6.active;
-  return active && styled.css(["color:", ";a{text-decoration:none;color:", ";}::before{content:\"\";position:absolute;bottom:0;left:0;width:100%;height:3px;border-radius:11px;background-color:", ";}"], function (_ref7) {
-    var theme = _ref7.theme;
-    return theme.palette.text.primary;
-  }, function (_ref8) {
-    var theme = _ref8.theme;
-    return theme.palette.text.primary;
-  }, function (_ref9) {
-    var theme = _ref9.theme;
-    return theme.palette.primary.main;
-  });
-});
-var SecondaryRight = styled__default['default'].div(_templateObject4$6(), function (_ref10) {
-  var theme = _ref10.theme;
-  return theme.breakpoints.down("sm");
-});
-var SecondaryHeader = function SecondaryHeader(_ref11) {
-  var secondaryNavItems = _ref11.secondaryNavItems,
-      secondaryRenderRight = _ref11.secondaryRenderRight,
-      props = _objectWithoutPropertiesLoose(_ref11, ["secondaryNavItems", "secondaryRenderRight"]);
-
-  return /*#__PURE__*/React__default['default'].createElement(StyledHeader$2, props, /*#__PURE__*/React__default['default'].createElement(Hidden, {
-    implementation: "js",
-    smDown: true
-  }, /*#__PURE__*/React__default['default'].createElement(SecondaryList, null, secondaryNavItems == null ? void 0 : secondaryNavItems.map(function (item) {
-    return /*#__PURE__*/React__default['default'].createElement(SecondaryListItem, {
-      active: item == null ? void 0 : item.active
-    }, item.render());
-  }))), /*#__PURE__*/React__default['default'].createElement(SecondaryRight, null, secondaryRenderRight()));
-};
-SecondaryHeader.propTypes = CreatorsHubHeaderPropTypes;
-SecondaryHeader.defaultProps = CreatorsHubHeaderDefaultProps;
-
-function _templateObject3$e() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  height: 32px;\n  width: 100%;\n  font-weight: 600;\n  color: ", ";\n  padding-left: ", ";\n  :not(:last-child) {\n    margin-bottom: ", ";\n  }\n\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n\n  ", "\n"]);
-
-  _templateObject3$e = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2$m() {
-  var data = _taggedTemplateLiteralLoose(["\n  list-style: none;\n  padding: 0;\n  margin: 0;\n"]);
-
-  _templateObject2$m = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject$W() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100vw;\n  height: 100vh;\n  && {\n    top: ", " !important;\n  }\n\n  .MuiPaper-root {\n    box-shadow: none;\n    width: 100%;\n    height: 100%;\n    top: ", " !important;\n    background-color: ", ";\n    padding: ", ";\n  }\n"]);
-
-  _templateObject$W = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var StyledDrawer = styled__default['default'](Drawer__default['default'])(_templateObject$W(), function (_ref) {
+var StyledDrawer = styled__default['default'](Drawer__default['default'])(_templateObject$V(), function (_ref) {
   var offsetTop = _ref.offsetTop;
   return offsetTop;
 }, function (_ref2) {
@@ -5704,8 +5637,8 @@ var StyledDrawer = styled__default['default'](Drawer__default['default'])(_templ
   var theme = _ref4.theme;
   return theme.spacing(4, 0);
 });
-var List = styled__default['default'].ul(_templateObject2$m());
-var ListItem = styled__default['default'].li(_templateObject3$e(), function (_ref5) {
+var List = styled__default['default'].ul(_templateObject2$l());
+var ListItem = styled__default['default'].li(_templateObject3$d(), function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.text.secondary;
 }, function (_ref6) {
@@ -5751,33 +5684,34 @@ var HeaderDrawer = function HeaderDrawer(_ref13) {
 HeaderDrawer.propTypes = CreatorsHubHeaderPropTypes;
 HeaderDrawer.defaultProps = CreatorsHubHeaderDefaultProps;
 
-function _templateObject$X() {
+function _templateObject$W() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$X = function _templateObject() {
+  _templateObject$W = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var HEADER_SM_HEIGHT = "72px";
-var Header = styled__default['default'].div(_templateObject$X(), function (theme) {
+var Header = styled__default['default'].div(_templateObject$W(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var CreatorsHubHeader = function CreatorsHubHeader(_ref) {
-  var logoSrc = _ref.logoSrc,
+var MainHeader = function MainHeader(_ref) {
+  var fixed = _ref.fixed,
+      heightSm = _ref.heightSm,
+      logoSrc = _ref.logoSrc,
       logoAction = _ref.logoAction,
       primaryNavItems = _ref.primaryNavItems,
-      primaryHasBorder = _ref.primaryHasBorder,
       primaryWhite = _ref.primaryWhite,
       renderLogo = _ref.renderLogo,
       secondary = _ref.secondary,
+      secondaryHideOnScroll = _ref.secondaryHideOnScroll,
       secondaryNavItems = _ref.secondaryNavItems,
       secondaryRenderRight = _ref.secondaryRenderRight,
       smNavItems = _ref.smNavItems,
-      props = _objectWithoutPropertiesLoose(_ref, ["logoSrc", "logoAction", "primaryNavItems", "primaryHasBorder", "primaryWhite", "renderLogo", "secondary", "secondaryNavItems", "secondaryRenderRight", "smNavItems"]);
+      props = _objectWithoutPropertiesLoose(_ref, ["fixed", "heightSm", "logoSrc", "logoAction", "primaryNavItems", "primaryWhite", "renderLogo", "secondary", "secondaryHideOnScroll", "secondaryNavItems", "secondaryRenderRight", "smNavItems"]);
 
   var _useState = React.useState(false),
       drawerOpen = _useState[0],
@@ -5785,28 +5719,121 @@ var CreatorsHubHeader = function CreatorsHubHeader(_ref) {
 
   return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(Header, props, /*#__PURE__*/React__default['default'].createElement(PrimaryHeader, {
     drawerOpen: drawerOpen,
-    headerSmHeight: HEADER_SM_HEIGHT,
+    headerSmHeight: heightSm + "px",
     logoSrc: logoSrc,
     logoAction: logoAction,
     primaryNavItems: primaryNavItems,
-    primaryHasBorder: primaryHasBorder,
     primaryWhite: primaryWhite,
     renderLogo: renderLogo,
     setDrawerOpen: setDrawerOpen
-  }), secondary && /*#__PURE__*/React__default['default'].createElement(SecondaryHeader, {
-    secondaryNavItems: secondaryNavItems,
-    secondaryRenderRight: secondaryRenderRight
   })), /*#__PURE__*/React__default['default'].createElement(HeaderDrawer, {
     navItems: smNavItems || secondaryNavItems || primaryNavItems,
     open: drawerOpen,
     onClose: function onClose() {
       return setDrawerOpen(false);
     },
-    offsetTop: HEADER_SM_HEIGHT
+    offsetTop: heightSm + "px"
   }));
 };
-CreatorsHubHeader.propTypes = CreatorsHubHeaderPropTypes;
-CreatorsHubHeader.defaultProps = CreatorsHubHeaderDefaultProps;
+MainHeader.propTypes = CreatorsHubHeaderPropTypes;
+MainHeader.defaultProps = CreatorsHubHeaderDefaultProps;
+
+function _templateObject4$6() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  ", " {\n    flex: 1;\n    justify-content: space-between;\n  }\n"]);
+
+  _templateObject4$6 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3$e() {
+  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  display: inline-flex;\n  align-items: center;\n  color: ", ";\n  font-weight: 600;\n  height: 100%;\n  :not(:last-child) {\n    margin-right: ", ";\n  }\n\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n\n  ", "\n"]);
+
+  _templateObject3$e = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$m() {
+  var data = _taggedTemplateLiteralLoose(["\n  list-style: none;\n  padding: 0;\n  margin: 0;\n  height: 100%;\n"]);
+
+  _templateObject2$m = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$X() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  height: 80px;\n  max-height: 80px;\n  box-sizing: border-box;\n  align-items: center;\n  justify-content: space-between;\n  background-color: ", ";\n\n  ", "\n\n  ", " {\n    height: 64px;\n    max-height: 64px;\n  }\n"]);
+
+  _templateObject$X = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledHeader$2 = styled__default['default'].div(_templateObject$X(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.common.white;
+}, function (_ref2) {
+  var secondaryHasBorder = _ref2.secondaryHasBorder;
+  return secondaryHasBorder && styled.css(["border-top:1px solid ", ";"], function (_ref3) {
+    var theme = _ref3.theme;
+    return theme.palette.gray.semiLight;
+  });
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.breakpoints.down("sm");
+});
+var SecondaryList = styled__default['default'].ul(_templateObject2$m());
+var SecondaryListItem = styled__default['default'].li(_templateObject3$e(), function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.palette.text.secondary;
+}, function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.spacing(8);
+}, function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.palette.text.secondary;
+}, function (_ref8) {
+  var active = _ref8.active;
+  return active && styled.css(["color:", ";a{text-decoration:none;color:", ";}::before{content:\"\";position:absolute;bottom:0;left:0;width:100%;height:3px;border-radius:11px;background-color:", ";}"], function (_ref9) {
+    var theme = _ref9.theme;
+    return theme.palette.text.primary;
+  }, function (_ref10) {
+    var theme = _ref10.theme;
+    return theme.palette.text.primary;
+  }, function (_ref11) {
+    var theme = _ref11.theme;
+    return theme.palette.primary.main;
+  });
+});
+var SecondaryRight = styled__default['default'].div(_templateObject4$6(), function (_ref12) {
+  var theme = _ref12.theme;
+  return theme.breakpoints.down("sm");
+});
+var SecondaryHeader = function SecondaryHeader(_ref13) {
+  var secondaryHideOnScroll = _ref13.secondaryHideOnScroll,
+      secondaryNavItems = _ref13.secondaryNavItems,
+      secondaryRenderRight = _ref13.secondaryRenderRight,
+      props = _objectWithoutPropertiesLoose(_ref13, ["secondaryHideOnScroll", "secondaryNavItems", "secondaryRenderRight"]);
+
+  return /*#__PURE__*/React__default['default'].createElement(StyledHeader$2, props, /*#__PURE__*/React__default['default'].createElement(Hidden, {
+    implementation: "js",
+    smDown: true
+  }, /*#__PURE__*/React__default['default'].createElement(SecondaryList, null, secondaryNavItems == null ? void 0 : secondaryNavItems.map(function (item) {
+    return /*#__PURE__*/React__default['default'].createElement(SecondaryListItem, {
+      active: item == null ? void 0 : item.active
+    }, item.render());
+  }))), /*#__PURE__*/React__default['default'].createElement(SecondaryRight, null, secondaryRenderRight()));
+};
+SecondaryHeader.propTypes = CreatorsHubHeaderPropTypes;
+SecondaryHeader.defaultProps = CreatorsHubHeaderDefaultProps;
 
 var CreatorsHubAuthLayoutPropTypes = {
   children: PropTypes__default['default'].node,
@@ -5836,7 +5863,7 @@ function _templateObject2$n() {
 }
 
 function _templateObject$Y() {
-  var data = _taggedTemplateLiteralLoose(["\n  && {\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n  }\n\n  ", "\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n  }\n\n  ", " {\n    padding: ", ";\n  }\n\n  ", "\n  ", "\n"]);
 
   _templateObject$Y = function _templateObject() {
     return data;
@@ -5848,7 +5875,13 @@ var StyledContainer$2 = styled__default['default'](MuiContainer__default['defaul
   return {
     maxWidth: "lg"
   };
-})(_templateObject$Y(), function (theme) {
+})(_templateObject$Y(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.breakpoints.down("sm");
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.spacing(0, 4);
+}, function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -5859,15 +5892,15 @@ var InnerContainer = styled__default['default'](MuiContainer__default['default']
   };
 })(_templateObject2$n());
 var Content$4 = styled__default['default'].div(_templateObject3$f());
-var CreatorsHubAuthLayout = function CreatorsHubAuthLayout(_ref) {
-  var children = _ref.children,
-      headerProps = _ref.headerProps,
-      loading = _ref.loading,
-      props = _objectWithoutPropertiesLoose(_ref, ["children", "headerProps", "loading"]);
+var CreatorsHubAuthLayout = function CreatorsHubAuthLayout(_ref3) {
+  var children = _ref3.children,
+      headerProps = _ref3.headerProps,
+      loading = _ref3.loading,
+      props = _objectWithoutPropertiesLoose(_ref3, ["children", "headerProps", "loading"]);
 
   return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, {
     fullScreen: true
-  }), /*#__PURE__*/React__default['default'].createElement(StyledContainer$2, props, /*#__PURE__*/React__default['default'].createElement(CreatorsHubHeader, headerProps), /*#__PURE__*/React__default['default'].createElement(InnerContainer, null, /*#__PURE__*/React__default['default'].createElement(Content$4, null, children))));
+  }), /*#__PURE__*/React__default['default'].createElement(StyledContainer$2, props, /*#__PURE__*/React__default['default'].createElement(MainHeader, headerProps), /*#__PURE__*/React__default['default'].createElement(InnerContainer, null, /*#__PURE__*/React__default['default'].createElement(Content$4, null, children))));
 };
 CreatorsHubAuthLayout.propTypes = CreatorsHubAuthLayoutPropTypes;
 CreatorsHubAuthLayout.defaultProps = CreatorsHubAuthLayoutDefaultProps;
@@ -5888,7 +5921,7 @@ var CreatorsHubMainLayoutDefaultProps = {
 };
 
 function _templateObject3$g() {
-  var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n  }\n\n  ", "\n"]);
 
   _templateObject3$g = function _templateObject3() {
     return data;
@@ -5908,7 +5941,7 @@ function _templateObject2$o() {
 }
 
 function _templateObject$Z() {
-  var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n\n  ", "\n\n  ", "\n\n  ", " {\n    padding: ", ";\n  }\n"]);
 
   _templateObject$Z = function _templateObject() {
     return data;
@@ -5916,16 +5949,37 @@ function _templateObject$Z() {
 
   return data;
 }
+var PRIMARY_HEADER_HEIGHT = 80;
+var PRIMARY_HEADER_HEIGHT_SM = 72;
+var TOTAL_HEADER_HEIGHT = 160;
+var TOTAL_HEADER_HEIGHT_SM = 136;
 var FluidContainer = styled__default['default'](MuiContainer__default['default']).attrs(function () {
   return {
     maxWidth: false
   };
 })(_templateObject$Z(), function (_ref) {
-  var white = _ref.white;
-  return white && styled.css(["background-color:", ";"], function (_ref2) {
-    var theme = _ref2.theme;
+  var zIndex = _ref.zIndex;
+  return zIndex && "z-index: " + zIndex + ";";
+}, function (_ref2) {
+  var white = _ref2.white;
+  return white && styled.css(["background-color:", ";"], function (_ref3) {
+    var theme = _ref3.theme;
     return theme.palette.common.white;
   });
+}, function (_ref4) {
+  var offsetTop = _ref4.offsetTop,
+      offsetTopSm = _ref4.offsetTopSm,
+      sticky = _ref4.sticky;
+  return sticky && styled.css(["position:fixed;top:", ";right:0;left:0;width:100%;", "{top:", ";}"], offsetTop ? offsetTop + "px" : 0, function (_ref5) {
+    var theme = _ref5.theme;
+    return theme.breakpoints.down("sm");
+  }, offsetTopSm ? offsetTopSm + "px" : 0);
+}, function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.breakpoints.down("sm");
+}, function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.spacing(0, 4);
 });
 var Container$5 = styled__default['default'](MuiContainer__default['default']).attrs(function () {
   return {
@@ -5937,30 +5991,60 @@ var Content$5 = styled__default['default'](Flex).attrs(function () {
     container: true,
     alignItems: "flex-start"
   };
-})(_templateObject3$g(), function (_ref3) {
-  var theme = _ref3.theme;
-  return theme.spacing(12, 0);
-}, function (_ref4) {
-  var theme = _ref4.theme;
-  return theme.breakpoints.up("sm");
-}, function (_ref5) {
-  var theme = _ref5.theme;
+})(_templateObject3$g(), function (_ref8) {
+  var theme = _ref8.theme;
   return theme.spacing(10, 0);
+}, function (_ref9) {
+  var theme = _ref9.theme;
+  return theme.breakpoints.up("md");
+}, function (_ref10) {
+  var theme = _ref10.theme;
+  return theme.spacing(12, 0);
+}, function (_ref11) {
+  var headerFixed = _ref11.headerFixed,
+      theme = _ref11.theme;
+  return headerFixed && styled.css(["padding:", ";", "{padding:", ";}"], theme.spacing(TOTAL_HEADER_HEIGHT_SM / 4 + 10, 0, 10, 0), theme.breakpoints.up("md"), theme.spacing(TOTAL_HEADER_HEIGHT / 4 + 12, 0, 12, 0));
 });
-var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref6) {
-  var children = _ref6.children,
-      footer = _ref6.footer,
-      footerProps = _ref6.footerProps,
-      headerProps = _ref6.headerProps,
-      loading = _ref6.loading,
-      renderFooter = _ref6.renderFooter,
-      renderHeader = _ref6.renderHeader,
-      sidebar = _ref6.sidebar;
+var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref12) {
+  var children = _ref12.children,
+      footer = _ref12.footer,
+      footerProps = _ref12.footerProps,
+      headerFixed = _ref12.headerFixed,
+      headerProps = _ref12.headerProps,
+      loading = _ref12.loading,
+      renderFooter = _ref12.renderFooter,
+      renderHeader = _ref12.renderHeader,
+      sidebar = _ref12.sidebar;
+
+  var renderSecondaryHeader = function renderSecondaryHeader() {
+    return /*#__PURE__*/React__default['default'].createElement(FluidContainer, {
+      sticky: headerFixed,
+      offsetTop: PRIMARY_HEADER_HEIGHT,
+      offsetTopSm: PRIMARY_HEADER_HEIGHT_SM,
+      white: true
+    }, /*#__PURE__*/React__default['default'].createElement(Container$5, null, /*#__PURE__*/React__default['default'].createElement(SecondaryHeader, {
+      fixed: headerProps.fixed,
+      secondaryHasBorder: headerProps.secondaryHasBorder,
+      secondaryHideOnScroll: headerProps.secondaryHideOnScroll,
+      secondaryNavItems: headerProps.secondaryNavItems,
+      secondaryRenderRight: headerProps.secondaryRenderRight
+    })));
+  };
+
   return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, loading && /*#__PURE__*/React__default['default'].createElement(PageLoading, {
     fullScreen: true
   }), /*#__PURE__*/React__default['default'].createElement(FluidContainer, {
-    white: true
-  }, /*#__PURE__*/React__default['default'].createElement(Container$5, null, renderHeader() || /*#__PURE__*/React__default['default'].createElement(CreatorsHubHeader, headerProps))), /*#__PURE__*/React__default['default'].createElement(FluidContainer, null, /*#__PURE__*/React__default['default'].createElement(Container$5, null, /*#__PURE__*/React__default['default'].createElement(Content$5, {
+    sticky: headerFixed,
+    white: true,
+    zIndex: 1
+  }, /*#__PURE__*/React__default['default'].createElement(Container$5, null, renderHeader() || /*#__PURE__*/React__default['default'].createElement(MainHeader, _extends({
+    fixed: headerFixed,
+    height: PRIMARY_HEADER_HEIGHT,
+    heightSm: PRIMARY_HEADER_HEIGHT_SM
+  }, headerProps)))), headerProps.secondary && /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, headerProps.secondaryHideOnScroll ? /*#__PURE__*/React__default['default'].createElement(HideOnScroll, {
+    threshold: PRIMARY_HEADER_HEIGHT_SM - 8
+  }, renderSecondaryHeader()) : renderSecondaryHeader()), /*#__PURE__*/React__default['default'].createElement(FluidContainer, null, /*#__PURE__*/React__default['default'].createElement(Container$5, null, /*#__PURE__*/React__default['default'].createElement(Content$5, {
+    headerFixed: headerFixed,
     spacing: sidebar ? 8 : false
   }, /*#__PURE__*/React__default['default'].createElement(Flex, {
     item: true,
@@ -9434,6 +9518,7 @@ exports.H5 = H5;
 exports.H6 = H6;
 exports.HeadingBase = HeadingBase;
 exports.Hidden = Hidden;
+exports.HideOnScroll = HideOnScroll;
 exports.History = History;
 exports.Icon = Icon;
 exports.Image = Image;

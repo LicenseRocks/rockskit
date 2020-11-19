@@ -17,6 +17,12 @@ const StyledHeader = styled.div`
   justify-content: space-between;
   background-color: ${({ theme }) => theme.palette.common.white};
 
+  ${({ secondaryHasBorder }) =>
+    secondaryHasBorder &&
+    css`
+      border-top: 1px solid ${({ theme }) => theme.palette.gray.semiLight};
+    `}
+
   ${({ theme }) => theme.breakpoints.down("sm")} {
     height: 64px;
     max-height: 64px;
@@ -79,6 +85,7 @@ const SecondaryRight = styled.div`
 `;
 
 export const SecondaryHeader = ({
+  secondaryHideOnScroll,
   secondaryNavItems,
   secondaryRenderRight,
   ...props
