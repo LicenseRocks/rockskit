@@ -75,7 +75,14 @@ export const Box = ({
 
   const content = (
     <>
-      {alert && <Alert content={alert} color={alertColor} noBorderRadius />}
+      {alert && (
+        <Alert
+          content={alert}
+          color={alertColor}
+          rounded={isMobile && transparentSm}
+          mt={isMobile && transparentSm ? 6 : 0}
+        />
+      )}
       <BoxContent
         padding={padding}
         contentPadding={contentPadding}

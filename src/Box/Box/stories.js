@@ -12,6 +12,7 @@ export default {
 
 export const main = () => {
   const defaultProps = {
+    alert: "This is an alert",
     contentPadding: boolean("Content padding", false),
     footerActionTitle: text("Footer action title", "Submit"),
     footerActionDisabled: boolean("Footer action disabled", false),

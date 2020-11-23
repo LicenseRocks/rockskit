@@ -6,7 +6,7 @@ export const AlertPropTypes = {
   content: PropTypes.node,
   children: PropTypes.node,
   color: PropTypes.oneOf(["info", "danger", "warning"]),
-  noBorderRadius: PropTypes.bool,
+  rounded: PropTypes.bool,
   ...SPACER_PROP_TYPES,
   ...DISPLAY_PROP_TYPES,
 };
@@ -15,4 +15,5 @@ export const AlertDefaultProps = {
   content: null,
   children: null,
   color: "info",
+  rounded: true,
 };

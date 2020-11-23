@@ -1232,12 +1232,13 @@ var AlertPropTypes = _extends({
   content: PropTypes.node,
   children: PropTypes.node,
   color: PropTypes.oneOf(["info", "danger", "warning"]),
-  noBorderRadius: PropTypes.bool
+  rounded: PropTypes.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var AlertDefaultProps = {
   content: null,
   children: null,
-  color: "info"
+  color: "info",
+  rounded: true
 };
 
 function _templateObject$a() {
@@ -1250,8 +1251,8 @@ function _templateObject$a() {
   return data;
 }
 var StyledMessage = styled.div(_templateObject$a(), function (_ref) {
-  var noBorderRadius = _ref.noBorderRadius;
-  return !noBorderRadius && "border-radius: 8px;";
+  var rounded = _ref.rounded;
+  return rounded && "border-radius: 8px;";
 }, function (_ref2) {
   var colors = _ref2.colors;
   return colors.backgroundColor;
@@ -1806,7 +1807,7 @@ var Content$1 = styled.div(_templateObject3$2(), function (_ref7) {
 }, function (_ref8) {
   var transparentSm = _ref8.transparentSm,
       theme = _ref8.theme;
-  return transparentSm && css(["", "{padding:0;}"], theme.breakpoints.down("sm"));
+  return transparentSm && css(["", "{padding:", ";}"], theme.breakpoints.down("sm"), theme.spacing(8, 0, 0, 0));
 });
 var BoxHeader = function BoxHeader(_ref9) {
   var action = _ref9.action,
@@ -2015,7 +2016,8 @@ var Box = function Box(_ref3) {
   var content = /*#__PURE__*/React.createElement(React.Fragment, null, alert && /*#__PURE__*/React.createElement(Alert, {
     content: alert,
     color: alertColor,
-    noBorderRadius: true
+    rounded: isMobile && transparentSm,
+    mt: isMobile && transparentSm ? 6 : 0
   }), /*#__PURE__*/React.createElement(BoxContent, {
     padding: padding,
     contentPadding: contentPadding,

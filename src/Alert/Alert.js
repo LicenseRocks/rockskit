@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css, useTheme } from "styled-components";
+import styled, { useTheme } from "styled-components";
 
 import { DISPLAY, SPACER } from "..";
 import { Icon } from "../Icon";
@@ -14,7 +14,7 @@ const StyledMessage = styled.div`
   transition: all 100ms ease-in-out;
   display: flex;
   align-items: center;
-  ${({ noBorderRadius }) => !noBorderRadius && "border-radius: 8px;"}
+  ${({ rounded }) => rounded && "border-radius: 8px;"}
   background-color: ${({ colors }) => colors.backgroundColor};
   color: ${({ colors }) => colors.color};
   svg {

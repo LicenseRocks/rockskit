@@ -54,7 +54,7 @@ const Content = styled.div`
     transparentSm &&
     css`
       ${theme.breakpoints.down("sm")} {
-        padding: 0;
+        padding: ${theme.spacing(8, 0, 0, 0)};
       }
     `}
 `;
