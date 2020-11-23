@@ -7,6 +7,7 @@ export const BoxPropTypes = {
   footerAction: PropTypes.func,
   footerActionLoading: PropTypes.bool,
   footerActionDisabled: PropTypes.bool,
+  footerActionSize: PropTypes.string,
   footerActionTitle: PropTypes.string,
   footerActionType: PropTypes.string,
   footerRenderAction: PropTypes.func,

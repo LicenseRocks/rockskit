@@ -37,6 +37,7 @@ export const BoxFooter = ({
   action,
   actionDisabled,
   actionLoading,
+  actionSize,
   actionTitle,
   actionType,
   renderAction,
@@ -56,6 +57,7 @@ export const BoxFooter = ({
             disabled={actionDisabled}
             loading={actionLoading}
             onClick={action}
+            size={actionSize}
             type={actionType}
           />
         )}
@@ -68,6 +70,7 @@ BoxFooter.propTypes = {
   action: PropTypes.func,
   actionDisabled: PropTypes.bool,
   actionLoading: PropTypes.bool,
+  actionSize: PropTypes.string,
   actionTitle: PropTypes.string.isRequired,
   actionType: PropTypes.string,
   padding: PropTypes.number.isRequired,
@@ -79,6 +82,7 @@ BoxFooter.defaultProps = {
   action: () => {},
   actionDisabled: false,
   actionLoading: false,
+  actionSize: "md",
   actionType: "submit",
   renderAction: () => {},
   renderTitle: () => {},

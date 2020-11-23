@@ -142,9 +142,11 @@ export const BoxHeader = ({
             ))}
         </Flex>
       </StyledBoxHeader>
-      <Content transparentSm={transparentSm} {...props}>
-        {tabs.length > 0 && <Tab tabs={tabs} mb={0} {...tabsProps} />}
-      </Content>
+      {tabs.length > 0 && (
+        <Content transparentSm={transparentSm} {...props}>
+          <Tab tabs={tabs} mb={0} {...tabsProps} />
+        </Content>
+      )}
     </Wrapper>
   );
 };

@@ -1700,11 +1700,12 @@ var BoxFooter = function BoxFooter(_ref3) {
   var action = _ref3.action,
       actionDisabled = _ref3.actionDisabled,
       actionLoading = _ref3.actionLoading,
+      actionSize = _ref3.actionSize,
       actionTitle = _ref3.actionTitle,
       actionType = _ref3.actionType,
       renderAction = _ref3.renderAction,
       renderTitle = _ref3.renderTitle,
-      props = _objectWithoutPropertiesLoose(_ref3, ["action", "actionDisabled", "actionLoading", "actionTitle", "actionType", "renderAction", "renderTitle"]);
+      props = _objectWithoutPropertiesLoose(_ref3, ["action", "actionDisabled", "actionLoading", "actionSize", "actionTitle", "actionType", "renderAction", "renderTitle"]);
 
   if (!renderTitle || !renderAction || !actionTitle) return null;
   return /*#__PURE__*/React.createElement(StyledBoxFooter, props, /*#__PURE__*/React.createElement(Flex, {
@@ -1716,6 +1717,7 @@ var BoxFooter = function BoxFooter(_ref3) {
     disabled: actionDisabled,
     loading: actionLoading,
     onClick: action,
+    size: actionSize,
     type: actionType
   })));
 };
@@ -1723,6 +1725,7 @@ BoxFooter.propTypes = {
   action: PropTypes.func,
   actionDisabled: PropTypes.bool,
   actionLoading: PropTypes.bool,
+  actionSize: PropTypes.string,
   actionTitle: PropTypes.string.isRequired,
   actionType: PropTypes.string,
   padding: PropTypes.number.isRequired,
@@ -1733,6 +1736,7 @@ BoxFooter.defaultProps = {
   action: function action() {},
   actionDisabled: false,
   actionLoading: false,
+  actionSize: "md",
   actionType: "submit",
   renderAction: function renderAction() {},
   renderTitle: function renderTitle() {}
@@ -1869,9 +1873,9 @@ var BoxHeader = function BoxHeader(_ref9) {
     icon: actionIcon,
     size: actionIconSize,
     onClick: action
-  }, actionIconProps)))), /*#__PURE__*/React.createElement(Content$1, _extends({
+  }, actionIconProps)))), tabs.length > 0 && /*#__PURE__*/React.createElement(Content$1, _extends({
     transparentSm: transparentSm
-  }, props), tabs.length > 0 && /*#__PURE__*/React.createElement(Tab, _extends({
+  }, props), /*#__PURE__*/React.createElement(Tab, _extends({
     tabs: tabs,
     mb: 0
   }, tabsProps))));
@@ -1921,6 +1925,7 @@ var BoxPropTypes = _extends({
   footerAction: PropTypes.func,
   footerActionLoading: PropTypes.bool,
   footerActionDisabled: PropTypes.bool,
+  footerActionSize: PropTypes.string,
   footerActionTitle: PropTypes.string,
   footerActionType: PropTypes.string,
   footerRenderAction: PropTypes.func,
@@ -1982,6 +1987,7 @@ var Box = function Box(_ref3) {
       footerAction = _ref3.footerAction,
       footerActionLoading = _ref3.footerActionLoading,
       footerActionDisabled = _ref3.footerActionDisabled,
+      footerActionSize = _ref3.footerActionSize,
       footerActionTitle = _ref3.footerActionTitle,
       footerActionType = _ref3.footerActionType,
       footerRenderAction = _ref3.footerRenderAction,
@@ -2008,10 +2014,10 @@ var Box = function Box(_ref3) {
       tabsProps = _ref3.tabsProps,
       transition = _ref3.transition,
       transparentSm = _ref3.transparentSm,
-      props = _objectWithoutPropertiesLoose(_ref3, ["alert", "alertColor", "children", "contentPadding", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconHiddenSm", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "padding", "tabs", "tabsProps", "transition", "transparentSm"]);
+      props = _objectWithoutPropertiesLoose(_ref3, ["alert", "alertColor", "children", "contentPadding", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionSize", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconHiddenSm", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "padding", "tabs", "tabsProps", "transition", "transparentSm"]);
 
   var isMobile = useMediaQuery(function (theme) {
-    return theme.breakpoints.down("md");
+    return theme.breakpoints.down("sm");
   });
   var content = /*#__PURE__*/React.createElement(React.Fragment, null, alert && /*#__PURE__*/React.createElement(Alert, {
     content: alert,
@@ -2026,6 +2032,7 @@ var Box = function Box(_ref3) {
     action: footerAction,
     actionDisabled: footerActionDisabled,
     actionLoading: footerActionLoading,
+    actionSize: footerActionSize,
     actionTitle: footerActionTitle,
     actionType: footerActionType,
     contentPadding: contentPadding,

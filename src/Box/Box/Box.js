@@ -43,6 +43,7 @@ export const Box = ({
   footerAction,
   footerActionLoading,
   footerActionDisabled,
+  footerActionSize,
   footerActionTitle,
   footerActionType,
   footerRenderAction,
@@ -71,7 +72,7 @@ export const Box = ({
   transparentSm,
   ...props
 }) => {
-  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("md"));
+  const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
 
   const content = (
     <>
@@ -95,6 +96,7 @@ export const Box = ({
         action={footerAction}
         actionDisabled={footerActionDisabled}
         actionLoading={footerActionLoading}
+        actionSize={footerActionSize}
         actionTitle={footerActionTitle}
         actionType={footerActionType}
         contentPadding={contentPadding}
