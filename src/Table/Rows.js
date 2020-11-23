@@ -5,7 +5,14 @@ import { Icon, Text } from "..";
 import { Row } from "./Row";
 
 const StyledTd = styled.td`
-  ${({ align, hiddenLabelSm, flexSm, rowsBottomBorderSm, theme }) => css`
+  ${({
+    align,
+    displaySm,
+    hiddenLabelSm,
+    flexSm,
+    rowsBottomBorderSm,
+    theme,
+  }) => css`
     ${align && `text-align: ${align};`}
     ${theme.breakpoints.down("sm")} {
       display: ${({ hiddenSm }) => (hiddenSm ? "none" : "block")};
@@ -16,12 +23,14 @@ const StyledTd = styled.td`
         border-bottom: 1px solid ${theme.palette.gray.semiLight};
       `}
 
+      ${displaySm === "inline" && "text-align: right;"}
       ${hiddenLabelSm && "text-align: left;"}
 
       ${!hiddenLabelSm &&
       css`
         ::before {
           content: attr(data-label);
+          ${displaySm === "inline" && "float: left;"}
           color: ${theme.palette.text.secondary};
           padding-bottom: ${theme.spacing(2)};
           display: block;
@@ -74,6 +83,7 @@ export const Rows = ({ columns, rows, rowsBottomBorderSm, rowsSize }) =>
           <StyledTd
             data-label={col?.label || ""}
             align={col?.tdAlign}
+            displaySm={col?.displaySm || "block"}
             flexSm={col?.flexSm}
             hiddenSm={col?.hiddenSm}
             hiddenLabelSm={col?.hiddenLabelSm}

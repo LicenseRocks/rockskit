@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 import { TablePropTypes, TableDefaultProps } from "./props";
 import { Rows } from "./Rows";
@@ -12,15 +12,23 @@ const StyledTable = styled.table`
   border-spacing: 0;
   border-radius: 8px;
   overflow: hidden;
-  ${({ theme }) => theme.breakpoints.down("sm")} {
-    display: block;
-  }
+  ${({ hasData, theme }) =>
+    hasData &&
+    css`
+      ${theme.breakpoints.down("sm")} {
+        display: block;
+      }
+    `}
 `;
 
 const StyledTbody = styled.tbody`
-  ${({ theme }) => theme.breakpoints.down("sm")} {
-    display: block;
-  }
+  ${({ hasData, theme }) =>
+    hasData &&
+    css`
+      ${theme.breakpoints.down("sm")} {
+        display: block;
+      }
+    `}
 `;
 
 export const Table = ({
@@ -30,24 +38,28 @@ export const Table = ({
   rowsBottomBorderSm,
   rowsSize,
   ...props
-}) => (
-  <StyledTable {...props}>
-    <Heading columns={columns} hasData={rows.length > 0} />
+}) => {
+  const hasData = rows.length > 0;
 
-    <StyledTbody>
-      {rows.length > 0 ? (
-        <Rows
-          columns={columns}
-          rows={rows}
-          rowsBottomBorderSm={rowsBottomBorderSm}
-          rowsSize={rowsSize}
-        />
-      ) : (
-        <NoData columnsCount={columns.length} {...noDataProps} />
-      )}
-    </StyledTbody>
-  </StyledTable>
-);
+  return (
+    <StyledTable hasData={hasData} {...props}>
+      <Heading columns={columns} hasData={hasData} />
+
+      <StyledTbody hasData={hasData}>
+        {rows.length > 0 ? (
+          <Rows
+            columns={columns}
+            rows={rows}
+            rowsBottomBorderSm={rowsBottomBorderSm}
+            rowsSize={rowsSize}
+          />
+        ) : (
+          <NoData columnsCount={columns.length} {...noDataProps} />
+        )}
+      </StyledTbody>
+    </StyledTable>
+  );
+};
 
 Table.propTypes = TablePropTypes;
 

@@ -50,6 +50,7 @@ export const main = () => {
         label: "License",
       },
       {
+        displaySm: "inline",
         key: "amount",
         label: "Amount",
         type: "text",

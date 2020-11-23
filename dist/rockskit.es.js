@@ -8622,14 +8622,15 @@ function _templateObject$1q() {
 }
 var StyledTd = styled.td(_templateObject$1q(), function (_ref) {
   var align = _ref.align,
+      displaySm = _ref.displaySm,
       hiddenLabelSm = _ref.hiddenLabelSm,
       flexSm = _ref.flexSm,
       rowsBottomBorderSm = _ref.rowsBottomBorderSm,
       theme = _ref.theme;
-  return css(["", " ", "{display:", ";margin-bottom:", ";", " ", " ", " ", ":last-child{border-bottom:0;margin-bottom:0;}}"], align && "text-align: " + align + ";", theme.breakpoints.down("sm"), function (_ref2) {
+  return css(["", " ", "{display:", ";margin-bottom:", ";", " ", " ", " ", " ", ":last-child{border-bottom:0;margin-bottom:0;}}"], align && "text-align: " + align + ";", theme.breakpoints.down("sm"), function (_ref2) {
     var hiddenSm = _ref2.hiddenSm;
     return hiddenSm ? "none" : "block";
-  }, theme.spacing(4), rowsBottomBorderSm && css(["border-bottom:1px solid ", ";"], theme.palette.gray.semiLight), hiddenLabelSm && "text-align: left;", !hiddenLabelSm && css(["::before{content:attr(data-label);color:", ";padding-bottom:", ";display:block;font-weight:normal;font-size:12px;line-height:120%;}"], theme.palette.text.secondary, theme.spacing(2)), flexSm && css(["display:flex;align-items:center;justify-content:space-around;"]));
+  }, theme.spacing(4), rowsBottomBorderSm && css(["border-bottom:1px solid ", ";"], theme.palette.gray.semiLight), displaySm === "inline" && "text-align: right;", hiddenLabelSm && "text-align: left;", !hiddenLabelSm && css(["::before{content:attr(data-label);", " color:", ";padding-bottom:", ";display:block;font-weight:normal;font-size:12px;line-height:120%;}"], displaySm === "inline" && "float: left;", theme.palette.text.secondary, theme.spacing(2)), flexSm && css(["display:flex;align-items:center;justify-content:space-around;"]));
 });
 
 var getContentByColType = function getContentByColType(content, col) {
@@ -8679,6 +8680,7 @@ var Rows = function Rows(_ref3) {
       return /*#__PURE__*/React.createElement(StyledTd, {
         "data-label": (col == null ? void 0 : col.label) || "",
         align: col == null ? void 0 : col.tdAlign,
+        displaySm: (col == null ? void 0 : col.displaySm) || "block",
         flexSm: col == null ? void 0 : col.flexSm,
         hiddenSm: col == null ? void 0 : col.hiddenSm,
         hiddenLabelSm: col == null ? void 0 : col.hiddenLabelSm,
@@ -8758,7 +8760,7 @@ NoData.propTypes = {
 };
 
 function _templateObject2$H() {
-  var data = _taggedTemplateLiteralLoose(["\n  ", " {\n    display: block;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
   _templateObject2$H = function _templateObject2() {
     return data;
@@ -8768,7 +8770,7 @@ function _templateObject2$H() {
 }
 
 function _templateObject$1t() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  border-collapse: collapse;\n  border-spacing: 0;\n  border-radius: 8px;\n  overflow: hidden;\n  ", " {\n    display: block;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  border-collapse: collapse;\n  border-spacing: 0;\n  border-radius: 8px;\n  overflow: hidden;\n  ", "\n"]);
 
   _templateObject$1t = function _templateObject() {
     return data;
@@ -8777,12 +8779,14 @@ function _templateObject$1t() {
   return data;
 }
 var StyledTable = styled.table(_templateObject$1t(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.breakpoints.down("sm");
+  var hasData = _ref.hasData,
+      theme = _ref.theme;
+  return hasData && css(["", "{display:block;}"], theme.breakpoints.down("sm"));
 });
 var StyledTbody = styled.tbody(_templateObject2$H(), function (_ref2) {
-  var theme = _ref2.theme;
-  return theme.breakpoints.down("sm");
+  var hasData = _ref2.hasData,
+      theme = _ref2.theme;
+  return hasData && css(["", "{display:block;}"], theme.breakpoints.down("sm"));
 });
 var Table = function Table(_ref3) {
   var columns = _ref3.columns,
@@ -8792,10 +8796,15 @@ var Table = function Table(_ref3) {
       rowsSize = _ref3.rowsSize,
       props = _objectWithoutPropertiesLoose(_ref3, ["columns", "rows", "noDataProps", "rowsBottomBorderSm", "rowsSize"]);
 
-  return /*#__PURE__*/React.createElement(StyledTable, props, /*#__PURE__*/React.createElement(Heading, {
+  var hasData = rows.length > 0;
+  return /*#__PURE__*/React.createElement(StyledTable, _extends({
+    hasData: hasData
+  }, props), /*#__PURE__*/React.createElement(Heading, {
     columns: columns,
-    hasData: rows.length > 0
-  }), /*#__PURE__*/React.createElement(StyledTbody, null, rows.length > 0 ? /*#__PURE__*/React.createElement(Rows, {
+    hasData: hasData
+  }), /*#__PURE__*/React.createElement(StyledTbody, {
+    hasData: hasData
+  }, rows.length > 0 ? /*#__PURE__*/React.createElement(Rows, {
     columns: columns,
     rows: rows,
     rowsBottomBorderSm: rowsBottomBorderSm,
