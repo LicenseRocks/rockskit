@@ -49,8 +49,6 @@ const Container = styled(MuiContainer).attrs(() => ({
 }))``;
 
 const Content = styled.div`
-  height: 100%;
-
   ${({ headerFixed, theme }) =>
     headerFixed &&
     css`

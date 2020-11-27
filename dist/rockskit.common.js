@@ -6058,7 +6058,7 @@ function _templateObject4$8() {
 }
 
 function _templateObject3$h() {
-  var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
   _templateObject3$h = function _templateObject3() {
     return data;
