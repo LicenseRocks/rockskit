@@ -7,6 +7,7 @@ export * from "./Button";
 export * from "./CategoryItem";
 export * from "./CartButton";
 export * from "./Collapse";
+export * from "./CollectionItem";
 export * from "./Context";
 export * from "./DetailsTable";
 export * from "./Divider";

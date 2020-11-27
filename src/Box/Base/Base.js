@@ -6,6 +6,7 @@ import { BoxBasePropTypes, BoxBaseDefaultProps } from "./props";
 
 const StyledBox = styled.div`
   background-color: ${({ theme }) => theme.palette.common.white};
+  ${({ minHeight }) => minHeight && `min-height: ${minHeight}px;`}
   width: 100%;
   box-sizing: border-box;
   border-radius: 16px;
