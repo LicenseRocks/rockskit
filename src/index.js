@@ -25,6 +25,7 @@ export * from "./Image";
 export * from "./Indicator";
 export * from "./Language";
 export * from "./Layout";
+export * from "./Link";
 export * from "./MarketPlaceItem";
 export * from "./Modal";
 export * from "./NoItem";

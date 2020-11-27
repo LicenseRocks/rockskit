@@ -6,7 +6,7 @@ import { faFacebookF, faTelegramPlane, faTwitter, faWhatsapp, faWindows } from '
 import { faArrowLeft, faArrowRight, faAt, faBars, faBox, faBoxes, faBuilding, faCalendar, faCheck, faCheckCircle, faChevronDown, faChevronLeft, faChevronRight, faChevronUp, faComments, faCopy, faEllipsisH, faEnvelope, faEuroSign, faFile, faFilePdf, faFilter, faHashtag, faGlobe, faInfoCircle, faKey, faLink, faMapMarker, faMinus, faMoneyBill, faPencilAlt, faPhone, faPlus, faQuestion, faSadCry, faSearch, faSearchPlus, faShareAlt, faShoppingCart, faSignInAlt, faStore, faTachometerAlt, faThLarge, faTimes, faTrash, faTruck, faTv, faUser, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import MuiButtonBase from '@material-ui/core/ButtonBase';
-import { Grid as Grid$1, Link as Link$1, ListItem as ListItem$1, List as List$1, ListItemIcon, ListItemText } from '@material-ui/core';
+import { Grid as Grid$1, Link as Link$2, ListItem as ListItem$1, List as List$1, ListItemIcon, ListItemText } from '@material-ui/core';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { library } from '@fortawesome/fontawesome-svg-core';
@@ -917,7 +917,7 @@ var Section = styled(Grid$1).attrs(function (_ref) {
   var align = _ref2.align;
   return align && "text-align: " + align;
 });
-var Link = styled(Link$1).attrs(function () {
+var Link = styled(Link$2).attrs(function () {
   return {
     underline: "none"
   };
@@ -6971,6 +6971,50 @@ ExplorerLayout.defaultProps = {
   footerContent: poweredBy$1
 };
 
+var LinkPropTypes = {
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  Component: PropTypes.element.isRequired,
+  href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+  passHref: PropTypes.bool
+};
+var LinkDefaultProps = {
+  passHref: true
+};
+
+function _templateObject$17() {
+  var data = _taggedTemplateLiteralLoose(["\n  color: initial;\n  text-decoration: none;\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$17 = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledLink = styled.a(_templateObject$17(), function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
+var Link$1 = function Link(_ref) {
+  var className = _ref.className,
+      children = _ref.children,
+      Component = _ref.Component,
+      href = _ref.href,
+      passHref = _ref.passHref,
+      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "Component", "href", "passHref"]);
+
+  return /*#__PURE__*/React.createElement(Component, _extends({
+    href: href,
+    passHref: passHref
+  }, props), /*#__PURE__*/React.createElement(StyledLink, {
+    className: className,
+    href: (href == null ? void 0 : href.pathname) || href
+  }, children));
+};
+Link$1.propTypes = LinkPropTypes;
+Link$1.defaultProps = LinkDefaultProps;
+
 var MarketPlaceItemPropTypes = {
   action: PropTypes.func,
   actionTitle: PropTypes.string,
@@ -7012,16 +7056,16 @@ function _templateObject2$v() {
   return data;
 }
 
-function _templateObject$17() {
+function _templateObject$18() {
   var data = _taggedTemplateLiteralLoose(["\n  margin-top: -", ";\n  margin-bottom: ", ";\n  position: relative;\n  background-image: url(\"", "\");\n  background-size: 90px 108px;\n  background-repeat: no-repeat;\n  width: 90px;\n  height: 108px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n"]);
 
-  _templateObject$17 = function _templateObject() {
+  _templateObject$18 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var LicenseBoxWrapper = styled.div(_templateObject$17(), function (_ref) {
+var LicenseBoxWrapper = styled.div(_templateObject$18(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10);
 }, function (_ref2) {
@@ -7065,16 +7109,16 @@ function _templateObject2$w() {
   return data;
 }
 
-function _templateObject$18() {
+function _templateObject$19() {
   var data = _taggedTemplateLiteralLoose(["\n  border-radius: 8px;\n  overflow: initial;\n  min-height: 240px;\n  text-align: center;\n  margin-top: ", ";\n  width: 100%;\n"]);
 
-  _templateObject$18 = function _templateObject() {
+  _templateObject$19 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledMarketPlaceItem = styled(BoxBase)(_templateObject$18(), function (_ref) {
+var StyledMarketPlaceItem = styled(BoxBase)(_templateObject$19(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10);
 });
@@ -7134,16 +7178,16 @@ var LegacyItem = function LegacyItem(_ref4) {
 LegacyItem.propTypes = MarketPlaceItemPropTypes;
 LegacyItem.defaultProps = MarketPlaceItemDefaultProps;
 
-function _templateObject$19() {
+function _templateObject$1a() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  object-fit: contain;\n  z-index: 2;\n"]);
 
-  _templateObject$19 = function _templateObject() {
+  _templateObject$1a = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledImage$1 = styled(Image)(_templateObject$19());
+var StyledImage$1 = styled(Image)(_templateObject$1a());
 var Cover = function Cover(_ref) {
   var imgSrc = _ref.imgSrc,
       placeholderSrc = _ref.placeholderSrc,
@@ -7192,16 +7236,16 @@ function _templateObject2$x() {
   return data;
 }
 
-function _templateObject$1a() {
+function _templateObject$1b() {
   var data = _taggedTemplateLiteralLoose(["\n  border-radius: 8px;\n  overflow: hidden;\n  min-height: 112px;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  transition: all 200ms ease-in-out;\n\n  ", "\n"]);
 
-  _templateObject$1a = function _templateObject() {
+  _templateObject$1b = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledMarketPlaceItem$1 = styled(BoxBase)(_templateObject$1a(), function (_ref) {
+var StyledMarketPlaceItem$1 = styled(BoxBase)(_templateObject$1b(), function (_ref) {
   var hoverEffect = _ref.hoverEffect;
   return hoverEffect && css(["&:hover{transform:scale(1.03);}"]);
 });
@@ -7295,16 +7339,16 @@ function _templateObject2$y() {
   return data;
 }
 
-function _templateObject$1b() {
+function _templateObject$1c() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 140px;\n  width: 140px;\n  height: 140px;\n"]);
 
-  _templateObject$1b = function _templateObject() {
+  _templateObject$1c = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$8 = styled.div(_templateObject$1b());
+var Wrapper$8 = styled.div(_templateObject$1c());
 var BGImage = styled.div(_templateObject2$y(), function (_ref) {
   var imgSrc = _ref.imgSrc;
   return imgSrc;
@@ -7350,16 +7394,16 @@ function _templateObject2$z() {
   return data;
 }
 
-function _templateObject$1c() {
+function _templateObject$1d() {
   var data = _taggedTemplateLiteralLoose(["\n  border-radius: 8px;\n  height: 140px;\n  width: 100%;\n  display: flex;\n  align-items: center;\n  transition: all 200ms ease-in-out;\n\n  :not(:last-child) {\n    margin-bottom: ", ";\n  }\n\n  ", "\n"]);
 
-  _templateObject$1c = function _templateObject() {
+  _templateObject$1d = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledMarketPlaceItem$2 = styled(BoxBase)(_templateObject$1c(), function (_ref) {
+var StyledMarketPlaceItem$2 = styled(BoxBase)(_templateObject$1d(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (_ref2) {
@@ -7533,10 +7577,10 @@ function _templateObject2$A() {
   return data;
 }
 
-function _templateObject$1d() {
+function _templateObject$1e() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    padding: 0;\n    &:first-child {\n      padding-top: 0;\n    }\n  }\n"]);
 
-  _templateObject$1d = function _templateObject() {
+  _templateObject$1e = function _templateObject() {
     return data;
   };
 
@@ -7546,7 +7590,7 @@ var ContentWrapper = styled(DialogContent).attrs(function () {
   return {
     dividers: true
   };
-})(_templateObject$1d());
+})(_templateObject$1e());
 var Title = styled(DialogTitle).attrs(function () {
   return {
     disableTypography: true
@@ -7667,16 +7711,16 @@ function _templateObject2$B() {
   return data;
 }
 
-function _templateObject$1e() {
+function _templateObject$1f() {
   var data = _taggedTemplateLiteralLoose(["\n  text-align: center;\n\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$1e = function _templateObject() {
+  _templateObject$1f = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$9 = styled.div(_templateObject$1e(), function (theme) {
+var Wrapper$9 = styled.div(_templateObject$1f(), function (theme) {
   return COLOR(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -7718,16 +7762,16 @@ var PageFigurePropTypes = _extends({
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var PageFigureDefaultProps = {};
 
-function _templateObject$1f() {
+function _templateObject$1g() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100vw;\n  margin-left: calc((100% - 100vw) / 2);\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1f = function _templateObject() {
+  _templateObject$1g = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledPageFigure = styled.div(_templateObject$1f(), function (theme) {
+var StyledPageFigure = styled.div(_templateObject$1g(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -7749,16 +7793,16 @@ var PageLoadingPropTypes = {
 };
 var PageLoadingDefaultProps = {};
 
-function _templateObject$1g() {
+function _templateObject$1h() {
   var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  min-width: ", ";\n  min-height: ", ";\n  width: 100%;\n  height: 100%;\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n"]);
 
-  _templateObject$1g = function _templateObject() {
+  _templateObject$1h = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledLoading = styled.div(_templateObject$1g(), function (_ref) {
+var StyledLoading = styled.div(_templateObject$1h(), function (_ref) {
   var fullScreen = _ref.fullScreen;
   return fullScreen ? "fixed" : "absolute";
 }, function (_ref2) {
@@ -7885,16 +7929,16 @@ function _templateObject2$C() {
   return data;
 }
 
-function _templateObject$1h() {
+function _templateObject$1i() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  height: 2px;\n  left: 0;\n  position: fixed;\n  top: 0;\n  width: 100%;\n  z-index: 1031;\n"]);
 
-  _templateObject$1h = function _templateObject() {
+  _templateObject$1i = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledBar = styled.div(_templateObject$1h(), function (_ref) {
+var StyledBar = styled.div(_templateObject$1i(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.main;
 });
@@ -7980,16 +8024,16 @@ var PageProgressBar = function PageProgressBar(_ref) {
 PageProgressBar.propTypes = PageProgressBarPropTypes;
 PageProgressBar.defaultProps = PageProgressBarDefaultProps;
 
-function _templateObject$1i() {
+function _templateObject$1j() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: auto;\n  transition: filter ", "ms ease-in-out;\n\n  ", ";\n"]);
 
-  _templateObject$1i = function _templateObject() {
+  _templateObject$1j = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContent = styled.div(_templateObject$1i(), function (_ref) {
+var StyledContent = styled.div(_templateObject$1j(), function (_ref) {
   var duration = _ref.duration;
   return duration / 2;
 }, function (_ref2) {
@@ -8057,16 +8101,16 @@ function _templateObject2$D() {
   return data;
 }
 
-function _templateObject$1j() {
+function _templateObject$1k() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1j = function _templateObject() {
+  _templateObject$1k = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledPagination = styled(MuiPagination)(_templateObject$1j(), function (theme) {
+var StyledPagination = styled(MuiPagination)(_templateObject$1k(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -8169,16 +8213,16 @@ function _templateObject2$E() {
   return data;
 }
 
-function _templateObject$1k() {
+function _templateObject$1l() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1k = function _templateObject() {
+  _templateObject$1l = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$a = styled.div(_templateObject$1k(), function (theme) {
+var Wrapper$a = styled.div(_templateObject$1l(), function (theme) {
   return DISPLAY(theme);
 }, function (theme) {
   return SPACER(theme);
@@ -8294,16 +8338,16 @@ function _templateObject2$F() {
   return data;
 }
 
-function _templateObject$1l() {
+function _templateObject$1m() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: transparent;\n  width: 100%;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1l = function _templateObject() {
+  _templateObject$1m = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledSearchBar = styled.form(_templateObject$1l(), function (theme) {
+var StyledSearchBar = styled.form(_templateObject$1m(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -8372,16 +8416,16 @@ var SearchBar = function SearchBar(_ref3) {
 SearchBar.propTypes = SearchBarPropTypes;
 SearchBar.defaultProps = SearchBarDefaultProps;
 
-function _templateObject$1m() {
+function _templateObject$1n() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n\n  && {\n    background-color: ", ";\n    margin-right: ", ";\n    svg {\n      color: ", ";\n    }\n\n    :hover {\n      background-color: ", ";\n\n      svg {\n        color: ", ";\n      }\n    }\n  }\n"]);
 
-  _templateObject$1m = function _templateObject() {
+  _templateObject$1n = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Button$1 = styled(ButtonBase)(_templateObject$1m(), function (_ref) {
+var Button$1 = styled(ButtonBase)(_templateObject$1n(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -8462,16 +8506,16 @@ function _templateObject2$G() {
   return data;
 }
 
-function _templateObject$1n() {
+function _templateObject$1o() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$1n = function _templateObject() {
+  _templateObject$1o = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$7 = styled.div(_templateObject$1n(), function (theme) {
+var Container$7 = styled.div(_templateObject$1o(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -8560,16 +8604,16 @@ var DotsSpinnerDefaultProps = {
   size: 60
 };
 
-function _templateObject$1o() {
+function _templateObject$1p() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  > div {\n    width: ", "px;\n    height: ", "px;\n    background-color: ", ";\n\n    border-radius: 100%;\n    display: inline-block;\n    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;\n    animation: sk-bouncedelay 1.4s infinite ease-in-out both;\n  }\n\n  .bounce1 {\n    -webkit-animation-delay: -0.32s;\n    animation-delay: -0.32s;\n  }\n\n  .bounce2 {\n    -webkit-animation-delay: -0.16s;\n    animation-delay: -0.16s;\n  }\n\n  @-webkit-keyframes sk-bouncedelay {\n    0%, 80%, 100% { -webkit-transform: scale(0) }\n    40% { -webkit-transform: scale(1.0) }\n  }\n\n  @keyframes sk-bouncedelay {\n    0%, 80%, 100% {\n      -webkit-transform: scale(0);\n      transform: scale(0);\n    } 40% {\n      -webkit-transform: scale(1.0);\n      transform: scale(1.0);\n    }\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$1o = function _templateObject() {
+  _templateObject$1p = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledDotsSpinner = styled.div(_templateObject$1o(), function (_ref) {
+var StyledDotsSpinner = styled.div(_templateObject$1p(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -8610,16 +8654,16 @@ var RocksSpinnerDefaultProps = {
   size: 60
 };
 
-function _templateObject$1p() {
+function _templateObject$1q() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  height: ", "px;\n  position: relative;\n\n  .dot {\n    width: ", "px;\n    height: ", "px;\n    background-color: ", ";\n    border-radius: 100%;\n    position: absolute;\n    bottom: 5px;\n    left: 0;\n\n    -webkit-animation: bounce 2.0s infinite ease-in-out;\n    animation: bounce 2.0s infinite ease-in-out;\n  }\n\n  .circle {\n    width: ", "px;\n    height: ", "px;\n    border: ", "px solid ", ";\n    border-radius: 100%;\n    position: absolute;\n    top: 5px;\n    right: 0;\n\n    -webkit-animation: bounce 2.0s infinite ease-in-out;\n    animation: bounce 2.0s infinite ease-in-out;\n    -webkit-animation-delay: -1.0s;\n    animation-delay: -1.0s;\n  }\n\n  @-webkit-keyframes bounce {\n    0%, 100% { -webkit-transform: scale(0.0) }\n    50% { -webkit-transform: scale(1.0) }\n  }\n\n  @keyframes bounce {\n    0%, 100% {\n      transform: scale(0.0);\n      -webkit-transform: scale(0.0);\n    } 50% {\n      transform: scale(1.0);\n      -webkit-transform: scale(1.0);\n    }\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$1p = function _templateObject() {
+  _templateObject$1q = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledRocksSpinner = styled.div(_templateObject$1p(), function (_ref) {
+var StyledRocksSpinner = styled.div(_templateObject$1q(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -8698,16 +8742,16 @@ function _templateObject2$H() {
   return data;
 }
 
-function _templateObject$1q() {
+function _templateObject$1r() {
   var data = _taggedTemplateLiteralLoose(["\n  margin-bottom: ", ";\n  ", "\n  ", "\n"]);
 
-  _templateObject$1q = function _templateObject() {
+  _templateObject$1r = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$b = styled.div(_templateObject$1q(), function (_ref) {
+var Wrapper$b = styled.div(_templateObject$1r(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (theme) {
@@ -8764,16 +8808,16 @@ var TableDefaultProps = {
   rowsSize: "lg"
 };
 
-function _templateObject$1r() {
+function _templateObject$1s() {
   var data = _taggedTemplateLiteralLoose(["\n  height: ", "px;\n  border-bottom: 1px solid ", ";\n  background-color: ", ";\n\n  ", "\n"]);
 
-  _templateObject$1r = function _templateObject() {
+  _templateObject$1s = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Row$2 = styled.tr(_templateObject$1r(), function (_ref) {
+var Row$2 = styled.tr(_templateObject$1s(), function (_ref) {
   var size = _ref.size;
   return size === "sm" ? 32 : 64;
 }, function (_ref2) {
@@ -8788,16 +8832,16 @@ var Row$2 = styled.tr(_templateObject$1r(), function (_ref) {
   return hasData && css(["", "{height:unset;display:block;border-bottom:0;margin-bottom:", ";padding:", ";border-radius:8px;}"], theme.breakpoints.down("sm"), theme.spacing(2), theme.spacing(4));
 });
 
-function _templateObject$1s() {
+function _templateObject$1t() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject$1s = function _templateObject() {
+  _templateObject$1t = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTd = styled.td(_templateObject$1s(), function (_ref) {
+var StyledTd = styled.td(_templateObject$1t(), function (_ref) {
   var align = _ref.align,
       displaySm = _ref.displaySm,
       hiddenLabelSm = _ref.hiddenLabelSm,
@@ -8867,16 +8911,16 @@ var Rows = function Rows(_ref3) {
   });
 };
 
-function _templateObject$1t() {
+function _templateObject$1u() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject$1t = function _templateObject() {
+  _templateObject$1u = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledThead = styled.thead(_templateObject$1t(), function (_ref) {
+var StyledThead = styled.thead(_templateObject$1u(), function (_ref) {
   var hasData = _ref.hasData,
       theme = _ref.theme;
   return hasData && css(["", "{border:none;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;}"], theme.breakpoints.down("sm"));
@@ -8909,16 +8953,16 @@ Heading$1.propTypes = {
   hasData: PropTypes.bool.isRequired
 };
 
-function _templateObject$1u() {
+function _templateObject$1v() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n"]);
 
-  _templateObject$1u = function _templateObject() {
+  _templateObject$1v = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTr = styled.tr(_templateObject$1u(), function (_ref) {
+var StyledTr = styled.tr(_templateObject$1v(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 });
@@ -8946,16 +8990,16 @@ function _templateObject2$I() {
   return data;
 }
 
-function _templateObject$1v() {
+function _templateObject$1w() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  border-collapse: collapse;\n  border-spacing: 0;\n  border-radius: 8px;\n  overflow: hidden;\n  ", "\n"]);
 
-  _templateObject$1v = function _templateObject() {
+  _templateObject$1w = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTable = styled.table(_templateObject$1v(), function (_ref) {
+var StyledTable = styled.table(_templateObject$1w(), function (_ref) {
   var hasData = _ref.hasData,
       theme = _ref.theme;
   return hasData && css(["", "{display:block;}"], theme.breakpoints.down("sm"));
@@ -9018,16 +9062,16 @@ function _templateObject2$J() {
   return data;
 }
 
-function _templateObject$1w() {
+function _templateObject$1x() {
   var data = _taggedTemplateLiteralLoose(["\n  text-align: center;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: ", ";\n"]);
 
-  _templateObject$1w = function _templateObject() {
+  _templateObject$1x = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var ErrorWrapper = styled.div(_templateObject$1w(), function (_ref) {
+var ErrorWrapper = styled.div(_templateObject$1x(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
@@ -9079,10 +9123,10 @@ function _templateObject2$K() {
   return data;
 }
 
-function _templateObject$1x() {
+function _templateObject$1y() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  border-radius: 100%;\n  && {\n    margin: ", ";\n  }\n"]);
 
-  _templateObject$1x = function _templateObject() {
+  _templateObject$1y = function _templateObject() {
     return data;
   };
 
@@ -9092,7 +9136,7 @@ var CloseModalIcon$1 = styled(Icon).attrs(function () {
   return {
     size: "lg"
   };
-})(_templateObject$1x(), function (_ref) {
+})(_templateObject$1y(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
@@ -9153,16 +9197,16 @@ function _templateObject2$L() {
   return data;
 }
 
-function _templateObject$1y() {
+function _templateObject$1z() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  height: 48px;\n  width: 48px;\n  text-align: center;\n  border-radius: 8px;\n  overflow: hidden;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1y = function _templateObject() {
+  _templateObject$1z = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$8 = styled.div(_templateObject$1y(), function (_ref) {
+var Container$8 = styled.div(_templateObject$1z(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
@@ -9237,10 +9281,10 @@ var TooltipDefaultProps = {
   renderContent: function renderContent() {}
 };
 
-function _templateObject$1z() {
+function _templateObject$1A() {
   var data = _taggedTemplateLiteralLoose(["\n  & .MuiTooltip-tooltip {\n    background-color: ", ";\n    color: ", ";\n  }\n\n  & .MuiTooltip-arrow {\n    color: ", ";\n  }\n"]);
 
-  _templateObject$1z = function _templateObject() {
+  _templateObject$1A = function _templateObject() {
     return data;
   };
 
@@ -9253,7 +9297,7 @@ var StyledTooltip = styled(function (props) {
       tooltip: "tooltip"
     }
   }, props));
-})(_templateObject$1z(), function (_ref) {
+})(_templateObject$1A(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
@@ -9331,16 +9375,16 @@ function _templateObject2$M() {
   return data;
 }
 
-function _templateObject$1A() {
+function _templateObject$1B() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n  }\n"]);
 
-  _templateObject$1A = function _templateObject() {
+  _templateObject$1B = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContent$1 = styled.div(_templateObject$1A(), function (_ref) {
+var StyledContent$1 = styled.div(_templateObject$1B(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(6, 6, 6, 10);
 }, function (_ref2) {
@@ -9469,16 +9513,16 @@ function _templateObject2$N() {
   return data;
 }
 
-function _templateObject$1B() {
+function _templateObject$1C() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: normal;\n\n  ", "\n\n  ", "\n\n    ", "\n"]);
 
-  _templateObject$1B = function _templateObject() {
+  _templateObject$1C = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTitle = styled.div(_templateObject$1B(), function (_ref) {
+var StyledTitle = styled.div(_templateObject$1C(), function (_ref) {
   var isPassed = _ref.isPassed;
   return isPassed && css(["cursor:pointer;"]);
 }, function (_ref2) {
@@ -9608,16 +9652,16 @@ function _templateObject2$O() {
   return data;
 }
 
-function _templateObject$1C() {
+function _templateObject$1D() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$1C = function _templateObject() {
+  _templateObject$1D = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$c = styled.div(_templateObject$1C(), function (theme) {
+var Wrapper$c = styled.div(_templateObject$1D(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -9760,5 +9804,5 @@ var Wizard = function Wizard(_ref7) {
 Wizard.propTypes = WizardPropTypes;
 Wizard.defaultProps = WizardDefaultProps;
 
-export { AdvancedLineItem, Alert, AppContainer, AppContext, AppContextProvider, AuthLayout, BorderedRadio, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CartButton, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, CollectionItem, CreatorsHubAuthLayout, CreatorsHubMainLayout, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FilePond, FileUpload, Flex, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, Hidden, HideOnScroll, History, Icon, Image, ImageModal, Indicator, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, MarketPlaceItem, Modal, NoItem, OutlineButton, PageFigure, PageLoading, PageMeta, PageProgressBar, PageTransition, Pagination, Paragraph, PriceField, Profile, Radio, RadioBase, RangeSlider, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, Stepper, THEME_COLORS, Tab, Table, Text, TextArea, TextBase, TextButton, Thumbnail, TinyBadge, ToggleSwitch, Tooltip, Wizard, getFormInputError, getFormRowErrors, handleScroll, useAppContext, useMediaQuery };
+export { AdvancedLineItem, Alert, AppContainer, AppContext, AppContextProvider, AuthLayout, BorderedRadio, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CartButton, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, CollectionItem, CreatorsHubAuthLayout, CreatorsHubMainLayout, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FilePond, FileUpload, Flex, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, Hidden, HideOnScroll, History, Icon, Image, ImageModal, Indicator, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, Link$1 as Link, MarketPlaceItem, Modal, NoItem, OutlineButton, PageFigure, PageLoading, PageMeta, PageProgressBar, PageTransition, Pagination, Paragraph, PriceField, Profile, Radio, RadioBase, RangeSlider, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, Stepper, THEME_COLORS, Tab, Table, Text, TextArea, TextBase, TextButton, Thumbnail, TinyBadge, ToggleSwitch, Tooltip, Wizard, getFormInputError, getFormRowErrors, handleScroll, useAppContext, useMediaQuery };
 //# sourceMappingURL=rockskit.es.js.map
