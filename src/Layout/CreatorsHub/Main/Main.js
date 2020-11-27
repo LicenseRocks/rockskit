@@ -48,7 +48,21 @@ const Container = styled(MuiContainer).attrs(() => ({
   maxWidth: "lg",
 }))``;
 
-const Content = styled(Flex).attrs(() => ({
+const Content = styled.div`
+  height: 100%;
+
+  ${({ headerFixed, theme }) =>
+    headerFixed &&
+    css`
+      padding-top: ${theme.spacing(TOTAL_HEADER_HEIGHT_SM / 4)};
+
+      ${theme.breakpoints.up("md")} {
+        padding-top: ${theme.spacing(TOTAL_HEADER_HEIGHT / 4)};
+      }
+    `}
+`;
+
+const MainContent = styled(Flex).attrs(() => ({
   container: true,
   alignItems: "flex-start",
 }))`
@@ -56,18 +70,18 @@ const Content = styled(Flex).attrs(() => ({
   padding: ${({ theme }) => theme.spacing(10, 0)};
 
   ${({ theme }) => theme.breakpoints.up("md")} {
+    min-height: 500px;
     padding: ${({ theme }) => theme.spacing(12, 0)};
   }
+`;
 
-  ${({ headerFixed, theme }) =>
-    headerFixed &&
-    css`
-      padding: ${theme.spacing(TOTAL_HEADER_HEIGHT_SM / 4 + 10, 0, 10, 0)};
-
-      ${theme.breakpoints.up("md")} {
-        padding: ${theme.spacing(TOTAL_HEADER_HEIGHT / 4 + 12, 0, 12, 0)};
-      }
-    `}
+const Heading = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  background-color: ${({ theme }) => theme.palette.gray.semiLight};
+  padding: ${({ theme }) => theme.spacing(20, 0)};
 `;
 
 export const CreatorsHubMainLayout = ({
@@ -79,6 +93,7 @@ export const CreatorsHubMainLayout = ({
   loading,
   renderFooter,
   renderHeader,
+  renderHeading,
   sidebar,
 }) => {
   const renderSecondaryHeader = () => (
@@ -130,21 +145,25 @@ export const CreatorsHubMainLayout = ({
         </>
       )}
 
-      <FluidContainer>
-        <Container>
-          <Content headerFixed={headerFixed} spacing={sidebar ? 8 : false}>
-            <Flex item xs={12} md={sidebar ? 10 : 12}>
-              {children}
-            </Flex>
+      <Content headerFixed={headerFixed}>
+        {renderHeading && <Heading>{renderHeading()}</Heading>}
 
-            {sidebar && (
-              <Flex item xs={12} md={2}>
-                {sidebar}
+        <FluidContainer>
+          <Container>
+            <MainContent spacing={sidebar ? 8 : false}>
+              <Flex item xs={12} md={sidebar ? 10 : 12}>
+                {children}
               </Flex>
-            )}
-          </Content>
-        </Container>
-      </FluidContainer>
+
+              {sidebar && (
+                <Flex item xs={12} md={2}>
+                  {sidebar}
+                </Flex>
+              )}
+            </MainContent>
+          </Container>
+        </FluidContainer>
+      </Content>
 
       {(footer || renderFooter) && (
         <FluidContainer white>

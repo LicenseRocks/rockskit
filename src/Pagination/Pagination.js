@@ -1,15 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import MuiPagination from "@material-ui/lab/Pagination";
 import PaginationItem from "@material-ui/lab/PaginationItem";
 
 import { PaginationPropTypes, PaginationDefaultProps } from "./props";
-import { OutlineButton } from "..";
+import { DISPLAY, OutlineButton, SPACER } from "..";
 
 const StyledPagination = styled(MuiPagination)`
   display: flex;
   align-items: center;
   justify-content: center;
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 const StyledPaginationItem = styled(PaginationItem)`

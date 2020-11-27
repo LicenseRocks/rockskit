@@ -28,6 +28,7 @@ export * from "./Layout";
 export * from "./MarketPlaceItem";
 export * from "./Modal";
 export * from "./NoItem";
+export * from "./PageFigure";
 export * from "./PageLoading";
 export * from "./PageMeta";
 export * from "./PageProgressBar";

@@ -82,6 +82,7 @@ export const main = () => {
         </>
       ),
     },
+    renderHeading: () => "Heading",
     sidebar: "Sidebar content",
   };
 
