@@ -5996,7 +5996,7 @@ var CreatorsHubMainLayoutDefaultProps = {
 };
 
 function _templateObject5$4() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  background-color: ", ";\n  padding: ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  background-color: ", ";\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n  }\n"]);
 
   _templateObject5$4 = function _templateObject5() {
     return data;
@@ -6107,18 +6107,24 @@ var Heading = styled.div(_templateObject5$4(), function (_ref12) {
 }, function (_ref13) {
   var theme = _ref13.theme;
   return theme.spacing(20, 0);
+}, function (_ref14) {
+  var theme = _ref14.theme;
+  return theme.breakpoints.down("sm");
+}, function (_ref15) {
+  var theme = _ref15.theme;
+  return theme.spacing(10, 0);
 });
-var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref14) {
-  var children = _ref14.children,
-      footer = _ref14.footer,
-      footerProps = _ref14.footerProps,
-      headerFixed = _ref14.headerFixed,
-      headerProps = _ref14.headerProps,
-      loading = _ref14.loading,
-      renderFooter = _ref14.renderFooter,
-      renderHeader = _ref14.renderHeader,
-      renderHeading = _ref14.renderHeading,
-      sidebar = _ref14.sidebar;
+var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref16) {
+  var children = _ref16.children,
+      footer = _ref16.footer,
+      footerProps = _ref16.footerProps,
+      headerFixed = _ref16.headerFixed,
+      headerProps = _ref16.headerProps,
+      loading = _ref16.loading,
+      renderFooter = _ref16.renderFooter,
+      renderHeader = _ref16.renderHeader,
+      renderHeading = _ref16.renderHeading,
+      sidebar = _ref16.sidebar;
 
   var renderSecondaryHeader = function renderSecondaryHeader() {
     return /*#__PURE__*/React.createElement(FluidContainer, {

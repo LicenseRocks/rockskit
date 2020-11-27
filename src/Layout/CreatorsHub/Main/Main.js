@@ -80,6 +80,10 @@ const Heading = styled.div`
   text-align: center;
   background-color: ${({ theme }) => theme.palette.gray.semiLight};
   padding: ${({ theme }) => theme.spacing(20, 0)};
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    padding: ${({ theme }) => theme.spacing(10, 0)};
+  }
 `;
 
 export const CreatorsHubMainLayout = ({
