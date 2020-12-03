@@ -14,10 +14,21 @@ const StyledLink = styled.a`
   ${(theme) => DISPLAY(theme)}
 `;
 
-export const Link = ({ className, children, Component, href, ...props }) => {
+export const Link = ({
+  block,
+  className,
+  children,
+  Component,
+  href,
+  ...props
+}) => {
   return (
     <Component href={href} {...props}>
-      <StyledLink className={className} href={href?.pathname || href}>
+      <StyledLink
+        block={block}
+        className={className}
+        href={href?.pathname || href}
+      >
         {children}
       </StyledLink>
     </Component>

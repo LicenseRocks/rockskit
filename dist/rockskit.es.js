@@ -7001,15 +7001,17 @@ var StyledLink = styled.a(_templateObject$17(), function (_ref) {
   return DISPLAY(theme);
 });
 var Link$1 = function Link(_ref2) {
-  var className = _ref2.className,
+  var block = _ref2.block,
+      className = _ref2.className,
       children = _ref2.children,
       Component = _ref2.Component,
       href = _ref2.href,
-      props = _objectWithoutPropertiesLoose(_ref2, ["className", "children", "Component", "href"]);
+      props = _objectWithoutPropertiesLoose(_ref2, ["block", "className", "children", "Component", "href"]);
 
   return /*#__PURE__*/React.createElement(Component, _extends({
     href: href
   }, props), /*#__PURE__*/React.createElement(StyledLink, {
+    block: block,
     className: className,
     href: (href == null ? void 0 : href.pathname) || href
   }, children));
