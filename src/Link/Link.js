@@ -8,20 +8,15 @@ const StyledLink = styled.a`
   color: initial;
   text-decoration: none;
 
+  ${({ block }) => block && "display: block;"}
+
   ${(theme) => SPACER(theme)}
   ${(theme) => DISPLAY(theme)}
 `;
 
-export const Link = ({
-  className,
-  children,
-  Component,
-  href,
-  passHref,
-  ...props
-}) => {
+export const Link = ({ className, children, Component, href, ...props }) => {
   return (
-    <Component href={href} passHref={passHref} {...props}>
+    <Component href={href} {...props}>
       <StyledLink className={className} href={href?.pathname || href}>
         {children}
       </StyledLink>

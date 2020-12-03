@@ -1,6 +1,7 @@
 import PropTypes from "prop-types";
 
 export const LinkPropTypes = {
+  block: PropTypes.bool,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   Component: PropTypes.element.isRequired,

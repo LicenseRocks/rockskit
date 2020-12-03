@@ -6972,6 +6972,7 @@ ExplorerLayout.defaultProps = {
 };
 
 var LinkPropTypes = {
+  block: PropTypes.bool,
   children: PropTypes.node.isRequired,
   className: PropTypes.string,
   Component: PropTypes.element.isRequired,
@@ -6983,7 +6984,7 @@ var LinkDefaultProps = {
 };
 
 function _templateObject$17() {
-  var data = _taggedTemplateLiteralLoose(["\n  color: initial;\n  text-decoration: none;\n\n  ", "\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  color: initial;\n  text-decoration: none;\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
   _templateObject$17 = function _templateObject() {
     return data;
@@ -6991,22 +6992,23 @@ function _templateObject$17() {
 
   return data;
 }
-var StyledLink = styled.a(_templateObject$17(), function (theme) {
+var StyledLink = styled.a(_templateObject$17(), function (_ref) {
+  var block = _ref.block;
+  return block && "display: block;";
+}, function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var Link$1 = function Link(_ref) {
-  var className = _ref.className,
-      children = _ref.children,
-      Component = _ref.Component,
-      href = _ref.href,
-      passHref = _ref.passHref,
-      props = _objectWithoutPropertiesLoose(_ref, ["className", "children", "Component", "href", "passHref"]);
+var Link$1 = function Link(_ref2) {
+  var className = _ref2.className,
+      children = _ref2.children,
+      Component = _ref2.Component,
+      href = _ref2.href,
+      props = _objectWithoutPropertiesLoose(_ref2, ["className", "children", "Component", "href"]);
 
   return /*#__PURE__*/React.createElement(Component, _extends({
-    href: href,
-    passHref: passHref
+    href: href
   }, props), /*#__PURE__*/React.createElement(StyledLink, {
     className: className,
     href: (href == null ? void 0 : href.pathname) || href
