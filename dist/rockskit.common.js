@@ -8134,7 +8134,7 @@ var PaginationDefaultProps = {
 };
 
 function _templateObject2$D() {
-  var data = _taggedTemplateLiteralLoose(["\n  && {\n    width: 24px;\n    min-width: 24px;\n    height: 24px;\n    background: ", ";\n    border-radius: 8px;\n    padding: 0;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    width: 24px;\n    min-width: 24px;\n    height: 24px;\n    background: ", ";\n    border-radius: 8px;\n    padding: 0;\n\n    ", "\n  }\n"]);
 
   _templateObject2$D = function _templateObject2() {
     return data;
@@ -8160,42 +8160,46 @@ var StyledPagination = styled__default['default'](MuiPagination__default['defaul
 var StyledPaginationItem = styled__default['default'](PaginationItem__default['default'])(_templateObject2$D(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
+}, function (_ref2) {
+  var selected = _ref2.selected,
+      theme = _ref2.theme;
+  return selected && styled.css(["background:", ";font-weight:600;"], theme.palette.gray.regular);
 });
 
-var prevButton = function prevButton(prevText, disabled) {
-  return /*#__PURE__*/React__default['default'].createElement(OutlineButton, {
+var prevButton = function prevButton(prevText, disabled, item) {
+  return /*#__PURE__*/React__default['default'].createElement(OutlineButton, _extends({}, item, {
     content: prevText,
     color: "secondary",
     disabled: disabled,
     mr: 6,
     size: "sm",
     startIcon: "chevron-left"
-  });
+  }));
 };
 
-var nextButton = function nextButton(nextText, disabled) {
-  return /*#__PURE__*/React__default['default'].createElement(OutlineButton, {
+var nextButton = function nextButton(nextText, disabled, item) {
+  return /*#__PURE__*/React__default['default'].createElement(OutlineButton, _extends({}, item, {
     content: nextText,
     color: "secondary",
     disabled: disabled,
     endIcon: "chevron-right",
     ml: 6,
     size: "sm"
-  });
+  }));
 };
 
-var Pagination = function Pagination(_ref2) {
-  var currentPage = _ref2.currentPage,
-      itemProps = _ref2.itemProps,
-      ItemWrapper = _ref2.ItemWrapper,
-      nextText = _ref2.nextText,
-      pageCount = _ref2.pageCount,
-      prevText = _ref2.prevText,
-      props = _objectWithoutPropertiesLoose(_ref2, ["currentPage", "itemProps", "ItemWrapper", "nextText", "pageCount", "prevText"]);
+var Pagination = function Pagination(_ref3) {
+  var currentPage = _ref3.currentPage,
+      itemProps = _ref3.itemProps,
+      ItemWrapper = _ref3.ItemWrapper,
+      nextText = _ref3.nextText,
+      pageCount = _ref3.pageCount,
+      prevText = _ref3.prevText,
+      props = _objectWithoutPropertiesLoose(_ref3, ["currentPage", "itemProps", "ItemWrapper", "nextText", "pageCount", "prevText"]);
 
   var _renderItem = function renderItem(item) {
-    if (item.type === "previous") return prevButton(prevText, currentPage === 1);
-    if (item.type === "next") return nextButton(nextText, currentPage === pageCount);
+    if (item.type === "previous") return prevButton(prevText, currentPage === 1, item);
+    if (item.type === "next") return nextButton(nextText, currentPage === pageCount, item);
     return /*#__PURE__*/React__default['default'].createElement(StyledPaginationItem, _extends({}, item, itemProps));
   };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import MuiPagination from "@material-ui/lab/Pagination";
 import PaginationItem from "@material-ui/lab/PaginationItem";
 
@@ -23,11 +23,19 @@ const StyledPaginationItem = styled(PaginationItem)`
     background: ${({ theme }) => theme.palette.gray.semiLight};
     border-radius: 8px;
     padding: 0;
+
+    ${({ selected, theme }) =>
+      selected &&
+      css`
+        background: ${theme.palette.gray.regular};
+        font-weight: 600;
+      `}
   }
 `;
 
-const prevButton = (prevText, disabled) => (
+const prevButton = (prevText, disabled, item) => (
   <OutlineButton
+    {...item}
     content={prevText}
     color="secondary"
     disabled={disabled}
@@ -37,8 +45,9 @@ const prevButton = (prevText, disabled) => (
   />
 );
 
-const nextButton = (nextText, disabled) => (
+const nextButton = (nextText, disabled, item) => (
   <OutlineButton
+    {...item}
     content={nextText}
     color="secondary"
     disabled={disabled}
@@ -59,9 +68,9 @@ export const Pagination = ({
 }) => {
   const renderItem = (item) => {
     if (item.type === "previous")
-      return prevButton(prevText, currentPage === 1);
+      return prevButton(prevText, currentPage === 1, item);
     if (item.type === "next")
-      return nextButton(nextText, currentPage === pageCount);
+      return nextButton(nextText, currentPage === pageCount, item);
     return <StyledPaginationItem {...item} {...itemProps} />;
   };
 
