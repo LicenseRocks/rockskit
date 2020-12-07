@@ -39,6 +39,7 @@ export * from "./Pagination";
 export * from "./Profile";
 export * from "./SearchBar";
 export * from "./ShareModule/ShareModule";
+export * from "./Snackbar";
 export * from "./Spinner";
 export * from "./Tab";
 export * from "./Table";

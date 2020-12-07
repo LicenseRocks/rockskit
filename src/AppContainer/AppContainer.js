@@ -7,7 +7,7 @@ import { SnackbarProvider } from "notistack";
 
 import { AppContainerPropTypes } from "./props";
 import { GlobalStyle } from "../theme";
-import { AppContextProvider, PageLoading, PageProgressBar } from "..";
+import { AppContextProvider, PageLoading, PageProgressBar, Snackbar } from "..";
 
 export const AppContainer = ({
   appConfig,
@@ -24,12 +24,22 @@ export const AppContainer = ({
     <AppContextProvider config={appConfig}>
       <MuiThemeProvider theme={theme}>
         <ThemeProvider theme={theme}>
-          <SnackbarProvider maxSnack={3}>
+          <SnackbarProvider
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "right",
+            }}
+            content={(key, options) => <Snackbar id={key} {...options} />}
+            maxSnack={3}
+          >
             <GlobalStyle />
+
             <CssBaseline />
+
             {pageProgressBar && (
               <PageProgressBar listener={pageProgressBarListener} />
             )}
+
             {pageLoading ? <PageLoading fullScreen /> : children}
           </SnackbarProvider>
         </ThemeProvider>
