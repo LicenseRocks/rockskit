@@ -19,6 +19,7 @@ export * from "./Form";
 export * from "./HideOnScroll";
 export * from "./Hidden";
 export * from "./History/History";
+export * from "./HistoryTree";
 export * from "./hooks";
 export * from "./Icon";
 export * from "./Image";
