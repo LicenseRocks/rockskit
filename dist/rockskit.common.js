@@ -3553,7 +3553,7 @@ var FieldBaseDefaultProps = _extends({}, FieldWrapperDefaultProps, {
 });
 
 function _templateObject$A() {
-  var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  font-weight: 600;\n  font-size: 14px;\n  font-family: inherit;\n  line-height: 120%;\n  padding: 8px;\n  color: ", ";\n  outline: none;\n  border: none;\n  height: 100%;\n  box-sizing: border-box;\n  transition: all 100ms ease-in-out;\n  background-color: transparent;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: nowrap;\n\n  ::placeholder {\n    font-weight: normal;\n  }\n\n  &:disabled {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none;\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  font-weight: 600;\n  font-size: 14px;\n  font-family: inherit;\n  line-height: 120%;\n  padding: 8px;\n  color: ", ";\n  outline: none;\n  border: none;\n  height: 100%;\n  box-sizing: border-box;\n  transition: all 100ms ease-in-out;\n  background-color: transparent;\n\n  ::placeholder {\n    font-weight: normal;\n  }\n\n  &:disabled {\n    opacity: 0.3;\n    cursor: not-allowed;\n    pointer-events: none;\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
 
   _templateObject$A = function _templateObject() {
     return data;
@@ -3576,7 +3576,7 @@ React.forwardRef(function (_ref, ref) {
   return theme.palette.text.primary;
 }, function (_ref3) {
   var component = _ref3.component;
-  return component === "input" && styled.css(["&:read-only{cursor:", ";}"], function (_ref4) {
+  return component === "input" && styled.css(["text-overflow:ellipsis;overflow:hidden;white-space:nowrap;&:read-only{cursor:", ";}"], function (_ref4) {
     var selectable = _ref4.selectable;
     return !selectable && "not-allowed";
   });
