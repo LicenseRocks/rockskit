@@ -88,6 +88,7 @@ export const Rows = ({ columns, rows, rowsBottomBorderSm, rowsSize }) =>
             hiddenSm={col?.hiddenSm}
             hiddenLabelSm={col?.hiddenLabelSm}
             rowsBottomBorderSm={rowsBottomBorderSm}
+            style={col?.style || {}}
           >
             {getContentByColType(content, col)}
           </StyledTd>

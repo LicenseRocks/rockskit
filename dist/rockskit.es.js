@@ -9231,7 +9231,8 @@ var Rows = function Rows(_ref3) {
         flexSm: col == null ? void 0 : col.flexSm,
         hiddenSm: col == null ? void 0 : col.hiddenSm,
         hiddenLabelSm: col == null ? void 0 : col.hiddenLabelSm,
-        rowsBottomBorderSm: rowsBottomBorderSm
+        rowsBottomBorderSm: rowsBottomBorderSm,
+        style: (col == null ? void 0 : col.style) || {}
       }, getContentByColType(content, col));
     }));
   });
