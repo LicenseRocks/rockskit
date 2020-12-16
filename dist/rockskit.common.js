@@ -4025,6 +4025,27 @@ var FileUpload = function FileUpload(_ref) {
 FileUpload.propTypes = FileUploadPropTypes$1;
 FileUpload.defaultProps = FileUploadDefaultProps$1;
 
+function _templateObject$F() {
+  var data = _taggedTemplateLiteralLoose(["\n  border: none;\n  outline: none;\n"]);
+
+  _templateObject$F = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var StyledForm = styled__default['default'].form(_templateObject$F());
+var Form = function Form(_ref) {
+  var children = _ref.children,
+      props = _objectWithoutPropertiesLoose(_ref, ["children"]);
+
+  return /*#__PURE__*/React__default['default'].createElement(StyledForm, props, children);
+};
+Form.propTypes = {
+  children: PropTypes__default['default'].node.isRequired
+};
+Form.defaultProps = {};
+
 var Input = function Input(props) {
   return /*#__PURE__*/React__default['default'].createElement(FieldBase, _extends({
     component: "input"
@@ -4033,16 +4054,16 @@ var Input = function Input(props) {
 Input.propTypes = FieldBasePropTypes;
 Input.defaultProps = FieldBaseDefaultProps;
 
-function _templateObject$F() {
+function _templateObject$G() {
   var data = _taggedTemplateLiteralLoose(["\n  font-size: 14px;\n  line-height: 120%;\n  color: ", ";\n"]);
 
-  _templateObject$F = function _templateObject() {
+  _templateObject$G = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledLabel$2 = styled__default['default'].label(_templateObject$F(), function (_ref) {
+var StyledLabel$2 = styled__default['default'].label(_templateObject$G(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.medium;
 });
@@ -4105,16 +4126,16 @@ var PriceFieldDefaultProps = {
   startIcon: "money-bill"
 };
 
-function _templateObject$G() {
+function _templateObject$H() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    flex: 0 0 30%;\n    border-left: 1px solid ", ";\n  }\n"]);
 
-  _templateObject$G = function _templateObject() {
+  _templateObject$H = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledSelect = styled__default['default'](Select)(_templateObject$G(), function (_ref) {
+var StyledSelect = styled__default['default'](Select)(_templateObject$H(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.regular;
 });
@@ -4145,16 +4166,16 @@ var PriceField = function PriceField(_ref2) {
 PriceField.propTypes = PriceFieldPropTypes;
 PriceField.defaultProps = PriceFieldDefaultProps;
 
-function _templateObject$H() {
+function _templateObject$I() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$H = function _templateObject() {
+  _templateObject$I = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledRadioBase$1 = styled__default['default'](RadioBase)(_templateObject$H(), function (theme) {
+var StyledRadioBase$1 = styled__default['default'](RadioBase)(_templateObject$I(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -4177,16 +4198,16 @@ function _templateObject2$e() {
   return data;
 }
 
-function _templateObject$I() {
+function _templateObject$J() {
   var data = _taggedTemplateLiteralLoose(["\n  .MuiSlider-rail {\n    background: ", ";\n  }\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$I = function _templateObject() {
+  _templateObject$J = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledSlider = styled__default['default'](MuiSlider__default['default'])(_templateObject$I(), function (_ref) {
+var StyledSlider = styled__default['default'](MuiSlider__default['default'])(_templateObject$J(), function (_ref) {
   var hasError = _ref.hasError,
       theme = _ref.theme;
   return hasError ? theme.palette.error.main : theme.palette.gray.regular;
@@ -4403,16 +4424,16 @@ var ReactSelectDefaultProps = {
   isRequired: false
 };
 
-function _templateObject$J() {
+function _templateObject$K() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n\n  .react-select__control {\n    border-radius: 12px;\n    color: ", ";\n    padding: ", ";\n    height: 40px;\n    box-sizing: border-box;\n    box-shadow: none;\n    border-color: ", ";\n    font-weight: 600;\n    font-size: 14px;\n    line-height: 120%;\n  }\n\n  .react-select__control--is-focused {\n    border-color: ", ";\n  }\n\n  .react-select__menu {\n    border-radius: 12px;\n  }\n\n  .react-select__option {\n    font-weight: 300;\n    font-size: 14px;\n    line-height: 160%;\n    padding: ", ";\n  }\n\n  .react-select__option--is-focused {\n    background-color: ", ";\n    color: ", ";\n  }\n\n  .react-select__option:hover,\n  .react-select__option--is-selected {\n    color: ", ";\n    background-color: ", ";\n  }\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$J = function _templateObject() {
+  _templateObject$K = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var ReactSelectWrapper = styled__default['default'].div(_templateObject$J(), function (_ref) {
+var ReactSelectWrapper = styled__default['default'].div(_templateObject$K(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.text.primary;
 }, function (_ref2) {
@@ -4555,16 +4576,16 @@ function _templateObject2$f() {
   return data;
 }
 
-function _templateObject$K() {
+function _templateObject$L() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  min-height: 40px;\n  margin-bottom: ", ";\n  ", ";\n  ", " {\n    flex-wrap: wrap;\n  }\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$K = function _templateObject() {
+  _templateObject$L = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledRow = styled__default['default'].div(_templateObject$K(), function (_ref) {
+var StyledRow = styled__default['default'].div(_templateObject$L(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 }, function (_ref2) {
@@ -4646,16 +4667,16 @@ var StepperDefaultProps = {
   value: 1
 };
 
-function _templateObject$L() {
+function _templateObject$M() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  ", "\n\n  user-select: none;\n\n  input {\n    border: none;\n    width: 40px;\n    outline: none;\n    font-weight: 600;\n    font-size: 16px;\n    text-align: center;\n  }\n\n  span {\n    font-size: 12px;\n    font-style: italic;\n  }\n"]);
 
-  _templateObject$L = function _templateObject() {
+  _templateObject$M = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$7 = styled__default['default'].div(_templateObject$L(), function (_ref) {
+var Wrapper$7 = styled__default['default'].div(_templateObject$M(), function (_ref) {
   var size = _ref.size;
   return size === "sm" && styled.css(["flex-direction:column;"]);
 });
@@ -4751,10 +4772,10 @@ function _templateObject2$g() {
   return data;
 }
 
-function _templateObject$M() {
+function _templateObject$N() {
   var data = _taggedTemplateLiteralLoose(["\n  align-items: center;\n  background-color: ", ";\n  cursor: pointer;\n  display: flex;\n  justify-content: space-between;\n  position: relative;\n  transition: background-color 0.2s;\n\n  ", "\n\n    ", "\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
 
-  _templateObject$M = function _templateObject() {
+  _templateObject$N = function _templateObject() {
     return data;
   };
 
@@ -4779,7 +4800,7 @@ var Switch = function Switch(_ref) {
   }, toggled ? "Yes" : "No"));
 };
 
-var StyledSwitchContainer = styled__default['default'].div(_templateObject$M(), function (_ref2) {
+var StyledSwitchContainer = styled__default['default'].div(_templateObject$N(), function (_ref2) {
   var theme = _ref2.theme,
       toggled = _ref2.toggled;
   return toggled ? theme.palette.primary.main : theme.palette.gray.regular;
@@ -4832,16 +4853,16 @@ Switch.defaultProps = {
   toggled: false
 };
 
-function _templateObject$N() {
+function _templateObject$O() {
   var data = _taggedTemplateLiteralLoose(["\n  display: inline-block;\n  position: relative;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$N = function _templateObject() {
+  _templateObject$O = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledToggle = styled__default['default'].div(_templateObject$N(), function (theme) {
+var StyledToggle = styled__default['default'].div(_templateObject$O(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -4936,16 +4957,16 @@ var HideOnScroll = function HideOnScroll(_ref) {
 HideOnScroll.propTypes = HideOnScrollPropTypes;
 HideOnScroll.defaultProps = HideOnScrollDefaultProps;
 
-function _templateObject$O() {
+function _templateObject$P() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$O = function _templateObject() {
+  _templateObject$P = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledHidden = styled__default['default'](MuiHidden__default['default'])(_templateObject$O(), function (theme) {
+var StyledHidden = styled__default['default'](MuiHidden__default['default'])(_templateObject$P(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -5024,16 +5045,16 @@ function _templateObject2$h() {
   return data;
 }
 
-function _templateObject$P() {
+function _templateObject$Q() {
   var data = _taggedTemplateLiteralLoose(["\n  border-width: 0;\n  border-style: solid;\n  border-color: ", ";\n  border-left-width: 1px;\n  transition: all 0.1ms ease-in-out;\n  position: absolute;\n  bottom: 0;\n  left: 15px;\n  top: 0;\n  ::before {\n    content: \"\";\n    width: 1px;\n    height: 100%;\n    display: inline-block;\n  }\n"]);
 
-  _templateObject$P = function _templateObject() {
+  _templateObject$Q = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var ItemConnector = styled__default['default'].div(_templateObject$P(), function (_ref) {
+var ItemConnector = styled__default['default'].div(_templateObject$Q(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.regular;
 });
@@ -5161,16 +5182,16 @@ var HistoryPropTypes = _extends({
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-function _templateObject$Q() {
+function _templateObject$R() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$Q = function _templateObject() {
+  _templateObject$R = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$4 = styled__default['default'].div(_templateObject$Q(), function (theme) {
+var Container$4 = styled__default['default'].div(_templateObject$R(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -5258,10 +5279,10 @@ function _templateObject2$i() {
   return data;
 }
 
-function _templateObject$R() {
+function _templateObject$S() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$R = function _templateObject() {
+  _templateObject$S = function _templateObject() {
     return data;
   };
 
@@ -5270,7 +5291,7 @@ function _templateObject$R() {
 var NODE_SIZE = 20;
 var NODE_CONNECTOR_HEIGHT = 28;
 var ROW_HEIGHT = NODE_SIZE + 2 * NODE_CONNECTOR_HEIGHT;
-var Wrapper$8 = styled__default['default'].div(_templateObject$R(), function (theme) {
+var Wrapper$8 = styled__default['default'].div(_templateObject$S(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -5347,16 +5368,16 @@ var IndicatorDefaultProps = {
   color: "primary"
 };
 
-function _templateObject$S() {
+function _templateObject$T() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    background-color: ", ";\n    color: ", ";\n    border-radius: 100%;\n    min-height: 20px;\n    min-width: 20px;\n    display: inline-flex;\n    align-items: center;\n    justify-content: center;\n\n    ", "\n    ", "\n  }\n"]);
 
-  _templateObject$S = function _templateObject() {
+  _templateObject$T = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledIndicator = styled__default['default'].div(_templateObject$S(), function (_ref) {
+var StyledIndicator = styled__default['default'].div(_templateObject$T(), function (_ref) {
   var color = _ref.color,
       theme = _ref.theme;
   return theme.palette[color].main;
@@ -5476,10 +5497,10 @@ function _templateObject2$j() {
   return data;
 }
 
-function _templateObject$T() {
+function _templateObject$U() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 0 0 120px;\n  ", " {\n    flex: 0 0 96px;\n  }\n"]);
 
-  _templateObject$T = function _templateObject() {
+  _templateObject$U = function _templateObject() {
     return data;
   };
 
@@ -5491,7 +5512,7 @@ var StyledHeader = styled__default['default'](Flex).attrs(function () {
     alignItems: "center",
     justify: "space-between"
   };
-})(_templateObject$T(), function (_ref) {
+})(_templateObject$U(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
@@ -5554,10 +5575,10 @@ function _templateObject2$k() {
   return data;
 }
 
-function _templateObject$U() {
+function _templateObject$V() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n"]);
 
-  _templateObject$U = function _templateObject() {
+  _templateObject$V = function _templateObject() {
     return data;
   };
 
@@ -5567,7 +5588,7 @@ var StyledContainer$1 = styled__default['default'](MuiContainer__default['defaul
   return {
     maxWidth: "xs"
   };
-})(_templateObject$U());
+})(_templateObject$V());
 var Content$4 = styled__default['default'].div(_templateObject2$k(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10, 0);
@@ -5641,16 +5662,16 @@ function _templateObject2$l() {
   return data;
 }
 
-function _templateObject$V() {
+function _templateObject$W() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  background-color: ", ";\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n  }\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$V = function _templateObject() {
+  _templateObject$W = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Footer = styled__default['default'].div(_templateObject$V(), function (_ref) {
+var Footer = styled__default['default'].div(_templateObject$W(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
@@ -5785,16 +5806,16 @@ function _templateObject2$m() {
   return data;
 }
 
-function _templateObject$W() {
+function _templateObject$X() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  padding: ", ";\n  height: 80px;\n  max-height: 80px;\n  box-sizing: border-box;\n  align-items: center;\n  justify-content: space-between;\n\n  ", " {\n    height: ", ";\n    max-height: ", ";\n  }\n\n  ", "\n"]);
 
-  _templateObject$W = function _templateObject() {
+  _templateObject$X = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledHeader$1 = styled__default['default'].div(_templateObject$W(), function (_ref) {
+var StyledHeader$1 = styled__default['default'].div(_templateObject$X(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4, 0);
 }, function (_ref2) {
@@ -5891,16 +5912,16 @@ function _templateObject2$n() {
   return data;
 }
 
-function _templateObject$X() {
+function _templateObject$Y() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100vw;\n  height: 100vh;\n  && {\n    top: ", " !important;\n  }\n\n  .MuiPaper-root {\n    box-shadow: none;\n    width: 100%;\n    height: 100%;\n    top: ", " !important;\n    background-color: ", ";\n    padding: ", ";\n  }\n"]);
 
-  _templateObject$X = function _templateObject() {
+  _templateObject$Y = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledDrawer = styled__default['default'](Drawer__default['default'])(_templateObject$X(), function (_ref) {
+var StyledDrawer = styled__default['default'](Drawer__default['default'])(_templateObject$Y(), function (_ref) {
   var offsetTop = _ref.offsetTop;
   return offsetTop;
 }, function (_ref2) {
@@ -5960,16 +5981,16 @@ var HeaderDrawer = function HeaderDrawer(_ref13) {
 HeaderDrawer.propTypes = CreatorsHubHeaderPropTypes;
 HeaderDrawer.defaultProps = CreatorsHubHeaderDefaultProps;
 
-function _templateObject$Y() {
+function _templateObject$Z() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$Y = function _templateObject() {
+  _templateObject$Z = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Header = styled__default['default'].div(_templateObject$Y(), function (theme) {
+var Header = styled__default['default'].div(_templateObject$Z(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -6044,16 +6065,16 @@ function _templateObject2$o() {
   return data;
 }
 
-function _templateObject$Z() {
+function _templateObject$_() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  display: flex;\n  height: 80px;\n  max-height: 80px;\n  box-sizing: border-box;\n  align-items: center;\n  justify-content: space-between;\n  background-color: ", ";\n\n  ", "\n\n  ", " {\n    height: 64px;\n    max-height: 64px;\n  }\n"]);
 
-  _templateObject$Z = function _templateObject() {
+  _templateObject$_ = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledHeader$2 = styled__default['default'].div(_templateObject$Z(), function (_ref) {
+var StyledHeader$2 = styled__default['default'].div(_templateObject$_(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
@@ -6138,10 +6159,10 @@ function _templateObject2$p() {
   return data;
 }
 
-function _templateObject$_() {
+function _templateObject$$() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    display: flex;\n    flex-direction: column;\n    height: 100%;\n  }\n\n  ", " {\n    padding: ", ";\n  }\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$_ = function _templateObject() {
+  _templateObject$$ = function _templateObject() {
     return data;
   };
 
@@ -6151,7 +6172,7 @@ var StyledContainer$2 = styled__default['default'](MuiContainer__default['defaul
   return {
     maxWidth: "lg"
   };
-})(_templateObject$_(), function (_ref) {
+})(_templateObject$$(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("sm");
 }, function (_ref2) {
@@ -6236,10 +6257,10 @@ function _templateObject2$q() {
   return data;
 }
 
-function _templateObject$$() {
+function _templateObject$10() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n\n  ", "\n\n  ", "\n\n  ", " {\n    padding: ", ";\n  }\n"]);
 
-  _templateObject$$ = function _templateObject() {
+  _templateObject$10 = function _templateObject() {
     return data;
   };
 
@@ -6253,7 +6274,7 @@ var FluidContainer = styled__default['default'](MuiContainer__default['default']
   return {
     maxWidth: false
   };
-})(_templateObject$$(), function (_ref) {
+})(_templateObject$10(), function (_ref) {
   var zIndex = _ref.zIndex;
   return zIndex && "z-index: " + zIndex + ";";
 }, function (_ref2) {
@@ -6406,10 +6427,10 @@ function _templateObject2$r() {
   return data;
 }
 
-function _templateObject$10() {
+function _templateObject$11() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 0 0 120px;\n  ", " {\n    flex: 0 0 96px;\n  }\n"]);
 
-  _templateObject$10 = function _templateObject() {
+  _templateObject$11 = function _templateObject() {
     return data;
   };
 
@@ -6421,7 +6442,7 @@ var StyledHeader$3 = styled__default['default'](Flex).attrs(function () {
     alignItems: "center",
     justify: "space-between"
   };
-})(_templateObject$10(), function (_ref) {
+})(_templateObject$11(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
@@ -6529,16 +6550,16 @@ function _templateObject2$s() {
   return data;
 }
 
-function _templateObject$11() {
+function _templateObject$12() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    color: ", ";\n    display: flex;\n    padding: 0;\n    margin: 0;\n    padding-left: ", ";\n    margin-bottom: 2px;\n    cursor: pointer;\n\n    &.Mui-selected {\n      background: none;\n      color: ", ";\n\n      span {\n        font-weight: bold;\n      }\n\n      &:hover {\n        background: inherit;\n      }\n    }\n\n    div {\n      margin: 0;\n      span {\n        font-size: 14px;\n      }\n    }\n  }\n"]);
 
-  _templateObject$11 = function _templateObject() {
+  _templateObject$12 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var NestedListItem = styled__default['default'](core.ListItem)(_templateObject$11(), function (_ref) {
+var NestedListItem = styled__default['default'](core.ListItem)(_templateObject$12(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.text.secondary;
 }, function (_ref2) {
@@ -6724,16 +6745,16 @@ function _templateObject2$t() {
   return data;
 }
 
-function _templateObject$12() {
+function _templateObject$13() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  box-sizing: border-box;\n  padding: ", ";\n  height: 100%;\n"]);
 
-  _templateObject$12 = function _templateObject() {
+  _templateObject$13 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var MainNav = styled__default['default'].div(_templateObject$12(), function (_ref) {
+var MainNav = styled__default['default'].div(_templateObject$13(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(0, 4, 0, 4);
 });
@@ -6813,16 +6834,16 @@ var DashboardLayoutFooterPropTypes = {
   content: PropTypes__default['default'].node
 };
 
-function _templateObject$13() {
+function _templateObject$14() {
   var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  height: 70px;\n  width: 100%;\n  text-align: center;\n  padding-top: ", ";\n"]);
 
-  _templateObject$13 = function _templateObject() {
+  _templateObject$14 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledFooter = styled__default['default'].div(_templateObject$13(), function (_ref) {
+var StyledFooter = styled__default['default'].div(_templateObject$14(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
@@ -6864,10 +6885,10 @@ function _templateObject2$u() {
   return data;
 }
 
-function _templateObject$14() {
+function _templateObject$15() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n"]);
 
-  _templateObject$14 = function _templateObject() {
+  _templateObject$15 = function _templateObject() {
     return data;
   };
 
@@ -6877,7 +6898,7 @@ var StyledContainer$3 = styled__default['default'](MuiContainer__default['defaul
   return {
     maxWidth: "lg"
   };
-})(_templateObject$14());
+})(_templateObject$15());
 var Content$7 = styled__default['default'].div(_templateObject2$u());
 var NavigationContainer = styled__default['default'](Flex).attrs(function () {
   return {
@@ -6979,16 +7000,16 @@ var ExplorerLayoutFooterPropTypes = {
   children: PropTypes__default['default'].node
 };
 
-function _templateObject$15() {
+function _templateObject$16() {
   var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  height: 80px;\n  text-align: center;\n  padding-top: ", ";\n"]);
 
-  _templateObject$15 = function _templateObject() {
+  _templateObject$16 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledFooter$1 = styled__default['default'].div(_templateObject$15(), function (_ref) {
+var StyledFooter$1 = styled__default['default'].div(_templateObject$16(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2);
 });
@@ -7017,10 +7038,10 @@ function _templateObject2$v() {
   return data;
 }
 
-function _templateObject$16() {
+function _templateObject$17() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 128px;\n  ", " {\n    height: 96px;\n  }\n"]);
 
-  _templateObject$16 = function _templateObject() {
+  _templateObject$17 = function _templateObject() {
     return data;
   };
 
@@ -7031,7 +7052,7 @@ var StyledHeader$4 = styled__default['default'](Grid__default['default']).attrs(
     container: true,
     alignItems: "center"
   };
-})(_templateObject$16(), function (_ref) {
+})(_templateObject$17(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.down("md");
 });
@@ -7077,10 +7098,10 @@ var ExplorerLayoutPropTypes = {
   sidebar: PropTypes__default['default'].node
 };
 
-function _templateObject$17() {
+function _templateObject$18() {
   var data = _taggedTemplateLiteralLoose(["\n  padding-top: ", ";\n  padding-bottom: ", ";\n  ", " {\n    padding-top: ", ";\n  }\n  ", " {\n    padding-right: ", ";\n  }\n"]);
 
-  _templateObject$17 = function _templateObject() {
+  _templateObject$18 = function _templateObject() {
     return data;
   };
 
@@ -7090,7 +7111,7 @@ var Content$8 = styled__default['default'](Grid__default['default']).attrs(funct
   return {
     container: true
   };
-})(_templateObject$17(), function (_ref) {
+})(_templateObject$18(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(8);
 }, function (_ref2) {
@@ -7184,16 +7205,16 @@ var LinkDefaultProps = {
   passHref: true
 };
 
-function _templateObject$18() {
+function _templateObject$19() {
   var data = _taggedTemplateLiteralLoose(["\n  color: initial;\n  text-decoration: none;\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$18 = function _templateObject() {
+  _templateObject$19 = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledLink = styled__default['default'].a(_templateObject$18(), function (_ref) {
+var StyledLink = styled__default['default'].a(_templateObject$19(), function (_ref) {
   var block = _ref.block;
   return block && "display: block;";
 }, function (theme) {
@@ -7261,16 +7282,16 @@ function _templateObject2$w() {
   return data;
 }
 
-function _templateObject$19() {
+function _templateObject$1a() {
   var data = _taggedTemplateLiteralLoose(["\n  margin-top: -", ";\n  margin-bottom: ", ";\n  position: relative;\n  background-image: url(\"", "\");\n  background-size: 90px 108px;\n  background-repeat: no-repeat;\n  width: 90px;\n  height: 108px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n"]);
 
-  _templateObject$19 = function _templateObject() {
+  _templateObject$1a = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var LicenseBoxWrapper = styled__default['default'].div(_templateObject$19(), function (_ref) {
+var LicenseBoxWrapper = styled__default['default'].div(_templateObject$1a(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10);
 }, function (_ref2) {
@@ -7314,16 +7335,16 @@ function _templateObject2$x() {
   return data;
 }
 
-function _templateObject$1a() {
+function _templateObject$1b() {
   var data = _taggedTemplateLiteralLoose(["\n  border-radius: 8px;\n  overflow: initial;\n  min-height: 240px;\n  text-align: center;\n  margin-top: ", ";\n  width: 100%;\n"]);
 
-  _templateObject$1a = function _templateObject() {
+  _templateObject$1b = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledMarketPlaceItem = styled__default['default'](BoxBase)(_templateObject$1a(), function (_ref) {
+var StyledMarketPlaceItem = styled__default['default'](BoxBase)(_templateObject$1b(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10);
 });
@@ -7383,16 +7404,16 @@ var LegacyItem = function LegacyItem(_ref4) {
 LegacyItem.propTypes = MarketPlaceItemPropTypes;
 LegacyItem.defaultProps = MarketPlaceItemDefaultProps;
 
-function _templateObject$1b() {
+function _templateObject$1c() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  object-fit: contain;\n  z-index: 2;\n"]);
 
-  _templateObject$1b = function _templateObject() {
+  _templateObject$1c = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledImage$1 = styled__default['default'](Image)(_templateObject$1b());
+var StyledImage$1 = styled__default['default'](Image)(_templateObject$1c());
 var Cover = function Cover(_ref) {
   var imgSrc = _ref.imgSrc,
       placeholderSrc = _ref.placeholderSrc,
@@ -7441,16 +7462,16 @@ function _templateObject2$y() {
   return data;
 }
 
-function _templateObject$1c() {
+function _templateObject$1d() {
   var data = _taggedTemplateLiteralLoose(["\n  border-radius: 8px;\n  overflow: hidden;\n  min-height: 112px;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  transition: all 200ms ease-in-out;\n\n  ", "\n"]);
 
-  _templateObject$1c = function _templateObject() {
+  _templateObject$1d = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledMarketPlaceItem$1 = styled__default['default'](BoxBase)(_templateObject$1c(), function (_ref) {
+var StyledMarketPlaceItem$1 = styled__default['default'](BoxBase)(_templateObject$1d(), function (_ref) {
   var hoverEffect = _ref.hoverEffect;
   return hoverEffect && styled.css(["&:hover{transform:scale(1.03);}"]);
 });
@@ -7544,16 +7565,16 @@ function _templateObject2$z() {
   return data;
 }
 
-function _templateObject$1d() {
+function _templateObject$1e() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  min-width: 140px;\n  width: 140px;\n  height: 140px;\n"]);
 
-  _templateObject$1d = function _templateObject() {
+  _templateObject$1e = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$9 = styled__default['default'].div(_templateObject$1d());
+var Wrapper$9 = styled__default['default'].div(_templateObject$1e());
 var BGImage = styled__default['default'].div(_templateObject2$z(), function (_ref) {
   var imgSrc = _ref.imgSrc;
   return imgSrc;
@@ -7599,16 +7620,16 @@ function _templateObject2$A() {
   return data;
 }
 
-function _templateObject$1e() {
+function _templateObject$1f() {
   var data = _taggedTemplateLiteralLoose(["\n  border-radius: 8px;\n  height: 140px;\n  width: 100%;\n  display: flex;\n  align-items: center;\n  transition: all 200ms ease-in-out;\n\n  :not(:last-child) {\n    margin-bottom: ", ";\n  }\n\n  ", "\n"]);
 
-  _templateObject$1e = function _templateObject() {
+  _templateObject$1f = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledMarketPlaceItem$2 = styled__default['default'](BoxBase)(_templateObject$1e(), function (_ref) {
+var StyledMarketPlaceItem$2 = styled__default['default'](BoxBase)(_templateObject$1f(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (_ref2) {
@@ -7782,10 +7803,10 @@ function _templateObject2$B() {
   return data;
 }
 
-function _templateObject$1f() {
+function _templateObject$1g() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    padding: 0;\n    &:first-child {\n      padding-top: 0;\n    }\n  }\n"]);
 
-  _templateObject$1f = function _templateObject() {
+  _templateObject$1g = function _templateObject() {
     return data;
   };
 
@@ -7795,7 +7816,7 @@ var ContentWrapper = styled__default['default'](DialogContent__default['default'
   return {
     dividers: true
   };
-})(_templateObject$1f());
+})(_templateObject$1g());
 var Title = styled__default['default'](DialogTitle__default['default']).attrs(function () {
   return {
     disableTypography: true
@@ -7916,16 +7937,16 @@ function _templateObject2$C() {
   return data;
 }
 
-function _templateObject$1g() {
+function _templateObject$1h() {
   var data = _taggedTemplateLiteralLoose(["\n  text-align: center;\n\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$1g = function _templateObject() {
+  _templateObject$1h = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$a = styled__default['default'].div(_templateObject$1g(), function (theme) {
+var Wrapper$a = styled__default['default'].div(_templateObject$1h(), function (theme) {
   return COLOR(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -7967,16 +7988,16 @@ var PageFigurePropTypes = _extends({
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var PageFigureDefaultProps = {};
 
-function _templateObject$1h() {
+function _templateObject$1i() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100vw;\n  margin-left: calc((100% - 100vw) / 2);\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1h = function _templateObject() {
+  _templateObject$1i = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledPageFigure = styled__default['default'].div(_templateObject$1h(), function (theme) {
+var StyledPageFigure = styled__default['default'].div(_templateObject$1i(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -7998,16 +8019,16 @@ var PageLoadingPropTypes = {
 };
 var PageLoadingDefaultProps = {};
 
-function _templateObject$1i() {
+function _templateObject$1j() {
   var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  min-width: ", ";\n  min-height: ", ";\n  width: 100%;\n  height: 100%;\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n"]);
 
-  _templateObject$1i = function _templateObject() {
+  _templateObject$1j = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledLoading = styled__default['default'].div(_templateObject$1i(), function (_ref) {
+var StyledLoading = styled__default['default'].div(_templateObject$1j(), function (_ref) {
   var fullScreen = _ref.fullScreen;
   return fullScreen ? "fixed" : "absolute";
 }, function (_ref2) {
@@ -8134,16 +8155,16 @@ function _templateObject2$D() {
   return data;
 }
 
-function _templateObject$1j() {
+function _templateObject$1k() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  height: 2px;\n  left: 0;\n  position: fixed;\n  top: 0;\n  width: 100%;\n  z-index: 1031;\n"]);
 
-  _templateObject$1j = function _templateObject() {
+  _templateObject$1k = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledBar = styled__default['default'].div(_templateObject$1j(), function (_ref) {
+var StyledBar = styled__default['default'].div(_templateObject$1k(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.main;
 });
@@ -8229,16 +8250,16 @@ var PageProgressBar = function PageProgressBar(_ref) {
 PageProgressBar.propTypes = PageProgressBarPropTypes;
 PageProgressBar.defaultProps = PageProgressBarDefaultProps;
 
-function _templateObject$1k() {
+function _templateObject$1l() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: auto;\n  transition: filter ", "ms ease-in-out;\n\n  ", ";\n"]);
 
-  _templateObject$1k = function _templateObject() {
+  _templateObject$1l = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContent = styled__default['default'].div(_templateObject$1k(), function (_ref) {
+var StyledContent = styled__default['default'].div(_templateObject$1l(), function (_ref) {
   var duration = _ref.duration;
   return duration / 2;
 }, function (_ref2) {
@@ -8306,16 +8327,16 @@ function _templateObject2$E() {
   return data;
 }
 
-function _templateObject$1l() {
+function _templateObject$1m() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1l = function _templateObject() {
+  _templateObject$1m = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledPagination = styled__default['default'](MuiPagination__default['default'])(_templateObject$1l(), function (theme) {
+var StyledPagination = styled__default['default'](MuiPagination__default['default'])(_templateObject$1m(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -8422,16 +8443,16 @@ function _templateObject2$F() {
   return data;
 }
 
-function _templateObject$1m() {
+function _templateObject$1n() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1m = function _templateObject() {
+  _templateObject$1n = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$b = styled__default['default'].div(_templateObject$1m(), function (theme) {
+var Wrapper$b = styled__default['default'].div(_templateObject$1n(), function (theme) {
   return DISPLAY(theme);
 }, function (theme) {
   return SPACER(theme);
@@ -8547,16 +8568,16 @@ function _templateObject2$G() {
   return data;
 }
 
-function _templateObject$1n() {
+function _templateObject$1o() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: transparent;\n  width: 100%;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1n = function _templateObject() {
+  _templateObject$1o = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledSearchBar = styled__default['default'].form(_templateObject$1n(), function (theme) {
+var StyledSearchBar = styled__default['default'].form(_templateObject$1o(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -8625,16 +8646,16 @@ var SearchBar = function SearchBar(_ref3) {
 SearchBar.propTypes = SearchBarPropTypes;
 SearchBar.defaultProps = SearchBarDefaultProps;
 
-function _templateObject$1o() {
+function _templateObject$1p() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n\n  && {\n    background-color: ", ";\n    margin-right: ", ";\n    svg {\n      color: ", ";\n    }\n\n    :hover {\n      background-color: ", ";\n\n      svg {\n        color: ", ";\n      }\n    }\n  }\n"]);
 
-  _templateObject$1o = function _templateObject() {
+  _templateObject$1p = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Button$1 = styled__default['default'](ButtonBase)(_templateObject$1o(), function (_ref) {
+var Button$1 = styled__default['default'](ButtonBase)(_templateObject$1p(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -8715,16 +8736,16 @@ function _templateObject2$H() {
   return data;
 }
 
-function _templateObject$1p() {
+function _templateObject$1q() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$1p = function _templateObject() {
+  _templateObject$1q = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$7 = styled__default['default'].div(_templateObject$1p(), function (theme) {
+var Container$7 = styled__default['default'].div(_templateObject$1q(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -8852,16 +8873,16 @@ function _templateObject2$I() {
   return data;
 }
 
-function _templateObject$1q() {
+function _templateObject$1r() {
   var data = _taggedTemplateLiteralLoose(["\n  ", " {\n    width: 25%;\n    max-width: fit-content;\n  }\n"]);
 
-  _templateObject$1q = function _templateObject() {
+  _templateObject$1r = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledSnackbarContent = styled__default['default'](notistack.SnackbarContent)(_templateObject$1q(), function (_ref) {
+var StyledSnackbarContent = styled__default['default'](notistack.SnackbarContent)(_templateObject$1r(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.up("md");
 });
@@ -8972,16 +8993,16 @@ var DotsSpinnerDefaultProps = {
   size: 60
 };
 
-function _templateObject$1r() {
+function _templateObject$1s() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  > div {\n    width: ", "px;\n    height: ", "px;\n    background-color: ", ";\n\n    border-radius: 100%;\n    display: inline-block;\n    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;\n    animation: sk-bouncedelay 1.4s infinite ease-in-out both;\n  }\n\n  .bounce1 {\n    -webkit-animation-delay: -0.32s;\n    animation-delay: -0.32s;\n  }\n\n  .bounce2 {\n    -webkit-animation-delay: -0.16s;\n    animation-delay: -0.16s;\n  }\n\n  @-webkit-keyframes sk-bouncedelay {\n    0%, 80%, 100% { -webkit-transform: scale(0) }\n    40% { -webkit-transform: scale(1.0) }\n  }\n\n  @keyframes sk-bouncedelay {\n    0%, 80%, 100% {\n      -webkit-transform: scale(0);\n      transform: scale(0);\n    } 40% {\n      -webkit-transform: scale(1.0);\n      transform: scale(1.0);\n    }\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$1r = function _templateObject() {
+  _templateObject$1s = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledDotsSpinner = styled__default['default'].div(_templateObject$1r(), function (_ref) {
+var StyledDotsSpinner = styled__default['default'].div(_templateObject$1s(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -9022,16 +9043,16 @@ var RocksSpinnerDefaultProps = {
   size: 60
 };
 
-function _templateObject$1s() {
+function _templateObject$1t() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  height: ", "px;\n  position: relative;\n\n  .dot {\n    width: ", "px;\n    height: ", "px;\n    background-color: ", ";\n    border-radius: 100%;\n    position: absolute;\n    bottom: 5px;\n    left: 0;\n\n    -webkit-animation: bounce 2.0s infinite ease-in-out;\n    animation: bounce 2.0s infinite ease-in-out;\n  }\n\n  .circle {\n    width: ", "px;\n    height: ", "px;\n    border: ", "px solid ", ";\n    border-radius: 100%;\n    position: absolute;\n    top: 5px;\n    right: 0;\n\n    -webkit-animation: bounce 2.0s infinite ease-in-out;\n    animation: bounce 2.0s infinite ease-in-out;\n    -webkit-animation-delay: -1.0s;\n    animation-delay: -1.0s;\n  }\n\n  @-webkit-keyframes bounce {\n    0%, 100% { -webkit-transform: scale(0.0) }\n    50% { -webkit-transform: scale(1.0) }\n  }\n\n  @keyframes bounce {\n    0%, 100% {\n      transform: scale(0.0);\n      -webkit-transform: scale(0.0);\n    } 50% {\n      transform: scale(1.0);\n      -webkit-transform: scale(1.0);\n    }\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$1s = function _templateObject() {
+  _templateObject$1t = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledRocksSpinner = styled__default['default'].div(_templateObject$1s(), function (_ref) {
+var StyledRocksSpinner = styled__default['default'].div(_templateObject$1t(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -9110,16 +9131,16 @@ function _templateObject2$J() {
   return data;
 }
 
-function _templateObject$1t() {
+function _templateObject$1u() {
   var data = _taggedTemplateLiteralLoose(["\n  margin-bottom: ", ";\n  ", "\n  ", "\n"]);
 
-  _templateObject$1t = function _templateObject() {
+  _templateObject$1u = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$d = styled__default['default'].div(_templateObject$1t(), function (_ref) {
+var Wrapper$d = styled__default['default'].div(_templateObject$1u(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (theme) {
@@ -9176,16 +9197,16 @@ var TableDefaultProps = {
   rowsSize: "lg"
 };
 
-function _templateObject$1u() {
+function _templateObject$1v() {
   var data = _taggedTemplateLiteralLoose(["\n  height: ", "px;\n  border-bottom: 1px solid ", ";\n  background-color: ", ";\n\n  ", "\n"]);
 
-  _templateObject$1u = function _templateObject() {
+  _templateObject$1v = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Row$3 = styled__default['default'].tr(_templateObject$1u(), function (_ref) {
+var Row$3 = styled__default['default'].tr(_templateObject$1v(), function (_ref) {
   var size = _ref.size;
   return size === "sm" ? 32 : 64;
 }, function (_ref2) {
@@ -9200,16 +9221,16 @@ var Row$3 = styled__default['default'].tr(_templateObject$1u(), function (_ref) 
   return hasData && styled.css(["", "{height:unset;display:block;border-bottom:0;margin-bottom:", ";padding:", ";border-radius:8px;}"], theme.breakpoints.down("sm"), theme.spacing(2), theme.spacing(4));
 });
 
-function _templateObject$1v() {
+function _templateObject$1w() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject$1v = function _templateObject() {
+  _templateObject$1w = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTd = styled__default['default'].td(_templateObject$1v(), function (_ref) {
+var StyledTd = styled__default['default'].td(_templateObject$1w(), function (_ref) {
   var align = _ref.align,
       displaySm = _ref.displaySm,
       hiddenLabelSm = _ref.hiddenLabelSm,
@@ -9280,16 +9301,16 @@ var Rows = function Rows(_ref3) {
   });
 };
 
-function _templateObject$1w() {
+function _templateObject$1x() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject$1w = function _templateObject() {
+  _templateObject$1x = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledThead = styled__default['default'].thead(_templateObject$1w(), function (_ref) {
+var StyledThead = styled__default['default'].thead(_templateObject$1x(), function (_ref) {
   var hasData = _ref.hasData,
       theme = _ref.theme;
   return hasData && styled.css(["", "{border:none;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;}"], theme.breakpoints.down("sm"));
@@ -9322,16 +9343,16 @@ Heading$1.propTypes = {
   hasData: PropTypes__default['default'].bool.isRequired
 };
 
-function _templateObject$1x() {
+function _templateObject$1y() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n"]);
 
-  _templateObject$1x = function _templateObject() {
+  _templateObject$1y = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTr = styled__default['default'].tr(_templateObject$1x(), function (_ref) {
+var StyledTr = styled__default['default'].tr(_templateObject$1y(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 });
@@ -9359,16 +9380,16 @@ function _templateObject2$K() {
   return data;
 }
 
-function _templateObject$1y() {
+function _templateObject$1z() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  border-collapse: collapse;\n  border-spacing: 0;\n  border-radius: 8px;\n  overflow: hidden;\n  ", "\n"]);
 
-  _templateObject$1y = function _templateObject() {
+  _templateObject$1z = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTable = styled__default['default'].table(_templateObject$1y(), function (_ref) {
+var StyledTable = styled__default['default'].table(_templateObject$1z(), function (_ref) {
   var hasData = _ref.hasData,
       theme = _ref.theme;
   return hasData && styled.css(["", "{display:block;}"], theme.breakpoints.down("sm"));
@@ -9431,16 +9452,16 @@ function _templateObject2$L() {
   return data;
 }
 
-function _templateObject$1z() {
+function _templateObject$1A() {
   var data = _taggedTemplateLiteralLoose(["\n  text-align: center;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: ", ";\n"]);
 
-  _templateObject$1z = function _templateObject() {
+  _templateObject$1A = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var ErrorWrapper = styled__default['default'].div(_templateObject$1z(), function (_ref) {
+var ErrorWrapper = styled__default['default'].div(_templateObject$1A(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
@@ -9492,10 +9513,10 @@ function _templateObject2$M() {
   return data;
 }
 
-function _templateObject$1A() {
+function _templateObject$1B() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  border-radius: 100%;\n  && {\n    margin: ", ";\n  }\n"]);
 
-  _templateObject$1A = function _templateObject() {
+  _templateObject$1B = function _templateObject() {
     return data;
   };
 
@@ -9505,7 +9526,7 @@ var CloseModalIcon$1 = styled__default['default'](Icon).attrs(function () {
   return {
     size: "lg"
   };
-})(_templateObject$1A(), function (_ref) {
+})(_templateObject$1B(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
@@ -9566,16 +9587,16 @@ function _templateObject2$N() {
   return data;
 }
 
-function _templateObject$1B() {
+function _templateObject$1C() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  height: 48px;\n  width: 48px;\n  text-align: center;\n  border-radius: 8px;\n  overflow: hidden;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1B = function _templateObject() {
+  _templateObject$1C = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$8 = styled__default['default'].div(_templateObject$1B(), function (_ref) {
+var Container$8 = styled__default['default'].div(_templateObject$1C(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
@@ -9650,10 +9671,10 @@ var TooltipDefaultProps = {
   renderContent: function renderContent() {}
 };
 
-function _templateObject$1C() {
+function _templateObject$1D() {
   var data = _taggedTemplateLiteralLoose(["\n  & .MuiTooltip-tooltip {\n    background-color: ", ";\n    color: ", ";\n  }\n\n  & .MuiTooltip-arrow {\n    color: ", ";\n  }\n"]);
 
-  _templateObject$1C = function _templateObject() {
+  _templateObject$1D = function _templateObject() {
     return data;
   };
 
@@ -9666,7 +9687,7 @@ var StyledTooltip = styled__default['default'](function (props) {
       tooltip: "tooltip"
     }
   }, props));
-})(_templateObject$1C(), function (_ref) {
+})(_templateObject$1D(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
@@ -9757,16 +9778,16 @@ function _templateObject2$O() {
   return data;
 }
 
-function _templateObject$1D() {
+function _templateObject$1E() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n  }\n"]);
 
-  _templateObject$1D = function _templateObject() {
+  _templateObject$1E = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContent$1 = styled__default['default'].div(_templateObject$1D(), function (_ref) {
+var StyledContent$1 = styled__default['default'].div(_templateObject$1E(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(6, 6, 6, 10);
 }, function (_ref2) {
@@ -9895,16 +9916,16 @@ function _templateObject2$P() {
   return data;
 }
 
-function _templateObject$1E() {
+function _templateObject$1F() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: normal;\n\n  ", "\n\n  ", "\n\n    ", "\n"]);
 
-  _templateObject$1E = function _templateObject() {
+  _templateObject$1F = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTitle = styled__default['default'].div(_templateObject$1E(), function (_ref) {
+var StyledTitle = styled__default['default'].div(_templateObject$1F(), function (_ref) {
   var isPassed = _ref.isPassed;
   return isPassed && styled.css(["cursor:pointer;"]);
 }, function (_ref2) {
@@ -10034,16 +10055,16 @@ function _templateObject2$Q() {
   return data;
 }
 
-function _templateObject$1F() {
+function _templateObject$1G() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$1F = function _templateObject() {
+  _templateObject$1G = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$e = styled__default['default'].div(_templateObject$1F(), function (theme) {
+var Wrapper$e = styled__default['default'].div(_templateObject$1G(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -10228,6 +10249,7 @@ exports.FileManager = FileManager;
 exports.FilePond = FilePond;
 exports.FileUpload = FileUpload;
 exports.Flex = Flex;
+exports.Form = Form;
 exports.FormError = FormError;
 exports.FormLabel = FormLabel;
 exports.FormRow = FormRow;
