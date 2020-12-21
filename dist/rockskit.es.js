@@ -8774,7 +8774,7 @@ var ShareModule = function ShareModule(_ref3) {
     endIcon: "copy",
     endIconColor: "secondary",
     endIconOnClick: function endIconOnClick() {
-      return copy(encodedUrl);
+      return copy(url);
     },
     readOnly: true,
     selectable: true,
