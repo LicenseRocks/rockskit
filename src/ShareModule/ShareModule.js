@@ -109,7 +109,7 @@ export const ShareModule = ({
       <Input
         endIcon="copy"
         endIconColor="secondary"
-        endIconOnClick={() => copy(encodedUrl)}
+        endIconOnClick={() => copy(url)}
         readOnly
         selectable
         startIcon="link"
