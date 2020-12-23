@@ -2,7 +2,7 @@ import { KIT_FONTS } from "./fonts";
 
 export const KIT_TYPOGRAPHY = {
   h1: (theme) => ({
-    fontFamily: KIT_FONTS.Galano.name,
+    fontFamily: KIT_FONTS.Montserrat.name,
     fontSize: "32px",
     fontWeight: 500,
     lineHeight: "120%",
@@ -14,7 +14,7 @@ export const KIT_TYPOGRAPHY = {
     },
   }),
   h2: (theme) => ({
-    fontFamily: KIT_FONTS.Galano.name,
+    fontFamily: KIT_FONTS.Montserrat.name,
     fontWeight: 500,
     fontSize: "26px",
     lineHeight: "120%",
@@ -26,7 +26,7 @@ export const KIT_TYPOGRAPHY = {
     },
   }),
   h3: (theme) => ({
-    fontFamily: KIT_FONTS.Galano.name,
+    fontFamily: KIT_FONTS.Montserrat.name,
     fontWeight: 500,
     fontSize: "20px",
     lineHeight: "120%",
@@ -38,7 +38,7 @@ export const KIT_TYPOGRAPHY = {
     },
   }),
   h4: () => ({
-    fontFamily: KIT_FONTS.Galano.name,
+    fontFamily: KIT_FONTS.Montserrat.name,
     fontWeight: 500,
     fontSize: "16px",
     lineHeight: "120%",
@@ -46,7 +46,7 @@ export const KIT_TYPOGRAPHY = {
     letterSpacing: "unset",
   }),
   h5: () => ({
-    fontFamily: KIT_FONTS.Galano.name,
+    fontFamily: KIT_FONTS.Montserrat.name,
     fontWeight: 500,
     fontSize: "14px",
     lineHeight: "120%",
@@ -54,7 +54,7 @@ export const KIT_TYPOGRAPHY = {
     letterSpacing: "unset",
   }),
   h6: () => ({
-    fontFamily: KIT_FONTS.Galano.name,
+    fontFamily: KIT_FONTS.Montserrat.name,
     fontWeight: 500,
     fontSize: "12px",
     lineHeight: "120%",

@@ -227,8 +227,8 @@ var KIT_COLORS = {
 };
 
 var KIT_FONTS = {
-  Galano: {
-    name: "GalanoGrotesque-Bold"
+  Montserrat: {
+    name: "Montserrat"
   },
   Inter: {
     name: "Inter"
@@ -246,7 +246,7 @@ var KIT_TYPOGRAPHY = {
     var _ref;
 
     return _ref = {
-      fontFamily: KIT_FONTS.Galano.name,
+      fontFamily: KIT_FONTS.Montserrat.name,
       fontSize: "32px",
       fontWeight: 500,
       lineHeight: "120%",
@@ -261,7 +261,7 @@ var KIT_TYPOGRAPHY = {
     var _ref2;
 
     return _ref2 = {
-      fontFamily: KIT_FONTS.Galano.name,
+      fontFamily: KIT_FONTS.Montserrat.name,
       fontWeight: 500,
       fontSize: "26px",
       lineHeight: "120%",
@@ -276,7 +276,7 @@ var KIT_TYPOGRAPHY = {
     var _ref3;
 
     return _ref3 = {
-      fontFamily: KIT_FONTS.Galano.name,
+      fontFamily: KIT_FONTS.Montserrat.name,
       fontWeight: 500,
       fontSize: "20px",
       lineHeight: "120%",
@@ -289,7 +289,7 @@ var KIT_TYPOGRAPHY = {
   },
   h4: function h4() {
     return {
-      fontFamily: KIT_FONTS.Galano.name,
+      fontFamily: KIT_FONTS.Montserrat.name,
       fontWeight: 500,
       fontSize: "16px",
       lineHeight: "120%",
@@ -299,7 +299,7 @@ var KIT_TYPOGRAPHY = {
   },
   h5: function h5() {
     return {
-      fontFamily: KIT_FONTS.Galano.name,
+      fontFamily: KIT_FONTS.Montserrat.name,
       fontWeight: 500,
       fontSize: "14px",
       lineHeight: "120%",
@@ -309,7 +309,7 @@ var KIT_TYPOGRAPHY = {
   },
   h6: function h6() {
     return {
-      fontFamily: KIT_FONTS.Galano.name,
+      fontFamily: KIT_FONTS.Montserrat.name,
       fontWeight: 500,
       fontSize: "12px",
       lineHeight: "120%",

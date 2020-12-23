@@ -1,6 +1,6 @@
 export const KIT_FONTS = {
-  Galano: {
-    name: "GalanoGrotesque-Bold",
+  Montserrat: {
+    name: "Montserrat",
   },
   Inter: {
     name: "Inter",
