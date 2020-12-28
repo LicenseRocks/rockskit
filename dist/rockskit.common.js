@@ -7764,6 +7764,72 @@ var MarketPlaceItem = function MarketPlaceItem(_ref) {
 MarketPlaceItem.propTypes = MarketPlaceItemPropTypes;
 MarketPlaceItem.defaultProps = MarketPlaceItemDefaultProps;
 
+var MINI_SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "linkedin"];
+
+var ShareModulePropTypes = _extends({
+  iconProps: PropTypes__default['default'].shape(ButtonBasePropTypes),
+  orientation: PropTypes__default['default'].oneOf(["vertical", "horizontal"]),
+  shareOptions: PropTypes__default['default'].arrayOf(PropTypes__default['default'].oneOf(MINI_SHARE_MODULE_SHARE_OPTIONS)),
+  url: PropTypes__default['default'].string
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+var ShareModuleDefaultProps = {
+  orientation: "vertical",
+  shareOptions: MINI_SHARE_MODULE_SHARE_OPTIONS,
+  url: "#"
+};
+
+function _templateObject$1g() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: inline-flex;\n  align-items: center;\n  flex-direction: ", ";\n\n  a {\n    display: block;\n    cursor: pointer;\n\n    svg {\n      color: ", ";\n      transition: all 0.1s ease-in-out;\n    }\n\n    :hover {\n      svg {\n        color: ", ";\n      }\n    }\n\n    :not(:last-child) {\n      ", "\n    }\n  }\n\n  ", "\n  ", "\n"]);
+
+  _templateObject$1g = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Container$6 = styled__default['default'].div(_templateObject$1g(), function (_ref) {
+  var orientation = _ref.orientation;
+  return orientation === "vertical" ? "column" : "row";
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.palette.text.secondary;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.palette.text.primary;
+}, function (_ref4) {
+  var orientation = _ref4.orientation,
+      theme = _ref4.theme;
+  if (orientation === "vertical") return styled.css(["margin-bottom:", ";"], theme.spacing(2));
+  return styled.css(["margin-right:", ";"], theme.spacing(2));
+}, function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
+var MiniShareModule = function MiniShareModule(_ref5) {
+  var iconProps = _ref5.iconProps,
+      shareOptions = _ref5.shareOptions,
+      url = _ref5.url,
+      props = _objectWithoutPropertiesLoose(_ref5, ["iconProps", "shareOptions", "url"]);
+
+  var encodedUrl = encodeURIComponent(url);
+
+  var renderIcon = function renderIcon(icon, href) {
+    return /*#__PURE__*/React__default['default'].createElement("a", {
+      href: href,
+      rel: "noreferrer",
+      target: "_blank"
+    }, /*#__PURE__*/React__default['default'].createElement(Icon, _extends({
+      icon: icon,
+      prefix: "fab"
+    }, iconProps)));
+  };
+
+  return /*#__PURE__*/React__default['default'].createElement(Container$6, props, shareOptions.includes("twitter") && renderIcon("twitter", "https://twitter.com/intent/tweet?url=" + encodedUrl), shareOptions.includes("facebook") && renderIcon("facebook-f", "https://www.facebook.com/sharer.php?u=" + encodedUrl), shareOptions.includes("linkedin") && renderIcon("linkedin-in", "https://www.linkedin.com/sharing/share-offsite/?url=" + encodedUrl));
+};
+MiniShareModule.propTypes = ShareModulePropTypes;
+MiniShareModule.defaultProps = ShareModuleDefaultProps;
+
 function _templateObject5$6() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  left: 0;\n  width: 100%;\n  height: 100%;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: ", ";\n  z-index: 1;\n"]);
 
@@ -7804,10 +7870,10 @@ function _templateObject2$B() {
   return data;
 }
 
-function _templateObject$1g() {
+function _templateObject$1h() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    padding: 0;\n    &:first-child {\n      padding-top: 0;\n    }\n  }\n"]);
 
-  _templateObject$1g = function _templateObject() {
+  _templateObject$1h = function _templateObject() {
     return data;
   };
 
@@ -7817,7 +7883,7 @@ var ContentWrapper = styled__default['default'](DialogContent__default['default'
   return {
     dividers: true
   };
-})(_templateObject$1g());
+})(_templateObject$1h());
 var Title = styled__default['default'](DialogTitle__default['default']).attrs(function () {
   return {
     disableTypography: true
@@ -7938,16 +8004,16 @@ function _templateObject2$C() {
   return data;
 }
 
-function _templateObject$1h() {
+function _templateObject$1i() {
   var data = _taggedTemplateLiteralLoose(["\n  text-align: center;\n\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$1h = function _templateObject() {
+  _templateObject$1i = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$a = styled__default['default'].div(_templateObject$1h(), function (theme) {
+var Wrapper$a = styled__default['default'].div(_templateObject$1i(), function (theme) {
   return COLOR(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -7989,16 +8055,16 @@ var PageFigurePropTypes = _extends({
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var PageFigureDefaultProps = {};
 
-function _templateObject$1i() {
+function _templateObject$1j() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100vw;\n  margin-left: calc((100% - 100vw) / 2);\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1i = function _templateObject() {
+  _templateObject$1j = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledPageFigure = styled__default['default'].div(_templateObject$1i(), function (theme) {
+var StyledPageFigure = styled__default['default'].div(_templateObject$1j(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -8020,16 +8086,16 @@ var PageLoadingPropTypes = {
 };
 var PageLoadingDefaultProps = {};
 
-function _templateObject$1j() {
+function _templateObject$1k() {
   var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  min-width: ", ";\n  min-height: ", ";\n  width: 100%;\n  height: 100%;\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n"]);
 
-  _templateObject$1j = function _templateObject() {
+  _templateObject$1k = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledLoading = styled__default['default'].div(_templateObject$1j(), function (_ref) {
+var StyledLoading = styled__default['default'].div(_templateObject$1k(), function (_ref) {
   var fullScreen = _ref.fullScreen;
   return fullScreen ? "fixed" : "absolute";
 }, function (_ref2) {
@@ -8128,7 +8194,7 @@ var PageMeta = function PageMeta(_ref) {
 PageMeta.propTypes = pageMetaPropTypes;
 PageMeta.defaultProps = pageMetaDefaultProps;
 
-var Container$6 = function Container(_ref) {
+var Container$7 = function Container(_ref) {
   var children = _ref.children,
       isFinished = _ref.isFinished,
       animationDuration = _ref.animationDuration;
@@ -8140,7 +8206,7 @@ var Container$6 = function Container(_ref) {
     }
   }, children);
 };
-Container$6.propTypes = {
+Container$7.propTypes = {
   animationDuration: PropTypes__default['default'].number.isRequired,
   children: PropTypes__default['default'].node.isRequired,
   isFinished: PropTypes__default['default'].bool.isRequired
@@ -8156,16 +8222,16 @@ function _templateObject2$D() {
   return data;
 }
 
-function _templateObject$1k() {
+function _templateObject$1l() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  height: 2px;\n  left: 0;\n  position: fixed;\n  top: 0;\n  width: 100%;\n  z-index: 1031;\n"]);
 
-  _templateObject$1k = function _templateObject() {
+  _templateObject$1l = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledBar = styled__default['default'].div(_templateObject$1k(), function (_ref) {
+var StyledBar = styled__default['default'].div(_templateObject$1l(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.main;
 });
@@ -8198,7 +8264,7 @@ var Progress = function Progress(_ref) {
       isFinished = _useNProgress.isFinished,
       progress = _useNProgress.progress;
 
-  return /*#__PURE__*/React__default['default'].createElement(Container$6, {
+  return /*#__PURE__*/React__default['default'].createElement(Container$7, {
     animationDuration: animationDuration,
     isFinished: isFinished
   }, /*#__PURE__*/React__default['default'].createElement(Bar, {
@@ -8251,16 +8317,16 @@ var PageProgressBar = function PageProgressBar(_ref) {
 PageProgressBar.propTypes = PageProgressBarPropTypes;
 PageProgressBar.defaultProps = PageProgressBarDefaultProps;
 
-function _templateObject$1l() {
+function _templateObject$1m() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: auto;\n  transition: filter ", "ms ease-in-out;\n\n  ", ";\n"]);
 
-  _templateObject$1l = function _templateObject() {
+  _templateObject$1m = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContent = styled__default['default'].div(_templateObject$1l(), function (_ref) {
+var StyledContent = styled__default['default'].div(_templateObject$1m(), function (_ref) {
   var duration = _ref.duration;
   return duration / 2;
 }, function (_ref2) {
@@ -8328,16 +8394,16 @@ function _templateObject2$E() {
   return data;
 }
 
-function _templateObject$1m() {
+function _templateObject$1n() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1m = function _templateObject() {
+  _templateObject$1n = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledPagination = styled__default['default'](MuiPagination__default['default'])(_templateObject$1m(), function (theme) {
+var StyledPagination = styled__default['default'](MuiPagination__default['default'])(_templateObject$1n(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -8444,16 +8510,16 @@ function _templateObject2$F() {
   return data;
 }
 
-function _templateObject$1n() {
+function _templateObject$1o() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1n = function _templateObject() {
+  _templateObject$1o = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$b = styled__default['default'].div(_templateObject$1n(), function (theme) {
+var Wrapper$b = styled__default['default'].div(_templateObject$1o(), function (theme) {
   return DISPLAY(theme);
 }, function (theme) {
   return SPACER(theme);
@@ -8569,16 +8635,16 @@ function _templateObject2$G() {
   return data;
 }
 
-function _templateObject$1o() {
+function _templateObject$1p() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: transparent;\n  width: 100%;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  overflow: hidden;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1o = function _templateObject() {
+  _templateObject$1p = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledSearchBar = styled__default['default'].form(_templateObject$1o(), function (theme) {
+var StyledSearchBar = styled__default['default'].form(_templateObject$1p(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -8647,16 +8713,16 @@ var SearchBar = function SearchBar(_ref3) {
 SearchBar.propTypes = SearchBarPropTypes;
 SearchBar.defaultProps = SearchBarDefaultProps;
 
-function _templateObject$1p() {
+function _templateObject$1q() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n\n  && {\n    background-color: ", ";\n    margin-right: ", ";\n    svg {\n      color: ", ";\n    }\n\n    :hover {\n      background-color: ", ";\n\n      svg {\n        color: ", ";\n      }\n    }\n  }\n"]);
 
-  _templateObject$1p = function _templateObject() {
+  _templateObject$1q = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Button$1 = styled__default['default'](ButtonBase)(_templateObject$1p(), function (_ref) {
+var Button$1 = styled__default['default'](ButtonBase)(_templateObject$1q(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -8705,13 +8771,13 @@ ShareModuleButton.defaultProps = {
 
 var SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "telegram", "whatsapp", "email", "navigator"];
 
-var ShareModulePropTypes = _extends({
+var ShareModulePropTypes$1 = _extends({
   buttonProps: PropTypes__default['default'].shape(ButtonBasePropTypes),
   copyText: PropTypes__default['default'].string,
   shareOptions: PropTypes__default['default'].arrayOf(PropTypes__default['default'].oneOf(SHARE_MODULE_SHARE_OPTIONS)),
   url: PropTypes__default['default'].string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
-var ShareModuleDefaultProps = {
+var ShareModuleDefaultProps$1 = {
   copyText: "Or copy the link",
   shareOptions: SHARE_MODULE_SHARE_OPTIONS,
   url: "#"
@@ -8737,16 +8803,16 @@ function _templateObject2$H() {
   return data;
 }
 
-function _templateObject$1q() {
+function _templateObject$1r() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$1q = function _templateObject() {
+  _templateObject$1r = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$7 = styled__default['default'].div(_templateObject$1q(), function (theme) {
+var Container$8 = styled__default['default'].div(_templateObject$1r(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -8779,7 +8845,7 @@ var ShareModule = function ShareModule(_ref3) {
   var matches = useMediaQuery(theme.breakpoints.down("md"));
   var encodedUrl = encodeURIComponent(url);
   var canUseNavigator = typeof window !== "undefined" && ((_navigator = navigator) == null ? void 0 : _navigator.share);
-  return /*#__PURE__*/React__default['default'].createElement(Container$7, props, /*#__PURE__*/React__default['default'].createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
+  return /*#__PURE__*/React__default['default'].createElement(Container$8, props, /*#__PURE__*/React__default['default'].createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "twitter",
     href: "https://twitter.com/intent/tweet?url=" + encodedUrl,
     buttonProps: buttonProps
@@ -8825,8 +8891,8 @@ var ShareModule = function ShareModule(_ref3) {
     value: url
   }));
 };
-ShareModule.propTypes = ShareModulePropTypes;
-ShareModule.defaultProps = ShareModuleDefaultProps;
+ShareModule.propTypes = ShareModulePropTypes$1;
+ShareModule.defaultProps = ShareModuleDefaultProps$1;
 
 // import PropTypes from "prop-types";
 var SnackbarPropTypes = {};
@@ -8874,16 +8940,16 @@ function _templateObject2$I() {
   return data;
 }
 
-function _templateObject$1r() {
+function _templateObject$1s() {
   var data = _taggedTemplateLiteralLoose(["\n  ", " {\n    width: 25%;\n    max-width: fit-content;\n  }\n"]);
 
-  _templateObject$1r = function _templateObject() {
+  _templateObject$1s = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledSnackbarContent = styled__default['default'](notistack.SnackbarContent)(_templateObject$1r(), function (_ref) {
+var StyledSnackbarContent = styled__default['default'](notistack.SnackbarContent)(_templateObject$1s(), function (_ref) {
   var theme = _ref.theme;
   return theme.breakpoints.up("md");
 });
@@ -8994,16 +9060,16 @@ var DotsSpinnerDefaultProps = {
   size: 60
 };
 
-function _templateObject$1s() {
+function _templateObject$1t() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n\n  > div {\n    width: ", "px;\n    height: ", "px;\n    background-color: ", ";\n\n    border-radius: 100%;\n    display: inline-block;\n    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;\n    animation: sk-bouncedelay 1.4s infinite ease-in-out both;\n  }\n\n  .bounce1 {\n    -webkit-animation-delay: -0.32s;\n    animation-delay: -0.32s;\n  }\n\n  .bounce2 {\n    -webkit-animation-delay: -0.16s;\n    animation-delay: -0.16s;\n  }\n\n  @-webkit-keyframes sk-bouncedelay {\n    0%, 80%, 100% { -webkit-transform: scale(0) }\n    40% { -webkit-transform: scale(1.0) }\n  }\n\n  @keyframes sk-bouncedelay {\n    0%, 80%, 100% {\n      -webkit-transform: scale(0);\n      transform: scale(0);\n    } 40% {\n      -webkit-transform: scale(1.0);\n      transform: scale(1.0);\n    }\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$1s = function _templateObject() {
+  _templateObject$1t = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledDotsSpinner = styled__default['default'].div(_templateObject$1s(), function (_ref) {
+var StyledDotsSpinner = styled__default['default'].div(_templateObject$1t(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -9044,16 +9110,16 @@ var RocksSpinnerDefaultProps = {
   size: 60
 };
 
-function _templateObject$1t() {
+function _templateObject$1u() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", "px;\n  height: ", "px;\n  position: relative;\n\n  .dot {\n    width: ", "px;\n    height: ", "px;\n    background-color: ", ";\n    border-radius: 100%;\n    position: absolute;\n    bottom: 5px;\n    left: 0;\n\n    -webkit-animation: bounce 2.0s infinite ease-in-out;\n    animation: bounce 2.0s infinite ease-in-out;\n  }\n\n  .circle {\n    width: ", "px;\n    height: ", "px;\n    border: ", "px solid ", ";\n    border-radius: 100%;\n    position: absolute;\n    top: 5px;\n    right: 0;\n\n    -webkit-animation: bounce 2.0s infinite ease-in-out;\n    animation: bounce 2.0s infinite ease-in-out;\n    -webkit-animation-delay: -1.0s;\n    animation-delay: -1.0s;\n  }\n\n  @-webkit-keyframes bounce {\n    0%, 100% { -webkit-transform: scale(0.0) }\n    50% { -webkit-transform: scale(1.0) }\n  }\n\n  @keyframes bounce {\n    0%, 100% {\n      transform: scale(0.0);\n      -webkit-transform: scale(0.0);\n    } 50% {\n      transform: scale(1.0);\n      -webkit-transform: scale(1.0);\n    }\n  }\n\n  ", "\n  ", "\n  ", "\n  ", "\n"]);
 
-  _templateObject$1t = function _templateObject() {
+  _templateObject$1u = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledRocksSpinner = styled__default['default'].div(_templateObject$1t(), function (_ref) {
+var StyledRocksSpinner = styled__default['default'].div(_templateObject$1u(), function (_ref) {
   var size = _ref.size;
   return size;
 }, function (_ref2) {
@@ -9132,16 +9198,16 @@ function _templateObject2$J() {
   return data;
 }
 
-function _templateObject$1u() {
+function _templateObject$1v() {
   var data = _taggedTemplateLiteralLoose(["\n  margin-bottom: ", ";\n  ", "\n  ", "\n"]);
 
-  _templateObject$1u = function _templateObject() {
+  _templateObject$1v = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$d = styled__default['default'].div(_templateObject$1u(), function (_ref) {
+var Wrapper$d = styled__default['default'].div(_templateObject$1v(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 }, function (theme) {
@@ -9198,16 +9264,16 @@ var TableDefaultProps = {
   rowsSize: "lg"
 };
 
-function _templateObject$1v() {
+function _templateObject$1w() {
   var data = _taggedTemplateLiteralLoose(["\n  height: ", "px;\n  border-bottom: 1px solid ", ";\n  background-color: ", ";\n\n  ", "\n"]);
 
-  _templateObject$1v = function _templateObject() {
+  _templateObject$1w = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Row$3 = styled__default['default'].tr(_templateObject$1v(), function (_ref) {
+var Row$3 = styled__default['default'].tr(_templateObject$1w(), function (_ref) {
   var size = _ref.size;
   return size === "sm" ? 32 : 64;
 }, function (_ref2) {
@@ -9222,16 +9288,16 @@ var Row$3 = styled__default['default'].tr(_templateObject$1v(), function (_ref) 
   return hasData && styled.css(["", "{height:unset;display:block;border-bottom:0;margin-bottom:", ";padding:", ";border-radius:8px;}"], theme.breakpoints.down("sm"), theme.spacing(2), theme.spacing(4));
 });
 
-function _templateObject$1w() {
+function _templateObject$1x() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject$1w = function _templateObject() {
+  _templateObject$1x = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTd = styled__default['default'].td(_templateObject$1w(), function (_ref) {
+var StyledTd = styled__default['default'].td(_templateObject$1x(), function (_ref) {
   var align = _ref.align,
       displaySm = _ref.displaySm,
       hiddenLabelSm = _ref.hiddenLabelSm,
@@ -9302,16 +9368,16 @@ var Rows = function Rows(_ref3) {
   });
 };
 
-function _templateObject$1x() {
+function _templateObject$1y() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
 
-  _templateObject$1x = function _templateObject() {
+  _templateObject$1y = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledThead = styled__default['default'].thead(_templateObject$1x(), function (_ref) {
+var StyledThead = styled__default['default'].thead(_templateObject$1y(), function (_ref) {
   var hasData = _ref.hasData,
       theme = _ref.theme;
   return hasData && styled.css(["", "{border:none;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;}"], theme.breakpoints.down("sm"));
@@ -9344,16 +9410,16 @@ Heading$1.propTypes = {
   hasData: PropTypes__default['default'].bool.isRequired
 };
 
-function _templateObject$1y() {
+function _templateObject$1z() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n"]);
 
-  _templateObject$1y = function _templateObject() {
+  _templateObject$1z = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTr = styled__default['default'].tr(_templateObject$1y(), function (_ref) {
+var StyledTr = styled__default['default'].tr(_templateObject$1z(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 });
@@ -9381,16 +9447,16 @@ function _templateObject2$K() {
   return data;
 }
 
-function _templateObject$1z() {
+function _templateObject$1A() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  border-collapse: collapse;\n  border-spacing: 0;\n  border-radius: 8px;\n  overflow: hidden;\n  ", "\n"]);
 
-  _templateObject$1z = function _templateObject() {
+  _templateObject$1A = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTable = styled__default['default'].table(_templateObject$1z(), function (_ref) {
+var StyledTable = styled__default['default'].table(_templateObject$1A(), function (_ref) {
   var hasData = _ref.hasData,
       theme = _ref.theme;
   return hasData && styled.css(["", "{display:block;}"], theme.breakpoints.down("sm"));
@@ -9453,16 +9519,16 @@ function _templateObject2$L() {
   return data;
 }
 
-function _templateObject$1A() {
+function _templateObject$1B() {
   var data = _taggedTemplateLiteralLoose(["\n  text-align: center;\n  height: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  padding: ", ";\n"]);
 
-  _templateObject$1A = function _templateObject() {
+  _templateObject$1B = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var ErrorWrapper = styled__default['default'].div(_templateObject$1A(), function (_ref) {
+var ErrorWrapper = styled__default['default'].div(_templateObject$1B(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
@@ -9514,10 +9580,10 @@ function _templateObject2$M() {
   return data;
 }
 
-function _templateObject$1B() {
+function _templateObject$1C() {
   var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  top: 0;\n  right: 0;\n  border-radius: 100%;\n  && {\n    margin: ", ";\n  }\n"]);
 
-  _templateObject$1B = function _templateObject() {
+  _templateObject$1C = function _templateObject() {
     return data;
   };
 
@@ -9527,7 +9593,7 @@ var CloseModalIcon$1 = styled__default['default'](Icon).attrs(function () {
   return {
     size: "lg"
   };
-})(_templateObject$1B(), function (_ref) {
+})(_templateObject$1C(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(4);
 });
@@ -9588,16 +9654,16 @@ function _templateObject2$N() {
   return data;
 }
 
-function _templateObject$1C() {
+function _templateObject$1D() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  height: 48px;\n  width: 48px;\n  text-align: center;\n  border-radius: 8px;\n  overflow: hidden;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$1C = function _templateObject() {
+  _templateObject$1D = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$8 = styled__default['default'].div(_templateObject$1C(), function (_ref) {
+var Container$9 = styled__default['default'].div(_templateObject$1D(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
@@ -9629,7 +9695,7 @@ var Thumbnail = function Thumbnail(_ref3) {
     if (hasPreview) setPreviewOpen(true);else onClick();
   };
 
-  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(Container$8, _extends({
+  return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(Container$9, _extends({
     onClick: handleClick
   }, props), loadError ? /*#__PURE__*/React__default['default'].createElement(StyledIcon$6, {
     color: "secondary",
@@ -9672,10 +9738,10 @@ var TooltipDefaultProps = {
   renderContent: function renderContent() {}
 };
 
-function _templateObject$1D() {
+function _templateObject$1E() {
   var data = _taggedTemplateLiteralLoose(["\n  & .MuiTooltip-tooltip {\n    background-color: ", ";\n    color: ", ";\n  }\n\n  & .MuiTooltip-arrow {\n    color: ", ";\n  }\n"]);
 
-  _templateObject$1D = function _templateObject() {
+  _templateObject$1E = function _templateObject() {
     return data;
   };
 
@@ -9688,7 +9754,7 @@ var StyledTooltip = styled__default['default'](function (props) {
       tooltip: "tooltip"
     }
   }, props));
-})(_templateObject$1D(), function (_ref) {
+})(_templateObject$1E(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
@@ -9779,16 +9845,16 @@ function _templateObject2$O() {
   return data;
 }
 
-function _templateObject$1E() {
+function _templateObject$1F() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n  }\n"]);
 
-  _templateObject$1E = function _templateObject() {
+  _templateObject$1F = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledContent$1 = styled__default['default'].div(_templateObject$1E(), function (_ref) {
+var StyledContent$1 = styled__default['default'].div(_templateObject$1F(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(6, 6, 6, 10);
 }, function (_ref2) {
@@ -9917,16 +9983,16 @@ function _templateObject2$P() {
   return data;
 }
 
-function _templateObject$1F() {
+function _templateObject$1G() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  text-overflow: ellipsis;\n  overflow: hidden;\n  white-space: normal;\n\n  ", "\n\n  ", "\n\n    ", "\n"]);
 
-  _templateObject$1F = function _templateObject() {
+  _templateObject$1G = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledTitle = styled__default['default'].div(_templateObject$1F(), function (_ref) {
+var StyledTitle = styled__default['default'].div(_templateObject$1G(), function (_ref) {
   var isPassed = _ref.isPassed;
   return isPassed && styled.css(["cursor:pointer;"]);
 }, function (_ref2) {
@@ -10056,16 +10122,16 @@ function _templateObject2$Q() {
   return data;
 }
 
-function _templateObject$1G() {
+function _templateObject$1H() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$1G = function _templateObject() {
+  _templateObject$1H = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$e = styled__default['default'].div(_templateObject$1G(), function (theme) {
+var Wrapper$e = styled__default['default'].div(_templateObject$1H(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -10279,7 +10345,9 @@ exports.KIT_ICON_SIZES = KIT_ICON_SIZES;
 exports.KIT_TYPOGRAPHY = KIT_TYPOGRAPHY;
 exports.Language = Language;
 exports.Link = Link$1;
+exports.MINI_SHARE_MODULE_SHARE_OPTIONS = MINI_SHARE_MODULE_SHARE_OPTIONS;
 exports.MarketPlaceItem = MarketPlaceItem;
+exports.MiniShareModule = MiniShareModule;
 exports.Modal = Modal;
 exports.NoItem = NoItem;
 exports.OutlineButton = OutlineButton;
@@ -10306,6 +10374,8 @@ exports.SPACER_PROP_TYPES = SPACER_PROP_TYPES;
 exports.SearchBar = SearchBar;
 exports.Select = Select;
 exports.ShareModule = ShareModule;
+exports.ShareModuleDefaultProps = ShareModuleDefaultProps;
+exports.ShareModulePropTypes = ShareModulePropTypes;
 exports.Snackbar = Snackbar;
 exports.Stepper = Stepper;
 exports.THEME_COLORS = THEME_COLORS;

@@ -28,6 +28,7 @@ export * from "./Language";
 export * from "./Layout";
 export * from "./Link";
 export * from "./MarketPlaceItem";
+export * from "./MiniShareModule";
 export * from "./Modal";
 export * from "./NoItem";
 export * from "./PageFigure";
