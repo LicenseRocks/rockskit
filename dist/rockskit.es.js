@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState, forwardRef, Fragment, useEf
 import PropTypes, { bool, func, oneOf } from 'prop-types';
 import styled, { createGlobalStyle, css, useTheme, ThemeProvider as ThemeProvider$1 } from 'styled-components';
 import Grid from '@material-ui/core/Grid';
-import { faFacebookF, faTelegramPlane, faTwitter, faWhatsapp, faWindows } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faLinkedinIn, faTelegramPlane, faTwitter, faWhatsapp, faWindows } from '@fortawesome/free-brands-svg-icons';
 import { faArrowLeft, faArrowRight, faAt, faBars, faBox, faBoxes, faBuilding, faCalendar, faCheck, faCheckCircle, faChevronDown, faChevronLeft, faChevronRight, faChevronUp, faComments, faCopy, faEllipsisH, faEnvelope, faEuroSign, faFile, faFilePdf, faFilter, faHashtag, faGlobe, faInfoCircle, faKey, faLink, faMapMarker, faMinus, faMoneyBill, faPencilAlt, faPhone, faPlus, faQuestion, faSadCry, faSearch, faSearchPlus, faShareAlt, faShoppingCart, faSignInAlt, faStore, faTachometerAlt, faThLarge, faTimes, faTrash, faTruck, faTv, faUser, faUserCircle } from '@fortawesome/free-solid-svg-icons';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import MuiButtonBase from '@material-ui/core/ButtonBase';
@@ -102,6 +102,7 @@ var GlobalStyle = createGlobalStyle(_templateObject());
 
 var FreeBrandIconSet = {
   fabFacebookF: faFacebookF,
+  fabLinkedinIn: faLinkedinIn,
   fabTelegramPlane: faTelegramPlane,
   fabTwitter: faTwitter,
   fabWhatsapp: faWhatsapp,

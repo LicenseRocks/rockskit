@@ -1,5 +1,6 @@
 import {
   faFacebookF as fabFacebookF,
+  faLinkedinIn as fabLinkedinIn,
   faTelegramPlane as fabTelegramPlane,
   faTwitter as fabTwitter,
   faWhatsapp as fabWhatsapp,
@@ -8,6 +9,7 @@ import {
 
 export const FreeBrandIconSet = {
   fabFacebookF,
+  fabLinkedinIn,
   fabTelegramPlane,
   fabTwitter,
   fabWhatsapp,

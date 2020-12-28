@@ -144,6 +144,7 @@ var GlobalStyle = styled.createGlobalStyle(_templateObject());
 
 var FreeBrandIconSet = {
   fabFacebookF: freeBrandsSvgIcons.faFacebookF,
+  fabLinkedinIn: freeBrandsSvgIcons.faLinkedinIn,
   fabTelegramPlane: freeBrandsSvgIcons.faTelegramPlane,
   fabTwitter: freeBrandsSvgIcons.faTwitter,
   fabWhatsapp: freeBrandsSvgIcons.faWhatsapp,
