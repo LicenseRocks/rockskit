@@ -29,6 +29,7 @@ export const PriceField = ({
         hasWrapper={false}
         name={name}
         register={register}
+        step="0.01"
         type="number"
         {...inputProps}
       />

@@ -4187,6 +4187,7 @@ var PriceField = function PriceField(_ref2) {
     hasWrapper: false,
     name: name,
     register: register,
+    step: "0.01",
     type: "number"
   }, inputProps)), /*#__PURE__*/React__default['default'].createElement(StyledSelect, _extends({
     hasWrapper: false,
