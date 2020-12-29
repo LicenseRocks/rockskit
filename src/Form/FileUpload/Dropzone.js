@@ -36,14 +36,12 @@ const DropzoneArea = styled.div`
     border-color: ${({ theme }) => theme.palette.gray.medium};
   }
 
-
   ${({ hasError }) =>
     hasError &&
     css`
       border-color: ${({ theme }) => theme.palette.error.main};
       background-color: ${({ theme }) => theme.palette.error.light};
     `}
-
 
   ${({ disabled }) =>
     disabled &&
@@ -83,11 +81,12 @@ export const Dropzone = ({
     onDrop: (acceptedFiles) => {
       const accepted = acceptedFiles.map((file) =>
         Object.assign(file, {
-          preview: URL.createObjectURL(file),
+          preview: file.type.includes("image") ? URL.createObjectURL(file) : "",
         })
       );
 
-      onChange([...value, ...accepted]);
+      if (multiple) onChange([...value, ...accepted]);
+      else onChange([...accepted]);
     },
   });
 

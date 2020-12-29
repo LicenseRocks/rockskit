@@ -59,36 +59,37 @@ function bytesToSize(bytes) {
 }
 
 export const UploaderPreview = ({ files, onRemoveClick }) => {
-  return Array.from(files).map((file) => {
-    const url = file.type.includes("image") ? URL.createObjectURL(file) : null;
+  return Array.from(files).map((file) => (
+    <Item key={file.name}>
+      <div className="details">
+        <PreviewWrapper>
+          {file.preview ? (
+            <Image
+              alt={file.name}
+              height="100%"
+              src={file.preview}
+              width="100%"
+            />
+          ) : (
+            <H4
+              content={file.name.split(".").pop()}
+              color="textSecondary"
+              noWrap
+            />
+          )}
+        </PreviewWrapper>
 
-    return (
-      <Item key={file.name}>
-        <div className="details">
-          <PreviewWrapper>
-            {url ? (
-              <Image alt={file.name} height="100%" src={url} width="100%" />
-            ) : (
-              <H4
-                content={file.name.split(".").pop()}
-                color="textSecondary"
-                noWrap
-              />
-            )}
-          </PreviewWrapper>
-
-          <div>
-            <b>{file.name}</b>
-            <div>{bytesToSize(file.size)}</div>
-          </div>
+        <div>
+          <b>{file.name}</b>
+          <div>{bytesToSize(file.size)}</div>
         </div>
+      </div>
 
-        {onRemoveClick && (
-          <RemoveIcon icon="times" onClick={() => onRemoveClick(file)} />
-        )}
-      </Item>
-    );
-  });
+      {onRemoveClick && (
+        <RemoveIcon icon="times" onClick={() => onRemoveClick(file)} />
+      )}
+    </Item>
+  ));
 };
 
 UploaderPreview.propTypes = {

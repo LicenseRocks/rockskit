@@ -3728,15 +3728,14 @@ var UploaderPreview = function UploaderPreview(_ref8) {
   var files = _ref8.files,
       onRemoveClick = _ref8.onRemoveClick;
   return Array.from(files).map(function (file) {
-    var url = file.type.includes("image") ? URL.createObjectURL(file) : null;
     return /*#__PURE__*/React__default['default'].createElement(Item$1, {
       key: file.name
     }, /*#__PURE__*/React__default['default'].createElement("div", {
       className: "details"
-    }, /*#__PURE__*/React__default['default'].createElement(PreviewWrapper, null, url ? /*#__PURE__*/React__default['default'].createElement(Image, {
+    }, /*#__PURE__*/React__default['default'].createElement(PreviewWrapper, null, file.preview ? /*#__PURE__*/React__default['default'].createElement(Image, {
       alt: file.name,
       height: "100%",
-      src: url,
+      src: file.preview,
       width: "100%"
     }) : /*#__PURE__*/React__default['default'].createElement(H4, {
       content: file.name.split(".").pop(),
@@ -3909,7 +3908,7 @@ FilePond.propTypes = FileUploadPropTypes;
 FilePond.defaultProps = FileUploadDefaultProps;
 
 function _templateObject2$d() {
-  var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  border-color: ", ";\n  border-radius: 16px;\n  border-style: dashed;\n  border-width: 2px;\n  cursor: pointer;\n  min-height: 125px;\n  outline: none;\n  transition: all 100ms ease-in-out;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  color: ", ";\n  margin-bottom: 8px;\n\n  &:hover {\n    border-color: ", ";\n  }\n\n\n  ", "\n\n\n  ", "\n\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  border-color: ", ";\n  border-radius: 16px;\n  border-style: dashed;\n  border-width: 2px;\n  cursor: pointer;\n  min-height: 125px;\n  outline: none;\n  transition: all 100ms ease-in-out;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  color: ", ";\n  margin-bottom: 8px;\n\n  &:hover {\n    border-color: ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
 
   _templateObject2$d = function _templateObject2() {
     return data;
@@ -3978,10 +3977,10 @@ var Dropzone = function Dropzone(_ref10) {
     onDrop: function onDrop(acceptedFiles) {
       var accepted = acceptedFiles.map(function (file) {
         return Object.assign(file, {
-          preview: URL.createObjectURL(file)
+          preview: file.type.includes("image") ? URL.createObjectURL(file) : ""
         });
       });
-      onChange([].concat(value, accepted));
+      if (multiple) onChange([].concat(value, accepted));else onChange([].concat(accepted));
     }
   }),
       getRootProps = _useDropzone.getRootProps,

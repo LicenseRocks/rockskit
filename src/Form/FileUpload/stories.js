@@ -23,6 +23,7 @@ export const main = () => {
     disabled: boolean("Disabled", false),
     hasError: !!errors.fileUpload,
     isRequired: "This item is required",
+    multiple: boolean("Multiple", false),
     name: "fileUpload",
   };
 
