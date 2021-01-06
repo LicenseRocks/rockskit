@@ -1,5 +1,6 @@
 import { addDecorator, addParameters } from "@storybook/react";
 import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
+import "react-day-picker/lib/style.css"
 
 import { Container } from "./decorators";
 

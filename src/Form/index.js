@@ -1,5 +1,6 @@
 export * from "./BorderedRadio";
 export * from "./Checkbox";
+export * from "./Datepicker";
 export * from "./Error";
 export * from "./FieldBase/FieldBase";
 export * from "./Fieldset";
