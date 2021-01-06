@@ -25,7 +25,7 @@ const Container = styled.div`
     color: ${({ theme }) => theme.palette.text.primary};
   }
   .Selectable .DayPicker-Day {
-    border-radius: 0 !important;
+    border-radius: ${({ selectRange }) => (selectRange ? 0 : "8px")} !important;
   }
   .Selectable .DayPicker-Day--start {
     background-color: ${({ theme }) => theme.palette.primary.main} !important;
@@ -58,36 +58,50 @@ export const DatepickerComponent = ({
   hasError,
   onChange,
   placeholder,
+  selectRange,
   submitText,
   value,
 }) => {
+  const currentValue = {
+    start: value?.start || value,
+    end: value?.end || null,
+  };
+
   const [anchorEl, setAnchorEl] = useState();
   const [date, setDate] = useState({
-    from: "",
-    to: "",
+    from: null,
+    to: null,
   });
   const { from, to } = date;
-  const fromFormatted = value.start
-    ? formatDateAndTime(value.start, {
+
+  const fromFormatted = currentValue.start
+    ? formatDateAndTime(currentValue.start, {
         showTime: false,
       })
     : "-";
-  const toFormatted = value.end
-    ? formatDateAndTime(value.end, {
+  const toFormatted = currentValue.end
+    ? formatDateAndTime(currentValue.end, {
         showTime: false,
       })
     : "-";
 
   useEffect(() => {
     setDate({
-      from: value.start,
-      to: value.end,
+      from: currentValue.start,
+      to: currentValue.end,
     });
   }, [anchorEl]);
 
-  const handleDayClick = (day) => {
-    const range = DateUtils.addDayToRange(day, date);
-    setDate(range);
+  const handleDayClick = (day, { selected }) => {
+    if (selectRange) {
+      const range = DateUtils.addDayToRange(day, date);
+      setDate(range);
+    } else {
+      setDate({
+        from: selected ? null : day,
+        to: null,
+      });
+    }
   };
 
   const handleClosePopover = () => {
@@ -95,12 +109,21 @@ export const DatepickerComponent = ({
   };
 
   const handleSubmit = () => {
-    onChange({
-      start: from,
-      end: to,
-    });
+    if (selectRange) {
+      onChange({
+        start: from,
+        end: to,
+      });
+    } else {
+      onChange(from);
+    }
     handleClosePopover();
   };
+
+  let inputVal;
+  if (!selectRange && currentValue.start) inputVal = fromFormatted;
+  else if (selectRange && currentValue.start && currentValue.end)
+    inputVal = `${fromFormatted} - ${toFormatted}`;
 
   return (
     <>
@@ -111,9 +134,7 @@ export const DatepickerComponent = ({
         onClick={(e) => setAnchorEl(e.currentTarget)}
         readOnly
         selectable
-        value={
-          value.start && value.end ? `${fromFormatted} - ${toFormatted}` : ""
-        }
+        value={inputVal}
       />
 
       <Popover
@@ -129,10 +150,11 @@ export const DatepickerComponent = ({
           horizontal: "center",
         }}
       >
-        <Container>
+        <Container selectRange={selectRange}>
           <DayPicker
             className="Selectable"
-            selectedDays={[from, { from, to }]}
+            initialMonth={from}
+            selectedDays={[from, ...(selectRange ? [{ from, to }] : [])]}
             modifiers={{ start: from, end: to }}
             onDayClick={handleDayClick}
             {...datepickerProps}
@@ -148,7 +170,7 @@ export const DatepickerComponent = ({
 
           <Button
             content={submitText}
-            disabled={!from || !to}
+            disabled={(selectRange && (!from || !to)) || !from}
             onClick={handleSubmit}
             size="sm"
           />
@@ -165,11 +187,15 @@ DatepickerComponent.propTypes = {
   hasError: PropTypes.bool,
   onChange: PropTypes.func.isRequired,
   placeholder: PropTypes.string,
+  selectRange: PropTypes.bool,
   submitText: PropTypes.string,
-  value: PropTypes.shape({
-    start: PropTypes.string,
-    end: PropTypes.string,
-  }),
+  value: PropTypes.oneOfType([
+    PropTypes.shape({
+      start: PropTypes.string,
+      end: PropTypes.string,
+    }),
+    PropTypes.string,
+  ]),
 };
 
 DatepickerComponent.defaultProps = {
@@ -178,6 +204,7 @@ DatepickerComponent.defaultProps = {
   datepickerProps: {},
   hasError: false,
   placeholder: "Select dates",
+  selectRange: false,
   submitText: "Submit",
-  value: {},
+  value: null,
 };

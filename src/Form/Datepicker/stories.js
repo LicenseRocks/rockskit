@@ -24,6 +24,7 @@ export const main = () => {
     hasError: !!errors.datepicker,
     isRequired: "This item is required",
     name: "datepicker",
+    selectRange: boolean("Select Range", false),
   };
 
   return (

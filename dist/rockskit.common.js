@@ -3425,7 +3425,7 @@ function _templateObject3$8() {
 }
 
 function _templateObject2$b() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n\n  .Selectable\n    .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {\n    background-color: ", " !important;\n    color: ", ";\n  }\n  .Selectable .DayPicker-Day {\n    border-radius: 0 !important;\n  }\n  .Selectable .DayPicker-Day--start {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-left-radius: 8px !important;\n    border-bottom-left-radius: 8px !important;\n  }\n  .Selectable .DayPicker-Day--end {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-right-radius: 8px !important;\n    border-bottom-right-radius: 8px !important;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n\n  .Selectable\n    .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {\n    background-color: ", " !important;\n    color: ", ";\n  }\n  .Selectable .DayPicker-Day {\n    border-radius: ", " !important;\n  }\n  .Selectable .DayPicker-Day--start {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-left-radius: 8px !important;\n    border-bottom-left-radius: 8px !important;\n  }\n  .Selectable .DayPicker-Day--end {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-right-radius: 8px !important;\n    border-bottom-right-radius: 8px !important;\n  }\n"]);
 
   _templateObject2$b = function _templateObject2() {
     return data;
@@ -3457,64 +3457,81 @@ var Container$2 = styled__default['default'].div(_templateObject2$b(), function 
   var theme = _ref4.theme;
   return theme.palette.text.primary;
 }, function (_ref5) {
-  var theme = _ref5.theme;
-  return theme.palette.primary.main;
+  var selectRange = _ref5.selectRange;
+  return selectRange ? 0 : "8px";
 }, function (_ref6) {
   var theme = _ref6.theme;
-  return theme.palette.common.white;
+  return theme.palette.primary.main;
 }, function (_ref7) {
   var theme = _ref7.theme;
-  return theme.palette.primary.main;
+  return theme.palette.common.white;
 }, function (_ref8) {
   var theme = _ref8.theme;
+  return theme.palette.primary.main;
+}, function (_ref9) {
+  var theme = _ref9.theme;
   return theme.palette.common.white;
 });
-var BottomSection = styled__default['default'].div(_templateObject3$8(), function (_ref9) {
-  var theme = _ref9.theme;
-  return theme.spacing(4);
-}, function (_ref10) {
+var BottomSection = styled__default['default'].div(_templateObject3$8(), function (_ref10) {
   var theme = _ref10.theme;
+  return theme.spacing(4);
+}, function (_ref11) {
+  var theme = _ref11.theme;
   return theme.palette.gray.light;
 });
-var DatepickerComponent = function DatepickerComponent(_ref11) {
-  var cancelText = _ref11.cancelText,
-      disabled = _ref11.disabled,
-      datepickerProps = _ref11.datepickerProps,
-      hasError = _ref11.hasError,
-      onChange = _ref11.onChange,
-      placeholder = _ref11.placeholder,
-      submitText = _ref11.submitText,
-      value = _ref11.value;
+var DatepickerComponent = function DatepickerComponent(_ref12) {
+  var cancelText = _ref12.cancelText,
+      disabled = _ref12.disabled,
+      datepickerProps = _ref12.datepickerProps,
+      hasError = _ref12.hasError,
+      onChange = _ref12.onChange,
+      placeholder = _ref12.placeholder,
+      selectRange = _ref12.selectRange,
+      submitText = _ref12.submitText,
+      value = _ref12.value;
+  var currentValue = {
+    start: (value == null ? void 0 : value.start) || value,
+    end: (value == null ? void 0 : value.end) || null
+  };
 
   var _useState = React.useState(),
       anchorEl = _useState[0],
       setAnchorEl = _useState[1];
 
   var _useState2 = React.useState({
-    from: "",
-    to: ""
+    from: null,
+    to: null
   }),
       date = _useState2[0],
       setDate = _useState2[1];
 
   var from = date.from,
       to = date.to;
-  var fromFormatted = value.start ? formatDateAndTime(value.start, {
+  var fromFormatted = currentValue.start ? formatDateAndTime(currentValue.start, {
     showTime: false
   }) : "-";
-  var toFormatted = value.end ? formatDateAndTime(value.end, {
+  var toFormatted = currentValue.end ? formatDateAndTime(currentValue.end, {
     showTime: false
   }) : "-";
   React.useEffect(function () {
     setDate({
-      from: value.start,
-      to: value.end
+      from: currentValue.start,
+      to: currentValue.end
     });
   }, [anchorEl]);
 
-  var handleDayClick = function handleDayClick(day) {
-    var range = DayPicker.DateUtils.addDayToRange(day, date);
-    setDate(range);
+  var handleDayClick = function handleDayClick(day, _ref13) {
+    var selected = _ref13.selected;
+
+    if (selectRange) {
+      var range = DayPicker.DateUtils.addDayToRange(day, date);
+      setDate(range);
+    } else {
+      setDate({
+        from: selected ? null : day,
+        to: null
+      });
+    }
   };
 
   var handleClosePopover = function handleClosePopover() {
@@ -3522,13 +3539,20 @@ var DatepickerComponent = function DatepickerComponent(_ref11) {
   };
 
   var handleSubmit = function handleSubmit() {
-    onChange({
-      start: from,
-      end: to
-    });
+    if (selectRange) {
+      onChange({
+        start: from,
+        end: to
+      });
+    } else {
+      onChange(from);
+    }
+
     handleClosePopover();
   };
 
+  var inputVal;
+  if (!selectRange && currentValue.start) inputVal = fromFormatted;else if (selectRange && currentValue.start && currentValue.end) inputVal = fromFormatted + " - " + toFormatted;
   return /*#__PURE__*/React__default['default'].createElement(React__default['default'].Fragment, null, /*#__PURE__*/React__default['default'].createElement(Input, {
     disabled: disabled,
     hasError: hasError,
@@ -3538,7 +3562,7 @@ var DatepickerComponent = function DatepickerComponent(_ref11) {
     },
     readOnly: true,
     selectable: true,
-    value: value.start && value.end ? fromFormatted + " - " + toFormatted : ""
+    value: inputVal
   }), /*#__PURE__*/React__default['default'].createElement(Popover, {
     anchorEl: anchorEl,
     open: !!anchorEl,
@@ -3551,12 +3575,15 @@ var DatepickerComponent = function DatepickerComponent(_ref11) {
       vertical: "bottom",
       horizontal: "center"
     }
-  }, /*#__PURE__*/React__default['default'].createElement(Container$2, null, /*#__PURE__*/React__default['default'].createElement(DayPicker__default['default'], _extends({
+  }, /*#__PURE__*/React__default['default'].createElement(Container$2, {
+    selectRange: selectRange
+  }, /*#__PURE__*/React__default['default'].createElement(DayPicker__default['default'], _extends({
     className: "Selectable",
-    selectedDays: [from, {
+    initialMonth: from,
+    selectedDays: [from].concat(selectRange ? [{
       from: from,
       to: to
-    }],
+    }] : []),
     modifiers: {
       start: from,
       end: to
@@ -3568,7 +3595,7 @@ var DatepickerComponent = function DatepickerComponent(_ref11) {
     size: "sm"
   }), /*#__PURE__*/React__default['default'].createElement(Button, {
     content: submitText,
-    disabled: !from || !to,
+    disabled: selectRange && (!from || !to) || !from,
     onClick: handleSubmit,
     size: "sm"
   }))));
@@ -3580,11 +3607,12 @@ DatepickerComponent.propTypes = {
   hasError: PropTypes__default['default'].bool,
   onChange: PropTypes__default['default'].func.isRequired,
   placeholder: PropTypes__default['default'].string,
+  selectRange: PropTypes__default['default'].bool,
   submitText: PropTypes__default['default'].string,
-  value: PropTypes__default['default'].shape({
+  value: PropTypes__default['default'].oneOfType([PropTypes__default['default'].shape({
     start: PropTypes__default['default'].string,
     end: PropTypes__default['default'].string
-  })
+  }), PropTypes__default['default'].string])
 };
 DatepickerComponent.defaultProps = {
   cancelText: "Cancel",
@@ -3592,8 +3620,9 @@ DatepickerComponent.defaultProps = {
   datepickerProps: {},
   hasError: false,
   placeholder: "Select dates",
+  selectRange: false,
   submitText: "Submit",
-  value: {}
+  value: null
 };
 
 var DatepickerPropTypes = {
