@@ -136,7 +136,7 @@ function _taggedTemplateLiteralLoose(strings, raw) {
 }
 
 function _templateObject() {
-  var data = _taggedTemplateLiteralLoose(["\n  html, body, #root, #__next {\n    min-height: 100%;\n  }\n\n  input:-webkit-autofill,\n  input:-webkit-autofill:hover,\n  input:-webkit-autofill:focus,\n  input:-webkit-autofill:active  {\n      -webkit-box-shadow: 0 0 0 30px white inset !important;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  html {\n    min-height: 100%;\n  }\n\n  body, #root, #__next {\n    height: 100%;\n  }\n\n  input:-webkit-autofill,\n  input:-webkit-autofill:hover,\n  input:-webkit-autofill:focus,\n  input:-webkit-autofill:active  {\n      -webkit-box-shadow: 0 0 0 30px white inset !important;\n  }\n"]);
 
   _templateObject = function _templateObject() {
     return data;
