@@ -2,7 +2,7 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   html, body, #root, #__next {
-    height: 100%;
+    min-height: 100%;
   }
 
   input:-webkit-autofill,
