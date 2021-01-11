@@ -4865,7 +4865,7 @@ var FormRow = function FormRow(_ref9) {
   }, props), label && /*#__PURE__*/React.createElement(StyledLabel$3, {
     labelAlign: labelAlign,
     labelGutter: labelGutter
-  }, label), /*#__PURE__*/React.createElement(FieldsAndErrorsWrapper, {
+  }, label), children && /*#__PURE__*/React.createElement(FieldsAndErrorsWrapper, {
     fullWidth: !label
   }, /*#__PURE__*/React.createElement(Fields, null, children), rowErrors.map(function (err) {
     return /*#__PURE__*/React.createElement(FormError, {

@@ -77,12 +77,16 @@ export const FormRow = ({
           {label}
         </StyledLabel>
       )}
-      <FieldsAndErrorsWrapper fullWidth={!label}>
-        <Fields>{children}</Fields>
-        {rowErrors.map((err) => (
-          <FormError key={err} message={err} />
-        ))}
-      </FieldsAndErrorsWrapper>
+
+      {children && (
+        <FieldsAndErrorsWrapper fullWidth={!label}>
+          <Fields>{children}</Fields>
+
+          {rowErrors.map((err) => (
+            <FormError key={err} message={err} />
+          ))}
+        </FieldsAndErrorsWrapper>
+      )}
     </StyledRow>
   );
 };
