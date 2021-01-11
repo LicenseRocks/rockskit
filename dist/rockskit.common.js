@@ -4909,7 +4909,7 @@ var FormRow = function FormRow(_ref9) {
   }, props), label && /*#__PURE__*/React__default['default'].createElement(StyledLabel$3, {
     labelAlign: labelAlign,
     labelGutter: labelGutter
-  }, label), children && /*#__PURE__*/React__default['default'].createElement(FieldsAndErrorsWrapper, {
+  }, label), React.Children.count(children) > 0 && /*#__PURE__*/React__default['default'].createElement(FieldsAndErrorsWrapper, {
     fullWidth: !label
   }, /*#__PURE__*/React__default['default'].createElement(Fields, null, children), rowErrors.map(function (err) {
     return /*#__PURE__*/React__default['default'].createElement(FormError, {

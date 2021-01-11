@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Children } from "react";
 import styled, { css } from "styled-components";
 
 import { FormError, FormLabel } from "..";
@@ -78,7 +78,7 @@ export const FormRow = ({
         </StyledLabel>
       )}
 
-      {children && (
+      {Children.count(children) > 0 && (
         <FieldsAndErrorsWrapper fullWidth={!label}>
           <Fields>{children}</Fields>
 

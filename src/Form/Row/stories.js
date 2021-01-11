@@ -16,7 +16,7 @@ const StyledWrapper = styled.div`
   width: ${({ width }) => width};
 `;
 
-export const main = (props = {}) => {
+export const main = () => {
   const defaultProps = {
     errors: [],
     labelAlign: select("Label align", ["center", "start"], "center"),

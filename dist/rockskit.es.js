@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, forwardRef, Fragment, useRef, createRef } from 'react';
+import React, { createContext, useContext, useState, useEffect, forwardRef, Children, Fragment, useRef, createRef } from 'react';
 import PropTypes, { bool, func, oneOf } from 'prop-types';
 import styled, { createGlobalStyle, css, useTheme, ThemeProvider as ThemeProvider$1 } from 'styled-components';
 import Grid from '@material-ui/core/Grid';
@@ -4865,7 +4865,7 @@ var FormRow = function FormRow(_ref9) {
   }, props), label && /*#__PURE__*/React.createElement(StyledLabel$3, {
     labelAlign: labelAlign,
     labelGutter: labelGutter
-  }, label), children && /*#__PURE__*/React.createElement(FieldsAndErrorsWrapper, {
+  }, label), Children.count(children) > 0 && /*#__PURE__*/React.createElement(FieldsAndErrorsWrapper, {
     fullWidth: !label
   }, /*#__PURE__*/React.createElement(Fields, null, children), rowErrors.map(function (err) {
     return /*#__PURE__*/React.createElement(FormError, {
