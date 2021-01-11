@@ -4903,13 +4903,14 @@ var FormRow = function FormRow(_ref9) {
       props = _objectWithoutPropertiesLoose(_ref9, ["children", "errors", "fields", "label", "labelAlign", "labelGutter", "show"]);
 
   var rowErrors = Array.isArray(errors) ? errors : getFormRowErrors(errors, fields);
+  var validChildren = React.Children.toArray(children).filter(Boolean);
   return /*#__PURE__*/React__default['default'].createElement(StyledRow, _extends({
     labelAlign: labelAlign,
     show: show
   }, props), label && /*#__PURE__*/React__default['default'].createElement(StyledLabel$3, {
     labelAlign: labelAlign,
     labelGutter: labelGutter
-  }, label), React.Children.count(children) > 0 && /*#__PURE__*/React__default['default'].createElement(FieldsAndErrorsWrapper, {
+  }, label), validChildren.length > 0 && /*#__PURE__*/React__default['default'].createElement(FieldsAndErrorsWrapper, {
     fullWidth: !label
   }, /*#__PURE__*/React__default['default'].createElement(Fields, null, children), rowErrors.map(function (err) {
     return /*#__PURE__*/React__default['default'].createElement(FormError, {

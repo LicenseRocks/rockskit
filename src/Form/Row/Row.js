@@ -70,6 +70,8 @@ export const FormRow = ({
     ? errors
     : getFormRowErrors(errors, fields);
 
+  const validChildren = Children.toArray(children).filter(Boolean);
+
   return (
     <StyledRow labelAlign={labelAlign} show={show} {...props}>
       {label && (
@@ -78,7 +80,7 @@ export const FormRow = ({
         </StyledLabel>
       )}
 
-      {Children.count(children) > 0 && (
+      {validChildren.length > 0 && (
         <FieldsAndErrorsWrapper fullWidth={!label}>
           <Fields>{children}</Fields>
 
