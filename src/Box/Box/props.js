@@ -29,6 +29,7 @@ export const BoxPropTypes = {
   headerTitleSize: PropTypes.string,
   loading: PropTypes.bool,
   loadingMessage: PropTypes.string,
+  loadingProps: PropTypes.shape({}),
   padding: PropTypes.number,
   tabs: PropTypes.arrayOf(PropTypes.shape({})),
   tabsProps: PropTypes.shape({}),
@@ -38,6 +39,7 @@ export const BoxPropTypes = {
 };
 
 export const BoxDefaultProps = {
+  loadingProps: {},
   padding: 6,
   transition: false,
   transparentSm: false,

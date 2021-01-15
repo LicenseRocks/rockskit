@@ -65,6 +65,7 @@ export const Box = ({
   headerTitleSize,
   loading,
   loadingMessage,
+  loadingProps,
   padding,
   tabs,
   tabsProps,
@@ -115,6 +116,7 @@ export const Box = ({
           message={loadingMessage}
           transparent
           fullScreen={isMobile && transparentSm}
+          {...loadingProps}
         />
       )}
 

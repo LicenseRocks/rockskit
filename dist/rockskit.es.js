@@ -1962,6 +1962,7 @@ var BoxPropTypes = _extends({
   headerTitleSize: PropTypes.string,
   loading: PropTypes.bool,
   loadingMessage: PropTypes.string,
+  loadingProps: PropTypes.shape({}),
   padding: PropTypes.number,
   tabs: PropTypes.arrayOf(PropTypes.shape({})),
   tabsProps: PropTypes.shape({}),
@@ -1969,6 +1970,7 @@ var BoxPropTypes = _extends({
   transparentSm: PropTypes.bool
 }, BoxBasePropTypes);
 var BoxDefaultProps = _extends({
+  loadingProps: {},
   padding: 6,
   transition: false,
   transparentSm: false
@@ -2024,12 +2026,13 @@ var Box = function Box(_ref3) {
       headerTitleSize = _ref3.headerTitleSize,
       loading = _ref3.loading,
       loadingMessage = _ref3.loadingMessage,
+      loadingProps = _ref3.loadingProps,
       padding = _ref3.padding,
       tabs = _ref3.tabs,
       tabsProps = _ref3.tabsProps,
       transition = _ref3.transition,
       transparentSm = _ref3.transparentSm,
-      props = _objectWithoutPropertiesLoose(_ref3, ["alert", "alertColor", "children", "contentPadding", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionSize", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconHiddenSm", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "padding", "tabs", "tabsProps", "transition", "transparentSm"]);
+      props = _objectWithoutPropertiesLoose(_ref3, ["alert", "alertColor", "children", "contentPadding", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionSize", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconHiddenSm", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "loadingProps", "padding", "tabs", "tabsProps", "transition", "transparentSm"]);
 
   var isMobile = useMediaQuery(function (theme) {
     return theme.breakpoints.down("sm");
@@ -2058,11 +2061,11 @@ var Box = function Box(_ref3) {
   }));
   return /*#__PURE__*/React.createElement(BoxBase, _extends({
     transparentSm: transparentSm
-  }, props), loading && /*#__PURE__*/React.createElement(PageLoading, {
+  }, props), loading && /*#__PURE__*/React.createElement(PageLoading, _extends({
     message: loadingMessage,
     transparent: true,
     fullScreen: isMobile && transparentSm
-  }), headerTitle && /*#__PURE__*/React.createElement(BoxHeader, {
+  }, loadingProps)), headerTitle && /*#__PURE__*/React.createElement(BoxHeader, {
     action: headerAction,
     actionIcon: headerActionIcon,
     actionIconProps: headerActionIconProps,
