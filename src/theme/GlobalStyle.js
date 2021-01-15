@@ -1,11 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
-  html {
+  html, body, #root, #__next {
     min-height: 100%;
-  }
-
-  body, #root, #__next {
     height: 100%;
   }
 
