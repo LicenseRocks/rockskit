@@ -44,7 +44,7 @@ export const BoxFooter = ({
   renderTitle,
   ...props
 }) => {
-  if (!renderTitle || !renderAction || !actionTitle) return null;
+  if (!renderTitle() || !renderAction() || !actionTitle) return null;
 
   return (
     <StyledBoxFooter {...props}>

@@ -120,30 +120,28 @@ export const Box = ({
         />
       )}
 
-      {headerTitle && (
-        <BoxHeader
-          action={headerAction}
-          actionIcon={headerActionIcon}
-          actionIconProps={headerActionIconProps}
-          actionIconSize={headerActionIconSize}
-          contentPadding={contentPadding}
-          padding={padding}
-          metaTitle={headerMetaTitle}
-          metaTitleColor={headerMetaTitleColor}
-          renderAction={headerRenderAction}
-          renderTitle={headerRenderTitle}
-          subTitle={headerSubTitle}
-          subTitleColor={headerSubTitleColor}
-          tabs={tabs}
-          tabsProps={tabsProps}
-          title={headerTitle}
-          titleIcon={headerTitleIcon}
-          titleIconHiddenSm={headerTitleIconHiddenSm}
-          titleIconProps={headerTitleIconProps}
-          titleSize={headerTitleSize}
-          transparentSm={transparentSm}
-        />
-      )}
+      <BoxHeader
+        action={headerAction}
+        actionIcon={headerActionIcon}
+        actionIconProps={headerActionIconProps}
+        actionIconSize={headerActionIconSize}
+        contentPadding={contentPadding}
+        padding={padding}
+        metaTitle={headerMetaTitle}
+        metaTitleColor={headerMetaTitleColor}
+        renderAction={headerRenderAction}
+        renderTitle={headerRenderTitle}
+        subTitle={headerSubTitle}
+        subTitleColor={headerSubTitleColor}
+        tabs={tabs}
+        tabsProps={tabsProps}
+        title={headerTitle}
+        titleIcon={headerTitleIcon}
+        titleIconHiddenSm={headerTitleIconHiddenSm}
+        titleIconProps={headerTitleIconProps}
+        titleSize={headerTitleSize}
+        transparentSm={transparentSm}
+      />
 
       {transition ? <PageTransition>{content}</PageTransition> : content}
     </BoxBase>
