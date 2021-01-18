@@ -82,7 +82,7 @@ export const BoxHeader = ({
 }) => {
   const isMobile = useMediaQuery((theme) => theme.breakpoints.down("sm"));
   const showTitleIcon = isMobile ? !titleIconHiddenSm : !!titleIcon;
-  if (!renderTitle() || !renderAction() || !title) return null;
+  if (!renderTitle() && !renderAction() && !title) return null;
 
   return (
     <Wrapper transparentSm={transparentSm}>

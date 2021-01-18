@@ -1766,7 +1766,7 @@ var BoxFooter = function BoxFooter(_ref3) {
       renderTitle = _ref3.renderTitle,
       props = _objectWithoutPropertiesLoose(_ref3, ["action", "actionDisabled", "actionLoading", "actionSize", "actionTitle", "actionType", "renderAction", "renderTitle"]);
 
-  if (!renderTitle() || !renderAction() || !actionTitle) return null;
+  if (!renderTitle() && !renderAction() && !actionTitle) return null;
   return /*#__PURE__*/React__default['default'].createElement(StyledBoxFooter, props, /*#__PURE__*/React__default['default'].createElement(Flex, {
     item: true
   }, renderTitle()), /*#__PURE__*/React__default['default'].createElement(Flex, {
@@ -1897,7 +1897,7 @@ var BoxHeader = function BoxHeader(_ref9) {
     return theme.breakpoints.down("sm");
   });
   var showTitleIcon = isMobile ? !titleIconHiddenSm : !!titleIcon;
-  if (!renderTitle() || !renderAction() || !title) return null;
+  if (!renderTitle() && !renderAction() && !title) return null;
   return /*#__PURE__*/React__default['default'].createElement(Wrapper, {
     transparentSm: transparentSm
   }, /*#__PURE__*/React__default['default'].createElement(StyledBoxHeader, _extends({
