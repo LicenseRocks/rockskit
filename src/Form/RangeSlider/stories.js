@@ -33,8 +33,6 @@ export const main = (props = {}) => {
     ...props,
   };
 
-  console.log("re-render");
-
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <RangeSlider {...defaultProps} />

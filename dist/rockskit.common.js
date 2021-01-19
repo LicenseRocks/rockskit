@@ -4504,7 +4504,7 @@ var StyledThumb = styled__default['default'].span(_templateObject2$f(), function
   return theme.spacing(2);
 });
 var Slider = function Slider(_ref5) {
-  var onChange = _ref5.onChange,
+  var _onChange = _ref5.onChange,
       renderValue = _ref5.renderValue,
       renderValueText = _ref5.renderValueText,
       value = _ref5.value,
@@ -4520,8 +4520,8 @@ var Slider = function Slider(_ref5) {
   };
 
   return /*#__PURE__*/React__default['default'].createElement(StyledSlider, _extends({
-    onChangeCommitted: function onChangeCommitted(_, val) {
-      return onChange(val);
+    onChange: function onChange(_, val) {
+      return _onChange(val);
     },
     ThumbComponent: Thumb,
     value: value || 0

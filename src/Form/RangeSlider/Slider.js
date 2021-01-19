@@ -56,7 +56,7 @@ export const Slider = ({
 
   return (
     <StyledSlider
-      onChangeCommitted={(_, val) => onChange(val)}
+      onChange={(_, val) => onChange(val)}
       ThumbComponent={Thumb}
       value={value || 0}
       {...props}
