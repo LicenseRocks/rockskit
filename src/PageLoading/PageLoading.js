@@ -19,7 +19,7 @@ const StyledLoading = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  z-index: 9999;
+  z-index: ${({ fullScreen }) => (fullScreen ? 9999 : 99)};
 `;
 
 export const PageLoading = ({ message, ...props }) => (

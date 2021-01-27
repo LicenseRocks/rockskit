@@ -8373,7 +8373,7 @@ var PageLoadingPropTypes = {
 var PageLoadingDefaultProps = {};
 
 function _templateObject$1l() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  min-width: ", ";\n  min-height: ", ";\n  width: 100%;\n  height: 100%;\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: 9999;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  min-width: ", ";\n  min-height: ", ";\n  width: 100%;\n  height: 100%;\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: ", ";\n"]);
 
   _templateObject$1l = function _templateObject() {
     return data;
@@ -8394,10 +8394,13 @@ var StyledLoading = styled.div(_templateObject$1l(), function (_ref) {
   var transparent = _ref4.transparent,
       theme = _ref4.theme;
   return transparent ? "rgba(0, 0, 0, 0.3)" : theme.palette.common.white;
+}, function (_ref5) {
+  var fullScreen = _ref5.fullScreen;
+  return fullScreen ? 9999 : 99;
 });
-var PageLoading = function PageLoading(_ref5) {
-  var message = _ref5.message,
-      props = _objectWithoutPropertiesLoose(_ref5, ["message"]);
+var PageLoading = function PageLoading(_ref6) {
+  var message = _ref6.message,
+      props = _objectWithoutPropertiesLoose(_ref6, ["message"]);
 
   return /*#__PURE__*/React.createElement(StyledLoading, props, /*#__PURE__*/React.createElement(RocksSpinner, null), message && /*#__PURE__*/React.createElement(Text, {
     color: "primary",
