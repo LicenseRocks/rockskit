@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import MuiSlider from "@material-ui/core/Slider";
 
-import { DISPLAY, SPACER, Text } from "../..";
+import { DISPLAY, SPACER } from "../..";
+import { Thumb } from "./Thumb";
 
 const StyledSlider = styled(MuiSlider)`
   .MuiSlider-rail {
@@ -11,12 +12,7 @@ const StyledSlider = styled(MuiSlider)`
       hasError ? theme.palette.error.main : theme.palette.gray.regular};
   }
 
-  ${(theme) => SPACER(theme)}
-  ${(theme) => DISPLAY(theme)}
-`;
-
-const StyledThumb = styled.span`
-  &.MuiSlider-thumb {
+  .MuiSlider-thumb {
     background: ${({ theme }) => theme.palette.common.white};
     color: ${({ theme }) => theme.palette.text.primary};
     padding: ${({ theme }) => theme.spacing(2)};
@@ -30,30 +26,12 @@ const StyledThumb = styled.span`
     text-align: center;
     margin-top: -13px;
   }
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
-export const Slider = ({
-  onChange,
-  renderValue,
-  renderValueText,
-  value,
-  ...props
-}) => {
-  const Thumb = (thumbProps) => {
-    const currentVal = thumbProps["aria-valuenow"] || "0";
-    return (
-      <StyledThumb {...thumbProps}>
-        {renderValue(currentVal) || (
-          <Text
-            content={renderValueText(currentVal) || String(currentVal)}
-            fontSize="sm"
-            fontWeight="bold"
-          />
-        )}
-      </StyledThumb>
-    );
-  };
-
+export const Slider = ({ onChange, value, ...props }) => {
   return (
     <StyledSlider
       onChange={(_, val) => onChange(val)}
