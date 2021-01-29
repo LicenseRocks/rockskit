@@ -30,6 +30,7 @@ const StyledInput = styled.input`
       content: "";
       display: inline-block;
       width: 24px;
+      min-width: 24px;
       height: 24px;
       border-radius: ${({ type }) => (type === "radio" ? "50%" : "8px")};
       background-color: ${({ theme }) => theme.palette.common.white};
