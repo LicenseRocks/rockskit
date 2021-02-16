@@ -14,6 +14,7 @@ const StyledSelect = styled(Select)`
 
 export const PriceField = ({
   currencies,
+  defaultValue,
   hasError,
   hasWrapper,
   inputProps,
@@ -25,6 +26,7 @@ export const PriceField = ({
   return (
     <FieldWrapper hasError={hasError} {...props}>
       <Input
+        defaultValue={defaultValue}
         hasError={hasError}
         hasWrapper={false}
         name={name}

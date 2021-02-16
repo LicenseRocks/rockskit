@@ -15,10 +15,11 @@ export const main = () => {
   const { register, watch } = useForm();
 
   const defaultProps = {
+    defaultValue: 5,
     disabled: boolean("Disabled", false),
     hasError: boolean("Has error", false),
     name: "price",
-    inputrops: {
+    inputProps: {
       placeholder: "Price",
     },
     selectProps: {
