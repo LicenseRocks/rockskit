@@ -10090,13 +10090,13 @@ var StyledTooltip = styled__default['default'](function (props) {
   }, props));
 })(_templateObject$1F(), function (_ref) {
   var theme = _ref.theme;
-  return theme.palette.common.white;
+  return theme.palette.gray.dark;
 }, function (_ref2) {
   var theme = _ref2.theme;
-  return theme.palette.text.primary;
+  return theme.palette.common.white;
 }, function (_ref3) {
   var theme = _ref3.theme;
-  return theme.palette.common.white;
+  return theme.palette.gray.dark;
 });
 var Tooltip = function Tooltip(_ref4) {
   var children = _ref4.children,

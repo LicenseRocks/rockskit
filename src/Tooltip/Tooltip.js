@@ -12,12 +12,12 @@ const StyledTooltip = styled((props) => (
   />
 ))`
   & .MuiTooltip-tooltip {
-    background-color: ${({ theme }) => theme.palette.common.white};
-    color: ${({ theme }) => theme.palette.text.primary};
+    background-color: ${({ theme }) => theme.palette.gray.dark};
+    color: ${({ theme }) => theme.palette.common.white};
   }
 
   & .MuiTooltip-arrow {
-    color: ${({ theme }) => theme.palette.common.white};
+    color: ${({ theme }) => theme.palette.gray.dark};
   }
 `;
 
