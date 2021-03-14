@@ -2426,7 +2426,7 @@ var StyledImg = styled__default['default'].img(_templateObject$n(), function (_r
   return height && "height: " + height + ";";
 }, function (_ref4) {
   var cover = _ref4.cover;
-  return cover && styled.css(["height:100%;object-fit:fill;"]);
+  return cover && styled.css(["height:100%;object-fit:cover;"]);
 }, function (_ref5) {
   var onClick = _ref5.onClick;
   return onClick && styled.css(["transition:all 100ms ease-in-out;cursor:pointer;:hover{opacity:0.7;}"]);

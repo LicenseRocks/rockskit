@@ -2382,7 +2382,7 @@ var StyledImg = styled.img(_templateObject$n(), function (_ref2) {
   return height && "height: " + height + ";";
 }, function (_ref4) {
   var cover = _ref4.cover;
-  return cover && css(["height:100%;object-fit:fill;"]);
+  return cover && css(["height:100%;object-fit:cover;"]);
 }, function (_ref5) {
   var onClick = _ref5.onClick;
   return onClick && css(["transition:all 100ms ease-in-out;cursor:pointer;:hover{opacity:0.7;}"]);

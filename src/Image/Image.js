@@ -16,7 +16,7 @@ const StyledImg = styled.img`
     cover &&
     css`
       height: 100%;
-      object-fit: fill;
+      object-fit: cover;
     `}
 
   ${({ onClick }) =>
