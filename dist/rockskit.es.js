@@ -3865,7 +3865,7 @@ Fieldset.propTypes = {
 Fieldset.defaultProps = {};
 
 function _templateObject3$9() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  width: 48px;\n  height: 48px;\n  border-radius: 8px;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-right: ", ";\n\n  img {\n    border-radius: 8px;\n    object-fit: cover;\n  }\n\n  && {\n    h4 {\n      text-transform: uppercase;\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  &.filepond--root {\n    font-weight: unset;\n    font-family: unset;\n    font-size: unset;\n    overflow: hidden;\n  }\n\n  .filepond--drop-label {\n    color: unset;\n  }\n\n  && {\n    .filepond--panel,\n    .filepond--panel-root,\n    .filepond--drip,\n    .filepond--drop-label {\n      background-color: transparent !important;\n    }\n  }\n"]);
 
   _templateObject3$9 = function _templateObject3() {
     return data;
@@ -3875,7 +3875,7 @@ function _templateObject3$9() {
 }
 
 function _templateObject2$c() {
-  var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  background-color: ", ";\n  border-color: ", ";\n  border-radius: 16px;\n  border-style: dashed;\n  border-width: 2px;\n  cursor: pointer;\n  min-height: 125px;\n  outline: none;\n  transition: all 100ms ease-in-out;\n  color: ", ";\n  margin-bottom: ", ";\n  overflow: hidden;\n\n  &:hover {\n    border-color: ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
   _templateObject2$c = function _templateObject2() {
     return data;
@@ -3885,7 +3885,7 @@ function _templateObject2$c() {
 }
 
 function _templateObject$D() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: ", ";\n  background-color: ", ";\n  color: ", ";\n  font-size: 12px;\n  margin-bottom: ", ";\n  border-radius: 8px;\n\n  .details {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  width: 100%;\n  height: 100%;\n"]);
 
   _templateObject$D = function _templateObject() {
     return data;
@@ -3893,102 +3893,8 @@ function _templateObject$D() {
 
   return data;
 }
-var Item$1 = styled.div(_templateObject$D(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.spacing(2, 4);
-}, function (_ref2) {
-  var theme = _ref2.theme;
-  return theme.palette.success.main;
-}, function (_ref3) {
-  var theme = _ref3.theme;
-  return theme.palette.common.white;
-}, function (_ref4) {
-  var theme = _ref4.theme;
-  return theme.spacing(2);
-});
-var RemoveIcon = styled(Icon)(_templateObject2$c(), function (_ref5) {
-  var theme = _ref5.theme;
-  return theme.palette.common.white;
-});
-var PreviewWrapper = styled.div(_templateObject3$9(), function (_ref6) {
-  var theme = _ref6.theme;
-  return theme.palette.gray.regular;
-}, function (_ref7) {
-  var theme = _ref7.theme;
-  return theme.spacing(2);
-});
-
-function bytesToSize(bytes) {
-  var sizes = ["Bytes", "KB", "MB", "GB", "TB"];
-  if (bytes === 0) return "0 Byte";
-  var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
-  return Math.round(bytes / Math.pow(1024, i), 2) + " " + sizes[i];
-}
-
-var UploaderPreview = function UploaderPreview(_ref8) {
-  var files = _ref8.files,
-      onRemoveClick = _ref8.onRemoveClick;
-  return Array.from(files).map(function (file) {
-    return /*#__PURE__*/React.createElement(Item$1, {
-      key: file.name
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "details"
-    }, /*#__PURE__*/React.createElement(PreviewWrapper, null, file.preview ? /*#__PURE__*/React.createElement(Image, {
-      alt: file.name,
-      height: "100%",
-      src: file.preview,
-      width: "100%"
-    }) : /*#__PURE__*/React.createElement(H4, {
-      content: file.name.split(".").pop(),
-      color: "textSecondary",
-      noWrap: true
-    })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, file.name), /*#__PURE__*/React.createElement("div", null, bytesToSize(file.size)))), onRemoveClick && /*#__PURE__*/React.createElement(RemoveIcon, {
-      icon: "times",
-      onClick: function onClick() {
-        return onRemoveClick(file);
-      }
-    }));
-  });
-};
-UploaderPreview.propTypes = {
-  files: PropTypes.arrayOf(PropTypes.object),
-  onRemoveClick: PropTypes.func.isRequired
-};
-UploaderPreview.defaultProps = {
-  files: []
-};
-
-function _templateObject3$a() {
-  var data = _taggedTemplateLiteralLoose(["\n  &.filepond--root {\n    font-weight: unset;\n    font-family: unset;\n    font-size: unset;\n    overflow: hidden;\n  }\n\n  .filepond--drop-label {\n    color: unset;\n  }\n\n  && {\n    .filepond--panel,\n    .filepond--panel-root,\n    .filepond--drip,\n    .filepond--drop-label {\n      background-color: transparent !important;\n    }\n  }\n"]);
-
-  _templateObject3$a = function _templateObject3() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject2$d() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  background-color: ", ";\n  border-color: ", ";\n  border-radius: 16px;\n  border-style: dashed;\n  border-width: 2px;\n  cursor: pointer;\n  min-height: 125px;\n  outline: none;\n  transition: all 100ms ease-in-out;\n  color: ", ";\n  margin-bottom: ", ";\n  overflow: hidden;\n\n  &:hover {\n    border-color: ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
-
-  _templateObject2$d = function _templateObject2() {
-    return data;
-  };
-
-  return data;
-}
-
-function _templateObject$E() {
-  var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  width: 100%;\n  height: 100%;\n"]);
-
-  _templateObject$E = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var Wrapper$6 = styled.div(_templateObject$E());
-var Container$3 = styled.div(_templateObject2$d(), function (_ref) {
+var Wrapper$6 = styled.div(_templateObject$D());
+var Container$3 = styled.div(_templateObject2$c(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -4020,7 +3926,7 @@ var Container$3 = styled.div(_templateObject2$d(), function (_ref) {
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledFilePond = styled(FilePond$1)(_templateObject3$a());
+var StyledFilePond = styled(FilePond$1)(_templateObject3$9());
 var FilePondComponent = function FilePondComponent(_ref10) {
   var disabled = _ref10.disabled,
       hasError = _ref10.hasError,
@@ -4043,14 +3949,7 @@ var FilePondComponent = function FilePondComponent(_ref10) {
         }]));
       }
     }
-  }, props))), /*#__PURE__*/React.createElement(UploaderPreview, {
-    files: value,
-    onRemoveClick: function onRemoveClick(file) {
-      onChange(value.filter(function (f) {
-        return f.id !== file.id;
-      }));
-    }
-  }));
+  }, props))));
 };
 FilePondComponent.propTypes = {
   accept: PropTypes.string,
@@ -4107,6 +4006,100 @@ var FilePond = function FilePond(_ref) {
 };
 FilePond.propTypes = FileUploadPropTypes;
 FilePond.defaultProps = FileUploadDefaultProps;
+
+function _templateObject3$a() {
+  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  width: 48px;\n  height: 48px;\n  border-radius: 8px;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-right: ", ";\n\n  img {\n    border-radius: 8px;\n    object-fit: cover;\n  }\n\n  && {\n    h4 {\n      text-transform: uppercase;\n    }\n  }\n"]);
+
+  _templateObject3$a = function _templateObject3() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject2$d() {
+  var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n"]);
+
+  _templateObject2$d = function _templateObject2() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject$E() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: ", ";\n  background-color: ", ";\n  color: ", ";\n  font-size: 12px;\n  margin-bottom: ", ";\n  border-radius: 8px;\n\n  .details {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n  }\n"]);
+
+  _templateObject$E = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Item$1 = styled.div(_templateObject$E(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.spacing(2, 4);
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.palette.success.main;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.palette.common.white;
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.spacing(2);
+});
+var RemoveIcon = styled(Icon)(_templateObject2$d(), function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.palette.common.white;
+});
+var PreviewWrapper = styled.div(_templateObject3$a(), function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.palette.gray.regular;
+}, function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.spacing(2);
+});
+
+function bytesToSize(bytes) {
+  var sizes = ["Bytes", "KB", "MB", "GB", "TB"];
+  if (bytes === 0) return "0 Byte";
+  var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)), 10);
+  return Math.round(bytes / Math.pow(1024, i), 2) + " " + sizes[i];
+}
+
+var UploaderPreview = function UploaderPreview(_ref8) {
+  var files = _ref8.files,
+      onRemoveClick = _ref8.onRemoveClick;
+  return Array.from(files).map(function (file) {
+    return /*#__PURE__*/React.createElement(Item$1, {
+      key: file.name
+    }, /*#__PURE__*/React.createElement("div", {
+      className: "details"
+    }, /*#__PURE__*/React.createElement(PreviewWrapper, null, file.preview ? /*#__PURE__*/React.createElement(Image, {
+      alt: file.name,
+      height: "100%",
+      src: file.preview,
+      width: "100%"
+    }) : /*#__PURE__*/React.createElement(H4, {
+      content: file.name.split(".").pop(),
+      color: "textSecondary",
+      noWrap: true
+    })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, file.name), /*#__PURE__*/React.createElement("div", null, bytesToSize(file.size)))), onRemoveClick && /*#__PURE__*/React.createElement(RemoveIcon, {
+      icon: "times",
+      onClick: function onClick() {
+        return onRemoveClick(file);
+      }
+    }));
+  });
+};
+UploaderPreview.propTypes = {
+  files: PropTypes.arrayOf(PropTypes.object),
+  onRemoveClick: PropTypes.func.isRequired
+};
+UploaderPreview.defaultProps = {
+  files: []
+};
 
 function _templateObject2$e() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  border-color: ", ";\n  border-radius: 16px;\n  border-style: dashed;\n  border-width: 2px;\n  cursor: pointer;\n  min-height: 125px;\n  outline: none;\n  transition: all 100ms ease-in-out;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  color: ", ";\n  margin-bottom: 8px;\n\n  &:hover {\n    border-color: ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n"]);

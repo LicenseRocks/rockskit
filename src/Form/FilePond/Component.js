@@ -4,7 +4,6 @@ import styled, { css } from "styled-components";
 import { FilePond } from "react-filepond";
 
 import { DISPLAY, SPACER } from "../../theme";
-import { UploaderPreview } from "../FileUpload/UploaderPreview";
 
 const Wrapper = styled.div`
   flex: 1;
@@ -101,13 +100,6 @@ export const FilePondComponent = ({
           {...props}
         />
       </Container>
-
-      <UploaderPreview
-        files={value}
-        onRemoveClick={(file) => {
-          onChange(value.filter((f) => f.id !== file.id));
-        }}
-      />
     </Wrapper>
   );
 };
