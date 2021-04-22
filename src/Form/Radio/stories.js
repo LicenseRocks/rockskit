@@ -19,7 +19,7 @@ export const main = () => {
     hasError: boolean("Has error", false),
     name: "radio",
     options: [
-      { value: "first", label: "First" },
+      { value: "first", label: "First", icon: "tv" },
       { value: "second", label: "Second" },
       { value: "third", label: "Third" },
     ],

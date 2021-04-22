@@ -2,6 +2,7 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 import Check from "../../assets/icons/check.svg";
+import { Icon } from "../../Icon";
 import { RadioBasePropTypes, RadioBaseDefaultProps } from "./props";
 
 const StyledInput = styled.input`
@@ -18,8 +19,8 @@ const StyledInput = styled.input`
     transition: all 0.1s ease-in-out;
 
     ${({ stacked }) =>
-      stacked &&
-      css`
+    stacked &&
+    css`
         display: flex;
         :not(:last-child) {
           margin: 0 0 24px 0;
@@ -38,8 +39,8 @@ const StyledInput = styled.input`
       margin-right: 8px;
       transition: background-color 0.1s ease-in-out;
       ${({ hasError }) =>
-        hasError &&
-        css`
+    hasError &&
+    css`
           border-color: ${({ theme }) => theme.palette.error.main};
         `}
     }
@@ -109,9 +110,10 @@ export const RadioBaseItem = ({
   bordered,
   defaultValue,
   hasError,
+  icon,
+  iconProps,
   label,
   name,
-  options,
   register,
   stacked,
   type,
@@ -137,6 +139,8 @@ export const RadioBaseItem = ({
         {...props}
       />
       <StyledLabel bordered={bordered} htmlFor={id}>
+        {icon && <Icon color="secondary" mr={2} {...iconProps} icon={icon} />}
+
         {label}
       </StyledLabel>
     </>

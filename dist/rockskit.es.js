@@ -3266,14 +3266,15 @@ var RadioBaseItem = function RadioBaseItem(_ref13) {
   var bordered = _ref13.bordered,
       defaultValue = _ref13.defaultValue,
       hasError = _ref13.hasError,
+      icon = _ref13.icon,
+      iconProps = _ref13.iconProps,
       label = _ref13.label,
       name = _ref13.name,
-      options = _ref13.options,
       register = _ref13.register,
       stacked = _ref13.stacked,
       type = _ref13.type,
       value = _ref13.value,
-      props = _objectWithoutPropertiesLoose(_ref13, ["bordered", "defaultValue", "hasError", "label", "name", "options", "register", "stacked", "type", "value"]);
+      props = _objectWithoutPropertiesLoose(_ref13, ["bordered", "defaultValue", "hasError", "icon", "iconProps", "label", "name", "register", "stacked", "type", "value"]);
 
   var id = name + "-" + value;
   var defaultChecked = type === "checkbox" ? defaultValue.includes(value) : defaultValue === value;
@@ -3290,7 +3291,12 @@ var RadioBaseItem = function RadioBaseItem(_ref13) {
   }, props)), /*#__PURE__*/React.createElement(StyledLabel$1, {
     bordered: bordered,
     htmlFor: id
-  }, label));
+  }, icon && /*#__PURE__*/React.createElement(Icon, _extends({
+    color: "secondary",
+    mr: 2
+  }, iconProps, {
+    icon: icon
+  })), label));
 };
 RadioBaseItem.propTypes = RadioBasePropTypes;
 RadioBaseItem.defaultProps = RadioBaseDefaultProps;
