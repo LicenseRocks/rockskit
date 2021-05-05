@@ -4013,6 +4013,14 @@ var FilePond = function FilePond(_ref) {
 FilePond.propTypes = FileUploadPropTypes;
 FilePond.defaultProps = FileUploadDefaultProps;
 
+var Input = function Input(props) {
+  return /*#__PURE__*/React.createElement(FieldBase, _extends({
+    component: "input"
+  }, props));
+};
+Input.propTypes = FieldBasePropTypes;
+Input.defaultProps = FieldBaseDefaultProps;
+
 function _templateObject3$a() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  width: 48px;\n  height: 48px;\n  border-radius: 8px;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  margin-right: ", ";\n\n  img {\n    border-radius: 8px;\n    object-fit: cover;\n  }\n\n  && {\n    h4 {\n      text-transform: uppercase;\n    }\n  }\n"]);
 
@@ -4055,7 +4063,7 @@ var Item$1 = styled.div(_templateObject$E(), function (_ref) {
   var theme = _ref4.theme;
   return theme.spacing(2);
 });
-var RemoveIcon = styled(Icon)(_templateObject2$d(), function (_ref5) {
+var ActionIcon = styled(Icon)(_templateObject2$d(), function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.common.white;
 });
@@ -4074,34 +4082,97 @@ function bytesToSize(bytes) {
   return Math.round(bytes / Math.pow(1024, i), 2) + " " + sizes[i];
 }
 
-var UploaderPreview = function UploaderPreview(_ref8) {
-  var files = _ref8.files,
-      onRemoveClick = _ref8.onRemoveClick;
+var UploaderPreviewItem = function UploaderPreviewItem(_ref8) {
+  var file = _ref8.file,
+      fileNameEditable = _ref8.fileNameEditable,
+      onRemoveClick = _ref8.onRemoveClick,
+      onEdit = _ref8.onEdit;
+  var name = file.altName || file.name;
+  var fileExt = name.split(".").pop();
+
+  var _useState = useState(false),
+      editMode = _useState[0],
+      setEditMode = _useState[1];
+
+  var _useState2 = useState(name.split(".").shift()),
+      altName = _useState2[0],
+      setAltName = _useState2[1];
+
+  var handleEdit = function handleEdit() {
+    onEdit(file, altName + "." + fileExt);
+    setEditMode(false);
+  };
+
+  return /*#__PURE__*/React.createElement(Item$1, {
+    key: file.name
+  }, /*#__PURE__*/React.createElement("div", {
+    className: "details"
+  }, /*#__PURE__*/React.createElement(PreviewWrapper, null, file.preview ? /*#__PURE__*/React.createElement(Image, {
+    alt: name,
+    height: "100%",
+    src: file.preview,
+    width: "100%"
+  }) : /*#__PURE__*/React.createElement(H4, {
+    content: fileExt,
+    color: "textSecondary",
+    noWrap: true
+  })), /*#__PURE__*/React.createElement("div", null, editMode ? /*#__PURE__*/React.createElement("div", {
+    className: "details"
+  }, /*#__PURE__*/React.createElement(Input, {
+    onChange: function onChange(e) {
+      return setAltName(e.target.value);
+    },
+    mb: 2,
+    value: altName
+  }), /*#__PURE__*/React.createElement(ActionIcon, {
+    icon: "check",
+    onClick: handleEdit,
+    mx: 2
+  }), /*#__PURE__*/React.createElement(ActionIcon, {
+    icon: "times",
+    onClick: function onClick() {
+      return setEditMode(false);
+    }
+  })) : /*#__PURE__*/React.createElement("b", null, name), /*#__PURE__*/React.createElement("div", null, bytesToSize(file.size)))), /*#__PURE__*/React.createElement("div", {
+    className: "details"
+  }, fileNameEditable && !editMode && /*#__PURE__*/React.createElement(ActionIcon, {
+    icon: "pencil-alt",
+    onClick: function onClick() {
+      return setEditMode(true);
+    },
+    mr: 2
+  }), onRemoveClick && /*#__PURE__*/React.createElement(ActionIcon, {
+    icon: "trash",
+    onClick: function onClick() {
+      return onRemoveClick(file);
+    }
+  })));
+};
+UploaderPreviewItem.propTypes = {
+  file: PropTypes.shape({
+    altName: PropTypes.string,
+    name: PropTypes.string,
+    preview: PropTypes.string,
+    size: PropTypes.string
+  }).isRequired,
+  fileNameEditable: PropTypes.bool.isRequired,
+  onRemoveClick: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired
+};
+
+var UploaderPreview = function UploaderPreview(_ref) {
+  var files = _ref.files,
+      props = _objectWithoutPropertiesLoose(_ref, ["files"]);
+
   return Array.from(files).map(function (file) {
-    return /*#__PURE__*/React.createElement(Item$1, {
-      key: file.name
-    }, /*#__PURE__*/React.createElement("div", {
-      className: "details"
-    }, /*#__PURE__*/React.createElement(PreviewWrapper, null, file.preview ? /*#__PURE__*/React.createElement(Image, {
-      alt: file.name,
-      height: "100%",
-      src: file.preview,
-      width: "100%"
-    }) : /*#__PURE__*/React.createElement(H4, {
-      content: file.name.split(".").pop(),
-      color: "textSecondary",
-      noWrap: true
-    })), /*#__PURE__*/React.createElement("div", null, /*#__PURE__*/React.createElement("b", null, file.name), /*#__PURE__*/React.createElement("div", null, bytesToSize(file.size)))), onRemoveClick && /*#__PURE__*/React.createElement(RemoveIcon, {
-      icon: "times",
-      onClick: function onClick() {
-        return onRemoveClick(file);
-      }
-    }));
+    return /*#__PURE__*/React.createElement(UploaderPreviewItem, _extends({
+      key: file.name,
+      file: file
+    }, props));
   });
 };
 UploaderPreview.propTypes = {
-  files: PropTypes.arrayOf(PropTypes.object),
-  onRemoveClick: PropTypes.func.isRequired
+  files: PropTypes.arrayOf(PropTypes.object)
 };
 UploaderPreview.defaultProps = {
   files: []
@@ -4164,11 +4235,12 @@ var Dropzone = function Dropzone(_ref10) {
   var accept = _ref10.accept,
       disabled = _ref10.disabled,
       defaultValue = _ref10.defaultValue,
+      fileNameEditable = _ref10.fileNameEditable,
       hasError = _ref10.hasError,
       multiple = _ref10.multiple,
       onChange = _ref10.onChange,
       value = _ref10.value,
-      props = _objectWithoutPropertiesLoose(_ref10, ["accept", "disabled", "defaultValue", "hasError", "multiple", "onChange", "value"]);
+      props = _objectWithoutPropertiesLoose(_ref10, ["accept", "disabled", "defaultValue", "fileNameEditable", "hasError", "multiple", "onChange", "value"]);
 
   var _useDropzone = useDropzone({
     accept: accept,
@@ -4177,7 +4249,8 @@ var Dropzone = function Dropzone(_ref10) {
     onDrop: function onDrop(acceptedFiles) {
       var accepted = acceptedFiles.map(function (file) {
         return Object.assign(file, {
-          preview: file.type.includes("image") ? URL.createObjectURL(file) : ""
+          preview: file.type.includes("image") ? URL.createObjectURL(file) : "",
+          altName: null
         });
       });
       if (multiple) onChange([].concat(value, accepted));else onChange([].concat(accepted));
@@ -4188,6 +4261,18 @@ var Dropzone = function Dropzone(_ref10) {
       isDragActive = _useDropzone.isDragActive,
       isDragAccept = _useDropzone.isDragAccept,
       isDragReject = _useDropzone.isDragReject;
+
+  var editFile = function editFile(file, altName) {
+    onChange(value.map(function (f) {
+      if (f.preview === file.preview) {
+        Object.assign(file, {
+          altName: altName
+        });
+      }
+
+      return f;
+    }));
+  };
 
   var removeFile = function removeFile(file) {
     onChange(value.filter(function (f) {
@@ -4203,13 +4288,16 @@ var Dropzone = function Dropzone(_ref10) {
     hasError: hasError
   }, getRootProps()), /*#__PURE__*/React.createElement("input", getInputProps()), isDragAccept && /*#__PURE__*/React.createElement("p", null, "Accepted"), isDragReject && /*#__PURE__*/React.createElement("p", null, "Rejected"), isDragActive ? /*#__PURE__*/React.createElement("p", null, "Drop here") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Drop, or click to select"), multiple ? /*#__PURE__*/React.createElement("p", null, "Accepts multiple files") : /*#__PURE__*/React.createElement("p", null, "Single file only"))), /*#__PURE__*/React.createElement(UploaderPreview, {
     files: value,
-    onRemoveClick: removeFile
+    fileNameEditable: fileNameEditable,
+    onRemoveClick: removeFile,
+    onEdit: editFile
   }));
 };
 Dropzone.propTypes = {
   accept: PropTypes.string,
   defaultValue: PropTypes.arrayOf(PropTypes.object),
   disabled: PropTypes.bool,
+  fileNameEditable: PropTypes.bool,
   hasError: PropTypes.bool,
   multiple: PropTypes.bool,
   onChange: PropTypes.func,
@@ -4219,6 +4307,7 @@ Dropzone.defaultProps = {
   accept: "image/*",
   defaultValue: [],
   disabled: false,
+  fileNameEditable: false,
   hasError: false,
   multiple: true,
   onChange: function onChange() {},
@@ -4276,14 +4365,6 @@ Form.propTypes = {
   children: PropTypes.node.isRequired
 };
 Form.defaultProps = {};
-
-var Input = function Input(props) {
-  return /*#__PURE__*/React.createElement(FieldBase, _extends({
-    component: "input"
-  }, props));
-};
-Input.propTypes = FieldBasePropTypes;
-Input.defaultProps = FieldBaseDefaultProps;
 
 function _templateObject$H() {
   var data = _taggedTemplateLiteralLoose(["\n  font-size: 14px;\n  line-height: 120%;\n  color: ", ";\n"]);

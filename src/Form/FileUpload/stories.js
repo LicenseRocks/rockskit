@@ -21,6 +21,7 @@ export const main = () => {
   const defaultProps = {
     control,
     disabled: boolean("Disabled", false),
+    fileNameEditable: boolean("File Name Editable", true),
     hasError: !!errors.fileUpload,
     isRequired: "This item is required",
     multiple: boolean("Multiple", false),

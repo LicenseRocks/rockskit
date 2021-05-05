@@ -62,6 +62,7 @@ export const Dropzone = ({
   accept,
   disabled,
   defaultValue,
+  fileNameEditable,
   hasError,
   multiple,
   onChange,
@@ -82,6 +83,7 @@ export const Dropzone = ({
       const accepted = acceptedFiles.map((file) =>
         Object.assign(file, {
           preview: file.type.includes("image") ? URL.createObjectURL(file) : "",
+          altName: null,
         })
       );
 
@@ -89,6 +91,20 @@ export const Dropzone = ({
       else onChange([...accepted]);
     },
   });
+
+  const editFile = (file, altName) => {
+    onChange(
+      value.map((f) => {
+        if (f.preview === file.preview) {
+          Object.assign(file, {
+            altName,
+          });
+        }
+
+        return f;
+      })
+    );
+  };
 
   const removeFile = (file) => {
     onChange(value.filter((f) => f.preview !== file.preview));
@@ -119,7 +135,12 @@ export const Dropzone = ({
         )}
       </DropzoneArea>
 
-      <UploaderPreview files={value} onRemoveClick={removeFile} />
+      <UploaderPreview
+        files={value}
+        fileNameEditable={fileNameEditable}
+        onRemoveClick={removeFile}
+        onEdit={editFile}
+      />
     </StyledContainer>
   );
 };
@@ -128,6 +149,7 @@ Dropzone.propTypes = {
   accept: PropTypes.string,
   defaultValue: PropTypes.arrayOf(PropTypes.object),
   disabled: PropTypes.bool,
+  fileNameEditable: PropTypes.bool,
   hasError: PropTypes.bool,
   multiple: PropTypes.bool,
   onChange: PropTypes.func,
@@ -138,8 +160,9 @@ Dropzone.defaultProps = {
   accept: "image/*",
   defaultValue: [],
   disabled: false,
+  fileNameEditable: false,
   hasError: false,
   multiple: true,
-  onChange: () => {},
+  onChange: () => { },
   value: [],
 };
