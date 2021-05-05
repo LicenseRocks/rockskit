@@ -85,6 +85,14 @@ const StyledIcon = styled(({ icon, prefix, size, ...props }) => (
       }
     `}
 
+  ${({ disabled }) =>
+    disabled &&
+    css`
+      cursor: not-allowed;
+      pointer-events: none;
+      opacity: 0.3;
+    `}
+
     ${({ simple }) =>
     simple &&
     css`

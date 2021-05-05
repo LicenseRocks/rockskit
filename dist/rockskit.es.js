@@ -1111,7 +1111,7 @@ AdvancedLineItem.defaultProps = {
 };
 
 function _templateObject3$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  font-size: ", "px;\n\n  ", "\n\n  ", "\n\n    ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  font-size: ", "px;\n\n  ", "\n\n  ", "\n\n  ", "\n\n    ", ";\n"]);
 
   _templateObject3$1 = function _templateObject3() {
     return data;
@@ -1188,7 +1188,10 @@ var StyledIcon = styled(function (_ref5) {
   var onClick = _ref8.onClick;
   return onClick && css(["cursor:pointer;transition:all 0.1s ease-in-out;:hover{opacity:0.7;}"]);
 }, function (_ref9) {
-  var simple = _ref9.simple;
+  var disabled = _ref9.disabled;
+  return disabled && css(["cursor:not-allowed;pointer-events:none;opacity:0.3;"]);
+}, function (_ref10) {
+  var simple = _ref10.simple;
   return simple && css(["", " ", " ", ""], function (theme) {
     return COLOR(theme);
   }, function (theme) {
@@ -1197,14 +1200,14 @@ var StyledIcon = styled(function (_ref5) {
     return SPACER(theme);
   });
 });
-var Icon = function Icon(_ref10) {
-  var className = _ref10.className,
-      color = _ref10.color,
-      onClick = _ref10.onClick,
-      rounded = _ref10.rounded,
-      squared = _ref10.squared,
-      prefix = _ref10.prefix,
-      props = _objectWithoutPropertiesLoose(_ref10, ["className", "color", "onClick", "rounded", "squared", "prefix"]);
+var Icon = function Icon(_ref11) {
+  var className = _ref11.className,
+      color = _ref11.color,
+      onClick = _ref11.onClick,
+      rounded = _ref11.rounded,
+      squared = _ref11.squared,
+      prefix = _ref11.prefix,
+      props = _objectWithoutPropertiesLoose(_ref11, ["className", "color", "onClick", "rounded", "squared", "prefix"]);
 
   var theme = useTheme();
 
@@ -4103,6 +4106,11 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref8) {
     setEditMode(false);
   };
 
+  useEffect(function () {
+    if (editMode) {
+      setAltName(name.split(".").shift());
+    }
+  }, [editMode]);
   return /*#__PURE__*/React.createElement(Item$1, {
     key: file.name
   }, /*#__PURE__*/React.createElement("div", {
@@ -4125,6 +4133,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref8) {
     mb: 2,
     value: altName
   }), /*#__PURE__*/React.createElement(ActionIcon, {
+    disabled: !altName,
     icon: "check",
     onClick: handleEdit,
     mx: 2

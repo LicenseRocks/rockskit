@@ -1,5 +1,5 @@
 /* eslint-disable no-restricted-properties */
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 
@@ -67,12 +67,20 @@ export const UploaderPreviewItem = ({
 }) => {
   const name = file.altName || file.name;
   const fileExt = name.split(".").pop();
+
   const [editMode, setEditMode] = useState(false);
   const [altName, setAltName] = useState(name.split(".").shift());
+
   const handleEdit = () => {
     onEdit(file, `${altName}.${fileExt}`);
     setEditMode(false);
   };
+
+  useEffect(() => {
+    if (editMode) {
+      setAltName(name.split(".").shift());
+    }
+  }, [editMode]);
 
   return (
     <Item key={file.name}>
@@ -94,7 +102,12 @@ export const UploaderPreviewItem = ({
                 value={altName}
               />
 
-              <ActionIcon icon="check" onClick={handleEdit} mx={2} />
+              <ActionIcon
+                disabled={!altName}
+                icon="check"
+                onClick={handleEdit}
+                mx={2}
+              />
 
               <ActionIcon icon="times" onClick={() => setEditMode(false)} />
             </div>
