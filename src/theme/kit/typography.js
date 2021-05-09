@@ -2,7 +2,7 @@ import { KIT_FONTS } from "./fonts";
 
 export const KIT_TYPOGRAPHY = {
   h1: (theme) => ({
-    fontFamily: KIT_FONTS.Montserrat.name,
+    fontFamily: KIT_FONTS.heading,
     fontSize: "32px",
     fontWeight: 500,
     lineHeight: "120%",
@@ -14,7 +14,7 @@ export const KIT_TYPOGRAPHY = {
     },
   }),
   h2: (theme) => ({
-    fontFamily: KIT_FONTS.Montserrat.name,
+    fontFamily: KIT_FONTS.heading,
     fontWeight: 500,
     fontSize: "26px",
     lineHeight: "120%",
@@ -26,7 +26,7 @@ export const KIT_TYPOGRAPHY = {
     },
   }),
   h3: (theme) => ({
-    fontFamily: KIT_FONTS.Montserrat.name,
+    fontFamily: KIT_FONTS.heading,
     fontWeight: 500,
     fontSize: "20px",
     lineHeight: "120%",
@@ -38,7 +38,7 @@ export const KIT_TYPOGRAPHY = {
     },
   }),
   h4: () => ({
-    fontFamily: KIT_FONTS.Montserrat.name,
+    fontFamily: KIT_FONTS.heading,
     fontWeight: 500,
     fontSize: "16px",
     lineHeight: "120%",
@@ -46,7 +46,7 @@ export const KIT_TYPOGRAPHY = {
     letterSpacing: "unset",
   }),
   h5: () => ({
-    fontFamily: KIT_FONTS.Montserrat.name,
+    fontFamily: KIT_FONTS.heading,
     fontWeight: 500,
     fontSize: "14px",
     lineHeight: "120%",
@@ -54,7 +54,7 @@ export const KIT_TYPOGRAPHY = {
     letterSpacing: "unset",
   }),
   h6: () => ({
-    fontFamily: KIT_FONTS.Montserrat.name,
+    fontFamily: KIT_FONTS.heading,
     fontWeight: 500,
     fontSize: "12px",
     lineHeight: "120%",
@@ -63,7 +63,7 @@ export const KIT_TYPOGRAPHY = {
   }),
   body1: () => ({
     // Paragraph
-    fontFamily: KIT_FONTS.Inter.name,
+    fontFamily: KIT_FONTS.regular,
     fontSizeLg: "18px",
     fontSize: "16px",
     fontSizeSm: "14px",
@@ -73,7 +73,7 @@ export const KIT_TYPOGRAPHY = {
   }),
   body2: () => ({
     // Text
-    fontFamily: KIT_FONTS.Inter.name,
+    fontFamily: KIT_FONTS.regular,
     fontSizeLg: "16px",
     fontSize: "14px",
     fontSizeSm: "12px",
@@ -82,7 +82,7 @@ export const KIT_TYPOGRAPHY = {
     letterSpacing: "unset",
   }),
   button: () => ({
-    fontFamily: KIT_FONTS.Inter.name,
+    fontFamily: KIT_FONTS.regular,
     fontSizeLg: "16px",
     fontSizeMd: "16px",
     fontSizeSm: "12px",

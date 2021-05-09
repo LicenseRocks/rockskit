@@ -1,8 +1,4 @@
 export const KIT_FONTS = {
-  Montserrat: {
-    name: "Montserrat",
-  },
-  Inter: {
-    name: "Inter",
-  },
+  heading: "Montserrat",
+  regular: "Inter",
 };

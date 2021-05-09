@@ -61,7 +61,7 @@ RocksKitTheme.palette = {
 
 RocksKitTheme.typography = {
   ...RocksKitTheme.typography,
-  fontFamily: [KIT_FONTS.Inter.name, "sans-serif"].join(","),
+  fontFamily: [KIT_FONTS.regular, "sans-serif"].join(","),
   fontSize: 16,
   fontWeightLight: 300,
   fontWeightRegular: "normal",

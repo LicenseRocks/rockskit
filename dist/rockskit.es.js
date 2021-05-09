@@ -188,12 +188,8 @@ var KIT_COLORS = {
 };
 
 var KIT_FONTS = {
-  Montserrat: {
-    name: "Montserrat"
-  },
-  Inter: {
-    name: "Inter"
-  }
+  heading: "Montserrat",
+  regular: "Inter"
 };
 
 var KIT_ICON_SIZES = {
@@ -207,7 +203,7 @@ var KIT_TYPOGRAPHY = {
     var _ref;
 
     return _ref = {
-      fontFamily: KIT_FONTS.Montserrat.name,
+      fontFamily: KIT_FONTS.heading,
       fontSize: "32px",
       fontWeight: 500,
       lineHeight: "120%",
@@ -222,7 +218,7 @@ var KIT_TYPOGRAPHY = {
     var _ref2;
 
     return _ref2 = {
-      fontFamily: KIT_FONTS.Montserrat.name,
+      fontFamily: KIT_FONTS.heading,
       fontWeight: 500,
       fontSize: "26px",
       lineHeight: "120%",
@@ -237,7 +233,7 @@ var KIT_TYPOGRAPHY = {
     var _ref3;
 
     return _ref3 = {
-      fontFamily: KIT_FONTS.Montserrat.name,
+      fontFamily: KIT_FONTS.heading,
       fontWeight: 500,
       fontSize: "20px",
       lineHeight: "120%",
@@ -250,7 +246,7 @@ var KIT_TYPOGRAPHY = {
   },
   h4: function h4() {
     return {
-      fontFamily: KIT_FONTS.Montserrat.name,
+      fontFamily: KIT_FONTS.heading,
       fontWeight: 500,
       fontSize: "16px",
       lineHeight: "120%",
@@ -260,7 +256,7 @@ var KIT_TYPOGRAPHY = {
   },
   h5: function h5() {
     return {
-      fontFamily: KIT_FONTS.Montserrat.name,
+      fontFamily: KIT_FONTS.heading,
       fontWeight: 500,
       fontSize: "14px",
       lineHeight: "120%",
@@ -270,7 +266,7 @@ var KIT_TYPOGRAPHY = {
   },
   h6: function h6() {
     return {
-      fontFamily: KIT_FONTS.Montserrat.name,
+      fontFamily: KIT_FONTS.heading,
       fontWeight: 500,
       fontSize: "12px",
       lineHeight: "120%",
@@ -281,7 +277,7 @@ var KIT_TYPOGRAPHY = {
   body1: function body1() {
     return {
       // Paragraph
-      fontFamily: KIT_FONTS.Inter.name,
+      fontFamily: KIT_FONTS.regular,
       fontSizeLg: "18px",
       fontSize: "16px",
       fontSizeSm: "14px",
@@ -293,7 +289,7 @@ var KIT_TYPOGRAPHY = {
   body2: function body2() {
     return {
       // Text
-      fontFamily: KIT_FONTS.Inter.name,
+      fontFamily: KIT_FONTS.regular,
       fontSizeLg: "16px",
       fontSize: "14px",
       fontSizeSm: "12px",
@@ -304,7 +300,7 @@ var KIT_TYPOGRAPHY = {
   },
   button: function button() {
     return {
-      fontFamily: KIT_FONTS.Inter.name,
+      fontFamily: KIT_FONTS.regular,
       fontSizeLg: "16px",
       fontSizeMd: "16px",
       fontSizeSm: "12px",
@@ -365,7 +361,7 @@ RocksKitTheme.palette = _extends({}, RocksKitTheme.palette, {
   }
 });
 RocksKitTheme.typography = _extends({}, RocksKitTheme.typography, {
-  fontFamily: [KIT_FONTS.Inter.name, "sans-serif"].join(","),
+  fontFamily: [KIT_FONTS.regular, "sans-serif"].join(","),
   fontSize: 16,
   fontWeightLight: 300,
   fontWeightRegular: "normal",
