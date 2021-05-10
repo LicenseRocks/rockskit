@@ -3740,6 +3740,7 @@ FieldWrapper.defaultProps = FieldWrapperDefaultProps;
 
 var FieldBasePropTypes = _extends({}, FieldWrapperPropTypes, {
   disabled: PropTypes.bool,
+  disableScrollOnNumber: PropTypes.bool,
   hasError: PropTypes.bool,
   hasWrapper: PropTypes.bool,
   readOnly: PropTypes.bool,
@@ -3748,6 +3749,7 @@ var FieldBasePropTypes = _extends({}, FieldWrapperPropTypes, {
 });
 var FieldBaseDefaultProps = _extends({}, FieldWrapperDefaultProps, {
   disabled: false,
+  disableScrollOnNumber: true,
   hasError: false,
   hasWrapper: true,
   readOnly: false,
@@ -3802,6 +3804,7 @@ forwardRef(function (_ref, ref) {
 var FieldBase = function FieldBase(_ref10) {
   var block = _ref10.block,
       className = _ref10.className,
+      disableScrollOnNumber = _ref10.disableScrollOnNumber,
       endIcon = _ref10.endIcon,
       endIconColor = _ref10.endIconColor,
       endIconOnClick = _ref10.endIconOnClick,
@@ -3814,14 +3817,17 @@ var FieldBase = function FieldBase(_ref10) {
       startIconColor = _ref10.startIconColor,
       startIconOnClick = _ref10.startIconOnClick,
       startIconPrefix = _ref10.startIconPrefix,
-      props = _objectWithoutPropertiesLoose(_ref10, ["block", "className", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "fixedHeight", "hasError", "hasWrapper", "register", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
+      props = _objectWithoutPropertiesLoose(_ref10, ["block", "className", "disableScrollOnNumber", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "fixedHeight", "hasError", "hasWrapper", "register", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
 
   var input = function input() {
     return /*#__PURE__*/React.createElement(StyledInput$1, _extends({
       block: block,
       className: hasWrapper ? "" : className,
       hasError: hasError,
-      ref: register
+      ref: register,
+      onWheel: props.type === "number" && disableScrollOnNumber ? function (event) {
+        return event.currentTarget.blur();
+      } : function () {}
     }, props));
   };
 

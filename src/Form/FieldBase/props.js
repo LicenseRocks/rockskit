@@ -8,6 +8,7 @@ import {
 export const FieldBasePropTypes = {
   ...FieldWrapperPropTypes,
   disabled: PropTypes.bool,
+  disableScrollOnNumber: PropTypes.bool,
   hasError: PropTypes.bool,
   hasWrapper: PropTypes.bool,
   readOnly: PropTypes.bool,
@@ -18,6 +19,7 @@ export const FieldBasePropTypes = {
 export const FieldBaseDefaultProps = {
   ...FieldWrapperDefaultProps,
   disabled: false,
+  disableScrollOnNumber: true,
   hasError: false,
   hasWrapper: true,
   readOnly: false,

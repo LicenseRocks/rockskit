@@ -71,6 +71,7 @@ const StyledInput = styled(
 export const FieldBase = ({
   block,
   className,
+  disableScrollOnNumber,
   endIcon,
   endIconColor,
   endIconOnClick,
@@ -91,6 +92,11 @@ export const FieldBase = ({
       className={hasWrapper ? "" : className}
       hasError={hasError}
       ref={register}
+      onWheel={
+        props.type === "number" && disableScrollOnNumber
+          ? (event) => event.currentTarget.blur()
+          : () => { }
+      }
       {...props}
     />
   );
