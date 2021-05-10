@@ -2,6 +2,16 @@ import React from "react";
 
 import { AppContainer, RocksKitIcons, RocksKitTheme } from "../../src";
 
+const theme = RocksKitTheme({
+  // colors: {
+  //   primaryMain: "blue"
+  // },
+  // fonts: {
+  //   heading: "Arial Black",
+  //   regular: "Arial"
+  // }
+});
+
 export const Container = (story) => {
   return (
     <AppContainer
@@ -9,7 +19,7 @@ export const Container = (story) => {
         appTitle: "Test app",
       }}
       icons={RocksKitIcons}
-      theme={RocksKitTheme}
+      theme={theme}
     >
       {story()}
     </AppContainer>

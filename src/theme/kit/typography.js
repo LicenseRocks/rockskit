@@ -1,8 +1,6 @@
-import { KIT_FONTS } from "./fonts";
-
-export const KIT_TYPOGRAPHY = {
-  h1: (theme) => ({
-    fontFamily: KIT_FONTS.heading,
+export const KIT_TYPOGRAPHY = (theme) => ({
+  h1: {
+    fontFamily: theme.typography.fonts.heading,
     fontSize: "32px",
     fontWeight: 500,
     lineHeight: "120%",
@@ -12,9 +10,9 @@ export const KIT_TYPOGRAPHY = {
       fontSize: "28px",
       letterSpacing: "-0.02em",
     },
-  }),
-  h2: (theme) => ({
-    fontFamily: KIT_FONTS.heading,
+  },
+  h2: {
+    fontFamily: theme.typography.fonts.heading,
     fontWeight: 500,
     fontSize: "26px",
     lineHeight: "120%",
@@ -24,9 +22,9 @@ export const KIT_TYPOGRAPHY = {
       fontSize: "20px",
       letterSpacing: "-0.01em",
     },
-  }),
-  h3: (theme) => ({
-    fontFamily: KIT_FONTS.heading,
+  },
+  h3: {
+    fontFamily: theme.typography.fonts.heading,
     fontWeight: 500,
     fontSize: "20px",
     lineHeight: "120%",
@@ -36,53 +34,53 @@ export const KIT_TYPOGRAPHY = {
       fontSize: "16px",
       letterSpacing: "-0.01em",
     },
-  }),
-  h4: () => ({
-    fontFamily: KIT_FONTS.heading,
+  },
+  h4: {
+    fontFamily: theme.typography.fonts.heading,
     fontWeight: 500,
     fontSize: "16px",
     lineHeight: "120%",
     textTransform: "initial",
     letterSpacing: "unset",
-  }),
-  h5: () => ({
-    fontFamily: KIT_FONTS.heading,
+  },
+  h5: {
+    fontFamily: theme.typography.fonts.heading,
     fontWeight: 500,
     fontSize: "14px",
     lineHeight: "120%",
     textTransform: "initial",
     letterSpacing: "unset",
-  }),
-  h6: () => ({
-    fontFamily: KIT_FONTS.heading,
+  },
+  h6: {
+    fontFamily: theme.typography.fonts.heading,
     fontWeight: 500,
     fontSize: "12px",
     lineHeight: "120%",
     textTransform: "initial",
     letterSpacing: "unset",
-  }),
-  body1: () => ({
+  },
+  body1: {
     // Paragraph
-    fontFamily: KIT_FONTS.regular,
+    fontFamily: theme.typography.fonts.regular,
     fontSizeLg: "18px",
     fontSize: "16px",
     fontSizeSm: "14px",
     lineHeight: "160%",
     textTransform: "initial",
     letterSpacing: "-0.01em",
-  }),
-  body2: () => ({
+  },
+  body2: {
     // Text
-    fontFamily: KIT_FONTS.regular,
+    fontFamily: theme.typography.fonts.regular,
     fontSizeLg: "16px",
     fontSize: "14px",
     fontSizeSm: "12px",
     lineHeight: "120%",
     textTransform: "initial",
     letterSpacing: "unset",
-  }),
-  button: () => ({
-    fontFamily: KIT_FONTS.regular,
+  },
+  button: {
+    fontFamily: theme.typography.fonts.regular,
     fontSizeLg: "16px",
     fontSizeMd: "16px",
     fontSizeSm: "12px",
@@ -91,5 +89,5 @@ export const KIT_TYPOGRAPHY = {
     textTransform: "uppercase",
     letterSpacing: "unset",
     fontWeight: "bold",
-  }),
-};
+  },
+});

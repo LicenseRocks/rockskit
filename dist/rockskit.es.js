@@ -198,109 +198,89 @@ var KIT_ICON_SIZES = {
   sm: 12
 };
 
-var KIT_TYPOGRAPHY = {
-  h1: function h1(theme) {
-    var _ref;
+var KIT_TYPOGRAPHY = function KIT_TYPOGRAPHY(theme) {
+  var _h, _h2, _h3;
 
-    return _ref = {
-      fontFamily: KIT_FONTS.heading,
+  return {
+    h1: (_h = {
+      fontFamily: theme.typography.fonts.heading,
       fontSize: "32px",
       fontWeight: 500,
       lineHeight: "120%",
       textTransform: "initial",
       letterSpacing: "-0.03em"
-    }, _ref[theme.breakpoints.down("sm")] = {
+    }, _h[theme.breakpoints.down("sm")] = {
       fontSize: "28px",
       letterSpacing: "-0.02em"
-    }, _ref;
-  },
-  h2: function h2(theme) {
-    var _ref2;
-
-    return _ref2 = {
-      fontFamily: KIT_FONTS.heading,
+    }, _h),
+    h2: (_h2 = {
+      fontFamily: theme.typography.fonts.heading,
       fontWeight: 500,
       fontSize: "26px",
       lineHeight: "120%",
       textTransform: "initial",
       letterSpacing: "-0.02em"
-    }, _ref2[theme.breakpoints.down("sm")] = {
+    }, _h2[theme.breakpoints.down("sm")] = {
       fontSize: "20px",
       letterSpacing: "-0.01em"
-    }, _ref2;
-  },
-  h3: function h3(theme) {
-    var _ref3;
-
-    return _ref3 = {
-      fontFamily: KIT_FONTS.heading,
+    }, _h2),
+    h3: (_h3 = {
+      fontFamily: theme.typography.fonts.heading,
       fontWeight: 500,
       fontSize: "20px",
       lineHeight: "120%",
       textTransform: "initial",
       letterSpacing: "-0.01em"
-    }, _ref3[theme.breakpoints.down("sm")] = {
+    }, _h3[theme.breakpoints.down("sm")] = {
       fontSize: "16px",
       letterSpacing: "-0.01em"
-    }, _ref3;
-  },
-  h4: function h4() {
-    return {
-      fontFamily: KIT_FONTS.heading,
+    }, _h3),
+    h4: {
+      fontFamily: theme.typography.fonts.heading,
       fontWeight: 500,
       fontSize: "16px",
       lineHeight: "120%",
       textTransform: "initial",
       letterSpacing: "unset"
-    };
-  },
-  h5: function h5() {
-    return {
-      fontFamily: KIT_FONTS.heading,
+    },
+    h5: {
+      fontFamily: theme.typography.fonts.heading,
       fontWeight: 500,
       fontSize: "14px",
       lineHeight: "120%",
       textTransform: "initial",
       letterSpacing: "unset"
-    };
-  },
-  h6: function h6() {
-    return {
-      fontFamily: KIT_FONTS.heading,
+    },
+    h6: {
+      fontFamily: theme.typography.fonts.heading,
       fontWeight: 500,
       fontSize: "12px",
       lineHeight: "120%",
       textTransform: "initial",
       letterSpacing: "unset"
-    };
-  },
-  body1: function body1() {
-    return {
+    },
+    body1: {
       // Paragraph
-      fontFamily: KIT_FONTS.regular,
+      fontFamily: theme.typography.fonts.regular,
       fontSizeLg: "18px",
       fontSize: "16px",
       fontSizeSm: "14px",
       lineHeight: "160%",
       textTransform: "initial",
       letterSpacing: "-0.01em"
-    };
-  },
-  body2: function body2() {
-    return {
+    },
+    body2: {
       // Text
-      fontFamily: KIT_FONTS.regular,
+      fontFamily: theme.typography.fonts.regular,
       fontSizeLg: "16px",
       fontSize: "14px",
       fontSizeSm: "12px",
       lineHeight: "120%",
       textTransform: "initial",
       letterSpacing: "unset"
-    };
-  },
-  button: function button() {
-    return {
-      fontFamily: KIT_FONTS.regular,
+    },
+    button: {
+      fontFamily: theme.typography.fonts.regular,
       fontSizeLg: "16px",
       fontSizeMd: "16px",
       fontSizeSm: "12px",
@@ -309,93 +289,104 @@ var KIT_TYPOGRAPHY = {
       textTransform: "uppercase",
       letterSpacing: "unset",
       fontWeight: "bold"
-    };
-  }
+    }
+  };
 };
 
 var RocksKitIcons = _extends({}, FreeBrandIconSet, FreeSolidIconSet);
-var RocksKitTheme = createMuiTheme({
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 576,
-      md: 768,
-      lg: 1200
+var RocksKitTheme = function RocksKitTheme(_temp) {
+  var _ref = _temp === void 0 ? {} : _temp,
+      colors = _ref.colors,
+      fonts = _ref.fonts;
+
+  var theme = createMuiTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 576,
+        md: 768,
+        lg: 1200
+      }
+    },
+    defaultIconSet: "fa",
+    typography: {
+      fonts: fonts || KIT_FONTS
     }
-  },
-  defaultIconSet: "fa"
-});
-RocksKitTheme.palette = _extends({}, RocksKitTheme.palette, {
-  primary: {
-    main: KIT_COLORS.primary.main,
-    light: KIT_COLORS.primary.light
-  },
-  secondary: {
-    main: KIT_COLORS.gray.dark,
-    light: KIT_COLORS.gray.semiLight,
-    dark: KIT_COLORS.gray.black
-  },
-  text: {
-    primary: KIT_COLORS.gray.black,
-    secondary: KIT_COLORS.gray.medium
-  },
-  gray: KIT_COLORS.gray,
-  success: {
-    main: KIT_COLORS.alert.darkGreen,
-    light: KIT_COLORS.alert.lightGreen
-  },
-  warning: {
-    main: KIT_COLORS.alert.darkYellow,
-    light: KIT_COLORS.alert.lightYellow
-  },
-  error: {
-    main: KIT_COLORS.alert.darkRed,
-    light: KIT_COLORS.alert.lightRed
-  },
-  common: {
-    white: KIT_COLORS.gray.white,
-    black: KIT_COLORS.gray.black
-  },
-  background: {
-    default: KIT_COLORS.gray.light
-  }
-});
-RocksKitTheme.typography = _extends({}, RocksKitTheme.typography, {
-  fontFamily: [KIT_FONTS.regular, "sans-serif"].join(","),
-  fontSize: 16,
-  fontWeightLight: 300,
-  fontWeightRegular: "normal",
-  fontWeightBold: 600,
-  h1: KIT_TYPOGRAPHY.h1(RocksKitTheme),
-  h2: KIT_TYPOGRAPHY.h2(RocksKitTheme),
-  h3: KIT_TYPOGRAPHY.h3(RocksKitTheme),
-  h4: KIT_TYPOGRAPHY.h4(),
-  h5: KIT_TYPOGRAPHY.h5(),
-  h6: KIT_TYPOGRAPHY.h6(),
-  body1: KIT_TYPOGRAPHY.body1(),
-  // Paragraph
-  body2: KIT_TYPOGRAPHY.body2(),
-  // Text
-  button: KIT_TYPOGRAPHY.button()
-});
+  });
+  theme.palette = _extends({}, theme.palette, {
+    primary: {
+      main: (colors == null ? void 0 : colors.primaryMain) || KIT_COLORS.primary.main,
+      light: (colors == null ? void 0 : colors.primaryLight) || KIT_COLORS.primary.light
+    },
+    secondary: {
+      main: KIT_COLORS.gray.dark,
+      light: KIT_COLORS.gray.semiLight,
+      dark: KIT_COLORS.gray.black
+    },
+    text: {
+      primary: KIT_COLORS.gray.black,
+      secondary: KIT_COLORS.gray.medium
+    },
+    gray: KIT_COLORS.gray,
+    success: {
+      main: KIT_COLORS.alert.darkGreen,
+      light: KIT_COLORS.alert.lightGreen
+    },
+    warning: {
+      main: KIT_COLORS.alert.darkYellow,
+      light: KIT_COLORS.alert.lightYellow
+    },
+    error: {
+      main: KIT_COLORS.alert.darkRed,
+      light: KIT_COLORS.alert.lightRed
+    },
+    common: {
+      white: KIT_COLORS.gray.white,
+      black: KIT_COLORS.gray.black
+    },
+    background: {
+      default: KIT_COLORS.gray.light
+    }
+  });
+  var typography = KIT_TYPOGRAPHY(theme);
+  theme.typography = _extends({}, theme.typography, {
+    fontFamily: [theme.typography.fonts.regular, "sans-serif"].join(","),
+    fontSize: 16,
+    fontWeightLight: 300,
+    fontWeightRegular: "normal",
+    fontWeightBold: 600,
+    h1: typography.h1,
+    h2: typography.h2,
+    h3: typography.h3,
+    h4: typography.h4,
+    h5: typography.h5,
+    h6: typography.h6,
+    body1: typography.body1,
+    // Paragraph
+    body2: typography.body2,
+    // Text
+    button: typography.button
+  });
 
-RocksKitTheme.spacing = function () {
-  var amount = 4;
+  theme.spacing = function () {
+    var amount = 4;
 
-  for (var _len = arguments.length, nums = new Array(_len), _key = 0; _key < _len; _key++) {
-    nums[_key] = arguments[_key];
-  }
+    for (var _len = arguments.length, nums = new Array(_len), _key = 0; _key < _len; _key++) {
+      nums[_key] = arguments[_key];
+    }
 
-  return nums.reduce(function (output, n) {
-    return "" + output + n * amount + (n > 0 ? "px" : "") + " ";
-  }, "");
-};
+    return nums.reduce(function (output, n) {
+      return "" + output + n * amount + (n > 0 ? "px" : "") + " ";
+    }, "");
+  };
 
-RocksKitTheme.overrides.MuiButtonBase = {
-  root: KIT_TYPOGRAPHY.button(),
-  disabled: {
-    opacity: 0.3
-  }
+  theme.overrides.MuiButtonBase = {
+    root: typography.button,
+    disabled: {
+      opacity: 0.3
+    }
+  };
+  return theme;
 };
 
 var COLOR_PROP_TYPES = {

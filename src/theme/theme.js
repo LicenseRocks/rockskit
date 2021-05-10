@@ -10,84 +10,93 @@ import {
 
 export const RocksKitIcons = { ...FreeBrandIconSet, ...FreeSolidIconSet };
 
-export const RocksKitTheme = createMuiTheme({
-  breakpoints: {
-    values: {
-      xs: 0,
-      sm: 576,
-      md: 768,
-      lg: 1200,
+export const RocksKitTheme = ({ colors, fonts } = {}) => {
+  const theme = createMuiTheme({
+    breakpoints: {
+      values: {
+        xs: 0,
+        sm: 576,
+        md: 768,
+        lg: 1200,
+      },
     },
-  },
-  defaultIconSet: "fa",
-});
+    defaultIconSet: "fa",
+    typography: {
+      fonts: fonts || KIT_FONTS,
+    },
+  });
 
-RocksKitTheme.palette = {
-  ...RocksKitTheme.palette,
-  primary: {
-    main: KIT_COLORS.primary.main,
-    light: KIT_COLORS.primary.light,
-  },
-  secondary: {
-    main: KIT_COLORS.gray.dark,
-    light: KIT_COLORS.gray.semiLight,
-    dark: KIT_COLORS.gray.black,
-  },
-  text: {
-    primary: KIT_COLORS.gray.black,
-    secondary: KIT_COLORS.gray.medium,
-  },
-  gray: KIT_COLORS.gray,
-  success: {
-    main: KIT_COLORS.alert.darkGreen,
-    light: KIT_COLORS.alert.lightGreen,
-  },
-  warning: {
-    main: KIT_COLORS.alert.darkYellow,
-    light: KIT_COLORS.alert.lightYellow,
-  },
-  error: {
-    main: KIT_COLORS.alert.darkRed,
-    light: KIT_COLORS.alert.lightRed,
-  },
-  common: {
-    white: KIT_COLORS.gray.white,
-    black: KIT_COLORS.gray.black,
-  },
-  background: {
-    default: KIT_COLORS.gray.light,
-  },
-};
+  theme.palette = {
+    ...theme.palette,
+    primary: {
+      main: colors?.primaryMain || KIT_COLORS.primary.main,
+      light: colors?.primaryLight || KIT_COLORS.primary.light,
+    },
+    secondary: {
+      main: KIT_COLORS.gray.dark,
+      light: KIT_COLORS.gray.semiLight,
+      dark: KIT_COLORS.gray.black,
+    },
+    text: {
+      primary: KIT_COLORS.gray.black,
+      secondary: KIT_COLORS.gray.medium,
+    },
+    gray: KIT_COLORS.gray,
+    success: {
+      main: KIT_COLORS.alert.darkGreen,
+      light: KIT_COLORS.alert.lightGreen,
+    },
+    warning: {
+      main: KIT_COLORS.alert.darkYellow,
+      light: KIT_COLORS.alert.lightYellow,
+    },
+    error: {
+      main: KIT_COLORS.alert.darkRed,
+      light: KIT_COLORS.alert.lightRed,
+    },
+    common: {
+      white: KIT_COLORS.gray.white,
+      black: KIT_COLORS.gray.black,
+    },
+    background: {
+      default: KIT_COLORS.gray.light,
+    },
+  };
 
-RocksKitTheme.typography = {
-  ...RocksKitTheme.typography,
-  fontFamily: [KIT_FONTS.regular, "sans-serif"].join(","),
-  fontSize: 16,
-  fontWeightLight: 300,
-  fontWeightRegular: "normal",
-  fontWeightBold: 600,
-  h1: KIT_TYPOGRAPHY.h1(RocksKitTheme),
-  h2: KIT_TYPOGRAPHY.h2(RocksKitTheme),
-  h3: KIT_TYPOGRAPHY.h3(RocksKitTheme),
-  h4: KIT_TYPOGRAPHY.h4(),
-  h5: KIT_TYPOGRAPHY.h5(),
-  h6: KIT_TYPOGRAPHY.h6(),
-  body1: KIT_TYPOGRAPHY.body1(), // Paragraph
-  body2: KIT_TYPOGRAPHY.body2(), // Text
-  button: KIT_TYPOGRAPHY.button(),
-};
+  const typography = KIT_TYPOGRAPHY(theme);
 
-RocksKitTheme.spacing = (...nums) => {
-  const amount = 4;
-  return nums.reduce(
-    (output, n) => `${output}${n * amount}${n > 0 ? "px" : ""} `,
-    ""
-  );
-};
+  theme.typography = {
+    ...theme.typography,
+    fontFamily: [theme.typography.fonts.regular, "sans-serif"].join(","),
+    fontSize: 16,
+    fontWeightLight: 300,
+    fontWeightRegular: "normal",
+    fontWeightBold: 600,
+    h1: typography.h1,
+    h2: typography.h2,
+    h3: typography.h3,
+    h4: typography.h4,
+    h5: typography.h5,
+    h6: typography.h6,
+    body1: typography.body1, // Paragraph
+    body2: typography.body2, // Text
+    button: typography.button,
+  };
 
-RocksKitTheme.overrides.MuiButtonBase = {
-  root: KIT_TYPOGRAPHY.button(),
-  disabled: {
-    opacity: 0.3,
-  },
+  theme.spacing = (...nums) => {
+    const amount = 4;
+    return nums.reduce(
+      (output, n) => `${output}${n * amount}${n > 0 ? "px" : ""} `,
+      ""
+    );
+  };
+
+  theme.overrides.MuiButtonBase = {
+    root: typography.button,
+    disabled: {
+      opacity: 0.3,
+    },
+  };
+
+  return theme;
 };
