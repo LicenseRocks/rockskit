@@ -2,7 +2,7 @@ export const KIT_TYPOGRAPHY = (theme) => ({
   h1: {
     fontFamily: theme.typography.fonts.heading,
     fontSize: "32px",
-    fontWeight: 500,
+    fontWeight: 700,
     lineHeight: "120%",
     textTransform: "initial",
     letterSpacing: "-0.03em",
@@ -13,7 +13,7 @@ export const KIT_TYPOGRAPHY = (theme) => ({
   },
   h2: {
     fontFamily: theme.typography.fonts.heading,
-    fontWeight: 500,
+    fontWeight: 700,
     fontSize: "26px",
     lineHeight: "120%",
     textTransform: "initial",
@@ -25,7 +25,7 @@ export const KIT_TYPOGRAPHY = (theme) => ({
   },
   h3: {
     fontFamily: theme.typography.fonts.heading,
-    fontWeight: 500,
+    fontWeight: 700,
     fontSize: "20px",
     lineHeight: "120%",
     textTransform: "initial",
@@ -37,7 +37,7 @@ export const KIT_TYPOGRAPHY = (theme) => ({
   },
   h4: {
     fontFamily: theme.typography.fonts.heading,
-    fontWeight: 500,
+    fontWeight: 700,
     fontSize: "16px",
     lineHeight: "120%",
     textTransform: "initial",
@@ -45,7 +45,7 @@ export const KIT_TYPOGRAPHY = (theme) => ({
   },
   h5: {
     fontFamily: theme.typography.fonts.heading,
-    fontWeight: 500,
+    fontWeight: 700,
     fontSize: "14px",
     lineHeight: "120%",
     textTransform: "initial",
@@ -53,7 +53,7 @@ export const KIT_TYPOGRAPHY = (theme) => ({
   },
   h6: {
     fontFamily: theme.typography.fonts.heading,
-    fontWeight: 500,
+    fontWeight: 700,
     fontSize: "12px",
     lineHeight: "120%",
     textTransform: "initial",

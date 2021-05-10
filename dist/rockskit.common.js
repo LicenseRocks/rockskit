@@ -249,7 +249,7 @@ var KIT_TYPOGRAPHY = function KIT_TYPOGRAPHY(theme) {
     h1: (_h = {
       fontFamily: theme.typography.fonts.heading,
       fontSize: "32px",
-      fontWeight: 500,
+      fontWeight: 700,
       lineHeight: "120%",
       textTransform: "initial",
       letterSpacing: "-0.03em"
@@ -259,7 +259,7 @@ var KIT_TYPOGRAPHY = function KIT_TYPOGRAPHY(theme) {
     }, _h),
     h2: (_h2 = {
       fontFamily: theme.typography.fonts.heading,
-      fontWeight: 500,
+      fontWeight: 700,
       fontSize: "26px",
       lineHeight: "120%",
       textTransform: "initial",
@@ -270,7 +270,7 @@ var KIT_TYPOGRAPHY = function KIT_TYPOGRAPHY(theme) {
     }, _h2),
     h3: (_h3 = {
       fontFamily: theme.typography.fonts.heading,
-      fontWeight: 500,
+      fontWeight: 700,
       fontSize: "20px",
       lineHeight: "120%",
       textTransform: "initial",
@@ -281,7 +281,7 @@ var KIT_TYPOGRAPHY = function KIT_TYPOGRAPHY(theme) {
     }, _h3),
     h4: {
       fontFamily: theme.typography.fonts.heading,
-      fontWeight: 500,
+      fontWeight: 700,
       fontSize: "16px",
       lineHeight: "120%",
       textTransform: "initial",
@@ -289,7 +289,7 @@ var KIT_TYPOGRAPHY = function KIT_TYPOGRAPHY(theme) {
     },
     h5: {
       fontFamily: theme.typography.fonts.heading,
-      fontWeight: 500,
+      fontWeight: 700,
       fontSize: "14px",
       lineHeight: "120%",
       textTransform: "initial",
@@ -297,7 +297,7 @@ var KIT_TYPOGRAPHY = function KIT_TYPOGRAPHY(theme) {
     },
     h6: {
       fontFamily: theme.typography.fonts.heading,
-      fontWeight: 500,
+      fontWeight: 700,
       fontSize: "12px",
       lineHeight: "120%",
       textTransform: "initial",
