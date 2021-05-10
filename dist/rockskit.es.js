@@ -310,7 +310,10 @@ var RocksKitTheme = function RocksKitTheme(_temp) {
     },
     defaultIconSet: "fa",
     typography: {
-      fonts: fonts || KIT_FONTS
+      fonts: {
+        heading: (fonts == null ? void 0 : fonts.heading) || KIT_FONTS.heading,
+        regular: (fonts == null ? void 0 : fonts.regular) || KIT_FONTS.regular
+      }
     }
   });
   theme.palette = _extends({}, theme.palette, {

@@ -22,7 +22,10 @@ export const RocksKitTheme = ({ colors, fonts } = {}) => {
     },
     defaultIconSet: "fa",
     typography: {
-      fonts: fonts || KIT_FONTS,
+      fonts: {
+        heading: fonts?.heading || KIT_FONTS.heading,
+        regular: fonts?.regular || KIT_FONTS.regular,
+      },
     },
   });
 
