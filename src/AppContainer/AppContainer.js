@@ -26,7 +26,7 @@ export const AppContainer = ({
         <ThemeProvider theme={theme}>
           <SnackbarProvider
             anchorOrigin={{
-              vertical: "bottom",
+              vertical: "top",
               horizontal: "right",
             }}
             content={(key, options) => <Snackbar id={key} {...options} />}

@@ -1,5 +1,5 @@
 import React from "react";
-import { SnackbarProvider, useSnackbar } from "notistack";
+import { useSnackbar } from "notistack";
 
 import { StoryWrapper } from "../../.storybook/decorators";
 import { Button, Snackbar } from "..";
@@ -24,15 +24,4 @@ const BaseComponent = () => {
   return <Button content="Show Snackbar" onClick={handleShowSnackbar} />;
 };
 
-export const main = () => (
-  <SnackbarProvider
-    anchorOrigin={{
-      vertical: "bottom",
-      horizontal: "right",
-    }}
-    content={(key, options) => <Snackbar id={key} {...options} />}
-    maxSnack={3}
-  >
-    <BaseComponent />
-  </SnackbarProvider>
-);
+export const main = () => <BaseComponent />;

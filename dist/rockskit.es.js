@@ -1339,7 +1339,7 @@ var AppContainer = function AppContainer(_ref) {
     theme: theme
   }, /*#__PURE__*/React.createElement(SnackbarProvider, {
     anchorOrigin: {
-      vertical: "bottom",
+      vertical: "top",
       horizontal: "right"
     },
     content: function content(key, options) {
