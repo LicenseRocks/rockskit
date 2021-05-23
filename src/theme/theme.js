@@ -62,7 +62,7 @@ export const RocksKitTheme = ({ colors, fonts } = {}) => {
       black: KIT_COLORS.gray.black,
     },
     background: {
-      default: KIT_COLORS.gray.light,
+      default: colors?.bgColor || KIT_COLORS.gray.light,
     },
   };
 

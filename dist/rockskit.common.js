@@ -392,7 +392,7 @@ var RocksKitTheme = function RocksKitTheme(_temp) {
       black: KIT_COLORS.gray.black
     },
     background: {
-      default: KIT_COLORS.gray.light
+      default: (colors == null ? void 0 : colors.bgColor) || KIT_COLORS.gray.light
     }
   });
   var typography = KIT_TYPOGRAPHY(theme);
