@@ -15,13 +15,13 @@ import Typography from '@material-ui/core/Typography';
 import MuiUseMediaQuery from '@material-ui/core/useMediaQuery';
 import RCL from 'react-content-loader';
 import { Collapse as Collapse$1 } from 'react-collapse';
+import DayPicker, { DateUtils } from 'react-day-picker';
 import Dialog from '@material-ui/core/Dialog';
 import Menu from '@material-ui/core/Menu';
 import MenuItem from '@material-ui/core/MenuItem';
 import QRCode from 'qrcode.react';
 import { Controller } from 'react-hook-form';
 import MuiPopover from '@material-ui/core/Popover';
-import DayPicker, { DateUtils } from 'react-day-picker';
 import { FilePond as FilePond$1 } from 'react-filepond';
 import { useDropzone } from 'react-dropzone';
 import MuiSlider from '@material-ui/core/Slider';
@@ -2733,6 +2733,72 @@ var DetailsTable = function DetailsTable(_ref16) {
 DetailsTable.propTypes = DetailsTablePropTypes;
 DetailsTable.defaultProps = DetailsTableDefaultProps;
 
+var DatepickerPropTypes = {
+  from: PropTypes.string,
+  selectRange: PropTypes.bool,
+  to: PropTypes.string
+};
+var DatepickerDefaultProps = {
+  from: null,
+  selectRange: false,
+  to: null
+};
+
+function _templateObject$q() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n\n  .Selectable\n    .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {\n    background-color: ", " !important;\n    color: ", ";\n  }\n  .Selectable .DayPicker-Day {\n    border-radius: ", " !important;\n  }\n  .Selectable .DayPicker-Day--start {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-left-radius: 8px !important;\n    border-bottom-left-radius: 8px !important;\n  }\n  .Selectable .DayPicker-Day--end {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-right-radius: 8px !important;\n    border-bottom-right-radius: 8px !important;\n  }\n"]);
+
+  _templateObject$q = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Container = styled.div(_templateObject$q(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.primary.light;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.palette.text.primary;
+}, function (_ref3) {
+  var selectRange = _ref3.selectRange;
+  return selectRange ? 0 : "8px";
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.palette.primary.main;
+}, function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.palette.common.white;
+}, function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.palette.primary.main;
+}, function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.palette.common.white;
+});
+var Datepicker = function Datepicker(_ref8) {
+  var from = _ref8.from,
+      selectRange = _ref8.selectRange,
+      to = _ref8.to,
+      props = _objectWithoutPropertiesLoose(_ref8, ["from", "selectRange", "to"]);
+
+  return /*#__PURE__*/React.createElement(Container, {
+    selectRange: selectRange
+  }, /*#__PURE__*/React.createElement(DayPicker, _extends({
+    className: "Selectable",
+    initialMonth: from,
+    selectedDays: [from].concat(selectRange ? [{
+      from: from,
+      to: to
+    }] : []),
+    modifiers: {
+      start: from,
+      end: to
+    }
+  }, props)));
+};
+Datepicker.propTypes = DatepickerPropTypes;
+Datepicker.defaultProps = DatepickerDefaultProps;
+
 var DividerPropTypes = _extends({
   className: PropTypes.any,
   thickness: PropTypes.number
@@ -2741,16 +2807,16 @@ var DividerDefaultProps = {
   thickness: 1
 };
 
-function _templateObject$q() {
+function _templateObject$r() {
   var data = _taggedTemplateLiteralLoose(["\n  line-height: 1em;\n  position: relative;\n  outline: 0;\n  border: 0;\n  color: black;\n  text-align: center;\n\n  &:before {\n    content: \"\";\n    background-color: ", ";\n    position: absolute;\n    left: 0;\n    top: 50%;\n    width: 100%;\n    height: ", "px;\n  }\n  &:after {\n    content: \"", "\";\n    position: relative;\n    display: inline-block;\n    padding: ", ";\n    background-color: ", ";\n    color: ", ";\n    font-weight: 300;\n    font-size: 16px;\n    line-height: 160%;\n    font-style: italic;\n  }\n/*\n  ", "\n\n  ", "; */\n\n  ", "\n"]);
 
-  _templateObject$q = function _templateObject() {
+  _templateObject$r = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledDivider = styled.hr(_templateObject$q(), function (_ref) {
+var StyledDivider = styled.hr(_templateObject$r(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -2828,16 +2894,16 @@ function _templateObject2$8() {
   return data;
 }
 
-function _templateObject$r() {
+function _templateObject$s() {
   var data = _taggedTemplateLiteralLoose(["\n  .MuiMenu-paper {\n    border-radius: 12px;\n    background-color: ", ";\n    box-shadow: 0px 16px 56px rgba(41, 40, 57, 0.16);\n  }\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$r = function _templateObject() {
+  _templateObject$s = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledDropdown = styled(Menu)(_templateObject$r(), function (_ref) {
+var StyledDropdown = styled(Menu)(_templateObject$s(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
@@ -2884,16 +2950,16 @@ var Dropdown = function Dropdown(_ref3) {
 Dropdown.propTypes = DropdownPropTypes;
 Dropdown.defaultProps = DropdownDefaultProps;
 
-function _templateObject$s() {
+function _templateObject$t() {
   var data = _taggedTemplateLiteralLoose(["\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 12px;\n\n  && {\n    width: 40px;\n    height: 40px;\n    background-color: ", ";\n    svg {\n      color: ", ";\n    }\n  }\n"]);
 
-  _templateObject$s = function _templateObject() {
+  _templateObject$t = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$3 = styled.div(_templateObject$s(), function (_ref) {
+var Wrapper$3 = styled.div(_templateObject$t(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.light;
 }, function (_ref2) {
@@ -2927,16 +2993,16 @@ var DownloadModuleDefaultProps = {
   qrCodeValue: "https://license.rocks"
 };
 
-function _templateObject$t() {
+function _templateObject$u() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  padding: ", ";\n  border-radius: 16px;\n  ", "\n  ", "\n"]);
 
-  _templateObject$t = function _templateObject() {
+  _templateObject$u = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container = styled.div(_templateObject$t(), function (_ref) {
+var Container$1 = styled.div(_templateObject$u(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -2957,7 +3023,7 @@ var DownloadModule = function DownloadModule(_ref3) {
       qrCodeValue = _ref3.qrCodeValue,
       props = _objectWithoutPropertiesLoose(_ref3, ["downloadPdfText", "downloadPdfUrl", "downloadQrCodeDesc", "downloadQrCodeText", "downloadQrCodeUrl", "qrCodeUrl", "qrCodeValue"]);
 
-  return /*#__PURE__*/React.createElement(Container, props, /*#__PURE__*/React.createElement(Flex, {
+  return /*#__PURE__*/React.createElement(Container$1, props, /*#__PURE__*/React.createElement(Flex, {
     container: true,
     mb: 8
   }, /*#__PURE__*/React.createElement(DownloadModuleButton, {
@@ -3051,16 +3117,16 @@ function _templateObject2$9() {
   return data;
 }
 
-function _templateObject$u() {
+function _templateObject$v() {
   var data = _taggedTemplateLiteralLoose([""]);
 
-  _templateObject$u = function _templateObject() {
+  _templateObject$v = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$1 = styled.div(_templateObject$u());
+var Container$2 = styled.div(_templateObject$v());
 var Wrapper$4 = styled.div(_templateObject2$9(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
@@ -3110,7 +3176,7 @@ var Item = styled(Flex).attrs(function (_ref9) {
 var FileManager = function FileManager(_ref11) {
   var data = _ref11.data,
       noItemsText = _ref11.noItemsText;
-  return /*#__PURE__*/React.createElement(Container$1, null, data.map(function (_ref12) {
+  return /*#__PURE__*/React.createElement(Container$2, null, data.map(function (_ref12) {
     var label = _ref12.label,
         files = _ref12.files;
     return /*#__PURE__*/React.createElement(Wrapper$4, {
@@ -3207,16 +3273,16 @@ function _templateObject2$a() {
   return data;
 }
 
-function _templateObject$v() {
+function _templateObject$w() {
   var data = _taggedTemplateLiteralLoose(["\n  display: none;\n\n  + label {\n    display: inline-flex;\n    align-items: center;\n    font-weight: 600;\n    font-size: 14px;\n    line-height: 120%;\n    margin: 0 32px 0 0;\n    cursor: pointer;\n    transition: all 0.1s ease-in-out;\n\n    ", "\n\n    &::before {\n      content: \"\";\n      display: inline-block;\n      width: 24px;\n      min-width: 24px;\n      height: 24px;\n      border-radius: ", ";\n      background-color: ", ";\n      border: 1px solid ", ";\n      margin-right: 8px;\n      transition: background-color 0.1s ease-in-out;\n      ", "\n    }\n\n    &:hover {\n      &::before {\n        background-color: ", ";\n        border-color: ", ";\n      }\n    }\n  }\n\n  &:checked + label::before {\n    background-color: ", ";\n    border-color: ", ";\n    background-image: url(\"", "\");\n    background-size: 16px 16px;\n    background-repeat: no-repeat;\n    background-position: center;\n  }\n\n  &:disabled + label {\n    opacity: 0.3;\n\n    &,\n    span {\n      cursor: default;\n    }\n  }\n\n  ", "\n"]);
 
-  _templateObject$v = function _templateObject() {
+  _templateObject$w = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledInput = styled.input(_templateObject$v(), function (_ref) {
+var StyledInput = styled.input(_templateObject$w(), function (_ref) {
   var stacked = _ref.stacked;
   return stacked && css(["display:flex;:not(:last-child){margin:0 0 24px 0;}"]);
 }, function (_ref2) {
@@ -3307,16 +3373,16 @@ var RadioBase = function RadioBase(_ref) {
 RadioBase.propTypes = RadioBasePropTypes;
 RadioBase.defaultProps = RadioBaseDefaultProps;
 
-function _templateObject$w() {
+function _templateObject$x() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n  border: 1px solid\n    ", ";\n  border-radius: 12px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 100ms ease-in-out;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$w = function _templateObject() {
+  _templateObject$x = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$5 = styled.div(_templateObject$w(), function (_ref) {
+var Wrapper$5 = styled.div(_templateObject$x(), function (_ref) {
   var block = _ref.block;
   return block ? "100%" : "initial";
 }, function (_ref2) {
@@ -3351,16 +3417,16 @@ var BorderedRadio = function BorderedRadio(_ref3) {
 BorderedRadio.propTypes = RadioBasePropTypes;
 BorderedRadio.defaultProps = RadioBaseDefaultProps;
 
-function _templateObject$x() {
+function _templateObject$y() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$x = function _templateObject() {
+  _templateObject$y = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledRadioBase = styled(RadioBase)(_templateObject$x(), function (theme) {
+var StyledRadioBase = styled(RadioBase)(_templateObject$y(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -3372,72 +3438,6 @@ var Checkbox = function Checkbox(props) {
 };
 Checkbox.propTypes = RadioBasePropTypes;
 Checkbox.defaultProps = RadioBaseDefaultProps;
-
-var DatepickerPropTypes = {
-  from: PropTypes.string,
-  selectRange: PropTypes.bool,
-  to: PropTypes.string
-};
-var DatepickerDefaultProps = {
-  from: null,
-  selectRange: false,
-  to: null
-};
-
-function _templateObject$y() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n\n  .Selectable\n    .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {\n    background-color: ", " !important;\n    color: ", ";\n  }\n  .Selectable .DayPicker-Day {\n    border-radius: ", " !important;\n  }\n  .Selectable .DayPicker-Day--start {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-left-radius: 8px !important;\n    border-bottom-left-radius: 8px !important;\n  }\n  .Selectable .DayPicker-Day--end {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-right-radius: 8px !important;\n    border-bottom-right-radius: 8px !important;\n  }\n"]);
-
-  _templateObject$y = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var Container$2 = styled.div(_templateObject$y(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.palette.primary.light;
-}, function (_ref2) {
-  var theme = _ref2.theme;
-  return theme.palette.text.primary;
-}, function (_ref3) {
-  var selectRange = _ref3.selectRange;
-  return selectRange ? 0 : "8px";
-}, function (_ref4) {
-  var theme = _ref4.theme;
-  return theme.palette.primary.main;
-}, function (_ref5) {
-  var theme = _ref5.theme;
-  return theme.palette.common.white;
-}, function (_ref6) {
-  var theme = _ref6.theme;
-  return theme.palette.primary.main;
-}, function (_ref7) {
-  var theme = _ref7.theme;
-  return theme.palette.common.white;
-});
-var Datepicker = function Datepicker(_ref8) {
-  var from = _ref8.from,
-      selectRange = _ref8.selectRange,
-      to = _ref8.to,
-      props = _objectWithoutPropertiesLoose(_ref8, ["from", "selectRange", "to"]);
-
-  return /*#__PURE__*/React.createElement(Container$2, {
-    selectRange: selectRange
-  }, /*#__PURE__*/React.createElement(DayPicker, _extends({
-    className: "Selectable",
-    initialMonth: from,
-    selectedDays: [from].concat(selectRange ? [{
-      from: from,
-      to: to
-    }] : []),
-    modifiers: {
-      start: from,
-      end: to
-    }
-  }, props)));
-};
-Datepicker.propTypes = DatepickerPropTypes;
-Datepicker.defaultProps = DatepickerDefaultProps;
 
 function _templateObject2$b() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: ", ";\n  border-top: 1px solid ", ";\n"]);
@@ -10721,5 +10721,5 @@ var Wizard = function Wizard(_ref7) {
 Wizard.propTypes = WizardPropTypes;
 Wizard.defaultProps = WizardDefaultProps;
 
-export { AdvancedLineItem, Alert, AppContainer, AppContext, AppContextProvider, AuthLayout, BorderedRadio, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CartButton, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, CollectionItem, CreatorsHubAuthLayout, CreatorsHubMainLayout, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FilePond, FileUpload, Flex, Form, FormDatepicker, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, Hidden, HideOnScroll, History, HistoryTree, Icon, Image, ImageModal, Indicator, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, Link$1 as Link, MINI_SHARE_MODULE_SHARE_OPTIONS, MarketPlaceItem, MiniShareModule, Modal, NoItem, OutlineButton, PageFigure, PageLoading, PageMeta, PageProgressBar, PageTransition, Pagination, Paragraph, PriceField, Profile, Radio, RadioBase, RangeSlider, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, ShareModuleDefaultProps, ShareModulePropTypes, Snackbar, Stepper, THEME_COLORS, Tab, Table, Text, TextArea, TextBase, TextButton, Thumbnail, TinyBadge, ToggleSwitch, Tooltip, Wizard, convertHexToRGBA, formatDateAndTime, formatPrice, getFormInputError, getFormRowErrors, handleScroll, useAppContext, useMediaQuery };
+export { AdvancedLineItem, Alert, AppContainer, AppContext, AppContextProvider, AuthLayout, BorderedRadio, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CartButton, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, CollectionItem, CreatorsHubAuthLayout, CreatorsHubMainLayout, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, Datepicker, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FilePond, FileUpload, Flex, Form, FormDatepicker, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, Hidden, HideOnScroll, History, HistoryTree, Icon, Image, ImageModal, Indicator, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, Link$1 as Link, MINI_SHARE_MODULE_SHARE_OPTIONS, MarketPlaceItem, MiniShareModule, Modal, NoItem, OutlineButton, PageFigure, PageLoading, PageMeta, PageProgressBar, PageTransition, Pagination, Paragraph, PriceField, Profile, Radio, RadioBase, RangeSlider, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, ShareModuleDefaultProps, ShareModulePropTypes, Snackbar, Stepper, THEME_COLORS, Tab, Table, Text, TextArea, TextBase, TextButton, Thumbnail, TinyBadge, ToggleSwitch, Tooltip, Wizard, convertHexToRGBA, formatDateAndTime, formatPrice, getFormInputError, getFormRowErrors, handleScroll, useAppContext, useMediaQuery };
 //# sourceMappingURL=rockskit.es.js.map

@@ -10,6 +10,7 @@ export * from "./Collapse";
 export * from "./CollectionItem";
 export * from "./Context";
 export * from "./DetailsTable";
+export * from "./Datepicker";
 export * from "./Divider";
 export * from "./Dropdown";
 export * from "./DownloadModule/DownloadModule";

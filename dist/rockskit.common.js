@@ -19,13 +19,13 @@ var Typography = require('@material-ui/core/Typography');
 var MuiUseMediaQuery = require('@material-ui/core/useMediaQuery');
 var RCL = require('react-content-loader');
 var reactCollapse = require('react-collapse');
+var DayPicker = require('react-day-picker');
 var Dialog = require('@material-ui/core/Dialog');
 var Menu = require('@material-ui/core/Menu');
 var MenuItem = require('@material-ui/core/MenuItem');
 var QRCode = require('qrcode.react');
 var reactHookForm = require('react-hook-form');
 var MuiPopover = require('@material-ui/core/Popover');
-var DayPicker = require('react-day-picker');
 var reactFilepond = require('react-filepond');
 var reactDropzone = require('react-dropzone');
 var MuiSlider = require('@material-ui/core/Slider');
@@ -64,12 +64,12 @@ var CssBaseline__default = /*#__PURE__*/_interopDefaultLegacy(CssBaseline);
 var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography);
 var MuiUseMediaQuery__default = /*#__PURE__*/_interopDefaultLegacy(MuiUseMediaQuery);
 var RCL__default = /*#__PURE__*/_interopDefaultLegacy(RCL);
+var DayPicker__default = /*#__PURE__*/_interopDefaultLegacy(DayPicker);
 var Dialog__default = /*#__PURE__*/_interopDefaultLegacy(Dialog);
 var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu);
 var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
 var QRCode__default = /*#__PURE__*/_interopDefaultLegacy(QRCode);
 var MuiPopover__default = /*#__PURE__*/_interopDefaultLegacy(MuiPopover);
-var DayPicker__default = /*#__PURE__*/_interopDefaultLegacy(DayPicker);
 var MuiSlider__default = /*#__PURE__*/_interopDefaultLegacy(MuiSlider);
 var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
 var AsyncSelect__default = /*#__PURE__*/_interopDefaultLegacy(AsyncSelect);
@@ -2777,6 +2777,72 @@ var DetailsTable = function DetailsTable(_ref16) {
 DetailsTable.propTypes = DetailsTablePropTypes;
 DetailsTable.defaultProps = DetailsTableDefaultProps;
 
+var DatepickerPropTypes = {
+  from: PropTypes__default['default'].string,
+  selectRange: PropTypes__default['default'].bool,
+  to: PropTypes__default['default'].string
+};
+var DatepickerDefaultProps = {
+  from: null,
+  selectRange: false,
+  to: null
+};
+
+function _templateObject$q() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n\n  .Selectable\n    .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {\n    background-color: ", " !important;\n    color: ", ";\n  }\n  .Selectable .DayPicker-Day {\n    border-radius: ", " !important;\n  }\n  .Selectable .DayPicker-Day--start {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-left-radius: 8px !important;\n    border-bottom-left-radius: 8px !important;\n  }\n  .Selectable .DayPicker-Day--end {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-right-radius: 8px !important;\n    border-bottom-right-radius: 8px !important;\n  }\n"]);
+
+  _templateObject$q = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var Container = styled__default['default'].div(_templateObject$q(), function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.primary.light;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.palette.text.primary;
+}, function (_ref3) {
+  var selectRange = _ref3.selectRange;
+  return selectRange ? 0 : "8px";
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.palette.primary.main;
+}, function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.palette.common.white;
+}, function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.palette.primary.main;
+}, function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.palette.common.white;
+});
+var Datepicker = function Datepicker(_ref8) {
+  var from = _ref8.from,
+      selectRange = _ref8.selectRange,
+      to = _ref8.to,
+      props = _objectWithoutPropertiesLoose(_ref8, ["from", "selectRange", "to"]);
+
+  return /*#__PURE__*/React__default['default'].createElement(Container, {
+    selectRange: selectRange
+  }, /*#__PURE__*/React__default['default'].createElement(DayPicker__default['default'], _extends({
+    className: "Selectable",
+    initialMonth: from,
+    selectedDays: [from].concat(selectRange ? [{
+      from: from,
+      to: to
+    }] : []),
+    modifiers: {
+      start: from,
+      end: to
+    }
+  }, props)));
+};
+Datepicker.propTypes = DatepickerPropTypes;
+Datepicker.defaultProps = DatepickerDefaultProps;
+
 var DividerPropTypes = _extends({
   className: PropTypes__default['default'].any,
   thickness: PropTypes__default['default'].number
@@ -2785,16 +2851,16 @@ var DividerDefaultProps = {
   thickness: 1
 };
 
-function _templateObject$q() {
+function _templateObject$r() {
   var data = _taggedTemplateLiteralLoose(["\n  line-height: 1em;\n  position: relative;\n  outline: 0;\n  border: 0;\n  color: black;\n  text-align: center;\n\n  &:before {\n    content: \"\";\n    background-color: ", ";\n    position: absolute;\n    left: 0;\n    top: 50%;\n    width: 100%;\n    height: ", "px;\n  }\n  &:after {\n    content: \"", "\";\n    position: relative;\n    display: inline-block;\n    padding: ", ";\n    background-color: ", ";\n    color: ", ";\n    font-weight: 300;\n    font-size: 16px;\n    line-height: 160%;\n    font-style: italic;\n  }\n/*\n  ", "\n\n  ", "; */\n\n  ", "\n"]);
 
-  _templateObject$q = function _templateObject() {
+  _templateObject$r = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledDivider = styled__default['default'].hr(_templateObject$q(), function (_ref) {
+var StyledDivider = styled__default['default'].hr(_templateObject$r(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -2872,16 +2938,16 @@ function _templateObject2$8() {
   return data;
 }
 
-function _templateObject$r() {
+function _templateObject$s() {
   var data = _taggedTemplateLiteralLoose(["\n  .MuiMenu-paper {\n    border-radius: 12px;\n    background-color: ", ";\n    box-shadow: 0px 16px 56px rgba(41, 40, 57, 0.16);\n  }\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$r = function _templateObject() {
+  _templateObject$s = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledDropdown = styled__default['default'](Menu__default['default'])(_templateObject$r(), function (_ref) {
+var StyledDropdown = styled__default['default'](Menu__default['default'])(_templateObject$s(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
@@ -2928,16 +2994,16 @@ var Dropdown = function Dropdown(_ref3) {
 Dropdown.propTypes = DropdownPropTypes;
 Dropdown.defaultProps = DropdownDefaultProps;
 
-function _templateObject$s() {
+function _templateObject$t() {
   var data = _taggedTemplateLiteralLoose(["\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  border-radius: 12px;\n\n  && {\n    width: 40px;\n    height: 40px;\n    background-color: ", ";\n    svg {\n      color: ", ";\n    }\n  }\n"]);
 
-  _templateObject$s = function _templateObject() {
+  _templateObject$t = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$3 = styled__default['default'].div(_templateObject$s(), function (_ref) {
+var Wrapper$3 = styled__default['default'].div(_templateObject$t(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.primary.light;
 }, function (_ref2) {
@@ -2971,16 +3037,16 @@ var DownloadModuleDefaultProps = {
   qrCodeValue: "https://license.rocks"
 };
 
-function _templateObject$t() {
+function _templateObject$u() {
   var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  padding: ", ";\n  border-radius: 16px;\n  ", "\n  ", "\n"]);
 
-  _templateObject$t = function _templateObject() {
+  _templateObject$u = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container = styled__default['default'].div(_templateObject$t(), function (_ref) {
+var Container$1 = styled__default['default'].div(_templateObject$u(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -3001,7 +3067,7 @@ var DownloadModule = function DownloadModule(_ref3) {
       qrCodeValue = _ref3.qrCodeValue,
       props = _objectWithoutPropertiesLoose(_ref3, ["downloadPdfText", "downloadPdfUrl", "downloadQrCodeDesc", "downloadQrCodeText", "downloadQrCodeUrl", "qrCodeUrl", "qrCodeValue"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(Container, props, /*#__PURE__*/React__default['default'].createElement(Flex, {
+  return /*#__PURE__*/React__default['default'].createElement(Container$1, props, /*#__PURE__*/React__default['default'].createElement(Flex, {
     container: true,
     mb: 8
   }, /*#__PURE__*/React__default['default'].createElement(DownloadModuleButton, {
@@ -3095,16 +3161,16 @@ function _templateObject2$9() {
   return data;
 }
 
-function _templateObject$u() {
+function _templateObject$v() {
   var data = _taggedTemplateLiteralLoose([""]);
 
-  _templateObject$u = function _templateObject() {
+  _templateObject$v = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Container$1 = styled__default['default'].div(_templateObject$u());
+var Container$2 = styled__default['default'].div(_templateObject$v());
 var Wrapper$4 = styled__default['default'].div(_templateObject2$9(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
@@ -3154,7 +3220,7 @@ var Item = styled__default['default'](Flex).attrs(function (_ref9) {
 var FileManager = function FileManager(_ref11) {
   var data = _ref11.data,
       noItemsText = _ref11.noItemsText;
-  return /*#__PURE__*/React__default['default'].createElement(Container$1, null, data.map(function (_ref12) {
+  return /*#__PURE__*/React__default['default'].createElement(Container$2, null, data.map(function (_ref12) {
     var label = _ref12.label,
         files = _ref12.files;
     return /*#__PURE__*/React__default['default'].createElement(Wrapper$4, {
@@ -3251,16 +3317,16 @@ function _templateObject2$a() {
   return data;
 }
 
-function _templateObject$v() {
+function _templateObject$w() {
   var data = _taggedTemplateLiteralLoose(["\n  display: none;\n\n  + label {\n    display: inline-flex;\n    align-items: center;\n    font-weight: 600;\n    font-size: 14px;\n    line-height: 120%;\n    margin: 0 32px 0 0;\n    cursor: pointer;\n    transition: all 0.1s ease-in-out;\n\n    ", "\n\n    &::before {\n      content: \"\";\n      display: inline-block;\n      width: 24px;\n      min-width: 24px;\n      height: 24px;\n      border-radius: ", ";\n      background-color: ", ";\n      border: 1px solid ", ";\n      margin-right: 8px;\n      transition: background-color 0.1s ease-in-out;\n      ", "\n    }\n\n    &:hover {\n      &::before {\n        background-color: ", ";\n        border-color: ", ";\n      }\n    }\n  }\n\n  &:checked + label::before {\n    background-color: ", ";\n    border-color: ", ";\n    background-image: url(\"", "\");\n    background-size: 16px 16px;\n    background-repeat: no-repeat;\n    background-position: center;\n  }\n\n  &:disabled + label {\n    opacity: 0.3;\n\n    &,\n    span {\n      cursor: default;\n    }\n  }\n\n  ", "\n"]);
 
-  _templateObject$v = function _templateObject() {
+  _templateObject$w = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledInput = styled__default['default'].input(_templateObject$v(), function (_ref) {
+var StyledInput = styled__default['default'].input(_templateObject$w(), function (_ref) {
   var stacked = _ref.stacked;
   return stacked && styled.css(["display:flex;:not(:last-child){margin:0 0 24px 0;}"]);
 }, function (_ref2) {
@@ -3351,16 +3417,16 @@ var RadioBase = function RadioBase(_ref) {
 RadioBase.propTypes = RadioBasePropTypes;
 RadioBase.defaultProps = RadioBaseDefaultProps;
 
-function _templateObject$w() {
+function _templateObject$x() {
   var data = _taggedTemplateLiteralLoose(["\n  width: ", ";\n  border: 1px solid\n    ", ";\n  border-radius: 12px;\n  height: 40px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  transition: all 100ms ease-in-out;\n\n  ", "\n  ", "\n"]);
 
-  _templateObject$w = function _templateObject() {
+  _templateObject$x = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Wrapper$5 = styled__default['default'].div(_templateObject$w(), function (_ref) {
+var Wrapper$5 = styled__default['default'].div(_templateObject$x(), function (_ref) {
   var block = _ref.block;
   return block ? "100%" : "initial";
 }, function (_ref2) {
@@ -3395,16 +3461,16 @@ var BorderedRadio = function BorderedRadio(_ref3) {
 BorderedRadio.propTypes = RadioBasePropTypes;
 BorderedRadio.defaultProps = RadioBaseDefaultProps;
 
-function _templateObject$x() {
+function _templateObject$y() {
   var data = _taggedTemplateLiteralLoose(["\n  ", "\n  ", "\n"]);
 
-  _templateObject$x = function _templateObject() {
+  _templateObject$y = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var StyledRadioBase = styled__default['default'](RadioBase)(_templateObject$x(), function (theme) {
+var StyledRadioBase = styled__default['default'](RadioBase)(_templateObject$y(), function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
@@ -3416,72 +3482,6 @@ var Checkbox = function Checkbox(props) {
 };
 Checkbox.propTypes = RadioBasePropTypes;
 Checkbox.defaultProps = RadioBaseDefaultProps;
-
-var DatepickerPropTypes = {
-  from: PropTypes__default['default'].string,
-  selectRange: PropTypes__default['default'].bool,
-  to: PropTypes__default['default'].string
-};
-var DatepickerDefaultProps = {
-  from: null,
-  selectRange: false,
-  to: null
-};
-
-function _templateObject$y() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n\n  .Selectable\n    .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {\n    background-color: ", " !important;\n    color: ", ";\n  }\n  .Selectable .DayPicker-Day {\n    border-radius: ", " !important;\n  }\n  .Selectable .DayPicker-Day--start {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-left-radius: 8px !important;\n    border-bottom-left-radius: 8px !important;\n  }\n  .Selectable .DayPicker-Day--end {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-right-radius: 8px !important;\n    border-bottom-right-radius: 8px !important;\n  }\n"]);
-
-  _templateObject$y = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var Container$2 = styled__default['default'].div(_templateObject$y(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.palette.primary.light;
-}, function (_ref2) {
-  var theme = _ref2.theme;
-  return theme.palette.text.primary;
-}, function (_ref3) {
-  var selectRange = _ref3.selectRange;
-  return selectRange ? 0 : "8px";
-}, function (_ref4) {
-  var theme = _ref4.theme;
-  return theme.palette.primary.main;
-}, function (_ref5) {
-  var theme = _ref5.theme;
-  return theme.palette.common.white;
-}, function (_ref6) {
-  var theme = _ref6.theme;
-  return theme.palette.primary.main;
-}, function (_ref7) {
-  var theme = _ref7.theme;
-  return theme.palette.common.white;
-});
-var Datepicker = function Datepicker(_ref8) {
-  var from = _ref8.from,
-      selectRange = _ref8.selectRange,
-      to = _ref8.to,
-      props = _objectWithoutPropertiesLoose(_ref8, ["from", "selectRange", "to"]);
-
-  return /*#__PURE__*/React__default['default'].createElement(Container$2, {
-    selectRange: selectRange
-  }, /*#__PURE__*/React__default['default'].createElement(DayPicker__default['default'], _extends({
-    className: "Selectable",
-    initialMonth: from,
-    selectedDays: [from].concat(selectRange ? [{
-      from: from,
-      to: to
-    }] : []),
-    modifiers: {
-      start: from,
-      end: to
-    }
-  }, props)));
-};
-Datepicker.propTypes = DatepickerPropTypes;
-Datepicker.defaultProps = DatepickerDefaultProps;
 
 function _templateObject2$b() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: ", ";\n  border-top: 1px solid ", ";\n"]);
@@ -10793,6 +10793,7 @@ exports.DIMENSION_PROP_TYPES = DIMENSION_PROP_TYPES;
 exports.DISPLAY = DISPLAY;
 exports.DISPLAY_PROP_TYPES = DISPLAY_PROP_TYPES;
 exports.DashboardLayout = DashboardLayout;
+exports.Datepicker = Datepicker;
 exports.DetailsTable = DetailsTable;
 exports.Divider = Divider;
 exports.DotsSpinner = DotsSpinner;
