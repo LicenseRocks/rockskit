@@ -2,6 +2,7 @@ import React, { useState } from "react";
 
 import { StoryWrapper } from "../../.storybook/decorators";
 import { Wizard } from ".";
+import { Button } from "../Button";
 
 export default {
   title: "Wizard",
@@ -18,6 +19,12 @@ export const main = () => {
       currentStepIndex={currentStep}
       nextStepMethod="button"
       orientation="horizontal"
+      renderActionButtons={() => (
+        <>
+          <Button content="Draft" color="subtle" dInline mr={4} />
+          <Button content="Schedule" color="subtle" dInline mr={4} />
+        </>
+      )}
       setCurrentStepIndex={setCurrentStep}
       steps={[
         {

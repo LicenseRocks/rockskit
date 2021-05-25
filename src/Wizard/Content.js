@@ -12,7 +12,7 @@ const StyledContent = styled.div`
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
     padding: ${({ isHorizontal, theme }) =>
-      theme.spacing(4, 4, 4, isHorizontal ? 4 : 8)};
+    theme.spacing(4, 4, 4, isHorizontal ? 4 : 8)};
   }
 `;
 
@@ -33,6 +33,7 @@ export const WizardStepContent = ({
   isLastStep,
   isHorizontal,
   nextStepMethod,
+  renderActionButtons,
   stepCount,
   submitButtonDisabled,
   submitButtonLoading,
@@ -63,13 +64,18 @@ export const WizardStepContent = ({
             </div>
           )}
 
-          <Button
-            content={isLastStep ? "Finish" : "Next"}
-            disabled={submitButtonDisabled}
-            loading={submitButtonLoading}
-            onClick={nextStepMethod === "button" ? handleNext : undefined}
-            type={nextStepMethod}
-          />
+          <div>
+            {isLastStep && renderActionButtons()}
+
+            <Button
+              content={isLastStep ? "Finish" : "Next"}
+              dInline
+              disabled={submitButtonDisabled}
+              loading={submitButtonLoading}
+              onClick={nextStepMethod === "button" ? handleNext : undefined}
+              type={nextStepMethod}
+            />
+          </div>
         </ActionWrapper>
       )}
     </StyledContent>
@@ -86,6 +92,7 @@ WizardStepContent.propTypes = {
   isHorizontal: PropTypes.bool.isRequired,
   isLastStep: PropTypes.bool.isRequired,
   nextStepMethod: PropTypes.string.isRequired,
+  renderActionButtons: PropTypes.func,
   stepCount: PropTypes.number.isRequired,
   submitButtonDisabled: PropTypes.bool,
   submitButtonLoading: PropTypes.bool,
@@ -95,6 +102,7 @@ WizardStepContent.propTypes = {
 WizardStepContent.defaultProps = {
   children: null,
   content: null,
+  renderActionButtons: () => { },
   submitButtonDisabled: false,
   submitButtonLoading: false,
   showNavigationButtons: true,

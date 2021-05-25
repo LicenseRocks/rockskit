@@ -136,7 +136,7 @@ const Step = styled.div`
   :last-child {
     ${StepConnector} {
       ${({ isActive, isHorizontal }) =>
-        (!isActive || isHorizontal) && "border: none"};
+    (!isActive || isHorizontal) && "border: none"};
     }
   }
 
@@ -154,6 +154,7 @@ export const Wizard = ({
   headerFadeColor,
   nextStepMethod,
   orientation,
+  renderActionButtons,
   setCurrentStepIndex,
   steps,
   submitButtonDisabled,
@@ -208,11 +209,12 @@ export const Wizard = ({
       handleNext={handleNext}
       handlePrev={handlePrev}
       nextStepMethod={nextStepMethod}
-      transitionDuration={transitionDuration}
+      renderActionButtons={renderActionButtons}
       stepCount={stepCount}
       submitButtonDisabled={submitButtonDisabled}
       submitButtonLoading={submitButtonLoading}
       showNavigationButtons={showNavigationButtons}
+      transitionDuration={transitionDuration}
     />
   );
 

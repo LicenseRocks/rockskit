@@ -2,12 +2,12 @@ import React from "react";
 import { boolean } from "@storybook/addon-knobs";
 import { useForm } from "react-hook-form";
 
-import { Button, FormError, Datepicker } from "../..";
+import { Button, FormError, FormDatepicker } from "../..";
 import { StoryWrapper } from "../../../.storybook/decorators";
 
 export default {
   title: "Form/Datepicker",
-  component: Datepicker,
+  component: FormDatepicker,
   decorators: [StoryWrapper],
 };
 
@@ -29,7 +29,7 @@ export const main = () => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      <Datepicker {...defaultProps} />
+      <FormDatepicker {...defaultProps} />
 
       {errors.datepicker && <FormError message={errors.datepicker.message} />}
 
