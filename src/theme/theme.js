@@ -10,7 +10,7 @@ import {
 
 export const RocksKitIcons = { ...FreeBrandIconSet, ...FreeSolidIconSet };
 
-export const RocksKitTheme = ({ colors, fonts } = {}) => {
+export const RocksKitTheme = ({ colors, fonts, loadingIndicator } = {}) => {
   const theme = createMuiTheme({
     breakpoints: {
       values: {
@@ -27,6 +27,7 @@ export const RocksKitTheme = ({ colors, fonts } = {}) => {
         regular: fonts?.regular || KIT_FONTS.regular,
       },
     },
+    loadingIndicator,
   });
 
   theme.palette = {

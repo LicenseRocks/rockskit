@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 
 import { RocksSpinner, Text } from "..";
 import { PageLoadingPropTypes, PageLoadingDefaultProps } from "./props";
@@ -20,17 +20,28 @@ const StyledLoading = styled.div`
   align-items: center;
   justify-content: center;
   z-index: ${({ fullScreen }) => (fullScreen ? 9999 : 99)};
+
+  img {
+    width: 25%;
+  }
 `;
 
-export const PageLoading = ({ message, ...props }) => (
-  <StyledLoading {...props}>
-    <RocksSpinner />
+export const PageLoading = ({ message, ...props }) => {
+  const { loadingIndicator } = useTheme();
+  return (
+    <StyledLoading {...props}>
+      {loadingIndicator ? (
+        <img alt="Loading..." src={loadingIndicator} />
+      ) : (
+        <RocksSpinner />
+      )}
 
-    {message && (
-      <Text color="primary" content={message} fontWeight="bold" mt={4} />
-    )}
-  </StyledLoading>
-);
+      {message && (
+        <Text color="primary" content={message} fontWeight="bold" mt={4} />
+      )}
+    </StyledLoading>
+  );
+};
 
 PageLoading.propTypes = PageLoadingPropTypes;
 

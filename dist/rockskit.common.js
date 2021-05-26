@@ -341,7 +341,8 @@ var RocksKitIcons = _extends({}, FreeBrandIconSet, FreeSolidIconSet);
 var RocksKitTheme = function RocksKitTheme(_temp) {
   var _ref = _temp === void 0 ? {} : _temp,
       colors = _ref.colors,
-      fonts = _ref.fonts;
+      fonts = _ref.fonts,
+      loadingIndicator = _ref.loadingIndicator;
 
   var theme = styles.createMuiTheme({
     breakpoints: {
@@ -358,7 +359,8 @@ var RocksKitTheme = function RocksKitTheme(_temp) {
         heading: (fonts == null ? void 0 : fonts.heading) || KIT_FONTS.heading,
         regular: (fonts == null ? void 0 : fonts.regular) || KIT_FONTS.regular
       }
-    }
+    },
+    loadingIndicator: loadingIndicator
   });
   theme.palette = _extends({}, theme.palette, {
     primary: {
@@ -8535,7 +8537,7 @@ var PageLoadingPropTypes = {
 var PageLoadingDefaultProps = {};
 
 function _templateObject$1m() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  min-width: ", ";\n  min-height: ", ";\n  width: 100%;\n  height: 100%;\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  min-width: ", ";\n  min-height: ", ";\n  width: 100%;\n  height: 100%;\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: ", ";\n\n  img {\n    width: 25%;\n  }\n"]);
 
   _templateObject$1m = function _templateObject() {
     return data;
@@ -8564,7 +8566,13 @@ var PageLoading = function PageLoading(_ref6) {
   var message = _ref6.message,
       props = _objectWithoutPropertiesLoose(_ref6, ["message"]);
 
-  return /*#__PURE__*/React__default['default'].createElement(StyledLoading, props, /*#__PURE__*/React__default['default'].createElement(RocksSpinner, null), message && /*#__PURE__*/React__default['default'].createElement(Text, {
+  var _useTheme = styled.useTheme(),
+      loadingIndicator = _useTheme.loadingIndicator;
+
+  return /*#__PURE__*/React__default['default'].createElement(StyledLoading, props, loadingIndicator ? /*#__PURE__*/React__default['default'].createElement("img", {
+    alt: "Loading...",
+    src: loadingIndicator
+  }) : /*#__PURE__*/React__default['default'].createElement(RocksSpinner, null), message && /*#__PURE__*/React__default['default'].createElement(Text, {
     color: "primary",
     content: message,
     fontWeight: "bold",
