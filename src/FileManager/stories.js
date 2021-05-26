@@ -17,7 +17,7 @@ export const main = () => {
           {
             id: 1,
             name: "license_273.pdf",
-            date: "01/03/2020",
+            date: "12/26/2021, 15:15",
             description: "Certificate with QR Code",
             previewUrl: "https://via.placeholder.com/500",
           },
@@ -29,13 +29,13 @@ export const main = () => {
           {
             id: 2,
             name: "license_273.pdf",
-            date: "01/03/2020",
+            date: "12/26/2021, 15:15",
             description: "Certificate with QR Code",
           },
           {
             id: 3,
             name: "denys-nevozhai-6OAWj_ZvSxx-unsplash.jpg",
-            date: "01/03/2019",
+            date: "12/26/2021, 15:15",
             description: "Enterprise contract",
           },
         ],

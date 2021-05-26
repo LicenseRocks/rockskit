@@ -3164,9 +3164,7 @@ var Item = styled(Flex).attrs(function (_ref9) {
       xs = _ref9.xs;
   return {
     item: true,
-    xs: xs || 12,
-    md: md || 4,
-    lg: lg || 4
+    xs: xs || 12
   };
 })(_templateObject5$1(), function (_ref10) {
   var align = _ref10.align,
@@ -3207,21 +3205,28 @@ var FileManager = function FileManager(_ref11) {
         mr: 4
       }), /*#__PURE__*/React.createElement(DetailsWrapper, null, /*#__PURE__*/React.createElement(Flex, {
         container: true
-      }, /*#__PURE__*/React.createElement(Item, null, renderName() || /*#__PURE__*/React.createElement(Text, {
+      }, /*#__PURE__*/React.createElement(Item, {
+        md: 6,
+        lg: 6
+      }, renderName() || /*#__PURE__*/React.createElement(Text, {
         content: name,
-        color: "textSecondary",
-        fontSize: "sm",
-        noWrap: true
-      })), /*#__PURE__*/React.createElement(Item, null, renderDate() || /*#__PURE__*/React.createElement(Text, {
-        content: date,
-        color: "textSecondary",
+        noWrap: true,
         fontWeight: "bold"
       })), /*#__PURE__*/React.createElement(Item, {
-        align: "flex-end"
+        md: 2,
+        lg: 2
+      }, renderDate() || /*#__PURE__*/React.createElement(Text, {
+        content: date,
+        color: "textSecondary",
+        fontSize: "sm"
+      })), /*#__PURE__*/React.createElement(Item, {
+        align: "flex-end",
+        md: 4,
+        lg: 4
       }, renderDescription() || /*#__PURE__*/React.createElement(Text, {
         content: description,
         color: "textSecondary",
-        fontWeight: "bold",
+        fontSize: "sm",
         noWrap: true
       })))));
     }) : /*#__PURE__*/React.createElement(Item, {

@@ -43,8 +43,6 @@ const DetailsWrapper = styled.div`
 const Item = styled(Flex).attrs(({ lg, md, xs }) => ({
   item: true,
   xs: xs || 12,
-  md: md || 4,
-  lg: lg || 4,
 }))`
   display: flex;
   align-items: center;
@@ -73,10 +71,10 @@ export const FileManager = ({ data, noItemsText }) => {
                 id,
                 name,
                 previewUrl,
-                renderDate = () => {},
-                renderDescription = () => {},
-                renderName = () => {},
-                renderPreview = () => {},
+                renderDate = () => { },
+                renderDescription = () => { },
+                renderName = () => { },
+                renderPreview = () => { },
               }) => (
                 <Row key={id}>
                   {renderPreview() || (
@@ -85,33 +83,28 @@ export const FileManager = ({ data, noItemsText }) => {
 
                   <DetailsWrapper>
                     <Flex container>
-                      <Item>
+                      <Item md={6} lg={6}>
                         {renderName() || (
-                          <Text
-                            content={name}
-                            color="textSecondary"
-                            fontSize="sm"
-                            noWrap
-                          />
+                          <Text content={name} noWrap fontWeight="bold" />
                         )}
                       </Item>
 
-                      <Item>
+                      <Item md={2} lg={2}>
                         {renderDate() || (
                           <Text
                             content={date}
                             color="textSecondary"
-                            fontWeight="bold"
+                            fontSize="sm"
                           />
                         )}
                       </Item>
 
-                      <Item align="flex-end">
+                      <Item align="flex-end" md={4} lg={4}>
                         {renderDescription() || (
                           <Text
                             content={description}
                             color="textSecondary"
-                            fontWeight="bold"
+                            fontSize="sm"
                             noWrap
                           />
                         )}
