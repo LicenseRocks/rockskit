@@ -18,6 +18,11 @@ const StyledInput = styled.input`
     cursor: pointer;
     transition: all 0.1s ease-in-out;
 
+    a {
+      text-decoration: none;
+      color: ${({ theme }) => theme.palette.primary.main};
+    }
+
     ${({ stacked }) =>
     stacked &&
     css`
@@ -43,13 +48,6 @@ const StyledInput = styled.input`
     css`
           border-color: ${({ theme }) => theme.palette.error.main};
         `}
-    }
-
-    &:hover {
-      &::before {
-        background-color: ${({ theme }) => theme.palette.primary.main};
-        border-color: ${({ theme }) => theme.palette.primary.main};
-      }
     }
   }
 
@@ -113,6 +111,7 @@ export const RadioBaseItem = ({
   icon,
   iconProps,
   label,
+  labelHtml,
   name,
   register,
   stacked,
@@ -141,7 +140,11 @@ export const RadioBaseItem = ({
       <StyledLabel bordered={bordered} htmlFor={id}>
         {icon && <Icon color="secondary" mr={2} {...iconProps} icon={icon} />}
 
-        {label}
+        {labelHtml ? (
+          <span dangerouslySetInnerHTML={{ __html: labelHtml }} />
+        ) : (
+          label
+        )}
       </StyledLabel>
     </>
   );

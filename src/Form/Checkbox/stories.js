@@ -19,9 +19,12 @@ export const main = () => {
     hasError: boolean("Has error", false),
     name: "checkbox",
     options: [
-      { value: "first", label: "First" },
+      {
+        value: "first",
+        labelHtml: 'First <a href="/terms" target="_blank">Terms of Usage</a>',
+      },
       { value: "second", label: "Second" },
-      { value: "third", label: "Third" },
+      { value: "third", labelHtml: "Third" },
     ],
     register,
     stacked: boolean("Stacked", false),

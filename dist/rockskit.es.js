@@ -3279,7 +3279,7 @@ function _templateObject2$a() {
 }
 
 function _templateObject$w() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: none;\n\n  + label {\n    display: inline-flex;\n    align-items: center;\n    font-weight: 600;\n    font-size: 14px;\n    line-height: 120%;\n    margin: 0 32px 0 0;\n    cursor: pointer;\n    transition: all 0.1s ease-in-out;\n\n    ", "\n\n    &::before {\n      content: \"\";\n      display: inline-block;\n      width: 24px;\n      min-width: 24px;\n      height: 24px;\n      border-radius: ", ";\n      background-color: ", ";\n      border: 1px solid ", ";\n      margin-right: 8px;\n      transition: background-color 0.1s ease-in-out;\n      ", "\n    }\n\n    &:hover {\n      &::before {\n        background-color: ", ";\n        border-color: ", ";\n      }\n    }\n  }\n\n  &:checked + label::before {\n    background-color: ", ";\n    border-color: ", ";\n    background-image: url(\"", "\");\n    background-size: 16px 16px;\n    background-repeat: no-repeat;\n    background-position: center;\n  }\n\n  &:disabled + label {\n    opacity: 0.3;\n\n    &,\n    span {\n      cursor: default;\n    }\n  }\n\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: none;\n\n  + label {\n    display: inline-flex;\n    align-items: center;\n    font-weight: 600;\n    font-size: 14px;\n    line-height: 120%;\n    margin: 0 32px 0 0;\n    cursor: pointer;\n    transition: all 0.1s ease-in-out;\n\n    a {\n      text-decoration: none;\n      color: ", ";\n    }\n\n    ", "\n\n    &::before {\n      content: \"\";\n      display: inline-block;\n      width: 24px;\n      min-width: 24px;\n      height: 24px;\n      border-radius: ", ";\n      background-color: ", ";\n      border: 1px solid ", ";\n      margin-right: 8px;\n      transition: background-color 0.1s ease-in-out;\n      ", "\n    }\n  }\n\n  &:checked + label::before {\n    background-color: ", ";\n    border-color: ", ";\n    background-image: url(\"", "\");\n    background-size: 16px 16px;\n    background-repeat: no-repeat;\n    background-position: center;\n  }\n\n  &:disabled + label {\n    opacity: 0.3;\n\n    &,\n    span {\n      cursor: default;\n    }\n  }\n\n  ", "\n"]);
 
   _templateObject$w = function _templateObject() {
     return data;
@@ -3288,57 +3288,55 @@ function _templateObject$w() {
   return data;
 }
 var StyledInput = styled.input(_templateObject$w(), function (_ref) {
-  var stacked = _ref.stacked;
-  return stacked && css(["display:flex;:not(:last-child){margin:0 0 24px 0;}"]);
+  var theme = _ref.theme;
+  return theme.palette.primary.main;
 }, function (_ref2) {
-  var type = _ref2.type;
-  return type === "radio" ? "50%" : "8px";
+  var stacked = _ref2.stacked;
+  return stacked && css(["display:flex;:not(:last-child){margin:0 0 24px 0;}"]);
 }, function (_ref3) {
-  var theme = _ref3.theme;
-  return theme.palette.common.white;
+  var type = _ref3.type;
+  return type === "radio" ? "50%" : "8px";
 }, function (_ref4) {
   var theme = _ref4.theme;
-  return theme.palette.gray.regular;
+  return theme.palette.common.white;
 }, function (_ref5) {
-  var hasError = _ref5.hasError;
-  return hasError && css(["border-color:", ";"], function (_ref6) {
-    var theme = _ref6.theme;
+  var theme = _ref5.theme;
+  return theme.palette.gray.regular;
+}, function (_ref6) {
+  var hasError = _ref6.hasError;
+  return hasError && css(["border-color:", ";"], function (_ref7) {
+    var theme = _ref7.theme;
     return theme.palette.error.main;
   });
-}, function (_ref7) {
-  var theme = _ref7.theme;
-  return theme.palette.primary.main;
 }, function (_ref8) {
   var theme = _ref8.theme;
   return theme.palette.primary.main;
 }, function (_ref9) {
   var theme = _ref9.theme;
   return theme.palette.primary.main;
-}, function (_ref10) {
-  var theme = _ref10.theme;
-  return theme.palette.primary.main;
-}, "" + img$1, function (_ref11) {
-  var bordered = _ref11.bordered,
-      theme = _ref11.theme;
+}, "" + img$1, function (_ref10) {
+  var bordered = _ref10.bordered,
+      theme = _ref10.theme;
   return bordered && css(["+ label{margin:0;}+ label:first-of-type{margin:0 0 0 -1px;}+ label:last-of-type{margin:0 -1px 0 0;}&:checked + label{border:2px solid ", ";border-radius:12px;height:102%;}"], theme.palette.gray.dark);
 });
-var StyledLabel$1 = styled.label(_templateObject2$a(), function (_ref12) {
-  var bordered = _ref12.bordered;
+var StyledLabel$1 = styled.label(_templateObject2$a(), function (_ref11) {
+  var bordered = _ref11.bordered;
   return bordered && css(["flex:1;display:flex;align-items:center;justify-content:center;height:100%;"]);
 });
-var RadioBaseItem = function RadioBaseItem(_ref13) {
-  var bordered = _ref13.bordered,
-      defaultValue = _ref13.defaultValue,
-      hasError = _ref13.hasError,
-      icon = _ref13.icon,
-      iconProps = _ref13.iconProps,
-      label = _ref13.label,
-      name = _ref13.name,
-      register = _ref13.register,
-      stacked = _ref13.stacked,
-      type = _ref13.type,
-      value = _ref13.value,
-      props = _objectWithoutPropertiesLoose(_ref13, ["bordered", "defaultValue", "hasError", "icon", "iconProps", "label", "name", "register", "stacked", "type", "value"]);
+var RadioBaseItem = function RadioBaseItem(_ref12) {
+  var bordered = _ref12.bordered,
+      defaultValue = _ref12.defaultValue,
+      hasError = _ref12.hasError,
+      icon = _ref12.icon,
+      iconProps = _ref12.iconProps,
+      label = _ref12.label,
+      labelHtml = _ref12.labelHtml,
+      name = _ref12.name,
+      register = _ref12.register,
+      stacked = _ref12.stacked,
+      type = _ref12.type,
+      value = _ref12.value,
+      props = _objectWithoutPropertiesLoose(_ref12, ["bordered", "defaultValue", "hasError", "icon", "iconProps", "label", "labelHtml", "name", "register", "stacked", "type", "value"]);
 
   var id = name + "-" + value;
   var defaultChecked = type === "checkbox" ? defaultValue.includes(value) : defaultValue === value;
@@ -3360,7 +3358,11 @@ var RadioBaseItem = function RadioBaseItem(_ref13) {
     mr: 2
   }, iconProps, {
     icon: icon
-  })), label));
+  })), labelHtml ? /*#__PURE__*/React.createElement("span", {
+    dangerouslySetInnerHTML: {
+      __html: labelHtml
+    }
+  }) : label));
 };
 RadioBaseItem.propTypes = RadioBasePropTypes;
 RadioBaseItem.defaultProps = RadioBaseDefaultProps;
