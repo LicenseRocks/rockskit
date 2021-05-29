@@ -4271,18 +4271,16 @@ var DropzoneArea = styled.div(_templateObject2$e(), function (_ref) {
   return dragActive && css(["border-color:", ";"], theme.palette.gray.medium);
 });
 var Dropzone = function Dropzone(_ref10) {
-  var accept = _ref10.accept,
-      disabled = _ref10.disabled,
+  var disabled = _ref10.disabled,
       defaultValue = _ref10.defaultValue,
       fileNameEditable = _ref10.fileNameEditable,
       hasError = _ref10.hasError,
       multiple = _ref10.multiple,
       onChange = _ref10.onChange,
       value = _ref10.value,
-      props = _objectWithoutPropertiesLoose(_ref10, ["accept", "disabled", "defaultValue", "fileNameEditable", "hasError", "multiple", "onChange", "value"]);
+      props = _objectWithoutPropertiesLoose(_ref10, ["disabled", "defaultValue", "fileNameEditable", "hasError", "multiple", "onChange", "value"]);
 
-  var _useDropzone = useDropzone({
-    accept: accept,
+  var _useDropzone = useDropzone(_extends({
     disabled: disabled,
     multiple: multiple,
     onDrop: function onDrop(acceptedFiles) {
@@ -4294,7 +4292,7 @@ var Dropzone = function Dropzone(_ref10) {
       });
       if (multiple) onChange([].concat(value, accepted));else onChange([].concat(accepted));
     }
-  }),
+  }, props)),
       getRootProps = _useDropzone.getRootProps,
       getInputProps = _useDropzone.getInputProps,
       isDragActive = _useDropzone.isDragActive,

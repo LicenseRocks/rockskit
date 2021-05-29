@@ -19,11 +19,13 @@ export const main = () => {
   };
 
   const defaultProps = {
+    accept: "image/*, video/*",
     control,
     disabled: boolean("Disabled", false),
     fileNameEditable: boolean("File Name Editable", true),
     hasError: !!errors.fileUpload,
     isRequired: "This item is required",
+    maxSize: 1000000,
     multiple: boolean("Multiple", false),
     name: "fileUpload",
   };

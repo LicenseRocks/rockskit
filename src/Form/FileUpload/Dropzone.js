@@ -59,7 +59,6 @@ const DropzoneArea = styled.div`
 `;
 
 export const Dropzone = ({
-  accept,
   disabled,
   defaultValue,
   fileNameEditable,
@@ -76,7 +75,6 @@ export const Dropzone = ({
     isDragAccept,
     isDragReject,
   } = useDropzone({
-    accept,
     disabled,
     multiple,
     onDrop: (acceptedFiles) => {
@@ -90,6 +88,7 @@ export const Dropzone = ({
       if (multiple) onChange([...value, ...accepted]);
       else onChange([...accepted]);
     },
+    ...props,
   });
 
   const editFile = (file, altName) => {
