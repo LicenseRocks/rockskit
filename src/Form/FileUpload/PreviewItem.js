@@ -114,7 +114,7 @@ export const UploaderPreviewItem = ({
           ) : (
             <b>{name}</b>
           )}
-          <div>{bytesToSize(file.size)}</div>
+          {file?.size && <div>{bytesToSize(file.size)}</div>}
         </div>
       </div>
 

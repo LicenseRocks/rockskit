@@ -4172,7 +4172,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref8) {
     onClick: function onClick() {
       return setEditMode(false);
     }
-  })) : /*#__PURE__*/React.createElement("b", null, name), /*#__PURE__*/React.createElement("div", null, bytesToSize(file.size)))), /*#__PURE__*/React.createElement("div", {
+  })) : /*#__PURE__*/React.createElement("b", null, name), (file == null ? void 0 : file.size) && /*#__PURE__*/React.createElement("div", null, bytesToSize(file.size)))), /*#__PURE__*/React.createElement("div", {
     className: "details"
   }, fileNameEditable && !editMode && /*#__PURE__*/React.createElement(ActionIcon, {
     icon: "pencil-alt",
