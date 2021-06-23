@@ -17,5 +17,5 @@ export const withBrokenImage = () => {
 };
 
 export const withPreview = () => {
-  return <Thumbnail imgSrc="https://via.placeholder.com/500" hasPreview />;
+  return <Thumbnail imgSrc="https://via.placeholder.com/500X1000" hasPreview />;
 };

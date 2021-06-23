@@ -1,10 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { useDropzone } from "react-dropzone";
 import styled, { css } from "styled-components";
 
 import { UploaderPreview } from "./UploaderPreview";
 import { DISPLAY, SPACER } from "../../theme";
+import { CropModal } from "./cropModal";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -59,6 +60,8 @@ const DropzoneArea = styled.div`
 `;
 
 export const Dropzone = ({
+  crop,
+  cropProps,
   disabled,
   defaultValue,
   fileNameEditable,
@@ -68,28 +71,19 @@ export const Dropzone = ({
   value,
   ...props
 }) => {
-  const {
-    getRootProps,
-    getInputProps,
-    isDragActive,
-    isDragAccept,
-    isDragReject,
-  } = useDropzone({
-    disabled,
-    multiple,
-    onDrop: (acceptedFiles) => {
-      const accepted = acceptedFiles.map((file) =>
-        Object.assign(file, {
-          preview: file.type.includes("image") ? URL.createObjectURL(file) : "",
-          altName: null,
-        })
-      );
+  const [cropFile, setCropFile] = useState();
 
-      if (multiple) onChange([...value, ...accepted]);
-      else onChange([...accepted]);
-    },
-    ...props,
-  });
+  const setFiles = (files) => {
+    const accepted = files.map((file) =>
+      Object.assign(file, {
+        preview: file.type.includes("image") ? URL.createObjectURL(file) : "",
+        altName: null,
+      })
+    );
+
+    if (multiple) onChange([...value, ...accepted]);
+    else onChange([...accepted]);
+  };
 
   const editFile = (file, altName) => {
     onChange(
@@ -105,47 +99,87 @@ export const Dropzone = ({
     );
   };
 
+  const handleCrop = (file) => {
+    setFiles([file]);
+    setCropFile();
+  };
+
+  const {
+    getRootProps,
+    getInputProps,
+    isDragActive,
+    isDragAccept,
+    isDragReject,
+  } = useDropzone({
+    disabled,
+    multiple,
+    onDrop: (acceptedFiles) => {
+      if (crop && !multiple) {
+        setCropFile(acceptedFiles[0]);
+      } else {
+        setFiles(acceptedFiles);
+      }
+    },
+    ...props,
+  });
+
   const removeFile = (file) => {
     onChange(value.filter((f) => f.preview !== file.preview));
   };
 
   return (
-    <StyledContainer {...props}>
-      <DropzoneArea
-        dragActive={isDragActive}
-        dragAccept={isDragAccept}
-        dragReject={isDragReject}
-        disabled={disabled}
-        hasError={hasError}
-        {...getRootProps()}
-      >
-        <input {...getInputProps()} />
+    <>
+      <StyledContainer {...props}>
+        <DropzoneArea
+          dragActive={isDragActive}
+          dragAccept={isDragAccept}
+          dragReject={isDragReject}
+          disabled={disabled}
+          hasError={hasError}
+          {...getRootProps()}
+        >
+          <input {...getInputProps()} />
 
-        {isDragAccept && <p>Accepted</p>}
-        {isDragReject && <p>Rejected</p>}
+          {isDragAccept && <p>Accepted</p>}
+          {isDragReject && <p>Rejected</p>}
 
-        {isDragActive ? (
-          <p>Drop here</p>
-        ) : (
-          <>
-            <p>Drop, or click to select</p>
-            {multiple ? <p>Accepts multiple files</p> : <p>Single file only</p>}
-          </>
-        )}
-      </DropzoneArea>
+          {isDragActive ? (
+            <p>Drop here</p>
+          ) : (
+            <>
+              <p>Drop, or click to select</p>
+              {multiple ? (
+                <p>Accepts multiple files</p>
+              ) : (
+                <p>Single file only</p>
+              )}
+            </>
+          )}
+        </DropzoneArea>
 
-      <UploaderPreview
-        files={value}
-        fileNameEditable={fileNameEditable}
-        onRemoveClick={removeFile}
-        onEdit={editFile}
+        <UploaderPreview
+          files={value}
+          fileNameEditable={fileNameEditable}
+          onRemoveClick={removeFile}
+          onEdit={editFile}
+        />
+      </StyledContainer>
+
+      <CropModal
+        isOpen={!!cropFile}
+        onClose={() => setCropFile()}
+        imgFile={cropFile}
+        onSubmit={handleCrop}
+        {...cropProps}
       />
-    </StyledContainer>
+    </>
   );
 };
 
 Dropzone.propTypes = {
   accept: PropTypes.string,
+  crop: PropTypes.bool,
+  cropProps: PropTypes.shape({}),
   defaultValue: PropTypes.arrayOf(PropTypes.object),
   disabled: PropTypes.bool,
   fileNameEditable: PropTypes.bool,
@@ -157,6 +191,8 @@ Dropzone.propTypes = {
 
 Dropzone.defaultProps = {
   accept: "image/*",
+  crop: false,
+  cropProps: {},
   defaultValue: [],
   disabled: false,
   fileNameEditable: false,

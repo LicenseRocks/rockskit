@@ -1,6 +1,6 @@
 {
   "name": "@licenserocks/kit",
-  "version": "2.3.2",
+  "version": "2.4.0",
   "description": "",
   "main": "dist/rockskit.common.js",
   "module": "dist/rockskit.es.js",
@@ -32,6 +32,7 @@
     "lodash": "^4.17.20",
     "notistack": "^1.0.5",
     "qrcode.react": "^1.0.0",
+    "react-avatar-editor": "^11.1.0",
     "react-collapse": "^5.0.1",
     "react-content-loader": "^5.1.0",
     "react-day-picker": "^7.4.8",

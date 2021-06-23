@@ -17,13 +17,14 @@ const CloseModalIcon = styled(Icon).attrs(() => ({
 `;
 
 const StyledImg = styled(Image)`
-  width: 500px;
-  max-width: 500px;
+  width: 100%;
+  max-width: 100%;
   user-select: none;
+  object-fit: cover;
 `;
 
 export const ImageModal = ({ isOpen, onClose, imgSrc }) => (
-  <Modal onClose={onClose} isOpen={isOpen}>
+  <Modal onClose={onClose} isOpen={isOpen} maxWidth="sm">
     <CloseModalIcon color="secondary" icon="times" onClick={onClose} />
     <StyledImg src={imgSrc} alt="Attachment preview" />
   </Modal>

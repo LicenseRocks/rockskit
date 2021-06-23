@@ -7,13 +7,23 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import styled from "styled-components";
 
-import { Button, Icon } from "..";
+import { Button, H3, Icon } from "..";
+
+const StyledDialog = styled(Dialog)`
+  .MuiDialog-paper {
+    flex: 1;
+    position: relative;
+    background-color: ${({ theme }) => theme.palette.common.white};
+  }
+`;
 
 const ContentWrapper = styled(DialogContent).attrs(() => ({
   dividers: true,
 }))`
   && {
-    padding: 0;
+    display: flex;
+    flex-direction: column;
+    padding: ${({ padding, theme }) => (padding ? theme.spacing(4) : 0)};
     &:first-child {
       padding-top: 0;
     }
@@ -47,7 +57,7 @@ const CloseModalIcon = styled(Icon).attrs(() => ({
 const Actions = styled(DialogActions)`
   && {
     justify-content: ${({ hasDesc }) =>
-      hasDesc ? "space-between" : "flex-end"};
+    hasDesc ? "space-between" : "flex-end"};
   }
 `;
 
@@ -79,10 +89,11 @@ export const Modal = ({
   maxWidth,
   title,
   disabled,
+  padding,
   ...props
 }) => {
   return (
-    <Dialog
+    <StyledDialog
       data-cy={dataCy}
       fullScreen={
         typeof fullScreen !== "undefined"
@@ -92,11 +103,6 @@ export const Modal = ({
       onClose={onClose}
       open={isOpen}
       maxWidth={maxWidth}
-      PaperProps={{
-        style: {
-          position: "relative",
-        },
-      }}
       {...props}
     >
       {loading && (
@@ -104,13 +110,17 @@ export const Modal = ({
           <CircularProgress size={60} />
         </LoadingWrapper>
       )}
+
       {title && (
         <Title>
-          {title}
+          <H3 content={title} />
+
           <CloseModalIcon icon="times" onClick={onClose} />
         </Title>
       )}
-      <ContentWrapper>{children}</ContentWrapper>
+
+      <ContentWrapper padding={padding}>{children}</ContentWrapper>
+
       {action && (
         <Actions hasDesc={!!actionDescription}>
           <div>{actionDescription}</div>
@@ -119,7 +129,7 @@ export const Modal = ({
           </Button>
         </Actions>
       )}
-    </Dialog>
+    </StyledDialog>
   );
 };
 
@@ -137,6 +147,7 @@ Modal.propTypes = {
   maxWidth: PropTypes.string,
   title: PropTypes.string,
   disabled: PropTypes.bool,
+  padding: PropTypes.bool,
 };
 
 Modal.defaultProps = {
@@ -150,4 +161,5 @@ Modal.defaultProps = {
   maxWidth: "md",
   title: "",
   disabled: false,
+  padding: false,
 };
