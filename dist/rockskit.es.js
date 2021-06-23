@@ -23,8 +23,8 @@ import QRCode from 'qrcode.react';
 import { Controller } from 'react-hook-form';
 import MuiPopover from '@material-ui/core/Popover';
 import { FilePond as FilePond$1 } from 'react-filepond';
-import { useDropzone } from 'react-dropzone';
 import AvatarEditor from 'react-avatar-editor';
+import { useDropzone } from 'react-dropzone';
 import MuiSlider from '@material-ui/core/Slider';
 import axios from 'axios';
 import AsyncSelect from 'react-select/async';
@@ -4047,6 +4047,87 @@ var FilePond = function FilePond(_ref) {
 FilePond.propTypes = FileUploadPropTypes;
 FilePond.defaultProps = FileUploadDefaultProps;
 
+function _templateObject$F() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n"]);
+
+  _templateObject$F = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var EditorWrapper = styled.div(_templateObject$F());
+var CropModal = function CropModal(_ref) {
+  var imgFile = _ref.imgFile,
+      isOpen = _ref.isOpen,
+      onClose = _ref.onClose,
+      onSubmit = _ref.onSubmit,
+      size = _ref.size,
+      props = _objectWithoutPropertiesLoose(_ref, ["imgFile", "isOpen", "onClose", "onSubmit", "size"]);
+
+  var _useState = useState(1),
+      scale = _useState[0],
+      setScale = _useState[1];
+
+  var editorRef = /*#__PURE__*/createRef();
+
+  var handleSubmit = function handleSubmit() {
+    var img = editorRef.current.getImageScaledToCanvas();
+    img.toBlob(function (blob) {
+      if (blob) {
+        onSubmit(new File([blob], imgFile.name, blob));
+        onClose();
+      }
+    });
+  };
+
+  return /*#__PURE__*/React.createElement(Modal, _extends({
+    action: handleSubmit,
+    actionTitle: "Save Changes",
+    isOpen: isOpen,
+    onClose: onClose,
+    maxWidth: size,
+    padding: true,
+    title: "Crop Image"
+  }, props), /*#__PURE__*/React.createElement(EditorWrapper, null, /*#__PURE__*/React.createElement(AvatarEditor, {
+    ref: editorRef,
+    image: imgFile,
+    width: size === "lg" ? 1080 : 400,
+    height: 400,
+    border: 20,
+    color: [0, 0, 0, 0.6] // RGBA
+    ,
+    scale: scale,
+    rotate: 0
+  })), /*#__PURE__*/React.createElement(FormRow, {
+    errors: {},
+    label: "Zoom",
+    fields: []
+  }, /*#__PURE__*/React.createElement("input", {
+    name: "scale",
+    type: "range",
+    onChange: function onChange(e) {
+      return setScale(parseFloat(e.target.value));
+    },
+    min: "1",
+    max: "2",
+    step: "0.01",
+    defaultValue: "1"
+  })));
+};
+CropModal.propTypes = {
+  imgFile: PropTypes.shape({
+    name: PropTypes.string
+  }).isRequired,
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  size: PropTypes.string
+};
+CropModal.defaultProps = {
+  size: "md"
+};
+
 var Input = function Input(props) {
   return /*#__PURE__*/React.createElement(FieldBase, _extends({
     component: "input"
@@ -4075,16 +4156,16 @@ function _templateObject2$d() {
   return data;
 }
 
-function _templateObject$F() {
+function _templateObject$G() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: ", ";\n  background-color: ", ";\n  color: ", ";\n  font-size: 12px;\n  margin-bottom: ", ";\n  border-radius: 8px;\n\n  .details {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n  }\n"]);
 
-  _templateObject$F = function _templateObject() {
+  _templateObject$G = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Item$1 = styled.div(_templateObject$F(), function (_ref) {
+var Item$1 = styled.div(_templateObject$G(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2, 4);
 }, function (_ref2) {
@@ -4216,87 +4297,6 @@ UploaderPreview.propTypes = {
 };
 UploaderPreview.defaultProps = {
   files: []
-};
-
-function _templateObject$G() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n"]);
-
-  _templateObject$G = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var EditorWrapper = styled.div(_templateObject$G());
-var CropModal = function CropModal(_ref) {
-  var imgFile = _ref.imgFile,
-      isOpen = _ref.isOpen,
-      onClose = _ref.onClose,
-      onSubmit = _ref.onSubmit,
-      size = _ref.size,
-      props = _objectWithoutPropertiesLoose(_ref, ["imgFile", "isOpen", "onClose", "onSubmit", "size"]);
-
-  var _useState = useState(1),
-      scale = _useState[0],
-      setScale = _useState[1];
-
-  var editorRef = /*#__PURE__*/createRef();
-
-  var handleSubmit = function handleSubmit() {
-    var img = editorRef.current.getImageScaledToCanvas();
-    img.toBlob(function (blob) {
-      if (blob) {
-        onSubmit(new File([blob], imgFile.name, blob));
-        onClose();
-      }
-    });
-  };
-
-  return /*#__PURE__*/React.createElement(Modal, _extends({
-    action: handleSubmit,
-    actionTitle: "Save Changes",
-    isOpen: isOpen,
-    onClose: onClose,
-    maxWidth: size,
-    padding: true,
-    title: "Crop Image"
-  }, props), /*#__PURE__*/React.createElement(EditorWrapper, null, /*#__PURE__*/React.createElement(AvatarEditor, {
-    ref: editorRef,
-    image: imgFile,
-    width: size === "lg" ? 1080 : 400,
-    height: 400,
-    border: 20,
-    color: [0, 0, 0, 0.6] // RGBA
-    ,
-    scale: scale,
-    rotate: 0
-  })), /*#__PURE__*/React.createElement(FormRow, {
-    errors: {},
-    label: "Zoom",
-    fields: []
-  }, /*#__PURE__*/React.createElement("input", {
-    name: "scale",
-    type: "range",
-    onChange: function onChange(e) {
-      return setScale(parseFloat(e.target.value));
-    },
-    min: "1",
-    max: "2",
-    step: "0.01",
-    defaultValue: "1"
-  })));
-};
-CropModal.propTypes = {
-  imgFile: PropTypes.shape({
-    name: PropTypes.string
-  }).isRequired,
-  isOpen: PropTypes.bool.isRequired,
-  onClose: PropTypes.func.isRequired,
-  onSubmit: PropTypes.func.isRequired,
-  size: PropTypes.string
-};
-CropModal.defaultProps = {
-  size: "md"
 };
 
 function _templateObject2$e() {
@@ -10867,5 +10867,5 @@ var Wizard = function Wizard(_ref7) {
 Wizard.propTypes = WizardPropTypes;
 Wizard.defaultProps = WizardDefaultProps;
 
-export { AdvancedLineItem, Alert, AppContainer, AppContext, AppContextProvider, AuthLayout, BorderedRadio, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CartButton, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, CollectionItem, CreatorsHubAuthLayout, CreatorsHubMainLayout, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, Datepicker, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FilePond, FileUpload, Flex, Form, FormDatepicker, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, Hidden, HideOnScroll, History, HistoryTree, Icon, Image, ImageModal, Indicator, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, Link$1 as Link, MINI_SHARE_MODULE_SHARE_OPTIONS, MarketPlaceItem, MiniShareModule, Modal, NoItem, OutlineButton, PageFigure, PageLoading, PageMeta, PageProgressBar, PageTransition, Pagination, Paragraph, PriceField, Profile, Radio, RadioBase, RangeSlider, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, ShareModuleDefaultProps, ShareModulePropTypes, Snackbar, Stepper, THEME_COLORS, Tab, Table, Text, TextArea, TextBase, TextButton, Thumbnail, TinyBadge, ToggleSwitch, Tooltip, Wizard, convertHexToRGBA, formatDateAndTime, formatPrice, getFormInputError, getFormRowErrors, handleScroll, useAppContext, useMediaQuery };
+export { AdvancedLineItem, Alert, AppContainer, AppContext, AppContextProvider, AuthLayout, BorderedRadio, Box, BoxBase, Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CartButton, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, CollectionItem, CreatorsHubAuthLayout, CreatorsHubMainLayout, CropModal, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, Datepicker, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset, FileManager, FilePond, FileUpload, Flex, Form, FormDatepicker, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, Hidden, HideOnScroll, History, HistoryTree, Icon, Image, ImageModal, Indicator, Input, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, Link$1 as Link, MINI_SHARE_MODULE_SHARE_OPTIONS, MarketPlaceItem, MiniShareModule, Modal, NoItem, OutlineButton, PageFigure, PageLoading, PageMeta, PageProgressBar, PageTransition, Pagination, Paragraph, PriceField, Profile, Radio, RadioBase, RangeSlider, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, ShareModuleDefaultProps, ShareModulePropTypes, Snackbar, Stepper, THEME_COLORS, Tab, Table, Text, TextArea, TextBase, TextButton, Thumbnail, TinyBadge, ToggleSwitch, Tooltip, Wizard, convertHexToRGBA, formatDateAndTime, formatPrice, getFormInputError, getFormRowErrors, handleScroll, useAppContext, useMediaQuery };
 //# sourceMappingURL=rockskit.es.js.map

@@ -5,7 +5,7 @@ import styled, { css } from "styled-components";
 
 import { UploaderPreview } from "./UploaderPreview";
 import { DISPLAY, SPACER } from "../../theme";
-import { CropModal } from "./cropModal";
+import { CropModal } from "./CropModal";
 
 const StyledContainer = styled.div`
   width: 100%;

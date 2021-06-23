@@ -27,8 +27,8 @@ var QRCode = require('qrcode.react');
 var reactHookForm = require('react-hook-form');
 var MuiPopover = require('@material-ui/core/Popover');
 var reactFilepond = require('react-filepond');
-var reactDropzone = require('react-dropzone');
 var AvatarEditor = require('react-avatar-editor');
+var reactDropzone = require('react-dropzone');
 var MuiSlider = require('@material-ui/core/Slider');
 var axios = require('axios');
 var AsyncSelect = require('react-select/async');
@@ -4092,6 +4092,87 @@ var FilePond = function FilePond(_ref) {
 FilePond.propTypes = FileUploadPropTypes;
 FilePond.defaultProps = FileUploadDefaultProps;
 
+function _templateObject$F() {
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n"]);
+
+  _templateObject$F = function _templateObject() {
+    return data;
+  };
+
+  return data;
+}
+var EditorWrapper = styled__default['default'].div(_templateObject$F());
+var CropModal = function CropModal(_ref) {
+  var imgFile = _ref.imgFile,
+      isOpen = _ref.isOpen,
+      onClose = _ref.onClose,
+      onSubmit = _ref.onSubmit,
+      size = _ref.size,
+      props = _objectWithoutPropertiesLoose(_ref, ["imgFile", "isOpen", "onClose", "onSubmit", "size"]);
+
+  var _useState = React.useState(1),
+      scale = _useState[0],
+      setScale = _useState[1];
+
+  var editorRef = /*#__PURE__*/React.createRef();
+
+  var handleSubmit = function handleSubmit() {
+    var img = editorRef.current.getImageScaledToCanvas();
+    img.toBlob(function (blob) {
+      if (blob) {
+        onSubmit(new File([blob], imgFile.name, blob));
+        onClose();
+      }
+    });
+  };
+
+  return /*#__PURE__*/React__default['default'].createElement(Modal, _extends({
+    action: handleSubmit,
+    actionTitle: "Save Changes",
+    isOpen: isOpen,
+    onClose: onClose,
+    maxWidth: size,
+    padding: true,
+    title: "Crop Image"
+  }, props), /*#__PURE__*/React__default['default'].createElement(EditorWrapper, null, /*#__PURE__*/React__default['default'].createElement(AvatarEditor__default['default'], {
+    ref: editorRef,
+    image: imgFile,
+    width: size === "lg" ? 1080 : 400,
+    height: 400,
+    border: 20,
+    color: [0, 0, 0, 0.6] // RGBA
+    ,
+    scale: scale,
+    rotate: 0
+  })), /*#__PURE__*/React__default['default'].createElement(FormRow, {
+    errors: {},
+    label: "Zoom",
+    fields: []
+  }, /*#__PURE__*/React__default['default'].createElement("input", {
+    name: "scale",
+    type: "range",
+    onChange: function onChange(e) {
+      return setScale(parseFloat(e.target.value));
+    },
+    min: "1",
+    max: "2",
+    step: "0.01",
+    defaultValue: "1"
+  })));
+};
+CropModal.propTypes = {
+  imgFile: PropTypes__default['default'].shape({
+    name: PropTypes__default['default'].string
+  }).isRequired,
+  isOpen: PropTypes__default['default'].bool.isRequired,
+  onClose: PropTypes__default['default'].func.isRequired,
+  onSubmit: PropTypes__default['default'].func.isRequired,
+  size: PropTypes__default['default'].string
+};
+CropModal.defaultProps = {
+  size: "md"
+};
+
 var Input = function Input(props) {
   return /*#__PURE__*/React__default['default'].createElement(FieldBase, _extends({
     component: "input"
@@ -4120,16 +4201,16 @@ function _templateObject2$d() {
   return data;
 }
 
-function _templateObject$F() {
+function _templateObject$G() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: ", ";\n  background-color: ", ";\n  color: ", ";\n  font-size: 12px;\n  margin-bottom: ", ";\n  border-radius: 8px;\n\n  .details {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n  }\n"]);
 
-  _templateObject$F = function _templateObject() {
+  _templateObject$G = function _templateObject() {
     return data;
   };
 
   return data;
 }
-var Item$1 = styled__default['default'].div(_templateObject$F(), function (_ref) {
+var Item$1 = styled__default['default'].div(_templateObject$G(), function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(2, 4);
 }, function (_ref2) {
@@ -4261,87 +4342,6 @@ UploaderPreview.propTypes = {
 };
 UploaderPreview.defaultProps = {
   files: []
-};
-
-function _templateObject$G() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n"]);
-
-  _templateObject$G = function _templateObject() {
-    return data;
-  };
-
-  return data;
-}
-var EditorWrapper = styled__default['default'].div(_templateObject$G());
-var CropModal = function CropModal(_ref) {
-  var imgFile = _ref.imgFile,
-      isOpen = _ref.isOpen,
-      onClose = _ref.onClose,
-      onSubmit = _ref.onSubmit,
-      size = _ref.size,
-      props = _objectWithoutPropertiesLoose(_ref, ["imgFile", "isOpen", "onClose", "onSubmit", "size"]);
-
-  var _useState = React.useState(1),
-      scale = _useState[0],
-      setScale = _useState[1];
-
-  var editorRef = /*#__PURE__*/React.createRef();
-
-  var handleSubmit = function handleSubmit() {
-    var img = editorRef.current.getImageScaledToCanvas();
-    img.toBlob(function (blob) {
-      if (blob) {
-        onSubmit(new File([blob], imgFile.name, blob));
-        onClose();
-      }
-    });
-  };
-
-  return /*#__PURE__*/React__default['default'].createElement(Modal, _extends({
-    action: handleSubmit,
-    actionTitle: "Save Changes",
-    isOpen: isOpen,
-    onClose: onClose,
-    maxWidth: size,
-    padding: true,
-    title: "Crop Image"
-  }, props), /*#__PURE__*/React__default['default'].createElement(EditorWrapper, null, /*#__PURE__*/React__default['default'].createElement(AvatarEditor__default['default'], {
-    ref: editorRef,
-    image: imgFile,
-    width: size === "lg" ? 1080 : 400,
-    height: 400,
-    border: 20,
-    color: [0, 0, 0, 0.6] // RGBA
-    ,
-    scale: scale,
-    rotate: 0
-  })), /*#__PURE__*/React__default['default'].createElement(FormRow, {
-    errors: {},
-    label: "Zoom",
-    fields: []
-  }, /*#__PURE__*/React__default['default'].createElement("input", {
-    name: "scale",
-    type: "range",
-    onChange: function onChange(e) {
-      return setScale(parseFloat(e.target.value));
-    },
-    min: "1",
-    max: "2",
-    step: "0.01",
-    defaultValue: "1"
-  })));
-};
-CropModal.propTypes = {
-  imgFile: PropTypes__default['default'].shape({
-    name: PropTypes__default['default'].string
-  }).isRequired,
-  isOpen: PropTypes__default['default'].bool.isRequired,
-  onClose: PropTypes__default['default'].func.isRequired,
-  onSubmit: PropTypes__default['default'].func.isRequired,
-  size: PropTypes__default['default'].string
-};
-CropModal.defaultProps = {
-  size: "md"
 };
 
 function _templateObject2$e() {
@@ -10935,6 +10935,7 @@ exports.CollapseButton = CollapseButton;
 exports.CollectionItem = CollectionItem;
 exports.CreatorsHubAuthLayout = CreatorsHubAuthLayout;
 exports.CreatorsHubMainLayout = CreatorsHubMainLayout;
+exports.CropModal = CropModal;
 exports.DIMENSION = DIMENSION;
 exports.DIMENSION_PROP_TYPES = DIMENSION_PROP_TYPES;
 exports.DISPLAY = DISPLAY;
