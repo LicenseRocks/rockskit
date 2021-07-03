@@ -11028,6 +11028,7 @@ exports.TextBase = TextBase;
 exports.TextButton = TextButton;
 exports.Thumbnail = Thumbnail;
 exports.TinyBadge = TinyBadge;
+exports.Toggle = Toggle;
 exports.ToggleSwitch = ToggleSwitch;
 exports.Tooltip = Tooltip;
 exports.Wizard = Wizard;
