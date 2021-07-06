@@ -8623,7 +8623,7 @@ var PageLoadingPropTypes = {
 var PageLoadingDefaultProps = {};
 
 function _templateObject$1n() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  min-width: ", ";\n  min-height: ", ";\n  width: 100%;\n  height: 100%;\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: ", ";\n\n  img {\n    width: 25%;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: ", ";\n  top: 0;\n  right: 0;\n  left: 0;\n  min-width: ", ";\n  min-height: ", ";\n  width: 100%;\n  height: 100%;\n  background-color: ", ";\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  z-index: ", ";\n\n  img {\n    max-width: 25%;\n  }\n"]);
 
   _templateObject$1n = function _templateObject() {
     return data;
@@ -8655,10 +8655,20 @@ var PageLoading = function PageLoading(_ref6) {
   var _useTheme = useTheme(),
       loadingIndicator = _useTheme.loadingIndicator;
 
-  return /*#__PURE__*/React.createElement(StyledLoading, props, loadingIndicator ? /*#__PURE__*/React.createElement("img", {
-    alt: "Loading...",
-    src: loadingIndicator
-  }) : /*#__PURE__*/React.createElement(RocksSpinner, null), message && /*#__PURE__*/React.createElement(Text, {
+  var Spinner = RocksSpinner;
+
+  if (loadingIndicator !== undefined) {
+    if (loadingIndicator === "") Spinner = function Spinner() {
+      return null;
+    };else Spinner = function Spinner() {
+      return /*#__PURE__*/React.createElement("img", {
+        alt: "Loading...",
+        src: loadingIndicator
+      });
+    };
+  }
+
+  return /*#__PURE__*/React.createElement(StyledLoading, props, /*#__PURE__*/React.createElement(Spinner, null), message && /*#__PURE__*/React.createElement(Text, {
     color: "primary",
     content: message,
     fontWeight: "bold",

@@ -22,19 +22,22 @@ const StyledLoading = styled.div`
   z-index: ${({ fullScreen }) => (fullScreen ? 9999 : 99)};
 
   img {
-    width: 25%;
+    max-width: 25%;
   }
 `;
 
 export const PageLoading = ({ message, ...props }) => {
   const { loadingIndicator } = useTheme();
+
+  let Spinner = RocksSpinner;
+  if (loadingIndicator !== undefined) {
+    if (loadingIndicator === "") Spinner = () => null;
+    else Spinner = () => <img alt="Loading..." src={loadingIndicator} />;
+  }
+
   return (
     <StyledLoading {...props}>
-      {loadingIndicator ? (
-        <img alt="Loading..." src={loadingIndicator} />
-      ) : (
-        <RocksSpinner />
-      )}
+      <Spinner />
 
       {message && (
         <Text color="primary" content={message} fontWeight="bold" mt={4} />
