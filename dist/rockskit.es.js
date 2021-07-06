@@ -8655,12 +8655,17 @@ var PageLoading = function PageLoading(_ref6) {
   var _useTheme = useTheme(),
       loadingIndicator = _useTheme.loadingIndicator;
 
+  var msg = message;
   var Spinner = RocksSpinner;
 
   if (loadingIndicator !== undefined) {
-    if (loadingIndicator === "") Spinner = function Spinner() {
-      return null;
-    };else Spinner = function Spinner() {
+    if (loadingIndicator === "") {
+      Spinner = function Spinner() {
+        return null;
+      };
+
+      msg = "Loading...";
+    } else Spinner = function Spinner() {
       return /*#__PURE__*/React.createElement("img", {
         alt: "Loading...",
         src: loadingIndicator
@@ -8668,9 +8673,9 @@ var PageLoading = function PageLoading(_ref6) {
     };
   }
 
-  return /*#__PURE__*/React.createElement(StyledLoading, props, /*#__PURE__*/React.createElement(Spinner, null), message && /*#__PURE__*/React.createElement(Text, {
+  return /*#__PURE__*/React.createElement(StyledLoading, props, /*#__PURE__*/React.createElement(Spinner, null), msg && /*#__PURE__*/React.createElement(Text, {
     color: "primary",
-    content: message,
+    content: msg,
     fontWeight: "bold",
     mt: 4
   }));

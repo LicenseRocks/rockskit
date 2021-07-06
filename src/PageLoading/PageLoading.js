@@ -28,20 +28,20 @@ const StyledLoading = styled.div`
 
 export const PageLoading = ({ message, ...props }) => {
   const { loadingIndicator } = useTheme();
-
+  let msg = message;
   let Spinner = RocksSpinner;
   if (loadingIndicator !== undefined) {
-    if (loadingIndicator === "") Spinner = () => null;
-    else Spinner = () => <img alt="Loading..." src={loadingIndicator} />;
+    if (loadingIndicator === "") {
+      Spinner = () => null;
+      msg = "Loading...";
+    } else Spinner = () => <img alt="Loading..." src={loadingIndicator} />;
   }
 
   return (
     <StyledLoading {...props}>
       <Spinner />
 
-      {message && (
-        <Text color="primary" content={message} fontWeight="bold" mt={4} />
-      )}
+      {msg && <Text color="primary" content={msg} fontWeight="bold" mt={4} />}
     </StyledLoading>
   );
 };

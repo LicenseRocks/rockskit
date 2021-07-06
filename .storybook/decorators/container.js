@@ -10,7 +10,7 @@ const theme = RocksKitTheme({
   //   heading: "Arial Black",
   //   regular: "Arial"
   // }
-  // loadingIndicator: "https://creatorshub.s3.eu-central-1.amazonaws.com/demo/assets/ezgif.com-gif-maker%20%281%29.gif",
+  loadingIndicator: "",
 });
 
 export const Container = (story) => {
