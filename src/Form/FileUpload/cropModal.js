@@ -47,7 +47,7 @@ export const CropModal = ({
         <AvatarEditor
           ref={editorRef}
           image={imgFile}
-          width={size === "lg" ? 1080 : 400}
+          width={size === "lg" ? 1920 : 400}
           height={400}
           border={20}
           color={[0, 0, 0, 0.6]} // RGBA

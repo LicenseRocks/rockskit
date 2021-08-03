@@ -4137,7 +4137,7 @@ var CropModal = function CropModal(_ref) {
   }, props), /*#__PURE__*/React__default['default'].createElement(EditorWrapper, null, /*#__PURE__*/React__default['default'].createElement(AvatarEditor__default['default'], {
     ref: editorRef,
     image: imgFile,
-    width: size === "lg" ? 1080 : 400,
+    width: size === "lg" ? 1920 : 400,
     height: 400,
     border: 20,
     color: [0, 0, 0, 0.6] // RGBA
