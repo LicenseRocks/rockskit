@@ -25,6 +25,7 @@ export * from "./hooks";
 export * from "./Icon";
 export * from "./Image";
 export * from "./Indicator";
+export * from "./InspectWarning";
 export * from "./Language";
 export * from "./Layout";
 export * from "./Link";
