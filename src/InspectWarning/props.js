@@ -5,7 +5,7 @@ import { DISPLAY_PROP_TYPES, SPACER_PROP_TYPES } from "../theme";
 export const InspectWarningPropTypes = {
   content: PropTypes.node,
   children: PropTypes.node,
-  color: PropTypes.oneOf(["info", "danger", "warning"]),
+  color: PropTypes.oneOf(["required", "optional", "passed"]),
   rounded: PropTypes.bool,
   ...SPACER_PROP_TYPES,
   ...DISPLAY_PROP_TYPES,

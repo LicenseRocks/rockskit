@@ -13,7 +13,7 @@ export default {
 export const main = () => {
   return (
     <InspectWarning
-      color={select("Color", ["info", "danger", "warning"], "info")}
+      color={select("Color", ["require", "optional", "passed"], "info")}
       content="Inspect"
     />
   );

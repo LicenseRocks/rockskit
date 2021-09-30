@@ -5,7 +5,31 @@ import { DISPLAY, SPACER } from "..";
 import { Icon } from "../Icon";
 import { InspectWarningPropTypes, InspectWarningDefaultProps } from "./props";
 
-const StyledInspect = styled.div`
+const StyledInspectContainer = styled.div`
+  width: 100%;
+  box-sizing: border-box;
+  height: 33px;
+  padding: 8px 16px;
+  font-size: 14px;
+  transition: all 100ms ease-in-out;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  color: ${({ colors }) => colors.color};
+  svg {
+    color: ${({ colors }) => colors.iconColor};
+  }
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
+`;
+
+const StyledInspectAlert = styled.div`
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
+`;
+
+const StyledInspectWarning = styled.div`
   width: 100%;
   box-sizing: border-box;
   min-height: 40px;
@@ -25,31 +49,36 @@ const StyledInspect = styled.div`
   ${(theme) => DISPLAY(theme)}
 `;
 
+const StyledInspectDrop = styled.div`
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
+`;
+
 const getColors = (color, theme) => {
   switch (color) {
-    case "danger":
+    case "require":
       return {
-        backgroundColor: theme.palette.error.light,
-        color: theme.palette.error.main,
-        iconColor: theme.palette.error.main,
+        backgroundColor: theme.palette.error.main,
+        color: theme.palette.text.primary,
+        iconColor: theme.palette.text.primary,
       };
-    case "warning":
+    case "optional":
       return {
-        backgroundColor: theme.palette.primary.light,
-        color: theme.palette.primary.main,
-        iconColor: theme.palette.primary.main,
+        backgroundColor: theme.palette.warning.light,
+        color: theme.palette.text.primary,
+        iconColor: theme.palette.text.primary,
       };
-    case "success":
+    case "passed":
       return {
-        backgroundColor: theme.palette.success.light,
-        color: theme.palette.success.main,
-        iconColor: theme.palette.success.main,
+        backgroundColor: theme.palette.success.main,
+        color: theme.palette.text.primary,
+        iconColor: theme.palette.text.primary,
       };
     default:
       return {
         backgroundColor: theme.palette.gray.semiLight,
         color: theme.palette.text.primary,
-        iconColor: theme.palette.primary.main,
+        iconColor: theme.palette.text.primary,
       };
   }
 };
@@ -58,10 +87,17 @@ export const InspectWarning = ({ content, children, color, ...props }) => {
   const theme = useTheme();
   const colors = getColors(color, theme);
   return (
-    <StyledInspect colors={colors} {...props}>
-      <Icon icon="info-circle" mr={2} />
-      {content || children}
-    </StyledInspect>
+    <StyledInspectContainer colors={colors} {...props}>
+      <StyledInspectAlert colors={colors} {...props}>
+        {children}
+      </StyledInspectAlert>
+      <StyledInspectWarning colors={colors} {...props}>
+        {content || children}
+      </StyledInspectWarning>
+      <StyledInspectDrop>
+        <Icon icon="info-circle" mr={2} />
+      </StyledInspectDrop>
+    </StyledInspectContainer>
   );
 };
 
