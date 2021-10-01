@@ -9,15 +9,19 @@ const StyledInspectContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
   height: 33px;
-  padding: 8px 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 8px;
   font-size: 14px;
   transition: all 100ms ease-in-out;
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  color: ${({ colors }) => colors.color};
+  align-items: center;
+  color: ${({ theme }) => theme.palette.text.primary};
   svg {
-    color: ${({ colors }) => colors.iconColor};
+    width: 12px;
+    margin-left: 8px;
+    color: ${({ theme }) => theme.palette.text.primary};
   }
 
   ${(theme) => SPACER(theme)}
@@ -25,77 +29,93 @@ const StyledInspectContainer = styled.div`
 `;
 
 const StyledInspectAlert = styled.div`
-  ${(theme) => SPACER(theme)}
-  ${(theme) => DISPLAY(theme)}
+  width: 90px;
+  height: 33px;
+  padding: 8px 16px;
+  border-radius: 8px 0px 0px 8px;
+  background-color: ${({ alerts }) => alerts.backgroundColor};
+
+  ${(theme) => SPACER(theme)} ${(theme) => DISPLAY(theme)};
 `;
 
 const StyledInspectWarning = styled.div`
-  width: 100%;
+  flex: 1;
   box-sizing: border-box;
-  min-height: 40px;
-  padding: 8px;
+  height: 33px;
+  padding: 8px 16px;
+  margin: 0px 4px;
   font-size: 14px;
+  font-weight: 600;
   transition: all 100ms ease-in-out;
   display: flex;
   align-items: center;
-  ${({ rounded }) => rounded && "border-radius: 8px;"}
-  background-color: ${({ colors }) => colors.backgroundColor};
-  color: ${({ colors }) => colors.color};
-  svg {
-    color: ${({ colors }) => colors.iconColor};
-  }
+  background-color: ${({ theme }) => theme.palette.gray.semiLight};
+  color: ${({ theme }) => theme.palette.text.primary};
 
   ${(theme) => SPACER(theme)}
   ${(theme) => DISPLAY(theme)}
 `;
 
 const StyledInspectDrop = styled.div`
+  box-sizing: border-box;
+  width: 32px;
+  height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border-radius: 0px 8px 8px 0px;
+  background-color: ${({ theme }) => theme.palette.gray.regular};
+
   ${(theme) => SPACER(theme)}
   ${(theme) => DISPLAY(theme)}
 `;
 
-const getColors = (color, theme) => {
-  switch (color) {
+const getAlerts = (alert, theme) => {
+  switch (alert) {
     case "require":
       return {
         backgroundColor: theme.palette.error.main,
-        color: theme.palette.text.primary,
-        iconColor: theme.palette.text.primary,
+        alertContent: "Require",
       };
     case "optional":
       return {
         backgroundColor: theme.palette.warning.light,
-        color: theme.palette.text.primary,
-        iconColor: theme.palette.text.primary,
+        alertContent: "Optional",
       };
     case "passed":
       return {
         backgroundColor: theme.palette.success.main,
-        color: theme.palette.text.primary,
-        iconColor: theme.palette.text.primary,
+        alertContent: "Passed",
       };
     default:
       return {
-        backgroundColor: theme.palette.gray.semiLight,
-        color: theme.palette.text.primary,
-        iconColor: theme.palette.text.primary,
+        backgroundColor: theme.palette.warning.light,
+        alertContent: "Optional",
       };
   }
 };
 
-export const InspectWarning = ({ content, children, color, ...props }) => {
+export const InspectWarning = ({
+  content,
+  children,
+  color,
+  alert,
+  ...props
+}) => {
   const theme = useTheme();
-  const colors = getColors(color, theme);
+  const alerts = getAlerts(alert, theme);
+  const message = getAlerts(alert, theme);
   return (
-    <StyledInspectContainer colors={colors} {...props}>
-      <StyledInspectAlert colors={colors} {...props}>
-        {children}
+    <StyledInspectContainer {...props}>
+      <StyledInspectAlert alerts={alerts} {...props}>
+        {message.alertContent}
       </StyledInspectAlert>
-      <StyledInspectWarning colors={colors} {...props}>
+      <StyledInspectWarning {...props}>
         {content || children}
       </StyledInspectWarning>
       <StyledInspectDrop>
-        <Icon icon="info-circle" mr={2} />
+        <Icon icon="angle-down" mr={2} />
       </StyledInspectDrop>
     </StyledInspectContainer>
   );

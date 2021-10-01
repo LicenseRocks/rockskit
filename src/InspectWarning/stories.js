@@ -12,9 +12,15 @@ export default {
 
 export const main = () => {
   return (
-    <InspectWarning
-      color={select("Color", ["require", "optional", "passed"], "info")}
-      content="Inspect"
-    />
+    <>
+      <InspectWarning
+        alert={select("Alert", ["require", "optional", "passed"], "info")}
+        content="NFT creator does not have Stripe Connect ID specified"
+      />
+      <InspectWarning
+        alert={select("Alert", ["require", "optional", "passed"], "info")}
+        content="NFT creator does not have Stripe Connect ID specified"
+      />
+    </>
   );
 };
