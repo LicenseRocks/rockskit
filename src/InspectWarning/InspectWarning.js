@@ -1,16 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import styled, { useTheme } from "styled-components";
 
 import { DISPLAY, SPACER } from "..";
 import { Icon } from "../Icon";
 import { InspectWarningPropTypes, InspectWarningDefaultProps } from "./props";
 
-const StyledInspectContainer = styled.div`
+const AccordionSection = styled.div`
   width: 100%;
   box-sizing: border-box;
   height: 33px;
   margin-top: 10px;
   margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+`;
+
+const InspectContainer = styled.div`
+  position: absolute;
+  width: 100%;
+  box-sizing: border-box;
+  height: 33px;
   padding: 8px;
   font-size: 14px;
   transition: all 100ms ease-in-out;
@@ -20,7 +32,6 @@ const StyledInspectContainer = styled.div`
   color: ${({ theme }) => theme.palette.text.primary};
   svg {
     width: 12px;
-    margin-left: 8px;
     color: ${({ theme }) => theme.palette.text.primary};
   }
 
@@ -28,7 +39,7 @@ const StyledInspectContainer = styled.div`
   ${(theme) => DISPLAY(theme)}
 `;
 
-const StyledInspectAlert = styled.div`
+const Alert = styled.div`
   width: 90px;
   height: 33px;
   padding: 8px 16px;
@@ -38,7 +49,7 @@ const StyledInspectAlert = styled.div`
   ${(theme) => SPACER(theme)} ${(theme) => DISPLAY(theme)};
 `;
 
-const StyledInspectWarning = styled.div`
+const WarningMessage = styled.div`
   flex: 1;
   box-sizing: border-box;
   height: 33px;
@@ -56,7 +67,7 @@ const StyledInspectWarning = styled.div`
   ${(theme) => DISPLAY(theme)}
 `;
 
-const StyledInspectDrop = styled.div`
+const InspectDrop = styled.div`
   box-sizing: border-box;
   width: 32px;
   height: 33px;
@@ -69,6 +80,17 @@ const StyledInspectDrop = styled.div`
 
   ${(theme) => SPACER(theme)}
   ${(theme) => DISPLAY(theme)}
+`;
+
+const DropContainer = styled.div`
+  height: 100px;
+  width: 100%;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const getAlerts = (alert, theme) => {
@@ -101,23 +123,34 @@ export const InspectWarning = ({
   children,
   color,
   alert,
+  explanation,
   ...props
 }) => {
+  // Managing Accordion stuff
+  const [clicked, setClicked] = useState(false);
+
   const theme = useTheme();
   const alerts = getAlerts(alert, theme);
   const message = getAlerts(alert, theme);
   return (
-    <StyledInspectContainer {...props}>
-      <StyledInspectAlert alerts={alerts} {...props}>
-        {message.alertContent}
-      </StyledInspectAlert>
-      <StyledInspectWarning {...props}>
-        {content || children}
-      </StyledInspectWarning>
-      <StyledInspectDrop>
-        <Icon icon="angle-down" mr={2} />
-      </StyledInspectDrop>
-    </StyledInspectContainer>
+    <AccordionSection>
+      <InspectContainer>
+        <Alert alerts={alerts}>{message.alertContent}</Alert>
+        <WarningMessage {...props}>{content || children}</WarningMessage>
+        <InspectDrop onClick={() => setClicked(!clicked)}>
+          {clicked === false ? (
+            <Icon icon="angle-down" />
+          ) : (
+            <Icon icon="angle-up" />
+          )}
+        </InspectDrop>
+      </InspectContainer>
+      {clicked ? (
+        <DropContainer>
+          <p>{explanation}</p>
+        </DropContainer>
+      ) : null}
+    </AccordionSection>
   );
 };
 
