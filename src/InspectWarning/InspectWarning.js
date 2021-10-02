@@ -7,6 +7,7 @@ import { Button } from "..";
 import { InspectWarningPropTypes, InspectWarningDefaultProps } from "./props";
 
 const AccordionSection = styled.div`
+  position: relative;
   width: 100%;
   box-sizing: border-box;
   height: 33px;
@@ -16,11 +17,14 @@ const AccordionSection = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  position: relative;
+`;
+
+const Container = styled.div`
+  width: 100%;
+  position: absolute;
 `;
 
 const InspectContainer = styled.div`
-  position: absolute;
   width: 100%;
   box-sizing: border-box;
   height: 33px;
@@ -86,19 +90,21 @@ const InspectDrop = styled.div`
 `;
 
 const DropContainer = styled.div`
-  height: 100px;
+  height: 33px;
   width: 100%;
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
+
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
 
-  button {
-    width: 219px !important;
+  p {
+    padding-left: 98px;
+    max-width: 400px;
+  }
 
-    text-transform: lower-case;
+  button {
+    width: 119px !important;
+    margin: 0px 76px;
   }
 `;
 
@@ -143,23 +149,26 @@ export const InspectWarning = ({
   const message = getAlerts(alert, theme);
   return (
     <AccordionSection>
-      <InspectContainer>
-        <Alert alerts={alerts}>{message.alertContent}</Alert>
-        <WarningMessage {...props}>{content || children}</WarningMessage>
-        <InspectDrop onClick={() => setClicked(!clicked)}>
-          {clicked === false ? (
-            <Icon icon="angle-down" />
-          ) : (
-            <Icon icon="angle-up" />
-          )}
-        </InspectDrop>
-      </InspectContainer>
-      {clicked ? (
-        <DropContainer>
-          <p>{explanation}</p>
-          <Button size={"sm"} content={"Resume"} />
-        </DropContainer>
-      ) : null}
+      <Container>
+        <InspectContainer>
+          <Alert alerts={alerts}>{message.alertContent}</Alert>
+          <WarningMessage {...props}>{content || children}</WarningMessage>
+          <InspectDrop onClick={() => setClicked(!clicked)}>
+            {clicked === false ? (
+              <Icon icon="angle-down" />
+            ) : (
+              <Icon icon="angle-up" />
+            )}
+          </InspectDrop>
+        </InspectContainer>
+
+        {clicked ? (
+          <DropContainer>
+            <p>{explanation}</p>
+            <Button size={"sm"} content={"Resume"} />
+          </DropContainer>
+        ) : null}
+      </Container>
     </AccordionSection>
   );
 };
