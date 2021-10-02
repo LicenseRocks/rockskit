@@ -3,6 +3,7 @@ import styled, { useTheme } from "styled-components";
 
 import { DISPLAY, SPACER } from "..";
 import { Icon } from "../Icon";
+import { Button } from "..";
 import { InspectWarningPropTypes, InspectWarningDefaultProps } from "./props";
 
 const AccordionSection = styled.div`
@@ -44,6 +45,8 @@ const Alert = styled.div`
   height: 33px;
   padding: 8px 16px;
   border-radius: 8px 0px 0px 8px;
+  display: flex;
+  justify-content: center;
   background-color: ${({ alerts }) => alerts.backgroundColor};
 
   ${(theme) => SPACER(theme)} ${(theme) => DISPLAY(theme)};
@@ -91,6 +94,12 @@ const DropContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+
+  button {
+    width: 219px !important;
+
+    text-transform: lower-case;
+  }
 `;
 
 const getAlerts = (alert, theme) => {
@@ -148,6 +157,7 @@ export const InspectWarning = ({
       {clicked ? (
         <DropContainer>
           <p>{explanation}</p>
+          <Button size={"sm"} content={"Resume"} />
         </DropContainer>
       ) : null}
     </AccordionSection>
