@@ -1,6 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
 import styled, { useTheme } from "styled-components";
-
 import { DISPLAY, SPACER } from "..";
 
 const data = [
@@ -26,10 +25,7 @@ const data = [
 
 const Container = styled.div`
   width: 100%;
-  min-width: 400px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-
+  padding: 20px 0px;
   border-top: 1px solid ${({ theme }) => theme.palette.gray.semiLight};
 
   ${(theme) => SPACER(theme)}
@@ -72,7 +68,6 @@ const Status = styled.div`
 
 const Content = styled.div`
   color: ${({ theme }) => theme.palette.gray.medium};
-
   font-size: 12px;
   line-height: 120%;
   font-weight: normal;
@@ -111,10 +106,10 @@ export const InspectFooter = () => {
 
   return (
     <Container>
-      {data.map((item, index) => {
+      {data.map((item, id) => {
         return (
           <>
-            <Row>
+            <Row key={id}>
               <Circle status={getColor(item.status, theme)}></Circle>
               <Status status={getColor(item.status, theme)}>
                 {item.status}:

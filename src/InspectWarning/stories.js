@@ -12,6 +12,7 @@ export default {
   decorators: [StoryWrapper],
 };
 
+// Data from Figma Design
 const data = [
   {
     id: 1,

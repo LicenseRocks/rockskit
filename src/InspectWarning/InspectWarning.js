@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import styled, { css, useTheme, keyframes } from "styled-components";
-
+// Dependencies
+import { InspectWarningPropTypes, InspectWarningDefaultProps } from "./props";
 import { DISPLAY, SPACER } from "..";
+// Components
 import { Icon } from "../Icon";
 import { Button } from "..";
-import { InspectWarningPropTypes, InspectWarningDefaultProps } from "./props";
 
+// Animation for accordion
 const showDrop = keyframes`
 0%{
   opacity: 0;
@@ -19,8 +21,7 @@ const AccordionSection = styled.div`
   width: 100%;
   min-height: ${({ countHeight }) => countHeight * 53}px;
   box-sizing: border-box;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin: 10px 0px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -32,79 +33,62 @@ const AccordionSection = styled.div`
 
 const Container = styled.div`
   width: 100%;
-  position: absolute;
-
-  ${(theme) => SPACER(theme)}
-  ${(theme) => DISPLAY(theme)}
 `;
 
 const InspectContainer = styled.div`
   width: 100%;
   min-width: 400px;
-  box-sizing: border-box;
   height: 33px;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  box-sizing: border-box;
+  margin: 10px 0px;
   padding: 8px;
   font-size: 14px;
-  transition: all 100ms ease-in-out;
   display: flex;
   flex-direction: row;
   align-items: center;
-  cursor: pointer;
   color: ${({ theme }) => theme.palette.text.primary};
+  cursor: pointer;
   svg {
     width: 12px;
     color: ${({ theme }) => theme.palette.text.primary};
   }
-
-  ${(theme) => SPACER(theme)}
-  ${(theme) => DISPLAY(theme)}
 `;
 
 const Alert = styled.div`
   width: 90px;
   height: 33px;
   padding: 8px 16px;
-  border-radius: 8px 0px 0px 8px;
   display: flex;
   justify-content: center;
   background-color: ${({ alerts }) => alerts.backgroundColor};
-
-  ${(theme) => SPACER(theme)} ${(theme) => DISPLAY(theme)};
+  border-radius: 8px 0px 0px 8px;
 `;
 
 const WarningMessage = styled.div`
-  flex: 1;
-  box-sizing: border-box;
   height: 33px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
   padding: 8px 16px;
   margin: 0px 4px;
+  background-color: ${({ theme }) => theme.palette.gray.semiLight};
+  color: ${({ theme }) => theme.palette.text.primary};
   font-size: 14px;
   font-weight: 600;
   transition: all 100ms ease-in-out;
-  display: flex;
-  align-items: center;
-  background-color: ${({ theme }) => theme.palette.gray.semiLight};
-  color: ${({ theme }) => theme.palette.text.primary};
-
-  ${(theme) => SPACER(theme)}
-  ${(theme) => DISPLAY(theme)}
 `;
 
 const InspectDrop = styled.div`
-  box-sizing: border-box;
   width: 32px;
   height: 33px;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  border-radius: 0px 8px 8px 0px;
+  box-sizing: border-box;
   background-color: ${({ theme }) => theme.palette.gray.regular};
-
-  ${(theme) => SPACER(theme)}
-  ${(theme) => DISPLAY(theme)}
+  border-radius: 0px 8px 8px 0px;
+  cursor: pointer;
 `;
 
 const DropContainer = styled.div`
@@ -119,8 +103,8 @@ const DropContainer = styled.div`
     `}
 
   p {
-    padding-left: 115px;
     max-width: 600px;
+    padding-left: 115px;
     font-size: 12px;
     font-weight: 400;
   }
@@ -129,9 +113,6 @@ const DropContainer = styled.div`
     min-width: 100px !important;
     margin: 0px 56px 0px 0px;
   }
-
-  ${(theme) => SPACER(theme)}
-  ${(theme) => DISPLAY(theme)}
 `;
 
 const getAlerts = (alert, theme) => {
@@ -177,7 +158,7 @@ export const InspectWarning = ({
   };
 
   const theme = useTheme();
-  // counting min height which depends of number of rows
+  // counting min height, which depends of number of rows
   const countHeight = data.length;
 
   return (
