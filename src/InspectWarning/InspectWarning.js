@@ -9,31 +9,41 @@ import { InspectWarningPropTypes, InspectWarningDefaultProps } from "./props";
 const AccordionSection = styled.div`
   position: relative;
   width: 100%;
+  height: 100%;
+  min-height: ${({ countHeight }) => countHeight * 53}px;
   box-sizing: border-box;
-  height: 33px;
   margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 const Container = styled.div`
   width: 100%;
   position: absolute;
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 const InspectContainer = styled.div`
   width: 100%;
   box-sizing: border-box;
   height: 33px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   padding: 8px;
   font-size: 14px;
   transition: all 100ms ease-in-out;
   display: flex;
   flex-direction: row;
   align-items: center;
+  cursor: pointer;
   color: ${({ theme }) => theme.palette.text.primary};
   svg {
     width: 12px;
@@ -106,6 +116,9 @@ const DropContainer = styled.div`
     width: 119px !important;
     margin: 0px 76px;
   }
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 const getAlerts = (alert, theme) => {
@@ -133,41 +146,49 @@ const getAlerts = (alert, theme) => {
   }
 };
 
-export const InspectWarning = ({
-  content,
-  children,
-  color,
-  alert,
-  explanation,
-  ...props
-}) => {
-  // Managing Accordion stuff
+export const InspectWarning = ({ children, data, onClick, ...props }) => {
+  // Managing accordion
   const [clicked, setClicked] = useState(false);
 
-  const theme = useTheme();
-  const alerts = getAlerts(alert, theme);
-  const message = getAlerts(alert, theme);
-  return (
-    <AccordionSection>
-      <Container>
-        <InspectContainer>
-          <Alert alerts={alerts}>{message.alertContent}</Alert>
-          <WarningMessage {...props}>{content || children}</WarningMessage>
-          <InspectDrop onClick={() => setClicked(!clicked)}>
-            {clicked === false ? (
-              <Icon icon="angle-down" />
-            ) : (
-              <Icon icon="angle-up" />
-            )}
-          </InspectDrop>
-        </InspectContainer>
+  const toggle = (index) => {
+    if (clicked === index) {
+      return setClicked(null);
+    }
+    setClicked(index);
+  };
 
-        {clicked ? (
-          <DropContainer>
-            <p>{explanation}</p>
-            <Button size={"sm"} content={"Resume"} />
-          </DropContainer>
-        ) : null}
+  const theme = useTheme();
+  const countHeight = data.length;
+
+  return (
+    <AccordionSection countHeight={countHeight}>
+      <Container>
+        {data.map((item, index) => {
+          return (
+            <>
+              <InspectContainer onClick={() => toggle(index)} key={index}>
+                <Alert alerts={getAlerts(item.status, theme)}>
+                  {item.status}
+                </Alert>
+                <WarningMessage {...props}>{item.message}</WarningMessage>
+                <InspectDrop>
+                  {clicked === index ? (
+                    <Icon icon="angle-up" />
+                  ) : (
+                    <Icon icon="angle-down" />
+                  )}
+                </InspectDrop>
+              </InspectContainer>
+
+              {clicked === index ? (
+                <DropContainer>
+                  <p>{item.explanation}</p>
+                  <Button onCLick={onClick} size={"sm"} content={"Resume"} />
+                </DropContainer>
+              ) : null}
+            </>
+          );
+        })}
       </Container>
     </AccordionSection>
   );
