@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled, { useTheme, keyframes } from "styled-components";
+import styled, { css, useTheme, keyframes } from "styled-components";
 
 import { DISPLAY, SPACER } from "..";
 import { Icon } from "../Icon";
@@ -112,7 +112,11 @@ const DropContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  animation: ${showDrop} 1s;
+  ${(props) =>
+    props.animation === true &&
+    css`
+      animation: ${showDrop} 0.8s;
+    `}
 
   p {
     padding-left: 115px;
@@ -156,9 +160,10 @@ const getAlerts = (alert, theme) => {
 };
 
 export const InspectWarning = ({
+  animation,
+  buttonFunction,
   children,
   data,
-  buttonFunction,
   ...props
 }) => {
   // Managing accordion
@@ -172,6 +177,7 @@ export const InspectWarning = ({
   };
 
   const theme = useTheme();
+  // counting min height which depends of number of rows
   const countHeight = data.length;
 
   return (
@@ -195,7 +201,7 @@ export const InspectWarning = ({
               </InspectContainer>
 
               {clicked === index ? (
-                <DropContainer>
+                <DropContainer animation={animation}>
                   <p>{item.explanation}</p>
                   <Button
                     onCLick={buttonFunction}

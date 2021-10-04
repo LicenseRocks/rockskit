@@ -1,5 +1,6 @@
 import React from "react";
 import { StoryWrapper } from "../../.storybook/decorators";
+import { select } from "@storybook/addon-knobs";
 // Inspect components
 import { InspectFooter } from "./InspectFooter";
 import { InspectBanner } from "./InspectBanner";
@@ -66,7 +67,10 @@ export const main = () => {
   return (
     <>
       <InspectBanner />
-      <InspectWarning data={data} />
+      <InspectWarning
+        animation={select("Animation", [true, false], true)}
+        data={data}
+      />
       <InspectFooter />
     </>
   );
@@ -75,7 +79,10 @@ export const main = () => {
 export const OnlyWarnings = () => {
   return (
     <>
-      <InspectWarning data={data} />
+      <InspectWarning
+        animation={select("Animation", [true, false], true)}
+        data={data}
+      />
     </>
   );
 };
