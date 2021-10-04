@@ -1,10 +1,19 @@
 import React, { useState } from "react";
-import styled, { useTheme } from "styled-components";
+import styled, { useTheme, keyframes } from "styled-components";
 
 import { DISPLAY, SPACER } from "..";
 import { Icon } from "../Icon";
 import { Button } from "..";
 import { InspectWarningPropTypes, InspectWarningDefaultProps } from "./props";
+
+const showDrop = keyframes`
+0%{
+  opacity: 0;
+}
+100%{
+  opacity: 1;
+}
+`;
 
 const AccordionSection = styled.div`
   width: 100%;
@@ -103,9 +112,10 @@ const DropContainer = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  animation: ${showDrop} 1s;
 
   p {
-    padding-left: 105px;
+    padding-left: 115px;
     max-width: 600px;
     font-size: 12px;
     font-weight: 400;
@@ -145,7 +155,12 @@ const getAlerts = (alert, theme) => {
   }
 };
 
-export const InspectWarning = ({ children, data, onClick, ...props }) => {
+export const InspectWarning = ({
+  children,
+  data,
+  buttonFunction,
+  ...props
+}) => {
   // Managing accordion
   const [clicked, setClicked] = useState(false);
 
@@ -182,7 +197,11 @@ export const InspectWarning = ({ children, data, onClick, ...props }) => {
               {clicked === index ? (
                 <DropContainer>
                   <p>{item.explanation}</p>
-                  <Button onCLick={onClick} size={"sm"} content={"Resume"} />
+                  <Button
+                    onCLick={buttonFunction}
+                    size={"sm"}
+                    content={"Resume"}
+                  />
                 </DropContainer>
               ) : null}
             </>

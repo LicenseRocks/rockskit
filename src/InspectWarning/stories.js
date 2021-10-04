@@ -1,5 +1,6 @@
 import React from "react";
 import { StoryWrapper } from "../../.storybook/decorators";
+// Inspect components
 import { InspectFooter } from "./InspectFooter";
 import { InspectBanner } from "./InspectBanner";
 import { InspectWarning } from "./InspectWarning";
@@ -67,6 +68,14 @@ export const main = () => {
       <InspectBanner />
       <InspectWarning data={data} />
       <InspectFooter />
+    </>
+  );
+};
+
+export const OnlyWarnings = () => {
+  return (
+    <>
+      <InspectWarning data={data} />
     </>
   );
 };
