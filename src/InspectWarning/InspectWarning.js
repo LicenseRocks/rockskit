@@ -7,9 +7,7 @@ import { Button } from "..";
 import { InspectWarningPropTypes, InspectWarningDefaultProps } from "./props";
 
 const AccordionSection = styled.div`
-  position: relative;
   width: 100%;
-  height: 100%;
   min-height: ${({ countHeight }) => countHeight * 53}px;
   box-sizing: border-box;
   margin-top: 10px;
@@ -33,6 +31,7 @@ const Container = styled.div`
 
 const InspectContainer = styled.div`
   width: 100%;
+  min-width: 400px;
   box-sizing: border-box;
   height: 33px;
   margin-top: 10px;
@@ -100,21 +99,21 @@ const InspectDrop = styled.div`
 `;
 
 const DropContainer = styled.div`
-  height: 33px;
   width: 100%;
-
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
 
   p {
-    padding-left: 98px;
-    max-width: 400px;
+    padding-left: 105px;
+    max-width: 600px;
+    font-size: 12px;
+    font-weight: 400;
   }
 
   button {
-    width: 119px !important;
-    margin: 0px 76px;
+    min-width: 100px !important;
+    margin: 0px 56px 0px 0px;
   }
 
   ${(theme) => SPACER(theme)}
@@ -123,17 +122,17 @@ const DropContainer = styled.div`
 
 const getAlerts = (alert, theme) => {
   switch (alert) {
-    case "require":
+    case "Require":
       return {
         backgroundColor: theme.palette.error.main,
         alertContent: "Require",
       };
-    case "optional":
+    case "Optional":
       return {
         backgroundColor: theme.palette.warning.light,
         alertContent: "Optional",
       };
-    case "passed":
+    case "Passed":
       return {
         backgroundColor: theme.palette.success.main,
         alertContent: "Passed",

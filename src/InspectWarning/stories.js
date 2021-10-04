@@ -1,7 +1,7 @@
 import React from "react";
-import { select } from "@storybook/addon-knobs";
-
 import { StoryWrapper } from "../../.storybook/decorators";
+import { InspectFooter } from "./InspectFooter";
+import { InspectBanner } from "./InspectBanner";
 import { InspectWarning } from "./InspectWarning";
 
 export default {
@@ -13,49 +13,49 @@ export default {
 const data = [
   {
     id: 1,
-    status: "require",
+    status: "Require",
     message: "NFT creator does not have Stripe Connect ID specified",
     explanation: "NFT creator does not have Stripe Connect ID specified",
   },
   {
     id: 2,
-    status: "optional",
+    status: "Optional",
     message: "NFT does not have secret phrase / bonus text",
     explanation: "NFT does not have secret phrase / bonus text",
   },
   {
     id: 3,
-    status: "passed",
+    status: "Passed",
     message: "NFT metadata file uploaded",
     explanation: "NFT metadata file uploaded",
   },
   {
     id: 4,
-    status: "passed",
+    status: "Passed",
     message: "NFT on-chain && off-chain fees synchronized",
     explanation: "NFT on-chain && off-chain fees synchronized",
   },
   {
     id: 5,
-    status: "passed",
+    status: "Passed",
     message: "NFT has 3 file checksume stored",
     explanation: "NFT has 3 file checksume stored",
   },
   {
     id: 6,
-    status: "passed",
+    status: "Passed",
     message: "NFT has 200 owned copies",
     explanation: "NFT has 200 owned copies",
   },
   {
     id: 7,
-    status: "passed",
+    status: "Passed",
     message: "NFT creator has 200 own copies on-chain",
     explanation: "NFT creator has 200 own copies on-chain",
   },
   {
     id: 8,
-    status: "passed",
+    status: "Passed",
     message: "NFT has 1 active listings",
     explanation: "NFT has 1 active listings",
   },
@@ -64,7 +64,9 @@ const data = [
 export const main = () => {
   return (
     <>
+      <InspectBanner />
       <InspectWarning data={data} />
+      <InspectFooter />
     </>
   );
 };
