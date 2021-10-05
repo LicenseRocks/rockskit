@@ -3,7 +3,7 @@ import { StoryWrapper } from "../../.storybook/decorators";
 import { select } from "@storybook/addon-knobs";
 // Components
 import { Guidelines } from "./Guidelines";
-import { Modal, Button, H3 } from "..";
+import { Modal, Button, Collapse } from "..";
 import { GuidelinesFooter } from "./GuidelinesFooter";
 
 export default {
@@ -102,6 +102,7 @@ const BaseComponent = (props) => {
         <Guidelines
           animation={select("Animation", [true, false], true)}
           data={data}
+          buttonText={"Resume"}
         />
         <GuidelinesFooter footerData={footerData} />
       </Modal>
@@ -110,3 +111,7 @@ const BaseComponent = (props) => {
 };
 
 export const main = () => <BaseComponent title={"Inspect NFT correctness"} />;
+
+// export const collapse = () => {
+//   <Collapse isOpened={true}>hej</Collapse>;
+// };

@@ -2,10 +2,9 @@ import React, { useState } from "react";
 import styled, { css, useTheme, keyframes } from "styled-components";
 // Dependencies
 import { GuidelinesPropTypes, GuidelinesDefaultProps } from "./props";
-import { DISPLAY, SPACER } from "..";
 // Components
 import { Icon } from "../Icon";
-import { Button } from "..";
+import { Button, H4, H5, Text } from "..";
 
 // Animation for accordion
 const showDrop = keyframes`
@@ -23,9 +22,6 @@ const StyledAccordion = styled.div`
   margin: 10px 0px;
   display: grid;
   place-items: center;
-
-  ${(theme) => SPACER(theme)}
-  ${(theme) => DISPLAY(theme)}
 `;
 
 const StyledContainer = styled.div`
@@ -99,11 +95,9 @@ const StyledDropped = styled.div`
       animation: ${showDrop} 0.8s;
     `}
 
-  p {
+  div {
     max-width: 600px;
     padding-left: 115px;
-    font-size: 12px;
-    font-weight: 400;
   }
 
   button {
@@ -142,6 +136,7 @@ export const Guidelines = ({
   buttonFunction,
   children,
   data,
+  buttonText,
   ...props
 }) => {
   // Managing accordion
@@ -166,9 +161,11 @@ export const Guidelines = ({
             <>
               <StyledRow onClick={() => toggle(index)} key={index}>
                 <StyledStatus alerts={getAlerts(item.status, theme)}>
-                  {item.status}
+                  <Text content={item.status} />
                 </StyledStatus>
-                <StyledMessage {...props}>{item.message}</StyledMessage>
+                <StyledMessage {...props}>
+                  <H5 content={item.message} />
+                </StyledMessage>
                 <StyledDropButton>
                   {clicked === index ? (
                     <Icon icon="angle-up" />
@@ -180,11 +177,12 @@ export const Guidelines = ({
 
               {clicked === index ? (
                 <StyledDropped animation={animation}>
-                  <p>{item.explanation}</p>
+                  <Text content={item.explanation} />
+
                   <Button
                     onCLick={buttonFunction}
                     size={"sm"}
-                    content={"Resume"}
+                    content={buttonText}
                   />
                 </StyledDropped>
               ) : null}
