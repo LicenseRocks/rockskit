@@ -1,79 +1,42 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
-import { DISPLAY, SPACER } from "..";
 
-const data = [
-  {
-    id: 1,
-    status: "Require",
-    content:
-      "Explain about require alert for example Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  },
-  {
-    id: 2,
-    status: "Optional",
-    content:
-      "Explain about require alert for example Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  },
-  {
-    id: 3,
-    status: "Passed",
-    content:
-      "Explain about require alert for example Lorem ipsum dolor sit amet, consectetur adipiscing elit",
-  },
-];
-
-const Container = styled.div`
+const StyledFooter = styled.div`
   width: 100%;
   padding: 20px 0px;
   border-top: 1px solid ${({ theme }) => theme.palette.gray.semiLight};
-
-  ${(theme) => SPACER(theme)}
-  ${(theme) => DISPLAY(theme)}
 `;
 
-const Row = styled.div`
+const StyledRow = styled.div`
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: flex-start;
   margin-top: 8px;
-
-  ${(theme) => SPACER(theme)}
-  ${(theme) => DISPLAY(theme)}
 `;
 
-const Circle = styled.div`
+const StyledCircle = styled.div`
   height: 8px;
   width: 8px;
   margin-right: 8px;
   border-radius: 50%;
   display: inline-block;
   background-color: ${({ status }) => status.backgroundColor};
-
-  ${(theme) => SPACER(theme)}
-  ${(theme) => DISPLAY(theme)}
 `;
-const Status = styled.div`
+const StyledStatus = styled.div`
   color: ${({ status }) => status.color};
   margin-right: 8px;
   width: 50px;
   font-size: 12px;
   line-height: 120%;
   font-weight: normal;
-
-  ${(theme) => SPACER(theme)}
-  ${(theme) => DISPLAY(theme)}
 `;
 
-const Content = styled.div`
+const StyledContent = styled.div`
   color: ${({ theme }) => theme.palette.gray.medium};
   font-size: 12px;
   line-height: 120%;
   font-weight: normal;
-
-  ${(theme) => SPACER(theme)}
-  ${(theme) => DISPLAY(theme)}
 `;
 
 const getColor = (status, theme) => {
@@ -101,24 +64,26 @@ const getColor = (status, theme) => {
   }
 };
 
-export const InspectFooter = () => {
+export const GuidelinesFooter = ({ footerData }) => {
   const theme = useTheme();
 
   return (
-    <Container>
-      {data.map((item, id) => {
+    <StyledFooter>
+      {footerData.map((item, id) => {
         return (
           <>
-            <Row key={id}>
-              <Circle status={getColor(item.status, theme)}></Circle>
-              <Status status={getColor(item.status, theme)}>
+            <StyledRow key={id}>
+              <StyledCircle
+                status={getColor(item.status, theme)}
+              ></StyledCircle>
+              <StyledStatus status={getColor(item.status, theme)}>
                 {item.status}:
-              </Status>
-              <Content>{item.content}</Content>
-            </Row>
+              </StyledStatus>
+              <StyledContent>{item.content}</StyledContent>
+            </StyledRow>
           </>
         );
       })}
-    </Container>
+    </StyledFooter>
   );
 };
