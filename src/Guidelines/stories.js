@@ -1,14 +1,13 @@
 import React from "react";
 import { StoryWrapper } from "../../.storybook/decorators";
 import { select } from "@storybook/addon-knobs";
-// Inspect components
-import { InspectFooter } from "./InspectFooter";
-import { InspectBanner } from "./InspectBanner";
-import { InspectWarning } from "./InspectWarning";
+// Components
+import { Guidelines } from "./Guidelines";
+import { Modal } from "..";
 
 export default {
-  title: "InspectWarning",
-  component: InspectWarning,
+  title: "Guidelines",
+  component: Guidelines,
   decorators: [StoryWrapper],
 };
 
@@ -64,23 +63,12 @@ const data = [
   },
 ];
 
+// data for footer
+
 export const main = () => {
   return (
     <>
-      <InspectBanner />
-      <InspectWarning
-        animation={select("Animation", [true, false], true)}
-        data={data}
-      />
-      <InspectFooter />
-    </>
-  );
-};
-
-export const OnlyWarnings = () => {
-  return (
-    <>
-      <InspectWarning
+      <Guidelines
         animation={select("Animation", [true, false], true)}
         data={data}
       />

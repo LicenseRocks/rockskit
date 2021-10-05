@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled, { css, useTheme, keyframes } from "styled-components";
 // Dependencies
-import { InspectWarningPropTypes, InspectWarningDefaultProps } from "./props";
+import { GuidelinesPropTypes, GuidelinesDefaultProps } from "./props";
 import { DISPLAY, SPACER } from "..";
 // Components
 import { Icon } from "../Icon";
@@ -140,7 +140,7 @@ const getAlerts = (alert, theme) => {
   }
 };
 
-export const InspectWarning = ({
+export const Guidelines = ({
   animation,
   buttonFunction,
   children,
@@ -148,7 +148,7 @@ export const InspectWarning = ({
   ...props
 }) => {
   // Managing accordion
-  const [clicked, setClicked] = useState(false);
+  const [clicked, setClicked] = useState(null);
 
   const toggle = (index) => {
     if (clicked === index) {
@@ -199,6 +199,6 @@ export const InspectWarning = ({
   );
 };
 
-InspectWarning.propTypes = InspectWarningPropTypes;
+Guidelines.propTypes = GuidelinesPropTypes;
 
-InspectWarning.defaultProps = InspectWarningDefaultProps;
+Guidelines.defaultProps = GuidelinesDefaultProps;
