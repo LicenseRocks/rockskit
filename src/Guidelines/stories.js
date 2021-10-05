@@ -99,7 +99,6 @@ const BaseComponent = (props) => {
     <>
       <Button content="Open Modal" onClick={() => setOpen(true)} />
       <Modal {...defaultProps}>
-        <H3>Inspect NFT correctness</H3>
         <Guidelines
           animation={select("Animation", [true, false], true)}
           data={data}
@@ -110,4 +109,4 @@ const BaseComponent = (props) => {
   );
 };
 
-export const main = () => <BaseComponent />;
+export const main = () => <BaseComponent title={"Inspect NFT correctness"} />;
