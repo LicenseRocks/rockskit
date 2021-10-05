@@ -3,7 +3,7 @@ import styled, { useTheme } from "styled-components";
 
 const StyledFooter = styled.div`
   width: 100%;
-  padding: 20px 0px;
+  padding: 20px 10px;
   border-top: 1px solid ${({ theme }) => theme.palette.gray.semiLight};
 `;
 

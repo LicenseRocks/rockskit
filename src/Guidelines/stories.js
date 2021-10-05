@@ -38,30 +38,30 @@ const data = [
     message: "NFT on-chain && off-chain fees synchronized",
     explanation: "NFT on-chain && off-chain fees synchronized",
   },
-  // {
-  //   id: 5,
-  //   status: "Passed",
-  //   message: "NFT has 3 file checksume stored",
-  //   explanation: "NFT has 3 file checksume stored",
-  // },
-  // {
-  //   id: 6,
-  //   status: "Passed",
-  //   message: "NFT has 200 owned copies",
-  //   explanation: "NFT has 200 owned copies",
-  // },
-  // {
-  //   id: 7,
-  //   status: "Passed",
-  //   message: "NFT creator has 200 own copies on-chain",
-  //   explanation: "NFT creator has 200 own copies on-chain",
-  // },
-  // {
-  //   id: 8,
-  //   status: "Passed",
-  //   message: "NFT has 1 active listings",
-  //   explanation: "NFT has 1 active listings",
-  // },
+  {
+    id: 5,
+    status: "Passed",
+    message: "NFT has 3 file checksume stored",
+    explanation: "NFT has 3 file checksume stored",
+  },
+  {
+    id: 6,
+    status: "Passed",
+    message: "NFT has 200 owned copies",
+    explanation: "NFT has 200 owned copies",
+  },
+  {
+    id: 7,
+    status: "Passed",
+    message: "NFT creator has 200 own copies on-chain",
+    explanation: "NFT creator has 200 own copies on-chain",
+  },
+  {
+    id: 8,
+    status: "Passed",
+    message: "NFT has 1 active listings",
+    explanation: "NFT has 1 active listings",
+  },
 ];
 
 // data for footer

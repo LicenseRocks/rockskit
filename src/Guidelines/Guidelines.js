@@ -19,7 +19,6 @@ const showDrop = keyframes`
 
 const StyledAccordion = styled.div`
   width: 100%;
-  min-height: ${({ countHeight }) => countHeight * 53}px;
   box-sizing: border-box;
   margin: 10px 0px;
   display: grid;
