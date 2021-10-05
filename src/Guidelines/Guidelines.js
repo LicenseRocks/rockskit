@@ -17,25 +17,23 @@ const showDrop = keyframes`
 }
 `;
 
-const AccordionSection = styled.div`
+const StyledAccordion = styled.div`
   width: 100%;
   min-height: ${({ countHeight }) => countHeight * 53}px;
   box-sizing: border-box;
   margin: 10px 0px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  display: grid;
+  place-items: center;
 
   ${(theme) => SPACER(theme)}
   ${(theme) => DISPLAY(theme)}
 `;
 
-const Container = styled.div`
+const StyledContainer = styled.div`
   width: 100%;
 `;
 
-const InspectContainer = styled.div`
+const StyledRow = styled.div`
   width: 100%;
   min-width: 400px;
   height: 33px;
@@ -54,7 +52,7 @@ const InspectContainer = styled.div`
   }
 `;
 
-const Alert = styled.div`
+const StyledStatus = styled.div`
   width: 90px;
   height: 33px;
   padding: 8px 16px;
@@ -64,7 +62,7 @@ const Alert = styled.div`
   border-radius: 8px 0px 0px 8px;
 `;
 
-const WarningMessage = styled.div`
+const StyledMessage = styled.div`
   height: 33px;
   flex: 1;
   display: flex;
@@ -79,7 +77,7 @@ const WarningMessage = styled.div`
   transition: all 100ms ease-in-out;
 `;
 
-const InspectDrop = styled.div`
+const StyledDropButton = styled.div`
   width: 32px;
   height: 33px;
   display: flex;
@@ -91,7 +89,7 @@ const InspectDrop = styled.div`
   cursor: pointer;
 `;
 
-const DropContainer = styled.div`
+const StyledDropped = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -162,40 +160,40 @@ export const Guidelines = ({
   const countHeight = data.length;
 
   return (
-    <AccordionSection countHeight={countHeight}>
-      <Container>
+    <StyledAccordion countHeight={countHeight}>
+      <StyledContainer>
         {data.map((item, index) => {
           return (
             <>
-              <InspectContainer onClick={() => toggle(index)} key={index}>
-                <Alert alerts={getAlerts(item.status, theme)}>
+              <StyledRow onClick={() => toggle(index)} key={index}>
+                <StyledStatus alerts={getAlerts(item.status, theme)}>
                   {item.status}
-                </Alert>
-                <WarningMessage {...props}>{item.message}</WarningMessage>
-                <InspectDrop>
+                </StyledStatus>
+                <StyledMessage {...props}>{item.message}</StyledMessage>
+                <StyledDropButton>
                   {clicked === index ? (
                     <Icon icon="angle-up" />
                   ) : (
                     <Icon icon="angle-down" />
                   )}
-                </InspectDrop>
-              </InspectContainer>
+                </StyledDropButton>
+              </StyledRow>
 
               {clicked === index ? (
-                <DropContainer animation={animation}>
+                <StyledDropped animation={animation}>
                   <p>{item.explanation}</p>
                   <Button
                     onCLick={buttonFunction}
                     size={"sm"}
                     content={"Resume"}
                   />
-                </DropContainer>
+                </StyledDropped>
               ) : null}
             </>
           );
         })}
-      </Container>
-    </AccordionSection>
+      </StyledContainer>
+    </StyledAccordion>
   );
 };
 
