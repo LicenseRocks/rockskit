@@ -41,17 +41,17 @@ const StyledContent = styled.div`
 
 const getColor = (status, theme) => {
   switch (status) {
-    case "Require":
+    case "require":
       return {
         backgroundColor: theme.palette.error.main,
         color: theme.palette.error.main,
       };
-    case "Optional":
+    case "optional":
       return {
         backgroundColor: theme.palette.warning.light,
         color: theme.palette.grey.semiLight,
       };
-    case "Passed":
+    case "passed":
       return {
         backgroundColor: theme.palette.success.main,
         color: theme.palette.success.main,

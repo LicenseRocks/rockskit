@@ -4,7 +4,7 @@ import styled, { css, useTheme, keyframes } from "styled-components";
 import { GuidelinesPropTypes, GuidelinesDefaultProps } from "./props";
 // Components
 import { Icon } from "../Icon";
-import { Button, H4, H5, Text } from "..";
+import { Button, H5, Text } from "..";
 
 // Animation for accordion
 const showDrop = keyframes`
@@ -108,17 +108,17 @@ const StyledDropped = styled.div`
 
 const getAlerts = (alert, theme) => {
   switch (alert) {
-    case "Require":
+    case "require":
       return {
         backgroundColor: theme.palette.error.main,
         alertContent: "Require",
       };
-    case "Optional":
+    case "optional":
       return {
         backgroundColor: theme.palette.warning.light,
         alertContent: "Optional",
       };
-    case "Passed":
+    case "passed":
       return {
         backgroundColor: theme.palette.success.main,
         alertContent: "Passed",
@@ -150,11 +150,9 @@ export const Guidelines = ({
   };
 
   const theme = useTheme();
-  // counting min height, which depends of number of rows
-  const countHeight = data.length;
 
   return (
-    <StyledAccordion countHeight={countHeight}>
+    <StyledAccordion>
       <StyledContainer>
         {data.map((item, index) => {
           return (

@@ -6,6 +6,7 @@ export const GuidelinesPropTypes = {
   data: PropTypes.array,
   buttonFunction: PropTypes.func,
   animation: PropTypes.bool,
+  buttonText: PropTypes.node,
   ...SPACER_PROP_TYPES,
   ...DISPLAY_PROP_TYPES,
 };
@@ -14,5 +15,6 @@ export const GuidelinesDefaultProps = {
   children: null,
   data: null,
   buttonFunction: null,
+  buttonText: null,
   animation: false,
 };
