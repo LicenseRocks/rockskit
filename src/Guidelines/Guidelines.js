@@ -4,6 +4,7 @@ import styled, { css, useTheme, keyframes } from "styled-components";
 import { GuidelinesPropTypes, GuidelinesDefaultProps } from "./props";
 // Components, Typography, etc.
 import { Icon, Button, H5, Text, SPACER, DISPLAY } from "..";
+import { text } from "@fortawesome/fontawesome-svg-core";
 
 // Animation for accordion
 const showDrop = keyframes`
@@ -16,43 +17,31 @@ const showDrop = keyframes`
 `;
 
 const StyledAccordion = styled.div`
-  width: 100%;
-  box-sizing: border-box;
-  display: grid;
-  place-items: center;
-
   ${(theme) => SPACER(theme)}
   ${(theme) => DISPLAY(theme)}
 `;
 
-const StyledContainer = styled.div`
-  width: 100%;
-`;
-
 const StyledRow = styled.div`
-  width: 100%;
   min-width: 400px;
   height: 33px;
-  box-sizing: border-box;
+  // box-sizing: border-box;
+
   // margin: 10px 0px;
-  padding: 8px;
-  font-size: 14px;
+  // padding: 8px;
+
   display: flex;
   flex-direction: row;
   align-items: center;
   color: ${({ theme }) => theme.palette.text.primary};
   cursor: pointer;
-  svg {
-    width: 12px;
-    color: ${({ theme }) => theme.palette.text.primary};
-  }
 `;
 
 const StyledStatus = styled.div`
   width: 90px;
   height: 33px;
-  padding: 8px 16px;
+
   display: flex;
+  align-items: center;
   justify-content: center;
   background-color: ${({ alerts }) => alerts.backgroundColor};
   border-radius: 8px 0px 0px 8px;
@@ -63,13 +52,12 @@ const StyledMessage = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-  box-sizing: border-box;
-  padding: 8px 16px;
-  margin: 0px 4px;
+  // box-sizing: border-box;
+
+  // padding: 8px 16px;
+  // margin: 0px 4px;
   background-color: ${({ theme }) => theme.palette.gray.semiLight};
   color: ${({ theme }) => theme.palette.text.primary};
-  font-size: 14px;
-  font-weight: 600;
   transition: all 100ms ease-in-out;
 `;
 
@@ -83,10 +71,13 @@ const StyledDropButton = styled.div`
   background-color: ${({ theme }) => theme.palette.gray.regular};
   border-radius: 0px 8px 8px 0px;
   cursor: pointer;
+
+  // svg {
+  //   color: ${({ theme }) => theme.palette.text.primary};
+  // }
 `;
 
 const StyledDropped = styled.div`
-  width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -154,40 +145,38 @@ export const Guidelines = ({
 
   return (
     <StyledAccordion {...props}>
-      <StyledContainer>
-        {data.map((item, index) => {
-          return (
-            <>
-              <StyledRow onClick={() => toggle(index)} key={index}>
-                <StyledStatus alerts={getAlerts(item.status, theme)}>
-                  <Text content={item.status} />
-                </StyledStatus>
-                <StyledMessage {...props}>
-                  <H5 content={item.message} />
-                </StyledMessage>
-                <StyledDropButton>
-                  {clicked === index ? (
-                    <Icon icon="angle-up" />
-                  ) : (
-                    <Icon icon="angle-down" />
-                  )}
-                </StyledDropButton>
-              </StyledRow>
+      {data.map((item, index) => {
+        return (
+          <>
+            <StyledRow m={10} onClick={() => toggle(index)} key={index}>
+              <StyledStatus alerts={getAlerts(item.status, theme)}>
+                <Text content={item.status} />
+              </StyledStatus>
+              <StyledMessage {...props}>
+                <H5 content={item.message} />
+              </StyledMessage>
+              <StyledDropButton>
+                {clicked === index ? (
+                  <Icon color="gray" icon="angle-up" />
+                ) : (
+                  <Icon icon="angle-down" />
+                )}
+              </StyledDropButton>
+            </StyledRow>
 
-              {clicked === index ? (
-                <StyledDropped animation={animation}>
-                  <Text content={item.explanation} />
-                  <Button
-                    onCLick={buttonFunction}
-                    size={"sm"}
-                    content={buttonText}
-                  />
-                </StyledDropped>
-              ) : null}
-            </>
-          );
-        })}
-      </StyledContainer>
+            {clicked === index ? (
+              <StyledDropped animation={animation}>
+                <Text content={item.explanation} />
+                <Button
+                  onCLick={buttonFunction}
+                  size={"sm"}
+                  content={buttonText}
+                />
+              </StyledDropped>
+            ) : null}
+          </>
+        );
+      })}
     </StyledAccordion>
   );
 };

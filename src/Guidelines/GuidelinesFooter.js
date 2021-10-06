@@ -1,10 +1,9 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
 // Components, Typography, etc.
-import { SPACER, DISPLAY } from "..";
+import { SPACER, DISPLAY, Text, DIMENSION } from "..";
 
 const StyledFooter = styled.div`
-  width: 100%;
   border-top: 1px solid ${({ theme }) => theme.palette.gray.semiLight};
 
   ${(theme) => SPACER(theme)}
@@ -27,20 +26,13 @@ const StyledCircle = styled.div`
   display: inline-block;
   background-color: ${({ status }) => status.backgroundColor};
 `;
-const StyledStatus = styled.div`
+const StyledStatus = styled.div`mr={50}
   color: ${({ status }) => status.color};
-  margin-right: 8px;
   width: 50px;
-  font-size: 12px;
-  line-height: 120%;
-  font-weight: normal;
 `;
 
 const StyledContent = styled.div`
   color: ${({ theme }) => theme.palette.gray.medium};
-  font-size: 12px;
-  line-height: 120%;
-  font-weight: normal;
 `;
 
 const getColor = (status, theme) => {
@@ -73,7 +65,7 @@ export const GuidelinesFooter = ({ footerData, ...props }) => {
 
   return (
     <StyledFooter {...props}>
-      {footerData.map((item, id) => {
+      {footerData?.map((item, id) => {
         return (
           <>
             <StyledRow key={id}>
@@ -81,9 +73,11 @@ export const GuidelinesFooter = ({ footerData, ...props }) => {
                 status={getColor(item.status, theme)}
               ></StyledCircle>
               <StyledStatus status={getColor(item.status, theme)}>
-                {item.status}:
+                <Text fontSize={"sm"} content={item.status} />
               </StyledStatus>
-              <StyledContent>{item.content}</StyledContent>
+              <StyledContent>
+                <Text fontSize={"sm"} content={item.content} />
+              </StyledContent>
             </StyledRow>
           </>
         );
