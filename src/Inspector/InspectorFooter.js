@@ -60,7 +60,7 @@ const getColor = (status, theme) => {
   }
 };
 
-export const GuidelinesFooter = ({ footerData, ...props }) => {
+export const InspectorFooter = ({ footerData, ...props }) => {
   const theme = useTheme();
 
   return (

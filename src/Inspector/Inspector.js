@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-import { InspectorItem, HistoryPropTypes } from ".";
+import { InspectorItem, InspectorPropTypes } from ".";
 import { DISPLAY, SPACER } from "../theme";
 
 const Container = styled.div`
@@ -19,4 +19,4 @@ export const Inspector = ({ rows, ...props }) => {
   );
 };
 
-History.propTypes = HistoryPropTypes;
+Inspector.propTypes = InspectorPropTypes;

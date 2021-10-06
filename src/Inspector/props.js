@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import { DISPLAY_PROP_TYPES, SPACER_PROP_TYPES } from "../theme";
 
-export const HistoryPropTypes = {
+export const InspectorPropTypes = {
   rows: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -17,4 +17,4 @@ export const HistoryPropTypes = {
   ...DISPLAY_PROP_TYPES,
 };
 
-export const HistoryDefaultProps = {};
+export const InspectorDefaultProps = {};

@@ -1,8 +1,8 @@
-import React from "react";
-
+import React, { useState } from "react";
 import { StoryWrapper } from "../../.storybook/decorators";
 import { Inspector } from "./Inspector";
-import { Text } from "..";
+import { Modal, Button, Text } from "..";
+import { InspectorFooter } from "./InspectorFooter";
 
 export default {
   title: "Inspector",
@@ -20,20 +20,7 @@ const ROWS = [
     iconColor: "success",
     collapsible: true,
     collapseContent: (
-      <Text>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut tincidunt
-        suscipit purus, et ultrices ante sagittis sit amet. Nulla in scelerisque
-        erat. Phasellus molestie turpis vel nisi commodo lacinia. Etiam vitae
-        lectus lectus. Etiam et diam ex. Cras tellus dolor, congue sed libero
-        cursus, dictum dapibus nisl. Nam efficitur ante non nibh efficitur, sed
-        porttitor nisi tristique. Duis pellentesque eu dolor sit amet tristique.
-        Ut id ligula aliquet, suscipit erat eget, commodo nisi. Sed ut diam non
-        turpis pretium ultricies nec non purus. Pellentesque habitant morbi
-        tristique senectus et netus et malesuada fames ac turpis egestas. Cras
-        sagittis nisl sit amet mollis blandit. Fusce hendrerit lacus nec cursus
-        scelerisque. Nullam mollis eu ante in pharetra. In aliquam sapien eu
-        rutrum vestibulum. Aenean facilisis leo vitae odio laoreet ultrices.
-      </Text>
+      <Text>NFT creator does not have Stripe Connect ID specified</Text>
     ),
   },
   {
@@ -43,6 +30,8 @@ const ROWS = [
     title: "Test 2",
     icon: "plus",
     iconColor: "secondary",
+    collapsible: true,
+    collapseContent: <Text>NFT does not have secret phrase / bonus text</Text>,
   },
   {
     id: 3,
@@ -51,7 +40,55 @@ const ROWS = [
     title: "Test 3",
     icon: "copy",
     iconColor: "warning",
+    collapsible: true,
+    collapseContent: <Text>NFT metadata file uploaded</Text>,
   },
 ];
 
 export const main = () => <Inspector rows={ROWS} />;
+
+// data for footer
+const footerData = [
+  {
+    id: 1,
+    status: "require",
+    content:
+      "Explain about require alert for example Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  },
+  {
+    id: 2,
+    status: "optional",
+    content:
+      "Explain about require alert for example Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  },
+  {
+    id: 3,
+    status: "passed",
+    content:
+      "Explain about require alert for example Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+  },
+];
+
+const BaseComponent = (props) => {
+  const [open, setOpen] = useState(false);
+  const defaultProps = {
+    open,
+    onClose: () => setOpen(false),
+    fullWidth: true,
+    ...props,
+  };
+
+  return (
+    <>
+      <Button content="Open Modal" onClick={() => setOpen(true)} />
+      <Modal {...defaultProps}>
+        <Inspector px={5} my={5} rows={ROWS} />
+        <InspectorFooter pl={2} py={5} footerData={footerData} />
+      </Modal>
+    </>
+  );
+};
+
+export const InModal = () => (
+  <BaseComponent title={"Inspect NFT correctness"} />
+);
