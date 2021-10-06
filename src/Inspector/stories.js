@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { StoryWrapper } from "../../.storybook/decorators";
 import { Inspector } from "./Inspector";
 import { Modal, Button, Text } from "..";
-import { InspectorFooter } from "./InspectorFooter";
+import { InspectorFooter } from "./Footer";
 
 export default {
   title: "Inspector",
@@ -13,39 +13,41 @@ export default {
 const ROWS = [
   {
     id: 1,
-    description: "Description",
-    moreInfo: "2020-06-20",
-    title: "Test",
+    title: "NFT creator does not have Stripe Connect ID specified",
     icon: "check-circle",
     iconColor: "success",
     collapsible: true,
-    collapseContent: (
-      <Text>NFT creator does not have Stripe Connect ID specified</Text>
-    ),
+    buttonContent: "resume",
+    collapseContent: "NFT creator does not have Stripe Connect ID specified",
   },
   {
     id: 2,
-    description: "Some description",
-    moreInfo: "2020-02-10",
-    title: "Test 2",
+    title: "NFT does not have secret phrase / bonus text",
     icon: "plus",
     iconColor: "secondary",
     collapsible: true,
-    collapseContent: <Text>NFT does not have secret phrase / bonus text</Text>,
+    buttonContent: "resume",
+    collapseContent: "NFT does not have secret phrase / bonus text",
   },
   {
     id: 3,
-    description: "",
-    moreInfo: "2020-01-23",
-    title: "Test 3",
+    title: "TNFT metadata file uploaded",
     icon: "copy",
     iconColor: "warning",
     collapsible: true,
-    collapseContent: <Text>NFT metadata file uploaded</Text>,
+    buttonContent: "resume",
+    collapseContent: "NFT metadata file uploaded",
+  },
+  {
+    id: 4,
+    title: "NFT on-chain && off-chain fees synchronized",
+    icon: "copy",
+    iconColor: "warning",
+    collapsible: true,
+    buttonContent: "resume",
+    collapseContent: "NFT on-chain && off-chain fees synchronized",
   },
 ];
-
-export const main = () => <Inspector rows={ROWS} />;
 
 // data for footer
 const footerData = [
@@ -80,7 +82,7 @@ const BaseComponent = (props) => {
 
   return (
     <>
-      <Button content="Open Modal" onClick={() => setOpen(true)} />
+      <Button content="Inspect" onClick={() => setOpen(true)} />
       <Modal {...defaultProps}>
         <Inspector px={5} my={5} rows={ROWS} />
         <InspectorFooter pl={2} py={5} footerData={footerData} />
@@ -89,6 +91,4 @@ const BaseComponent = (props) => {
   );
 };
 
-export const InModal = () => (
-  <BaseComponent title={"Inspect NFT correctness"} />
-);
+export const main = () => <BaseComponent title={"Inspect NFT correctness"} />;

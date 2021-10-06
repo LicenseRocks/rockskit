@@ -3,38 +3,14 @@ import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import Grid from "@material-ui/core/Grid";
 
-import { Text } from "..";
+import { Text, H5, Button } from "..";
 import { Icon } from "../Icon";
 import { Collapse, CollapseButton } from "../Collapse";
-
-const ItemConnector = styled.div`
-  border-width: 0;
-  border-style: solid;
-  border-color: ${({ theme }) => theme.palette.gray.regular};
-  border-left-width: 1px;
-  transition: all 0.1ms ease-in-out;
-  position: absolute;
-  bottom: 0;
-  left: 15px;
-  top: 0;
-  ::before {
-    content: "";
-    width: 1px;
-    height: 100%;
-    display: inline-block;
-  }
-`;
 
 const Container = styled.div`
   position: relative;
   min-height: 40px;
   padding-bottom: ${({ theme }) => theme.spacing(4)};
-
-  :last-child {
-    ${ItemConnector} {
-      border-left-width: 0;
-    }
-  }
 `;
 
 const RowWrapper = styled.div`
@@ -82,7 +58,8 @@ const StyledIcon = styled(Icon)`
 const StyledCollapseButton = styled(CollapseButton)`
   margin-left: ${({ theme }) => theme.spacing(4)};
   color: ${({ theme }) => theme.palette.text.primary};
-
+  background-color: ${({ theme }) => theme.palette.gray.regular};
+  border-radius: 0px 8px 8px 0px;
   ${({ theme }) => theme.breakpoints.down("sm")} {
     position: absolute;
     top: 0;
@@ -99,41 +76,21 @@ const Content = styled.div`
 `;
 
 export const InspectorItem = ({
-  data: {
-    collapsible,
-    collapseContent,
-    description,
-    icon,
-    iconColor,
-    moreInfo,
-    title,
-  },
+  data: { collapsible, collapseContent, icon, iconColor, buttonContent, title },
 }) => {
   const [collapseOpen, setCollapseOpen] = useState(false);
 
   return (
-    <Container data-cy="historyItem">
-      <ItemConnector />
-
+    <Container data-cy="inspectorItem">
       <RowWrapper>
         <StyledIcon rounded color={iconColor} icon={icon} />
 
         <RowDetails>
           <Item lg={5}>
-            <Text fontWeight="bold">{title}</Text>
-          </Item>
-
-          <Item lg={4}>
-            <Text color="textSecondary" noWrap>
-              {description}
-            </Text>
+            <H5>{title}</H5>
           </Item>
 
           <Item align="flex-end">
-            <Text color="textSecondary" fontStyle="italic">
-              {moreInfo}
-            </Text>
-
             {collapsible && (
               <StyledCollapseButton
                 isOpened={collapseOpen}
@@ -146,7 +103,10 @@ export const InspectorItem = ({
 
       {collapsible && (
         <Collapse isOpened={collapseOpen}>
-          <Content>{collapseContent}</Content>
+          <Content>
+            <Text content={collapseContent} />
+            <Button size={"sm"} content={buttonContent} />
+          </Content>
         </Collapse>
       )}
     </Container>

@@ -12,8 +12,8 @@ const Container = styled.div`
 export const Inspector = ({ rows, ...props }) => {
   return (
     <Container {...props}>
-      {rows.map((h) => (
-        <InspectorItem key={h.id} data={h} />
+      {rows.map((row) => (
+        <InspectorItem key={row.id} data={row} />
       ))}
     </Container>
   );
