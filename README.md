@@ -142,9 +142,47 @@ export const Alert = ({ content, text, buttonContent, ...props }) => {
 
 In this simple example, we built an `Alert` using existing `Icon`, `Button` components and also ready `H5` Typography. It is the most optimal way of implementing new stuff 😉
 
-4. ${(theme) => SPACER(theme)} / ${(theme) => DISPLAY(theme)} are only used on the styles of the top level components (the component which is finally exported from RocksKit) because they are responsible for adding paddings, margins and displays to the top level component just by passing props to it. In our case if we have the component Inspector, it would be like <Inspector mb={2} /> which leads to a margin-bottom of 8px because 2 is multiplied with our standard spacing multiplier which is 4 (2x4=8).
-5. Try to have properties like status, color etc always in lowercase because we store them to database in lowercase and that way it’s more easier and performant when using them.
-6. Always use theme variables for colors, fonts, margins, paddings, etc… because we have lots of customizations for different clients/customers and all these customizations are based on these variables.
-7. Wisely name components.
-8. Render Data in store.js
-9. icons
+4. `${(theme) => SPACER(theme)} / ${(theme) => DISPLAY(theme)}` should be used only on the styles of the top level components (the component which is finally exported from RocksKit). It is crucial, because they are responsible for adding paddings, margins and displays to the top level component just by passing props to it.
+
+```jsx
+
+```
+
+In our case if we have the component Inspector, it would be like <Inspector mb={2} /> which leads to a margin-bottom of 8px because 2 is multiplied with our standard spacing multiplier which is 4 (2x4=8). 6. Try to have different properties which will be stored in database always in lowercase, so that it can be easier and more performant to use them. 7. Always use `theme` variables for colors, fonts, margins, paddings, etc. There are lots of customizations and all of theme are based on these variables. 8. Name new components wisely, these created as parents as well as these created as children using Style Components. 9. Create example data and pass them as props in proper `stories.js` file. Example for `Footer` is presented below 👇
+
+```jsx
+import React, { useState } from "react";
+import { StoryWrapper } from "../../.storybook/decorators";
+// Components
+import { Footer } from "./Footer";
+
+export default {
+  title: "App",
+  component: App,
+  decorators: [StoryWrapper],
+};
+
+// data for footer
+const data = [
+  {
+    id: 1,
+    status: "required",
+  },
+  {
+    id: 2,
+    status: "optional",
+  },
+];
+
+const BaseComponent = (props) => {
+  return (
+    <>
+      <Footer data={data} />
+    </>
+  );
+};
+
+export const main = () => <BaseComponent />;
+```
+
+11. icons
