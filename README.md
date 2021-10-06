@@ -142,13 +142,57 @@ export const Alert = ({ content, text, buttonContent, ...props }) => {
 
 In this simple example, we built an `Alert` using existing `Icon`, `Button` components and also ready `H5` Typography. It is the most optimal way of implementing new stuff 😉
 
-4. `${(theme) => SPACER(theme)} / ${(theme) => DISPLAY(theme)}` should be used only on the styles of the top level components (the component which is finally exported from RocksKit). It is crucial, because they are responsible for adding paddings, margins and displays to the top level component just by passing props to it.
+4. `${(theme) => SPACER(theme)} / ${(theme) => DISPLAY(theme)}` should be used only on the styles of the top level components (the component which is finally exported from RocksKit). It is crucial, because they are responsible for adding paddings, margins and displays to the top level component just by passing props to it. In example below is represented an Alert component 👇
 
 ```jsx
+import React from "react";
+import styled, { useTheme } from "styled-components";
+import { DISPLAY, SPACER } from "..";
 
+const StyledMessage = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
+`;
+
+export const Alert = ({ content, children, ...props }) => {
+  const theme = useTheme();
+
+  return (
+    <StyledMessage mb={2} {...props}>
+      {content || children}
+    </StyledMessage>
+  );
+};
 ```
 
-In our case if we have the component Inspector, it would be like <Inspector mb={2} /> which leads to a margin-bottom of 8px because 2 is multiplied with our standard spacing multiplier which is 4 (2x4=8). 6. Try to have different properties which will be stored in database always in lowercase, so that it can be easier and more performant to use them. 7. Always use `theme` variables for colors, fonts, margins, paddings, etc. There are lots of customizations and all of theme are based on these variables. 8. Name new components wisely, these created as parents as well as these created as children using Style Components. 9. Create example data and pass them as props in proper `stories.js` file. Example for `Footer` is presented below 👇
+In this case, when we import an `Alert` component, we can `add margin-bottom` by passing a prop `<Alert mb={2} />`, which leads in this scenario to a margin-bottom of 8px, because 2 is multiplied with our standard spacing multiplier which is 4 (2x4=8).
+
+6. Try to have different properties which will be stored in database always in lowercase, so that it can be easier and more performant to use them.
+7. Always use `theme` variables for colors, fonts, margins, paddings, etc. There are lots of customizations and all of theme are based on these variables. Below is shown example of styling part 👇
+
+```jsx
+import React from "react";
+import styled, { useTheme } from "styled-components";
+
+const StyledItem = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: ${({ theme }) => theme.palette.gray.semiLight};
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
+`;
+```
+
+`background` is defined by using `theme` variable, you can find those variables in `/src/theme`
+
+9. Name new components wisely, these created as parents as well as these created as children using Style Components.
+10. Create example data and pass them as props in proper `stories.js` file. Example for `Footer` is presented below 👇
 
 ```jsx
 import React, { useState } from "react";
