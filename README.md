@@ -68,11 +68,11 @@ export const App = () => {
 📝 Good practce: Visit a storybook for this project, and check which props you can pass to custom component.
 👇 https://licenserocks.github.io/rockskit/
 
-## Customizations
+## Customizations ✍️
 
 We have a pre-defined theme object in Rockskit, which is based on License Rocks design system. It has pre-defined colors, fonts, font sizes etc, and can be overriden in any project which RocksKit is used. We can replace colors and fonts easily just by modifying this object and no other pain.
 
-## What is the process of builiding and packaging RocksKit?
+## How to go through process of builiding and packaging RocksKit? 🧑🏻‍💻
 
 We use Rollup for this process. It is configured in a way to use Babel to transpile the code and export the package in two formats: ESModules and CommonJS.
 All exports in the project are named export. (they can be improved later to enhance Tree Shaking)
@@ -83,19 +83,27 @@ Now imagine we want to update a code in one of the components:
 2. Update tests by running `yarn test:snapshot:update`
 3. Begin the building process by running `yarn build` and make sure, that build phase passes successfully and we have updated files in `dist` directory.
 4. Update the version of package either manually or using `npm version` (better to do it manually).
-5. when will have an access to @licenserocks packages using my account, then will use npm login to login into my account.
+5. Make sure you have an access to @licenserocks packages using your npm account, then run `npm login` to complete authentication process.
 6. Now run `npm publish`. Keep in mind that you should have configured you npm CLI before running this command. For that, you should login to npm and make sure you have access to @licenserocks packages using your account, and then use `npm login` to login into your account. For more information about how to login to NPM, visit this link: https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line .
 7. Commit your changes and push to Github repository.
 
 That's all!🚀
 
-## Running Rockskit
+## Running Rockskit Locally 🏡
 
-## testing
+To run Rockskit with full view through storybook on localhost, follow steps below 👇
 
-**snapshot**
+1. Clone repo to your machine, by running `git clone <remote url>`
+2. Install dependencies by running `yarn`
+3. Run on your local by `yarn start-storybook`
 
-## Good practices
+## testing 📈
+
+You can run tests by command `yarn test`
+
+`yarn test` command looks for all files with `*.stories.js` in the project and creates snapshots of them, which are stored in `__snapshots__` folder.
+
+## Good practices 😍
 
 It is extremely important to follow some good habits in Rockskit developing process:
 
