@@ -1,10 +1,14 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
+// Components, Typography, etc.
+import { SPACER, DISPLAY } from "..";
 
 const StyledFooter = styled.div`
   width: 100%;
-  padding: 20px 10px;
   border-top: 1px solid ${({ theme }) => theme.palette.gray.semiLight};
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 const StyledRow = styled.div`
@@ -64,11 +68,11 @@ const getColor = (status, theme) => {
   }
 };
 
-export const GuidelinesFooter = ({ footerData }) => {
+export const GuidelinesFooter = ({ footerData, ...props }) => {
   const theme = useTheme();
 
   return (
-    <StyledFooter>
+    <StyledFooter {...props}>
       {footerData.map((item, id) => {
         return (
           <>

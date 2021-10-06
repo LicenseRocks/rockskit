@@ -105,7 +105,7 @@ const BaseComponent = (props) => {
           data={data}
           buttonText={"Resume"}
         />
-        <GuidelinesFooter footerData={footerData} />
+        <GuidelinesFooter pl={2} py={5} footerData={footerData} />
       </Modal>
     </>
   );
