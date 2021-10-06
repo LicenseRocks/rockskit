@@ -1,7 +1,5 @@
-<h1 align="center">RocksKit</h1>
-
 <p align="center">
-  <img src="https://license.rocks/wp-content/uploads/2020/08/logo-horizontal.png" width="250">
+  <img src="https://license.rocks/wp-content/uploads/2020/08/logo-horizontal.png" width="350">
 </p>
 
 ## What is RocksKit? 🚀
