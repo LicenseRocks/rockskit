@@ -9,7 +9,7 @@ import { Collapse, CollapseButton } from "../Collapse";
 
 const Container = styled.div`
   position: relative;
-  min-height: 40px;
+  min-height: 33px;
   padding-bottom: ${({ theme }) => theme.spacing(4)};
 `;
 
@@ -25,13 +25,15 @@ const RowWrapper = styled.div`
 const RowDetails = styled(Grid).attrs(() => ({
   container: true,
 }))`
+  display: flex;
+  align-items: center;
   width: 100%;
   height: 100%;
 `;
 
 const Item = styled(Grid).attrs(({ lg }) => ({
   item: true,
-  xs: 12,
+
   lg: lg || 3,
 }))`
   display: flex;
@@ -86,11 +88,11 @@ export const InspectorItem = ({
         <StyledIcon rounded color={iconColor} icon={icon} />
 
         <RowDetails>
-          <Item lg={5}>
+          <Item xs={10}>
             <H5>{title}</H5>
           </Item>
 
-          <Item align="flex-end">
+          <Item xs={2} align="flex-end">
             {collapsible && (
               <StyledCollapseButton
                 isOpened={collapseOpen}
@@ -118,8 +120,6 @@ InspectorItem.propTypes = {
     collapsible: PropTypes.bool,
     collapseContent: PropTypes.node,
     id: PropTypes.number.isRequired,
-    description: PropTypes.string,
-    moreInfo: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     icon: PropTypes.string.isRequired,
     iconColor: PropTypes.string,
