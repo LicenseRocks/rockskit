@@ -4,83 +4,106 @@
 
 <h1 align="center">RocksKit</h1>
 
-<div align="center">
+## What is RocksKit? 🚀
 
-license.rocks GmbH design system components for React.js.
+RocksKit is license.rocks GmbH design system components for React.js.
 
-</div>
+As there are multiple projects in the company which all of them are sharing the same design, we decided to have a component library to be used across all of those projects to keep consistency along them.
 
-## title
+## Main libraries/technologies used in Rockskit: 🦾
 
-This is the name of the project. It describes the whole project in one sentence, and helps people understand what the main goal and aim of the project is.
+Below you can find main libraries/technologies which we have used in Rockskit.
+All other libraries are used based on design needs. Moreover, there are examples (stories) for almost all components's usage in Storybook, and if not, you can find usage in one of the projects they are used in like CreatorsHub or MetaProof.
 
-## description
+<p align="center">
+      <a href="https://github.com/storybookjs">
+<img src="https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png" alt="Storybook" height="80" width="400"/>
+        </a>
+</p>
 
-Your description is an extremely important aspect of your project. A well-crafted description allows you to show off your work to other developers as well as potential employers.
+Shortly, it is a development playground. We use it as an environment for components development. Also we build and deploy it to Github Pages as a showcase for the components we have.
 
-This is an important component of your project that many new developers often overlook.
+<p align="center">
+    <a href="https://github.com/styled-components">
+  <img alt="styled-components" src="https://raw.githubusercontent.com/styled-components/brand/master/styled-components.png" height="80px" />
+     </a>
+</p>
 
-The quality of a README desccription often differentiates a good project from a bad project. A good one takes advantage of the opportunity to explain and showcase:
+CSS-in-JS library which we use to make style neatly arranged through every component
 
-    What your application does,
-    Why you used the technologies you used,
-    Some of the challenges you faced and features you hope to implement in the future.
+<p align="center">
+    <a href="https://github.com/mui-org">
+  <img width="150" src="https://mui.com/static/logo.svg" alt="MUI logo" height="80px">
+     </a>
+</p>
 
-A good README helps you stand out among the large crowd of developers who put their work on GitHub.
+Most of the components are built on top of MUI, it lets us save significant amount of time, since we do not need to write everything from scratch
 
-## Table of contents
+<p align="center">
+  <a href="https://github.com/react-hook-form">
+    <img src="https://raw.githubusercontent.com/react-hook-form/react-hook-form/master/docs/logo.png" alt="React Hook Form Logo - React hook custom hook for form validation" height="150px"/>
+  </a>
+</p>
 
-If your README is very long, you might want to add a table of contents to make it easy for users to find what they need. It helps them navigate to different parts of the file.
+Form elements are implemented in a way to be compatible with RHF, as it's one of the best form libs for React.
 
-## visuals
+## How to use RocksKit? 🎮
 
-some screenshots
+1. Like you do for any other JS lib or package, just run `yarn add @licenserocks/kit`
+2. Import the chosen component and use it in your application, below is represented the example usage of `Flex` component
 
-## usage
+```jsx
+import React from "react";
+import { Flex } from "@licenserocks/kit";
 
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
-## how install
+export const App = () => {
+  return (
+    <Flex container spacing={8}>
+      {/* Some content */}
+    </Flex>
+  );
+};
+```
 
-If your project is software or an app that needs installation, you should include the steps required to install your project. Provide a step-by-step description of how to get the development environment running.
+📝 Good practce: Visit a storybook for this project, and check which props you can pass to custom component.
+👇 https://licenserocks.github.io/rockskit/
 
-## How to Use Your Project
+## Customizations
 
-Provide instructions and examples so users/contributors can use the project. This will make it easy for them in case they encounter a problem – they will always have a place of reference.
+We have a pre-defined theme object in Rockskit, which is based on License Rocks design system. It has pre-defined colors, fonts, font sizes etc, and can be overriden in any project which RocksKit is used. We can replace colors and fonts easily just by modifying this object and no other pain.
 
-You can also include screenshots to show examples of the running project.
+## What is the process of builiding and packaging RocksKit?
 
-## List the License
+We use Rollup for this process. It is configured in a way to use Babel to transpile the code and export the package in two formats: ESModules and CommonJS.
+All exports in the project are named export. (they can be improved later to enhance Tree Shaking)
 
-This is the last section of most README. It lets other developers know what they can and cannot do with your project. If you need help choosing a license, use https://choosealicense.com/
+Now imagine we want to update a code in one of the components:
 
-🏆 The sections listed above are the minimum for a good README. But you might also want to consider adding the following sections.
+1. Update the component code and make sure everything is working, at least in Storybook. If needed, update the code of component story in `stories.js` file.
+2. Update tests by running `yarn test:snapshot:update`
+3. Begin the building process by running `yarn build` and make sure, that build phase passes successfully and we have updated files in `dist` directory.
+4. Update the version of package either manually or using `npm version` (better to do it manually).
+5. when will have an access to @licenserocks packages using my account, then will use npm login to login into my account.
+6. Now run `npm publish`. Keep in mind that you should have configured you npm CLI before running this command. For that, you should login to npm and make sure you have access to @licenserocks packages using your account, and then use `npm login` to login into your account. For more information about how to login to NPM, visit this link: https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line .
+7. Commit your changes and push to Github repository.
 
-## Include Tests
+That's all!🚀
 
-Go the extra mile and write tests for your application. Then provide code examples and how to run them.
+## Running Rockskit
 
-## Intro
+## testing
 
-    What was your motivation?
-    Why did you build this project?
-    What problem does it solve?
-    What did you learn?
-    What makes your project stand out? If your project has a lot of features, consider adding a "Features" section and listing them here.
+**snapshot**
 
-// dist
-the dist folder and files are outcome of transpiling all files in the src folder using Rollup and yarn build command.
+## Good practices
 
-// rollup
-Rollup uses Babel to transpile the code and it exports two format of JS dists one in CommonJS and one in ESJS.
+It is extremely important to follow some good habits in Rockskit developing process:
 
-// tests
-usually after changing codebase, you should update the snapshot tests. Maybe I’ve forgotten to do that the last time I changed the code.
-You can use yarn test:snapshot:update command to update snapshot tests (edited)
-
-the snapshots folder is the outcome of yarn test command
-
-// icons
-for size and performance reasons, we add only the icons we want to use to the FontAwesome library
-and we do that in theme/icons/solid.js
-
-//theme
+1. Make sure that a component which you create is "reusable". It means, that it should not be used only once for the specific part of an app. Those kinds of components, are better to be implemented inside a project, in which it could be imported. This way, it’s easier to develop and debug the component and no need to update and publish entire RocksKit. On the other hand, if there will be a need to use this concrete component in multiple ways, we can easily copy and paste the code from the project into Rockskit and publish it.
+2. Before implementing Please go through other components and codebase before implementing any new component. Most of the components are already implemented, or you can use existing ones to create the new one. In our current case (Inspector), we already have Modal, Accordion (Collapse), Text, Heading and you can easily combine them to achieve the Inspector component. You can use our Storybook and the stories codebase to see how they work.
+3. ${(theme) => SPACER(theme)} / ${(theme) => DISPLAY(theme)} are only used on the styles of the top level components (the component which is finally exported from RocksKit) because they are responsible for adding paddings, margins and displays to the top level component just by passing props to it. In our case if we have the component Inspector, it would be like <Inspector mb={2} /> which leads to a margin-bottom of 8px because 2 is multiplied with our standard spacing multiplier which is 4 (2x4=8).
+4. Try to have properties like status, color etc always in lowercase because we store them to database in lowercase and that way it’s more easier and performant when using them.
+5. Always use theme variables for colors, fonts, margins, paddings, etc… because we have lots of customizations for different clients/customers and all these customizations are based on these variables.
+6. Wisely name components.
+7. Render Data in store.js
+8. icons

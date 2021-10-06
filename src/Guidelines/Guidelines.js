@@ -176,7 +176,6 @@ export const Guidelines = ({
               {clicked === index ? (
                 <StyledDropped animation={animation}>
                   <Text content={item.explanation} />
-
                   <Button
                     onCLick={buttonFunction}
                     size={"sm"}
