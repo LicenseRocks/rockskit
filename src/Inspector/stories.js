@@ -19,7 +19,8 @@ const ROWS = [
     collapsible: true,
     buttonFunction: null,
     buttonContent: "resume",
-    collapseContent: "NFT creator does not have Stripe Connect ID specified",
+    collapseContent:
+      "NFT creator does not have Stripe Connect ID specified NFT creator does not have Stripe Connect ID specified NFT creator does not have Stripe Connect ID specified NFT creator does not have Stripe Connect ID specified ",
   },
   {
     id: 2,

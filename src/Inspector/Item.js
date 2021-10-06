@@ -33,10 +33,7 @@ const StyledStatus = styled.div`
   }
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
-    width: 60px;
-    div {
-      font-size: ${({ theme }) => theme.typography.body2};
-    }
+    width: 65px;
   }
 `;
 
@@ -75,8 +72,12 @@ const Content = styled.div`
   justify-content: space-between;
   padding: ${({ theme }) => theme.spacing(4, 12, 4, 28)};
 
+  div {
+    max-width: 80%;
+  }
+
   ${({ theme }) => theme.breakpoints.down("sm")} {
-    padding: ${({ theme }) => theme.spacing(2, 4, 4, 10)};
+    padding: ${({ theme }) => theme.spacing(2, 4, 4, 2)};
   }
 `;
 

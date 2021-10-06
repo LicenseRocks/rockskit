@@ -16,6 +16,10 @@ const StyledRow = styled.div`
   align-items: center;
   justify-content: flex-start;
   margin-top: ${({ theme }) => theme.spacing(2)};
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    flex-wrap: wrap;
+  }
 `;
 
 const StyledCircle = styled.div`
