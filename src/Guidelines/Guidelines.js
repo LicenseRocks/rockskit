@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styled, { css, useTheme, keyframes } from "styled-components";
 // Dependencies
 import { GuidelinesPropTypes, GuidelinesDefaultProps } from "./props";
-// Components
-import { Icon, Button, H5, Text } from "..";
+// Components, Typography, etc.
+import { Icon, Button, H5, Text, SPACER, DISPLAY } from "..";
 
 // Animation for accordion
 const showDrop = keyframes`
@@ -18,9 +18,11 @@ const showDrop = keyframes`
 const StyledAccordion = styled.div`
   width: 100%;
   box-sizing: border-box;
-  margin: 10px 0px;
   display: grid;
   place-items: center;
+
+  ${(theme) => SPACER(theme)}
+  ${(theme) => DISPLAY(theme)}
 `;
 
 const StyledContainer = styled.div`
@@ -32,7 +34,7 @@ const StyledRow = styled.div`
   min-width: 400px;
   height: 33px;
   box-sizing: border-box;
-  margin: 10px 0px;
+  // margin: 10px 0px;
   padding: 8px;
   font-size: 14px;
   display: flex;
@@ -151,7 +153,7 @@ export const Guidelines = ({
   const theme = useTheme();
 
   return (
-    <StyledAccordion>
+    <StyledAccordion {...props}>
       <StyledContainer>
         {data.map((item, index) => {
           return (

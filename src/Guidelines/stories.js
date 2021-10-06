@@ -100,6 +100,7 @@ const BaseComponent = (props) => {
       <Button content="Open Modal" onClick={() => setOpen(true)} />
       <Modal {...defaultProps}>
         <Guidelines
+          my={5}
           animation={select("Animation", [true, false], true)}
           data={data}
           buttonText={"Resume"}
