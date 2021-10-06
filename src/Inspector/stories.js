@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StoryWrapper } from "../../.storybook/decorators";
 import { Inspector } from "./Inspector";
-import { Modal, Button, Text } from "..";
+import { Modal, Button } from "..";
 import { InspectorFooter } from "./Footer";
 
 export default {
@@ -10,6 +10,7 @@ export default {
   decorators: [StoryWrapper],
 };
 
+// Data for Inspector
 const ROWS = [
   {
     id: 1,

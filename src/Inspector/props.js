@@ -6,11 +6,10 @@ export const InspectorPropTypes = {
   rows: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number.isRequired,
-      description: PropTypes.string,
-      moreInfo: PropTypes.string.isRequired,
       title: PropTypes.string.isRequired,
-      icon: PropTypes.string.isRequired,
-      iconColor: PropTypes.string,
+      status: PropTypes.string.isRequired,
+      buttonFunction: PropTypes.func.isRequired,
+      buttonContent: PropTypes.string.isRequired,
     })
   ).isRequired,
   ...SPACER_PROP_TYPES,

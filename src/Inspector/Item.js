@@ -1,11 +1,8 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import styled, { useTheme } from "styled-components";
-
-import { H5, Button } from "..";
+import { Text, H5, Button } from "..";
 import { Collapse, CollapseButton } from "../Collapse";
-import { SPACER, DISPLAY, Text } from "..";
-import { capitalize } from "lodash";
 
 const Container = styled.div`
   position: relative;
@@ -28,12 +25,18 @@ const StyledStatus = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: red;
   background-color: ${({ color }) => color.backgroundColor};
   border-radius: 8px 0px 0px 8px;
 
   div {
     text-transform: capitalize !important;
+  }
+
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    width: 60px;
+    div {
+      font-size: ${({ theme }) => theme.typography.body2};
+    }
   }
 `;
 
@@ -47,6 +50,11 @@ const StyledMessage = styled.div`
   background-color: ${({ theme }) => theme.palette.gray.semiLight};
   color: ${({ theme }) => theme.palette.text.primary};
   transition: all 100ms ease-in-out;
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    h5 {
+      font-size: ${({ theme }) => theme.typography.h6};
+    }
+  }
 `;
 
 const StyledCollapseButton = styled(CollapseButton)`
@@ -57,9 +65,7 @@ const StyledCollapseButton = styled(CollapseButton)`
   background-color: ${({ theme }) => theme.palette.gray.regular};
   border-radius: 0px 8px 8px 0px;
   ${({ theme }) => theme.breakpoints.down("sm")} {
-    position: absolute;
-    top: 0;
-    right: 0;
+    padding: ${({ theme }) => theme.spacing(3)};
   }
 `;
 
@@ -109,7 +115,7 @@ export const InspectorItem = ({
   };
 
   return (
-    <Container data-cy="inspectorItem">
+    <Container>
       <RowWrapper>
         <StyledStatus color={getColor(status, theme)}>
           <Text content={status} />
@@ -149,7 +155,8 @@ InspectorItem.propTypes = {
     collapseContent: PropTypes.node,
     id: PropTypes.number.isRequired,
     title: PropTypes.string.isRequired,
-    icon: PropTypes.string.isRequired,
-    iconColor: PropTypes.string,
+    status: PropTypes.string.isRequired,
+    buttonFunction: PropTypes.func.isRequired,
+    buttonContent: PropTypes.string.isRequired,
   }).isRequired,
 };
