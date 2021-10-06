@@ -3,8 +3,7 @@ import styled, { css, useTheme, keyframes } from "styled-components";
 // Dependencies
 import { GuidelinesPropTypes, GuidelinesDefaultProps } from "./props";
 // Components
-import { Icon } from "../Icon";
-import { Button, H5, Text } from "..";
+import { Icon, Button, H5, Text } from "..";
 
 // Animation for accordion
 const showDrop = keyframes`

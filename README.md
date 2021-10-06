@@ -97,6 +97,8 @@ To run Rockskit with full view through storybook on localhost, follow steps belo
 2. Install dependencies by running `yarn`
 3. Run on your local by `yarn start-storybook`
 
+You can start creating new components now 😉
+
 ## Testing 📈
 
 You can run tests by command `yarn test`
@@ -113,11 +115,36 @@ If it is super important to change some configurations for Babel or Rollup, it c
 
 It is extremely important to follow some good habits in Rockskit developing process:
 
-1. Make sure that a component which you create is "reusable". It means, that it should not be used only once for the specific part of an app. Those kinds of components, are better to be implemented inside a project, in which it could be imported. This way, it’s easier to develop and debug the component and no need to update and publish entire RocksKit. On the other hand, if there will be a need to use this concrete component in multiple ways, we can easily copy and paste the code from the project into Rockskit and publish it.
-2. Before implementing Please go through other components and codebase before implementing any new component. Most of the components are already implemented, or you can use existing ones to create the new one. In our current case (Inspector), we already have Modal, Accordion (Collapse), Text, Heading and you can easily combine them to achieve the Inspector component. You can use our Storybook and the stories codebase to see how they work.
-3. ${(theme) => SPACER(theme)} / ${(theme) => DISPLAY(theme)} are only used on the styles of the top level components (the component which is finally exported from RocksKit) because they are responsible for adding paddings, margins and displays to the top level component just by passing props to it. In our case if we have the component Inspector, it would be like <Inspector mb={2} /> which leads to a margin-bottom of 8px because 2 is multiplied with our standard spacing multiplier which is 4 (2x4=8).
-4. Try to have properties like status, color etc always in lowercase because we store them to database in lowercase and that way it’s more easier and performant when using them.
-5. Always use theme variables for colors, fonts, margins, paddings, etc… because we have lots of customizations for different clients/customers and all these customizations are based on these variables.
-6. Wisely name components.
-7. Render Data in store.js
-8. icons
+1. Make sure that a component which you create is "reusable". It means, that it should not be used only once for the specific part of an app. Those kinds of components is better to implement inside of a project, in which it could be imported. This way, it’s easier to develop and debug the component and there is no need to update and publish entire RocksKit. On the other hand, if there will be a need to use this concrete component in multiple ways, we can easily copy and paste the code from the project into Rockskit and publish it.
+2. Before implementing any new component, it is crucial to conscientiously go through others "ready" components in codebase. Most of the components are already implemented, if it is possible, always try build new one from existing ones. Example is presented below 👇
+
+```jsx
+import React from "react";
+// Existing components and Typography used to build new one
+import { Icon, Button, H5 } from "..";
+
+export const Alert = ({ content, text, buttonContent, ...props }) => {
+  const StyledMessage = styled.div`
+    width: 100%;
+    display: flex;
+    align-items: center;
+  `;
+
+  return (
+    <StyledMessage {...props}>
+      <Icon icon="info-circle" mr={2} />
+      <H5 content={text} />
+      <Button size={"sm"} content={buttonContent} />
+    </StyledMessage>
+  );
+};
+```
+
+In this simple example, we built an `Alert` using existing `Icon`, `Button` components and also ready `H5` Typography. It is the most optimal way of implementing new stuff 😉
+
+4. ${(theme) => SPACER(theme)} / ${(theme) => DISPLAY(theme)} are only used on the styles of the top level components (the component which is finally exported from RocksKit) because they are responsible for adding paddings, margins and displays to the top level component just by passing props to it. In our case if we have the component Inspector, it would be like <Inspector mb={2} /> which leads to a margin-bottom of 8px because 2 is multiplied with our standard spacing multiplier which is 4 (2x4=8).
+5. Try to have properties like status, color etc always in lowercase because we store them to database in lowercase and that way it’s more easier and performant when using them.
+6. Always use theme variables for colors, fonts, margins, paddings, etc… because we have lots of customizations for different clients/customers and all these customizations are based on these variables.
+7. Wisely name components.
+8. Render Data in store.js
+9. icons
