@@ -1,2 +1,0 @@
-// Guidelines
-export * from "./Guidelines";
