@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import styled, { css } from "styled-components";
-import Grid from "@material-ui/core/Grid";
+import styled from "styled-components";
 
 import { Text, H5, Button } from "..";
 import { Icon } from "../Icon";
@@ -9,8 +8,8 @@ import { Collapse, CollapseButton } from "../Collapse";
 
 const Container = styled.div`
   position: relative;
-  min-height: 33px;
-  padding-bottom: ${({ theme }) => theme.spacing(4)};
+  min-height: 41px;
+  padding-bottom: ${({ theme }) => theme.spacing(2)};
 `;
 
 const RowWrapper = styled.div`
@@ -48,10 +47,22 @@ const StyledMessage = styled.div`
   transition: all 100ms ease-in-out;
 `;
 
-const StyledCollapseButton = styled(CollapseButton)`
-  min-width: 32px;
+const StyledDrop = styled.div`
+  width: 32px;
   height: 33px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  background-color: ${({ theme }) => theme.palette.gray.regular};
+  border-radius: 0px 8px 8px 0px;
+  cursor: pointer;
+`;
 
+const StyledCollapseButton = styled(CollapseButton)`
+  width: 33px !important;
+  height: 33px !important;
+  padding: 8px;
   color: ${({ theme }) => theme.palette.text.primary};
   background-color: ${({ theme }) => theme.palette.gray.regular};
   border-radius: 0px 8px 8px 0px;
@@ -87,11 +98,13 @@ export const InspectorItem = ({
         </StyledMessage>
 
         {collapsible && (
-          <StyledCollapseButton
-            size={"xs"}
-            isOpened={collapseOpen}
-            onClick={() => setCollapseOpen((prev) => !prev)}
-          />
+          <StyledDrop>
+            <StyledCollapseButton
+              size={"xs"}
+              isOpened={collapseOpen}
+              onClick={() => setCollapseOpen((prev) => !prev)}
+            />
+          </StyledDrop>
         )}
       </RowWrapper>
 
