@@ -3,7 +3,7 @@ import { StoryWrapper } from "../../.storybook/decorators";
 import { select } from "@storybook/addon-knobs";
 // Components
 import { Guidelines } from "./Guidelines";
-import { Modal, Button, Collapse } from "..";
+import { Modal, Button } from "..";
 import { GuidelinesFooter } from "./GuidelinesFooter";
 
 export default {
@@ -112,7 +112,3 @@ const BaseComponent = (props) => {
 };
 
 export const main = () => <BaseComponent title={"Inspect NFT correctness"} />;
-
-// export const collapse = () => {
-//   <Collapse isOpened={true}>hej</Collapse>;
-// };
