@@ -38,15 +38,6 @@ const ROWS = [
     buttonContent: "resume",
     collapseContent: "NFT metadata file uploaded",
   },
-  {
-    id: 4,
-    title: "NFT on-chain && off-chain fees synchronized",
-    icon: "copy",
-    iconColor: "warning",
-    collapsible: true,
-    buttonContent: "resume",
-    collapseContent: "NFT on-chain && off-chain fees synchronized",
-  },
 ];
 
 // data for footer

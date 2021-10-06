@@ -22,43 +22,36 @@ const RowWrapper = styled.div`
   }
 `;
 
-const RowDetails = styled(Grid).attrs(() => ({
-  container: true,
-}))`
+const StyledStatus = styled.div`
+  width: 90px;
+  height: 33px;
+
   display: flex;
   align-items: center;
-  width: 100%;
-  height: 100%;
+  justify-content: center;
+  background-color: red;
+  // background-color: ${({ alerts }) => alerts.backgroundColor};
+  border-radius: 8px 0px 0px 8px;
 `;
 
-const Item = styled(Grid).attrs(({ lg }) => ({
-  item: true,
-
-  lg: lg || 3,
-}))`
+const StyledMessage = styled.div`
+  height: 33px;
+  flex: 1;
   display: flex;
   align-items: center;
-
-  ${({ theme }) => theme.breakpoints.down("sm")} {
-    margin-bottom: ${({ theme }) => theme.spacing(1)};
-  }
-
-  ${({ align, theme }) =>
-    align &&
-    css`
-      ${theme.breakpoints.up("sm")} {
-        justify-content: ${align};
-      }
-    `}
-`;
-
-const StyledIcon = styled(Icon)`
-  margin-right: ${({ theme }) => theme.spacing(2)};
-  flex-shrink: 0;
+  margin-left: ${({ theme }) => theme.spacing(1)};
+  margin-right: ${({ theme }) => theme.spacing(1)};
+  padding: ${({ theme }) => theme.spacing(2)};
+  padding-left: ${({ theme }) => theme.spacing(4)};
+  background-color: ${({ theme }) => theme.palette.gray.semiLight};
+  color: ${({ theme }) => theme.palette.text.primary};
+  transition: all 100ms ease-in-out;
 `;
 
 const StyledCollapseButton = styled(CollapseButton)`
-  margin-left: ${({ theme }) => theme.spacing(4)};
+  min-width: 32px;
+  height: 33px;
+
   color: ${({ theme }) => theme.palette.text.primary};
   background-color: ${({ theme }) => theme.palette.gray.regular};
   border-radius: 0px 8px 8px 0px;
@@ -85,22 +78,21 @@ export const InspectorItem = ({
   return (
     <Container data-cy="inspectorItem">
       <RowWrapper>
-        <StyledIcon rounded color={iconColor} icon={icon} />
+        <StyledStatus>
+          <Text>Require</Text>
+        </StyledStatus>
 
-        <RowDetails>
-          <Item xs={10}>
-            <H5>{title}</H5>
-          </Item>
+        <StyledMessage>
+          <H5>{title}</H5>
+        </StyledMessage>
 
-          <Item xs={2} align="flex-end">
-            {collapsible && (
-              <StyledCollapseButton
-                isOpened={collapseOpen}
-                onClick={() => setCollapseOpen((prev) => !prev)}
-              />
-            )}
-          </Item>
-        </RowDetails>
+        {collapsible && (
+          <StyledCollapseButton
+            size={"xs"}
+            isOpened={collapseOpen}
+            onClick={() => setCollapseOpen((prev) => !prev)}
+          />
+        )}
       </RowWrapper>
 
       {collapsible && (
