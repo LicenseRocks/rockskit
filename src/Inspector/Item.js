@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
-import styled from "styled-components";
+import styled, { useTheme } from "styled-components";
 
-import { Text, H5, Button } from "..";
+import { H5, Button } from "..";
 import { Collapse, CollapseButton } from "../Collapse";
+import { SPACER, DISPLAY, Text } from "..";
+import { capitalize } from "lodash";
 
 const Container = styled.div`
   position: relative;
@@ -27,8 +29,12 @@ const StyledStatus = styled.div`
   align-items: center;
   justify-content: center;
   background-color: red;
-  // background-color: ${({ alerts }) => alerts.backgroundColor};
+  background-color: ${({ color }) => color.backgroundColor};
   border-radius: 8px 0px 0px 8px;
+
+  div {
+    text-transform: capitalize !important;
+  }
 `;
 
 const StyledMessage = styled.div`
@@ -61,7 +67,7 @@ const Content = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: ${({ theme }) => theme.spacing(4, 12, 4, 24)};
+  padding: ${({ theme }) => theme.spacing(4, 12, 4, 28)};
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
     padding: ${({ theme }) => theme.spacing(2, 4, 4, 10)};
@@ -69,31 +75,35 @@ const Content = styled.div`
 `;
 
 export const InspectorItem = ({
-  data: { collapsible, collapseContent, icon, iconColor, buttonContent, title },
+  data: {
+    collapsible,
+    collapseContent,
+    status,
+    buttonFunction,
+    buttonContent,
+    title,
+  },
 }) => {
   const [collapseOpen, setCollapseOpen] = useState(false);
+  const theme = useTheme();
 
-  const getAlerts = (alert, theme) => {
-    switch (alert) {
+  const getColor = (status, theme) => {
+    switch (status) {
       case "require":
         return {
           backgroundColor: theme.palette.error.main,
-          alertContent: "Require",
         };
       case "optional":
         return {
           backgroundColor: theme.palette.warning.light,
-          alertContent: "Optional",
         };
       case "passed":
         return {
           backgroundColor: theme.palette.success.main,
-          alertContent: "Passed",
         };
       default:
         return {
           backgroundColor: theme.palette.warning.light,
-          alertContent: "Optional",
         };
     }
   };
@@ -101,8 +111,8 @@ export const InspectorItem = ({
   return (
     <Container data-cy="inspectorItem">
       <RowWrapper>
-        <StyledStatus>
-          <Text>Require</Text>
+        <StyledStatus color={getColor(status, theme)}>
+          <Text content={status} />
         </StyledStatus>
 
         <StyledMessage>
@@ -120,8 +130,12 @@ export const InspectorItem = ({
       {collapsible && (
         <Collapse isOpened={collapseOpen}>
           <Content>
-            <Text content={collapseContent} />
-            <Button size={"sm"} content={buttonContent} />
+            <Text fontSize={"sm"} content={collapseContent} />
+            <Button
+              onClick={buttonFunction}
+              size={"sm"}
+              content={buttonContent}
+            />
           </Content>
         </Collapse>
       )}
