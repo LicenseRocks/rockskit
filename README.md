@@ -1,8 +1,8 @@
+<h1 align="center">RocksKit</h1>
+
 <p align="center">
   <img src="https://license.rocks/wp-content/uploads/2020/08/logo-horizontal.png" width="250">
 </p>
-
-<h1 align="center">RocksKit</h1>
 
 ## What is RocksKit? 🚀
 
@@ -15,37 +15,32 @@ As there are multiple projects in the company, which all of them are sharing the
 Below you can find main libraries/technologies which we have used in Rockskit.
 All other libraries are used by basing on design needs. Moreover, there are examples (stories) for almost all components's usage in Storybook, and if not, you can find usage in one of the projects, in which they are used (CreatorsHub or MetaProof).
 
-<p align="center">
-      <a href="https://github.com/storybookjs">
-<img src="https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png" alt="Storybook" height="80" width="400"/>
-        </a>
-</p>
+##
 
-Shortly, it is a development playground. We use it as an environment for components development. Also we build and deploy it to Github Pages as a showcase for the components we have.
+<div align="center">
+  <a href="https://github.com/storybookjs">
+    <img src="https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png" alt="Storybook" height="130" width="600"/>
+  </a>
+  <a href="https://github.com/styled-components">
+    <img alt="styled-components" src="https://raw.githubusercontent.com/styled-components/brand/master/styled-components.png" height="150px" />
+  </a>
+</div>
 
-<p align="center">
-    <a href="https://github.com/styled-components">
-  <img alt="styled-components" src="https://raw.githubusercontent.com/styled-components/brand/master/styled-components.png" height="80px" />
-     </a>
-</p>
-
-CSS-in-JS library which we use to make style neatly arranged through every component
-
-<p align="center">
-    <a href="https://github.com/mui-org">
-  <img width="150" src="https://mui.com/static/logo.svg" alt="MUI logo" height="80px">
-     </a>
-</p>
-
-Most of the components are built on top of MUI, it lets us save significant amount of time, since we do not need to write everything from scratch
-
-<p align="center">
+<div align="center">
+  <a href="https://github.com/mui-org">
+    <img width="150" src="https://mui.com/static/logo.svg" alt="MUI logo" height="150px">
+  </a>
   <a href="https://github.com/react-hook-form">
     <img src="https://raw.githubusercontent.com/react-hook-form/react-hook-form/master/docs/logo.png" alt="React Hook Form Logo - React hook custom hook for form validation" height="150px"/>
   </a>
-</p>
+</div>
 
-Form elements are implemented in a way to be compatible with RHF, as it's one of the best form libs for React.
+##
+
+- Storybook 👉 Shortly, it is a development playground. We use it as an environment for components development. Also we build and deploy it to Github Pages as a showcase for the components we have.
+- Styled-Components 👉 CSS-in-JS library which we use to make style neatly arranged through every component
+- Material-UI 👉 Most of the components are built on top of MUI, it lets us save significant amount of time, since we do not need to write everything from scratch
+- React-Hook-Form 👉 Form elements are implemented in a way to be compatible with RHF, as it's one of the best form libs for React.
 
 ## How to use RocksKit? 🎮
 
