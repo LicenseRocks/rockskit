@@ -76,7 +76,7 @@ const BaseComponent = (props) => {
       <Button content="Inspect" onClick={() => setOpen(true)} />
       <Modal {...defaultProps}>
         <Inspector px={5} my={5} rows={ROWS} />
-        <InspectorFooter pl={2} py={5} footerData={footerData} />
+        <InspectorFooter pl={5} py={4} footerData={footerData} />
       </Modal>
     </>
   );

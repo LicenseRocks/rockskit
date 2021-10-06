@@ -15,24 +15,28 @@ const StyledRow = styled.div`
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-top: 8px;
+  margin-top: ${({ theme }) => theme.spacing(2)};
 `;
 
 const StyledCircle = styled.div`
   height: 8px;
   width: 8px;
-  margin-right: 8px;
+  margin-right: ${({ theme }) => theme.spacing(2)};
   border-radius: 50%;
-  display: inline-block;
   background-color: ${({ status }) => status.backgroundColor};
 `;
-const StyledStatus = styled.div`mr={50}
+const StyledStatus = styled.div`
   color: ${({ status }) => status.color};
   width: 50px;
 `;
 
 const StyledContent = styled.div`
   color: ${({ theme }) => theme.palette.gray.medium};
+  margin-left: ${({ theme }) => theme.spacing(1)};
+`;
+
+const StyledText = styled(Text)`
+  text-transform: capitalize !important;
 `;
 
 const getColor = (status, theme) => {
@@ -73,7 +77,7 @@ export const InspectorFooter = ({ footerData, ...props }) => {
                 status={getColor(item.status, theme)}
               ></StyledCircle>
               <StyledStatus status={getColor(item.status, theme)}>
-                <Text fontSize={"sm"} content={item.status} />
+                <StyledText fontSize={"sm"} content={`${item.status}:`} />
               </StyledStatus>
               <StyledContent>
                 <Text fontSize={"sm"} content={item.content} />

@@ -8,7 +8,7 @@ import { Collapse, CollapseButton } from "../Collapse";
 const Container = styled.div`
   position: relative;
   min-height: 41px;
-  padding-bottom: ${({ theme }) => theme.spacing(2)};
+  padding: ${({ theme }) => theme.spacing(1, 0)};
 `;
 
 const RowWrapper = styled.div`
@@ -23,7 +23,6 @@ const RowWrapper = styled.div`
 const StyledStatus = styled.div`
   width: 90px;
   height: 33px;
-
   display: flex;
   align-items: center;
   justify-content: center;
@@ -37,10 +36,8 @@ const StyledMessage = styled.div`
   flex: 1;
   display: flex;
   align-items: center;
-  margin-left: ${({ theme }) => theme.spacing(1)};
-  margin-right: ${({ theme }) => theme.spacing(1)};
-  padding: ${({ theme }) => theme.spacing(2)};
-  padding-left: ${({ theme }) => theme.spacing(4)};
+  margin: ${({ theme }) => theme.spacing(0, 1)};
+  padding: ${({ theme }) => theme.spacing(2, 2, 2, 4)};
   background-color: ${({ theme }) => theme.palette.gray.semiLight};
   color: ${({ theme }) => theme.palette.text.primary};
   transition: all 100ms ease-in-out;
@@ -75,6 +72,31 @@ export const InspectorItem = ({
   data: { collapsible, collapseContent, icon, iconColor, buttonContent, title },
 }) => {
   const [collapseOpen, setCollapseOpen] = useState(false);
+
+  const getAlerts = (alert, theme) => {
+    switch (alert) {
+      case "require":
+        return {
+          backgroundColor: theme.palette.error.main,
+          alertContent: "Require",
+        };
+      case "optional":
+        return {
+          backgroundColor: theme.palette.warning.light,
+          alertContent: "Optional",
+        };
+      case "passed":
+        return {
+          backgroundColor: theme.palette.success.main,
+          alertContent: "Passed",
+        };
+      default:
+        return {
+          backgroundColor: theme.palette.warning.light,
+          alertContent: "Optional",
+        };
+    }
+  };
 
   return (
     <Container data-cy="inspectorItem">
