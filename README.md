@@ -8,12 +8,12 @@
 
 RocksKit is license.rocks GmbH design system components for React.js.
 
-As there are multiple projects in the company which all of them are sharing the same design, we decided to have a component library to be used across all of those projects to keep consistency along them.
+As there are multiple projects in the company, which all of them are sharing the same design, we decided to have a component library to be used across all of those projects to keep consistency along them.
 
 ## Main libraries/technologies used in Rockskit: 🦾
 
 Below you can find main libraries/technologies which we have used in Rockskit.
-All other libraries are used based on design needs. Moreover, there are examples (stories) for almost all components's usage in Storybook, and if not, you can find usage in one of the projects they are used in like CreatorsHub or MetaProof.
+All other libraries are used by basing on design needs. Moreover, there are examples (stories) for almost all components's usage in Storybook, and if not, you can find usage in one of the projects, in which they are used (CreatorsHub or MetaProof).
 
 <p align="center">
       <a href="https://github.com/storybookjs">
@@ -97,11 +97,17 @@ To run Rockskit with full view through storybook on localhost, follow steps belo
 2. Install dependencies by running `yarn`
 3. Run on your local by `yarn start-storybook`
 
-## testing 📈
+## Testing 📈
 
 You can run tests by command `yarn test`
 
 `yarn test` command looks for all files with `*.stories.js` in the project and creates snapshots of them, which are stored in `__snapshots__` folder.
+
+⚠️ Remember to update tests after making changes in the project `yarn test:snapshot:update` ⚠️
+
+## Configuration ⚙️
+
+If it is super important to change some configurations for Babel or Rollup, it can be done carefully by editing `rollup.config.js` and `babel.config.js` files.
 
 ## Good practices 😍
 
