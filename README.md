@@ -229,4 +229,6 @@ const BaseComponent = (props) => {
 export const main = () => <BaseComponent />;
 ```
 
-11. icons
+11. Addnig new icons
+
+Considering size and performance reasons, it is possible to use only icons which are added in `theme/icons/solid.js`. If there is a need to use not available icon, just import it from `FontAwesome library` into mentioned above `solid.js` file
