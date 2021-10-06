@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 
 import { Text, H5, Button } from "..";
-import { Icon } from "../Icon";
 import { Collapse, CollapseButton } from "../Collapse";
 
 const Container = styled.div`
@@ -47,22 +46,10 @@ const StyledMessage = styled.div`
   transition: all 100ms ease-in-out;
 `;
 
-const StyledDrop = styled.div`
-  width: 32px;
-  height: 33px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  background-color: ${({ theme }) => theme.palette.gray.regular};
-  border-radius: 0px 8px 8px 0px;
-  cursor: pointer;
-`;
-
 const StyledCollapseButton = styled(CollapseButton)`
   width: 33px !important;
   height: 33px !important;
-  padding: 8px;
+  padding: ${({ theme }) => theme.spacing(2)};
   color: ${({ theme }) => theme.palette.text.primary};
   background-color: ${({ theme }) => theme.palette.gray.regular};
   border-radius: 0px 8px 8px 0px;
@@ -74,7 +61,10 @@ const StyledCollapseButton = styled(CollapseButton)`
 `;
 
 const Content = styled.div`
-  padding: ${({ theme }) => theme.spacing(4, 10)};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: ${({ theme }) => theme.spacing(4, 12, 4, 24)};
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
     padding: ${({ theme }) => theme.spacing(2, 4, 4, 10)};
@@ -98,13 +88,10 @@ export const InspectorItem = ({
         </StyledMessage>
 
         {collapsible && (
-          <StyledDrop>
-            <StyledCollapseButton
-              size={"xs"}
-              isOpened={collapseOpen}
-              onClick={() => setCollapseOpen((prev) => !prev)}
-            />
-          </StyledDrop>
+          <StyledCollapseButton
+            isOpened={collapseOpen}
+            onClick={() => setCollapseOpen((prev) => !prev)}
+          />
         )}
       </RowWrapper>
 
