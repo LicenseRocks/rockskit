@@ -4,9 +4,9 @@
 
 ## What is RocksKit? 🚀
 
-RocksKit is license.rocks GmbH design system components for React.js.
+RocksKit is a license.rocks GmbH design system components for React.js.
 
-As there are multiple projects in the company, which all of them are sharing the same design, we decided to have a component library to be used across all of those projects to keep consistency along them.
+As there are multiple projects in the company, which all of them are sharing the same design, we decided to have a component library to be used across all of those projects, so that it is possible to keep consistency along them.
 
 ## Main libraries/technologies used in Rockskit: 🦾
 
@@ -17,7 +17,7 @@ All other libraries are used by basing on design needs. Moreover, there are exam
 
 <div align="center">
   <a href="https://github.com/storybookjs">
-    <img src="https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png" alt="Storybook" height="130" width="600"/>
+    <img src="https://user-images.githubusercontent.com/321738/63501763-88dbf600-c4cc-11e9-96cd-94adadc2fd72.png" alt="Storybook" height="110" width="500"/>
   </a>
   <a href="https://github.com/styled-components">
     <img alt="styled-components" src="https://raw.githubusercontent.com/styled-components/brand/master/styled-components.png" height="150px" />
@@ -38,7 +38,7 @@ All other libraries are used by basing on design needs. Moreover, there are exam
 - Storybook 👉 Shortly, it is a development playground. We use it as an environment for components development. Also we build and deploy it to Github Pages as a showcase for the components we have.
 - Styled-Components 👉 CSS-in-JS library which we use to make style neatly arranged through every component
 - Material-UI 👉 Most of the components are built on top of MUI, it lets us save significant amount of time, since we do not need to write everything from scratch
-- React-Hook-Form 👉 Form elements are implemented in a way to be compatible with RHF, as it's one of the best form libs for React.
+- React-Hook-Form 👉 Form elements are implemented in a way to be compatible with RHF, as it's one of the best form libraries for React.
 
 ## How to use RocksKit? 🎮
 
@@ -63,7 +63,7 @@ export const App = () => {
 
 ## Customizations ✍️
 
-We have a pre-defined theme object in Rockskit, which is based on License Rocks design system. It has pre-defined colors, fonts, font sizes etc, and can be overriden in any project which RocksKit is used. We can replace colors and fonts easily just by modifying this object and no other pain.
+We have a pre-defined theme object in Rockskit, which is based on the License Rocks design system. It has pre-defined colors, fonts, font sizes, etc; and can be overriden in any project which RocksKit is used. We can replace colors and fonts easily just by modifying this object and no other pain.
 
 ## How to go through process of builiding and packaging RocksKit? 🧑🏻‍💻
 
@@ -77,7 +77,7 @@ Now imagine we want to update a code in one of the components:
 3. Begin the building process by running `yarn build` and make sure, that build phase passes successfully and we have updated files in `dist` directory.
 4. Update the version of package either manually or using `npm version` (better to do it manually).
 5. Make sure you have an access to @licenserocks packages using your npm account, then run `npm login` to complete authentication process.
-6. Now run `npm publish`. Keep in mind that you should have configured you npm CLI before running this command. For that, you should login to npm and make sure you have access to @licenserocks packages using your account, and then use `npm login` to login into your account. For more information about how to login to NPM, visit this link: https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line .
+6. Now run `npm publish`. Keep in mind that you should have configured your npm CLI before running this command. Then use `npm login` to login into your account. For more information about how to login to NPM, visit this link: https://docs.npmjs.com/logging-in-to-an-npm-enterprise-registry-from-the-command-line .
 7. Commit your changes and push to Github repository.
 
 That's all!🚀
@@ -154,11 +154,7 @@ const StyledMessage = styled.div`
 export const Alert = ({ content, children, ...props }) => {
   const theme = useTheme();
 
-  return (
-    <StyledMessage mb={2} {...props}>
-      {content || children}
-    </StyledMessage>
-  );
+  return <StyledMessage {...props}>{content || children}</StyledMessage>;
 };
 ```
 
@@ -184,7 +180,7 @@ const StyledItem = styled.div`
 
 `background` is defined by using `theme` variable, you can find those variables in `/src/theme`
 
-9. Name new components wisely, these created as parents as well as these created as children using Style Components.
+9. Name new components wisely, these created as parents as well as these created as children using Styled-Components.
 10. Create example data and pass them as props in proper `stories.js` file. Example for `Footer` is presented below 👇
 
 ```jsx
@@ -222,6 +218,6 @@ const BaseComponent = (props) => {
 export const main = () => <BaseComponent />;
 ```
 
-11. Addnig new icons
+11. Adding new icons
 
 Considering size and performance reasons, it is possible to use only icons which are added in `theme/icons/solid.js`. If there is a need to use not available icon, just import it from `FontAwesome library` into mentioned above `solid.js` file
