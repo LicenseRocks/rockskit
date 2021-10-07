@@ -1,4 +1,6 @@
 import {
+  faAngleDown,
+  faAngleUp,
   faArrowLeft,
   faArrowRight,
   faAt,
@@ -51,6 +53,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 
 export const FreeSolidIconSet = {
+  faAngleDown,
+  faAngleUp,
   faArrowLeft,
   faArrowRight,
   faAt,
