@@ -127,20 +127,14 @@ export const Dropzone = ({
         setCropFile(acceptedFiles[0]);
       } else {
         setFiles(acceptedFiles);
+        setSizeError(false);
       }
     },
     onDropRejected: () => {
       setSizeError(true);
-      console.log(
-        `Max Size limit is ${
-          props.maxSize / 1024 / 1024
-        } MB, please upload smaller file`
-      );
     },
     ...props,
   });
-
-  console.log(props);
 
   const removeFile = (file) => {
     onChange(value.filter((f) => f.preview !== file.preview));
