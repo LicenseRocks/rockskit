@@ -31,6 +31,8 @@ export const main = () => {
     name: "fileUpload",
   };
 
+  console.log(errors);
+
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
       <FileUpload {...defaultProps} />

@@ -69,6 +69,7 @@ export const Dropzone = ({
   multiple,
   onChange,
   value,
+  maxSize,
   ...props
 }) => {
   const [cropFile, setCropFile] = useState();
@@ -122,6 +123,8 @@ export const Dropzone = ({
     },
     ...props,
   });
+
+  console.log(">>", crop, maxSize);
 
   const removeFile = (file) => {
     onChange(value.filter((f) => f.preview !== file.preview));
@@ -198,6 +201,6 @@ Dropzone.defaultProps = {
   fileNameEditable: false,
   hasError: false,
   multiple: true,
-  onChange: () => { },
+  onChange: () => {},
   value: [],
 };
