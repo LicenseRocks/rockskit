@@ -4302,7 +4302,7 @@ UploaderPreview.defaultProps = {
 };
 
 function _templateObject2$e() {
-  var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  border-color: ", ";\n  border-radius: 16px;\n  border-style: dashed;\n  border-width: 2px;\n  cursor: pointer;\n  min-height: 125px;\n  outline: none;\n  transition: all 100ms ease-in-out;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  color: ", ";\n  margin-bottom: 8px;\n\n  &:hover {\n    border-color: ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  border-color: ", ";\n  border-radius: 16px;\n  border-style: dashed;\n  border-width: 2px;\n  cursor: pointer;\n  min-height: 125px;\n  outline: none;\n  transition: all 100ms ease-in-out;\n  width: 100%;\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  justify-content: center;\n  color: ", ";\n  margin-bottom: 8px;\n\n  &:hover {\n    border-color: ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n"]);
 
   _templateObject2$e = function _templateObject2() {
     return data;
@@ -4347,28 +4347,41 @@ var DropzoneArea = styled.div(_templateObject2$e(), function (_ref) {
     return theme.palette.error.light;
   });
 }, function (_ref8) {
-  var disabled = _ref8.disabled;
+  var sizeError = _ref8.sizeError;
+  return sizeError && css(["border-color:", ";background-color:", ";"], function (_ref9) {
+    var theme = _ref9.theme;
+    return theme.palette.error.main;
+  }, function (_ref10) {
+    var theme = _ref10.theme;
+    return theme.palette.error.light;
+  });
+}, function (_ref11) {
+  var disabled = _ref11.disabled;
   return disabled && css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
-}, function (_ref9) {
-  var dragActive = _ref9.dragActive,
-      theme = _ref9.theme;
+}, function (_ref12) {
+  var dragActive = _ref12.dragActive,
+      theme = _ref12.theme;
   return dragActive && css(["border-color:", ";"], theme.palette.gray.medium);
 });
-var Dropzone = function Dropzone(_ref10) {
-  var crop = _ref10.crop,
-      cropProps = _ref10.cropProps,
-      disabled = _ref10.disabled,
-      defaultValue = _ref10.defaultValue,
-      fileNameEditable = _ref10.fileNameEditable,
-      hasError = _ref10.hasError,
-      multiple = _ref10.multiple,
-      onChange = _ref10.onChange,
-      value = _ref10.value,
-      props = _objectWithoutPropertiesLoose(_ref10, ["crop", "cropProps", "disabled", "defaultValue", "fileNameEditable", "hasError", "multiple", "onChange", "value"]);
+var Dropzone = function Dropzone(_ref13) {
+  var crop = _ref13.crop,
+      cropProps = _ref13.cropProps,
+      disabled = _ref13.disabled,
+      defaultValue = _ref13.defaultValue,
+      fileNameEditable = _ref13.fileNameEditable,
+      hasError = _ref13.hasError,
+      multiple = _ref13.multiple,
+      onChange = _ref13.onChange,
+      value = _ref13.value,
+      props = _objectWithoutPropertiesLoose(_ref13, ["crop", "cropProps", "disabled", "defaultValue", "fileNameEditable", "hasError", "multiple", "onChange", "value"]);
 
   var _useState = useState(),
       cropFile = _useState[0],
       setCropFile = _useState[1];
+
+  var _useState2 = useState(false),
+      sizeError = _useState2[0],
+      setSizeError = _useState2[1];
 
   var setFiles = function setFiles(files) {
     var accepted = files.map(function (file) {
@@ -4395,6 +4408,7 @@ var Dropzone = function Dropzone(_ref10) {
   var handleCrop = function handleCrop(file) {
     setFiles([file]);
     setCropFile();
+    setSizeError(false);
   };
 
   var _useDropzone = useDropzone(_extends({
@@ -4405,7 +4419,11 @@ var Dropzone = function Dropzone(_ref10) {
         setCropFile(acceptedFiles[0]);
       } else {
         setFiles(acceptedFiles);
+        setSizeError(false);
       }
+    },
+    onDropRejected: function onDropRejected() {
+      setSizeError(true);
     }
   }, props)),
       getRootProps = _useDropzone.getRootProps,
@@ -4425,12 +4443,15 @@ var Dropzone = function Dropzone(_ref10) {
     dragAccept: isDragAccept,
     dragReject: isDragReject,
     disabled: disabled,
-    hasError: hasError
+    hasError: hasError,
+    sizeError: sizeError
   }, getRootProps()), /*#__PURE__*/React.createElement("input", getInputProps()), isDragAccept && /*#__PURE__*/React.createElement("p", null, "Accepted"), isDragReject && /*#__PURE__*/React.createElement("p", null, "Rejected"), isDragActive ? /*#__PURE__*/React.createElement("p", null, "Drop here") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Drop, or click to select"), multiple ? /*#__PURE__*/React.createElement("p", null, "Accepts multiple files") : /*#__PURE__*/React.createElement("p", null, "Single file only"))), /*#__PURE__*/React.createElement(UploaderPreview, {
     files: value,
     fileNameEditable: fileNameEditable,
     onRemoveClick: removeFile,
     onEdit: editFile
+  }), sizeError === true && /*#__PURE__*/React.createElement(FormError, {
+    message: "Uploading size limit is " + parseFloat((props.maxSize / 1024 / 1024).toFixed(2)) + " MB, please attach smaller file"
   })), /*#__PURE__*/React.createElement(CropModal, _extends({
     isOpen: !!cropFile,
     onClose: function onClose() {
