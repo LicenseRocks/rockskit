@@ -6,6 +6,7 @@ import styled, { css } from "styled-components";
 import { UploaderPreview } from "./UploaderPreview";
 import { DISPLAY, SPACER } from "../../theme";
 import { CropModal } from "./CropModal";
+import { FormError } from "..";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -44,6 +45,13 @@ const DropzoneArea = styled.div`
       background-color: ${({ theme }) => theme.palette.error.light};
     `}
 
+  ${({ sizeError }) =>
+    sizeError &&
+    css`
+      border-color: ${({ theme }) => theme.palette.error.main};
+      background-color: ${({ theme }) => theme.palette.error.light};
+    `}
+
   ${({ disabled }) =>
     disabled &&
     css`
@@ -72,6 +80,7 @@ export const Dropzone = ({
   ...props
 }) => {
   const [cropFile, setCropFile] = useState();
+  const [sizeError, setSizeError] = useState(false);
 
   const setFiles = (files) => {
     const accepted = files.map((file) =>
@@ -102,6 +111,7 @@ export const Dropzone = ({
   const handleCrop = (file) => {
     setFiles([file]);
     setCropFile();
+    setSizeError(false);
   };
 
   const {
@@ -118,7 +128,11 @@ export const Dropzone = ({
         setCropFile(acceptedFiles[0]);
       } else {
         setFiles(acceptedFiles);
+        setSizeError(false);
       }
+    },
+    onDropRejected: () => {
+      setSizeError(true);
     },
     ...props,
   });
@@ -136,6 +150,7 @@ export const Dropzone = ({
           dragReject={isDragReject}
           disabled={disabled}
           hasError={hasError}
+          sizeError={sizeError}
           {...getRootProps()}
         >
           <input {...getInputProps()} />
@@ -163,6 +178,13 @@ export const Dropzone = ({
           onRemoveClick={removeFile}
           onEdit={editFile}
         />
+        {sizeError === true && (
+          <FormError
+            message={`Uploading size limit is ${parseFloat(
+              (props.maxSize / 1024 / 1024).toFixed(2)
+            )} MB, please attach smaller file`}
+          />
+        )}
       </StyledContainer>
 
       <CropModal
@@ -198,6 +220,6 @@ Dropzone.defaultProps = {
   fileNameEditable: false,
   hasError: false,
   multiple: true,
-  onChange: () => { },
+  onChange: () => {},
   value: [],
 };

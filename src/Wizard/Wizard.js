@@ -136,7 +136,7 @@ const Step = styled.div`
   :last-child {
     ${StepConnector} {
       ${({ isActive, isHorizontal }) =>
-    (!isActive || isHorizontal) && "border: none"};
+        (!isActive || isHorizontal) && "border: none"};
     }
   }
 

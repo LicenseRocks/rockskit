@@ -12,7 +12,7 @@ const StyledContent = styled.div`
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
     padding: ${({ isHorizontal, theme }) =>
-    theme.spacing(4, 4, 4, isHorizontal ? 4 : 8)};
+      theme.spacing(4, 4, 4, isHorizontal ? 4 : 8)};
   }
 `;
 
@@ -102,7 +102,7 @@ WizardStepContent.propTypes = {
 WizardStepContent.defaultProps = {
   children: null,
   content: null,
-  renderActionButtons: () => { },
+  renderActionButtons: () => {},
   submitButtonDisabled: false,
   submitButtonLoading: false,
   showNavigationButtons: true,

@@ -21,12 +21,12 @@ export const main = () => {
   const defaultProps = {
     accept: "image/*, video/*",
     control,
-    crop: boolean("With Crop", true),
+    crop: boolean("Wit Crop", true),
     disabled: boolean("Disabled", false),
     fileNameEditable: boolean("File Name Editable", true),
     hasError: !!errors.fileUpload,
     isRequired: "This item is required",
-    maxSize: 1000000,
+    maxSize: 10485760,
     multiple: boolean("Multiple", false),
     name: "fileUpload",
   };
