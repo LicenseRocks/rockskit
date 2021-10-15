@@ -111,6 +111,7 @@ export const Dropzone = ({
   const handleCrop = (file) => {
     setFiles([file]);
     setCropFile();
+    setSizeError(false);
   };
 
   const {
