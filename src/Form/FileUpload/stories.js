@@ -21,7 +21,7 @@ export const main = () => {
   const defaultProps = {
     accept: "image/*, video/*",
     control,
-    crop: boolean("With Crop", true),
+    crop: boolean("Without Crop", false),
     disabled: boolean("Disabled", false),
     fileNameEditable: boolean("File Name Editable", true),
     hasError: !!errors.fileUpload,

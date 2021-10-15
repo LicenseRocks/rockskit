@@ -6,6 +6,7 @@ import styled, { css } from "styled-components";
 import { UploaderPreview } from "./UploaderPreview";
 import { DISPLAY, SPACER } from "../../theme";
 import { CropModal } from "./CropModal";
+import { FormError } from "..";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -44,6 +45,13 @@ const DropzoneArea = styled.div`
       background-color: ${({ theme }) => theme.palette.error.light};
     `}
 
+  ${({ sizeError }) =>
+    sizeError &&
+    css`
+      border-color: ${({ theme }) => theme.palette.error.main};
+      background-color: ${({ theme }) => theme.palette.error.light};
+    `}
+
   ${({ disabled }) =>
     disabled &&
     css`
@@ -69,10 +77,10 @@ export const Dropzone = ({
   multiple,
   onChange,
   value,
-  maxSize,
   ...props
 }) => {
   const [cropFile, setCropFile] = useState();
+  const [sizeError, setSizeError] = useState(false);
 
   const setFiles = (files) => {
     const accepted = files.map((file) =>
@@ -121,10 +129,12 @@ export const Dropzone = ({
         setFiles(acceptedFiles);
       }
     },
+    onDropRejected: () => {
+      setSizeError(true);
+      console.log(`Max Size limit is  Bytes, please upload smaller file`);
+    },
     ...props,
   });
-
-  console.log(">>", crop, maxSize);
 
   const removeFile = (file) => {
     onChange(value.filter((f) => f.preview !== file.preview));
@@ -139,6 +149,7 @@ export const Dropzone = ({
           dragReject={isDragReject}
           disabled={disabled}
           hasError={hasError}
+          sizeError={sizeError}
           {...getRootProps()}
         >
           <input {...getInputProps()} />
@@ -166,6 +177,7 @@ export const Dropzone = ({
           onRemoveClick={removeFile}
           onEdit={editFile}
         />
+        {sizeError === true && <FormError message={"max size error"} />}
       </StyledContainer>
 
       <CropModal

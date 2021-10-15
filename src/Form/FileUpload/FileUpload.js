@@ -9,14 +9,11 @@ export const FileUpload = ({
   defaultValue,
   isRequired,
   name,
-  maxSize,
   ...props
 }) => {
-  console.log(maxSize);
-  console.log(control);
   return (
     <Controller
-      as={<Dropzone maxSize={maxSize} {...props} />}
+      as={<Dropzone {...props} />}
       control={control}
       defaultValue={defaultValue}
       name={name}
