@@ -131,10 +131,16 @@ export const Dropzone = ({
     },
     onDropRejected: () => {
       setSizeError(true);
-      console.log(`Max Size limit is  Bytes, please upload smaller file`);
+      console.log(
+        `Max Size limit is ${
+          props.maxSize / 1024 / 1024
+        } MB, please upload smaller file`
+      );
     },
     ...props,
   });
+
+  console.log(props);
 
   const removeFile = (file) => {
     onChange(value.filter((f) => f.preview !== file.preview));
@@ -177,7 +183,13 @@ export const Dropzone = ({
           onRemoveClick={removeFile}
           onEdit={editFile}
         />
-        {sizeError === true && <FormError message={"max size error"} />}
+        {sizeError === true && (
+          <FormError
+            message={`Uploading size limit is ${parseFloat(
+              (props.maxSize / 1024 / 1024).toFixed(2)
+            )} MB, please attach smaller file`}
+          />
+        )}
       </StyledContainer>
 
       <CropModal

@@ -26,12 +26,10 @@ export const main = () => {
     fileNameEditable: boolean("File Name Editable", true),
     hasError: !!errors.fileUpload,
     isRequired: "This item is required",
-    maxSize: 1000000,
+    maxSize: 10485760,
     multiple: boolean("Multiple", false),
     name: "fileUpload",
   };
-
-  console.log(errors);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
