@@ -27,6 +27,12 @@ export const main = () => {
     },
     register,
     startIcon: "money-bill",
+    currenciesFromDB: [
+      { sign: "€", label: "EUR (€)", value: "eur" },
+      { sign: "zł", label: "PLN (zł)", value: "pln" },
+      { sign: "$", label: "USD ($)", value: "usd" },
+      { sign: "£", label: "GBP (£)", value: "gbp" },
+    ],
   };
 
   const values = watch();
