@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 
 import { FieldWrapper, Input } from "..";
@@ -14,7 +14,6 @@ const StyledSelect = styled(Select)`
 
 export const PriceField = ({
   currencies,
-  currenciesFromDB,
   defaultValue,
   hasError,
   hasWrapper,
@@ -39,7 +38,7 @@ export const PriceField = ({
 
       <StyledSelect
         hasWrapper={false}
-        options={currenciesFromDB ? currenciesFromDB : currencies}
+        options={currencies}
         register={register}
         {...selectProps}
       />
