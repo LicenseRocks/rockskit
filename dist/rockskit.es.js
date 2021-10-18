@@ -4625,7 +4625,6 @@ var StyledSelect = styled(Select)(_templateObject$K(), function (_ref) {
 });
 var PriceField = function PriceField(_ref2) {
   var currencies = _ref2.currencies,
-      currenciesFromDB = _ref2.currenciesFromDB,
       defaultValue = _ref2.defaultValue,
       hasError = _ref2.hasError,
       hasWrapper = _ref2.hasWrapper,
@@ -4633,7 +4632,7 @@ var PriceField = function PriceField(_ref2) {
       name = _ref2.name,
       register = _ref2.register,
       selectProps = _ref2.selectProps,
-      props = _objectWithoutPropertiesLoose(_ref2, ["currencies", "currenciesFromDB", "defaultValue", "hasError", "hasWrapper", "inputProps", "name", "register", "selectProps"]);
+      props = _objectWithoutPropertiesLoose(_ref2, ["currencies", "defaultValue", "hasError", "hasWrapper", "inputProps", "name", "register", "selectProps"]);
 
   return /*#__PURE__*/React.createElement(FieldWrapper, _extends({
     hasError: hasError
@@ -4647,7 +4646,7 @@ var PriceField = function PriceField(_ref2) {
     type: "number"
   }, inputProps)), /*#__PURE__*/React.createElement(StyledSelect, _extends({
     hasWrapper: false,
-    options: currenciesFromDB ? currenciesFromDB : currencies,
+    options: currencies,
     register: register
   }, selectProps)));
 };
