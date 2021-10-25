@@ -65,7 +65,7 @@ export const UploaderPreviewItem = ({
   onRemoveClick,
   onEdit,
 }) => {
-  const name = file.altName || file.name;
+  const name = file.altName || file.fileName || file.name;
   const fileExt = name.split(".").pop();
 
   const [editMode, setEditMode] = useState(false);
