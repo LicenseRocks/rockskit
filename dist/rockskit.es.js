@@ -4204,7 +4204,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref8) {
       fileNameEditable = _ref8.fileNameEditable,
       onRemoveClick = _ref8.onRemoveClick,
       onEdit = _ref8.onEdit;
-  var name = file.altName || file.name;
+  var name = file.altName || file.fileName || file.name;
   var fileExt = name.split(".").pop();
 
   var _useState = useState(false),
