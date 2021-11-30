@@ -17,6 +17,7 @@ export const FieldWrapperPropTypes = {
   startIconColor: PropTypes.oneOf(THEME_COLORS),
   startIconOnClick: PropTypes.func,
   startIconPrefix: PropTypes.string,
+  startText: PropTypes.string,
   ...SPACER_PROP_TYPES,
   ...DISPLAY_PROP_TYPES,
 };
@@ -27,5 +28,6 @@ export const FieldWrapperDefaultProps = {
   endIconColor: "input",
   fixedHeight: true,
   startIcon: "",
+  startText: "",
   startIconColor: "input",
 };

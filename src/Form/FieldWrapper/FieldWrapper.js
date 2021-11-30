@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import { DISPLAY, SPACER } from "../../theme";
 import { Icon } from "../../Icon";
 import { FieldWrapperDefaultProps, FieldWrapperPropTypes } from "./props";
+import { Text } from "../..";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -56,18 +57,22 @@ export const FieldWrapper = ({
   startIconColor,
   startIconOnClick,
   startIconPrefix,
+  startText,
   ...props
 }) => {
+  console.log(startText);
   return (
     <StyledWrapper {...props}>
       {startIcon && (
         <Icon
+          mr={2}
           color={startIconColor}
           icon={startIcon}
           onClick={startIconOnClick}
           prefix={startIconPrefix}
         />
       )}
+      {startText && <Text color="textSecondary" content={startText} />}
 
       {children}
 
