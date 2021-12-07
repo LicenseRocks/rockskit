@@ -70,7 +70,7 @@ const StepsWrapper = styled.div`
     ${({ backgroundStyle }) =>
       backgroundStyle === "primary" &&
       css`
-        background-color: red !important;
+        background-color: ${({ theme }) => theme.palette.common.white};
 
         position: relative;
         ::before {
@@ -179,6 +179,7 @@ export const Wizard = ({
   submitButtonLoading,
   showNavigationButtons,
   transitionDuration,
+  backgroundStyle,
   ...props
 }) => {
   const stepRef = useRef(null);
@@ -187,8 +188,6 @@ export const Wizard = ({
   const stepCount = steps.length;
   const isLastStep = currentStepIndex === stepCount - 1;
   const isFirstStep = currentStepIndex === 0;
-
-  const backgroundStyle = "primary";
 
   useEffect(() => {
     if (isHorizontal) {

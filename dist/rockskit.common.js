@@ -10756,7 +10756,7 @@ function _templateObject$1K() {
 }
 var StyledContent$1 = styled__default['default'].div(_templateObject$1K(), function (_ref) {
   var theme = _ref.theme;
-  return theme.spacing(6, 6, 6, 10);
+  return theme.spacing(0);
 }, function (_ref2) {
   var theme = _ref2.theme;
   return theme.breakpoints.down("sm");
@@ -11017,7 +11017,7 @@ function _templateObject3$A() {
 }
 
 function _templateObject2$S() {
-  var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  ", "\n\n  && {\n    ", "\n  }\n"]);
 
   _templateObject2$S = function _templateObject2() {
     return data;
@@ -11045,45 +11045,48 @@ var StepsWrapper = styled__default['default'].div(_templateObject2$S(), function
       isHorizontal = _ref.isHorizontal,
       theme = _ref.theme;
   return isHorizontal && styled.css(["position:relative;::before{content:\"\";display:inline-block;width:64px;height:100%;background:linear-gradient( 90deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;left:0;z-index:2;}::after{content:\"\";display:inline-block;width:64px;height:100%;background:linear-gradient( 270deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;right:0;z-index:2;}", "{::before{width:32px;}::after{content:\"\";width:32px;}}"], headerFadeColor, headerFadeColor, theme.breakpoints.down("sm"));
+}, function (_ref2) {
+  var backgroundStyle = _ref2.backgroundStyle;
+  return backgroundStyle === "primary" && styled.css(["background-color:red !important;position:relative;::before{content:none;}::after{content:none;}"]);
 });
-var Steps = styled__default['default'].div(_templateObject3$A(), function (_ref2) {
-  var isHorizontal = _ref2.isHorizontal,
-      theme = _ref2.theme;
+var Steps = styled__default['default'].div(_templateObject3$A(), function (_ref3) {
+  var isHorizontal = _ref3.isHorizontal,
+      theme = _ref3.theme;
   return isHorizontal && styled.css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}", "{padding:0 32px;}"], theme.breakpoints.down("sm"));
 });
 var StepConnector = styled__default['default'].div(_templateObject4$j(), function (props) {
   return stepBorderAndTitleColor(props);
-}, function (_ref3) {
-  var transitionDuration = _ref3.transitionDuration;
-  return transitionDuration + "ms";
 }, function (_ref4) {
-  var isHorizontal = _ref4.isHorizontal;
+  var transitionDuration = _ref4.transitionDuration;
+  return transitionDuration + "ms";
+}, function (_ref5) {
+  var isHorizontal = _ref5.isHorizontal;
   return isHorizontal && styled.css(["width:100%;border-left-width:0;border-top-width:2px;top:15px;left:8px;::before{content:\"\";width:100%;height:2px;display:inline-block;}"]);
 });
-var Step = styled__default['default'].div(_templateObject5$9(), StepConnector, function (_ref5) {
-  var isActive = _ref5.isActive,
-      isHorizontal = _ref5.isHorizontal;
+var Step = styled__default['default'].div(_templateObject5$9(), StepConnector, function (_ref6) {
+  var isActive = _ref6.isActive,
+      isHorizontal = _ref6.isHorizontal;
   return (!isActive || isHorizontal) && "border: none";
-}, function (_ref6) {
-  var isHorizontal = _ref6.isHorizontal;
+}, function (_ref7) {
+  var isHorizontal = _ref7.isHorizontal;
   return isHorizontal && styled.css(["width:100px;min-width:100px;"]);
 });
-var Wizard = function Wizard(_ref7) {
+var Wizard = function Wizard(_ref8) {
   var _steps$currentStepInd;
 
-  var currentStepContent = _ref7.currentStepContent,
-      currentStepIndex = _ref7.currentStepIndex,
-      headerFadeColor = _ref7.headerFadeColor,
-      nextStepMethod = _ref7.nextStepMethod,
-      orientation = _ref7.orientation,
-      renderActionButtons = _ref7.renderActionButtons,
-      setCurrentStepIndex = _ref7.setCurrentStepIndex,
-      steps = _ref7.steps,
-      submitButtonDisabled = _ref7.submitButtonDisabled,
-      submitButtonLoading = _ref7.submitButtonLoading,
-      showNavigationButtons = _ref7.showNavigationButtons,
-      transitionDuration = _ref7.transitionDuration,
-      props = _objectWithoutPropertiesLoose(_ref7, ["currentStepContent", "currentStepIndex", "headerFadeColor", "nextStepMethod", "orientation", "renderActionButtons", "setCurrentStepIndex", "steps", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons", "transitionDuration"]);
+  var currentStepContent = _ref8.currentStepContent,
+      currentStepIndex = _ref8.currentStepIndex,
+      headerFadeColor = _ref8.headerFadeColor,
+      nextStepMethod = _ref8.nextStepMethod,
+      orientation = _ref8.orientation,
+      renderActionButtons = _ref8.renderActionButtons,
+      setCurrentStepIndex = _ref8.setCurrentStepIndex,
+      steps = _ref8.steps,
+      submitButtonDisabled = _ref8.submitButtonDisabled,
+      submitButtonLoading = _ref8.submitButtonLoading,
+      showNavigationButtons = _ref8.showNavigationButtons,
+      transitionDuration = _ref8.transitionDuration,
+      props = _objectWithoutPropertiesLoose(_ref8, ["currentStepContent", "currentStepIndex", "headerFadeColor", "nextStepMethod", "orientation", "renderActionButtons", "setCurrentStepIndex", "steps", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons", "transitionDuration"]);
 
   var stepRef = React.useRef(null);
   var wrapperRef = /*#__PURE__*/React.createRef();
@@ -11091,6 +11094,7 @@ var Wizard = function Wizard(_ref7) {
   var stepCount = steps.length;
   var isLastStep = currentStepIndex === stepCount - 1;
   var isFirstStep = currentStepIndex === 0;
+  var backgroundStyle = "primary";
   React.useEffect(function () {
     if (isHorizontal) {
       handleScroll(wrapperRef.current);
@@ -11143,7 +11147,8 @@ var Wizard = function Wizard(_ref7) {
   });
   return /*#__PURE__*/React__default['default'].createElement(Wrapper$e, props, /*#__PURE__*/React__default['default'].createElement(StepsWrapper, {
     headerFadeColor: headerFadeColor,
-    isHorizontal: isHorizontal
+    isHorizontal: isHorizontal,
+    backgroundStyle: backgroundStyle
   }, /*#__PURE__*/React__default['default'].createElement(Steps, {
     isHorizontal: isHorizontal,
     ref: wrapperRef
