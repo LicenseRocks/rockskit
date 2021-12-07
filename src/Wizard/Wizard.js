@@ -26,6 +26,7 @@ const StepsWrapper = styled.div`
         display: inline-block;
         width: 64px;
         height: 100%;
+
         background: linear-gradient(
           90deg,
           ${headerFadeColor} 0%,
@@ -64,6 +65,23 @@ const StepsWrapper = styled.div`
         }
       }
     `}
+
+  && {
+    ${({ backgroundStyle }) =>
+      backgroundStyle === "primary" &&
+      css`
+        background-color: red !important;
+
+        position: relative;
+        ::before {
+          content: none;
+        }
+
+        ::after {
+          content: none;
+        }
+      `}
+  }
 `;
 
 const Steps = styled.div`
@@ -170,6 +188,8 @@ export const Wizard = ({
   const isLastStep = currentStepIndex === stepCount - 1;
   const isFirstStep = currentStepIndex === 0;
 
+  const backgroundStyle = "primary";
+
   useEffect(() => {
     if (isHorizontal) {
       handleScroll(wrapperRef.current);
@@ -223,6 +243,7 @@ export const Wizard = ({
       <StepsWrapper
         headerFadeColor={headerFadeColor}
         isHorizontal={isHorizontal}
+        backgroundStyle={backgroundStyle}
       >
         <Steps isHorizontal={isHorizontal} ref={wrapperRef}>
           {steps.map((step, idx) => {
