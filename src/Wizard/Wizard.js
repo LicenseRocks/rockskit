@@ -17,6 +17,8 @@ const Wrapper = styled.div`
 `;
 
 const StepsWrapper = styled.div`
+  padding: ${({ theme }) => theme.spacing(4)};
+
   ${({ headerFadeColor, isHorizontal, theme }) =>
     isHorizontal &&
     css`
