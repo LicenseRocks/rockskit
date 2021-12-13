@@ -8,7 +8,10 @@ const StyledContent = styled.div`
   width: 100%;
   height: 100%;
   flex: 1;
-  padding: ${({ theme }) => theme.spacing(0)};
+
+  padding: ${({ isHorizontal, theme }) =>
+    !isHorizontal ? theme.spacing(6, 6, 6, 10) : theme.spacing(0)};
+  }
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
     padding: ${({ isHorizontal, theme }) =>

@@ -18,7 +18,7 @@ export const main = () => {
       currentStepContent={`Step ${currentStep + 1} content`}
       currentStepIndex={currentStep}
       nextStepMethod="button"
-      orientation="horizontal"
+      orientation="vertical"
       backgroundStyle="primary"
       renderActionButtons={() => (
         <>
