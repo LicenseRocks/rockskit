@@ -26,7 +26,7 @@ const colorMapper = (color, theme) => {
   if (color === "secondary")
     return {
       backgroundColorHover: theme.palette.gray.semiLight,
-      borderColor: theme.palette.gray.dark,
+      borderColor: theme.palette.gray.regular,
       color: theme.palette.gray.dark,
     };
 

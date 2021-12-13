@@ -27,7 +27,7 @@ const colorMapper = (color, theme) => {
   if (color === "subtle")
     return {
       backgroundColor: theme.palette.gray.regular,
-      color: theme.palette.gray.medium,
+      color: theme.palette.gray.dark,
     };
 
   return {
