@@ -738,7 +738,7 @@ var colorMapper = function colorMapper(color, theme) {
   };
   if (color === "subtle") return {
     backgroundColor: theme.palette.gray.regular,
-    color: theme.palette.gray.medium
+    color: theme.palette.gray.dark
   };
   return {
     backgroundColor: theme.palette.primary.main,
@@ -775,7 +775,7 @@ var StyledButton$2 = styled(ButtonBase)(_templateObject$4(), function (_ref) {
 var colorMapper$1 = function colorMapper(color, theme) {
   if (color === "secondary") return {
     backgroundColorHover: theme.palette.gray.semiLight,
-    borderColor: theme.palette.gray.dark,
+    borderColor: theme.palette.gray.regular,
     color: theme.palette.gray.dark
   };
   if (color === "subtle") return {
