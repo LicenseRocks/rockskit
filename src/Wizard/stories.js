@@ -19,6 +19,7 @@ export const main = () => {
       currentStepIndex={currentStep}
       nextStepMethod="button"
       orientation="horizontal"
+      backgroundStyle="primary"
       renderActionButtons={() => (
         <>
           <Button content="Draft" color="subtle" dInline mr={4} />

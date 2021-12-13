@@ -8,7 +8,7 @@ const StyledContent = styled.div`
   width: 100%;
   height: 100%;
   flex: 1;
-  padding: ${({ theme }) => theme.spacing(6, 6, 6, 10)};
+  padding: ${({ theme }) => theme.spacing(0)};
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
     padding: ${({ isHorizontal, theme }) =>
@@ -20,7 +20,8 @@ const ActionWrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0;
+  padding: 16px 16px;
+  background-color: ${({ theme }) => theme.palette.common.white};
 `;
 
 export const WizardStepContent = ({

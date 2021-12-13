@@ -17,6 +17,7 @@ const Wrapper = styled.div`
 `;
 
 const StepsWrapper = styled.div`
+  padding: ${({ theme }) => theme.spacing(4)};
   ${({ headerFadeColor, isHorizontal, theme }) =>
     isHorizontal &&
     css`
@@ -64,6 +65,21 @@ const StepsWrapper = styled.div`
         }
       }
     `}
+
+  && {
+    ${({ backgroundStyle }) =>
+      backgroundStyle === "primary" &&
+      css`
+        background-color: ${({ theme }) => theme.palette.common.white};
+        position: relative;
+        ::before {
+          content: none;
+        }
+        ::after {
+          content: none;
+        }
+      `}
+  }
 `;
 
 const Steps = styled.div`
@@ -161,6 +177,7 @@ export const Wizard = ({
   submitButtonLoading,
   showNavigationButtons,
   transitionDuration,
+  backgroundStyle,
   ...props
 }) => {
   const stepRef = useRef(null);
@@ -223,6 +240,7 @@ export const Wizard = ({
       <StepsWrapper
         headerFadeColor={headerFadeColor}
         isHorizontal={isHorizontal}
+        backgroundStyle={backgroundStyle}
       >
         <Steps isHorizontal={isHorizontal} ref={wrapperRef}>
           {steps.map((step, idx) => {
