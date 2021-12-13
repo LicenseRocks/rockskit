@@ -10746,7 +10746,7 @@ function _templateObject2$Q() {
 }
 
 function _templateObject$1K() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n  flex: 1;\n\n  padding: ", ";\n  }\n\n  ", " {\n    padding: ", ";\n  }\n"]);
 
   _templateObject$1K = function _templateObject() {
     return data;
@@ -10755,8 +10755,9 @@ function _templateObject$1K() {
   return data;
 }
 var StyledContent$1 = styled__default['default'].div(_templateObject$1K(), function (_ref) {
-  var theme = _ref.theme;
-  return theme.spacing(0);
+  var isHorizontal = _ref.isHorizontal,
+      theme = _ref.theme;
+  return !isHorizontal ? theme.spacing(6, 6, 6, 10) : theme.spacing(0);
 }, function (_ref2) {
   var theme = _ref2.theme;
   return theme.breakpoints.down("sm");
