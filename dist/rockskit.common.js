@@ -783,7 +783,7 @@ var colorMapper = function colorMapper(color, theme) {
   };
   if (color === "subtle") return {
     backgroundColor: theme.palette.gray.regular,
-    color: theme.palette.gray.medium
+    color: theme.palette.gray.dark
   };
   return {
     backgroundColor: theme.palette.primary.main,
@@ -820,7 +820,7 @@ var StyledButton$2 = styled__default['default'](ButtonBase)(_templateObject$4(),
 var colorMapper$1 = function colorMapper(color, theme) {
   if (color === "secondary") return {
     backgroundColorHover: theme.palette.gray.semiLight,
-    borderColor: theme.palette.gray.dark,
+    borderColor: theme.palette.gray.regular,
     color: theme.palette.gray.dark
   };
   if (color === "subtle") return {
@@ -10736,7 +10736,7 @@ var handleScroll = function handleScroll(el) {
 };
 
 function _templateObject2$Q() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 16px 0;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  justify-content: space-between;\n  align-items: center;\n  padding: 16px 16px;\n  background-color: ", ";\n"]);
 
   _templateObject2$Q = function _templateObject2() {
     return data;
@@ -10756,7 +10756,7 @@ function _templateObject$1K() {
 }
 var StyledContent$1 = styled__default['default'].div(_templateObject$1K(), function (_ref) {
   var theme = _ref.theme;
-  return theme.spacing(6, 6, 6, 10);
+  return theme.spacing(0);
 }, function (_ref2) {
   var theme = _ref2.theme;
   return theme.breakpoints.down("sm");
@@ -10765,23 +10765,26 @@ var StyledContent$1 = styled__default['default'].div(_templateObject$1K(), funct
       theme = _ref3.theme;
   return theme.spacing(4, 4, 4, isHorizontal ? 4 : 8);
 });
-var ActionWrapper = styled__default['default'].div(_templateObject2$Q());
-var WizardStepContent = function WizardStepContent(_ref4) {
-  var children = _ref4.children,
-      content = _ref4.content,
-      currentStep = _ref4.currentStep,
-      handleNext = _ref4.handleNext,
-      handlePrev = _ref4.handlePrev,
-      isFirstStep = _ref4.isFirstStep,
-      isLastStep = _ref4.isLastStep,
-      isHorizontal = _ref4.isHorizontal,
-      nextStepMethod = _ref4.nextStepMethod,
-      renderActionButtons = _ref4.renderActionButtons,
-      stepCount = _ref4.stepCount,
-      submitButtonDisabled = _ref4.submitButtonDisabled,
-      submitButtonLoading = _ref4.submitButtonLoading,
-      showNavigationButtons = _ref4.showNavigationButtons,
-      props = _objectWithoutPropertiesLoose(_ref4, ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "isHorizontal", "nextStepMethod", "renderActionButtons", "stepCount", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons"]);
+var ActionWrapper = styled__default['default'].div(_templateObject2$Q(), function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.palette.common.white;
+});
+var WizardStepContent = function WizardStepContent(_ref5) {
+  var children = _ref5.children,
+      content = _ref5.content,
+      currentStep = _ref5.currentStep,
+      handleNext = _ref5.handleNext,
+      handlePrev = _ref5.handlePrev,
+      isFirstStep = _ref5.isFirstStep,
+      isLastStep = _ref5.isLastStep,
+      isHorizontal = _ref5.isHorizontal,
+      nextStepMethod = _ref5.nextStepMethod,
+      renderActionButtons = _ref5.renderActionButtons,
+      stepCount = _ref5.stepCount,
+      submitButtonDisabled = _ref5.submitButtonDisabled,
+      submitButtonLoading = _ref5.submitButtonLoading,
+      showNavigationButtons = _ref5.showNavigationButtons,
+      props = _objectWithoutPropertiesLoose(_ref5, ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "isHorizontal", "nextStepMethod", "renderActionButtons", "stepCount", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons"]);
 
   return /*#__PURE__*/React__default['default'].createElement(StyledContent$1, _extends({
     isHorizontal: isHorizontal
@@ -11017,7 +11020,7 @@ function _templateObject3$A() {
 }
 
 function _templateObject2$S() {
-  var data = _taggedTemplateLiteralLoose(["\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  padding: ", ";\n  ", "\n\n  && {\n    ", "\n  }\n"]);
 
   _templateObject2$S = function _templateObject2() {
     return data;
@@ -11041,49 +11044,59 @@ var Wrapper$e = styled__default['default'].div(_templateObject$1M(), function (t
   return DISPLAY(theme);
 });
 var StepsWrapper = styled__default['default'].div(_templateObject2$S(), function (_ref) {
-  var headerFadeColor = _ref.headerFadeColor,
-      isHorizontal = _ref.isHorizontal,
-      theme = _ref.theme;
-  return isHorizontal && styled.css(["position:relative;::before{content:\"\";display:inline-block;width:64px;height:100%;background:linear-gradient( 90deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;left:0;z-index:2;}::after{content:\"\";display:inline-block;width:64px;height:100%;background:linear-gradient( 270deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;right:0;z-index:2;}", "{::before{width:32px;}::after{content:\"\";width:32px;}}"], headerFadeColor, headerFadeColor, theme.breakpoints.down("sm"));
-});
-var Steps = styled__default['default'].div(_templateObject3$A(), function (_ref2) {
-  var isHorizontal = _ref2.isHorizontal,
+  var theme = _ref.theme;
+  return theme.spacing(4);
+}, function (_ref2) {
+  var headerFadeColor = _ref2.headerFadeColor,
+      isHorizontal = _ref2.isHorizontal,
       theme = _ref2.theme;
+  return isHorizontal && styled.css(["position:relative;::before{content:\"\";display:inline-block;width:64px;height:100%;background:linear-gradient( 90deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;left:0;z-index:2;}::after{content:\"\";display:inline-block;width:64px;height:100%;background:linear-gradient( 270deg,", " 0%,rgba(255,255,255,0) 100% );position:absolute;top:0;right:0;z-index:2;}", "{::before{width:32px;}::after{content:\"\";width:32px;}}"], headerFadeColor, headerFadeColor, theme.breakpoints.down("sm"));
+}, function (_ref3) {
+  var backgroundStyle = _ref3.backgroundStyle;
+  return backgroundStyle === "primary" && styled.css(["background-color:", ";position:relative;::before{content:none;}::after{content:none;}"], function (_ref4) {
+    var theme = _ref4.theme;
+    return theme.palette.common.white;
+  });
+});
+var Steps = styled__default['default'].div(_templateObject3$A(), function (_ref5) {
+  var isHorizontal = _ref5.isHorizontal,
+      theme = _ref5.theme;
   return isHorizontal && styled.css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}", "{padding:0 32px;}"], theme.breakpoints.down("sm"));
 });
 var StepConnector = styled__default['default'].div(_templateObject4$j(), function (props) {
   return stepBorderAndTitleColor(props);
-}, function (_ref3) {
-  var transitionDuration = _ref3.transitionDuration;
+}, function (_ref6) {
+  var transitionDuration = _ref6.transitionDuration;
   return transitionDuration + "ms";
-}, function (_ref4) {
-  var isHorizontal = _ref4.isHorizontal;
+}, function (_ref7) {
+  var isHorizontal = _ref7.isHorizontal;
   return isHorizontal && styled.css(["width:100%;border-left-width:0;border-top-width:2px;top:15px;left:8px;::before{content:\"\";width:100%;height:2px;display:inline-block;}"]);
 });
-var Step = styled__default['default'].div(_templateObject5$9(), StepConnector, function (_ref5) {
-  var isActive = _ref5.isActive,
-      isHorizontal = _ref5.isHorizontal;
+var Step = styled__default['default'].div(_templateObject5$9(), StepConnector, function (_ref8) {
+  var isActive = _ref8.isActive,
+      isHorizontal = _ref8.isHorizontal;
   return (!isActive || isHorizontal) && "border: none";
-}, function (_ref6) {
-  var isHorizontal = _ref6.isHorizontal;
+}, function (_ref9) {
+  var isHorizontal = _ref9.isHorizontal;
   return isHorizontal && styled.css(["width:100px;min-width:100px;"]);
 });
-var Wizard = function Wizard(_ref7) {
+var Wizard = function Wizard(_ref10) {
   var _steps$currentStepInd;
 
-  var currentStepContent = _ref7.currentStepContent,
-      currentStepIndex = _ref7.currentStepIndex,
-      headerFadeColor = _ref7.headerFadeColor,
-      nextStepMethod = _ref7.nextStepMethod,
-      orientation = _ref7.orientation,
-      renderActionButtons = _ref7.renderActionButtons,
-      setCurrentStepIndex = _ref7.setCurrentStepIndex,
-      steps = _ref7.steps,
-      submitButtonDisabled = _ref7.submitButtonDisabled,
-      submitButtonLoading = _ref7.submitButtonLoading,
-      showNavigationButtons = _ref7.showNavigationButtons,
-      transitionDuration = _ref7.transitionDuration,
-      props = _objectWithoutPropertiesLoose(_ref7, ["currentStepContent", "currentStepIndex", "headerFadeColor", "nextStepMethod", "orientation", "renderActionButtons", "setCurrentStepIndex", "steps", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons", "transitionDuration"]);
+  var currentStepContent = _ref10.currentStepContent,
+      currentStepIndex = _ref10.currentStepIndex,
+      headerFadeColor = _ref10.headerFadeColor,
+      nextStepMethod = _ref10.nextStepMethod,
+      orientation = _ref10.orientation,
+      renderActionButtons = _ref10.renderActionButtons,
+      setCurrentStepIndex = _ref10.setCurrentStepIndex,
+      steps = _ref10.steps,
+      submitButtonDisabled = _ref10.submitButtonDisabled,
+      submitButtonLoading = _ref10.submitButtonLoading,
+      showNavigationButtons = _ref10.showNavigationButtons,
+      transitionDuration = _ref10.transitionDuration,
+      backgroundStyle = _ref10.backgroundStyle,
+      props = _objectWithoutPropertiesLoose(_ref10, ["currentStepContent", "currentStepIndex", "headerFadeColor", "nextStepMethod", "orientation", "renderActionButtons", "setCurrentStepIndex", "steps", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons", "transitionDuration", "backgroundStyle"]);
 
   var stepRef = React.useRef(null);
   var wrapperRef = /*#__PURE__*/React.createRef();
@@ -11143,7 +11156,8 @@ var Wizard = function Wizard(_ref7) {
   });
   return /*#__PURE__*/React__default['default'].createElement(Wrapper$e, props, /*#__PURE__*/React__default['default'].createElement(StepsWrapper, {
     headerFadeColor: headerFadeColor,
-    isHorizontal: isHorizontal
+    isHorizontal: isHorizontal,
+    backgroundStyle: backgroundStyle
   }, /*#__PURE__*/React__default['default'].createElement(Steps, {
     isHorizontal: isHorizontal,
     ref: wrapperRef
