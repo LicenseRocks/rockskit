@@ -25,6 +25,7 @@ const BottomSection = styled.div`
   justify-content: space-between;
   padding: ${({ theme }) => theme.spacing(4)};
   border-top: 1px solid ${({ theme }) => theme.palette.gray.light};
+  background-color: ${({ theme }) => theme.palette.common.white} !important;
 `;
 
 export const FormDatepickerComponent = ({
