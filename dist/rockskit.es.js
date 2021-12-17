@@ -2750,7 +2750,7 @@ var DatepickerDefaultProps = {
 };
 
 function _templateObject$q() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n\n  .Selectable\n    .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {\n    background-color: ", " !important;\n    color: ", ";\n  }\n  .Selectable .DayPicker-Day {\n    border-radius: ", " !important;\n  }\n  .Selectable .DayPicker-Day--start {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-left-radius: 8px !important;\n    border-bottom-left-radius: 8px !important;\n  }\n  .Selectable .DayPicker-Day--end {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-right-radius: 8px !important;\n    border-bottom-right-radius: 8px !important;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  background-color: ", " !important;\n\n  .Selectable\n    .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {\n    background-color: ", " !important;\n    color: ", ";\n  }\n  .Selectable .DayPicker-Day {\n    border-radius: ", " !important;\n  }\n  .Selectable .DayPicker-Day--start {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-left-radius: 8px !important;\n    border-bottom-left-radius: 8px !important;\n  }\n  .Selectable .DayPicker-Day--end {\n    background-color: ", " !important;\n    color: ", ";\n    border-top-right-radius: 8px !important;\n    border-bottom-right-radius: 8px !important;\n  }\n"]);
 
   _templateObject$q = function _templateObject() {
     return data;
@@ -2760,31 +2760,34 @@ function _templateObject$q() {
 }
 var Container = styled.div(_templateObject$q(), function (_ref) {
   var theme = _ref.theme;
-  return theme.palette.primary.light;
+  return theme.palette.common.white;
 }, function (_ref2) {
   var theme = _ref2.theme;
-  return theme.palette.text.primary;
+  return theme.palette.primary.light;
 }, function (_ref3) {
-  var selectRange = _ref3.selectRange;
-  return selectRange ? 0 : "8px";
+  var theme = _ref3.theme;
+  return theme.palette.text.primary;
 }, function (_ref4) {
-  var theme = _ref4.theme;
-  return theme.palette.primary.main;
+  var selectRange = _ref4.selectRange;
+  return selectRange ? 0 : "8px";
 }, function (_ref5) {
   var theme = _ref5.theme;
-  return theme.palette.common.white;
+  return theme.palette.primary.main;
 }, function (_ref6) {
   var theme = _ref6.theme;
-  return theme.palette.primary.main;
+  return theme.palette.common.white;
 }, function (_ref7) {
   var theme = _ref7.theme;
+  return theme.palette.primary.main;
+}, function (_ref8) {
+  var theme = _ref8.theme;
   return theme.palette.common.white;
 });
-var Datepicker = function Datepicker(_ref8) {
-  var from = _ref8.from,
-      selectRange = _ref8.selectRange,
-      to = _ref8.to,
-      props = _objectWithoutPropertiesLoose(_ref8, ["from", "selectRange", "to"]);
+var Datepicker = function Datepicker(_ref9) {
+  var from = _ref9.from,
+      selectRange = _ref9.selectRange,
+      to = _ref9.to,
+      props = _objectWithoutPropertiesLoose(_ref9, ["from", "selectRange", "to"]);
 
   return /*#__PURE__*/React.createElement(Container, {
     selectRange: selectRange
@@ -3462,7 +3465,7 @@ function _templateObject2$b() {
 }
 
 function _templateObject$z() {
-  var data = _taggedTemplateLiteralLoose(["\n  .MuiPopover-paper {\n    background-color: ", ";\n    margin-top: ", ";\n    padding: 0;\n    border-radius: 12px;\n    box-shadow: 0px 16px 56px rgba(41, 40, 57, 0.16);\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  .MuiPopover-paper {\n    background-color: ", " !important;\n    margin-top: ", ";\n    padding: 0;\n    border-radius: 12px;\n    box-shadow: 0px 16px 56px rgba(41, 40, 57, 0.16);\n  }\n"]);
 
   _templateObject$z = function _templateObject() {
     return data;
