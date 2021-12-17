@@ -6,6 +6,7 @@ import { DatepickerPropTypes, DatepickerDefaultProps } from "./props";
 
 const Container = styled.div`
   display: flex;
+  background-color: ${({ theme }) => theme.palette.common.white} !important;
 
   .Selectable
     .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside) {

@@ -9,7 +9,7 @@ import { Datepicker } from "../../Datepicker";
 
 const Popover = styled(MuiPopover)`
   .MuiPopover-paper {
-    background-color: ${({ theme }) => theme.palette.common.white};
+    background-color: ${({ theme }) => theme.palette.common.white} !important;
     margin-top: ${({ theme }) => theme.spacing(5)};
     padding: 0;
     border-radius: 12px;
@@ -52,13 +52,13 @@ export const FormDatepickerComponent = ({
 
   const fromFormatted = currentValue.start
     ? formatDateAndTime(currentValue.start, {
-      showTime: false,
-    })
+        showTime: false,
+      })
     : "-";
   const toFormatted = currentValue.end
     ? formatDateAndTime(currentValue.end, {
-      showTime: false,
-    })
+        showTime: false,
+      })
     : "-";
 
   useEffect(() => {
