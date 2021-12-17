@@ -3455,7 +3455,7 @@ Checkbox.propTypes = RadioBasePropTypes;
 Checkbox.defaultProps = RadioBaseDefaultProps;
 
 function _templateObject2$b() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: ", ";\n  border-top: 1px solid ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  box-sizing: border-box;\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: ", ";\n  border-top: 1px solid ", ";\n  background-color: ", " !important;\n"]);
 
   _templateObject2$b = function _templateObject2() {
     return data;
@@ -3486,17 +3486,20 @@ var BottomSection = styled.div(_templateObject2$b(), function (_ref3) {
 }, function (_ref4) {
   var theme = _ref4.theme;
   return theme.palette.gray.light;
+}, function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.palette.common.white;
 });
-var FormDatepickerComponent = function FormDatepickerComponent(_ref5) {
-  var cancelText = _ref5.cancelText,
-      disabled = _ref5.disabled,
-      datepickerProps = _ref5.datepickerProps,
-      hasError = _ref5.hasError,
-      onChange = _ref5.onChange,
-      placeholder = _ref5.placeholder,
-      selectRange = _ref5.selectRange,
-      submitText = _ref5.submitText,
-      value = _ref5.value;
+var FormDatepickerComponent = function FormDatepickerComponent(_ref6) {
+  var cancelText = _ref6.cancelText,
+      disabled = _ref6.disabled,
+      datepickerProps = _ref6.datepickerProps,
+      hasError = _ref6.hasError,
+      onChange = _ref6.onChange,
+      placeholder = _ref6.placeholder,
+      selectRange = _ref6.selectRange,
+      submitText = _ref6.submitText,
+      value = _ref6.value;
   var currentValue = {
     start: (value == null ? void 0 : value.start) || value,
     end: (value == null ? void 0 : value.end) || null
@@ -3528,8 +3531,8 @@ var FormDatepickerComponent = function FormDatepickerComponent(_ref5) {
     });
   }, [anchorEl]);
 
-  var handleDayClick = function handleDayClick(day, _ref6) {
-    var selected = _ref6.selected;
+  var handleDayClick = function handleDayClick(day, _ref7) {
+    var selected = _ref7.selected;
 
     if (selectRange) {
       var range = DateUtils.addDayToRange(day, date);
