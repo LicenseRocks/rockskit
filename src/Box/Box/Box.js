@@ -39,6 +39,7 @@ export const Box = ({
   alert,
   alertColor,
   children,
+  cocreator,
   contentPadding,
   footerAction,
   footerActionLoading,
@@ -77,6 +78,15 @@ export const Box = ({
 
   const content = (
     <>
+      {cocreator && (
+        <Alert
+          cocreator={cocreator}
+          color={cocreator?.type}
+          rounded={false}
+          mt={isMobile && transparentSm ? 6 : 0}
+          p={3}
+        />
+      )}
       {alert && (
         <Alert
           content={alert}

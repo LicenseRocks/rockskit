@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { useTheme } from "styled-components";
 
-import { DISPLAY, SPACER } from "..";
+import { DISPLAY, Flex, Text, OutlineButton, SPACER, Image } from "..";
 import { Icon } from "../Icon";
 import { AlertPropTypes, AlertDefaultProps } from "./props";
 
@@ -25,6 +25,28 @@ const StyledMessage = styled.div`
   ${(theme) => DISPLAY(theme)}
 `;
 
+const AlertContainer = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    background-color: white !important;
+  }
+`;
+
+const Avatar = styled.div`
+margin-right:8px;
+
+img {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 20px;
+  bord
+}
+  `;
+
 const getColors = (color, theme) => {
   switch (color) {
     case "danger":
@@ -45,6 +67,16 @@ const getColors = (color, theme) => {
         color: theme.palette.success.main,
         iconColor: theme.palette.success.main,
       };
+    case "missingApproval":
+      return {
+        backgroundColor: theme.palette.warning.light,
+        color: theme.palette.warning.main,
+        iconColor: theme.palette.warning.main,
+      };
+    case "approvedCollab":
+      return {
+        backgroundColor: theme.palette.success.main,
+      };
     default:
       return {
         backgroundColor: theme.palette.gray.semiLight,
@@ -54,13 +86,44 @@ const getColors = (color, theme) => {
   }
 };
 
-export const Alert = ({ content, children, color, ...props }) => {
+export const Alert = ({ content, cocreator, children, color, ...props }) => {
   const theme = useTheme();
   const colors = getColors(color, theme);
+
   return (
     <StyledMessage colors={colors} {...props}>
-      <Icon icon="info-circle" mr={2} />
+      {content && <Icon icon="info-circle" mr={2} />}
+
       {content || children}
+      {cocreator?.type === "missingApproval" && (
+        <>
+          <Icon icon="info-circle" mr={2} />
+          <Flex>
+            <Text fontSize="sm" fontWeight="bold">
+              {cocreator?.title}
+            </Text>
+            <Text fontSize="sm">{cocreator?.description}</Text>
+          </Flex>
+        </>
+      )}
+      {cocreator?.type === "approvedCollab" && (
+        <>
+          <Avatar>
+            <Image src={cocreator?.avatar} />
+          </Avatar>
+
+          <AlertContainer>
+            <Text fontSize="sm" fontWeight="bold">
+              {cocreator?.title}, {cocreator?.date}
+            </Text>
+            <OutlineButton
+              color="secondary"
+              size="sm"
+              content={cocreator?.button}
+            />
+          </AlertContainer>
+        </>
+      )}
     </StyledMessage>
   );
 };
