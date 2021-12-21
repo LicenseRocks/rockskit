@@ -1242,8 +1242,18 @@ var AlertDefaultProps = {
   rounded: true
 };
 
+function _templateObject4() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 18px;\n  height: 18px;\n  border-radius: 9px;\n  background-color: ", ";\n  border: 1px solid ", ";\n  position: absolute;\n  bottom: 0;\n  right: 0;\n  display: grid;\n  place-items: center;\n\n  svg {\n    color: ", ";\n    font-size: 12px !important;\n  }\n"]);
+
+  _templateObject4 = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject3$2() {
-  var data = _taggedTemplateLiteralLoose(["\nmargin-right:8px;\n\nimg {\n  width: 40px;\n  height: 40px;\n  object-fit: cover;\n  border-radius: 20px;\n  bord\n}\n  "]);
+  var data = _taggedTemplateLiteralLoose(["\nmargin-right:8px;\nposition: relative;\ndisplay: inline-block;\n\nimg {\n  width: 40px;\n  height: 40px;\n  object-fit: cover;\n  border-radius: 20px;\n  bord\n}\n  "]);
 
   _templateObject3$2 = function _templateObject3() {
     return data;
@@ -1290,6 +1300,16 @@ var StyledMessage = styled.div(_templateObject$a(), function (_ref) {
 });
 var AlertContainer = styled.div(_templateObject2$3());
 var Avatar = styled.div(_templateObject3$2());
+var AcceptedStatus = styled.div(_templateObject4(), function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.palette.success.main;
+}, function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.palette.common.white;
+}, function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.palette.text.primary;
+});
 
 var getColors = function getColors(color, theme) {
   switch (color) {
@@ -1335,12 +1355,12 @@ var getColors = function getColors(color, theme) {
   }
 };
 
-var Alert = function Alert(_ref5) {
-  var content = _ref5.content,
-      cocreator = _ref5.cocreator,
-      children = _ref5.children,
-      color = _ref5.color,
-      props = _objectWithoutPropertiesLoose(_ref5, ["content", "cocreator", "children", "color"]);
+var Alert = function Alert(_ref8) {
+  var content = _ref8.content,
+      cocreator = _ref8.cocreator,
+      children = _ref8.children,
+      color = _ref8.color,
+      props = _objectWithoutPropertiesLoose(_ref8, ["content", "cocreator", "children", "color"]);
 
   var theme = useTheme();
   var colors = getColors(color, theme);
@@ -1359,13 +1379,17 @@ var Alert = function Alert(_ref5) {
     fontSize: "sm"
   }, cocreator == null ? void 0 : cocreator.description))), (cocreator == null ? void 0 : cocreator.type) === "approvedCollab" && /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Avatar, null, /*#__PURE__*/React.createElement(Image, {
     src: cocreator == null ? void 0 : cocreator.avatar
-  })), /*#__PURE__*/React.createElement(AlertContainer, null, /*#__PURE__*/React.createElement(Text, {
+  }), /*#__PURE__*/React.createElement(AcceptedStatus, null, /*#__PURE__*/React.createElement(Icon, {
+    icon: "check",
+    size: "sm"
+  }))), /*#__PURE__*/React.createElement(AlertContainer, null, /*#__PURE__*/React.createElement(Text, {
     fontSize: "sm",
     fontWeight: "bold"
-  }, cocreator == null ? void 0 : cocreator.title, ", ", cocreator == null ? void 0 : cocreator.date), /*#__PURE__*/React.createElement(OutlineButton, {
+  }, cocreator == null ? void 0 : cocreator.title, ", approved state ", cocreator == null ? void 0 : cocreator.date), /*#__PURE__*/React.createElement(OutlineButton, {
     color: "secondary",
     size: "sm",
-    content: cocreator == null ? void 0 : cocreator.button
+    content: cocreator == null ? void 0 : cocreator.button,
+    onClick: cocreator == null ? void 0 : cocreator.onClick
   }))));
 };
 Alert.propTypes = AlertPropTypes;
@@ -2451,10 +2475,10 @@ var StyledImg = styled.img(_templateObject$n(), function (_ref2) {
 Image.propTypes = ImagePropTypes;
 Image.defaultProps = ImageDefaultProps;
 
-function _templateObject4() {
+function _templateObject4$1() {
   var data = _taggedTemplateLiteralLoose(["\n  padding: ", ";\n"]);
 
-  _templateObject4 = function _templateObject4() {
+  _templateObject4$1 = function _templateObject4() {
     return data;
   };
 
@@ -2503,7 +2527,7 @@ var StyledItem = styled(Flex).attrs(function () {
   return theme.palette.gray.regular;
 });
 var StyledImage = styled(Image)(_templateObject3$5());
-var Content$2 = styled.div(_templateObject4(), function (_ref3) {
+var Content$2 = styled.div(_templateObject4$1(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(4);
 });
@@ -2618,10 +2642,10 @@ function _templateObject5() {
   return data;
 }
 
-function _templateObject4$1() {
+function _templateObject4$2() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    text-transform: ", ";\n  }\n"]);
 
-  _templateObject4$1 = function _templateObject4() {
+  _templateObject4$2 = function _templateObject4() {
     return data;
   };
 
@@ -2701,7 +2725,7 @@ var Label = styled(Text).attrs(function () {
   return {
     color: "textSecondary"
   };
-})(_templateObject4$1(), function (_ref12) {
+})(_templateObject4$2(), function (_ref12) {
   var textTransform = _ref12.textTransform;
   return textTransform;
 });
@@ -3154,10 +3178,10 @@ function _templateObject5$1() {
   return data;
 }
 
-function _templateObject4$2() {
+function _templateObject4$3() {
   var data = _taggedTemplateLiteralLoose(["\n  min-width: 0;\n  flex: 1;\n"]);
 
-  _templateObject4$2 = function _templateObject4() {
+  _templateObject4$3 = function _templateObject4() {
     return data;
   };
 
@@ -3224,7 +3248,7 @@ var Row$1 = styled.div(_templateObject3$8(), function (_ref6) {
   var theme = _ref8.theme;
   return theme.spacing(4);
 });
-var DetailsWrapper = styled.div(_templateObject4$2());
+var DetailsWrapper = styled.div(_templateObject4$3());
 var Item = styled(Flex).attrs(function (_ref9) {
   var lg = _ref9.lg,
       md = _ref9.md,
@@ -5097,10 +5121,10 @@ var FormRowDefaultProps = {
   show: true
 };
 
-function _templateObject4$3() {
+function _templateObject4$4() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  width: 100%;\n\n  & > * {\n    :not(:last-child) {\n      margin-right: ", ";\n    }\n  }\n"]);
 
-  _templateObject4$3 = function _templateObject4() {
+  _templateObject4$4 = function _templateObject4() {
     return data;
   };
 
@@ -5166,7 +5190,7 @@ var StyledLabel$3 = styled(FormLabel)(_templateObject2$g(), function (_ref5) {
   return labelAlign === "start" && labelGutter && css(["padding-top:", ";"], theme.spacing(3));
 });
 var FieldsAndErrorsWrapper = styled.div(_templateObject3$b());
-var Fields = styled.div(_templateObject4$3(), function (_ref8) {
+var Fields = styled.div(_templateObject4$4(), function (_ref8) {
   var theme = _ref8.theme;
   return theme.spacing(4);
 });
@@ -5567,10 +5591,10 @@ function _templateObject5$2() {
   return data;
 }
 
-function _templateObject4$4() {
+function _templateObject4$5() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 100%;\n  height: 100%;\n"]);
 
-  _templateObject4$4 = function _templateObject4() {
+  _templateObject4$5 = function _templateObject4() {
     return data;
   };
 
@@ -5622,7 +5646,7 @@ var RowDetails = styled(Grid).attrs(function () {
   return {
     container: true
   };
-})(_templateObject4$4());
+})(_templateObject4$5());
 var Item$2 = styled(Grid).attrs(function (_ref4) {
   var lg = _ref4.lg;
   return {
@@ -5801,10 +5825,10 @@ function _templateObject5$3() {
   return data;
 }
 
-function _templateObject4$5() {
+function _templateObject4$6() {
   var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  width: 100%;\n  height: 100%;\n\n  ::before,\n  ::after {\n    content: \"\";\n    height: ", "px;\n    width: ", "px;\n    position: absolute;\n    left: ", "px;\n    border-left: 2px dashed ", ";\n  }\n\n  ::before {\n    top: -", "px;\n  }\n\n  ::after {\n    content: \"\";\n    top: ", "px;\n  }\n\n  :last-child {\n    ::before {\n      width: ", "px;\n      border-right: 2px dashed ", ";\n      border-top: 2px dashed ", ";\n      border-left: none;\n      top: -", "px;\n      left: -", "px;\n      border-top-right-radius: 48px;\n    }\n  }\n\n  :first-child {\n    ", " {\n      ::after {\n        content: \"\";\n      }\n    }\n  }\n\n  :hover {\n    cursor: pointer;\n    transition: all 0.2s ease-in-out;\n\n    ", " {\n      background-color: ", ";\n    }\n    ", " {\n      opacity: 1;\n    }\n  }\n"]);
 
-  _templateObject4$5 = function _templateObject4() {
+  _templateObject4$6 = function _templateObject4() {
     return data;
   };
 
@@ -5857,7 +5881,7 @@ var Node = styled.div(_templateObject3$d(), function (_ref) {
   var theme = _ref2.theme;
   return theme.spacing(10);
 }, NODE_SIZE * 2 + 2, NODE_CONNECTOR_HEIGHT, NODE_SIZE / 2 - 1, NODE_SIZE);
-var NodeWrapper = styled.div(_templateObject4$5(), NODE_CONNECTOR_HEIGHT, NODE_CONNECTOR_HEIGHT, NODE_SIZE / 2 - 1, function (_ref3) {
+var NodeWrapper = styled.div(_templateObject4$6(), NODE_CONNECTOR_HEIGHT, NODE_CONNECTOR_HEIGHT, NODE_SIZE / 2 - 1, function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.gray.regular;
 }, NODE_CONNECTOR_HEIGHT, NODE_SIZE, NODE_CONNECTOR_HEIGHT, function (_ref4) {
@@ -5999,10 +6023,10 @@ function _templateObject5$4() {
   return data;
 }
 
-function _templateObject4$6() {
+function _templateObject4$7() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 33px;\n  flex: 1;\n  display: flex;\n  align-items: center;\n  margin: ", ";\n  padding: ", ";\n  background-color: ", ";\n  color: ", ";\n  transition: all 100ms ease-in-out;\n  ", " {\n    h5 {\n      font-size: ", ";\n    }\n  }\n"]);
 
-  _templateObject4$6 = function _templateObject4() {
+  _templateObject4$7 = function _templateObject4() {
     return data;
   };
 
@@ -6053,7 +6077,7 @@ var StyledStatus = styled.div(_templateObject3$e(), function (_ref3) {
   var theme = _ref4.theme;
   return theme.breakpoints.down("sm");
 });
-var StyledMessage$1 = styled.div(_templateObject4$6(), function (_ref5) {
+var StyledMessage$1 = styled.div(_templateObject4$7(), function (_ref5) {
   var theme = _ref5.theme;
   return theme.spacing(0, 1);
 }, function (_ref6) {
@@ -6414,10 +6438,10 @@ var CreatorsHubFooterPropTypes = {
 };
 var CreatorsHubFooterDefaultProps = {};
 
-function _templateObject4$7() {
+function _templateObject4$8() {
   var data = _taggedTemplateLiteralLoose(["\n  font-size: 12px;\n  line-height: 120%;\n  :not(:last-child) {\n    margin-bottom: ", ";\n  }\n\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n"]);
 
-  _templateObject4$7 = function _templateObject4() {
+  _templateObject4$8 = function _templateObject4() {
     return data;
   };
 
@@ -6481,7 +6505,7 @@ var BottomSection$1 = styled.div(_templateObject2$n(), function (_ref5) {
   return theme.spacing(8);
 });
 var Col = styled.ul(_templateObject3$g());
-var ColItem = styled.li(_templateObject4$7(), function (_ref8) {
+var ColItem = styled.li(_templateObject4$8(), function (_ref8) {
   var theme = _ref8.theme;
   return theme.spacing(2);
 }, function (_ref9) {
@@ -6558,10 +6582,10 @@ function _templateObject5$5() {
   return data;
 }
 
-function _templateObject4$8() {
+function _templateObject4$9() {
   var data = _taggedTemplateLiteralLoose(["\n  list-style: none;\n  padding: 0;\n  margin: 0;\n"]);
 
-  _templateObject4$8 = function _templateObject4() {
+  _templateObject4$9 = function _templateObject4() {
     return data;
   };
 
@@ -6629,7 +6653,7 @@ var MenuIconButton = styled(Icon).attrs(function () {
   return theme.palette.gray.medium;
 });
 var LogoContainer = styled.div(_templateObject3$h());
-var PrimaryList = styled.ul(_templateObject4$8());
+var PrimaryList = styled.ul(_templateObject4$9());
 var PrimaryListItem = styled.li(_templateObject5$5(), function (_ref9) {
   var theme = _ref9.theme;
   return theme.spacing(6);
@@ -6817,10 +6841,10 @@ var MainHeader = function MainHeader(_ref) {
 MainHeader.propTypes = CreatorsHubHeaderPropTypes;
 MainHeader.defaultProps = CreatorsHubHeaderDefaultProps;
 
-function _templateObject4$9() {
+function _templateObject4$a() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  ", " {\n    flex: 1;\n    justify-content: space-between;\n  }\n"]);
 
-  _templateObject4$9 = function _templateObject4() {
+  _templateObject4$a = function _templateObject4() {
     return data;
   };
 
@@ -6892,7 +6916,7 @@ var SecondaryListItem = styled.li(_templateObject3$j(), function (_ref5) {
     return theme.palette.primary.main;
   });
 });
-var SecondaryRight = styled.div(_templateObject4$9(), function (_ref12) {
+var SecondaryRight = styled.div(_templateObject4$a(), function (_ref12) {
   var theme = _ref12.theme;
   return theme.breakpoints.down("sm");
 });
@@ -7009,10 +7033,10 @@ function _templateObject5$6() {
   return data;
 }
 
-function _templateObject4$a() {
+function _templateObject4$b() {
   var data = _taggedTemplateLiteralLoose(["\n  height: 100%;\n  padding: ", ";\n\n  ", " {\n    min-height: 500px;\n    padding: ", ";\n  }\n"]);
 
-  _templateObject4$a = function _templateObject4() {
+  _templateObject4$b = function _templateObject4() {
     return data;
   };
 
@@ -7095,7 +7119,7 @@ var MainContent = styled(Flex).attrs(function () {
     container: true,
     alignItems: "flex-start"
   };
-})(_templateObject4$a(), function (_ref9) {
+})(_templateObject4$b(), function (_ref9) {
   var theme = _ref9.theme;
   return theme.spacing(10, 0);
 }, function (_ref10) {
@@ -7302,10 +7326,10 @@ var DashboardLayoutDefaultProps = {
   navigationItems: []
 };
 
-function _templateObject4$b() {
+function _templateObject4$c() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    justify-content: center;\n    align-items: center;\n    min-width: 40px;\n    width: 40px;\n    height: 40px;\n    border-radius: 50%;\n    background-color: #fff;\n    margin-right: ", ";\n    svg {\n      color: ", ";\n    }\n  }\n"]);
 
-  _templateObject4$b = function _templateObject4() {
+  _templateObject4$c = function _templateObject4() {
     return data;
   };
 
@@ -7371,7 +7395,7 @@ var ImprovedListItem = styled(ListItem$1)(_templateObject2$u(), function (_ref4)
   return theme.palette.primary.main;
 });
 var ImprovedList = styled(List$1)(_templateObject3$n());
-var ImprovedListItemIcon = styled(ListItemIcon)(_templateObject4$b(), function (_ref10) {
+var ImprovedListItemIcon = styled(ListItemIcon)(_templateObject4$c(), function (_ref10) {
   var theme = _ref10.theme;
   return theme.spacing(2);
 }, function (_ref11) {
@@ -7497,10 +7521,10 @@ var DashboardLayoutNavigationDefaultProps = {
   userMenuItems: []
 };
 
-function _templateObject4$c() {
+function _templateObject4$d() {
   var data = _taggedTemplateLiteralLoose(["\n  padding: ", ";\n  height: 100%;\n  box-sizing: border-box;\n  overflow: hidden;\n  background-color: ", ";\n"]);
 
-  _templateObject4$c = function _templateObject4() {
+  _templateObject4$d = function _templateObject4() {
     return data;
   };
 
@@ -7558,7 +7582,7 @@ var NavIcon = styled(Icon).attrs(function () {
     size: "lg"
   };
 })(_templateObject3$o());
-var DrawerWrapper = styled.div(_templateObject4$c(), function (_ref4) {
+var DrawerWrapper = styled.div(_templateObject4$d(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(2, 10, 0, 2);
 }, function (_ref5) {
@@ -7637,10 +7661,10 @@ var DashboardLayoutFooter = function DashboardLayoutFooter(_ref2) {
 };
 DashboardLayoutFooter.propTypes = DashboardLayoutFooterPropTypes;
 
-function _templateObject4$d() {
+function _templateObject4$e() {
   var data = _taggedTemplateLiteralLoose(["\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n    height: 100%;\n  }\n"]);
 
-  _templateObject4$d = function _templateObject4() {
+  _templateObject4$e = function _templateObject4() {
     return data;
   };
 
@@ -7701,7 +7725,7 @@ var SidebarContainer = styled(Flex).attrs(function () {
     md: 2,
     xs: 12
   };
-})(_templateObject4$d(), function (_ref3) {
+})(_templateObject4$e(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(8, 0);
 }, function (_ref4) {
@@ -8214,10 +8238,10 @@ Cover.defaultProps = {
   placeholderSrc: ""
 };
 
-function _templateObject4$e() {
+function _templateObject4$f() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  justify-content: center;\n  align-items: center;\n  height: 16px;\n  background-color: ", ";\n  z-index: 1;\n"]);
 
-  _templateObject4$e = function _templateObject4() {
+  _templateObject4$f = function _templateObject4() {
     return data;
   };
 
@@ -8265,7 +8289,7 @@ var Badges = styled.div(_templateObject3$q(), function (_ref3) {
   var theme = _ref3.theme;
   return theme.spacing(4);
 });
-var Highlight = styled.div(_templateObject4$e(), function (_ref4) {
+var Highlight = styled.div(_templateObject4$f(), function (_ref4) {
   var theme = _ref4.theme;
   return theme.palette.primary.main;
 });
@@ -8684,10 +8708,10 @@ function _templateObject5$7() {
   return data;
 }
 
-function _templateObject4$f() {
+function _templateObject4$g() {
   var data = _taggedTemplateLiteralLoose(["\n  cursor: pointer;\n  background-color: white;\n  && {\n    color: ", ";\n  }\n"]);
 
-  _templateObject4$f = function _templateObject4() {
+  _templateObject4$g = function _templateObject4() {
     return data;
   };
 
@@ -8751,7 +8775,7 @@ var CloseModalIcon = styled(Icon).attrs(function () {
   return {
     size: "lg"
   };
-})(_templateObject4$f(), function (_ref5) {
+})(_templateObject4$g(), function (_ref5) {
   var theme = _ref5.theme;
   return theme.palette.secondary.dark;
 });
@@ -9358,10 +9382,10 @@ var ProfileDefaultProps = {
   socialLinks: []
 };
 
-function _templateObject4$g() {
+function _templateObject4$h() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  width: 32px;\n  height: 32px;\n  border-radius: 8px;\n  outline: none;\n  border: none;\n  cursor: pointer;\n  transition: all 0.1s ease-in-out;\n  background-color: ", ";\n  color: ", ";\n\n  svg {\n    color: ", ";\n  }\n\n  :hover {\n    opacity: 0.7;\n  }\n\n  ", "\n"]);
 
-  _templateObject4$g = function _templateObject4() {
+  _templateObject4$h = function _templateObject4() {
     return data;
   };
 
@@ -9411,7 +9435,7 @@ var Avatar$1 = styled(Image).attrs(function () {
     mb: 6
   };
 })(_templateObject3$v());
-var Social = styled.a(_templateObject4$g(), function (_ref2) {
+var Social = styled.a(_templateObject4$h(), function (_ref2) {
   var colorPrimary = _ref2.colorPrimary,
       theme = _ref2.theme;
   return colorPrimary ? theme.palette.primary.main : theme.palette.common.white;
@@ -9788,10 +9812,10 @@ function _templateObject5$8() {
   return data;
 }
 
-function _templateObject4$h() {
+function _templateObject4$i() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 32px;\n  height: 32px;\n  border-radius: 8px;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"]);
 
-  _templateObject4$h = function _templateObject4() {
+  _templateObject4$i = function _templateObject4() {
     return data;
   };
 
@@ -9859,7 +9883,7 @@ var CloseIcon = styled(Icon).attrs(function () {
       variant = _ref7.variant;
   return theme.palette[variant].main;
 });
-var IconWrapper = styled.div(_templateObject4$h(), function (_ref8) {
+var IconWrapper = styled.div(_templateObject4$i(), function (_ref8) {
   var theme = _ref8.theme,
       variant = _ref8.variant;
   return convertHexToRGBA(theme.palette[variant].main, 0.1);
@@ -10881,10 +10905,10 @@ var stepFlagBackgroundColor = function stepFlagBackgroundColor(_ref3) {
   return theme.palette.gray.regular;
 };
 
-function _templateObject4$i() {
+function _templateObject4$j() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  text-align: right;\n"]);
 
-  _templateObject4$i = function _templateObject4() {
+  _templateObject4$j = function _templateObject4() {
     return data;
   };
 
@@ -10947,7 +10971,7 @@ var Label$2 = styled.span(_templateObject3$A(), function (props) {
   var isHorizontal = _ref6.isHorizontal;
   return isHorizontal && css(["font-size:12px;padding:4px 4px 0 0;"]);
 });
-var RightTitle = styled.div(_templateObject4$i());
+var RightTitle = styled.div(_templateObject4$j());
 var WizardStepTitle = function WizardStepTitle(_ref7) {
   var disabled = _ref7.disabled,
       isActive = _ref7.isActive,
@@ -11020,10 +11044,10 @@ function _templateObject5$9() {
   return data;
 }
 
-function _templateObject4$j() {
+function _templateObject4$k() {
   var data = _taggedTemplateLiteralLoose(["\n  border-width: 0;\n  border-style: dashed;\n  border-color: ", ";\n  border-left-width: 2px;\n  transition: all ", "\n    ease-in-out;\n  position: absolute;\n  top: 0;\n  left: 15px;\n  bottom: 0;\n  ::before {\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    display: inline-block;\n  }\n\n  ", "\n"]);
 
-  _templateObject4$j = function _templateObject4() {
+  _templateObject4$k = function _templateObject4() {
     return data;
   };
 
@@ -11084,7 +11108,7 @@ var Steps = styled.div(_templateObject3$B(), function (_ref5) {
       theme = _ref5.theme;
   return isHorizontal && css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}", "{padding:0 32px;}"], theme.breakpoints.down("sm"));
 });
-var StepConnector = styled.div(_templateObject4$j(), function (props) {
+var StepConnector = styled.div(_templateObject4$k(), function (props) {
   return stepBorderAndTitleColor(props);
 }, function (_ref6) {
   var transitionDuration = _ref6.transitionDuration;
