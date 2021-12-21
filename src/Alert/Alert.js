@@ -37,6 +37,8 @@ const AlertContainer = styled.div`
 
 const Avatar = styled.div`
 margin-right:8px;
+position: relative;
+display: inline-block;
 
 img {
   width: 40px;
@@ -46,6 +48,24 @@ img {
   bord
 }
   `;
+
+const AcceptedStatus = styled.div`
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background-color: ${({ theme }) => theme.palette.success.main};
+  border: 1px solid ${({ theme }) => theme.palette.common.white};
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+
+  svg {
+    color: ${({ theme }) => theme.palette.text.primary};
+    font-size: 12px !important;
+  }
+`;
 
 const getColors = (color, theme) => {
   switch (color) {
@@ -110,16 +130,20 @@ export const Alert = ({ content, cocreator, children, color, ...props }) => {
         <>
           <Avatar>
             <Image src={cocreator?.avatar} />
+            <AcceptedStatus>
+              <Icon icon="check" size="sm" />
+            </AcceptedStatus>
           </Avatar>
 
           <AlertContainer>
             <Text fontSize="sm" fontWeight="bold">
-              {cocreator?.title}, {cocreator?.date}
+              {cocreator?.title}, approved state {cocreator?.date}
             </Text>
             <OutlineButton
               color="secondary"
               size="sm"
               content={cocreator?.button}
+              onClick={cocreator?.onClick}
             />
           </AlertContainer>
         </>
