@@ -1385,12 +1385,7 @@ var Alert = function Alert(_ref8) {
   }))), /*#__PURE__*/React.createElement(AlertContainer, null, /*#__PURE__*/React.createElement(Text, {
     fontSize: "sm",
     fontWeight: "bold"
-  }, cocreator == null ? void 0 : cocreator.title, ", approved state ", cocreator == null ? void 0 : cocreator.date), /*#__PURE__*/React.createElement(OutlineButton, {
-    color: "secondary",
-    size: "sm",
-    content: cocreator == null ? void 0 : cocreator.button,
-    onClick: cocreator == null ? void 0 : cocreator.onClick
-  }))));
+  }, cocreator == null ? void 0 : cocreator.title, ", approved state ", cocreator == null ? void 0 : cocreator.date))));
 };
 Alert.propTypes = AlertPropTypes;
 Alert.defaultProps = AlertDefaultProps;
