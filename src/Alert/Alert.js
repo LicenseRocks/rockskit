@@ -139,12 +139,6 @@ export const Alert = ({ content, cocreator, children, color, ...props }) => {
             <Text fontSize="sm" fontWeight="bold">
               {cocreator?.title}, approved state {cocreator?.date}
             </Text>
-            <OutlineButton
-              color="secondary"
-              size="sm"
-              content={cocreator?.button}
-              onClick={cocreator?.onClick}
-            />
           </AlertContainer>
         </>
       )}
