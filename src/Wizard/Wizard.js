@@ -7,7 +7,7 @@ import {
   WizardPropTypes,
   WizardDefaultProps,
 } from ".";
-import { stepBorderAndTitleColor } from "./helper";
+import { stepBorderAndTitleColor, stepConnectorColor } from "./helper";
 import { handleScroll } from "../utils";
 import { DISPLAY, SPACER } from "../theme";
 
@@ -112,7 +112,7 @@ const Steps = styled.div`
 const StepConnector = styled.div`
   border-width: 0;
   border-style: dashed;
-  border-color: ${(props) => stepBorderAndTitleColor(props)};
+  border-color: ${(props) => stepConnectorColor(props)};
   border-left-width: 2px;
   transition: all ${({ transitionDuration }) => `${transitionDuration}ms`}
     ease-in-out;

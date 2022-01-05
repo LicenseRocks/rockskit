@@ -34,6 +34,12 @@ export const main = () => {
         {
           title: "Step 2",
         },
+        {
+          title: "Step 3",
+        },
+        {
+          title: "Step 4",
+        },
       ]}
     />
   );
