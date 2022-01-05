@@ -168,25 +168,26 @@ var FreeSolidIconSet = {
 
 var KIT_COLORS = {
   primary: {
-    main: "#AC00fC",
-    light: "#F5E0FF"
+    main: "#371FEB",
+    light: "#DEDAFC",
+    accent: "FFFB4D"
   },
   gray: {
-    black: "#292839",
-    dark: "#4D4B63",
-    regular: "#CECDD9",
-    medium: "#8685A6",
-    light: "#F7F7F9",
-    semiLight: "#F0F0F4",
+    black: "#08042A",
+    dark: "#4A485B",
+    regular: "#DAD9DD",
+    medium: "#9796A2",
+    light: "#F7F7F8",
+    semiLight: "#F1F1F4",
     white: "#FFFFFF"
   },
   alert: {
-    darkRed: "#FE3118",
-    lightRed: "#FFD6D1",
-    darkGreen: "#6AD19C",
-    lightGreen: "#DFF8E3",
-    darkYellow: "#958409",
-    lightYellow: "#FFF3A2"
+    darkRed: "#F15937",
+    lightRed: "#FCDFD9",
+    darkGreen: "#0EC811",
+    lightGreen: "#D9FCD9",
+    darkYellow: "#5C5800",
+    lightYellow: "#FFFC8A"
   }
 };
 
@@ -9808,7 +9809,7 @@ function _templateObject5$8() {
 }
 
 function _templateObject4$i() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 32px;\n  height: 32px;\n  border-radius: 8px;\n  background-color: ", ";\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 32px;\n  height: 32px;\n  border-radius: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"]);
 
   _templateObject4$i = function _templateObject4() {
     return data;
@@ -9878,14 +9879,10 @@ var CloseIcon = styled(Icon).attrs(function () {
       variant = _ref7.variant;
   return theme.palette[variant].main;
 });
-var IconWrapper = styled.div(_templateObject4$i(), function (_ref8) {
+var IconWrapper = styled.div(_templateObject4$i());
+var StyledIcon$5 = styled(Icon)(_templateObject5$8(), function (_ref8) {
   var theme = _ref8.theme,
       variant = _ref8.variant;
-  return convertHexToRGBA(theme.palette[variant].main, 0.1);
-});
-var StyledIcon$5 = styled(Icon)(_templateObject5$8(), function (_ref9) {
-  var theme = _ref9.theme,
-      variant = _ref9.variant;
   return theme.palette[variant].main;
 });
 
@@ -10881,23 +10878,32 @@ var stepBorderAndTitleColor = function stepBorderAndTitleColor(_ref) {
       isPassed = _ref.isPassed,
       theme = _ref.theme;
   if (isActive) return theme.palette.primary.main;
-  if (isPassed) return theme.palette.gray.dark;
+  if (isPassed) return theme.palette.primary.main;
   return theme.palette.gray.medium;
 };
 var stepFlagColor = function stepFlagColor(_ref2) {
   var isActive = _ref2.isActive,
       isPassed = _ref2.isPassed,
       theme = _ref2.theme;
-  if (isActive || isPassed) return theme.palette.common.white;
+  if (isActive) return theme.palette.primary.main;
+  if (isPassed) return theme.palette.common.white;
   return theme.palette.gray.medium;
 };
 var stepFlagBackgroundColor = function stepFlagBackgroundColor(_ref3) {
   var isActive = _ref3.isActive,
       isPassed = _ref3.isPassed,
       theme = _ref3.theme;
-  if (isActive) return theme.palette.primary.main;
-  if (isPassed) return theme.palette.gray.dark;
-  return theme.palette.gray.regular;
+  if (isActive) return theme.palette.common.white;
+  if (isPassed) return theme.palette.primary.main;
+  return theme.palette.common.white;
+};
+var stepConnectorColor = function stepConnectorColor(_ref4) {
+  var isActive = _ref4.isActive,
+      isPassed = _ref4.isPassed,
+      theme = _ref4.theme;
+  if (isActive) return theme.palette.gray.medium;
+  if (isPassed) return theme.palette.primary.main;
+  return theme.palette.gray.medium;
 };
 
 function _templateObject4$j() {
@@ -10921,7 +10927,7 @@ function _templateObject3$A() {
 }
 
 function _templateObject2$S() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  background-color: ", ";\n  color: ", ";\n  border-radius: 100%;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 120%;\n  z-index: 1;\n  transition: all ", "\n    ease-in-out;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 32px;\n  height: 32px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n  border: 2px solid ", ";\n  background-color: ", ";\n  color: ", ";\n  border-radius: 100%;\n  font-weight: 600;\n  font-size: 14px;\n  line-height: 120%;\n  z-index: 1;\n  transition: all ", "\n    ease-in-out;\n"]);
 
   _templateObject2$S = function _templateObject2() {
     return data;
@@ -10950,6 +10956,8 @@ var StyledTitle = styled.div(_templateObject$1L(), function (_ref) {
   return disabled && css(["cursor:not-allowed;"]);
 });
 var Flag = styled.div(_templateObject2$S(), function (props) {
+  return stepBorderAndTitleColor(props);
+}, function (props) {
   return stepFlagBackgroundColor(props);
 }, function (props) {
   return stepFlagColor(props);
@@ -10986,10 +10994,7 @@ var WizardStepTitle = function WizardStepTitle(_ref7) {
     isActive: isActive,
     isPassed: isPassed,
     transitionDuration: transitionDuration
-  }, isPassed ? /*#__PURE__*/React.createElement("img", {
-    src: img$1,
-    alt: "passed-step"
-  }) : flag), /*#__PURE__*/React.createElement(Label$2, {
+  }, flag), /*#__PURE__*/React.createElement(Label$2, {
     isActive: isActive,
     isHorizontal: isHorizontal,
     isPassed: isPassed,
@@ -11104,7 +11109,7 @@ var Steps = styled.div(_templateObject3$B(), function (_ref5) {
   return isHorizontal && css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}", "{padding:0 32px;}"], theme.breakpoints.down("sm"));
 });
 var StepConnector = styled.div(_templateObject4$k(), function (props) {
-  return stepBorderAndTitleColor(props);
+  return stepConnectorColor(props);
 }, function (_ref6) {
   var transitionDuration = _ref6.transitionDuration;
   return transitionDuration + "ms";
