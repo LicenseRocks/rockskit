@@ -36,8 +36,6 @@ const IconWrapper = styled.div`
   width: 32px;
   height: 32px;
   border-radius: 8px;
-  background-color: ${({ theme, variant }) =>
-    convertHexToRGBA(theme.palette[variant].main, 0.1)};
   display: flex;
   align-items: center;
   justify-content: center;
