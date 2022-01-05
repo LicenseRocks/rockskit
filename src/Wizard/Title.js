@@ -2,7 +2,6 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
-import Check from "../assets/icons/check.svg";
 import {
   stepBorderAndTitleColor,
   stepFlagBackgroundColor,
@@ -42,6 +41,7 @@ const Flag = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  border: 2px solid ${(props) => stepBorderAndTitleColor(props)};
   background-color: ${(props) => stepFlagBackgroundColor(props)};
   color: ${(props) => stepFlagColor(props)};
   border-radius: 100%;
@@ -97,7 +97,7 @@ export const WizardStepTitle = ({
         isPassed={isPassed}
         transitionDuration={transitionDuration}
       >
-        {isPassed ? <img src={Check} alt="passed-step" /> : flag}
+        {flag}
       </Flag>
       <Label
         isActive={isActive}
