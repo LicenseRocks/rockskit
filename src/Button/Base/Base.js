@@ -8,7 +8,7 @@ import { ButtonBasePropTypes, ButtonBaseDefaultProps } from "./props";
 const StyledButton = styled(MuiButtonBase)`
   && {
     box-sizing: border-box;
-    border-radius: 12px;
+    border-radius: 24px;
     ${({ noPadding, theme }) =>
       !noPadding && `padding: ${theme.spacing(0, 4)};`}
     min-width: 40px;
@@ -33,7 +33,7 @@ const StyledButton = styled(MuiButtonBase)`
           padding: ${theme.spacing(0, 2)};
           height: 24px;
           min-width: 24px;
-          border-radius: 8px;
+          border-radius: 12px;
         `;
       }
 
@@ -43,7 +43,7 @@ const StyledButton = styled(MuiButtonBase)`
           padding: ${theme.spacing(0, 2)};
           height: 32px;
           min-width: 32px;
-          border-radius: 8px;
+          border-radius: 16px;
         `;
       }
 
@@ -53,7 +53,7 @@ const StyledButton = styled(MuiButtonBase)`
           padding: ${theme.spacing(0, 8)};
           height: 48px;
           min-width: 48px;
-          border-radius: 8px;
+          border-radius: 24px;
         `;
       }
 
