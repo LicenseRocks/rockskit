@@ -676,7 +676,7 @@ var ButtonBaseDefaultProps = {
 };
 
 function _templateObject$2() {
-  var data = _taggedTemplateLiteralLoose(["\n  && {\n    box-sizing: border-box;\n    border-radius: 12px;\n    ", "\n    min-width: 40px;\n    height: 40px;\n    transition: all 100ms ease-in-out;\n    width: ", ";\n\n    :hover {\n      opacity: 0.7;\n    }\n\n    :disabled {\n      opacity: 0.3;\n      cursor: not-allowed;\n      pointer-events: none;\n    }\n\n    ", "\n\n    ", "\n    ", "\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    box-sizing: border-box;\n    border-radius: 24px;\n    ", "\n    min-width: 40px;\n    height: 40px;\n    transition: all 100ms ease-in-out;\n    width: ", ";\n\n    :hover {\n      opacity: 0.7;\n    }\n\n    :disabled {\n      opacity: 0.3;\n      cursor: not-allowed;\n      pointer-events: none;\n    }\n\n    ", "\n\n    ", "\n    ", "\n  }\n"]);
 
   _templateObject$2 = function _templateObject() {
     return data;
@@ -696,15 +696,15 @@ var StyledButton = styled__default['default'](MuiButtonBase__default['default'])
       theme = _ref3.theme;
 
   if (size === "xs") {
-    return styled.css(["font-size:", ";padding:", ";height:24px;min-width:24px;border-radius:8px;"], theme.typography.button.fontSizeXs, theme.spacing(0, 2));
+    return styled.css(["font-size:", ";padding:", ";height:24px;min-width:24px;border-radius:12px;"], theme.typography.button.fontSizeXs, theme.spacing(0, 2));
   }
 
   if (size === "sm") {
-    return styled.css(["font-size:", ";padding:", ";height:32px;min-width:32px;border-radius:8px;"], theme.typography.button.fontSizeSm, theme.spacing(0, 2));
+    return styled.css(["font-size:", ";padding:", ";height:32px;min-width:32px;border-radius:16px;"], theme.typography.button.fontSizeSm, theme.spacing(0, 2));
   }
 
   if (size === "lg") {
-    return styled.css(["font-size:", ";padding:", ";height:48px;min-width:48px;border-radius:8px;"], theme.typography.button.fontSizeLg, theme.spacing(0, 8));
+    return styled.css(["font-size:", ";padding:", ";height:48px;min-width:48px;border-radius:24px;"], theme.typography.button.fontSizeLg, theme.spacing(0, 8));
   }
 
   return styled.css(["font-size:", ";"], theme.typography.button.fontSizeMd);
