@@ -86,7 +86,7 @@ export const KIT_TYPOGRAPHY = (theme) => ({
     fontSizeSm: "12px",
     fontSizeXs: "10px",
     lineHeight: "120%",
-    textTransform: "uppercase",
+    textTransform: "none",
     letterSpacing: "unset",
     fontWeight: "bold",
   },

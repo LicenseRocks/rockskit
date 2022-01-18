@@ -7,7 +7,7 @@ const StyledButton = styled(ButtonBase)`
   && {
     ${({ colors }) => {
       return css`
-        border: 1px solid ${colors.borderColor};
+        border: 2px solid ${colors.borderColor};
         color: ${colors.color};
         svg {
           color: ${colors.color};
@@ -33,8 +33,8 @@ const colorMapper = (color, theme) => {
   if (color === "subtle")
     return {
       backgroundColorHover: theme.palette.gray.semiLight,
-      borderColor: theme.palette.gray.regular,
-      color: theme.palette.gray.medium,
+      borderColor: theme.palette.gray.dark,
+      color: theme.palette.gray.dark,
     };
 
   return {
