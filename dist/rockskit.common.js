@@ -335,7 +335,7 @@ var KIT_TYPOGRAPHY = function KIT_TYPOGRAPHY(theme) {
       fontSizeSm: "12px",
       fontSizeXs: "10px",
       lineHeight: "120%",
-      textTransform: "uppercase",
+      textTransform: "none",
       letterSpacing: "unset",
       fontWeight: "bold"
     }
@@ -676,7 +676,7 @@ var ButtonBaseDefaultProps = {
 };
 
 function _templateObject$2() {
-  var data = _taggedTemplateLiteralLoose(["\n  && {\n    box-sizing: border-box;\n    border-radius: 24px;\n    ", "\n    min-width: 40px;\n    height: 40px;\n    transition: all 100ms ease-in-out;\n    width: ", ";\n\n    :hover {\n      opacity: 0.7;\n    }\n\n    :disabled {\n      opacity: 0.3;\n      cursor: not-allowed;\n      pointer-events: none;\n    }\n\n    ", "\n\n    ", "\n    ", "\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  && {\n    box-sizing: border-box;\n    text-transfrom: none !important;\n    border-radius: 24px;\n    ", "\n    min-width: 40px;\n    height: 40px;\n    transition: all 100ms ease-in-out;\n    width: ", ";\n\n    :hover {\n      opacity: 0.7;\n    }\n\n    :disabled {\n      opacity: 0.3;\n      cursor: not-allowed;\n      pointer-events: none;\n    }\n\n    ", "\n\n    ", "\n    ", "\n  }\n"]);
 
   _templateObject$2 = function _templateObject() {
     return data;
@@ -687,7 +687,7 @@ function _templateObject$2() {
 var StyledButton = styled__default['default'](MuiButtonBase__default['default'])(_templateObject$2(), function (_ref) {
   var noPadding = _ref.noPadding,
       theme = _ref.theme;
-  return !noPadding && "padding: " + theme.spacing(0, 4) + ";";
+  return !noPadding && "padding: " + theme.spacing(4, 4) + ";";
 }, function (_ref2) {
   var block = _ref2.block;
   return block ? "100%" : "initial";
@@ -696,15 +696,15 @@ var StyledButton = styled__default['default'](MuiButtonBase__default['default'])
       theme = _ref3.theme;
 
   if (size === "xs") {
-    return styled.css(["font-size:", ";padding:", ";height:24px;min-width:24px;border-radius:12px;"], theme.typography.button.fontSizeXs, theme.spacing(0, 2));
+    return styled.css(["font-size:", ";padding:", ";height:24px;min-width:24px;border-radius:12px;"], theme.typography.button.fontSizeXs, theme.spacing(2, 4));
   }
 
   if (size === "sm") {
-    return styled.css(["font-size:", ";padding:", ";height:32px;min-width:32px;border-radius:16px;"], theme.typography.button.fontSizeSm, theme.spacing(0, 2));
+    return styled.css(["font-size:", ";padding:", ";height:32px;min-width:32px;border-radius:16px;"], theme.typography.button.fontSizeSm, theme.spacing(2, 4));
   }
 
   if (size === "lg") {
-    return styled.css(["font-size:", ";padding:", ";height:48px;min-width:48px;border-radius:24px;"], theme.typography.button.fontSizeLg, theme.spacing(0, 8));
+    return styled.css(["font-size:", ";padding:", ";height:48px;min-width:48px;border-radius:24px;"], theme.typography.button.fontSizeLg, theme.spacing(3, 6));
   }
 
   return styled.css(["font-size:", ";"], theme.typography.button.fontSizeMd);
@@ -815,7 +815,7 @@ function _templateObject$4() {
 }
 var StyledButton$2 = styled__default['default'](ButtonBase)(_templateObject$4(), function (_ref) {
   var colors = _ref.colors;
-  return styled.css(["border:1px solid ", ";color:", ";svg{color:", ";}:hover{background-color:", ";opacity:1;}"], colors.borderColor, colors.color, colors.color, colors.backgroundColorHover);
+  return styled.css(["border:2px solid ", ";color:", ";svg{color:", ";}:hover{background-color:", ";opacity:1;}"], colors.borderColor, colors.color, colors.color, colors.backgroundColorHover);
 });
 
 var colorMapper$1 = function colorMapper(color, theme) {
@@ -826,8 +826,8 @@ var colorMapper$1 = function colorMapper(color, theme) {
   };
   if (color === "subtle") return {
     backgroundColorHover: theme.palette.gray.semiLight,
-    borderColor: theme.palette.gray.regular,
-    color: theme.palette.gray.medium
+    borderColor: theme.palette.gray.dark,
+    color: theme.palette.gray.dark
   };
   return {
     backgroundColorHover: theme.palette.primary.light,
@@ -867,7 +867,7 @@ var colorMapper$2 = function colorMapper(color, theme) {
     color: theme.palette.gray.dark
   };
   if (color === "subtle") return {
-    color: theme.palette.gray.medium
+    color: theme.palette.gray.dark
   };
   return {
     color: theme.palette.primary.main
