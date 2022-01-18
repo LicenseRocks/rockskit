@@ -8,9 +8,10 @@ import { ButtonBasePropTypes, ButtonBaseDefaultProps } from "./props";
 const StyledButton = styled(MuiButtonBase)`
   && {
     box-sizing: border-box;
+    text-transfrom: none !important;
     border-radius: 24px;
     ${({ noPadding, theme }) =>
-      !noPadding && `padding: ${theme.spacing(0, 4)};`}
+      !noPadding && `padding: ${theme.spacing(4, 4)};`}
     min-width: 40px;
     height: 40px;
     transition: all 100ms ease-in-out;
@@ -30,7 +31,7 @@ const StyledButton = styled(MuiButtonBase)`
       if (size === "xs") {
         return css`
           font-size: ${theme.typography.button.fontSizeXs};
-          padding: ${theme.spacing(0, 2)};
+          padding: ${theme.spacing(2, 4)};
           height: 24px;
           min-width: 24px;
           border-radius: 12px;
@@ -40,7 +41,7 @@ const StyledButton = styled(MuiButtonBase)`
       if (size === "sm") {
         return css`
           font-size: ${theme.typography.button.fontSizeSm};
-          padding: ${theme.spacing(0, 2)};
+          padding: ${theme.spacing(2, 4)};
           height: 32px;
           min-width: 32px;
           border-radius: 16px;
@@ -50,7 +51,7 @@ const StyledButton = styled(MuiButtonBase)`
       if (size === "lg") {
         return css`
           font-size: ${theme.typography.button.fontSizeLg};
-          padding: ${theme.spacing(0, 8)};
+          padding: ${theme.spacing(3, 6)};
           height: 48px;
           min-width: 48px;
           border-radius: 24px;
