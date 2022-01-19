@@ -67,6 +67,24 @@ const AcceptedStatus = styled.div`
   }
 `;
 
+const RejectedStatus = styled.div`
+  width: 18px;
+  height: 18px;
+  border-radius: 9px;
+  background-color: ${({ theme }) => theme.palette.error.light};
+  border: 2px solid ${({ theme }) => theme.palette.common.white};
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  display: grid;
+  place-items: center;
+
+  svg {
+    color: ${({ theme }) => theme.palette.text.primary};
+    font-size: 12px !important;
+  }
+`;
+
 const getColors = (color, theme) => {
   switch (color) {
     case "danger":
@@ -96,6 +114,10 @@ const getColors = (color, theme) => {
     case "approvedCollab":
       return {
         backgroundColor: theme.palette.success.main,
+      };
+    case "rejectedCollab":
+      return {
+        backgroundColor: theme.palette.error.light,
       };
     default:
       return {
@@ -138,6 +160,22 @@ export const Alert = ({ content, cocreator, children, color, ...props }) => {
           <AlertContainer>
             <Text fontSize="sm" fontWeight="bold">
               {cocreator?.title}, approved state {cocreator?.date}
+            </Text>
+          </AlertContainer>
+        </>
+      )}
+      {cocreator?.type === "rejectedCollab" && (
+        <>
+          <Avatar>
+            <Image src={cocreator?.avatar} />
+            <RejectedStatus>
+              <Icon icon="times" size="sm" />
+            </RejectedStatus>
+          </Avatar>
+
+          <AlertContainer>
+            <Text fontSize="sm" fontWeight="bold">
+              {cocreator?.title}, rejected state {cocreator?.date}
             </Text>
           </AlertContainer>
         </>
