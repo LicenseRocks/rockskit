@@ -73,7 +73,6 @@ export const WizardStepContent = ({
 
             <Button
               content={isLastStep ? "Finish" : "Next"}
-              dInline
               disabled={submitButtonDisabled}
               loading={submitButtonLoading}
               onClick={nextStepMethod === "button" ? handleNext : undefined}

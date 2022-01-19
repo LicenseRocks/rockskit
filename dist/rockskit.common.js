@@ -10920,7 +10920,6 @@ var WizardStepContent = function WizardStepContent(_ref5) {
     ml: 2
   }, currentStep + " of " + stepCount + " steps")), /*#__PURE__*/React__default['default'].createElement("div", null, isLastStep && renderActionButtons(), /*#__PURE__*/React__default['default'].createElement(Button, {
     content: isLastStep ? "Finish" : "Next",
-    dInline: true,
     disabled: submitButtonDisabled,
     loading: submitButtonLoading,
     onClick: nextStepMethod === "button" ? handleNext : undefined,
