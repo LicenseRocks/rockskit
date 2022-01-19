@@ -41,6 +41,7 @@ export const BoxPropTypes = {
 export const BoxDefaultProps = {
   loadingProps: {},
   padding: 6,
+  cocreator: {},
   transition: false,
   transparentSm: false,
   ...BoxBaseDefaultProps,

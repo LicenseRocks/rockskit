@@ -78,7 +78,7 @@ export const Box = ({
 
   const content = (
     <>
-      {cocreator && (
+      {Object.keys(cocreator).length > 0 && (
         <Alert
           cocreator={cocreator}
           color={cocreator?.type}
