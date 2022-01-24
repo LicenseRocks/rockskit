@@ -83,6 +83,7 @@ export const Modal = ({
   actionLoading,
   actionTitle,
   cancelButton,
+  cancelAction,
   dataCy,
   fullScreen,
   isOpen,
@@ -126,7 +127,13 @@ export const Modal = ({
 
       {action && (
         <Actions hasDesc={!!actionDescription}>
-          {cancelButton && <TextButton color="secondary" content={"Cancel"} />}
+          {cancelButton && (
+            <TextButton
+              onClick={cancelAction}
+              color="secondary"
+              content={"Cancel"}
+            />
+          )}
           <div>{actionDescription}</div>
           <Button disabled={disabled} loading={actionLoading} onClick={action}>
             {actionTitle}
