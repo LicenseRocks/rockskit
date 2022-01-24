@@ -20,6 +20,8 @@ export const main = (props) => {
       size: "md",
     },
     url: "https://license.rocks/",
+    appUrl: "https://preview-creatorshub.license.rocks",
+    nftId: 120,
     ...props,
   };
 

@@ -4,5 +4,6 @@ export const SHARE_MODULE_SHARE_OPTIONS = [
   "telegram",
   "whatsapp",
   "email",
+  "embed",
   "navigator",
 ];

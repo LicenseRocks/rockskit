@@ -7,13 +7,15 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import styled from "styled-components";
 
-import { Button, H3, Icon } from "..";
+import { Button, H3, Icon, TextButton } from "..";
 
 const StyledDialog = styled(Dialog)`
   .MuiDialog-paper {
     flex: 1;
     position: relative;
     background-color: ${({ theme }) => theme.palette.common.white};
+
+    border-radius: 16px !important;
   }
 `;
 
@@ -57,7 +59,7 @@ const CloseModalIcon = styled(Icon).attrs(() => ({
 const Actions = styled(DialogActions)`
   && {
     justify-content: ${({ hasDesc }) =>
-    hasDesc ? "space-between" : "flex-end"};
+      hasDesc ? "space-between" : "flex-end"};
   }
 `;
 
@@ -80,6 +82,7 @@ export const Modal = ({
   actionDescription,
   actionLoading,
   actionTitle,
+  cancelButton,
   dataCy,
   fullScreen,
   isOpen,
@@ -123,6 +126,7 @@ export const Modal = ({
 
       {action && (
         <Actions hasDesc={!!actionDescription}>
+          {cancelButton && <TextButton color="secondary" content={"Cancel"} />}
           <div>{actionDescription}</div>
           <Button disabled={disabled} loading={actionLoading} onClick={action}>
             {actionTitle}
@@ -138,6 +142,7 @@ Modal.propTypes = {
   actionDescription: PropTypes.node,
   actionLoading: PropTypes.bool,
   actionTitle: PropTypes.string,
+  cancelButton: PropTypes.bool,
   dataCy: PropTypes.string,
   fullScreen: PropTypes.bool,
   isOpen: PropTypes.bool.isRequired,
@@ -155,6 +160,7 @@ Modal.defaultProps = {
   actionDescription: null,
   actionLoading: false,
   actionTitle: "Save",
+  cancelButton: false,
   dataCy: "modal",
   fullScreen: undefined,
   loading: false,
