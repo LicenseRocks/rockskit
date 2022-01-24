@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled, { css, useTheme } from "styled-components";
 import copy from "copy-to-clipboard";
-import { CodeBlock, obsidian, ocean } from "react-code-blocks";
+import { CodeBlock, obsidian } from "react-code-blocks";
 import {
   ShareModuleButton,
   ShareModulePropTypes,
