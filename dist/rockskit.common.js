@@ -50,6 +50,7 @@ var reactTransitionGroup = require('react-transition-group');
 var MuiPagination = require('@material-ui/lab/Pagination');
 var PaginationItem = require('@material-ui/lab/PaginationItem');
 var copy = require('copy-to-clipboard');
+var reactCodeBlocks = require('react-code-blocks');
 var MuiTabs = require('@material-ui/core/Tabs');
 var MuiTab = require('@material-ui/core/Tab');
 var MuiTooltip = require('@material-ui/core/Tooltip');
@@ -176,6 +177,7 @@ var FreeSolidIconSet = {
   faChevronUp: freeSolidSvgIcons.faChevronUp,
   faComments: freeSolidSvgIcons.faComments,
   faCopy: freeSolidSvgIcons.faCopy,
+  faCode: freeSolidSvgIcons.faCode,
   faEllipsisH: freeSolidSvgIcons.faEllipsisH,
   faEnvelope: freeSolidSvgIcons.faEnvelope,
   faEuroSign: freeSolidSvgIcons.faEuroSign,
@@ -8814,7 +8816,7 @@ function _templateObject2$E() {
 }
 
 function _templateObject$1m() {
-  var data = _taggedTemplateLiteralLoose(["\n  .MuiDialog-paper {\n    flex: 1;\n    position: relative;\n    background-color: ", ";\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  .MuiDialog-paper {\n    flex: 1;\n    position: relative;\n    background-color: ", ";\n\n    border-radius: 16px !important;\n  }\n"]);
 
   _templateObject$1m = function _templateObject() {
     return data;
@@ -8867,6 +8869,8 @@ var Modal = function Modal(_ref8) {
       actionDescription = _ref8.actionDescription,
       actionLoading = _ref8.actionLoading,
       actionTitle = _ref8.actionTitle,
+      cancelButton = _ref8.cancelButton,
+      cancelAction = _ref8.cancelAction,
       dataCy = _ref8.dataCy,
       fullScreen = _ref8.fullScreen,
       isOpen = _ref8.isOpen,
@@ -8877,7 +8881,7 @@ var Modal = function Modal(_ref8) {
       title = _ref8.title,
       disabled = _ref8.disabled,
       padding = _ref8.padding,
-      props = _objectWithoutPropertiesLoose(_ref8, ["action", "actionDescription", "actionLoading", "actionTitle", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled", "padding"]);
+      props = _objectWithoutPropertiesLoose(_ref8, ["action", "actionDescription", "actionLoading", "actionTitle", "cancelButton", "cancelAction", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled", "padding"]);
 
   return /*#__PURE__*/React__default['default'].createElement(StyledDialog$1, _extends({
     "data-cy": dataCy,
@@ -8896,7 +8900,11 @@ var Modal = function Modal(_ref8) {
     padding: padding
   }, children), action && /*#__PURE__*/React__default['default'].createElement(Actions, {
     hasDesc: !!actionDescription
-  }, /*#__PURE__*/React__default['default'].createElement("div", null, actionDescription), /*#__PURE__*/React__default['default'].createElement(Button, {
+  }, cancelButton && /*#__PURE__*/React__default['default'].createElement(TextButton, {
+    onClick: cancelAction,
+    color: "secondary",
+    content: "Cancel"
+  }), /*#__PURE__*/React__default['default'].createElement("div", null, actionDescription), /*#__PURE__*/React__default['default'].createElement(Button, {
     disabled: disabled,
     loading: actionLoading,
     onClick: action
@@ -8907,6 +8915,7 @@ Modal.propTypes = {
   actionDescription: PropTypes__default['default'].node,
   actionLoading: PropTypes__default['default'].bool,
   actionTitle: PropTypes__default['default'].string,
+  cancelButton: PropTypes__default['default'].bool,
   dataCy: PropTypes__default['default'].string,
   fullScreen: PropTypes__default['default'].bool,
   isOpen: PropTypes__default['default'].bool.isRequired,
@@ -8923,6 +8932,7 @@ Modal.defaultProps = {
   actionDescription: null,
   actionLoading: false,
   actionTitle: "Save",
+  cancelButton: false,
   dataCy: "modal",
   fullScreen: undefined,
   loading: false,
@@ -9746,7 +9756,7 @@ ShareModuleButton.defaultProps = {
   onClick: null
 };
 
-var SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "telegram", "whatsapp", "email", "navigator"];
+var SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "telegram", "whatsapp", "email", "embed", "navigator"];
 
 var ShareModulePropTypes$1 = _extends({
   buttonProps: PropTypes__default['default'].shape(ButtonBasePropTypes),
@@ -9760,8 +9770,28 @@ var ShareModuleDefaultProps$1 = {
   url: "#"
 };
 
-function _templateObject3$w() {
+function _templateObject5$9() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n  }\n"]);
+
+  _templateObject5$9 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject4$i() {
+  var data = _taggedTemplateLiteralLoose([""]);
+
+  _templateObject4$i = function _templateObject4() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject3$w() {
+  var data = _taggedTemplateLiteralLoose(["\n  span {\n    border-radius: 0px !important;\n    background-color: ", " !important;\n\n    .token {\n      color: ", " !important;\n    }\n\n    .attr-value {\n      font-weight: 700 !important;\n      color: ", " !important;\n    }\n  }\n"]);
 
   _templateObject3$w = function _templateObject3() {
     return data;
@@ -9798,6 +9828,17 @@ var ButtonsWrapper = styled__default['default'].div(_templateObject2$K(), functi
   var theme = _ref.theme;
   return theme.spacing(2);
 });
+var CodeContainer = styled__default['default'].div(_templateObject3$w(), function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.palette.gray.semiLight;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.palette.gray.dark;
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.palette.common.black;
+});
+var StyledCodeBlock = styled__default['default'](reactCodeBlocks.CodeBlock)(_templateObject4$i());
 var StyledText$1 = styled__default['default'](Text).attrs(function () {
   return {
     component: "div",
@@ -9805,24 +9846,54 @@ var StyledText$1 = styled__default['default'](Text).attrs(function () {
     fontSize: "sm",
     fontStyle: "italic"
   };
-})(_templateObject3$w(), function (_ref2) {
-  var spacing = _ref2.theme.spacing;
+})(_templateObject5$9(), function (_ref5) {
+  var spacing = _ref5.theme.spacing;
   return styled.css(["margin:", ";"], spacing(2, 0));
 });
-var ShareModule = function ShareModule(_ref3) {
+var ShareModule = function ShareModule(_ref6) {
   var _navigator;
 
-  var buttonProps = _ref3.buttonProps,
-      copyText = _ref3.copyText,
-      shareOptions = _ref3.shareOptions,
-      url = _ref3.url,
-      props = _objectWithoutPropertiesLoose(_ref3, ["buttonProps", "copyText", "shareOptions", "url"]);
+  var buttonProps = _ref6.buttonProps,
+      copyText = _ref6.copyText,
+      shareOptions = _ref6.shareOptions,
+      url = _ref6.url,
+      nftId = _ref6.nftId,
+      appUrl = _ref6.appUrl,
+      props = _objectWithoutPropertiesLoose(_ref6, ["buttonProps", "copyText", "shareOptions", "url", "nftId", "appUrl"]);
+
+  var _useState = React.useState(false),
+      open = _useState[0],
+      setOpen = _useState[1];
 
   var theme = styled.useTheme();
   var matches = useMediaQuery(theme.breakpoints.down("md"));
   var encodedUrl = encodeURIComponent(url);
   var canUseNavigator = typeof window !== "undefined" && ((_navigator = navigator) == null ? void 0 : _navigator.share);
-  return /*#__PURE__*/React__default['default'].createElement(Container$b, props, /*#__PURE__*/React__default['default'].createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
+  var codeSnippets = "<div\n   id=\"item\"\n   data-item-type=\"NFT\"\n   data-item-id=\"" + nftId + "\"\n   data-app-url=\"" + appUrl + "\"\n   class=\"nft-item\"\n ></div>\n\n <link\n   href=\"https://licenserocks.github.io/creators-hub-widgets/main.css\"\n   rel=\"stylesheet\"\n />\n <script \n   src=\"https://licenserocks.github.io/creators-hub-widgets/main.js\">\n </script>";
+
+  var defaultProps = _extends({
+    open: open,
+    onClose: function onClose() {
+      return setOpen(false);
+    },
+    fullWidth: true
+  }, props);
+
+  return /*#__PURE__*/React__default['default'].createElement(Container$b, props, /*#__PURE__*/React__default['default'].createElement(Modal, _extends({
+    cancelButton: true,
+    action: function action() {
+      return copy__default['default'](codeSnippets);
+    },
+    actionTitle: "Copy code",
+    title: "Get NFT embed code"
+  }, defaultProps), /*#__PURE__*/React__default['default'].createElement(CodeContainer, null, " ", /*#__PURE__*/React__default['default'].createElement(StyledCodeBlock, {
+    language: "jsx",
+    text: codeSnippets,
+    theme: reactCodeBlocks.obsidian,
+    wrapLines: true,
+    showLineNumbers: false,
+    codeBlock: true
+  }))), /*#__PURE__*/React__default['default'].createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "twitter",
     href: "https://twitter.com/intent/tweet?url=" + encodedUrl,
     buttonProps: buttonProps
@@ -9837,6 +9908,13 @@ var ShareModule = function ShareModule(_ref3) {
   }), shareOptions.includes("whatsapp") && matches && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "whatsapp",
     href: "whatsapp://send?" + encodedUrl,
+    buttonProps: buttonProps
+  }), shareOptions.includes("embed") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
+    icon: "code",
+    iconPrefix: theme.defaultIconSet,
+    onClick: function onClick() {
+      return setOpen(true);
+    },
     buttonProps: buttonProps
   }), shareOptions.includes("email") && /*#__PURE__*/React__default['default'].createElement(ShareModuleButton, {
     icon: "envelope",
@@ -9877,20 +9955,20 @@ var SnackbarDefaultProps = {
   variant: "default"
 };
 
-function _templateObject5$9() {
+function _templateObject5$a() {
   var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n"]);
 
-  _templateObject5$9 = function _templateObject5() {
+  _templateObject5$a = function _templateObject5() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject4$i() {
+function _templateObject4$j() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 32px;\n  height: 32px;\n  border-radius: 8px;\n  display: flex;\n  align-items: center;\n  justify-content: center;\n"]);
 
-  _templateObject4$i = function _templateObject4() {
+  _templateObject4$j = function _templateObject4() {
     return data;
   };
 
@@ -9958,8 +10036,8 @@ var CloseIcon = styled__default['default'](Icon).attrs(function () {
       variant = _ref7.variant;
   return theme.palette[variant].main;
 });
-var IconWrapper = styled__default['default'].div(_templateObject4$i());
-var StyledIcon$5 = styled__default['default'](Icon)(_templateObject5$9(), function (_ref8) {
+var IconWrapper = styled__default['default'].div(_templateObject4$j());
+var StyledIcon$5 = styled__default['default'](Icon)(_templateObject5$a(), function (_ref8) {
   var theme = _ref8.theme,
       variant = _ref8.variant;
   return theme.palette[variant].main;
@@ -10984,10 +11062,10 @@ var stepConnectorColor = function stepConnectorColor(_ref4) {
   return theme.palette.gray.medium;
 };
 
-function _templateObject4$j() {
+function _templateObject4$k() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  text-align: right;\n"]);
 
-  _templateObject4$j = function _templateObject4() {
+  _templateObject4$k = function _templateObject4() {
     return data;
   };
 
@@ -11052,7 +11130,7 @@ var Label$2 = styled__default['default'].span(_templateObject3$A(), function (pr
   var isHorizontal = _ref6.isHorizontal;
   return isHorizontal && styled.css(["font-size:12px;padding:4px 4px 0 0;"]);
 });
-var RightTitle = styled__default['default'].div(_templateObject4$j());
+var RightTitle = styled__default['default'].div(_templateObject4$k());
 var WizardStepTitle = function WizardStepTitle(_ref7) {
   var disabled = _ref7.disabled,
       isActive = _ref7.isActive,
@@ -11112,20 +11190,20 @@ var WizardDefaultProps = {
   transitionDuration: 250
 };
 
-function _templateObject5$a() {
+function _templateObject5$b() {
   var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  position: relative;\n  min-height: 60px;\n\n  :last-child {\n    ", " {\n      ", ";\n    }\n  }\n\n  ", "\n"]);
 
-  _templateObject5$a = function _templateObject5() {
+  _templateObject5$b = function _templateObject5() {
     return data;
   };
 
   return data;
 }
 
-function _templateObject4$k() {
+function _templateObject4$l() {
   var data = _taggedTemplateLiteralLoose(["\n  border-width: 0;\n  border-style: dashed;\n  border-color: ", ";\n  border-left-width: 2px;\n  transition: all ", "\n    ease-in-out;\n  position: absolute;\n  top: 0;\n  left: 15px;\n  bottom: 0;\n  ::before {\n    content: \"\";\n    width: 2px;\n    height: 100%;\n    display: inline-block;\n  }\n\n  ", "\n"]);
 
-  _templateObject4$k = function _templateObject4() {
+  _templateObject4$l = function _templateObject4() {
     return data;
   };
 
@@ -11186,7 +11264,7 @@ var Steps = styled__default['default'].div(_templateObject3$B(), function (_ref5
       theme = _ref5.theme;
   return isHorizontal && styled.css(["display:flex;align-items:center;justify-content:flex-start;white-space:nowrap;overflow-y:hidden;overflow-x:scroll;padding:0 64px;user-select:none;-ms-overflow-style:none;&&::-webkit-scrollbar{display:none;}&.active{cursor:grabbing;cursor:-webkit-grabbing;}", "{padding:0 32px;}"], theme.breakpoints.down("sm"));
 });
-var StepConnector = styled__default['default'].div(_templateObject4$k(), function (props) {
+var StepConnector = styled__default['default'].div(_templateObject4$l(), function (props) {
   return stepConnectorColor(props);
 }, function (_ref6) {
   var transitionDuration = _ref6.transitionDuration;
@@ -11195,7 +11273,7 @@ var StepConnector = styled__default['default'].div(_templateObject4$k(), functio
   var isHorizontal = _ref7.isHorizontal;
   return isHorizontal && styled.css(["width:100%;border-left-width:0;border-top-width:2px;top:15px;left:8px;::before{content:\"\";width:100%;height:2px;display:inline-block;}"]);
 });
-var Step = styled__default['default'].div(_templateObject5$a(), StepConnector, function (_ref8) {
+var Step = styled__default['default'].div(_templateObject5$b(), StepConnector, function (_ref8) {
   var isActive = _ref8.isActive,
       isHorizontal = _ref8.isHorizontal;
   return (!isActive || isHorizontal) && "border: none";
