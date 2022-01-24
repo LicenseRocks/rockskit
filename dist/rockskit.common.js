@@ -8870,7 +8870,6 @@ var Modal = function Modal(_ref8) {
       actionLoading = _ref8.actionLoading,
       actionTitle = _ref8.actionTitle,
       cancelButton = _ref8.cancelButton,
-      cancelAction = _ref8.cancelAction,
       dataCy = _ref8.dataCy,
       fullScreen = _ref8.fullScreen,
       isOpen = _ref8.isOpen,
@@ -8881,7 +8880,7 @@ var Modal = function Modal(_ref8) {
       title = _ref8.title,
       disabled = _ref8.disabled,
       padding = _ref8.padding,
-      props = _objectWithoutPropertiesLoose(_ref8, ["action", "actionDescription", "actionLoading", "actionTitle", "cancelButton", "cancelAction", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled", "padding"]);
+      props = _objectWithoutPropertiesLoose(_ref8, ["action", "actionDescription", "actionLoading", "actionTitle", "cancelButton", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled", "padding"]);
 
   return /*#__PURE__*/React__default['default'].createElement(StyledDialog$1, _extends({
     "data-cy": dataCy,
@@ -8901,7 +8900,7 @@ var Modal = function Modal(_ref8) {
   }, children), action && /*#__PURE__*/React__default['default'].createElement(Actions, {
     hasDesc: !!actionDescription
   }, cancelButton && /*#__PURE__*/React__default['default'].createElement(TextButton, {
-    onClick: cancelAction,
+    onClick: onClose,
     color: "secondary",
     content: "Cancel"
   }), /*#__PURE__*/React__default['default'].createElement("div", null, actionDescription), /*#__PURE__*/React__default['default'].createElement(Button, {
