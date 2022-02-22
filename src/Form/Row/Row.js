@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 import { FormError, FormLabel } from "..";
 import { FormRowPropTypes, FormRowDefaultProps } from "./props";
-import { DISPLAY, getFormRowErrors, SPACER } from "../..";
+import { DISPLAY, getFormRowErrors, Icon, SPACER, Tooltip } from "../..";
 
 const StyledRow = styled.div`
   display: flex;
@@ -56,10 +56,27 @@ const Fields = styled.div`
   }
 `;
 
+const Hint = styled.span`
+  background: #f0f0f4;
+  border-radius: 100%;
+  width: 20px;
+  height: 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  vertical-align: middle;
+  svg {
+    color: #8685a6;
+    font-size: 10px;
+  }
+`;
+
 export const FormRow = ({
   children,
   errors,
   fields,
+  hint,
   label,
   labelAlign,
   labelGutter,
@@ -77,6 +94,13 @@ export const FormRow = ({
       {label && (
         <StyledLabel labelAlign={labelAlign} labelGutter={labelGutter}>
           {label}
+          {hint && (
+            <Tooltip content={hint}>
+              <Hint>
+                <Icon icon="question" />
+              </Hint>{" "}
+            </Tooltip>
+          )}
         </StyledLabel>
       )}
 
