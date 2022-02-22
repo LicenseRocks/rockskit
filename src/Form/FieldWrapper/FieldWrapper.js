@@ -4,6 +4,7 @@ import styled, { css } from "styled-components";
 import { DISPLAY, SPACER } from "../../theme";
 import { Icon } from "../../Icon";
 import { FieldWrapperDefaultProps, FieldWrapperPropTypes } from "./props";
+import { H5 } from "../..";
 
 const StyledWrapper = styled.div`
   display: flex;
@@ -20,6 +21,10 @@ const StyledWrapper = styled.div`
 
   &:focus-within {
     border: 1px solid ${({ theme }) => theme.palette.primary.main};
+  }
+
+  h5 {
+    color: ${({ theme }) => theme.palette.gray.regular};
   }
 
   ${({ hasError }) =>
@@ -52,6 +57,7 @@ export const FieldWrapper = ({
   endIconColor,
   endIconOnClick,
   endIconPrefix,
+  language,
   startIcon,
   startIconColor,
   startIconOnClick,
@@ -68,6 +74,7 @@ export const FieldWrapper = ({
           prefix={startIconPrefix}
         />
       )}
+      {language && !startIcon && <H5 content={language} />}
 
       {children}
 

@@ -84,6 +84,7 @@ export const FieldBase = ({
   startIconColor,
   startIconOnClick,
   startIconPrefix,
+  language,
   ...props
 }) => {
   const input = () => (
@@ -95,7 +96,7 @@ export const FieldBase = ({
       onWheel={
         props.type === "number" && disableScrollOnNumber
           ? (event) => event.currentTarget.blur()
-          : () => { }
+          : () => {}
       }
       {...props}
     />
@@ -116,6 +117,7 @@ export const FieldBase = ({
       startIconColor={startIconColor}
       startIconOnClick={startIconOnClick}
       startIconPrefix={startIconPrefix}
+      language={language}
     >
       {input()}
     </FieldWrapper>
