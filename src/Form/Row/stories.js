@@ -24,7 +24,7 @@ export const main = () => {
 
   return (
     <StyledWrapper width={text("Wrapper width", "50%")}>
-      <FormRow label="Label" {...defaultProps}>
+      <FormRow hint="Just type one of that" label="Label" {...defaultProps}>
         <Input name="input1" placeholder="Input 1" />
         <Input name="input2" placeholder="Input 2" />
       </FormRow>
