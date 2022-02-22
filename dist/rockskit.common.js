@@ -3871,7 +3871,7 @@ var FieldWrapperDefaultProps = {
 };
 
 function _templateObject$B() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  border-radius: ", ";\n  background-color: ", ";\n  border: 1px solid ", ";\n  padding: ", ";\n  outline: none;\n  box-sizing: border-box;\n  transition: all 100ms ease-in-out;\n  ", "\n\n  &:focus-within {\n    border: 1px solid ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  border-radius: ", ";\n  background-color: ", ";\n  border: 1px solid ", ";\n  padding: ", ";\n  outline: none;\n  box-sizing: border-box;\n  transition: all 100ms ease-in-out;\n  ", "\n\n  &:focus-within {\n    border: 1px solid ", ";\n  }\n\n  h5 {\n    color: ", ";\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
   _templateObject$B = function _templateObject() {
     return data;
@@ -3898,39 +3898,45 @@ var StyledWrapper = styled__default['default'].div(_templateObject$B(), function
   var theme = _ref6.theme;
   return theme.palette.primary.main;
 }, function (_ref7) {
-  var hasError = _ref7.hasError;
-  return hasError && styled.css(["border:1px solid ", ";"], function (_ref8) {
-    var theme = _ref8.theme;
+  var theme = _ref7.theme;
+  return theme.palette.gray.regular;
+}, function (_ref8) {
+  var hasError = _ref8.hasError;
+  return hasError && styled.css(["border:1px solid ", ";"], function (_ref9) {
+    var theme = _ref9.theme;
     return theme.palette.error.main;
   });
-}, function (_ref9) {
-  var disabled = _ref9.disabled;
-  return disabled && styled.css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
 }, function (_ref10) {
-  var block = _ref10.block;
+  var disabled = _ref10.disabled;
+  return disabled && styled.css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
+}, function (_ref11) {
+  var block = _ref11.block;
   return block && styled.css(["flex:1;"]);
 }, function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var FieldWrapper = function FieldWrapper(_ref11) {
-  var children = _ref11.children,
-      endIcon = _ref11.endIcon,
-      endIconColor = _ref11.endIconColor,
-      endIconOnClick = _ref11.endIconOnClick,
-      endIconPrefix = _ref11.endIconPrefix,
-      startIcon = _ref11.startIcon,
-      startIconColor = _ref11.startIconColor,
-      startIconOnClick = _ref11.startIconOnClick,
-      startIconPrefix = _ref11.startIconPrefix,
-      props = _objectWithoutPropertiesLoose(_ref11, ["children", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
+var FieldWrapper = function FieldWrapper(_ref12) {
+  var children = _ref12.children,
+      endIcon = _ref12.endIcon,
+      endIconColor = _ref12.endIconColor,
+      endIconOnClick = _ref12.endIconOnClick,
+      endIconPrefix = _ref12.endIconPrefix,
+      language = _ref12.language,
+      startIcon = _ref12.startIcon,
+      startIconColor = _ref12.startIconColor,
+      startIconOnClick = _ref12.startIconOnClick,
+      startIconPrefix = _ref12.startIconPrefix,
+      props = _objectWithoutPropertiesLoose(_ref12, ["children", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "language", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
 
   return /*#__PURE__*/React__default['default'].createElement(StyledWrapper, props, startIcon && /*#__PURE__*/React__default['default'].createElement(Icon, {
     color: startIconColor,
     icon: startIcon,
     onClick: startIconOnClick,
     prefix: startIconPrefix
+  }), language && !startIcon && /*#__PURE__*/React__default['default'].createElement(H5, {
+    content: language
   }), children, endIcon && /*#__PURE__*/React__default['default'].createElement(Icon, {
     color: endIconColor,
     icon: endIcon,
@@ -4020,7 +4026,8 @@ var FieldBase = function FieldBase(_ref10) {
       startIconColor = _ref10.startIconColor,
       startIconOnClick = _ref10.startIconOnClick,
       startIconPrefix = _ref10.startIconPrefix,
-      props = _objectWithoutPropertiesLoose(_ref10, ["block", "className", "disableScrollOnNumber", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "fixedHeight", "hasError", "hasWrapper", "register", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
+      language = _ref10.language,
+      props = _objectWithoutPropertiesLoose(_ref10, ["block", "className", "disableScrollOnNumber", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "fixedHeight", "hasError", "hasWrapper", "register", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix", "language"]);
 
   var input = function input() {
     return /*#__PURE__*/React__default['default'].createElement(StyledInput$1, _extends({
@@ -4047,7 +4054,8 @@ var FieldBase = function FieldBase(_ref10) {
     startIcon: startIcon,
     startIconColor: startIconColor,
     startIconOnClick: startIconOnClick,
-    startIconPrefix: startIconPrefix
+    startIconPrefix: startIconPrefix,
+    language: language
   }, input());
 };
 FieldBase.propTypes = FieldBasePropTypes;
