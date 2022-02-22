@@ -5206,6 +5206,16 @@ var FormRowDefaultProps = {
   show: true
 };
 
+function _templateObject5$3() {
+  var data = _taggedTemplateLiteralLoose(["\n  background: #f0f0f4;\n  border-radius: 100%;\n  width: 20px;\n  height: 20px;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  margin-left: 8px;\n  vertical-align: middle;\n  svg {\n    color: #8685a6;\n    font-size: 10px;\n  }\n"]);
+
+  _templateObject5$3 = function _templateObject5() {
+    return data;
+  };
+
+  return data;
+}
+
 function _templateObject4$4() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  width: 100%;\n\n  & > * {\n    :not(:last-child) {\n      margin-right: ", ";\n    }\n  }\n"]);
 
@@ -5279,15 +5289,17 @@ var Fields = styled__default['default'].div(_templateObject4$4(), function (_ref
   var theme = _ref8.theme;
   return theme.spacing(4);
 });
+var Hint$1 = styled__default['default'].span(_templateObject5$3());
 var FormRow = function FormRow(_ref9) {
   var children = _ref9.children,
       errors = _ref9.errors,
       fields = _ref9.fields,
+      hint = _ref9.hint,
       label = _ref9.label,
       labelAlign = _ref9.labelAlign,
       labelGutter = _ref9.labelGutter,
       show = _ref9.show,
-      props = _objectWithoutPropertiesLoose(_ref9, ["children", "errors", "fields", "label", "labelAlign", "labelGutter", "show"]);
+      props = _objectWithoutPropertiesLoose(_ref9, ["children", "errors", "fields", "hint", "label", "labelAlign", "labelGutter", "show"]);
 
   var rowErrors = Array.isArray(errors) ? errors : getFormRowErrors(errors, fields);
   var validChildren = React.Children.toArray(children).filter(Boolean);
@@ -5297,7 +5309,11 @@ var FormRow = function FormRow(_ref9) {
   }, props), label && /*#__PURE__*/React__default['default'].createElement(StyledLabel$3, {
     labelAlign: labelAlign,
     labelGutter: labelGutter
-  }, label), validChildren.length > 0 && /*#__PURE__*/React__default['default'].createElement(FieldsAndErrorsWrapper, {
+  }, label, hint && /*#__PURE__*/React__default['default'].createElement(Tooltip, {
+    content: hint
+  }, /*#__PURE__*/React__default['default'].createElement(Hint$1, null, /*#__PURE__*/React__default['default'].createElement(Icon, {
+    icon: "question"
+  })), " ")), validChildren.length > 0 && /*#__PURE__*/React__default['default'].createElement(FieldsAndErrorsWrapper, {
     fullWidth: !label
   }, /*#__PURE__*/React__default['default'].createElement(Fields, null, children), rowErrors.map(function (err) {
     return /*#__PURE__*/React__default['default'].createElement(FormError, {
@@ -5666,10 +5682,10 @@ function _templateObject6() {
   return data;
 }
 
-function _templateObject5$3() {
+function _templateObject5$4() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n\n  ", " {\n    margin-bottom: ", ";\n  }\n\n  ", "\n"]);
 
-  _templateObject5$3 = function _templateObject5() {
+  _templateObject5$4 = function _templateObject5() {
     return data;
   };
 
@@ -5739,7 +5755,7 @@ var Item$2 = styled__default['default'](Grid__default['default']).attrs(function
     xs: 12,
     lg: lg || 3
   };
-})(_templateObject5$3(), function (_ref5) {
+})(_templateObject5$4(), function (_ref5) {
   var theme = _ref5.theme;
   return theme.breakpoints.down("sm");
 }, function (_ref6) {
@@ -5900,10 +5916,10 @@ function _templateObject6$1() {
   return data;
 }
 
-function _templateObject5$4() {
+function _templateObject5$5() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  height: ", "px;\n\n  :last-child {\n    ", ", ", " {\n      ::after {\n        content: none;\n      }\n    }\n  }\n"]);
 
-  _templateObject5$4 = function _templateObject5() {
+  _templateObject5$5 = function _templateObject5() {
     return data;
   };
 
@@ -5979,7 +5995,7 @@ var NodeWrapper = styled__default['default'].div(_templateObject4$6(), NODE_CONN
   var theme = _ref6.theme;
   return theme.palette.gray.medium;
 }, Label$1);
-var Row$2 = styled__default['default'].div(_templateObject5$4(), ROW_HEIGHT, NodeWrapper, Node);
+var Row$2 = styled__default['default'].div(_templateObject5$5(), ROW_HEIGHT, NodeWrapper, Node);
 var Nodes = styled__default['default'].div(_templateObject6$1());
 var Description = styled__default['default'].div(_templateObject7$1());
 var HistoryTree = function HistoryTree(_ref7) {
@@ -6098,10 +6114,10 @@ function _templateObject6$2() {
   return data;
 }
 
-function _templateObject5$5() {
+function _templateObject5$6() {
   var data = _taggedTemplateLiteralLoose(["\n  width: 33px !important;\n  height: 33px !important;\n  padding: ", ";\n  color: ", ";\n  background-color: ", ";\n  border-radius: 0px 8px 8px 0px;\n  ", " {\n    padding: ", ";\n  }\n"]);
 
-  _templateObject5$5 = function _templateObject5() {
+  _templateObject5$6 = function _templateObject5() {
     return data;
   };
 
@@ -6181,7 +6197,7 @@ var StyledMessage$1 = styled__default['default'].div(_templateObject4$7(), funct
   var theme = _ref10.theme;
   return theme.typography.h6;
 });
-var StyledCollapseButton$1 = styled__default['default'](CollapseButton)(_templateObject5$5(), function (_ref11) {
+var StyledCollapseButton$1 = styled__default['default'](CollapseButton)(_templateObject5$6(), function (_ref11) {
   var theme = _ref11.theme;
   return theme.spacing(2);
 }, function (_ref12) {
@@ -6657,10 +6673,10 @@ var CreatorsHubHeaderDefaultProps = {
   secondaryRenderRight: function secondaryRenderRight() {}
 };
 
-function _templateObject5$6() {
+function _templateObject5$7() {
   var data = _taggedTemplateLiteralLoose(["\n  display: inline-block;\n  font-size: 12px;\n  line-height: 120%;\n  :not(:first-child) {\n    margin-left: ", ";\n  }\n\n  a {\n    text-decoration: none;\n    color: ", ";\n  }\n"]);
 
-  _templateObject5$6 = function _templateObject5() {
+  _templateObject5$7 = function _templateObject5() {
     return data;
   };
 
@@ -6739,7 +6755,7 @@ var MenuIconButton = styled__default['default'](Icon).attrs(function () {
 });
 var LogoContainer = styled__default['default'].div(_templateObject3$h());
 var PrimaryList = styled__default['default'].ul(_templateObject4$9());
-var PrimaryListItem = styled__default['default'].li(_templateObject5$6(), function (_ref9) {
+var PrimaryListItem = styled__default['default'].li(_templateObject5$7(), function (_ref9) {
   var theme = _ref9.theme;
   return theme.spacing(6);
 }, function (_ref10) {
@@ -7108,10 +7124,10 @@ var CreatorsHubMainLayoutDefaultProps = {
   renderHeader: function renderHeader() {}
 };
 
-function _templateObject5$7() {
+function _templateObject5$8() {
   var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  flex-direction: column;\n  align-items: center;\n  text-align: center;\n  background-color: ", ";\n  padding: ", ";\n\n  ", " {\n    padding: ", ";\n  }\n"]);
 
-  _templateObject5$7 = function _templateObject5() {
+  _templateObject5$8 = function _templateObject5() {
     return data;
   };
 
@@ -7214,7 +7230,7 @@ var MainContent = styled__default['default'](Flex).attrs(function () {
   var theme = _ref11.theme;
   return theme.spacing(12, 0);
 });
-var Heading = styled__default['default'].div(_templateObject5$7(), function (_ref12) {
+var Heading = styled__default['default'].div(_templateObject5$8(), function (_ref12) {
   var theme = _ref12.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref13) {
@@ -8783,10 +8799,10 @@ function _templateObject6$3() {
   return data;
 }
 
-function _templateObject5$8() {
+function _templateObject5$9() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    justify-content: ", ";\n  }\n"]);
 
-  _templateObject5$8 = function _templateObject5() {
+  _templateObject5$9 = function _templateObject5() {
     return data;
   };
 
@@ -8864,7 +8880,7 @@ var CloseModalIcon = styled__default['default'](Icon).attrs(function () {
   var theme = _ref5.theme;
   return theme.palette.secondary.dark;
 });
-var Actions = styled__default['default'](DialogActions__default['default'])(_templateObject5$8(), function (_ref6) {
+var Actions = styled__default['default'](DialogActions__default['default'])(_templateObject5$9(), function (_ref6) {
   var hasDesc = _ref6.hasDesc;
   return hasDesc ? "space-between" : "flex-end";
 });
@@ -9777,10 +9793,10 @@ var ShareModuleDefaultProps$1 = {
   url: "#"
 };
 
-function _templateObject5$9() {
+function _templateObject5$a() {
   var data = _taggedTemplateLiteralLoose(["\n  && {\n    ", "\n  }\n"]);
 
-  _templateObject5$9 = function _templateObject5() {
+  _templateObject5$a = function _templateObject5() {
     return data;
   };
 
@@ -9853,7 +9869,7 @@ var StyledText$1 = styled__default['default'](Text).attrs(function () {
     fontSize: "sm",
     fontStyle: "italic"
   };
-})(_templateObject5$9(), function (_ref5) {
+})(_templateObject5$a(), function (_ref5) {
   var spacing = _ref5.theme.spacing;
   return styled.css(["margin:", ";"], spacing(2, 0));
 });
@@ -9962,10 +9978,10 @@ var SnackbarDefaultProps = {
   variant: "default"
 };
 
-function _templateObject5$a() {
+function _templateObject5$b() {
   var data = _taggedTemplateLiteralLoose(["\n  color: ", ";\n"]);
 
-  _templateObject5$a = function _templateObject5() {
+  _templateObject5$b = function _templateObject5() {
     return data;
   };
 
@@ -10044,7 +10060,7 @@ var CloseIcon = styled__default['default'](Icon).attrs(function () {
   return theme.palette[variant].main;
 });
 var IconWrapper = styled__default['default'].div(_templateObject4$j());
-var StyledIcon$5 = styled__default['default'](Icon)(_templateObject5$a(), function (_ref8) {
+var StyledIcon$5 = styled__default['default'](Icon)(_templateObject5$b(), function (_ref8) {
   var theme = _ref8.theme,
       variant = _ref8.variant;
   return theme.palette[variant].main;
@@ -11197,10 +11213,10 @@ var WizardDefaultProps = {
   transitionDuration: 250
 };
 
-function _templateObject5$b() {
+function _templateObject5$c() {
   var data = _taggedTemplateLiteralLoose(["\n  box-sizing: border-box;\n  position: relative;\n  min-height: 60px;\n\n  :last-child {\n    ", " {\n      ", ";\n    }\n  }\n\n  ", "\n"]);
 
-  _templateObject5$b = function _templateObject5() {
+  _templateObject5$c = function _templateObject5() {
     return data;
   };
 
@@ -11280,7 +11296,7 @@ var StepConnector = styled__default['default'].div(_templateObject4$l(), functio
   var isHorizontal = _ref7.isHorizontal;
   return isHorizontal && styled.css(["width:100%;border-left-width:0;border-top-width:2px;top:15px;left:8px;::before{content:\"\";width:100%;height:2px;display:inline-block;}"]);
 });
-var Step = styled__default['default'].div(_templateObject5$b(), StepConnector, function (_ref8) {
+var Step = styled__default['default'].div(_templateObject5$c(), StepConnector, function (_ref8) {
   var isActive = _ref8.isActive,
       isHorizontal = _ref8.isHorizontal;
   return (!isActive || isHorizontal) && "border: none";
