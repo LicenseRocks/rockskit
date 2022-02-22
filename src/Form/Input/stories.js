@@ -23,6 +23,7 @@ export const main = () => {
     readOnly: boolean("Read only", false),
     register,
     startIcon: "user",
+    language: "DE",
   };
 
   const values = watch();
