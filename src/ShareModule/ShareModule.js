@@ -26,6 +26,8 @@ const ButtonsWrapper = styled.div`
 `;
 
 const CodeContainer = styled.div`
+  padding: ${({ theme }) => theme.spacing(6)};
+  background-color: ${({ theme }) => theme.palette.gray.semiLight};
   span {
     border-radius: 0px !important;
     background-color: ${({ theme }) => theme.palette.gray.semiLight} !important;
