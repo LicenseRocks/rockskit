@@ -9814,7 +9814,7 @@ function _templateObject4$i() {
 }
 
 function _templateObject3$w() {
-  var data = _taggedTemplateLiteralLoose(["\n  span {\n    border-radius: 0px !important;\n    background-color: ", " !important;\n\n    .token {\n      color: ", " !important;\n    }\n\n    .attr-value {\n      font-weight: 700 !important;\n      color: ", " !important;\n    }\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  padding: ", ";\n  background-color: ", ";\n  span {\n    border-radius: 0px !important;\n    background-color: ", " !important;\n\n    .token {\n      color: ", " !important;\n    }\n\n    .attr-value {\n      font-weight: 700 !important;\n      color: ", " !important;\n    }\n  }\n"]);
 
   _templateObject3$w = function _templateObject3() {
     return data;
@@ -9853,12 +9853,18 @@ var ButtonsWrapper = styled__default['default'].div(_templateObject2$K(), functi
 });
 var CodeContainer = styled__default['default'].div(_templateObject3$w(), function (_ref2) {
   var theme = _ref2.theme;
-  return theme.palette.gray.semiLight;
+  return theme.spacing(6);
 }, function (_ref3) {
   var theme = _ref3.theme;
-  return theme.palette.gray.dark;
+  return theme.palette.gray.semiLight;
 }, function (_ref4) {
   var theme = _ref4.theme;
+  return theme.palette.gray.semiLight;
+}, function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.palette.gray.dark;
+}, function (_ref6) {
+  var theme = _ref6.theme;
   return theme.palette.common.black;
 });
 var StyledCodeBlock = styled__default['default'](reactCodeBlocks.CodeBlock)(_templateObject4$i());
@@ -9869,20 +9875,20 @@ var StyledText$1 = styled__default['default'](Text).attrs(function () {
     fontSize: "sm",
     fontStyle: "italic"
   };
-})(_templateObject5$a(), function (_ref5) {
-  var spacing = _ref5.theme.spacing;
+})(_templateObject5$a(), function (_ref7) {
+  var spacing = _ref7.theme.spacing;
   return styled.css(["margin:", ";"], spacing(2, 0));
 });
-var ShareModule = function ShareModule(_ref6) {
+var ShareModule = function ShareModule(_ref8) {
   var _navigator;
 
-  var buttonProps = _ref6.buttonProps,
-      copyText = _ref6.copyText,
-      shareOptions = _ref6.shareOptions,
-      url = _ref6.url,
-      nftId = _ref6.nftId,
-      appUrl = _ref6.appUrl,
-      props = _objectWithoutPropertiesLoose(_ref6, ["buttonProps", "copyText", "shareOptions", "url", "nftId", "appUrl"]);
+  var buttonProps = _ref8.buttonProps,
+      copyText = _ref8.copyText,
+      shareOptions = _ref8.shareOptions,
+      url = _ref8.url,
+      nftId = _ref8.nftId,
+      appUrl = _ref8.appUrl,
+      props = _objectWithoutPropertiesLoose(_ref8, ["buttonProps", "copyText", "shareOptions", "url", "nftId", "appUrl"]);
 
   var _useState = React.useState(false),
       open = _useState[0],
