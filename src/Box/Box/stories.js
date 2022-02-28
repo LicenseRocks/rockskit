@@ -10,25 +10,30 @@ export default {
   decorators: [StoryWrapper],
 };
 
-export const main = () => {
+const createSharedDefaultProps = () => ({
+  contentPadding: boolean("Content padding", false),
+  footerActionTitle: text("Footer action title", "Submit"),
+  footerActionDisabled: boolean("Footer action disabled", false),
+  footerActionLoading: boolean("Footer action loading", false),
+  // footerRenderTitle: () => "Footer Title",
+  // footerRenderAction: () => "Footer Action",
+  headerActionIcon: text("Header action icon", "chevron-right"),
+  headerTitle: text("Header title", "Title"),
+  headerTitleIcon: text("Header title icon", "box"),
+  headerTitleIconHiddenSm: false,
+  headerSubTitle: text("Header sub title", "sub title"),
+  headerMetaTitle: text("Header meta title", "meta title"),
+  // headerRenderTitle: () => "Header Title",
+  // headerRenderAction: () => "Header Action",
+  loading: boolean("Loading", false),
+  loadingMessage: text("Loading message", "Loading... Thanks for waiting"),
+  transparentSm: boolean("Transparent SM", false),
+});
+
+export const full = () => {
   const defaultProps = {
-    alert: "This is an alert",
-    contentPadding: boolean("Content padding", false),
-    footerActionTitle: text("Footer action title", "Submit"),
-    footerActionDisabled: boolean("Footer action disabled", false),
-    footerActionLoading: boolean("Footer action loading", false),
-    // footerRenderTitle: () => "Footer Title",
-    // footerRenderAction: () => "Footer Action",
-    headerActionIcon: text("Header action icon", "chevron-right"),
-    headerTitle: text("Header title", "Title"),
-    headerTitleIcon: text("Header title icon", "box"),
-    headerTitleIconHiddenSm: false,
-    headerSubTitle: text("Header sub title", "sub title"),
-    headerMetaTitle: text("Header meta title", "meta title"),
-    // headerRenderTitle: () => "Header Title",
-    // headerRenderAction: () => "Header Action",
-    loading: boolean("Loading", false),
-    loadingMessage: text("Loading message", "Loading... Thanks for waiting"),
+    ...createSharedDefaultProps(),
+    alert: text("Alert", "This is an alert"),
     tabs: [
       {
         index: 0,
@@ -50,7 +55,6 @@ export const main = () => {
     tabsProps: {
       currentTab: 0,
     },
-    transparentSm: boolean("Transparent SM", false),
   };
 
   return (
@@ -79,4 +83,8 @@ export const main = () => {
       <br />
     </Box>
   );
+};
+
+export const Basic = () => {
+  return <Box {...createSharedDefaultProps()}>Hello</Box>;
 };
