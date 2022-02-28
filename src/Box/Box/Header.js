@@ -104,8 +104,9 @@ export const BoxHeader = ({
                 {metaTitle && (
                   <Text
                     content={metaTitle}
-                    color={metaTitleColor}
+                    color={metaTitleColor || "text"}
                     dBlock
+                    fontWeight="normal"
                     fontSize="sm"
                   />
                 )}
@@ -180,7 +181,7 @@ BoxHeader.defaultProps = {
   actionIconProps: {},
   actionIconSize: "lg",
   metaTitle: "",
-  metaTitleColor: "textSecondary",
+  metaTitleColor: "",
   renderAction: () => {},
   renderTitle: () => {},
   subTitle: "",

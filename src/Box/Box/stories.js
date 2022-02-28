@@ -23,6 +23,8 @@ export const main = () => {
     headerTitle: text("Header title", "Title"),
     headerTitleIcon: text("Header title icon", "box"),
     headerTitleIconHiddenSm: false,
+    headerSubTitle: text("Header sub title", "sub title"),
+    headerMetaTitle: text("Header meta title", "meta title"),
     // headerRenderTitle: () => "Header Title",
     // headerRenderAction: () => "Header Action",
     loading: boolean("Loading", false),
