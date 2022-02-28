@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 import { Button, FormError, ReactSelect } from "../..";
 import { StoryWrapper } from "../../../.storybook/decorators";
 
-const OPTIONS3 = [
+const OPTIONS = [
   { value: "ocean", label: "Ocean" },
   { value: "blue", label: "Blue", isDisabled: true },
   { value: "purple", label: "Purple" },
@@ -29,25 +29,6 @@ const OPTIONS2 = [
   { value: "salted-caramel", label: "Salted Caramel", rating: "crazy" },
 ];
 
-const OPTIONS = [
-  {
-    value: "POL",
-    label: (
-      <div>
-        <img
-          src="https://upload.wikimedia.org/wikipedia/en/thumb/1/12/Flag_of_Poland.svg/1200px-Flag_of_Poland.svg.png"
-          height="30px"
-          width="30px"
-        />
-        Poland{" "}
-      </div>
-    ),
-  },
-  { value: "EN", label: "Chocolate" },
-  { value: "DE", label: "Strawberry" },
-  { value: "USA", label: "Salted Caramel" },
-];
-
 const groupedOptions = [
   {
     label: "Colours",
@@ -56,10 +37,6 @@ const groupedOptions = [
   {
     label: "Flavours",
     options: OPTIONS2,
-  },
-  {
-    label: "Flags",
-    options: OPTIONS3,
   },
 ];
 
