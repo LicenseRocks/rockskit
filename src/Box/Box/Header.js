@@ -106,6 +106,7 @@ export const BoxHeader = ({
                     content={metaTitle}
                     color={metaTitleColor || "text"}
                     dBlock
+                    gutterBottom
                     fontWeight="normal"
                     fontSize="sm"
                   />
