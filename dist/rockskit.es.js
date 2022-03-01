@@ -772,7 +772,7 @@ function _templateObject$4() {
 }
 var StyledButton$2 = styled(ButtonBase)(_templateObject$4(), function (_ref) {
   var colors = _ref.colors;
-  return css(["border:2px solid ", ";color:", ";svg{color:", ";}:hover{background-color:", ";opacity:1;}"], colors.borderColor, colors.color, colors.color, colors.backgroundColorHover);
+  return css(["border:2px solid ", ";color:", ";svg{color:", ";}:hover{background-color:", ";color:", ";opacity:1;}"], colors.borderColor, colors.color, colors.color, colors.backgroundColorHover, colors.colorHover);
 });
 
 var colorMapper$1 = function colorMapper(color, theme) {
@@ -782,7 +782,8 @@ var colorMapper$1 = function colorMapper(color, theme) {
     color: theme.palette.gray.dark
   };
   if (color === "subtle") return {
-    backgroundColorHover: theme.palette.gray.semiLight,
+    colorHover: theme.palette.gray.semiLight,
+    backgroundColorHover: theme.palette.gray.dark,
     borderColor: theme.palette.gray.dark,
     color: theme.palette.gray.dark
   };
@@ -1974,8 +1975,9 @@ var BoxHeader = function BoxHeader(_ref9) {
     size: "lg"
   }, titleIconProps)), /*#__PURE__*/React.createElement("div", null, metaTitle && /*#__PURE__*/React.createElement(Text, {
     content: metaTitle,
-    color: metaTitleColor,
+    color: metaTitleColor || "text",
     dBlock: true,
+    fontWeight: "normal",
     fontSize: "sm"
   }), titleSize === "sm" ? /*#__PURE__*/React.createElement(H4, {
     content: title
@@ -2028,7 +2030,7 @@ BoxHeader.defaultProps = {
   actionIconProps: {},
   actionIconSize: "lg",
   metaTitle: "",
-  metaTitleColor: "textSecondary",
+  metaTitleColor: "",
   renderAction: function renderAction() {},
   renderTitle: function renderTitle() {},
   subTitle: "",
