@@ -15,6 +15,7 @@ const StyledButton = styled(ButtonBase)`
 
         :hover {
           background-color: ${colors.backgroundColorHover};
+          color: ${colors.colorHover};
           opacity: 1;
         }
       `;
@@ -32,7 +33,8 @@ const colorMapper = (color, theme) => {
 
   if (color === "subtle")
     return {
-      backgroundColorHover: theme.palette.gray.semiLight,
+      colorHover: theme.palette.gray.semiLight,
+      backgroundColorHover: theme.palette.gray.dark,
       borderColor: theme.palette.gray.dark,
       color: theme.palette.gray.dark,
     };
