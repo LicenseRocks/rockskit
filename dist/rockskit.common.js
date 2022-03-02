@@ -2022,6 +2022,7 @@ var BoxHeader = function BoxHeader(_ref9) {
     content: metaTitle,
     color: metaTitleColor || "text",
     dBlock: true,
+    gutterBottom: true,
     fontWeight: "normal",
     fontSize: "sm"
   }), titleSize === "sm" ? /*#__PURE__*/React__default['default'].createElement(H4, {
