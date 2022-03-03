@@ -34,9 +34,9 @@ const colorMapper = (color, theme) => {
   if (color === "subtle")
     return {
       colorHover: theme.palette.gray.semiLight,
-      backgroundColorHover: theme.palette.gray.dark,
-      borderColor: theme.palette.gray.dark,
-      color: theme.palette.gray.dark,
+      backgroundColorHover: theme.palette.gray.black,
+      borderColor: theme.palette.gray.black,
+      color: theme.palette.gray.black,
     };
 
   return {
