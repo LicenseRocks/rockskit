@@ -26,7 +26,7 @@ const StyledDivider = styled.hr`
     position: relative;
     display: inline-block;
     padding: ${({ theme }) => theme.spacing(0, 2)};
-    background-color: ${({ theme }) => theme.palette.common.white};
+    background-color: ${({ theme, labelColor }) => labelColor ? labelColor : theme.palette.common.white};
     color: ${({ theme }) => theme.palette.gray.dark};
     font-weight: 300;
     font-size: 16px;
