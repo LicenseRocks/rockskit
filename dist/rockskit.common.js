@@ -3000,8 +3000,9 @@ var StyledDivider = styled__default['default'].hr(_templateObject$r(), function 
   var theme = _ref4.theme;
   return theme.spacing(0, 2);
 }, function (_ref5) {
-  var theme = _ref5.theme;
-  return theme.palette.common.white;
+  var theme = _ref5.theme,
+      labelColor = _ref5.labelColor;
+  return labelColor ? labelColor : theme.palette.common.white;
 }, function (_ref6) {
   var theme = _ref6.theme;
   return theme.palette.gray.dark;
