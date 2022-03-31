@@ -170,6 +170,7 @@ export const Wizard = ({
   headerFadeColor,
   nextStepMethod,
   orientation,
+  onFinishDisabled,
   renderActionButtons,
   setCurrentStepIndex,
   steps,
@@ -232,6 +233,7 @@ export const Wizard = ({
       submitButtonLoading={submitButtonLoading}
       showNavigationButtons={showNavigationButtons}
       transitionDuration={transitionDuration}
+      onFinishDisabled={onFinishDisabled}
     />
   );
 

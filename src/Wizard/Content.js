@@ -40,6 +40,7 @@ export const WizardStepContent = ({
   renderActionButtons,
   stepCount,
   submitButtonDisabled,
+  onFinishDisabled,
   submitButtonLoading,
   showNavigationButtons,
   ...props
@@ -70,14 +71,24 @@ export const WizardStepContent = ({
 
           <div>
             {isLastStep && renderActionButtons()}
-
-            <Button
-              content={isLastStep ? "Finish" : "Next"}
-              disabled={submitButtonDisabled}
-              loading={submitButtonLoading}
-              onClick={nextStepMethod === "button" ? handleNext : undefined}
-              type={nextStepMethod}
-            />
+            {!onFinishDisabled && (
+              <Button
+                content={isLastStep ? "Finish" : "Next"}
+                disabled={submitButtonDisabled}
+                loading={submitButtonLoading}
+                onClick={nextStepMethod === "button" ? handleNext : undefined}
+                type={nextStepMethod}
+              />
+            )}
+            {!isLastStep && onFinishDisabled && (
+              <Button
+                content={isLastStep ? "Finish" : "Next"}
+                disabled={submitButtonDisabled}
+                loading={submitButtonLoading}
+                onClick={nextStepMethod === "button" ? handleNext : undefined}
+                type={nextStepMethod}
+              />
+            )}
           </div>
         </ActionWrapper>
       )}
@@ -99,6 +110,7 @@ WizardStepContent.propTypes = {
   stepCount: PropTypes.number.isRequired,
   submitButtonDisabled: PropTypes.bool,
   submitButtonLoading: PropTypes.bool,
+  onFinishDisabled: PropTypes.bool,
   showNavigationButtons: PropTypes.bool,
 };
 
@@ -109,4 +121,5 @@ WizardStepContent.defaultProps = {
   submitButtonDisabled: false,
   submitButtonLoading: false,
   showNavigationButtons: true,
+  onFinishDisabled: false,
 };
