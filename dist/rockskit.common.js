@@ -11009,9 +11009,10 @@ var WizardStepContent = function WizardStepContent(_ref5) {
       renderActionButtons = _ref5.renderActionButtons,
       stepCount = _ref5.stepCount,
       submitButtonDisabled = _ref5.submitButtonDisabled,
+      onFinishDisabled = _ref5.onFinishDisabled,
       submitButtonLoading = _ref5.submitButtonLoading,
       showNavigationButtons = _ref5.showNavigationButtons,
-      props = _objectWithoutPropertiesLoose(_ref5, ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "isHorizontal", "nextStepMethod", "renderActionButtons", "stepCount", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons"]);
+      props = _objectWithoutPropertiesLoose(_ref5, ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "isHorizontal", "nextStepMethod", "renderActionButtons", "stepCount", "submitButtonDisabled", "onFinishDisabled", "submitButtonLoading", "showNavigationButtons"]);
 
   return /*#__PURE__*/React__default['default'].createElement(StyledContent$1, _extends({
     isHorizontal: isHorizontal
@@ -11029,7 +11030,13 @@ var WizardStepContent = function WizardStepContent(_ref5) {
     dInline: true,
     fontStyle: "italic",
     ml: 2
-  }, currentStep + " of " + stepCount + " steps")), /*#__PURE__*/React__default['default'].createElement("div", null, isLastStep && renderActionButtons(), /*#__PURE__*/React__default['default'].createElement(Button, {
+  }, currentStep + " of " + stepCount + " steps")), /*#__PURE__*/React__default['default'].createElement("div", null, isLastStep && renderActionButtons(), !onFinishDisabled && /*#__PURE__*/React__default['default'].createElement(Button, {
+    content: isLastStep ? "Finish" : "Next",
+    disabled: submitButtonDisabled,
+    loading: submitButtonLoading,
+    onClick: nextStepMethod === "button" ? handleNext : undefined,
+    type: nextStepMethod
+  }), !isLastStep && onFinishDisabled && /*#__PURE__*/React__default['default'].createElement(Button, {
     content: isLastStep ? "Finish" : "Next",
     disabled: submitButtonDisabled,
     loading: submitButtonLoading,
@@ -11051,6 +11058,7 @@ WizardStepContent.propTypes = {
   stepCount: PropTypes__default['default'].number.isRequired,
   submitButtonDisabled: PropTypes__default['default'].bool,
   submitButtonLoading: PropTypes__default['default'].bool,
+  onFinishDisabled: PropTypes__default['default'].bool,
   showNavigationButtons: PropTypes__default['default'].bool
 };
 WizardStepContent.defaultProps = {
@@ -11059,7 +11067,8 @@ WizardStepContent.defaultProps = {
   renderActionButtons: function renderActionButtons() {},
   submitButtonDisabled: false,
   submitButtonLoading: false,
-  showNavigationButtons: true
+  showNavigationButtons: true,
+  onFinishDisabled: false
 };
 
 var stepBorderAndTitleColor = function stepBorderAndTitleColor(_ref) {
@@ -11322,6 +11331,7 @@ var Wizard = function Wizard(_ref10) {
       headerFadeColor = _ref10.headerFadeColor,
       nextStepMethod = _ref10.nextStepMethod,
       orientation = _ref10.orientation,
+      onFinishDisabled = _ref10.onFinishDisabled,
       renderActionButtons = _ref10.renderActionButtons,
       setCurrentStepIndex = _ref10.setCurrentStepIndex,
       steps = _ref10.steps,
@@ -11330,7 +11340,7 @@ var Wizard = function Wizard(_ref10) {
       showNavigationButtons = _ref10.showNavigationButtons,
       transitionDuration = _ref10.transitionDuration,
       backgroundStyle = _ref10.backgroundStyle,
-      props = _objectWithoutPropertiesLoose(_ref10, ["currentStepContent", "currentStepIndex", "headerFadeColor", "nextStepMethod", "orientation", "renderActionButtons", "setCurrentStepIndex", "steps", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons", "transitionDuration", "backgroundStyle"]);
+      props = _objectWithoutPropertiesLoose(_ref10, ["currentStepContent", "currentStepIndex", "headerFadeColor", "nextStepMethod", "orientation", "onFinishDisabled", "renderActionButtons", "setCurrentStepIndex", "steps", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons", "transitionDuration", "backgroundStyle"]);
 
   var stepRef = React.useRef(null);
   var wrapperRef = /*#__PURE__*/React.createRef();
@@ -11386,7 +11396,8 @@ var Wizard = function Wizard(_ref10) {
     submitButtonDisabled: submitButtonDisabled,
     submitButtonLoading: submitButtonLoading,
     showNavigationButtons: showNavigationButtons,
-    transitionDuration: transitionDuration
+    transitionDuration: transitionDuration,
+    onFinishDisabled: onFinishDisabled
   });
   return /*#__PURE__*/React__default['default'].createElement(Wrapper$e, props, /*#__PURE__*/React__default['default'].createElement(StepsWrapper, {
     headerFadeColor: headerFadeColor,
