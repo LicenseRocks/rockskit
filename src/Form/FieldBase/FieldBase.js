@@ -71,6 +71,8 @@ const StyledInput = styled(
 export const FieldBase = ({
   block,
   className,
+  copyable,
+  valueToCopy,
   disableScrollOnNumber,
   endIcon,
   endIconColor,
@@ -107,6 +109,8 @@ export const FieldBase = ({
     <FieldWrapper
       block={block}
       className={className}
+      copyable={copyable}
+      valueToCopy={valueToCopy}
       endIcon={endIcon}
       endIconColor={endIconColor}
       endIconOnClick={endIconOnClick}

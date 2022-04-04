@@ -19,7 +19,7 @@ export const main = (props) => {
     buttonProps: {
       size: "md",
     },
-    url: "https://license.rocks/",
+    url: text("Share URL", "https://license.rocks/"),
     appUrl: "https://preview-creatorshub.license.rocks",
     nftId: 120,
     ...props,

@@ -180,9 +180,9 @@ export const ShareModule = ({
       <StyledText content={copyText} />
 
       <Input
-        endIcon="copy"
+        copyable
+        valueToCopy={url}
         endIconColor="secondary"
-        endIconOnClick={() => copy(url)}
         readOnly
         selectable
         startIcon="link"

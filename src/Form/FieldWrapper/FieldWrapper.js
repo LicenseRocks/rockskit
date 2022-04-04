@@ -1,4 +1,5 @@
 import React from "react";
+import copy from "copy-to-clipboard";
 import styled, { css } from "styled-components";
 
 import { DISPLAY, SPACER } from "../../theme";
@@ -54,6 +55,8 @@ const StyledWrapper = styled.div`
 export const FieldWrapper = ({
   children,
   endIcon,
+  copyable,
+  valueToCopy,
   endIconColor,
   endIconOnClick,
   endIconPrefix,
@@ -64,6 +67,20 @@ export const FieldWrapper = ({
   startIconPrefix,
   ...props
 }) => {
+  const [hasJustCopied, setHasJustCopied] = React.useState(false);
+
+  React.useEffect(() => {
+    if (hasJustCopied) {
+      const timeout = setTimeout(() => {
+        setHasJustCopied(false);
+      }, 600);
+
+      return () => {
+        clearTimeout(timeout);
+      };
+    }
+  }, [hasJustCopied]);
+
   return (
     <StyledWrapper {...props}>
       {startIcon && (
@@ -78,14 +95,28 @@ export const FieldWrapper = ({
 
       {children}
 
-      {endIcon && (
+      {copyable ? (
+        !hasJustCopied ? (
+          <Icon
+            color={endIconColor}
+            icon="copy"
+            onClick={() => {
+              console.log({valueToCopy})
+              setHasJustCopied(true);
+              copy(valueToCopy, {debug: true});
+            }}
+          />
+        ) : (
+          <Icon icon="check" color={endIconColor} />
+        )
+      ) : endIcon ? (
         <Icon
           color={endIconColor}
           icon={endIcon}
           onClick={endIconOnClick}
           prefix={endIconPrefix}
         />
-      )}
+      ) : null}
     </StyledWrapper>
   );
 };
