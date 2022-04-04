@@ -101,9 +101,8 @@ export const FieldWrapper = ({
             color={endIconColor}
             icon="copy"
             onClick={() => {
-              console.log({valueToCopy})
               setHasJustCopied(true);
-              copy(valueToCopy, {debug: true});
+              copy(valueToCopy);
             }}
           />
         ) : (
