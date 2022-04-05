@@ -22,6 +22,7 @@ import MenuItem from '@material-ui/core/MenuItem';
 import QRCode from 'qrcode.react';
 import { Controller } from 'react-hook-form';
 import MuiPopover from '@material-ui/core/Popover';
+import copy from 'copy-to-clipboard';
 import { FilePond as FilePond$1 } from 'react-filepond';
 import AvatarEditor from 'react-avatar-editor';
 import { useDropzone } from 'react-dropzone';
@@ -45,7 +46,6 @@ import { useNProgress } from '@tanem/react-nprogress';
 import { Transition } from 'react-transition-group';
 import MuiPagination from '@material-ui/lab/Pagination';
 import PaginationItem from '@material-ui/lab/PaginationItem';
-import copy from 'copy-to-clipboard';
 import { CodeBlock, obsidian } from 'react-code-blocks';
 import MuiTabs from '@material-ui/core/Tabs';
 import MuiTab from '@material-ui/core/Tab';
@@ -3811,6 +3811,8 @@ FormError.defaultProps = FormErrorDefaultProps;
 var FieldWrapperPropTypes = _extends({
   block: PropTypes.bool,
   endIcon: PropTypes.string,
+  copyable: PropTypes.bool,
+  valueToCopy: PropTypes.string,
   endIconColor: PropTypes.oneOf(THEME_COLORS),
   endIconOnClick: PropTypes.func,
   endIconPrefix: PropTypes.string,
@@ -3823,6 +3825,8 @@ var FieldWrapperPropTypes = _extends({
 var FieldWrapperDefaultProps = {
   block: true,
   endIcon: "",
+  copyable: false,
+  valueToCopy: "",
   endIconColor: "input",
   fixedHeight: true,
   startIcon: "",
@@ -3879,6 +3883,8 @@ var StyledWrapper = styled.div(_templateObject$B(), function (_ref) {
 var FieldWrapper = function FieldWrapper(_ref12) {
   var children = _ref12.children,
       endIcon = _ref12.endIcon,
+      copyable = _ref12.copyable,
+      valueToCopy = _ref12.valueToCopy,
       endIconColor = _ref12.endIconColor,
       endIconOnClick = _ref12.endIconOnClick,
       endIconPrefix = _ref12.endIconPrefix,
@@ -3887,8 +3893,22 @@ var FieldWrapper = function FieldWrapper(_ref12) {
       startIconColor = _ref12.startIconColor,
       startIconOnClick = _ref12.startIconOnClick,
       startIconPrefix = _ref12.startIconPrefix,
-      props = _objectWithoutPropertiesLoose(_ref12, ["children", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "language", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
+      props = _objectWithoutPropertiesLoose(_ref12, ["children", "endIcon", "copyable", "valueToCopy", "endIconColor", "endIconOnClick", "endIconPrefix", "language", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
 
+  var _React$useState = React.useState(false),
+      hasJustCopied = _React$useState[0],
+      setHasJustCopied = _React$useState[1];
+
+  React.useEffect(function () {
+    if (hasJustCopied) {
+      var timeout = setTimeout(function () {
+        setHasJustCopied(false);
+      }, 600);
+      return function () {
+        clearTimeout(timeout);
+      };
+    }
+  }, [hasJustCopied]);
   return /*#__PURE__*/React.createElement(StyledWrapper, props, startIcon && /*#__PURE__*/React.createElement(Icon, {
     color: startIconColor,
     icon: startIcon,
@@ -3896,12 +3916,22 @@ var FieldWrapper = function FieldWrapper(_ref12) {
     prefix: startIconPrefix
   }), language && !startIcon && /*#__PURE__*/React.createElement(H5, {
     content: language
-  }), children, endIcon && /*#__PURE__*/React.createElement(Icon, {
+  }), children, copyable ? !hasJustCopied ? /*#__PURE__*/React.createElement(Icon, {
+    color: endIconColor,
+    icon: "copy",
+    onClick: function onClick() {
+      setHasJustCopied(true);
+      copy(valueToCopy);
+    }
+  }) : /*#__PURE__*/React.createElement(Icon, {
+    icon: "check",
+    color: endIconColor
+  }) : endIcon ? /*#__PURE__*/React.createElement(Icon, {
     color: endIconColor,
     icon: endIcon,
     onClick: endIconOnClick,
     prefix: endIconPrefix
-  }));
+  }) : null);
 };
 FieldWrapper.propTypes = FieldWrapperPropTypes;
 FieldWrapper.defaultProps = FieldWrapperDefaultProps;
@@ -3972,6 +4002,8 @@ forwardRef(function (_ref, ref) {
 var FieldBase = function FieldBase(_ref10) {
   var block = _ref10.block,
       className = _ref10.className,
+      copyable = _ref10.copyable,
+      valueToCopy = _ref10.valueToCopy,
       disableScrollOnNumber = _ref10.disableScrollOnNumber,
       endIcon = _ref10.endIcon,
       endIconColor = _ref10.endIconColor,
@@ -3986,7 +4018,7 @@ var FieldBase = function FieldBase(_ref10) {
       startIconOnClick = _ref10.startIconOnClick,
       startIconPrefix = _ref10.startIconPrefix,
       language = _ref10.language,
-      props = _objectWithoutPropertiesLoose(_ref10, ["block", "className", "disableScrollOnNumber", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "fixedHeight", "hasError", "hasWrapper", "register", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix", "language"]);
+      props = _objectWithoutPropertiesLoose(_ref10, ["block", "className", "copyable", "valueToCopy", "disableScrollOnNumber", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "fixedHeight", "hasError", "hasWrapper", "register", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix", "language"]);
 
   var input = function input() {
     return /*#__PURE__*/React.createElement(StyledInput$1, _extends({
@@ -4004,6 +4036,8 @@ var FieldBase = function FieldBase(_ref10) {
   return /*#__PURE__*/React.createElement(FieldWrapper, {
     block: block,
     className: className,
+    copyable: copyable,
+    valueToCopy: valueToCopy,
     endIcon: endIcon,
     endIconColor: endIconColor,
     endIconOnClick: endIconOnClick,
@@ -9923,11 +9957,9 @@ var ShareModule = function ShareModule(_ref8) {
   })), /*#__PURE__*/React.createElement(StyledText$1, {
     content: copyText
   }), /*#__PURE__*/React.createElement(Input, {
-    endIcon: "copy",
+    copyable: true,
+    valueToCopy: url,
     endIconColor: "secondary",
-    endIconOnClick: function endIconOnClick() {
-      return copy(url);
-    },
     readOnly: true,
     selectable: true,
     startIcon: "link",

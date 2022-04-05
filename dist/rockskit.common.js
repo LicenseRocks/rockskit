@@ -26,6 +26,7 @@ var MenuItem = require('@material-ui/core/MenuItem');
 var QRCode = require('qrcode.react');
 var reactHookForm = require('react-hook-form');
 var MuiPopover = require('@material-ui/core/Popover');
+var copy = require('copy-to-clipboard');
 var reactFilepond = require('react-filepond');
 var AvatarEditor = require('react-avatar-editor');
 var reactDropzone = require('react-dropzone');
@@ -49,7 +50,6 @@ var reactNprogress = require('@tanem/react-nprogress');
 var reactTransitionGroup = require('react-transition-group');
 var MuiPagination = require('@material-ui/lab/Pagination');
 var PaginationItem = require('@material-ui/lab/PaginationItem');
-var copy = require('copy-to-clipboard');
 var reactCodeBlocks = require('react-code-blocks');
 var MuiTabs = require('@material-ui/core/Tabs');
 var MuiTab = require('@material-ui/core/Tab');
@@ -72,6 +72,7 @@ var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu);
 var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
 var QRCode__default = /*#__PURE__*/_interopDefaultLegacy(QRCode);
 var MuiPopover__default = /*#__PURE__*/_interopDefaultLegacy(MuiPopover);
+var copy__default = /*#__PURE__*/_interopDefaultLegacy(copy);
 var AvatarEditor__default = /*#__PURE__*/_interopDefaultLegacy(AvatarEditor);
 var MuiSlider__default = /*#__PURE__*/_interopDefaultLegacy(MuiSlider);
 var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
@@ -91,7 +92,6 @@ var DialogContent__default = /*#__PURE__*/_interopDefaultLegacy(DialogContent);
 var DialogTitle__default = /*#__PURE__*/_interopDefaultLegacy(DialogTitle);
 var MuiPagination__default = /*#__PURE__*/_interopDefaultLegacy(MuiPagination);
 var PaginationItem__default = /*#__PURE__*/_interopDefaultLegacy(PaginationItem);
-var copy__default = /*#__PURE__*/_interopDefaultLegacy(copy);
 var MuiTabs__default = /*#__PURE__*/_interopDefaultLegacy(MuiTabs);
 var MuiTab__default = /*#__PURE__*/_interopDefaultLegacy(MuiTab);
 var MuiTooltip__default = /*#__PURE__*/_interopDefaultLegacy(MuiTooltip);
@@ -3856,6 +3856,8 @@ FormError.defaultProps = FormErrorDefaultProps;
 var FieldWrapperPropTypes = _extends({
   block: PropTypes__default['default'].bool,
   endIcon: PropTypes__default['default'].string,
+  copyable: PropTypes__default['default'].bool,
+  valueToCopy: PropTypes__default['default'].string,
   endIconColor: PropTypes__default['default'].oneOf(THEME_COLORS),
   endIconOnClick: PropTypes__default['default'].func,
   endIconPrefix: PropTypes__default['default'].string,
@@ -3868,6 +3870,8 @@ var FieldWrapperPropTypes = _extends({
 var FieldWrapperDefaultProps = {
   block: true,
   endIcon: "",
+  copyable: false,
+  valueToCopy: "",
   endIconColor: "input",
   fixedHeight: true,
   startIcon: "",
@@ -3924,6 +3928,8 @@ var StyledWrapper = styled__default['default'].div(_templateObject$B(), function
 var FieldWrapper = function FieldWrapper(_ref12) {
   var children = _ref12.children,
       endIcon = _ref12.endIcon,
+      copyable = _ref12.copyable,
+      valueToCopy = _ref12.valueToCopy,
       endIconColor = _ref12.endIconColor,
       endIconOnClick = _ref12.endIconOnClick,
       endIconPrefix = _ref12.endIconPrefix,
@@ -3932,8 +3938,22 @@ var FieldWrapper = function FieldWrapper(_ref12) {
       startIconColor = _ref12.startIconColor,
       startIconOnClick = _ref12.startIconOnClick,
       startIconPrefix = _ref12.startIconPrefix,
-      props = _objectWithoutPropertiesLoose(_ref12, ["children", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "language", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
+      props = _objectWithoutPropertiesLoose(_ref12, ["children", "endIcon", "copyable", "valueToCopy", "endIconColor", "endIconOnClick", "endIconPrefix", "language", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"]);
 
+  var _React$useState = React__default['default'].useState(false),
+      hasJustCopied = _React$useState[0],
+      setHasJustCopied = _React$useState[1];
+
+  React__default['default'].useEffect(function () {
+    if (hasJustCopied) {
+      var timeout = setTimeout(function () {
+        setHasJustCopied(false);
+      }, 600);
+      return function () {
+        clearTimeout(timeout);
+      };
+    }
+  }, [hasJustCopied]);
   return /*#__PURE__*/React__default['default'].createElement(StyledWrapper, props, startIcon && /*#__PURE__*/React__default['default'].createElement(Icon, {
     color: startIconColor,
     icon: startIcon,
@@ -3941,12 +3961,22 @@ var FieldWrapper = function FieldWrapper(_ref12) {
     prefix: startIconPrefix
   }), language && !startIcon && /*#__PURE__*/React__default['default'].createElement(H5, {
     content: language
-  }), children, endIcon && /*#__PURE__*/React__default['default'].createElement(Icon, {
+  }), children, copyable ? !hasJustCopied ? /*#__PURE__*/React__default['default'].createElement(Icon, {
+    color: endIconColor,
+    icon: "copy",
+    onClick: function onClick() {
+      setHasJustCopied(true);
+      copy__default['default'](valueToCopy);
+    }
+  }) : /*#__PURE__*/React__default['default'].createElement(Icon, {
+    icon: "check",
+    color: endIconColor
+  }) : endIcon ? /*#__PURE__*/React__default['default'].createElement(Icon, {
     color: endIconColor,
     icon: endIcon,
     onClick: endIconOnClick,
     prefix: endIconPrefix
-  }));
+  }) : null);
 };
 FieldWrapper.propTypes = FieldWrapperPropTypes;
 FieldWrapper.defaultProps = FieldWrapperDefaultProps;
@@ -4017,6 +4047,8 @@ React.forwardRef(function (_ref, ref) {
 var FieldBase = function FieldBase(_ref10) {
   var block = _ref10.block,
       className = _ref10.className,
+      copyable = _ref10.copyable,
+      valueToCopy = _ref10.valueToCopy,
       disableScrollOnNumber = _ref10.disableScrollOnNumber,
       endIcon = _ref10.endIcon,
       endIconColor = _ref10.endIconColor,
@@ -4031,7 +4063,7 @@ var FieldBase = function FieldBase(_ref10) {
       startIconOnClick = _ref10.startIconOnClick,
       startIconPrefix = _ref10.startIconPrefix,
       language = _ref10.language,
-      props = _objectWithoutPropertiesLoose(_ref10, ["block", "className", "disableScrollOnNumber", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "fixedHeight", "hasError", "hasWrapper", "register", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix", "language"]);
+      props = _objectWithoutPropertiesLoose(_ref10, ["block", "className", "copyable", "valueToCopy", "disableScrollOnNumber", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "fixedHeight", "hasError", "hasWrapper", "register", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix", "language"]);
 
   var input = function input() {
     return /*#__PURE__*/React__default['default'].createElement(StyledInput$1, _extends({
@@ -4049,6 +4081,8 @@ var FieldBase = function FieldBase(_ref10) {
   return /*#__PURE__*/React__default['default'].createElement(FieldWrapper, {
     block: block,
     className: className,
+    copyable: copyable,
+    valueToCopy: valueToCopy,
     endIcon: endIcon,
     endIconColor: endIconColor,
     endIconOnClick: endIconOnClick,
@@ -9968,11 +10002,9 @@ var ShareModule = function ShareModule(_ref8) {
   })), /*#__PURE__*/React__default['default'].createElement(StyledText$1, {
     content: copyText
   }), /*#__PURE__*/React__default['default'].createElement(Input, {
-    endIcon: "copy",
+    copyable: true,
+    valueToCopy: url,
     endIconColor: "secondary",
-    endIconOnClick: function endIconOnClick() {
-      return copy__default['default'](url);
-    },
     readOnly: true,
     selectable: true,
     startIcon: "link",
