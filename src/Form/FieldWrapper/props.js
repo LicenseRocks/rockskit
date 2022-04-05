@@ -9,6 +9,8 @@ import {
 export const FieldWrapperPropTypes = {
   block: PropTypes.bool,
   endIcon: PropTypes.string,
+  copyable: PropTypes.bool,
+  valueToCopy: PropTypes.string,
   endIconColor: PropTypes.oneOf(THEME_COLORS),
   endIconOnClick: PropTypes.func,
   endIconPrefix: PropTypes.string,
@@ -24,6 +26,8 @@ export const FieldWrapperPropTypes = {
 export const FieldWrapperDefaultProps = {
   block: true,
   endIcon: "",
+  copyable: false,
+  valueToCopy: "",
   endIconColor: "input",
   fixedHeight: true,
   startIcon: "",
