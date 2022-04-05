@@ -58,6 +58,7 @@ export const Markdown = ({ value, onChange, ...props }) => {
         formats={formats}
         onChange={onChange}
         theme="snow"
+        {...props}
       />
     </Container>
   );
