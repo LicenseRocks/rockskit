@@ -11,7 +11,5 @@ export const main = () => {
   const [content, setContent] = React.useState("");
   const defaultProps = {};
 
-  console.log(content);
-
   return <Markdown value={content} onChange={setContent} {...defaultProps} />;
 };
