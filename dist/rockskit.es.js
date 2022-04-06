@@ -39,7 +39,6 @@ import MuiContainer from '@material-ui/core/Container';
 import Drawer from '@material-ui/core/Drawer';
 import Fab from '@material-ui/core/Fab';
 import ReactQuill from 'react-quill';
-import 'react-quill/dist/quill.snow.css';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';

@@ -43,7 +43,6 @@ var MuiContainer = require('@material-ui/core/Container');
 var Drawer = require('@material-ui/core/Drawer');
 var Fab = require('@material-ui/core/Fab');
 var ReactQuill = require('react-quill');
-require('react-quill/dist/quill.snow.css');
 var CircularProgress = require('@material-ui/core/CircularProgress');
 var DialogActions = require('@material-ui/core/DialogActions');
 var DialogContent = require('@material-ui/core/DialogContent');
