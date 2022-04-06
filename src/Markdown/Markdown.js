@@ -1,7 +1,7 @@
 import React from "react";
 import styled, { css, useTheme } from "styled-components";
 import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css"; // ES6
+import "../../node_modules/react-quill/dist/quill.snow.css";
 
 import { MarkdownPropTypes, MarkdownDefaultProps } from "./props";
 
