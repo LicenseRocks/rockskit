@@ -4,7 +4,7 @@ import image from "@rollup/plugin-image";
 import commonjs from "@rollup/plugin-commonjs";
 import resolve from "@rollup/plugin-node-resolve";
 import peerDepsExternal from "rollup-plugin-peer-deps-external";
-import css from "rollup-plugin-import-css";
+//import css from "rollup-plugin-import-css";
 import pkg from "./package.json";
 
 const globals = {
@@ -22,7 +22,7 @@ const baseConfig = {
     }),
     resolve(),
     image(),
-    css(),
+    // css(),
     commonjs({ include: /node_modules/ }),
     babel({
       exclude: /node_modules/,

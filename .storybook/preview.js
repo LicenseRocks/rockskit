@@ -2,6 +2,7 @@ import { addDecorator, addParameters } from "@storybook/react";
 import { DocsPage, DocsContainer } from "@storybook/addon-docs/blocks";
 import "react-day-picker/lib/style.css";
 import "filepond/dist/filepond.min.css";
+import "react-quill/dist/quill.snow.css";
 
 import { Container } from "./decorators";
 
