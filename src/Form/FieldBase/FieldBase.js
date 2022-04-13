@@ -12,7 +12,7 @@ const StyledInput = styled(
 )`
   flex: 1;
   font-weight: 600;
-  font-size: 14px;
+  font-size: 16px;
   font-family: inherit;
   line-height: 120%;
   padding: 8px;
