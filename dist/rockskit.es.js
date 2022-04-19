@@ -6915,11 +6915,15 @@ var SelectItemsModal = function SelectItemsModal(_ref7) {
 };
 
 var ItemSelect = function ItemSelect(_ref) {
-  var register = _ref.register,
+  var async = _ref.async,
+      cacheOptions = _ref.cacheOptions,
+      register = _ref.register,
       control = _ref.control,
       setValue = _ref.setValue,
       options = _ref.options,
-      maxWidth = _ref.maxWidth;
+      maxWidth = _ref.maxWidth,
+      endpoint = _ref.endpoint,
+      endpointQueryFlag = _ref.endpointQueryFlag;
 
   var _useState = useState(false),
       openModal = _useState[0],
@@ -6928,6 +6932,24 @@ var ItemSelect = function ItemSelect(_ref) {
   var _useState2 = useState([]),
       selectedItems = _useState2[0],
       setSelectedItems = _useState2[1];
+
+  var _useState3 = useState([]),
+      endpointOptions = _useState3[0],
+      setEndpointOptions = _useState3[1];
+
+  useEffect(function () {
+    if (endpoint) {
+      loadOptionsfromEndpoint();
+    }
+  }, [endpoint]);
+
+  var loadOptionsfromEndpoint = function loadOptionsfromEndpoint() {
+    axios.get("" + endpoint).then(function (resp) {
+      setEndpointOptions(resp == null ? void 0 : resp.data);
+    }).catch(function (err) {
+      console.log(err);
+    });
+  };
 
   useEffect(function () {
     setValue("selectedItems", selectedItems == null ? void 0 : selectedItems.map(function (item) {
@@ -6965,7 +6987,7 @@ var ItemSelect = function ItemSelect(_ref) {
       return setSelectedItems(props);
     },
     selectedItems: selectedItems,
-    options: options
+    options: endpoint ? endpointOptions : options
   }));
 };
 ItemSelect.propTypes = ItemSelectPropTypes;
