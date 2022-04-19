@@ -40,8 +40,6 @@ export const main = () => {
 
   const formData = watch();
 
-  console.log(formData);
-
   return (
     <Container>
       <ItemSelect
@@ -49,6 +47,9 @@ export const main = () => {
         register={register}
         setValue={setValue}
         options={options}
+        endpoint={
+          "https://run.mocky.io/v3/5157d275-01b7-44b4-9d78-4eec6ebc2f64"
+        }
       />
     </Container>
   );

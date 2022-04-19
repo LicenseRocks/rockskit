@@ -3,16 +3,39 @@ import { Controller } from "react-hook-form";
 import { ItemSelectPropTypes, ItemSelectDefaultProps } from "./props";
 import { ItemsPreview } from "./components/itemsPreview";
 import { SelectItemsModal } from "./components/modal";
+import axios from "axios";
 
 export const ItemSelect = ({
+  async,
+  cacheOptions,
   register,
   control,
   setValue,
   options,
   maxWidth,
+  endpoint,
+  endpointQueryFlag,
 }) => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedItems, setSelectedItems] = useState([]);
+  const [endpointOptions, setEndpointOptions] = useState([]);
+
+  useEffect(() => {
+    if (endpoint) {
+      loadOptionsfromEndpoint();
+    }
+  }, [endpoint]);
+
+  const loadOptionsfromEndpoint = () => {
+    axios
+      .get(`${endpoint}`)
+      .then((resp) => {
+        setEndpointOptions(resp?.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
 
   useEffect(() => {
     setValue(
@@ -24,6 +47,7 @@ export const ItemSelect = ({
   const removeSelectedItem = (id) => {
     setSelectedItems(selectedItems?.filter((item) => item.id !== id));
   };
+
   return (
     <>
       <Controller
@@ -45,7 +69,7 @@ export const ItemSelect = ({
         onClose={() => setOpenModal(false)}
         handleSelectItems={(props) => setSelectedItems(props)}
         selectedItems={selectedItems}
-        options={options}
+        options={endpoint ? endpointOptions : options}
       />
     </>
   );
