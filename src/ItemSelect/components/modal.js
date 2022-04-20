@@ -5,16 +5,24 @@ import { Modal } from "../../Modal";
 import { SelectItemCard } from "./card";
 
 const StyledModal = styled(Modal)`
-  background-color: ${({ theme }) => theme.palette.common.white} !important;
   .MuiDialog-paper {
     min-height: 640px !important;
   }
   .MuiDialogTitle-root {
     padding-bottom: ${({ theme }) => theme.spacing(4)};
+    background-color: ${({ theme }) => theme.palette.common.white} !important;
   }
   .MuiDialogContent-root {
     border-top: none !important;
     background-color: ${({ theme }) => theme.palette.common.white} !important;
+  }
+  .MuiPaper-root {
+    background-color: ${({ theme }) => theme.palette.common.white} !important;
+    border-radius: 16px !important;
+  }
+  .MuiDialog-paper {
+    background-color: ${({ theme }) => theme.palette.common.white} !important;
+    border-radius: 16px !important;
   }
 `;
 const GridWrapper = styled.div`
