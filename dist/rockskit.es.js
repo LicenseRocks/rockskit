@@ -6480,7 +6480,7 @@ var Card = function Card(_ref17) {
     },
     color: "secondary",
     icon: "times"
-  })), /*#__PURE__*/React.createElement(StyledImage$1, {
+  })), coverSrc && /*#__PURE__*/React.createElement(StyledImage$1, {
     src: coverSrc
   }));
 };
@@ -6806,7 +6806,7 @@ var SelectItemCard = function SelectItemCard(_ref13) {
     },
     color: "secondary",
     icon: "times"
-  })), /*#__PURE__*/React.createElement(CardStyledImage, {
+  })), coverSrc && /*#__PURE__*/React.createElement(CardStyledImage, {
     src: coverSrc
   }));
 };
@@ -6822,7 +6822,7 @@ function _templateObject2$o() {
 }
 
 function _templateObject$10() {
-  var data = _taggedTemplateLiteralLoose(["\n  .MuiDialog-paper {\n    min-height: 640px !important;\n  }\n  .MuiDialogTitle-root {\n    padding-bottom: ", ";\n  }\n  .MuiDialogContent-root {\n    border-top: none !important;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  background-color: ", " !important;\n  .MuiDialog-paper {\n    min-height: 640px !important;\n  }\n  .MuiDialogTitle-root {\n    padding-bottom: ", ";\n  }\n  .MuiDialogContent-root {\n    border-top: none !important;\n    background-color: ", " !important;\n  }\n"]);
 
   _templateObject$10 = function _templateObject() {
     return data;
@@ -6832,31 +6832,37 @@ function _templateObject$10() {
 }
 var StyledModal = styled(Modal)(_templateObject$10(), function (_ref) {
   var theme = _ref.theme;
-  return theme.spacing(4);
-});
-var GridWrapper = styled.div(_templateObject2$o(), function (_ref2) {
+  return theme.palette.common.white;
+}, function (_ref2) {
   var theme = _ref2.theme;
-  return theme.palette.gray.semiLight;
+  return theme.spacing(4);
 }, function (_ref3) {
   var theme = _ref3.theme;
-  return theme.spacing(4, 6);
-}, function (_ref4) {
+  return theme.palette.common.white;
+});
+var GridWrapper = styled.div(_templateObject2$o(), function (_ref4) {
   var theme = _ref4.theme;
-  return theme.spacing(4);
+  return theme.palette.gray.semiLight;
 }, function (_ref5) {
   var theme = _ref5.theme;
-  return theme.spacing(2);
+  return theme.spacing(4, 6);
 }, function (_ref6) {
   var theme = _ref6.theme;
   return theme.spacing(4);
+}, function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.spacing(2);
+}, function (_ref8) {
+  var theme = _ref8.theme;
+  return theme.spacing(4);
 });
-var SelectItemsModal = function SelectItemsModal(_ref7) {
-  var action = _ref7.action,
-      isOpen = _ref7.isOpen,
-      onClose = _ref7.onClose,
-      handleSelectItems = _ref7.handleSelectItems,
-      selectedItems = _ref7.selectedItems,
-      options = _ref7.options;
+var SelectItemsModal = function SelectItemsModal(_ref9) {
+  var action = _ref9.action,
+      isOpen = _ref9.isOpen,
+      onClose = _ref9.onClose,
+      handleSelectItems = _ref9.handleSelectItems,
+      selectedItems = _ref9.selectedItems,
+      options = _ref9.options;
 
   var _useState = useState(false),
       openModal = _useState[0],

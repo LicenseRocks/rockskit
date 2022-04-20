@@ -5,6 +5,7 @@ import { Modal } from "../../Modal";
 import { SelectItemCard } from "./card";
 
 const StyledModal = styled(Modal)`
+  background-color: ${({ theme }) => theme.palette.common.white} !important;
   .MuiDialog-paper {
     min-height: 640px !important;
   }
@@ -13,6 +14,7 @@ const StyledModal = styled(Modal)`
   }
   .MuiDialogContent-root {
     border-top: none !important;
+    background-color: ${({ theme }) => theme.palette.common.white} !important;
   }
 `;
 const GridWrapper = styled.div`

@@ -90,7 +90,7 @@ export const SelectItemCard = ({
           />
         )}
       </CardHeaderRow>
-      <CardStyledImage src={coverSrc} />
+      {coverSrc && <CardStyledImage src={coverSrc} />}
     </CardItem>
   );
 };

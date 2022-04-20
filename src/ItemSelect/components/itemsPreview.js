@@ -106,8 +106,7 @@ const Card = ({ id, coverSrc, title, onClick, isRemovable, onRemove }) => {
           <Close onClick={() => onRemove(id)} color="secondary" icon="times" />
         )}
       </HeaderRow>
-
-      <StyledImage src={coverSrc} />
+      {coverSrc && <StyledImage src={coverSrc} />}
     </Item>
   );
 };
