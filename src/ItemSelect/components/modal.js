@@ -10,17 +10,13 @@ const StyledModal = styled(Modal)`
   }
   .MuiDialogTitle-root {
     padding-bottom: ${({ theme }) => theme.spacing(4)};
-    background-color: ${({ theme }) => theme.palette.common.white} !important;
   }
   .MuiDialogContent-root {
     border-top: none !important;
     background-color: ${({ theme }) => theme.palette.common.white} !important;
   }
-  .MuiPaper-root {
-    background-color: ${({ theme }) => theme.palette.common.white} !important;
-    border-radius: 16px !important;
-  }
-  .MuiDialog-paper {
+
+  [class*="MuiPaper-root"] {
     background-color: ${({ theme }) => theme.palette.common.white} !important;
     border-radius: 16px !important;
   }
@@ -79,6 +75,7 @@ export const SelectItemsModal = ({
       title={`select Merch Items`}
       isOpen={isOpen}
       onClose={onClose}
+      className="modal_select"
     >
       <GridWrapper>
         <Masonry
