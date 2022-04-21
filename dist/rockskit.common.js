@@ -6868,7 +6868,7 @@ function _templateObject2$o() {
 }
 
 function _templateObject$10() {
-  var data = _taggedTemplateLiteralLoose(["\n  .MuiDialog-paper {\n    min-height: 640px !important;\n  }\n  .MuiDialogTitle-root {\n    padding-bottom: ", ";\n    background-color: ", " !important;\n  }\n  .MuiDialogContent-root {\n    border-top: none !important;\n    background-color: ", " !important;\n  }\n  .MuiPaper-root {\n    background-color: ", " !important;\n    border-radius: 16px !important;\n  }\n  .MuiDialog-paper {\n    background-color: ", " !important;\n    border-radius: 16px !important;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  .MuiDialog-paper {\n    min-height: 640px !important;\n  }\n  .MuiDialogTitle-root {\n    padding-bottom: ", ";\n  }\n  .MuiDialogContent-root {\n    border-top: none !important;\n    background-color: ", " !important;\n  }\n\n  [class*=\"MuiPaper-root\"] {\n    background-color: ", " !important;\n    border-radius: 16px !important;\n  }\n"]);
 
   _templateObject$10 = function _templateObject() {
     return data;
@@ -6885,36 +6885,30 @@ var StyledModal = styled__default['default'](Modal)(_templateObject$10(), functi
 }, function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.common.white;
-}, function (_ref4) {
+});
+var GridWrapper = styled__default['default'].div(_templateObject2$o(), function (_ref4) {
   var theme = _ref4.theme;
-  return theme.palette.common.white;
+  return theme.palette.gray.semiLight;
 }, function (_ref5) {
   var theme = _ref5.theme;
-  return theme.palette.common.white;
-});
-var GridWrapper = styled__default['default'].div(_templateObject2$o(), function (_ref6) {
+  return theme.spacing(4, 6);
+}, function (_ref6) {
   var theme = _ref6.theme;
-  return theme.palette.gray.semiLight;
+  return theme.spacing(4);
 }, function (_ref7) {
   var theme = _ref7.theme;
-  return theme.spacing(4, 6);
+  return theme.spacing(2);
 }, function (_ref8) {
   var theme = _ref8.theme;
   return theme.spacing(4);
-}, function (_ref9) {
-  var theme = _ref9.theme;
-  return theme.spacing(2);
-}, function (_ref10) {
-  var theme = _ref10.theme;
-  return theme.spacing(4);
 });
-var SelectItemsModal = function SelectItemsModal(_ref11) {
-  var action = _ref11.action,
-      isOpen = _ref11.isOpen,
-      onClose = _ref11.onClose,
-      handleSelectItems = _ref11.handleSelectItems,
-      selectedItems = _ref11.selectedItems,
-      options = _ref11.options;
+var SelectItemsModal = function SelectItemsModal(_ref9) {
+  var action = _ref9.action,
+      isOpen = _ref9.isOpen,
+      onClose = _ref9.onClose,
+      handleSelectItems = _ref9.handleSelectItems,
+      selectedItems = _ref9.selectedItems,
+      options = _ref9.options;
 
   var _useState = React.useState(false),
       openModal = _useState[0],
@@ -6933,7 +6927,8 @@ var SelectItemsModal = function SelectItemsModal(_ref11) {
     actionTitle: "add",
     title: "select Merch Items",
     isOpen: isOpen,
-    onClose: onClose
+    onClose: onClose,
+    className: "modal_select"
   }, /*#__PURE__*/React__default['default'].createElement(GridWrapper, null, /*#__PURE__*/React__default['default'].createElement(Masonry__default['default'], {
     breakpointCols: {
       default: 4,
