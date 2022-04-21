@@ -22,12 +22,82 @@ const Container = styled.div`
     `}
 `;
 
+const Masker = styled.div`
+  width: 95%;
+  height: 95%;
+  background-color: ${({ theme }) => theme.palette.gray.semiLight};
+  border-radius: 8px;
+  mask-image: radial-gradient(
+      circle at left center,
+      transparent 20px,
+      black 21px,
+      black 55%,
+      transparent 0
+    ),
+    radial-gradient(
+      circle at right center,
+      transparent 20px,
+      black 21px,
+      black 55%,
+      transparent 0
+    ),
+    linear-gradient(
+      to top,
+      transparent 0px,
+      black 0px,
+      black 25%,
+      transparent 0
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0px,
+      black 0px,
+      black 25%,
+      transparent 0
+    );
+
+  display: grid !important;
+  place-items: center;
+`;
+
 const SelectItem = styled.div`
+  mask-image: radial-gradient(
+      circle at left center,
+      transparent 19px,
+      black 21px,
+      black 55%,
+      transparent 0
+    ),
+    radial-gradient(
+      circle at right center,
+      transparent 19px,
+      black 21px,
+      black 55%,
+      transparent 0
+    ),
+    linear-gradient(
+      to top,
+      transparent 0px,
+      black 0px,
+      black 25%,
+      transparent 0
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0px,
+      black 0px,
+      black 25%,
+      transparent 0
+    );
+  mask-border-width: 5%;
+
+  background-color: ${({ theme }) => theme.palette.gray.regular};
+  //padding: ${({ theme }) => theme.spacing(1)};
+
   position: relative;
   width: 169px;
   min-height: 200px !important;
   border-radius: 12px;
-  border: 3px solid ${({ theme }) => theme.palette.gray.regular};
   cursor: pointer;
   margin: ${({ theme }) => theme.spacing(2)};
 
@@ -77,6 +147,35 @@ const StyledImage = styled(Image)`
   border-radius: 12px;
   margin-left: 10px;
   margin-right: 10px;
+
+  mask-image: radial-gradient(
+      circle at left center,
+      transparent 20px,
+      black 21px,
+      black 55%,
+      transparent 0
+    ),
+    radial-gradient(
+      circle at right center,
+      transparent 20px,
+      black 21px,
+      black 55%,
+      transparent 0
+    ),
+    linear-gradient(
+      to top,
+      transparent 0px,
+      black 0px,
+      black 25%,
+      transparent 0
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0px,
+      black 0px,
+      black 25%,
+      transparent 0
+    );
 `;
 
 const Title = styled(H6)`
@@ -90,8 +189,11 @@ const Title = styled(H6)`
 const SelectNftCard = ({ onClick }) => {
   return (
     <SelectItem onClick={onClick}>
-      <AddIcon icon="plus" />
-      <Description content={"select"} />
+      <Masker>
+        {" "}
+        <AddIcon icon="plus" />
+        <Description content={"select"} />
+      </Masker>
     </SelectItem>
   );
 };

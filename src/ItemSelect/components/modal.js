@@ -19,6 +19,7 @@ const StyledModal = styled(Modal)`
   [class*="MuiPaper-root"] {
     background-color: ${({ theme }) => theme.palette.common.white} !important;
     border-radius: 16px !important;
+    min-width: 768px;
   }
 `;
 const GridWrapper = styled.div`

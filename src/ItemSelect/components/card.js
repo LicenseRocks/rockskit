@@ -30,6 +30,35 @@ const CardStyledImage = styled(Image)`
   border-radius: 12px;
   margin-left: 10px;
   margin-right: 10px;
+
+  mask-image: radial-gradient(
+      circle at left center,
+      transparent 20px,
+      black 21px,
+      black 55%,
+      transparent 0
+    ),
+    radial-gradient(
+      circle at right center,
+      transparent 20px,
+      black 21px,
+      black 55%,
+      transparent 0
+    ),
+    linear-gradient(
+      to top,
+      transparent 0px,
+      black 0px,
+      black 25%,
+      transparent 0
+    ),
+    linear-gradient(
+      to bottom,
+      transparent 0px,
+      black 0px,
+      black 25%,
+      transparent 0
+    );
 `;
 const CardHeaderRow = styled.div`
   display: flex;
