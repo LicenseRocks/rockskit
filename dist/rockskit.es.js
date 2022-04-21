@@ -6307,8 +6307,18 @@ var ItemSelectPropTypes = _extends({
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ItemSelectDefaultProps = {};
 
-function _templateObject9() {
+function _templateObject10() {
   var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n  height: 60px;\n  width: 100%;\n  padding-left: ", ";\n  padding-top: ", ";\n"]);
+
+  _templateObject10 = function _templateObject10() {
+    return data;
+  };
+
+  return data;
+}
+
+function _templateObject9() {
+  var data = _taggedTemplateLiteralLoose(["\n  width: 148px;\n  height: 130px;\n  object-fit: cover;\n  z-index: 2;\n  border-radius: 12px;\n  margin-left: 10px;\n  margin-right: 10px;\n\n  mask-image: radial-gradient(\n      circle at left center,\n      transparent 20px,\n      black 21px,\n      black 55%,\n      transparent 0\n    ),\n    radial-gradient(\n      circle at right center,\n      transparent 20px,\n      black 21px,\n      black 55%,\n      transparent 0\n    ),\n    linear-gradient(\n      to top,\n      transparent 0px,\n      black 0px,\n      black 25%,\n      transparent 0\n    ),\n    linear-gradient(\n      to bottom,\n      transparent 0px,\n      black 0px,\n      black 25%,\n      transparent 0\n    );\n"]);
 
   _templateObject9 = function _templateObject9() {
     return data;
@@ -6318,7 +6328,7 @@ function _templateObject9() {
 }
 
 function _templateObject8$1() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 148px;\n  height: 130px;\n  object-fit: cover;\n  z-index: 2;\n  border-radius: 12px;\n  margin-left: 10px;\n  margin-right: 10px;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 14px !important;\n  height: 14px !important;\n  margin-right: 10px;\n  margin-left: ", ";\n  margin-top: ", ";\n  cursor: pointer;\n"]);
 
   _templateObject8$1 = function _templateObject8() {
     return data;
@@ -6328,7 +6338,7 @@ function _templateObject8$1() {
 }
 
 function _templateObject7$2() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 14px !important;\n  height: 14px !important;\n  margin-right: 10px;\n  margin-left: ", ";\n  margin-top: ", ";\n  cursor: pointer;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n"]);
 
   _templateObject7$2 = function _templateObject7() {
     return data;
@@ -6338,7 +6348,7 @@ function _templateObject7$2() {
 }
 
 function _templateObject6$3() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 168px;\n  min-height: 200px !important;\n  border-radius: 12px;\n  box-shadow: rgba(41, 40, 57, 0.08) 0px 8px 32px;\n  cursor: pointer;\n  margin: ", ";\n  background-color: ", ";\n"]);
 
   _templateObject6$3 = function _templateObject6() {
     return data;
@@ -6348,7 +6358,7 @@ function _templateObject6$3() {
 }
 
 function _templateObject5$7() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 168px;\n  min-height: 200px !important;\n  border-radius: 12px;\n  box-shadow: rgba(41, 40, 57, 0.08) 0px 8px 32px;\n  cursor: pointer;\n  margin: ", ";\n  background-color: ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  bottom: 40px;\n  color: ", ";\n"]);
 
   _templateObject5$7 = function _templateObject5() {
     return data;
@@ -6358,7 +6368,7 @@ function _templateObject5$7() {
 }
 
 function _templateObject4$8() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: absolute;\n  bottom: 40px;\n  color: ", ";\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  font-size: 28px !important;\n  color: ", " !important;\n"]);
 
   _templateObject4$8 = function _templateObject4() {
     return data;
@@ -6368,7 +6378,7 @@ function _templateObject4$8() {
 }
 
 function _templateObject3$f() {
-  var data = _taggedTemplateLiteralLoose(["\n  font-size: 28px !important;\n  color: ", " !important;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  mask-image: radial-gradient(\n      circle at left center,\n      transparent 19px,\n      black 21px,\n      black 55%,\n      transparent 0\n    ),\n    radial-gradient(\n      circle at right center,\n      transparent 19px,\n      black 21px,\n      black 55%,\n      transparent 0\n    ),\n    linear-gradient(\n      to top,\n      transparent 0px,\n      black 0px,\n      black 25%,\n      transparent 0\n    ),\n    linear-gradient(\n      to bottom,\n      transparent 0px,\n      black 0px,\n      black 25%,\n      transparent 0\n    );\n  mask-border-width: 5%;\n\n  background-color: ", ";\n  //padding: ", ";\n\n  position: relative;\n  width: 169px;\n  min-height: 200px !important;\n  border-radius: 12px;\n  cursor: pointer;\n  margin: ", ";\n\n  display: grid !important;\n  place-items: center;\n"]);
 
   _templateObject3$f = function _templateObject3() {
     return data;
@@ -6378,7 +6388,7 @@ function _templateObject3$f() {
 }
 
 function _templateObject2$l() {
-  var data = _taggedTemplateLiteralLoose(["\n  position: relative;\n  width: 169px;\n  min-height: 200px !important;\n  border-radius: 12px;\n  border: 3px solid ", ";\n  cursor: pointer;\n  margin: ", ";\n\n  display: grid !important;\n  place-items: center;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 95%;\n  height: 95%;\n  background-color: ", ";\n  border-radius: 8px;\n  mask-image: radial-gradient(\n      circle at left center,\n      transparent 20px,\n      black 21px,\n      black 55%,\n      transparent 0\n    ),\n    radial-gradient(\n      circle at right center,\n      transparent 20px,\n      black 21px,\n      black 55%,\n      transparent 0\n    ),\n    linear-gradient(\n      to top,\n      transparent 0px,\n      black 0px,\n      black 25%,\n      transparent 0\n    ),\n    linear-gradient(\n      to bottom,\n      transparent 0px,\n      black 0px,\n      black 25%,\n      transparent 0\n    );\n\n  display: grid !important;\n  place-items: center;\n"]);
 
   _templateObject2$l = function _templateObject2() {
     return data;
@@ -6413,63 +6423,70 @@ var Container$8 = styled.div(_templateObject$Z(), function (_ref) {
       items = _ref5.items;
   return maxWidth && items === 0 && css(["max-width:", "px !important;"], maxWidth);
 });
-var SelectItem = styled.div(_templateObject2$l(), function (_ref6) {
+var Masker = styled.div(_templateObject2$l(), function (_ref6) {
   var theme = _ref6.theme;
-  return theme.palette.gray.regular;
-}, function (_ref7) {
+  return theme.palette.gray.semiLight;
+});
+var SelectItem = styled.div(_templateObject3$f(), function (_ref7) {
   var theme = _ref7.theme;
-  return theme.spacing(2);
-});
-var AddIcon = styled(Icon)(_templateObject3$f(), function (_ref8) {
+  return theme.palette.gray.regular;
+}, function (_ref8) {
   var theme = _ref8.theme;
-  return theme.palette.gray.medium;
-});
-var Description$1 = styled(Text)(_templateObject4$8(), function (_ref9) {
+  return theme.spacing(1);
+}, function (_ref9) {
   var theme = _ref9.theme;
+  return theme.spacing(2);
+});
+var AddIcon = styled(Icon)(_templateObject4$8(), function (_ref10) {
+  var theme = _ref10.theme;
   return theme.palette.gray.medium;
 });
-var Item$3 = styled.div(_templateObject5$7(), function (_ref10) {
-  var theme = _ref10.theme;
-  return theme.spacing(2);
-}, function (_ref11) {
+var Description$1 = styled(Text)(_templateObject5$7(), function (_ref11) {
   var theme = _ref11.theme;
-  return theme.palette.common.white;
+  return theme.palette.gray.medium;
 });
-var HeaderRow = styled.div(_templateObject6$3());
-var Close = styled(Icon)(_templateObject7$2(), function (_ref12) {
+var Item$3 = styled.div(_templateObject6$3(), function (_ref12) {
   var theme = _ref12.theme;
   return theme.spacing(2);
 }, function (_ref13) {
   var theme = _ref13.theme;
-  return theme.spacing(2);
+  return theme.palette.common.white;
 });
-var StyledImage$1 = styled(Image)(_templateObject8$1());
-var Title = styled(H6)(_templateObject9(), function (_ref14) {
+var HeaderRow = styled.div(_templateObject7$2());
+var Close = styled(Icon)(_templateObject8$1(), function (_ref14) {
   var theme = _ref14.theme;
-  return theme.spacing(3);
+  return theme.spacing(2);
 }, function (_ref15) {
   var theme = _ref15.theme;
   return theme.spacing(2);
 });
+var StyledImage$1 = styled(Image)(_templateObject9());
+var Title = styled(H6)(_templateObject10(), function (_ref16) {
+  var theme = _ref16.theme;
+  return theme.spacing(3);
+}, function (_ref17) {
+  var theme = _ref17.theme;
+  return theme.spacing(2);
+});
 
-var SelectNftCard = function SelectNftCard(_ref16) {
-  var onClick = _ref16.onClick;
+var SelectNftCard = function SelectNftCard(_ref18) {
+  var onClick = _ref18.onClick;
   return /*#__PURE__*/React.createElement(SelectItem, {
     onClick: onClick
-  }, /*#__PURE__*/React.createElement(AddIcon, {
+  }, /*#__PURE__*/React.createElement(Masker, null, " ", /*#__PURE__*/React.createElement(AddIcon, {
     icon: "plus"
   }), /*#__PURE__*/React.createElement(Description$1, {
     content: "select"
-  }));
+  })));
 };
 
-var Card = function Card(_ref17) {
-  var id = _ref17.id,
-      coverSrc = _ref17.coverSrc,
-      title = _ref17.title,
-      onClick = _ref17.onClick,
-      isRemovable = _ref17.isRemovable,
-      onRemove = _ref17.onRemove;
+var Card = function Card(_ref19) {
+  var id = _ref19.id,
+      coverSrc = _ref19.coverSrc,
+      title = _ref19.title,
+      onClick = _ref19.onClick,
+      isRemovable = _ref19.isRemovable,
+      onRemove = _ref19.onRemove;
   return /*#__PURE__*/React.createElement(Item$3, {
     onClick: onClick
   }, /*#__PURE__*/React.createElement(HeaderRow, null, /*#__PURE__*/React.createElement(Title, {
@@ -6485,11 +6502,11 @@ var Card = function Card(_ref17) {
   }));
 };
 
-var ItemsPreview = function ItemsPreview(_ref18) {
-  var items = _ref18.items,
-      onRemove = _ref18.onRemove,
-      action = _ref18.action,
-      maxWidth = _ref18.maxWidth;
+var ItemsPreview = function ItemsPreview(_ref20) {
+  var items = _ref20.items,
+      onRemove = _ref20.onRemove,
+      action = _ref20.action,
+      maxWidth = _ref20.maxWidth;
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(Container$8, {
     maxWidth: maxWidth,
     items: items == null ? void 0 : items.length
@@ -6714,7 +6731,7 @@ function _templateObject4$a() {
 }
 
 function _templateObject3$h() {
-  var data = _taggedTemplateLiteralLoose(["\n  width: 148px;\n  height: 130px;\n  object-fit: cover;\n  z-index: 2;\n  border-radius: 12px;\n  margin-left: 10px;\n  margin-right: 10px;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  width: 148px;\n  height: 130px;\n  object-fit: cover;\n  z-index: 2;\n  border-radius: 12px;\n  margin-left: 10px;\n  margin-right: 10px;\n\n  mask-image: radial-gradient(\n      circle at left center,\n      transparent 20px,\n      black 21px,\n      black 55%,\n      transparent 0\n    ),\n    radial-gradient(\n      circle at right center,\n      transparent 20px,\n      black 21px,\n      black 55%,\n      transparent 0\n    ),\n    linear-gradient(\n      to top,\n      transparent 0px,\n      black 0px,\n      black 25%,\n      transparent 0\n    ),\n    linear-gradient(\n      to bottom,\n      transparent 0px,\n      black 0px,\n      black 25%,\n      transparent 0\n    );\n"]);
 
   _templateObject3$h = function _templateObject3() {
     return data;
@@ -6822,7 +6839,7 @@ function _templateObject2$o() {
 }
 
 function _templateObject$10() {
-  var data = _taggedTemplateLiteralLoose(["\n  .MuiDialog-paper {\n    min-height: 640px !important;\n  }\n  .MuiDialogTitle-root {\n    padding-bottom: ", ";\n  }\n  .MuiDialogContent-root {\n    border-top: none !important;\n    background-color: ", " !important;\n  }\n\n  [class*=\"MuiPaper-root\"] {\n    background-color: ", " !important;\n    border-radius: 16px !important;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  .MuiDialog-paper {\n    min-height: 640px !important;\n  }\n  .MuiDialogTitle-root {\n    padding-bottom: ", ";\n  }\n  .MuiDialogContent-root {\n    border-top: none !important;\n    background-color: ", " !important;\n  }\n\n  [class*=\"MuiPaper-root\"] {\n    background-color: ", " !important;\n    border-radius: 16px !important;\n    min-width: 768px;\n  }\n"]);
 
   _templateObject$10 = function _templateObject() {
     return data;
