@@ -49,10 +49,10 @@ export const RocksKitTheme = ({ colors, fonts, loadingIndicator } = {}) => {
     gray: {
       black: colors?.basicFontsColor || KIT_COLORS.gray.black,
       dark: KIT_COLORS.gray.dark,
-      regular: colors?.soldOutNft || KIT_COLORS.gray.regular,
+      regular: colors?.secondaryComponentsColor || KIT_COLORS.gray.regular,
       medium: colors?.secondaryFontColor || KIT_COLORS.gray.medium,
-      light: KIT_COLORS.gray.light,
-      semiLight: KIT_COLORS.gray.semiLight,
+      light: colors?.elementsPrimaryColor || KIT_COLORS.gray.light,
+      semiLight: colors?.elementsSecondaryColor || KIT_COLORS.gray.semiLight,
       white: KIT_COLORS.gray.white,
     },
     success: {
