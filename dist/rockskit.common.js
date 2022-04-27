@@ -377,8 +377,8 @@ var RocksKitTheme = function RocksKitTheme(_temp) {
       light: (colors == null ? void 0 : colors.primaryLight) || KIT_COLORS.primary.light
     },
     secondary: {
-      main: KIT_COLORS.gray.dark,
-      light: KIT_COLORS.gray.semiLight,
+      main: (colors == null ? void 0 : colors.elementsThirdColor) || KIT_COLORS.gray.dark,
+      light: (colors == null ? void 0 : colors.elementsSecondaryColor) || KIT_COLORS.gray.semiLight,
       dark: (colors == null ? void 0 : colors.basicFontsColor) || KIT_COLORS.gray.black
     },
     text: {
@@ -387,7 +387,7 @@ var RocksKitTheme = function RocksKitTheme(_temp) {
     },
     gray: {
       black: (colors == null ? void 0 : colors.basicFontsColor) || KIT_COLORS.gray.black,
-      dark: KIT_COLORS.gray.dark,
+      dark: (colors == null ? void 0 : colors.elementsThirdColor) || KIT_COLORS.gray.dark,
       regular: (colors == null ? void 0 : colors.secondaryComponentsColor) || KIT_COLORS.gray.regular,
       medium: (colors == null ? void 0 : colors.secondaryFontColor) || KIT_COLORS.gray.medium,
       light: (colors == null ? void 0 : colors.elementsPrimaryColor) || KIT_COLORS.gray.light,
