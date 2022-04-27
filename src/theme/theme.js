@@ -45,7 +45,16 @@ export const RocksKitTheme = ({ colors, fonts, loadingIndicator } = {}) => {
       primary: KIT_COLORS.gray.black,
       secondary: KIT_COLORS.gray.medium,
     },
-    gray: KIT_COLORS.gray,
+
+    gray: {
+      black: colors?.basicFontsColor || KIT_COLORS.gray.black,
+      dark: KIT_COLORS.gray.dark,
+      regular: colors?.soldOutNft || KIT_COLORS.gray.regular,
+      medium: colors?.secondaryFontColor || KIT_COLORS.gray.medium,
+      light: KIT_COLORS.gray.light,
+      semiLight: KIT_COLORS.gray.semiLight,
+      white: KIT_COLORS.gray.white,
+    },
     success: {
       main: KIT_COLORS.alert.darkGreen,
       light: KIT_COLORS.alert.lightGreen,
@@ -59,7 +68,7 @@ export const RocksKitTheme = ({ colors, fonts, loadingIndicator } = {}) => {
       light: KIT_COLORS.alert.lightRed,
     },
     common: {
-      white: KIT_COLORS.gray.white,
+      white: colors?.componentsColor || KIT_COLORS.gray.white,
       black: KIT_COLORS.gray.black,
     },
     background: {
