@@ -37,8 +37,8 @@ export const RocksKitTheme = ({ colors, fonts, loadingIndicator } = {}) => {
       light: colors?.primaryLight || KIT_COLORS.primary.light,
     },
     secondary: {
-      main: KIT_COLORS.gray.dark,
-      light: KIT_COLORS.gray.semiLight,
+      main: colors?.elementsThirdColor || KIT_COLORS.gray.dark,
+      light: colors?.elementsSecondaryColor || KIT_COLORS.gray.semiLight,
       dark: colors?.basicFontsColor || KIT_COLORS.gray.black,
     },
     text: {
@@ -48,7 +48,7 @@ export const RocksKitTheme = ({ colors, fonts, loadingIndicator } = {}) => {
 
     gray: {
       black: colors?.basicFontsColor || KIT_COLORS.gray.black,
-      dark: KIT_COLORS.gray.dark,
+      dark: colors?.elementsThirdColor || KIT_COLORS.gray.dark,
       regular: colors?.secondaryComponentsColor || KIT_COLORS.gray.regular,
       medium: colors?.secondaryFontColor || KIT_COLORS.gray.medium,
       light: colors?.elementsPrimaryColor || KIT_COLORS.gray.light,
