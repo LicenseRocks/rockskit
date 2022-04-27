@@ -342,10 +342,10 @@ var RocksKitTheme = function RocksKitTheme(_temp) {
     gray: {
       black: (colors == null ? void 0 : colors.basicFontsColor) || KIT_COLORS.gray.black,
       dark: KIT_COLORS.gray.dark,
-      regular: (colors == null ? void 0 : colors.soldOutNft) || KIT_COLORS.gray.regular,
+      regular: (colors == null ? void 0 : colors.secondaryComponentsColor) || KIT_COLORS.gray.regular,
       medium: (colors == null ? void 0 : colors.secondaryFontColor) || KIT_COLORS.gray.medium,
-      light: KIT_COLORS.gray.light,
-      semiLight: KIT_COLORS.gray.semiLight,
+      light: (colors == null ? void 0 : colors.elementsPrimaryColor) || KIT_COLORS.gray.light,
+      semiLight: (colors == null ? void 0 : colors.elementsSecondaryColor) || KIT_COLORS.gray.semiLight,
       white: KIT_COLORS.gray.white
     },
     success: {
