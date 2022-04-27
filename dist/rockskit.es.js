@@ -333,11 +333,11 @@ var RocksKitTheme = function RocksKitTheme(_temp) {
     secondary: {
       main: KIT_COLORS.gray.dark,
       light: KIT_COLORS.gray.semiLight,
-      dark: KIT_COLORS.gray.black
+      dark: (colors == null ? void 0 : colors.basicFontsColor) || KIT_COLORS.gray.black
     },
     text: {
-      primary: KIT_COLORS.gray.black,
-      secondary: KIT_COLORS.gray.medium
+      primary: (colors == null ? void 0 : colors.basicFontsColor) || KIT_COLORS.gray.black,
+      secondary: (colors == null ? void 0 : colors.secondaryFontColor) || KIT_COLORS.gray.medium
     },
     gray: {
       black: (colors == null ? void 0 : colors.basicFontsColor) || KIT_COLORS.gray.black,
