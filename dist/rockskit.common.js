@@ -6612,7 +6612,7 @@ function _templateObject2$m() {
 }
 
 function _templateObject$_() {
-  var data = _taggedTemplateLiteralLoose(["\n  .MuiDialog-paper {\n    flex: 1;\n    position: relative;\n    background-color: ", ";\n\n    border-radius: 16px !important;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  .MuiDialog-paper {\n    flex: 1;\n    position: relative;\n    background-color: ", ";\n\n    border-radius: 16px !important;\n  }\n\n  [class*=\"MuiPaper-root\"] {\n    background-color: ", " !important;\n    border-radius: 16px !important;\n  }\n"]);
 
   _templateObject$_ = function _templateObject() {
     return data;
@@ -6623,60 +6623,63 @@ function _templateObject$_() {
 var StyledDialog$1 = styled__default['default'](Dialog__default['default'])(_templateObject$_(), function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.palette.common.white;
 });
 var ContentWrapper = styled__default['default'](DialogContent__default['default']).attrs(function () {
   return {
     dividers: true
   };
-})(_templateObject2$m(), function (_ref2) {
-  var padding = _ref2.padding,
-      theme = _ref2.theme;
+})(_templateObject2$m(), function (_ref3) {
+  var padding = _ref3.padding,
+      theme = _ref3.theme;
   return padding ? theme.spacing(4) : 0;
 });
 var Title$1 = styled__default['default'](DialogTitle__default['default']).attrs(function () {
   return {
     disableTypography: true
   };
-})(_templateObject3$g(), function (_ref3) {
-  var theme = _ref3.theme;
-  return theme.palette.darkIndigo;
-}, function (_ref4) {
+})(_templateObject3$g(), function (_ref4) {
   var theme = _ref4.theme;
+  return theme.palette.darkIndigo;
+}, function (_ref5) {
+  var theme = _ref5.theme;
   return theme.spacing(3, 5);
 });
 var CloseModalIcon = styled__default['default'](Icon).attrs(function () {
   return {
     size: "lg"
   };
-})(_templateObject4$9(), function (_ref5) {
-  var theme = _ref5.theme;
+})(_templateObject4$9(), function (_ref6) {
+  var theme = _ref6.theme;
   return theme.palette.secondary.dark;
 });
-var Actions = styled__default['default'](DialogActions__default['default'])(_templateObject5$8(), function (_ref6) {
-  var hasDesc = _ref6.hasDesc;
+var Actions = styled__default['default'](DialogActions__default['default'])(_templateObject5$8(), function (_ref7) {
+  var hasDesc = _ref7.hasDesc;
   return hasDesc ? "space-between" : "flex-end";
 });
-var LoadingWrapper = styled__default['default'].div(_templateObject6$4(), function (_ref7) {
-  var theme = _ref7.theme;
+var LoadingWrapper = styled__default['default'].div(_templateObject6$4(), function (_ref8) {
+  var theme = _ref8.theme;
   return theme.palette.secondary.dark;
 });
-var Modal = function Modal(_ref8) {
-  var action = _ref8.action,
-      actionDescription = _ref8.actionDescription,
-      actionLoading = _ref8.actionLoading,
-      actionTitle = _ref8.actionTitle,
-      cancelButton = _ref8.cancelButton,
-      dataCy = _ref8.dataCy,
-      fullScreen = _ref8.fullScreen,
-      isOpen = _ref8.isOpen,
-      loading = _ref8.loading,
-      onClose = _ref8.onClose,
-      children = _ref8.children,
-      maxWidth = _ref8.maxWidth,
-      title = _ref8.title,
-      disabled = _ref8.disabled,
-      padding = _ref8.padding,
-      props = _objectWithoutPropertiesLoose(_ref8, ["action", "actionDescription", "actionLoading", "actionTitle", "cancelButton", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled", "padding"]);
+var Modal = function Modal(_ref9) {
+  var action = _ref9.action,
+      actionDescription = _ref9.actionDescription,
+      actionLoading = _ref9.actionLoading,
+      actionTitle = _ref9.actionTitle,
+      cancelButton = _ref9.cancelButton,
+      dataCy = _ref9.dataCy,
+      fullScreen = _ref9.fullScreen,
+      isOpen = _ref9.isOpen,
+      loading = _ref9.loading,
+      onClose = _ref9.onClose,
+      children = _ref9.children,
+      maxWidth = _ref9.maxWidth,
+      title = _ref9.title,
+      disabled = _ref9.disabled,
+      padding = _ref9.padding,
+      props = _objectWithoutPropertiesLoose(_ref9, ["action", "actionDescription", "actionLoading", "actionTitle", "cancelButton", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled", "padding"]);
 
   return /*#__PURE__*/React__default['default'].createElement(StyledDialog$1, _extends({
     "data-cy": dataCy,
