@@ -17,6 +17,11 @@ const StyledDialog = styled(Dialog)`
 
     border-radius: 16px !important;
   }
+
+  [class*="MuiPaper-root"] {
+    background-color: ${({ theme }) => theme.palette.common.white} !important;
+    border-radius: 16px !important;
+  }
 `;
 
 const ContentWrapper = styled(DialogContent).attrs(() => ({
