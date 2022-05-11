@@ -11,6 +11,13 @@ const EditorWrapper = styled.div`
   align-items: center;
 `;
 
+const StyledModal = styled(Modal)`
+  [class*="MuiPaper-root"] {
+    background-color: ${({ theme }) => theme.palette.common.white} !important;
+    border-radius: 16px !important;
+  }
+`;
+
 export const CropModal = ({
   imgFile,
   isOpen,
@@ -33,7 +40,7 @@ export const CropModal = ({
   };
 
   return (
-    <Modal
+    <StyledModal
       action={handleSubmit}
       actionTitle="Save Changes"
       isOpen={isOpen}
@@ -67,7 +74,7 @@ export const CropModal = ({
           defaultValue="1"
         />
       </FormRow>
-    </Modal>
+    </StyledModal>
   );
 };
 
