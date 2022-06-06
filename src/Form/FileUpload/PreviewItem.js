@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-
+import VideoThumbnail from "react-video-thumbnail";
 import { H4, Image } from "../..";
 import { Icon } from "../../Icon";
 import { Input } from "../Input";
@@ -22,6 +22,14 @@ const Item = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+
+    .react-thumbnail-generator {
+      border-radius: 8px;
+      object-fit: cover;
+      width: 48px;
+      height: 48px;
+      margin-right: ${({ theme }) => theme.spacing(2)};
+    }
   }
 `;
 
@@ -85,13 +93,18 @@ export const UploaderPreviewItem = ({
   return (
     <Item key={file.name}>
       <div className="details">
-        <PreviewWrapper>
-          {file.preview ? (
-            <Image alt={name} height="100%" src={file.preview} width="100%" />
-          ) : (
-            <H4 content={fileExt} color="textSecondary" noWrap />
-          )}
-        </PreviewWrapper>
+        {file.type.startsWith("image") ? (
+          <PreviewWrapper>
+            {file.preview ? (
+              <Image alt={name} height="100%" src={file.preview} width="100%" />
+            ) : (
+              <H4 content={fileExt} color="textSecondary" noWrap />
+            )}
+          </PreviewWrapper>
+        ) : null}
+        {file.type.startsWith("video") ? (
+          <VideoThumbnail videoUrl={file.preview} width={48} height={48} />
+        ) : null}
 
         <div>
           {editMode ? (
