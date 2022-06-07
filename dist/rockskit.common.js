@@ -30,6 +30,7 @@ var copy = require('copy-to-clipboard');
 var reactFilepond = require('react-filepond');
 var AvatarEditor = require('react-avatar-editor');
 var reactDropzone = require('react-dropzone');
+var VideoThumbnail = require('react-video-thumbnail');
 var MuiSlider = require('@material-ui/core/Slider');
 var axios = require('axios');
 var AsyncSelect = require('react-select/async');
@@ -75,6 +76,7 @@ var QRCode__default = /*#__PURE__*/_interopDefaultLegacy(QRCode);
 var MuiPopover__default = /*#__PURE__*/_interopDefaultLegacy(MuiPopover);
 var copy__default = /*#__PURE__*/_interopDefaultLegacy(copy);
 var AvatarEditor__default = /*#__PURE__*/_interopDefaultLegacy(AvatarEditor);
+var VideoThumbnail__default = /*#__PURE__*/_interopDefaultLegacy(VideoThumbnail);
 var MuiSlider__default = /*#__PURE__*/_interopDefaultLegacy(MuiSlider);
 var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
 var AsyncSelect__default = /*#__PURE__*/_interopDefaultLegacy(AsyncSelect);
@@ -4381,7 +4383,7 @@ function _templateObject2$e() {
 }
 
 function _templateObject$G() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: ", ";\n  background-color: ", ";\n  color: ", ";\n  font-size: 12px;\n  margin-bottom: ", ";\n  border-radius: 8px;\n\n  .details {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n  }\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  align-items: center;\n  justify-content: space-between;\n  padding: ", ";\n  background-color: ", ";\n  color: ", ";\n  font-size: 12px;\n  margin-bottom: ", ";\n  border-radius: 8px;\n\n  .details {\n    display: flex;\n    align-items: center;\n    justify-content: space-between;\n\n    .react-thumbnail-generator {\n      border-radius: 8px;\n      object-fit: cover;\n      width: 48px;\n      height: 48px;\n      margin-right: ", ";\n    }\n  }\n"]);
 
   _templateObject$G = function _templateObject() {
     return data;
@@ -4401,16 +4403,19 @@ var Item$1 = styled__default['default'].div(_templateObject$G(), function (_ref)
 }, function (_ref4) {
   var theme = _ref4.theme;
   return theme.spacing(2);
-});
-var ActionIcon = styled__default['default'](Icon)(_templateObject2$e(), function (_ref5) {
+}, function (_ref5) {
   var theme = _ref5.theme;
+  return theme.spacing(2);
+});
+var ActionIcon = styled__default['default'](Icon)(_templateObject2$e(), function (_ref6) {
+  var theme = _ref6.theme;
   return theme.palette.common.white;
 });
-var PreviewWrapper = styled__default['default'].div(_templateObject3$a(), function (_ref6) {
-  var theme = _ref6.theme;
-  return theme.palette.gray.regular;
-}, function (_ref7) {
+var PreviewWrapper = styled__default['default'].div(_templateObject3$a(), function (_ref7) {
   var theme = _ref7.theme;
+  return theme.palette.gray.regular;
+}, function (_ref8) {
+  var theme = _ref8.theme;
   return theme.spacing(2);
 });
 
@@ -4421,11 +4426,11 @@ function bytesToSize(bytes) {
   return Math.round(bytes / Math.pow(1024, i), 2) + " " + sizes[i];
 }
 
-var UploaderPreviewItem = function UploaderPreviewItem(_ref8) {
-  var file = _ref8.file,
-      fileNameEditable = _ref8.fileNameEditable,
-      onRemoveClick = _ref8.onRemoveClick,
-      onEdit = _ref8.onEdit;
+var UploaderPreviewItem = function UploaderPreviewItem(_ref9) {
+  var file = _ref9.file,
+      fileNameEditable = _ref9.fileNameEditable,
+      onRemoveClick = _ref9.onRemoveClick,
+      onEdit = _ref9.onEdit;
   var name = file.altName || file.fileName || file.name;
   var fileExt = name.split(".").pop();
 
@@ -4451,7 +4456,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref8) {
     key: file.name
   }, /*#__PURE__*/React__default['default'].createElement("div", {
     className: "details"
-  }, /*#__PURE__*/React__default['default'].createElement(PreviewWrapper, null, file.preview ? /*#__PURE__*/React__default['default'].createElement(Image, {
+  }, file.type.startsWith("image") ? /*#__PURE__*/React__default['default'].createElement(PreviewWrapper, null, file.preview ? /*#__PURE__*/React__default['default'].createElement(Image, {
     alt: name,
     height: "100%",
     src: file.preview,
@@ -4460,7 +4465,11 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref8) {
     content: fileExt,
     color: "textSecondary",
     noWrap: true
-  })), /*#__PURE__*/React__default['default'].createElement("div", null, editMode ? /*#__PURE__*/React__default['default'].createElement("div", {
+  })) : null, file.type.startsWith("video") ? /*#__PURE__*/React__default['default'].createElement(VideoThumbnail__default['default'], {
+    videoUrl: file.preview,
+    width: 48,
+    height: 48
+  }) : null, /*#__PURE__*/React__default['default'].createElement("div", null, editMode ? /*#__PURE__*/React__default['default'].createElement("div", {
     className: "details"
   }, /*#__PURE__*/React__default['default'].createElement(Input, {
     onChange: function onChange(e) {
@@ -4608,7 +4617,7 @@ var Dropzone = function Dropzone(_ref13) {
   var setFiles = function setFiles(files) {
     var accepted = files.map(function (file) {
       return Object.assign(file, {
-        preview: file.type.includes("image") ? URL.createObjectURL(file) : "",
+        preview: file.type.includes("image") || file.type.includes("video") ? URL.createObjectURL(file) : "",
         altName: null
       });
     });

@@ -85,7 +85,10 @@ export const Dropzone = ({
   const setFiles = (files) => {
     const accepted = files.map((file) =>
       Object.assign(file, {
-        preview: file.type.includes("image") ? URL.createObjectURL(file) : "",
+        preview:
+          file.type.includes("image") || file.type.includes("video")
+            ? URL.createObjectURL(file)
+            : "",
         altName: null,
       })
     );
