@@ -43,7 +43,7 @@ const StyledLabel = styled(FormLabel)`
   ${({ labelColor }) =>
     labelColor === "dark" &&
     css`
-      color: #08042a;
+      color: ${({ theme }) => theme.palette.gray.black};
     `}
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
@@ -118,7 +118,12 @@ export const FormRow = ({
   const validChildren = Children.toArray(children).filter(Boolean);
 
   return (
-    <StyledRow labelAlign={labelAlign} show={show} direction={direction} {...props}>
+    <StyledRow
+      labelAlign={labelAlign}
+      show={show}
+      direction={direction}
+      {...props}
+    >
       {label && (
         <StyledLabel
           labelAlign={labelAlign}
