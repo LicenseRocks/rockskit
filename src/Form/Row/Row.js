@@ -20,12 +20,32 @@ const StyledRow = styled.div`
       align-items: center;
     `}
 
+  ${({ direction }) =>
+    direction === "column" &&
+    css`
+      flex-direction: column;
+      align-items: start;
+    `}
+
   ${(theme) => SPACER(theme)}
   ${(theme) => DISPLAY(theme)}
 `;
 
 const StyledLabel = styled(FormLabel)`
   flex: 0 0 30%;
+
+  ${({ direction }) =>
+    direction === "column" &&
+    css`
+      margin-bottom: ${({ theme }) => theme.spacing(3)};
+    `}
+
+  ${({ labelColor }) =>
+    labelColor === "dark" &&
+    css`
+      color: ${({ theme }) => theme.palette.gray.black};
+    `}
+
   ${({ theme }) => theme.breakpoints.down("sm")} {
     flex: 100%;
     margin-bottom: ${({ theme }) => theme.spacing(2)};
@@ -42,6 +62,12 @@ const StyledLabel = styled(FormLabel)`
 
 const FieldsAndErrorsWrapper = styled.div`
   flex: 1;
+
+  ${({ direction }) =>
+    direction === "column" &&
+    css`
+      width: 100%;
+    `}
 `;
 
 const Fields = styled.div`
@@ -81,6 +107,8 @@ export const FormRow = ({
   labelAlign,
   labelGutter,
   show,
+  labelColor,
+  direction,
   ...props
 }) => {
   const rowErrors = Array.isArray(errors)
@@ -90,9 +118,19 @@ export const FormRow = ({
   const validChildren = Children.toArray(children).filter(Boolean);
 
   return (
-    <StyledRow labelAlign={labelAlign} show={show} {...props}>
+    <StyledRow
+      labelAlign={labelAlign}
+      show={show}
+      direction={direction}
+      {...props}
+    >
       {label && (
-        <StyledLabel labelAlign={labelAlign} labelGutter={labelGutter}>
+        <StyledLabel
+          labelAlign={labelAlign}
+          labelGutter={labelGutter}
+          direction={direction}
+          labelColor={labelColor}
+        >
           {label}
           {hint && (
             <Tooltip content={hint}>
@@ -105,7 +143,7 @@ export const FormRow = ({
       )}
 
       {validChildren.length > 0 && (
-        <FieldsAndErrorsWrapper fullWidth={!label}>
+        <FieldsAndErrorsWrapper direction={direction} fullWidth={!label}>
           <Fields>{children}</Fields>
 
           {rowErrors.map((err) => (
