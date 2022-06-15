@@ -5254,13 +5254,17 @@ var FormRowPropTypes = _extends({
   label: PropTypes__default['default'].node,
   labelAlign: PropTypes__default['default'].oneOf(["start", "center"]),
   labelGutter: PropTypes__default['default'].bool,
-  show: PropTypes__default['default'].bool.isRequired
+  show: PropTypes__default['default'].bool.isRequired,
+  labelColor: PropTypes__default['default'].oneOf(["dark", "light"]),
+  direction: PropTypes__default['default'].oneOf(["column", "row"])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FormRowDefaultProps = {
   label: "",
   labelAlign: "center",
   labelGutter: false,
-  show: true
+  show: true,
+  labelColor: "light",
+  direction: "row"
 };
 
 function _templateObject5$3() {
@@ -5284,7 +5288,7 @@ function _templateObject4$4() {
 }
 
 function _templateObject3$b() {
-  var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 1;\n\n  ", "\n"]);
 
   _templateObject3$b = function _templateObject3() {
     return data;
@@ -5294,7 +5298,7 @@ function _templateObject3$b() {
 }
 
 function _templateObject2$g() {
-  var data = _taggedTemplateLiteralLoose(["\n  flex: 0 0 30%;\n  ", " {\n    flex: 100%;\n    margin-bottom: ", ";\n    padding-top: 0;\n  }\n\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  flex: 0 0 30%;\n\n  ", "\n\n  ", "\n\n  ", " {\n    flex: 100%;\n    margin-bottom: ", ";\n    padding-top: 0;\n  }\n\n  ", "\n"]);
 
   _templateObject2$g = function _templateObject2() {
     return data;
@@ -5304,7 +5308,7 @@ function _templateObject2$g() {
 }
 
 function _templateObject$O() {
-  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  min-height: 40px;\n  margin-bottom: ", ";\n  ", ";\n  ", " {\n    flex-wrap: wrap;\n  }\n\n  ", "\n\n  ", "\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  display: flex;\n  min-height: 40px;\n  margin-bottom: ", ";\n  ", ";\n  ", " {\n    flex-wrap: wrap;\n  }\n\n  ", "\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
   _templateObject$O = function _templateObject() {
     return data;
@@ -5324,53 +5328,77 @@ var StyledRow = styled__default['default'].div(_templateObject$O(), function (_r
 }, function (_ref4) {
   var labelAlign = _ref4.labelAlign;
   return labelAlign === "center" && styled.css(["align-items:center;"]);
+}, function (_ref5) {
+  var direction = _ref5.direction;
+  return direction === "column" && styled.css(["flex-direction:column;align-items:start;"]);
 }, function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledLabel$3 = styled__default['default'](FormLabel)(_templateObject2$g(), function (_ref5) {
-  var theme = _ref5.theme;
+var StyledLabel$3 = styled__default['default'](FormLabel)(_templateObject2$g(), function (_ref6) {
+  var direction = _ref6.direction;
+  return direction === "column" && styled.css(["margin-bottom:", ";"], function (_ref7) {
+    var theme = _ref7.theme;
+    return theme.spacing(3);
+  });
+}, function (_ref8) {
+  var labelColor = _ref8.labelColor;
+  return labelColor === "dark" && styled.css(["color:", ";"], function (_ref9) {
+    var theme = _ref9.theme;
+    return theme.palette.gray.black;
+  });
+}, function (_ref10) {
+  var theme = _ref10.theme;
   return theme.breakpoints.down("sm");
-}, function (_ref6) {
-  var theme = _ref6.theme;
+}, function (_ref11) {
+  var theme = _ref11.theme;
   return theme.spacing(2);
-}, function (_ref7) {
-  var labelAlign = _ref7.labelAlign,
-      labelGutter = _ref7.labelGutter,
-      theme = _ref7.theme;
+}, function (_ref12) {
+  var labelAlign = _ref12.labelAlign,
+      labelGutter = _ref12.labelGutter,
+      theme = _ref12.theme;
   return labelAlign === "start" && labelGutter && styled.css(["padding-top:", ";"], theme.spacing(3));
 });
-var FieldsAndErrorsWrapper = styled__default['default'].div(_templateObject3$b());
-var Fields = styled__default['default'].div(_templateObject4$4(), function (_ref8) {
-  var theme = _ref8.theme;
+var FieldsAndErrorsWrapper = styled__default['default'].div(_templateObject3$b(), function (_ref13) {
+  var direction = _ref13.direction;
+  return direction === "column" && styled.css(["width:100%;"]);
+});
+var Fields = styled__default['default'].div(_templateObject4$4(), function (_ref14) {
+  var theme = _ref14.theme;
   return theme.spacing(4);
 });
 var Hint$1 = styled__default['default'].span(_templateObject5$3());
-var FormRow = function FormRow(_ref9) {
-  var children = _ref9.children,
-      errors = _ref9.errors,
-      fields = _ref9.fields,
-      hint = _ref9.hint,
-      label = _ref9.label,
-      labelAlign = _ref9.labelAlign,
-      labelGutter = _ref9.labelGutter,
-      show = _ref9.show,
-      props = _objectWithoutPropertiesLoose(_ref9, ["children", "errors", "fields", "hint", "label", "labelAlign", "labelGutter", "show"]);
+var FormRow = function FormRow(_ref15) {
+  var children = _ref15.children,
+      errors = _ref15.errors,
+      fields = _ref15.fields,
+      hint = _ref15.hint,
+      label = _ref15.label,
+      labelAlign = _ref15.labelAlign,
+      labelGutter = _ref15.labelGutter,
+      show = _ref15.show,
+      labelColor = _ref15.labelColor,
+      direction = _ref15.direction,
+      props = _objectWithoutPropertiesLoose(_ref15, ["children", "errors", "fields", "hint", "label", "labelAlign", "labelGutter", "show", "labelColor", "direction"]);
 
   var rowErrors = Array.isArray(errors) ? errors : getFormRowErrors(errors, fields);
   var validChildren = React.Children.toArray(children).filter(Boolean);
   return /*#__PURE__*/React__default['default'].createElement(StyledRow, _extends({
     labelAlign: labelAlign,
-    show: show
+    show: show,
+    direction: direction
   }, props), label && /*#__PURE__*/React__default['default'].createElement(StyledLabel$3, {
     labelAlign: labelAlign,
-    labelGutter: labelGutter
+    labelGutter: labelGutter,
+    direction: direction,
+    labelColor: labelColor
   }, label, hint && /*#__PURE__*/React__default['default'].createElement(Tooltip, {
     content: hint
   }, /*#__PURE__*/React__default['default'].createElement(Hint$1, null, /*#__PURE__*/React__default['default'].createElement(Icon, {
     icon: "question"
   })), " ")), validChildren.length > 0 && /*#__PURE__*/React__default['default'].createElement(FieldsAndErrorsWrapper, {
+    direction: direction,
     fullWidth: !label
   }, /*#__PURE__*/React__default['default'].createElement(Fields, null, children), rowErrors.map(function (err) {
     return /*#__PURE__*/React__default['default'].createElement(FormError, {
