@@ -1,5 +1,6 @@
 module.exports = {
   stories: ["../src/**/*stories.js"],
+  staticDirs: ["../.storybook/.static"],
   addons: [
     "@storybook/addon-knobs/preset",
     "@storybook/addon-actions/preset",
