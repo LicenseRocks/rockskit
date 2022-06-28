@@ -1,6 +1,6 @@
 {
   "name": "@licenserocks/kit",
-  "version": "3.1.5",
+  "version": "3.1.6",
   "description": "",
   "main": "dist/rockskit.common.js",
   "module": "dist/rockskit.es.js",
@@ -10,9 +10,9 @@
   },
   "scripts": {
     "build": "rollup -c",
-    "prepublish": "yarn run build-storybook && yarn run deploy-storybook && yarn run build",
+    "prepublish": "yarn run build && yarn run deploy-storybook",
     "build-storybook": "build-storybook --quiet",
-    "deploy-storybook": "storybook-to-ghpages --source-branch main",
+    "deploy-storybook": "storybook-to-ghpages",
     "start-storybook": "start-storybook -p 9000 --quiet -c .storybook",
     "test:snapshot": "jest",
     "test:snapshot:update": "jest --updateSnapshot"
@@ -81,7 +81,6 @@
     "path": "^0.12.7",
     "prettier": "^2.1.2",
     "react-test-renderer": "^17.0.0",
-    "rimraf": "^3.0.2",
     "rollup": "^2.32.1",
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-svg": "^2.0.0",
