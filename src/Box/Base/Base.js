@@ -11,7 +11,6 @@ const StyledBox = styled.div`
   box-sizing: border-box;
   border-radius: 16px;
   position: relative;
-  overflow: hidden;
 
   box-shadow: ${({ shadow }) => {
     if (shadow === "long") return "0px 16px 56px rgba(41, 40, 57, 0.16)";
