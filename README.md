@@ -92,6 +92,13 @@ To run Rockskit with full view through storybook on localhost, follow steps belo
 
 You can start creating new components now 😉
 
+## Publishing
+
+1. `npm version`
+2. `npm publish`
+
+_NOTE: the storybook static site will be built each time a commit lands on main branch_
+
 ## Testing 📈
 
 You can run tests by command `yarn test`
