@@ -10,14 +10,16 @@ const StyledBadge = styled.div`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
-  height: 16px;
-  width: max-content;
-
-  ${({ color, theme }) =>
+  font-weight: bold;
+  border: none;
+  border-radius: ${({ isShort }) => isShort ? "50%" : "16px"};
+  height: ${({ isShort }) => isShort ? "24px" : "16px"};
+  width: ${({ isShort }) => isShort ? "24px" : "max-content"};
+  padding: ${({ theme }) => theme.spacing(0, 2)};
+  
+  ${({ backgroundColor, color, theme }) =>
     css`
-      padding: ${theme.spacing(0, 2)};
-      border: 1px solid ${theme.palette[color].light};
+      background-color: ${theme.palette[backgroundColor].main};
       color: ${theme.palette[color].main};
     `}
 
@@ -25,12 +27,30 @@ const StyledBadge = styled.div`
   ${(theme) => DISPLAY(theme)}
 `;
 
+const StyledText = styled(Text)`
+  ${({ color }) => color === "primary"
+    && css`
+      mix-blend-mode: exclusion;
+      filter: invert(1);
+    `}
+`
+
 export const TinyBadge = ({ color, label, ...props }) => {
+  const contentColor =
+    ["success", "black", "error", "darkYellow"].includes(color)
+      ? "white"
+      : "black"
+  
   return (
-    <StyledBadge color={color} {...props}>
-      <Text fontWeight="bold" fontSize="sm">
+    <StyledBadge
+      color={contentColor}
+      backgroundColor={color}
+      isShort={label.length === 1}
+      {...props}
+    >
+      <StyledText color="initial" fontWeight="bold" fontSize="sm">
         {label}
-      </Text>
+      </StyledText>
     </StyledBadge>
   );
 };

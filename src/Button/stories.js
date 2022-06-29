@@ -25,8 +25,10 @@ export const main = () => {
     disabled: boolean("Disabled", false),
     loading: boolean("Loading", false),
     endIcon: text("End icon", "arrow-left"),
+    endIconPrefix: text("End icon prefix", "fa"),
     size: select("Size", ["xs", "sm", "md", "lg"], "md"),
-    startIcon: text("Start icon", "arrow-right"),
+    startIcon: text("Start icon", "file-arrow-up"),
+    startIconPrefix: text("Start icon prefix", "far"),
   };
 
   return (

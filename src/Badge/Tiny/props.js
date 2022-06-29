@@ -14,5 +14,5 @@ export const ChipBadgePropTypes = {
 };
 
 export const ChipBadgeDefaultProps = {
-  color: "secondary",
+  color: "black",
 };

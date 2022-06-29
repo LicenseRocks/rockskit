@@ -54,3 +54,4 @@ export * from "./Tooltip";
 export * from "./Typography";
 export * from "./utils";
 export * from "./Wizard/Wizard";
+export * from "./FilesList";
