@@ -1767,7 +1767,7 @@ var BoxBaseDefaultProps = {
 };
 
 function _templateObject$g() {
-  var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  ", "\n  width: 100%;\n  box-sizing: border-box;\n  border-radius: 16px;\n  position: relative;\n  overflow: hidden;\n\n  box-shadow: ", ";\n\n  ", "\n\n  ", "\n  ", "\n"]);
+  var data = _taggedTemplateLiteralLoose(["\n  background-color: ", ";\n  ", "\n  width: 100%;\n  box-sizing: border-box;\n  border-radius: 16px;\n  position: relative;\n\n  box-shadow: ", ";\n\n  ", "\n\n  ", "\n  ", "\n"]);
 
   _templateObject$g = function _templateObject() {
     return data;
