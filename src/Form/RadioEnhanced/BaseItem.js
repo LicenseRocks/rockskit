@@ -7,6 +7,10 @@ import { Icon } from "../../Icon";
 const StyledInput = styled.input`
   display: none;
 
+  &:focus + label {
+    border: 2px solid ${({ theme }) => theme.palette.gray.regular};
+  }
+
   + label {
     display: inline-flex;
     align-items: center;
@@ -46,7 +50,7 @@ const StyledInput = styled.input`
     }
   }
 
-  &:checked + label::before {
+  &:focus + label::before, &:checked + label::before {
     background-color: ${({ theme }) => theme.palette.gray.white};
     border-color: ${({ theme }) => theme.palette.primary.main};
     border-width: 7px;
@@ -68,6 +72,8 @@ const StyledInput = styled.input`
     border-color: ${({ theme }) => theme.palette.primary.main};
     border-radius: 12px;
   }
+  
+
 `;
 
 const StyledLabel = styled.label`

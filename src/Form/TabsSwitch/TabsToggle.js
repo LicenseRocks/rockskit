@@ -2,7 +2,7 @@ import React from "react";
 import { bool, func } from "prop-types";
 import styled from "styled-components";
 
-import Switch from "./Switch";
+import TabsSwitch from "./Switch";
 import { DISPLAY, SPACER } from "../../theme";
 
 const StyledToggle = styled.div`
@@ -13,14 +13,14 @@ const StyledToggle = styled.div`
   ${(theme) => DISPLAY(theme)}
 `;
 
-export const Toggle = ({ disabled, onChange, value, ...props }) => {
+export const TabsToggle = ({ disabled, onChange, value, ...props }) => {
   const handleToggle = () => {
     onChange(!value);
   };
 
   return (
     <StyledToggle>
-      <Switch
+      <TabsSwitch
         disabled={disabled}
         handleToggle={!disabled ? handleToggle : undefined}
         toggled={value}
@@ -30,13 +30,13 @@ export const Toggle = ({ disabled, onChange, value, ...props }) => {
   );
 };
 
-Toggle.propTypes = {
+TabsToggle.propTypes = {
   disabled: bool,
   onChange: func,
   value: bool,
 };
 
-Toggle.defaultProps = {
+TabsToggle.defaultProps = {
   disabled: false,
   onChange: null,
   value: false,

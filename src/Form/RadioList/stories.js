@@ -1,17 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import { text } from "@storybook/addon-knobs";
+import { text, boolean } from "@storybook/addon-knobs";
 import { useForm } from "react-hook-form";
 import { StoryWrapper } from "../../../.storybook/decorators";
-import { RadioEnhanced } from "./RadioEnhanced";
+import { RadioList } from "./RadioList";
 
 export default {
-  title: "Form/RadioEnhanced",
-  component: RadioEnhanced,
+  title: "Form/RadioList",
+  component: RadioList,
   decorators: [StoryWrapper],
 };
 
-const Grid = styled.div`
+const StyledUl = styled.div`
   fieldset {
     height: 100%;
     display: grid;
@@ -21,16 +21,13 @@ const Grid = styled.div`
     padding: 0;
     margin: 0;
     width: 100%;
+    list-style: none;
 
     ${({ theme }) => theme.breakpoints.down("md")} {
       grid-template-columns: 1fr;
     }
   }
 `;
-
-const RadioEnhancedGrid = ({ children }) => {
-  return <Grid>{children}</Grid>;
-};
 
 export const main = () => {
   const { register, watch } = useForm();
@@ -41,32 +38,37 @@ export const main = () => {
       {
         value: text("Value", "arweave"),
         title: text("Title", "arweave"),
-        description: text("Description", "Arweave is a Decentralized Storage Network (DSN)"),
+        info: text("Info", "Connected on 2/24/2022, 10:23"),
         price: text("Price", "0.002 AR / MB"),
-        icon: text("Icon", "tv"),
+        icon: "tv",
+        active: boolean("Active", true),
       },
       {
         value: "nftstorage",
         title: "NFTStorage",
-        description: "Free decentralized storage and bandwidth for NFTs",
+        info: "Connected on 2/24/2022, 10:23",
         price: "Free",
         icon: "tv",
+        active: false,
       },
       {
         value: "filecoin_ipfs",
         title: "Filecoin / IPFS",
-        description: "Turns the world's unused storage into an algorithmic",
+        info: "Connected on 3/23/2022, 11:28",
         price: "0.002 FIL / MB",
         icon: "tv",
+        active: true,
       },
       {
         value: "pinanta",
         title: "Pinanta",
-        description: "Pinata makes file storage easy for everyone.",
+        info: "Connected on 4/31/2022, 05:11",
         price: "$0.15 per GB / month",
         icon: "tv",
+        active: false,
       },
     ],
+    activeLabel: "Active",
     register,
   };
 
@@ -74,8 +76,8 @@ export const main = () => {
   console.log("values: ", values);
 
   return (
-    <RadioEnhancedGrid>
-    <RadioEnhanced {...defaultProps} />
-    </RadioEnhancedGrid>
+    <StyledUl>
+      <RadioList {...defaultProps} />
+    </StyledUl>
   );
 };

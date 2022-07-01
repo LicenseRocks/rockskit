@@ -1,8 +1,8 @@
 import React from "react";
-import { bool, func, string } from "prop-types";
+import { bool, func, number } from "prop-types";
 import styled, { css } from "styled-components";
 
-const Switch = ({
+const TabsSwitch = ({
   disabled,
   handleToggle,
   toggled,
@@ -62,6 +62,7 @@ const StyledSwitchContainer = styled.div`
 
     span {
       font-weight: bold;
+      line-height: 1;
       transition: color 0.3s ease-out;
     }
 
@@ -114,35 +115,35 @@ const StyledSwitch = styled.span`
   user-select: none;
   border-radius: 20px;
   height: 90%;
-  width: ${({ toggled, leftValueWidth, rightValueWidth }) =>
-    toggled ? `${rightValueWidth + 16}px` : `${leftValueWidth + 16}px`};
+  width: ${({ leftValueWidth }) => `${leftValueWidth + 16}px`};
 
-  ${({ theme, toggled }) =>
+  ${({ theme, toggled, rightValueWidth }) =>
     toggled &&
     css`
       left: calc(100% - 2px);
       transform: translateX(-100%);
       color: ${theme.palette.primary.main};
+      width: ${rightValueWidth + 16}px;
     `};
 `;
 
-Switch.propTypes = {
+TabsSwitch.propTypes = {
   disabled: bool,
   handleToggle: func,
-  leftValue: string.isRequired,
-  leftValueWidth: string.isRequired,
-  leftValueSideMargin: string.isRequired,
-  rightValue: string.isRequired,
-  rightValueWidth: string.isRequired,
-  rightValueSideMargin: string.isRequired,
-  totalWidth: string.isRequired,
+  leftValue: number.isRequired,
+  leftValueWidth: number.isRequired,
+  leftValueSideMargin: number.isRequired,
+  rightValue: number.isRequired,
+  rightValueWidth: number.isRequired,
+  rightValueSideMargin: number.isRequired,
+  totalWidth: number.isRequired,
   toggled: bool,
 };
 
-Switch.defaultProps = {
+TabsSwitch.defaultProps = {
   disabled: false,
   handleToggle: null,
   toggled: false,
 };
 
-export default Switch;
+export default TabsSwitch;

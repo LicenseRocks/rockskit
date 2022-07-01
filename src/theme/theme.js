@@ -45,7 +45,15 @@ export const RocksKitTheme = ({ colors, fonts, loadingIndicator } = {}) => {
       primary: colors?.basicFontsColor || KIT_COLORS.gray.black,
       secondary: colors?.secondaryFontColor || KIT_COLORS.gray.medium,
     },
-
+    black: {
+      main: colors?.basicFontsColor || KIT_COLORS.gray.black
+    },
+    white: {
+      main: KIT_COLORS.gray.white,
+    },
+    darkYellow: {
+      main: KIT_COLORS.alert.darkYellow,
+    },
     gray: {
       black: colors?.basicFontsColor || KIT_COLORS.gray.black,
       dark: colors?.elementsThirdColor || KIT_COLORS.gray.dark,
@@ -53,6 +61,7 @@ export const RocksKitTheme = ({ colors, fonts, loadingIndicator } = {}) => {
       medium: colors?.secondaryFontColor || KIT_COLORS.gray.medium,
       light: colors?.elementsPrimaryColor || KIT_COLORS.gray.light,
       semiLight: colors?.elementsSecondaryColor || KIT_COLORS.gray.semiLight,
+      main: colors?.elementsSecondaryColor || KIT_COLORS.gray.semiLight,
       white: KIT_COLORS.gray.white,
     },
     success: {
@@ -60,7 +69,8 @@ export const RocksKitTheme = ({ colors, fonts, loadingIndicator } = {}) => {
       light: KIT_COLORS.alert.lightGreen,
     },
     warning: {
-      main: KIT_COLORS.alert.darkYellow,
+      main: KIT_COLORS.alert.yellow,
+      dark: KIT_COLORS.alert.darkYellow,
       light: KIT_COLORS.alert.lightYellow,
     },
     error: {
@@ -70,6 +80,7 @@ export const RocksKitTheme = ({ colors, fonts, loadingIndicator } = {}) => {
     common: {
       white: colors?.componentsColor || KIT_COLORS.gray.white,
       black: KIT_COLORS.gray.black,
+      yellow: KIT_COLORS.alert.yellow
     },
     background: {
       default: colors?.bgColor || KIT_COLORS.gray.light,

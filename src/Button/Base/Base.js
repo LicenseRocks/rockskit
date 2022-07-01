@@ -85,11 +85,13 @@ export const ButtonBase = ({
   children,
   loading,
   endIcon,
+  endIconPrefix,
   href,
   icon,
   iconProps,
   size,
   startIcon,
+  startIconPrefix,
   ...props
 }) => {
   const iconSize = getIconSize(size);
@@ -105,10 +107,10 @@ export const ButtonBase = ({
         <DotsSpinner color={colors?.color} />
       ) : (
         <>
-          {startIcon && <Icon icon={startIcon} size={iconSize} mr={2} />}
+          {startIcon && <Icon icon={startIcon} prefix={startIconPrefix && startIconPrefix} size={iconSize} mr={2} />}
           {icon && <Icon icon={icon} size={iconSize} {...iconProps} />}
           {content || children}
-          {endIcon && <Icon icon={endIcon} size={iconSize} ml={2} />}
+          {endIcon && <Icon icon={endIcon} prefix={endIconPrefix && endIconPrefix} size={iconSize} ml={2} />}
         </>
       )}
     </StyledButton>

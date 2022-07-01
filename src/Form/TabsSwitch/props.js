@@ -2,7 +2,7 @@ import PropTypes from "prop-types";
 
 import { DISPLAY_PROP_TYPES, SPACER_PROP_TYPES } from "../../theme";
 
-export const ToggleSwitchPropTypes = {
+export const TabsSwitchPropTypes = {
   control: PropTypes.shape({}).isRequired,
   defaultValue: PropTypes.bool,
   isRequired: PropTypes.string,
@@ -11,7 +11,7 @@ export const ToggleSwitchPropTypes = {
   ...DISPLAY_PROP_TYPES,
 };
 
-export const ToggleSwitchDefaultProps = {
+export const TabsSwitchDefaultProps = {
   defaultValue: undefined,
   isRequired: "",
   name: "toggleSwitch",

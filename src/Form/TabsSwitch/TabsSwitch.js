@@ -1,8 +1,8 @@
 import React from "react";
 import { Controller } from "react-hook-form";
 
-import { Toggle } from "./Toggle";
-import { ToggleSwitchPropTypes, ToggleSwitchDefaultProps } from "./props";
+import { TabsToggle } from "./TabsToggle";
+import { TabsSwitchPropTypes, TabsSwitchDefaultProps } from "./props";
 
 export const TabsSwitch = ({
   control,
@@ -14,7 +14,7 @@ export const TabsSwitch = ({
   return (
     <Controller
       render={(events) => (
-        <Toggle defaultValue={defaultValue} {...props} {...events} />
+        <TabsToggle defaultValue={defaultValue} {...props} {...events} />
       )}
       control={control}
       defaultValue={defaultValue}
@@ -24,6 +24,6 @@ export const TabsSwitch = ({
   );
 };
 
-TabsSwitch.propTypes = ToggleSwitchPropTypes;
+TabsSwitch.propTypes = TabsSwitchPropTypes;
 
-TabsSwitch.defaultProps = ToggleSwitchDefaultProps;
+TabsSwitch.defaultProps = TabsSwitchDefaultProps;

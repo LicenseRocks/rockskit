@@ -1,3 +1,3 @@
 // TabsToggle
 export * from "./TabsSwitch";
-export * from "./Toggle";
+export * from "./TabsToggle";

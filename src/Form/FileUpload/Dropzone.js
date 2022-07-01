@@ -7,6 +7,7 @@ import { UploaderPreview } from "./UploaderPreview";
 import { DISPLAY, SPACER } from "../../theme";
 import { CropModal } from "./CropModal";
 import { FormError } from "..";
+import { Icon } from "../../Icon";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -33,6 +34,22 @@ const DropzoneArea = styled.div`
   justify-content: center;
   color: ${({ theme }) => theme.palette.gray.black};
   margin-bottom: 8px;
+  padding-top: ${({ theme }) => theme.spacing(9)};
+  padding-bottom: ${({ theme }) => theme.spacing(6)};
+  
+  span {
+    color: ${({ theme }) => theme.palette.primary.main};
+    font-weight: bold;
+  }
+  
+  p {
+    margin: 0;
+  }
+  
+  p:not(:last-child) {
+    padding-top: ${({ theme }) => theme.spacing(4)};
+    padding-bottom: ${({ theme }) => theme.spacing(4)};
+  }
 
   &:hover {
     border-color: ${({ theme }) => theme.palette.gray.medium};
@@ -65,6 +82,10 @@ const DropzoneArea = styled.div`
     css`
       border-color: ${theme.palette.gray.medium};
     `}
+`;
+
+const StyledIcon = styled(Icon)`
+  color: ${({ theme }) => theme.palette.gray.medium};
 `;
 
 export const Dropzone = ({
@@ -161,15 +182,19 @@ export const Dropzone = ({
           {isDragAccept && <p>Accepted</p>}
           {isDragReject && <p>Rejected</p>}
 
+          <StyledIcon icon="file-arrow-up" prefix="far" size="lg" />
+
           {isDragActive ? (
-            <p>Drop here</p>
+            <p>Drop your files here</p>
           ) : (
             <>
-              <p>Drop, or click to select</p>
+              <p>Drop your files here
+                <span> or select from computer</span>
+              </p>
               {multiple ? (
-                <p>Accepts multiple files</p>
+                <p>Add up to 20MB, supports multiple file formats</p>
               ) : (
-                <p>Single file only</p>
+                <p>Single file only, supports multiple file formats</p>
               )}
             </>
           )}

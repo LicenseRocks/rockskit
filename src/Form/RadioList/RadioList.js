@@ -4,20 +4,20 @@ import PropTypes from "prop-types";
 
 import { DISPLAY, SPACER } from "../../theme";
 import { Fieldset } from "../Fieldset";
-import { RadioEnhancedBaseItem } from "./BaseItem";
-import { RadioEnhancedDefaultProps, RadioEnhancedPropTypes } from "./props";
+import { RadioListBaseItem } from "./BaseItem";
+import { RadioListDefaultProps, RadioListPropTypes } from "./props";
 
-const RadioEnhancedBase = ({ options, ...props }) => {
+const RadioListBase = ({ options, ...props }) => {
   return (
     <Fieldset>
       {options.map((opt) => (
-        <RadioEnhancedBaseItem key={opt.value} {...opt} {...props} />
+        <RadioListBaseItem key={opt.value} {...opt} {...props} />
       ))}
     </Fieldset>
   );
 };
 
-RadioEnhancedBase.propTypes = {
+RadioListBase.propTypes = {
   options: PropTypes.arrayOf(
     PropTypes.shape({
       value: PropTypes.string,
@@ -29,15 +29,15 @@ RadioEnhancedBase.propTypes = {
   ).isRequired,
 };
 
-const StyledRadioEnhancedBase = styled(RadioEnhancedBase)`
+const StyledRadioListBase = styled(RadioListBase)`
   ${(theme) => SPACER(theme)}
   ${(theme) => DISPLAY(theme)}
 `;
 
-export const RadioEnhanced = (props) => {
-  return <StyledRadioEnhancedBase type="radio" {...props} />;
+export const RadioList = (props) => {
+  return <StyledRadioListBase type="radio" {...props} />;
 };
 
-RadioEnhanced.propTypes = RadioEnhancedPropTypes;
+RadioList.propTypes = RadioListPropTypes;
 
-RadioEnhanced.defaultProps = RadioEnhancedDefaultProps;
+RadioList.defaultProps = RadioListDefaultProps;

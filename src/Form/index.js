@@ -20,3 +20,6 @@ export * from "./Select";
 export * from "./Stepper";
 export * from "./TextArea";
 export * from "./ToggleSwitch";
+export * from "./RadioEnhanced";
+export * from "./TabsSwitch";
+export * from "./RadioList";

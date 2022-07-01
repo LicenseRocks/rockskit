@@ -53,6 +53,10 @@ import {
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
+import {
+  faFileArrowUp as farFileArrowUp,
+} from "@fortawesome/pro-regular-svg-icons";
+
 export const FreeSolidIconSet = {
   faAngleDown,
   faAngleUp,
@@ -106,4 +110,5 @@ export const FreeSolidIconSet = {
   faTv,
   faUser,
   faUserCircle,
+  farFileArrowUp
 };
