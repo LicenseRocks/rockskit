@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import PropTypes from "prop-types";
 import { DISPLAY_PROP_TYPES, SPACER_PROP_TYPES } from "../../theme";
 import { Icon } from "../../Icon";
@@ -54,7 +54,28 @@ const StyledLabel = styled.label`
   align-items: center;
 
   .icon_wrapper {
+    margin-right: ${({ theme }) => theme.spacing(6)};
+
+    svg {
+      color: ${({ theme }) => theme.palette.gray.black};
+    }
+  }
+  
+  .icon_rounded_wrapper {
+    display: grid;
     margin-right: ${({ theme }) => theme.spacing(3)};
+    background-color: ${({ theme }) => theme.palette.gray.semiLight};
+    border-radius: 100%;
+    padding: ${({ theme }) => theme.spacing(3)};
+    box-sizing: content-box;
+    border: ${({ active, theme }) => active 
+      ? `2px solid ${theme.palette.success.main}`
+      : `2px solid transparent`};
+    
+    svg {
+      color: ${({ theme }) => theme.palette.gray.medium};
+    }
+    
   }
   
   .text_wrapper {
@@ -68,23 +89,14 @@ const StyledLabel = styled.label`
   }
 `;
 
-const StyledIcon = styled(Icon)`
-  background-color: ${({ theme }) => theme.palette.gray.semiLight};
-  border-radius: 100%;
-  padding: ${({ theme }) => theme.spacing(3)};
-  width: 20px;
-  height: 20px;
-  color: ${({ theme }) => theme.palette.gray.medium};
-  border: 2px solid transparent;
-  border-color: ${({ active, theme }) => active && theme.palette.success.main}
-`;
-
 export const RadioListBaseItem = ({
   name,
   value,
   title,
   info,
   icon,
+  iconPrefix,
+  iconRounded,
   active,
   activeLabel,
   hasError,
@@ -95,6 +107,7 @@ export const RadioListBaseItem = ({
   const id = `${name}-${value}`;
   
   console.log("🎉 activeLabel: ", activeLabel)
+  console.log("🎉 active: ", active)
 
   return (
     <div className="radio-wrapper">
@@ -107,9 +120,9 @@ export const RadioListBaseItem = ({
         defaultValue={value}
         {...props}
       />
-      <StyledLabel htmlFor={id}>
-        <div className="icon_wrapper">
-          <StyledIcon icon={icon} size="lg" color="gray" active={active} />
+      <StyledLabel htmlFor={id} active={active}>
+        <div className={iconRounded ? "icon_rounded_wrapper" : "icon_wrapper"}>
+          <Icon icon={icon} prefix={iconPrefix} size="lg" color="gray" />
         </div>
         <div className="text_wrapper">
           <H4 className="title">

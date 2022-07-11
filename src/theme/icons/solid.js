@@ -55,7 +55,13 @@ import {
 
 import {
   faFileArrowUp as farFileArrowUp,
+  faArrowDownToBracket as farArrowDownToBracket,
+  faPhotoFilmMusic as farPhotoFilmMusic,
 } from "@fortawesome/pro-regular-svg-icons";
+
+import {
+  faHeart as farHeart
+} from "@fortawesome/free-regular-svg-icons";
 
 export const FreeSolidIconSet = {
   faAngleDown,
@@ -110,5 +116,8 @@ export const FreeSolidIconSet = {
   faTv,
   faUser,
   faUserCircle,
-  farFileArrowUp
+  farFileArrowUp,
+  farArrowDownToBracket,
+  farPhotoFilmMusic,
+  farHeart
 };

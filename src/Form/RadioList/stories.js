@@ -40,8 +40,10 @@ export const main = () => {
         title: text("Title", "arweave"),
         info: text("Info", "Connected on 2/24/2022, 10:23"),
         price: text("Price", "0.002 AR / MB"),
-        icon: "tv",
+        icon: text("Icon", "photo-film-music"),
+        iconPrefix: text("Icon prefix", "far"),
         active: boolean("Active", true),
+        iconRounded: boolean("Rounded icon?", true),
       },
       {
         value: "nftstorage",

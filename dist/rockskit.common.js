@@ -2,6 +2,7 @@
 
 Object.defineProperty(exports, '__esModule', { value: true });
 
+var React = require('react');
 var PropTypes = require('prop-types');
 var styled = require('styled-components');
 var styles = require('@material-ui/core/styles');
@@ -10,7 +11,7 @@ var fontawesomeSvgCore = require('@fortawesome/fontawesome-svg-core');
 var notistack = require('notistack');
 var freeBrandsSvgIcons = require('@fortawesome/free-brands-svg-icons');
 var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
-var proRegularSvgIcons = require('@fortawesome/pro-regular-svg-icons');
+var freeRegularSvgIcons = require('@fortawesome/free-regular-svg-icons');
 var MuiButtonBase = require('@material-ui/core/ButtonBase');
 var RCL = require('react-content-loader');
 var reactCollapse = require('react-collapse');
@@ -34,11 +35,11 @@ var AsyncSelect = require('react-select/async');
 var ReactSelect$1 = require('react-select');
 var flatMap = require('lodash/flatMap');
 var makeAnimated = require('react-select/animated');
+var Typography = require('@material-ui/core/Typography');
 var useScrollTrigger = require('@material-ui/core/useScrollTrigger');
 var Slide = require('@material-ui/core/Slide');
 var MuiHidden = require('@material-ui/core/Hidden');
 var MuiUseMediaQuery = require('@material-ui/core/useMediaQuery');
-var Typography = require('@material-ui/core/Typography');
 var Masonry = require('react-masonry-css');
 var CircularProgress = require('@material-ui/core/CircularProgress');
 var DialogActions = require('@material-ui/core/DialogActions');
@@ -59,6 +60,7 @@ var core = require('@material-ui/core');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
+var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
 var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
 var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
 var CssBaseline__default = /*#__PURE__*/_interopDefaultLegacy(CssBaseline);
@@ -80,11 +82,11 @@ var AsyncSelect__default = /*#__PURE__*/_interopDefaultLegacy(AsyncSelect);
 var ReactSelect__default = /*#__PURE__*/_interopDefaultLegacy(ReactSelect$1);
 var flatMap__default = /*#__PURE__*/_interopDefaultLegacy(flatMap);
 var makeAnimated__default = /*#__PURE__*/_interopDefaultLegacy(makeAnimated);
+var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography);
 var useScrollTrigger__default = /*#__PURE__*/_interopDefaultLegacy(useScrollTrigger);
 var Slide__default = /*#__PURE__*/_interopDefaultLegacy(Slide);
 var MuiHidden__default = /*#__PURE__*/_interopDefaultLegacy(MuiHidden);
 var MuiUseMediaQuery__default = /*#__PURE__*/_interopDefaultLegacy(MuiUseMediaQuery);
-var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography);
 var Masonry__default = /*#__PURE__*/_interopDefaultLegacy(Masonry);
 var CircularProgress__default = /*#__PURE__*/_interopDefaultLegacy(CircularProgress);
 var DialogActions__default = /*#__PURE__*/_interopDefaultLegacy(DialogActions);
@@ -131,2823 +133,6 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   return target;
 }
 
-function createCommonjsModule(fn, basedir, module) {
-	return module = {
-	  path: basedir,
-	  exports: {},
-	  require: function (path, base) {
-      return commonjsRequire(path, (base === undefined || base === null) ? module.path : base);
-    }
-	}, fn(module, module.exports), module.exports;
-}
-
-function commonjsRequire () {
-	throw new Error('Dynamic requires are not currently supported by @rollup/plugin-commonjs');
-}
-
-/**
- * @license React
- * react.production.min.js
- *
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
-var l=Symbol.for("react.element"),n=Symbol.for("react.portal"),p=Symbol.for("react.fragment"),q=Symbol.for("react.strict_mode"),r=Symbol.for("react.profiler"),t=Symbol.for("react.provider"),u=Symbol.for("react.context"),v=Symbol.for("react.forward_ref"),w=Symbol.for("react.suspense"),x=Symbol.for("react.memo"),y=Symbol.for("react.lazy"),z=Symbol.iterator;function A(a){if(null===a||"object"!==typeof a)return null;a=z&&a[z]||a["@@iterator"];return "function"===typeof a?a:null}
-var B={isMounted:function(){return !1},enqueueForceUpdate:function(){},enqueueReplaceState:function(){},enqueueSetState:function(){}},C=Object.assign,D={};function E(a,b,e){this.props=a;this.context=b;this.refs=D;this.updater=e||B;}E.prototype.isReactComponent={};
-E.prototype.setState=function(a,b){if("object"!==typeof a&&"function"!==typeof a&&null!=a)throw Error("setState(...): takes an object of state variables to update or a function which returns an object of state variables.");this.updater.enqueueSetState(this,a,b,"setState");};E.prototype.forceUpdate=function(a){this.updater.enqueueForceUpdate(this,a,"forceUpdate");};function F(){}F.prototype=E.prototype;function G(a,b,e){this.props=a;this.context=b;this.refs=D;this.updater=e||B;}var H=G.prototype=new F;
-H.constructor=G;C(H,E.prototype);H.isPureReactComponent=!0;var I=Array.isArray,J=Object.prototype.hasOwnProperty,K={current:null},L={key:!0,ref:!0,__self:!0,__source:!0};
-function M(a,b,e){var d,c={},k=null,h=null;if(null!=b)for(d in void 0!==b.ref&&(h=b.ref),void 0!==b.key&&(k=""+b.key),b)J.call(b,d)&&!L.hasOwnProperty(d)&&(c[d]=b[d]);var g=arguments.length-2;if(1===g)c.children=e;else if(1<g){for(var f=Array(g),m=0;m<g;m++)f[m]=arguments[m+2];c.children=f;}if(a&&a.defaultProps)for(d in g=a.defaultProps,g)void 0===c[d]&&(c[d]=g[d]);return {$$typeof:l,type:a,key:k,ref:h,props:c,_owner:K.current}}
-function N(a,b){return {$$typeof:l,type:a.type,key:b,ref:a.ref,props:a.props,_owner:a._owner}}function O(a){return "object"===typeof a&&null!==a&&a.$$typeof===l}function escape(a){var b={"=":"=0",":":"=2"};return "$"+a.replace(/[=:]/g,function(a){return b[a]})}var P=/\/+/g;function Q(a,b){return "object"===typeof a&&null!==a&&null!=a.key?escape(""+a.key):b.toString(36)}
-function R(a,b,e,d,c){var k=typeof a;if("undefined"===k||"boolean"===k)a=null;var h=!1;if(null===a)h=!0;else switch(k){case "string":case "number":h=!0;break;case "object":switch(a.$$typeof){case l:case n:h=!0;}}if(h)return h=a,c=c(h),a=""===d?"."+Q(h,0):d,I(c)?(e="",null!=a&&(e=a.replace(P,"$&/")+"/"),R(c,b,e,"",function(a){return a})):null!=c&&(O(c)&&(c=N(c,e+(!c.key||h&&h.key===c.key?"":(""+c.key).replace(P,"$&/")+"/")+a)),b.push(c)),1;h=0;d=""===d?".":d+":";if(I(a))for(var g=0;g<a.length;g++){k=
-a[g];var f=d+Q(k,g);h+=R(k,b,e,f,c);}else if(f=A(a),"function"===typeof f)for(a=f.call(a),g=0;!(k=a.next()).done;)k=k.value,f=d+Q(k,g++),h+=R(k,b,e,f,c);else if("object"===k)throw b=String(a),Error("Objects are not valid as a React child (found: "+("[object Object]"===b?"object with keys {"+Object.keys(a).join(", ")+"}":b)+"). If you meant to render a collection of children, use an array instead.");return h}
-function S(a,b,e){if(null==a)return a;var d=[],c=0;R(a,d,"","",function(a){return b.call(e,a,c++)});return d}function T(a){if(-1===a._status){var b=a._result;b=b();b.then(function(b){if(0===a._status||-1===a._status)a._status=1,a._result=b;},function(b){if(0===a._status||-1===a._status)a._status=2,a._result=b;});-1===a._status&&(a._status=0,a._result=b);}if(1===a._status)return a._result.default;throw a._result;}
-var U={current:null},V={transition:null},W={ReactCurrentDispatcher:U,ReactCurrentBatchConfig:V,ReactCurrentOwner:K};var Children={map:S,forEach:function(a,b,e){S(a,function(){b.apply(this,arguments);},e);},count:function(a){var b=0;S(a,function(){b++;});return b},toArray:function(a){return S(a,function(a){return a})||[]},only:function(a){if(!O(a))throw Error("React.Children.only expected to receive a single React element child.");return a}};var Component=E;var Fragment=p;
-var Profiler=r;var PureComponent=G;var StrictMode=q;var Suspense=w;var __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED=W;
-var cloneElement=function(a,b,e){if(null===a||void 0===a)throw Error("React.cloneElement(...): The argument must be a React element, but you passed "+a+".");var d=C({},a.props),c=a.key,k=a.ref,h=a._owner;if(null!=b){void 0!==b.ref&&(k=b.ref,h=K.current);void 0!==b.key&&(c=""+b.key);if(a.type&&a.type.defaultProps)var g=a.type.defaultProps;for(f in b)J.call(b,f)&&!L.hasOwnProperty(f)&&(d[f]=void 0===b[f]&&void 0!==g?g[f]:b[f]);}var f=arguments.length-2;if(1===f)d.children=e;else if(1<f){g=Array(f);
-for(var m=0;m<f;m++)g[m]=arguments[m+2];d.children=g;}return {$$typeof:l,type:a.type,key:c,ref:k,props:d,_owner:h}};var createContext=function(a){a={$$typeof:u,_currentValue:a,_currentValue2:a,_threadCount:0,Provider:null,Consumer:null,_defaultValue:null,_globalName:null};a.Provider={$$typeof:t,_context:a};return a.Consumer=a};var createElement=M;var createFactory=function(a){var b=M.bind(null,a);b.type=a;return b};var createRef=function(){return {current:null}};
-var forwardRef=function(a){return {$$typeof:v,render:a}};var isValidElement=O;var lazy=function(a){return {$$typeof:y,_payload:{_status:-1,_result:a},_init:T}};var memo=function(a,b){return {$$typeof:x,type:a,compare:void 0===b?null:b}};var startTransition=function(a){var b=V.transition;V.transition={};try{a();}finally{V.transition=b;}};var unstable_act=function(){throw Error("act(...) is not supported in production builds of React.");};
-var useCallback=function(a,b){return U.current.useCallback(a,b)};var useContext=function(a){return U.current.useContext(a)};var useDebugValue=function(){};var useDeferredValue=function(a){return U.current.useDeferredValue(a)};var useEffect=function(a,b){return U.current.useEffect(a,b)};var useId=function(){return U.current.useId()};var useImperativeHandle=function(a,b,e){return U.current.useImperativeHandle(a,b,e)};
-var useInsertionEffect=function(a,b){return U.current.useInsertionEffect(a,b)};var useLayoutEffect=function(a,b){return U.current.useLayoutEffect(a,b)};var useMemo=function(a,b){return U.current.useMemo(a,b)};var useReducer=function(a,b,e){return U.current.useReducer(a,b,e)};var useRef=function(a){return U.current.useRef(a)};var useState=function(a){return U.current.useState(a)};var useSyncExternalStore=function(a,b,e){return U.current.useSyncExternalStore(a,b,e)};
-var useTransition=function(){return U.current.useTransition()};var version="18.2.0";
-
-var react_production_min = {
-	Children: Children,
-	Component: Component,
-	Fragment: Fragment,
-	Profiler: Profiler,
-	PureComponent: PureComponent,
-	StrictMode: StrictMode,
-	Suspense: Suspense,
-	__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: __SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED,
-	cloneElement: cloneElement,
-	createContext: createContext,
-	createElement: createElement,
-	createFactory: createFactory,
-	createRef: createRef,
-	forwardRef: forwardRef,
-	isValidElement: isValidElement,
-	lazy: lazy,
-	memo: memo,
-	startTransition: startTransition,
-	unstable_act: unstable_act,
-	useCallback: useCallback,
-	useContext: useContext,
-	useDebugValue: useDebugValue,
-	useDeferredValue: useDeferredValue,
-	useEffect: useEffect,
-	useId: useId,
-	useImperativeHandle: useImperativeHandle,
-	useInsertionEffect: useInsertionEffect,
-	useLayoutEffect: useLayoutEffect,
-	useMemo: useMemo,
-	useReducer: useReducer,
-	useRef: useRef,
-	useState: useState,
-	useSyncExternalStore: useSyncExternalStore,
-	useTransition: useTransition,
-	version: version
-};
-
-var react_development = createCommonjsModule(function (module, exports) {
-
-if (process.env.NODE_ENV !== "production") {
-  (function() {
-
-/* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-if (
-  typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' &&
-  typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart ===
-    'function'
-) {
-  __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
-}
-          var ReactVersion = '18.2.0';
-
-// ATTENTION
-// When adding new symbols to this file,
-// Please consider also adding to 'react-devtools-shared/src/backend/ReactSymbols'
-// The Symbol used to tag the ReactElement-like types.
-var REACT_ELEMENT_TYPE = Symbol.for('react.element');
-var REACT_PORTAL_TYPE = Symbol.for('react.portal');
-var REACT_FRAGMENT_TYPE = Symbol.for('react.fragment');
-var REACT_STRICT_MODE_TYPE = Symbol.for('react.strict_mode');
-var REACT_PROFILER_TYPE = Symbol.for('react.profiler');
-var REACT_PROVIDER_TYPE = Symbol.for('react.provider');
-var REACT_CONTEXT_TYPE = Symbol.for('react.context');
-var REACT_FORWARD_REF_TYPE = Symbol.for('react.forward_ref');
-var REACT_SUSPENSE_TYPE = Symbol.for('react.suspense');
-var REACT_SUSPENSE_LIST_TYPE = Symbol.for('react.suspense_list');
-var REACT_MEMO_TYPE = Symbol.for('react.memo');
-var REACT_LAZY_TYPE = Symbol.for('react.lazy');
-var REACT_OFFSCREEN_TYPE = Symbol.for('react.offscreen');
-var MAYBE_ITERATOR_SYMBOL = Symbol.iterator;
-var FAUX_ITERATOR_SYMBOL = '@@iterator';
-function getIteratorFn(maybeIterable) {
-  if (maybeIterable === null || typeof maybeIterable !== 'object') {
-    return null;
-  }
-
-  var maybeIterator = MAYBE_ITERATOR_SYMBOL && maybeIterable[MAYBE_ITERATOR_SYMBOL] || maybeIterable[FAUX_ITERATOR_SYMBOL];
-
-  if (typeof maybeIterator === 'function') {
-    return maybeIterator;
-  }
-
-  return null;
-}
-
-/**
- * Keeps track of the current dispatcher.
- */
-var ReactCurrentDispatcher = {
-  /**
-   * @internal
-   * @type {ReactComponent}
-   */
-  current: null
-};
-
-/**
- * Keeps track of the current batch's configuration such as how long an update
- * should suspend for if it needs to.
- */
-var ReactCurrentBatchConfig = {
-  transition: null
-};
-
-var ReactCurrentActQueue = {
-  current: null,
-  // Used to reproduce behavior of `batchedUpdates` in legacy mode.
-  isBatchingLegacy: false,
-  didScheduleLegacyUpdate: false
-};
-
-/**
- * Keeps track of the current owner.
- *
- * The current owner is the component who should own any components that are
- * currently being constructed.
- */
-var ReactCurrentOwner = {
-  /**
-   * @internal
-   * @type {ReactComponent}
-   */
-  current: null
-};
-
-var ReactDebugCurrentFrame = {};
-var currentExtraStackFrame = null;
-function setExtraStackFrame(stack) {
-  {
-    currentExtraStackFrame = stack;
-  }
-}
-
-{
-  ReactDebugCurrentFrame.setExtraStackFrame = function (stack) {
-    {
-      currentExtraStackFrame = stack;
-    }
-  }; // Stack implementation injected by the current renderer.
-
-
-  ReactDebugCurrentFrame.getCurrentStack = null;
-
-  ReactDebugCurrentFrame.getStackAddendum = function () {
-    var stack = ''; // Add an extra top frame while an element is being validated
-
-    if (currentExtraStackFrame) {
-      stack += currentExtraStackFrame;
-    } // Delegate to the injected renderer-specific implementation
-
-
-    var impl = ReactDebugCurrentFrame.getCurrentStack;
-
-    if (impl) {
-      stack += impl() || '';
-    }
-
-    return stack;
-  };
-}
-
-// -----------------------------------------------------------------------------
-
-var enableScopeAPI = false; // Experimental Create Event Handle API.
-var enableCacheElement = false;
-var enableTransitionTracing = false; // No known bugs, but needs performance testing
-
-var enableLegacyHidden = false; // Enables unstable_avoidThisFallback feature in Fiber
-// stuff. Intended to enable React core members to more easily debug scheduling
-// issues in DEV builds.
-
-var enableDebugTracing = false; // Track which Fiber(s) schedule render work.
-
-var ReactSharedInternals = {
-  ReactCurrentDispatcher: ReactCurrentDispatcher,
-  ReactCurrentBatchConfig: ReactCurrentBatchConfig,
-  ReactCurrentOwner: ReactCurrentOwner
-};
-
-{
-  ReactSharedInternals.ReactDebugCurrentFrame = ReactDebugCurrentFrame;
-  ReactSharedInternals.ReactCurrentActQueue = ReactCurrentActQueue;
-}
-
-// by calls to these methods by a Babel plugin.
-//
-// In PROD (or in packages without access to React internals),
-// they are left as they are instead.
-
-function warn(format) {
-  {
-    {
-      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-        args[_key - 1] = arguments[_key];
-      }
-
-      printWarning('warn', format, args);
-    }
-  }
-}
-function error(format) {
-  {
-    {
-      for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-        args[_key2 - 1] = arguments[_key2];
-      }
-
-      printWarning('error', format, args);
-    }
-  }
-}
-
-function printWarning(level, format, args) {
-  // When changing this logic, you might want to also
-  // update consoleWithStackDev.www.js as well.
-  {
-    var ReactDebugCurrentFrame = ReactSharedInternals.ReactDebugCurrentFrame;
-    var stack = ReactDebugCurrentFrame.getStackAddendum();
-
-    if (stack !== '') {
-      format += '%s';
-      args = args.concat([stack]);
-    } // eslint-disable-next-line react-internal/safe-string-coercion
-
-
-    var argsWithFormat = args.map(function (item) {
-      return String(item);
-    }); // Careful: RN currently depends on this prefix
-
-    argsWithFormat.unshift('Warning: ' + format); // We intentionally don't use spread (or .apply) directly because it
-    // breaks IE9: https://github.com/facebook/react/issues/13610
-    // eslint-disable-next-line react-internal/no-production-logging
-
-    Function.prototype.apply.call(console[level], console, argsWithFormat);
-  }
-}
-
-var didWarnStateUpdateForUnmountedComponent = {};
-
-function warnNoop(publicInstance, callerName) {
-  {
-    var _constructor = publicInstance.constructor;
-    var componentName = _constructor && (_constructor.displayName || _constructor.name) || 'ReactClass';
-    var warningKey = componentName + "." + callerName;
-
-    if (didWarnStateUpdateForUnmountedComponent[warningKey]) {
-      return;
-    }
-
-    error("Can't call %s on a component that is not yet mounted. " + 'This is a no-op, but it might indicate a bug in your application. ' + 'Instead, assign to `this.state` directly or define a `state = {};` ' + 'class property with the desired state in the %s component.', callerName, componentName);
-
-    didWarnStateUpdateForUnmountedComponent[warningKey] = true;
-  }
-}
-/**
- * This is the abstract API for an update queue.
- */
-
-
-var ReactNoopUpdateQueue = {
-  /**
-   * Checks whether or not this composite component is mounted.
-   * @param {ReactClass} publicInstance The instance we want to test.
-   * @return {boolean} True if mounted, false otherwise.
-   * @protected
-   * @final
-   */
-  isMounted: function (publicInstance) {
-    return false;
-  },
-
-  /**
-   * Forces an update. This should only be invoked when it is known with
-   * certainty that we are **not** in a DOM transaction.
-   *
-   * You may want to call this when you know that some deeper aspect of the
-   * component's state has changed but `setState` was not called.
-   *
-   * This will not invoke `shouldComponentUpdate`, but it will invoke
-   * `componentWillUpdate` and `componentDidUpdate`.
-   *
-   * @param {ReactClass} publicInstance The instance that should rerender.
-   * @param {?function} callback Called after component is updated.
-   * @param {?string} callerName name of the calling function in the public API.
-   * @internal
-   */
-  enqueueForceUpdate: function (publicInstance, callback, callerName) {
-    warnNoop(publicInstance, 'forceUpdate');
-  },
-
-  /**
-   * Replaces all of the state. Always use this or `setState` to mutate state.
-   * You should treat `this.state` as immutable.
-   *
-   * There is no guarantee that `this.state` will be immediately updated, so
-   * accessing `this.state` after calling this method may return the old value.
-   *
-   * @param {ReactClass} publicInstance The instance that should rerender.
-   * @param {object} completeState Next state.
-   * @param {?function} callback Called after component is updated.
-   * @param {?string} callerName name of the calling function in the public API.
-   * @internal
-   */
-  enqueueReplaceState: function (publicInstance, completeState, callback, callerName) {
-    warnNoop(publicInstance, 'replaceState');
-  },
-
-  /**
-   * Sets a subset of the state. This only exists because _pendingState is
-   * internal. This provides a merging strategy that is not available to deep
-   * properties which is confusing. TODO: Expose pendingState or don't use it
-   * during the merge.
-   *
-   * @param {ReactClass} publicInstance The instance that should rerender.
-   * @param {object} partialState Next partial state to be merged with state.
-   * @param {?function} callback Called after component is updated.
-   * @param {?string} Name of the calling function in the public API.
-   * @internal
-   */
-  enqueueSetState: function (publicInstance, partialState, callback, callerName) {
-    warnNoop(publicInstance, 'setState');
-  }
-};
-
-var assign = Object.assign;
-
-var emptyObject = {};
-
-{
-  Object.freeze(emptyObject);
-}
-/**
- * Base class helpers for the updating state of a component.
- */
-
-
-function Component(props, context, updater) {
-  this.props = props;
-  this.context = context; // If a component has string refs, we will assign a different object later.
-
-  this.refs = emptyObject; // We initialize the default updater but the real one gets injected by the
-  // renderer.
-
-  this.updater = updater || ReactNoopUpdateQueue;
-}
-
-Component.prototype.isReactComponent = {};
-/**
- * Sets a subset of the state. Always use this to mutate
- * state. You should treat `this.state` as immutable.
- *
- * There is no guarantee that `this.state` will be immediately updated, so
- * accessing `this.state` after calling this method may return the old value.
- *
- * There is no guarantee that calls to `setState` will run synchronously,
- * as they may eventually be batched together.  You can provide an optional
- * callback that will be executed when the call to setState is actually
- * completed.
- *
- * When a function is provided to setState, it will be called at some point in
- * the future (not synchronously). It will be called with the up to date
- * component arguments (state, props, context). These values can be different
- * from this.* because your function may be called after receiveProps but before
- * shouldComponentUpdate, and this new state, props, and context will not yet be
- * assigned to this.
- *
- * @param {object|function} partialState Next partial state or function to
- *        produce next partial state to be merged with current state.
- * @param {?function} callback Called after state is updated.
- * @final
- * @protected
- */
-
-Component.prototype.setState = function (partialState, callback) {
-  if (typeof partialState !== 'object' && typeof partialState !== 'function' && partialState != null) {
-    throw new Error('setState(...): takes an object of state variables to update or a ' + 'function which returns an object of state variables.');
-  }
-
-  this.updater.enqueueSetState(this, partialState, callback, 'setState');
-};
-/**
- * Forces an update. This should only be invoked when it is known with
- * certainty that we are **not** in a DOM transaction.
- *
- * You may want to call this when you know that some deeper aspect of the
- * component's state has changed but `setState` was not called.
- *
- * This will not invoke `shouldComponentUpdate`, but it will invoke
- * `componentWillUpdate` and `componentDidUpdate`.
- *
- * @param {?function} callback Called after update is complete.
- * @final
- * @protected
- */
-
-
-Component.prototype.forceUpdate = function (callback) {
-  this.updater.enqueueForceUpdate(this, callback, 'forceUpdate');
-};
-/**
- * Deprecated APIs. These APIs used to exist on classic React classes but since
- * we would like to deprecate them, we're not going to move them over to this
- * modern base class. Instead, we define a getter that warns if it's accessed.
- */
-
-
-{
-  var deprecatedAPIs = {
-    isMounted: ['isMounted', 'Instead, make sure to clean up subscriptions and pending requests in ' + 'componentWillUnmount to prevent memory leaks.'],
-    replaceState: ['replaceState', 'Refactor your code to use setState instead (see ' + 'https://github.com/facebook/react/issues/3236).']
-  };
-
-  var defineDeprecationWarning = function (methodName, info) {
-    Object.defineProperty(Component.prototype, methodName, {
-      get: function () {
-        warn('%s(...) is deprecated in plain JavaScript React classes. %s', info[0], info[1]);
-
-        return undefined;
-      }
-    });
-  };
-
-  for (var fnName in deprecatedAPIs) {
-    if (deprecatedAPIs.hasOwnProperty(fnName)) {
-      defineDeprecationWarning(fnName, deprecatedAPIs[fnName]);
-    }
-  }
-}
-
-function ComponentDummy() {}
-
-ComponentDummy.prototype = Component.prototype;
-/**
- * Convenience component with default shallow equality check for sCU.
- */
-
-function PureComponent(props, context, updater) {
-  this.props = props;
-  this.context = context; // If a component has string refs, we will assign a different object later.
-
-  this.refs = emptyObject;
-  this.updater = updater || ReactNoopUpdateQueue;
-}
-
-var pureComponentPrototype = PureComponent.prototype = new ComponentDummy();
-pureComponentPrototype.constructor = PureComponent; // Avoid an extra prototype jump for these methods.
-
-assign(pureComponentPrototype, Component.prototype);
-pureComponentPrototype.isPureReactComponent = true;
-
-// an immutable object with a single mutable value
-function createRef() {
-  var refObject = {
-    current: null
-  };
-
-  {
-    Object.seal(refObject);
-  }
-
-  return refObject;
-}
-
-var isArrayImpl = Array.isArray; // eslint-disable-next-line no-redeclare
-
-function isArray(a) {
-  return isArrayImpl(a);
-}
-
-/*
- * The `'' + value` pattern (used in in perf-sensitive code) throws for Symbol
- * and Temporal.* types. See https://github.com/facebook/react/pull/22064.
- *
- * The functions in this module will throw an easier-to-understand,
- * easier-to-debug exception with a clear errors message message explaining the
- * problem. (Instead of a confusing exception thrown inside the implementation
- * of the `value` object).
- */
-// $FlowFixMe only called in DEV, so void return is not possible.
-function typeName(value) {
-  {
-    // toStringTag is needed for namespaced types like Temporal.Instant
-    var hasToStringTag = typeof Symbol === 'function' && Symbol.toStringTag;
-    var type = hasToStringTag && value[Symbol.toStringTag] || value.constructor.name || 'Object';
-    return type;
-  }
-} // $FlowFixMe only called in DEV, so void return is not possible.
-
-
-function willCoercionThrow(value) {
-  {
-    try {
-      testStringCoercion(value);
-      return false;
-    } catch (e) {
-      return true;
-    }
-  }
-}
-
-function testStringCoercion(value) {
-  // If you ended up here by following an exception call stack, here's what's
-  // happened: you supplied an object or symbol value to React (as a prop, key,
-  // DOM attribute, CSS property, string ref, etc.) and when React tried to
-  // coerce it to a string using `'' + value`, an exception was thrown.
-  //
-  // The most common types that will cause this exception are `Symbol` instances
-  // and Temporal objects like `Temporal.Instant`. But any object that has a
-  // `valueOf` or `[Symbol.toPrimitive]` method that throws will also cause this
-  // exception. (Library authors do this to prevent users from using built-in
-  // numeric operators like `+` or comparison operators like `>=` because custom
-  // methods are needed to perform accurate arithmetic or comparison.)
-  //
-  // To fix the problem, coerce this object or symbol value to a string before
-  // passing it to React. The most reliable way is usually `String(value)`.
-  //
-  // To find which value is throwing, check the browser or debugger console.
-  // Before this exception was thrown, there should be `console.error` output
-  // that shows the type (Symbol, Temporal.PlainDate, etc.) that caused the
-  // problem and how that type was used: key, atrribute, input value prop, etc.
-  // In most cases, this console output also shows the component and its
-  // ancestor components where the exception happened.
-  //
-  // eslint-disable-next-line react-internal/safe-string-coercion
-  return '' + value;
-}
-function checkKeyStringCoercion(value) {
-  {
-    if (willCoercionThrow(value)) {
-      error('The provided key is an unsupported type %s.' + ' This value must be coerced to a string before before using it here.', typeName(value));
-
-      return testStringCoercion(value); // throw (to help callers find troubleshooting comments)
-    }
-  }
-}
-
-function getWrappedName(outerType, innerType, wrapperName) {
-  var displayName = outerType.displayName;
-
-  if (displayName) {
-    return displayName;
-  }
-
-  var functionName = innerType.displayName || innerType.name || '';
-  return functionName !== '' ? wrapperName + "(" + functionName + ")" : wrapperName;
-} // Keep in sync with react-reconciler/getComponentNameFromFiber
-
-
-function getContextName(type) {
-  return type.displayName || 'Context';
-} // Note that the reconciler package should generally prefer to use getComponentNameFromFiber() instead.
-
-
-function getComponentNameFromType(type) {
-  if (type == null) {
-    // Host root, text node or just invalid type.
-    return null;
-  }
-
-  {
-    if (typeof type.tag === 'number') {
-      error('Received an unexpected object in getComponentNameFromType(). ' + 'This is likely a bug in React. Please file an issue.');
-    }
-  }
-
-  if (typeof type === 'function') {
-    return type.displayName || type.name || null;
-  }
-
-  if (typeof type === 'string') {
-    return type;
-  }
-
-  switch (type) {
-    case REACT_FRAGMENT_TYPE:
-      return 'Fragment';
-
-    case REACT_PORTAL_TYPE:
-      return 'Portal';
-
-    case REACT_PROFILER_TYPE:
-      return 'Profiler';
-
-    case REACT_STRICT_MODE_TYPE:
-      return 'StrictMode';
-
-    case REACT_SUSPENSE_TYPE:
-      return 'Suspense';
-
-    case REACT_SUSPENSE_LIST_TYPE:
-      return 'SuspenseList';
-
-  }
-
-  if (typeof type === 'object') {
-    switch (type.$$typeof) {
-      case REACT_CONTEXT_TYPE:
-        var context = type;
-        return getContextName(context) + '.Consumer';
-
-      case REACT_PROVIDER_TYPE:
-        var provider = type;
-        return getContextName(provider._context) + '.Provider';
-
-      case REACT_FORWARD_REF_TYPE:
-        return getWrappedName(type, type.render, 'ForwardRef');
-
-      case REACT_MEMO_TYPE:
-        var outerName = type.displayName || null;
-
-        if (outerName !== null) {
-          return outerName;
-        }
-
-        return getComponentNameFromType(type.type) || 'Memo';
-
-      case REACT_LAZY_TYPE:
-        {
-          var lazyComponent = type;
-          var payload = lazyComponent._payload;
-          var init = lazyComponent._init;
-
-          try {
-            return getComponentNameFromType(init(payload));
-          } catch (x) {
-            return null;
-          }
-        }
-
-      // eslint-disable-next-line no-fallthrough
-    }
-  }
-
-  return null;
-}
-
-var hasOwnProperty = Object.prototype.hasOwnProperty;
-
-var RESERVED_PROPS = {
-  key: true,
-  ref: true,
-  __self: true,
-  __source: true
-};
-var specialPropKeyWarningShown, specialPropRefWarningShown, didWarnAboutStringRefs;
-
-{
-  didWarnAboutStringRefs = {};
-}
-
-function hasValidRef(config) {
-  {
-    if (hasOwnProperty.call(config, 'ref')) {
-      var getter = Object.getOwnPropertyDescriptor(config, 'ref').get;
-
-      if (getter && getter.isReactWarning) {
-        return false;
-      }
-    }
-  }
-
-  return config.ref !== undefined;
-}
-
-function hasValidKey(config) {
-  {
-    if (hasOwnProperty.call(config, 'key')) {
-      var getter = Object.getOwnPropertyDescriptor(config, 'key').get;
-
-      if (getter && getter.isReactWarning) {
-        return false;
-      }
-    }
-  }
-
-  return config.key !== undefined;
-}
-
-function defineKeyPropWarningGetter(props, displayName) {
-  var warnAboutAccessingKey = function () {
-    {
-      if (!specialPropKeyWarningShown) {
-        specialPropKeyWarningShown = true;
-
-        error('%s: `key` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
-      }
-    }
-  };
-
-  warnAboutAccessingKey.isReactWarning = true;
-  Object.defineProperty(props, 'key', {
-    get: warnAboutAccessingKey,
-    configurable: true
-  });
-}
-
-function defineRefPropWarningGetter(props, displayName) {
-  var warnAboutAccessingRef = function () {
-    {
-      if (!specialPropRefWarningShown) {
-        specialPropRefWarningShown = true;
-
-        error('%s: `ref` is not a prop. Trying to access it will result ' + 'in `undefined` being returned. If you need to access the same ' + 'value within the child component, you should pass it as a different ' + 'prop. (https://reactjs.org/link/special-props)', displayName);
-      }
-    }
-  };
-
-  warnAboutAccessingRef.isReactWarning = true;
-  Object.defineProperty(props, 'ref', {
-    get: warnAboutAccessingRef,
-    configurable: true
-  });
-}
-
-function warnIfStringRefCannotBeAutoConverted(config) {
-  {
-    if (typeof config.ref === 'string' && ReactCurrentOwner.current && config.__self && ReactCurrentOwner.current.stateNode !== config.__self) {
-      var componentName = getComponentNameFromType(ReactCurrentOwner.current.type);
-
-      if (!didWarnAboutStringRefs[componentName]) {
-        error('Component "%s" contains the string ref "%s". ' + 'Support for string refs will be removed in a future major release. ' + 'This case cannot be automatically converted to an arrow function. ' + 'We ask you to manually fix this case by using useRef() or createRef() instead. ' + 'Learn more about using refs safely here: ' + 'https://reactjs.org/link/strict-mode-string-ref', componentName, config.ref);
-
-        didWarnAboutStringRefs[componentName] = true;
-      }
-    }
-  }
-}
-/**
- * Factory method to create a new React element. This no longer adheres to
- * the class pattern, so do not use new to call it. Also, instanceof check
- * will not work. Instead test $$typeof field against Symbol.for('react.element') to check
- * if something is a React Element.
- *
- * @param {*} type
- * @param {*} props
- * @param {*} key
- * @param {string|object} ref
- * @param {*} owner
- * @param {*} self A *temporary* helper to detect places where `this` is
- * different from the `owner` when React.createElement is called, so that we
- * can warn. We want to get rid of owner and replace string `ref`s with arrow
- * functions, and as long as `this` and owner are the same, there will be no
- * change in behavior.
- * @param {*} source An annotation object (added by a transpiler or otherwise)
- * indicating filename, line number, and/or other information.
- * @internal
- */
-
-
-var ReactElement = function (type, key, ref, self, source, owner, props) {
-  var element = {
-    // This tag allows us to uniquely identify this as a React Element
-    $$typeof: REACT_ELEMENT_TYPE,
-    // Built-in properties that belong on the element
-    type: type,
-    key: key,
-    ref: ref,
-    props: props,
-    // Record the component responsible for creating this element.
-    _owner: owner
-  };
-
-  {
-    // The validation flag is currently mutative. We put it on
-    // an external backing store so that we can freeze the whole object.
-    // This can be replaced with a WeakMap once they are implemented in
-    // commonly used development environments.
-    element._store = {}; // To make comparing ReactElements easier for testing purposes, we make
-    // the validation flag non-enumerable (where possible, which should
-    // include every environment we run tests in), so the test framework
-    // ignores it.
-
-    Object.defineProperty(element._store, 'validated', {
-      configurable: false,
-      enumerable: false,
-      writable: true,
-      value: false
-    }); // self and source are DEV only properties.
-
-    Object.defineProperty(element, '_self', {
-      configurable: false,
-      enumerable: false,
-      writable: false,
-      value: self
-    }); // Two elements created in two different places should be considered
-    // equal for testing purposes and therefore we hide it from enumeration.
-
-    Object.defineProperty(element, '_source', {
-      configurable: false,
-      enumerable: false,
-      writable: false,
-      value: source
-    });
-
-    if (Object.freeze) {
-      Object.freeze(element.props);
-      Object.freeze(element);
-    }
-  }
-
-  return element;
-};
-/**
- * Create and return a new ReactElement of the given type.
- * See https://reactjs.org/docs/react-api.html#createelement
- */
-
-function createElement(type, config, children) {
-  var propName; // Reserved names are extracted
-
-  var props = {};
-  var key = null;
-  var ref = null;
-  var self = null;
-  var source = null;
-
-  if (config != null) {
-    if (hasValidRef(config)) {
-      ref = config.ref;
-
-      {
-        warnIfStringRefCannotBeAutoConverted(config);
-      }
-    }
-
-    if (hasValidKey(config)) {
-      {
-        checkKeyStringCoercion(config.key);
-      }
-
-      key = '' + config.key;
-    }
-
-    self = config.__self === undefined ? null : config.__self;
-    source = config.__source === undefined ? null : config.__source; // Remaining properties are added to a new props object
-
-    for (propName in config) {
-      if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
-        props[propName] = config[propName];
-      }
-    }
-  } // Children can be more than one argument, and those are transferred onto
-  // the newly allocated props object.
-
-
-  var childrenLength = arguments.length - 2;
-
-  if (childrenLength === 1) {
-    props.children = children;
-  } else if (childrenLength > 1) {
-    var childArray = Array(childrenLength);
-
-    for (var i = 0; i < childrenLength; i++) {
-      childArray[i] = arguments[i + 2];
-    }
-
-    {
-      if (Object.freeze) {
-        Object.freeze(childArray);
-      }
-    }
-
-    props.children = childArray;
-  } // Resolve default props
-
-
-  if (type && type.defaultProps) {
-    var defaultProps = type.defaultProps;
-
-    for (propName in defaultProps) {
-      if (props[propName] === undefined) {
-        props[propName] = defaultProps[propName];
-      }
-    }
-  }
-
-  {
-    if (key || ref) {
-      var displayName = typeof type === 'function' ? type.displayName || type.name || 'Unknown' : type;
-
-      if (key) {
-        defineKeyPropWarningGetter(props, displayName);
-      }
-
-      if (ref) {
-        defineRefPropWarningGetter(props, displayName);
-      }
-    }
-  }
-
-  return ReactElement(type, key, ref, self, source, ReactCurrentOwner.current, props);
-}
-function cloneAndReplaceKey(oldElement, newKey) {
-  var newElement = ReactElement(oldElement.type, newKey, oldElement.ref, oldElement._self, oldElement._source, oldElement._owner, oldElement.props);
-  return newElement;
-}
-/**
- * Clone and return a new ReactElement using element as the starting point.
- * See https://reactjs.org/docs/react-api.html#cloneelement
- */
-
-function cloneElement(element, config, children) {
-  if (element === null || element === undefined) {
-    throw new Error("React.cloneElement(...): The argument must be a React element, but you passed " + element + ".");
-  }
-
-  var propName; // Original props are copied
-
-  var props = assign({}, element.props); // Reserved names are extracted
-
-  var key = element.key;
-  var ref = element.ref; // Self is preserved since the owner is preserved.
-
-  var self = element._self; // Source is preserved since cloneElement is unlikely to be targeted by a
-  // transpiler, and the original source is probably a better indicator of the
-  // true owner.
-
-  var source = element._source; // Owner will be preserved, unless ref is overridden
-
-  var owner = element._owner;
-
-  if (config != null) {
-    if (hasValidRef(config)) {
-      // Silently steal the ref from the parent.
-      ref = config.ref;
-      owner = ReactCurrentOwner.current;
-    }
-
-    if (hasValidKey(config)) {
-      {
-        checkKeyStringCoercion(config.key);
-      }
-
-      key = '' + config.key;
-    } // Remaining properties override existing props
-
-
-    var defaultProps;
-
-    if (element.type && element.type.defaultProps) {
-      defaultProps = element.type.defaultProps;
-    }
-
-    for (propName in config) {
-      if (hasOwnProperty.call(config, propName) && !RESERVED_PROPS.hasOwnProperty(propName)) {
-        if (config[propName] === undefined && defaultProps !== undefined) {
-          // Resolve default props
-          props[propName] = defaultProps[propName];
-        } else {
-          props[propName] = config[propName];
-        }
-      }
-    }
-  } // Children can be more than one argument, and those are transferred onto
-  // the newly allocated props object.
-
-
-  var childrenLength = arguments.length - 2;
-
-  if (childrenLength === 1) {
-    props.children = children;
-  } else if (childrenLength > 1) {
-    var childArray = Array(childrenLength);
-
-    for (var i = 0; i < childrenLength; i++) {
-      childArray[i] = arguments[i + 2];
-    }
-
-    props.children = childArray;
-  }
-
-  return ReactElement(element.type, key, ref, self, source, owner, props);
-}
-/**
- * Verifies the object is a ReactElement.
- * See https://reactjs.org/docs/react-api.html#isvalidelement
- * @param {?object} object
- * @return {boolean} True if `object` is a ReactElement.
- * @final
- */
-
-function isValidElement(object) {
-  return typeof object === 'object' && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
-}
-
-var SEPARATOR = '.';
-var SUBSEPARATOR = ':';
-/**
- * Escape and wrap key so it is safe to use as a reactid
- *
- * @param {string} key to be escaped.
- * @return {string} the escaped key.
- */
-
-function escape(key) {
-  var escapeRegex = /[=:]/g;
-  var escaperLookup = {
-    '=': '=0',
-    ':': '=2'
-  };
-  var escapedString = key.replace(escapeRegex, function (match) {
-    return escaperLookup[match];
-  });
-  return '$' + escapedString;
-}
-/**
- * TODO: Test that a single child and an array with one item have the same key
- * pattern.
- */
-
-
-var didWarnAboutMaps = false;
-var userProvidedKeyEscapeRegex = /\/+/g;
-
-function escapeUserProvidedKey(text) {
-  return text.replace(userProvidedKeyEscapeRegex, '$&/');
-}
-/**
- * Generate a key string that identifies a element within a set.
- *
- * @param {*} element A element that could contain a manual key.
- * @param {number} index Index that is used if a manual key is not provided.
- * @return {string}
- */
-
-
-function getElementKey(element, index) {
-  // Do some typechecking here since we call this blindly. We want to ensure
-  // that we don't block potential future ES APIs.
-  if (typeof element === 'object' && element !== null && element.key != null) {
-    // Explicit key
-    {
-      checkKeyStringCoercion(element.key);
-    }
-
-    return escape('' + element.key);
-  } // Implicit key determined by the index in the set
-
-
-  return index.toString(36);
-}
-
-function mapIntoArray(children, array, escapedPrefix, nameSoFar, callback) {
-  var type = typeof children;
-
-  if (type === 'undefined' || type === 'boolean') {
-    // All of the above are perceived as null.
-    children = null;
-  }
-
-  var invokeCallback = false;
-
-  if (children === null) {
-    invokeCallback = true;
-  } else {
-    switch (type) {
-      case 'string':
-      case 'number':
-        invokeCallback = true;
-        break;
-
-      case 'object':
-        switch (children.$$typeof) {
-          case REACT_ELEMENT_TYPE:
-          case REACT_PORTAL_TYPE:
-            invokeCallback = true;
-        }
-
-    }
-  }
-
-  if (invokeCallback) {
-    var _child = children;
-    var mappedChild = callback(_child); // If it's the only child, treat the name as if it was wrapped in an array
-    // so that it's consistent if the number of children grows:
-
-    var childKey = nameSoFar === '' ? SEPARATOR + getElementKey(_child, 0) : nameSoFar;
-
-    if (isArray(mappedChild)) {
-      var escapedChildKey = '';
-
-      if (childKey != null) {
-        escapedChildKey = escapeUserProvidedKey(childKey) + '/';
-      }
-
-      mapIntoArray(mappedChild, array, escapedChildKey, '', function (c) {
-        return c;
-      });
-    } else if (mappedChild != null) {
-      if (isValidElement(mappedChild)) {
-        {
-          // The `if` statement here prevents auto-disabling of the safe
-          // coercion ESLint rule, so we must manually disable it below.
-          // $FlowFixMe Flow incorrectly thinks React.Portal doesn't have a key
-          if (mappedChild.key && (!_child || _child.key !== mappedChild.key)) {
-            checkKeyStringCoercion(mappedChild.key);
-          }
-        }
-
-        mappedChild = cloneAndReplaceKey(mappedChild, // Keep both the (mapped) and old keys if they differ, just as
-        // traverseAllChildren used to do for objects as children
-        escapedPrefix + ( // $FlowFixMe Flow incorrectly thinks React.Portal doesn't have a key
-        mappedChild.key && (!_child || _child.key !== mappedChild.key) ? // $FlowFixMe Flow incorrectly thinks existing element's key can be a number
-        // eslint-disable-next-line react-internal/safe-string-coercion
-        escapeUserProvidedKey('' + mappedChild.key) + '/' : '') + childKey);
-      }
-
-      array.push(mappedChild);
-    }
-
-    return 1;
-  }
-
-  var child;
-  var nextName;
-  var subtreeCount = 0; // Count of children found in the current subtree.
-
-  var nextNamePrefix = nameSoFar === '' ? SEPARATOR : nameSoFar + SUBSEPARATOR;
-
-  if (isArray(children)) {
-    for (var i = 0; i < children.length; i++) {
-      child = children[i];
-      nextName = nextNamePrefix + getElementKey(child, i);
-      subtreeCount += mapIntoArray(child, array, escapedPrefix, nextName, callback);
-    }
-  } else {
-    var iteratorFn = getIteratorFn(children);
-
-    if (typeof iteratorFn === 'function') {
-      var iterableChildren = children;
-
-      {
-        // Warn about using Maps as children
-        if (iteratorFn === iterableChildren.entries) {
-          if (!didWarnAboutMaps) {
-            warn('Using Maps as children is not supported. ' + 'Use an array of keyed ReactElements instead.');
-          }
-
-          didWarnAboutMaps = true;
-        }
-      }
-
-      var iterator = iteratorFn.call(iterableChildren);
-      var step;
-      var ii = 0;
-
-      while (!(step = iterator.next()).done) {
-        child = step.value;
-        nextName = nextNamePrefix + getElementKey(child, ii++);
-        subtreeCount += mapIntoArray(child, array, escapedPrefix, nextName, callback);
-      }
-    } else if (type === 'object') {
-      // eslint-disable-next-line react-internal/safe-string-coercion
-      var childrenString = String(children);
-      throw new Error("Objects are not valid as a React child (found: " + (childrenString === '[object Object]' ? 'object with keys {' + Object.keys(children).join(', ') + '}' : childrenString) + "). " + 'If you meant to render a collection of children, use an array ' + 'instead.');
-    }
-  }
-
-  return subtreeCount;
-}
-
-/**
- * Maps children that are typically specified as `props.children`.
- *
- * See https://reactjs.org/docs/react-api.html#reactchildrenmap
- *
- * The provided mapFunction(child, index) will be called for each
- * leaf child.
- *
- * @param {?*} children Children tree container.
- * @param {function(*, int)} func The map function.
- * @param {*} context Context for mapFunction.
- * @return {object} Object containing the ordered map of results.
- */
-function mapChildren(children, func, context) {
-  if (children == null) {
-    return children;
-  }
-
-  var result = [];
-  var count = 0;
-  mapIntoArray(children, result, '', '', function (child) {
-    return func.call(context, child, count++);
-  });
-  return result;
-}
-/**
- * Count the number of children that are typically specified as
- * `props.children`.
- *
- * See https://reactjs.org/docs/react-api.html#reactchildrencount
- *
- * @param {?*} children Children tree container.
- * @return {number} The number of children.
- */
-
-
-function countChildren(children) {
-  var n = 0;
-  mapChildren(children, function () {
-    n++; // Don't return anything
-  });
-  return n;
-}
-
-/**
- * Iterates through children that are typically specified as `props.children`.
- *
- * See https://reactjs.org/docs/react-api.html#reactchildrenforeach
- *
- * The provided forEachFunc(child, index) will be called for each
- * leaf child.
- *
- * @param {?*} children Children tree container.
- * @param {function(*, int)} forEachFunc
- * @param {*} forEachContext Context for forEachContext.
- */
-function forEachChildren(children, forEachFunc, forEachContext) {
-  mapChildren(children, function () {
-    forEachFunc.apply(this, arguments); // Don't return anything.
-  }, forEachContext);
-}
-/**
- * Flatten a children object (typically specified as `props.children`) and
- * return an array with appropriately re-keyed children.
- *
- * See https://reactjs.org/docs/react-api.html#reactchildrentoarray
- */
-
-
-function toArray(children) {
-  return mapChildren(children, function (child) {
-    return child;
-  }) || [];
-}
-/**
- * Returns the first child in a collection of children and verifies that there
- * is only one child in the collection.
- *
- * See https://reactjs.org/docs/react-api.html#reactchildrenonly
- *
- * The current implementation of this function assumes that a single child gets
- * passed without a wrapper, but the purpose of this helper function is to
- * abstract away the particular structure of children.
- *
- * @param {?object} children Child collection structure.
- * @return {ReactElement} The first and only `ReactElement` contained in the
- * structure.
- */
-
-
-function onlyChild(children) {
-  if (!isValidElement(children)) {
-    throw new Error('React.Children.only expected to receive a single React element child.');
-  }
-
-  return children;
-}
-
-function createContext(defaultValue) {
-  // TODO: Second argument used to be an optional `calculateChangedBits`
-  // function. Warn to reserve for future use?
-  var context = {
-    $$typeof: REACT_CONTEXT_TYPE,
-    // As a workaround to support multiple concurrent renderers, we categorize
-    // some renderers as primary and others as secondary. We only expect
-    // there to be two concurrent renderers at most: React Native (primary) and
-    // Fabric (secondary); React DOM (primary) and React ART (secondary).
-    // Secondary renderers store their context values on separate fields.
-    _currentValue: defaultValue,
-    _currentValue2: defaultValue,
-    // Used to track how many concurrent renderers this context currently
-    // supports within in a single renderer. Such as parallel server rendering.
-    _threadCount: 0,
-    // These are circular
-    Provider: null,
-    Consumer: null,
-    // Add these to use same hidden class in VM as ServerContext
-    _defaultValue: null,
-    _globalName: null
-  };
-  context.Provider = {
-    $$typeof: REACT_PROVIDER_TYPE,
-    _context: context
-  };
-  var hasWarnedAboutUsingNestedContextConsumers = false;
-  var hasWarnedAboutUsingConsumerProvider = false;
-  var hasWarnedAboutDisplayNameOnConsumer = false;
-
-  {
-    // A separate object, but proxies back to the original context object for
-    // backwards compatibility. It has a different $$typeof, so we can properly
-    // warn for the incorrect usage of Context as a Consumer.
-    var Consumer = {
-      $$typeof: REACT_CONTEXT_TYPE,
-      _context: context
-    }; // $FlowFixMe: Flow complains about not setting a value, which is intentional here
-
-    Object.defineProperties(Consumer, {
-      Provider: {
-        get: function () {
-          if (!hasWarnedAboutUsingConsumerProvider) {
-            hasWarnedAboutUsingConsumerProvider = true;
-
-            error('Rendering <Context.Consumer.Provider> is not supported and will be removed in ' + 'a future major release. Did you mean to render <Context.Provider> instead?');
-          }
-
-          return context.Provider;
-        },
-        set: function (_Provider) {
-          context.Provider = _Provider;
-        }
-      },
-      _currentValue: {
-        get: function () {
-          return context._currentValue;
-        },
-        set: function (_currentValue) {
-          context._currentValue = _currentValue;
-        }
-      },
-      _currentValue2: {
-        get: function () {
-          return context._currentValue2;
-        },
-        set: function (_currentValue2) {
-          context._currentValue2 = _currentValue2;
-        }
-      },
-      _threadCount: {
-        get: function () {
-          return context._threadCount;
-        },
-        set: function (_threadCount) {
-          context._threadCount = _threadCount;
-        }
-      },
-      Consumer: {
-        get: function () {
-          if (!hasWarnedAboutUsingNestedContextConsumers) {
-            hasWarnedAboutUsingNestedContextConsumers = true;
-
-            error('Rendering <Context.Consumer.Consumer> is not supported and will be removed in ' + 'a future major release. Did you mean to render <Context.Consumer> instead?');
-          }
-
-          return context.Consumer;
-        }
-      },
-      displayName: {
-        get: function () {
-          return context.displayName;
-        },
-        set: function (displayName) {
-          if (!hasWarnedAboutDisplayNameOnConsumer) {
-            warn('Setting `displayName` on Context.Consumer has no effect. ' + "You should set it directly on the context with Context.displayName = '%s'.", displayName);
-
-            hasWarnedAboutDisplayNameOnConsumer = true;
-          }
-        }
-      }
-    }); // $FlowFixMe: Flow complains about missing properties because it doesn't understand defineProperty
-
-    context.Consumer = Consumer;
-  }
-
-  {
-    context._currentRenderer = null;
-    context._currentRenderer2 = null;
-  }
-
-  return context;
-}
-
-var Uninitialized = -1;
-var Pending = 0;
-var Resolved = 1;
-var Rejected = 2;
-
-function lazyInitializer(payload) {
-  if (payload._status === Uninitialized) {
-    var ctor = payload._result;
-    var thenable = ctor(); // Transition to the next state.
-    // This might throw either because it's missing or throws. If so, we treat it
-    // as still uninitialized and try again next time. Which is the same as what
-    // happens if the ctor or any wrappers processing the ctor throws. This might
-    // end up fixing it if the resolution was a concurrency bug.
-
-    thenable.then(function (moduleObject) {
-      if (payload._status === Pending || payload._status === Uninitialized) {
-        // Transition to the next state.
-        var resolved = payload;
-        resolved._status = Resolved;
-        resolved._result = moduleObject;
-      }
-    }, function (error) {
-      if (payload._status === Pending || payload._status === Uninitialized) {
-        // Transition to the next state.
-        var rejected = payload;
-        rejected._status = Rejected;
-        rejected._result = error;
-      }
-    });
-
-    if (payload._status === Uninitialized) {
-      // In case, we're still uninitialized, then we're waiting for the thenable
-      // to resolve. Set it as pending in the meantime.
-      var pending = payload;
-      pending._status = Pending;
-      pending._result = thenable;
-    }
-  }
-
-  if (payload._status === Resolved) {
-    var moduleObject = payload._result;
-
-    {
-      if (moduleObject === undefined) {
-        error('lazy: Expected the result of a dynamic imp' + 'ort() call. ' + 'Instead received: %s\n\nYour code should look like: \n  ' + // Break up imports to avoid accidentally parsing them as dependencies.
-        'const MyComponent = lazy(() => imp' + "ort('./MyComponent'))\n\n" + 'Did you accidentally put curly braces around the import?', moduleObject);
-      }
-    }
-
-    {
-      if (!('default' in moduleObject)) {
-        error('lazy: Expected the result of a dynamic imp' + 'ort() call. ' + 'Instead received: %s\n\nYour code should look like: \n  ' + // Break up imports to avoid accidentally parsing them as dependencies.
-        'const MyComponent = lazy(() => imp' + "ort('./MyComponent'))", moduleObject);
-      }
-    }
-
-    return moduleObject.default;
-  } else {
-    throw payload._result;
-  }
-}
-
-function lazy(ctor) {
-  var payload = {
-    // We use these fields to store the result.
-    _status: Uninitialized,
-    _result: ctor
-  };
-  var lazyType = {
-    $$typeof: REACT_LAZY_TYPE,
-    _payload: payload,
-    _init: lazyInitializer
-  };
-
-  {
-    // In production, this would just set it on the object.
-    var defaultProps;
-    var propTypes; // $FlowFixMe
-
-    Object.defineProperties(lazyType, {
-      defaultProps: {
-        configurable: true,
-        get: function () {
-          return defaultProps;
-        },
-        set: function (newDefaultProps) {
-          error('React.lazy(...): It is not supported to assign `defaultProps` to ' + 'a lazy component import. Either specify them where the component ' + 'is defined, or create a wrapping component around it.');
-
-          defaultProps = newDefaultProps; // Match production behavior more closely:
-          // $FlowFixMe
-
-          Object.defineProperty(lazyType, 'defaultProps', {
-            enumerable: true
-          });
-        }
-      },
-      propTypes: {
-        configurable: true,
-        get: function () {
-          return propTypes;
-        },
-        set: function (newPropTypes) {
-          error('React.lazy(...): It is not supported to assign `propTypes` to ' + 'a lazy component import. Either specify them where the component ' + 'is defined, or create a wrapping component around it.');
-
-          propTypes = newPropTypes; // Match production behavior more closely:
-          // $FlowFixMe
-
-          Object.defineProperty(lazyType, 'propTypes', {
-            enumerable: true
-          });
-        }
-      }
-    });
-  }
-
-  return lazyType;
-}
-
-function forwardRef(render) {
-  {
-    if (render != null && render.$$typeof === REACT_MEMO_TYPE) {
-      error('forwardRef requires a render function but received a `memo` ' + 'component. Instead of forwardRef(memo(...)), use ' + 'memo(forwardRef(...)).');
-    } else if (typeof render !== 'function') {
-      error('forwardRef requires a render function but was given %s.', render === null ? 'null' : typeof render);
-    } else {
-      if (render.length !== 0 && render.length !== 2) {
-        error('forwardRef render functions accept exactly two parameters: props and ref. %s', render.length === 1 ? 'Did you forget to use the ref parameter?' : 'Any additional parameter will be undefined.');
-      }
-    }
-
-    if (render != null) {
-      if (render.defaultProps != null || render.propTypes != null) {
-        error('forwardRef render functions do not support propTypes or defaultProps. ' + 'Did you accidentally pass a React component?');
-      }
-    }
-  }
-
-  var elementType = {
-    $$typeof: REACT_FORWARD_REF_TYPE,
-    render: render
-  };
-
-  {
-    var ownName;
-    Object.defineProperty(elementType, 'displayName', {
-      enumerable: false,
-      configurable: true,
-      get: function () {
-        return ownName;
-      },
-      set: function (name) {
-        ownName = name; // The inner component shouldn't inherit this display name in most cases,
-        // because the component may be used elsewhere.
-        // But it's nice for anonymous functions to inherit the name,
-        // so that our component-stack generation logic will display their frames.
-        // An anonymous function generally suggests a pattern like:
-        //   React.forwardRef((props, ref) => {...});
-        // This kind of inner function is not used elsewhere so the side effect is okay.
-
-        if (!render.name && !render.displayName) {
-          render.displayName = name;
-        }
-      }
-    });
-  }
-
-  return elementType;
-}
-
-var REACT_MODULE_REFERENCE;
-
-{
-  REACT_MODULE_REFERENCE = Symbol.for('react.module.reference');
-}
-
-function isValidElementType(type) {
-  if (typeof type === 'string' || typeof type === 'function') {
-    return true;
-  } // Note: typeof might be other than 'symbol' or 'number' (e.g. if it's a polyfill).
-
-
-  if (type === REACT_FRAGMENT_TYPE || type === REACT_PROFILER_TYPE || enableDebugTracing  || type === REACT_STRICT_MODE_TYPE || type === REACT_SUSPENSE_TYPE || type === REACT_SUSPENSE_LIST_TYPE || enableLegacyHidden  || type === REACT_OFFSCREEN_TYPE || enableScopeAPI  || enableCacheElement  || enableTransitionTracing ) {
-    return true;
-  }
-
-  if (typeof type === 'object' && type !== null) {
-    if (type.$$typeof === REACT_LAZY_TYPE || type.$$typeof === REACT_MEMO_TYPE || type.$$typeof === REACT_PROVIDER_TYPE || type.$$typeof === REACT_CONTEXT_TYPE || type.$$typeof === REACT_FORWARD_REF_TYPE || // This needs to include all possible module reference object
-    // types supported by any Flight configuration anywhere since
-    // we don't know which Flight build this will end up being used
-    // with.
-    type.$$typeof === REACT_MODULE_REFERENCE || type.getModuleId !== undefined) {
-      return true;
-    }
-  }
-
-  return false;
-}
-
-function memo(type, compare) {
-  {
-    if (!isValidElementType(type)) {
-      error('memo: The first argument must be a component. Instead ' + 'received: %s', type === null ? 'null' : typeof type);
-    }
-  }
-
-  var elementType = {
-    $$typeof: REACT_MEMO_TYPE,
-    type: type,
-    compare: compare === undefined ? null : compare
-  };
-
-  {
-    var ownName;
-    Object.defineProperty(elementType, 'displayName', {
-      enumerable: false,
-      configurable: true,
-      get: function () {
-        return ownName;
-      },
-      set: function (name) {
-        ownName = name; // The inner component shouldn't inherit this display name in most cases,
-        // because the component may be used elsewhere.
-        // But it's nice for anonymous functions to inherit the name,
-        // so that our component-stack generation logic will display their frames.
-        // An anonymous function generally suggests a pattern like:
-        //   React.memo((props) => {...});
-        // This kind of inner function is not used elsewhere so the side effect is okay.
-
-        if (!type.name && !type.displayName) {
-          type.displayName = name;
-        }
-      }
-    });
-  }
-
-  return elementType;
-}
-
-function resolveDispatcher() {
-  var dispatcher = ReactCurrentDispatcher.current;
-
-  {
-    if (dispatcher === null) {
-      error('Invalid hook call. Hooks can only be called inside of the body of a function component. This could happen for' + ' one of the following reasons:\n' + '1. You might have mismatching versions of React and the renderer (such as React DOM)\n' + '2. You might be breaking the Rules of Hooks\n' + '3. You might have more than one copy of React in the same app\n' + 'See https://reactjs.org/link/invalid-hook-call for tips about how to debug and fix this problem.');
-    }
-  } // Will result in a null access error if accessed outside render phase. We
-  // intentionally don't throw our own error because this is in a hot path.
-  // Also helps ensure this is inlined.
-
-
-  return dispatcher;
-}
-function useContext(Context) {
-  var dispatcher = resolveDispatcher();
-
-  {
-    // TODO: add a more generic warning for invalid values.
-    if (Context._context !== undefined) {
-      var realContext = Context._context; // Don't deduplicate because this legitimately causes bugs
-      // and nobody should be using this in existing code.
-
-      if (realContext.Consumer === Context) {
-        error('Calling useContext(Context.Consumer) is not supported, may cause bugs, and will be ' + 'removed in a future major release. Did you mean to call useContext(Context) instead?');
-      } else if (realContext.Provider === Context) {
-        error('Calling useContext(Context.Provider) is not supported. ' + 'Did you mean to call useContext(Context) instead?');
-      }
-    }
-  }
-
-  return dispatcher.useContext(Context);
-}
-function useState(initialState) {
-  var dispatcher = resolveDispatcher();
-  return dispatcher.useState(initialState);
-}
-function useReducer(reducer, initialArg, init) {
-  var dispatcher = resolveDispatcher();
-  return dispatcher.useReducer(reducer, initialArg, init);
-}
-function useRef(initialValue) {
-  var dispatcher = resolveDispatcher();
-  return dispatcher.useRef(initialValue);
-}
-function useEffect(create, deps) {
-  var dispatcher = resolveDispatcher();
-  return dispatcher.useEffect(create, deps);
-}
-function useInsertionEffect(create, deps) {
-  var dispatcher = resolveDispatcher();
-  return dispatcher.useInsertionEffect(create, deps);
-}
-function useLayoutEffect(create, deps) {
-  var dispatcher = resolveDispatcher();
-  return dispatcher.useLayoutEffect(create, deps);
-}
-function useCallback(callback, deps) {
-  var dispatcher = resolveDispatcher();
-  return dispatcher.useCallback(callback, deps);
-}
-function useMemo(create, deps) {
-  var dispatcher = resolveDispatcher();
-  return dispatcher.useMemo(create, deps);
-}
-function useImperativeHandle(ref, create, deps) {
-  var dispatcher = resolveDispatcher();
-  return dispatcher.useImperativeHandle(ref, create, deps);
-}
-function useDebugValue(value, formatterFn) {
-  {
-    var dispatcher = resolveDispatcher();
-    return dispatcher.useDebugValue(value, formatterFn);
-  }
-}
-function useTransition() {
-  var dispatcher = resolveDispatcher();
-  return dispatcher.useTransition();
-}
-function useDeferredValue(value) {
-  var dispatcher = resolveDispatcher();
-  return dispatcher.useDeferredValue(value);
-}
-function useId() {
-  var dispatcher = resolveDispatcher();
-  return dispatcher.useId();
-}
-function useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot) {
-  var dispatcher = resolveDispatcher();
-  return dispatcher.useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
-}
-
-// Helpers to patch console.logs to avoid logging during side-effect free
-// replaying on render function. This currently only patches the object
-// lazily which won't cover if the log function was extracted eagerly.
-// We could also eagerly patch the method.
-var disabledDepth = 0;
-var prevLog;
-var prevInfo;
-var prevWarn;
-var prevError;
-var prevGroup;
-var prevGroupCollapsed;
-var prevGroupEnd;
-
-function disabledLog() {}
-
-disabledLog.__reactDisabledLog = true;
-function disableLogs() {
-  {
-    if (disabledDepth === 0) {
-      /* eslint-disable react-internal/no-production-logging */
-      prevLog = console.log;
-      prevInfo = console.info;
-      prevWarn = console.warn;
-      prevError = console.error;
-      prevGroup = console.group;
-      prevGroupCollapsed = console.groupCollapsed;
-      prevGroupEnd = console.groupEnd; // https://github.com/facebook/react/issues/19099
-
-      var props = {
-        configurable: true,
-        enumerable: true,
-        value: disabledLog,
-        writable: true
-      }; // $FlowFixMe Flow thinks console is immutable.
-
-      Object.defineProperties(console, {
-        info: props,
-        log: props,
-        warn: props,
-        error: props,
-        group: props,
-        groupCollapsed: props,
-        groupEnd: props
-      });
-      /* eslint-enable react-internal/no-production-logging */
-    }
-
-    disabledDepth++;
-  }
-}
-function reenableLogs() {
-  {
-    disabledDepth--;
-
-    if (disabledDepth === 0) {
-      /* eslint-disable react-internal/no-production-logging */
-      var props = {
-        configurable: true,
-        enumerable: true,
-        writable: true
-      }; // $FlowFixMe Flow thinks console is immutable.
-
-      Object.defineProperties(console, {
-        log: assign({}, props, {
-          value: prevLog
-        }),
-        info: assign({}, props, {
-          value: prevInfo
-        }),
-        warn: assign({}, props, {
-          value: prevWarn
-        }),
-        error: assign({}, props, {
-          value: prevError
-        }),
-        group: assign({}, props, {
-          value: prevGroup
-        }),
-        groupCollapsed: assign({}, props, {
-          value: prevGroupCollapsed
-        }),
-        groupEnd: assign({}, props, {
-          value: prevGroupEnd
-        })
-      });
-      /* eslint-enable react-internal/no-production-logging */
-    }
-
-    if (disabledDepth < 0) {
-      error('disabledDepth fell below zero. ' + 'This is a bug in React. Please file an issue.');
-    }
-  }
-}
-
-var ReactCurrentDispatcher$1 = ReactSharedInternals.ReactCurrentDispatcher;
-var prefix;
-function describeBuiltInComponentFrame(name, source, ownerFn) {
-  {
-    if (prefix === undefined) {
-      // Extract the VM specific prefix used by each line.
-      try {
-        throw Error();
-      } catch (x) {
-        var match = x.stack.trim().match(/\n( *(at )?)/);
-        prefix = match && match[1] || '';
-      }
-    } // We use the prefix to ensure our stacks line up with native stack frames.
-
-
-    return '\n' + prefix + name;
-  }
-}
-var reentry = false;
-var componentFrameCache;
-
-{
-  var PossiblyWeakMap = typeof WeakMap === 'function' ? WeakMap : Map;
-  componentFrameCache = new PossiblyWeakMap();
-}
-
-function describeNativeComponentFrame(fn, construct) {
-  // If something asked for a stack inside a fake render, it should get ignored.
-  if ( !fn || reentry) {
-    return '';
-  }
-
-  {
-    var frame = componentFrameCache.get(fn);
-
-    if (frame !== undefined) {
-      return frame;
-    }
-  }
-
-  var control;
-  reentry = true;
-  var previousPrepareStackTrace = Error.prepareStackTrace; // $FlowFixMe It does accept undefined.
-
-  Error.prepareStackTrace = undefined;
-  var previousDispatcher;
-
-  {
-    previousDispatcher = ReactCurrentDispatcher$1.current; // Set the dispatcher in DEV because this might be call in the render function
-    // for warnings.
-
-    ReactCurrentDispatcher$1.current = null;
-    disableLogs();
-  }
-
-  try {
-    // This should throw.
-    if (construct) {
-      // Something should be setting the props in the constructor.
-      var Fake = function () {
-        throw Error();
-      }; // $FlowFixMe
-
-
-      Object.defineProperty(Fake.prototype, 'props', {
-        set: function () {
-          // We use a throwing setter instead of frozen or non-writable props
-          // because that won't throw in a non-strict mode function.
-          throw Error();
-        }
-      });
-
-      if (typeof Reflect === 'object' && Reflect.construct) {
-        // We construct a different control for this case to include any extra
-        // frames added by the construct call.
-        try {
-          Reflect.construct(Fake, []);
-        } catch (x) {
-          control = x;
-        }
-
-        Reflect.construct(fn, [], Fake);
-      } else {
-        try {
-          Fake.call();
-        } catch (x) {
-          control = x;
-        }
-
-        fn.call(Fake.prototype);
-      }
-    } else {
-      try {
-        throw Error();
-      } catch (x) {
-        control = x;
-      }
-
-      fn();
-    }
-  } catch (sample) {
-    // This is inlined manually because closure doesn't do it for us.
-    if (sample && control && typeof sample.stack === 'string') {
-      // This extracts the first frame from the sample that isn't also in the control.
-      // Skipping one frame that we assume is the frame that calls the two.
-      var sampleLines = sample.stack.split('\n');
-      var controlLines = control.stack.split('\n');
-      var s = sampleLines.length - 1;
-      var c = controlLines.length - 1;
-
-      while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
-        // We expect at least one stack frame to be shared.
-        // Typically this will be the root most one. However, stack frames may be
-        // cut off due to maximum stack limits. In this case, one maybe cut off
-        // earlier than the other. We assume that the sample is longer or the same
-        // and there for cut off earlier. So we should find the root most frame in
-        // the sample somewhere in the control.
-        c--;
-      }
-
-      for (; s >= 1 && c >= 0; s--, c--) {
-        // Next we find the first one that isn't the same which should be the
-        // frame that called our sample function and the control.
-        if (sampleLines[s] !== controlLines[c]) {
-          // In V8, the first line is describing the message but other VMs don't.
-          // If we're about to return the first line, and the control is also on the same
-          // line, that's a pretty good indicator that our sample threw at same line as
-          // the control. I.e. before we entered the sample frame. So we ignore this result.
-          // This can happen if you passed a class to function component, or non-function.
-          if (s !== 1 || c !== 1) {
-            do {
-              s--;
-              c--; // We may still have similar intermediate frames from the construct call.
-              // The next one that isn't the same should be our match though.
-
-              if (c < 0 || sampleLines[s] !== controlLines[c]) {
-                // V8 adds a "new" prefix for native classes. Let's remove it to make it prettier.
-                var _frame = '\n' + sampleLines[s].replace(' at new ', ' at '); // If our component frame is labeled "<anonymous>"
-                // but we have a user-provided "displayName"
-                // splice it in to make the stack more readable.
-
-
-                if (fn.displayName && _frame.includes('<anonymous>')) {
-                  _frame = _frame.replace('<anonymous>', fn.displayName);
-                }
-
-                {
-                  if (typeof fn === 'function') {
-                    componentFrameCache.set(fn, _frame);
-                  }
-                } // Return the line we found.
-
-
-                return _frame;
-              }
-            } while (s >= 1 && c >= 0);
-          }
-
-          break;
-        }
-      }
-    }
-  } finally {
-    reentry = false;
-
-    {
-      ReactCurrentDispatcher$1.current = previousDispatcher;
-      reenableLogs();
-    }
-
-    Error.prepareStackTrace = previousPrepareStackTrace;
-  } // Fallback to just using the name if we couldn't make it throw.
-
-
-  var name = fn ? fn.displayName || fn.name : '';
-  var syntheticFrame = name ? describeBuiltInComponentFrame(name) : '';
-
-  {
-    if (typeof fn === 'function') {
-      componentFrameCache.set(fn, syntheticFrame);
-    }
-  }
-
-  return syntheticFrame;
-}
-function describeFunctionComponentFrame(fn, source, ownerFn) {
-  {
-    return describeNativeComponentFrame(fn, false);
-  }
-}
-
-function shouldConstruct(Component) {
-  var prototype = Component.prototype;
-  return !!(prototype && prototype.isReactComponent);
-}
-
-function describeUnknownElementTypeFrameInDEV(type, source, ownerFn) {
-
-  if (type == null) {
-    return '';
-  }
-
-  if (typeof type === 'function') {
-    {
-      return describeNativeComponentFrame(type, shouldConstruct(type));
-    }
-  }
-
-  if (typeof type === 'string') {
-    return describeBuiltInComponentFrame(type);
-  }
-
-  switch (type) {
-    case REACT_SUSPENSE_TYPE:
-      return describeBuiltInComponentFrame('Suspense');
-
-    case REACT_SUSPENSE_LIST_TYPE:
-      return describeBuiltInComponentFrame('SuspenseList');
-  }
-
-  if (typeof type === 'object') {
-    switch (type.$$typeof) {
-      case REACT_FORWARD_REF_TYPE:
-        return describeFunctionComponentFrame(type.render);
-
-      case REACT_MEMO_TYPE:
-        // Memo may contain any component type so we recursively resolve it.
-        return describeUnknownElementTypeFrameInDEV(type.type, source, ownerFn);
-
-      case REACT_LAZY_TYPE:
-        {
-          var lazyComponent = type;
-          var payload = lazyComponent._payload;
-          var init = lazyComponent._init;
-
-          try {
-            // Lazy may contain any component type so we recursively resolve it.
-            return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
-          } catch (x) {}
-        }
-    }
-  }
-
-  return '';
-}
-
-var loggedTypeFailures = {};
-var ReactDebugCurrentFrame$1 = ReactSharedInternals.ReactDebugCurrentFrame;
-
-function setCurrentlyValidatingElement(element) {
-  {
-    if (element) {
-      var owner = element._owner;
-      var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
-      ReactDebugCurrentFrame$1.setExtraStackFrame(stack);
-    } else {
-      ReactDebugCurrentFrame$1.setExtraStackFrame(null);
-    }
-  }
-}
-
-function checkPropTypes(typeSpecs, values, location, componentName, element) {
-  {
-    // $FlowFixMe This is okay but Flow doesn't know it.
-    var has = Function.call.bind(hasOwnProperty);
-
-    for (var typeSpecName in typeSpecs) {
-      if (has(typeSpecs, typeSpecName)) {
-        var error$1 = void 0; // Prop type validation may throw. In case they do, we don't want to
-        // fail the render phase where it didn't fail before. So we log it.
-        // After these have been cleaned up, we'll let them throw.
-
-        try {
-          // This is intentionally an invariant that gets caught. It's the same
-          // behavior as without this statement except with a better message.
-          if (typeof typeSpecs[typeSpecName] !== 'function') {
-            // eslint-disable-next-line react-internal/prod-error-codes
-            var err = Error((componentName || 'React class') + ': ' + location + ' type `' + typeSpecName + '` is invalid; ' + 'it must be a function, usually from the `prop-types` package, but received `' + typeof typeSpecs[typeSpecName] + '`.' + 'This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.');
-            err.name = 'Invariant Violation';
-            throw err;
-          }
-
-          error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, 'SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED');
-        } catch (ex) {
-          error$1 = ex;
-        }
-
-        if (error$1 && !(error$1 instanceof Error)) {
-          setCurrentlyValidatingElement(element);
-
-          error('%s: type specification of %s' + ' `%s` is invalid; the type checker ' + 'function must return `null` or an `Error` but returned a %s. ' + 'You may have forgotten to pass an argument to the type checker ' + 'creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and ' + 'shape all require an argument).', componentName || 'React class', location, typeSpecName, typeof error$1);
-
-          setCurrentlyValidatingElement(null);
-        }
-
-        if (error$1 instanceof Error && !(error$1.message in loggedTypeFailures)) {
-          // Only monitor this failure once because there tends to be a lot of the
-          // same error.
-          loggedTypeFailures[error$1.message] = true;
-          setCurrentlyValidatingElement(element);
-
-          error('Failed %s type: %s', location, error$1.message);
-
-          setCurrentlyValidatingElement(null);
-        }
-      }
-    }
-  }
-}
-
-function setCurrentlyValidatingElement$1(element) {
-  {
-    if (element) {
-      var owner = element._owner;
-      var stack = describeUnknownElementTypeFrameInDEV(element.type, element._source, owner ? owner.type : null);
-      setExtraStackFrame(stack);
-    } else {
-      setExtraStackFrame(null);
-    }
-  }
-}
-
-var propTypesMisspellWarningShown;
-
-{
-  propTypesMisspellWarningShown = false;
-}
-
-function getDeclarationErrorAddendum() {
-  if (ReactCurrentOwner.current) {
-    var name = getComponentNameFromType(ReactCurrentOwner.current.type);
-
-    if (name) {
-      return '\n\nCheck the render method of `' + name + '`.';
-    }
-  }
-
-  return '';
-}
-
-function getSourceInfoErrorAddendum(source) {
-  if (source !== undefined) {
-    var fileName = source.fileName.replace(/^.*[\\\/]/, '');
-    var lineNumber = source.lineNumber;
-    return '\n\nCheck your code at ' + fileName + ':' + lineNumber + '.';
-  }
-
-  return '';
-}
-
-function getSourceInfoErrorAddendumForProps(elementProps) {
-  if (elementProps !== null && elementProps !== undefined) {
-    return getSourceInfoErrorAddendum(elementProps.__source);
-  }
-
-  return '';
-}
-/**
- * Warn if there's no key explicitly set on dynamic arrays of children or
- * object keys are not valid. This allows us to keep track of children between
- * updates.
- */
-
-
-var ownerHasKeyUseWarning = {};
-
-function getCurrentComponentErrorInfo(parentType) {
-  var info = getDeclarationErrorAddendum();
-
-  if (!info) {
-    var parentName = typeof parentType === 'string' ? parentType : parentType.displayName || parentType.name;
-
-    if (parentName) {
-      info = "\n\nCheck the top-level render call using <" + parentName + ">.";
-    }
-  }
-
-  return info;
-}
-/**
- * Warn if the element doesn't have an explicit key assigned to it.
- * This element is in an array. The array could grow and shrink or be
- * reordered. All children that haven't already been validated are required to
- * have a "key" property assigned to it. Error statuses are cached so a warning
- * will only be shown once.
- *
- * @internal
- * @param {ReactElement} element Element that requires a key.
- * @param {*} parentType element's parent's type.
- */
-
-
-function validateExplicitKey(element, parentType) {
-  if (!element._store || element._store.validated || element.key != null) {
-    return;
-  }
-
-  element._store.validated = true;
-  var currentComponentErrorInfo = getCurrentComponentErrorInfo(parentType);
-
-  if (ownerHasKeyUseWarning[currentComponentErrorInfo]) {
-    return;
-  }
-
-  ownerHasKeyUseWarning[currentComponentErrorInfo] = true; // Usually the current owner is the offender, but if it accepts children as a
-  // property, it may be the creator of the child that's responsible for
-  // assigning it a key.
-
-  var childOwner = '';
-
-  if (element && element._owner && element._owner !== ReactCurrentOwner.current) {
-    // Give the component that originally created this child.
-    childOwner = " It was passed a child from " + getComponentNameFromType(element._owner.type) + ".";
-  }
-
-  {
-    setCurrentlyValidatingElement$1(element);
-
-    error('Each child in a list should have a unique "key" prop.' + '%s%s See https://reactjs.org/link/warning-keys for more information.', currentComponentErrorInfo, childOwner);
-
-    setCurrentlyValidatingElement$1(null);
-  }
-}
-/**
- * Ensure that every element either is passed in a static location, in an
- * array with an explicit keys property defined, or in an object literal
- * with valid key property.
- *
- * @internal
- * @param {ReactNode} node Statically passed child of any type.
- * @param {*} parentType node's parent's type.
- */
-
-
-function validateChildKeys(node, parentType) {
-  if (typeof node !== 'object') {
-    return;
-  }
-
-  if (isArray(node)) {
-    for (var i = 0; i < node.length; i++) {
-      var child = node[i];
-
-      if (isValidElement(child)) {
-        validateExplicitKey(child, parentType);
-      }
-    }
-  } else if (isValidElement(node)) {
-    // This element was passed in a valid location.
-    if (node._store) {
-      node._store.validated = true;
-    }
-  } else if (node) {
-    var iteratorFn = getIteratorFn(node);
-
-    if (typeof iteratorFn === 'function') {
-      // Entry iterators used to provide implicit keys,
-      // but now we print a separate warning for them later.
-      if (iteratorFn !== node.entries) {
-        var iterator = iteratorFn.call(node);
-        var step;
-
-        while (!(step = iterator.next()).done) {
-          if (isValidElement(step.value)) {
-            validateExplicitKey(step.value, parentType);
-          }
-        }
-      }
-    }
-  }
-}
-/**
- * Given an element, validate that its props follow the propTypes definition,
- * provided by the type.
- *
- * @param {ReactElement} element
- */
-
-
-function validatePropTypes(element) {
-  {
-    var type = element.type;
-
-    if (type === null || type === undefined || typeof type === 'string') {
-      return;
-    }
-
-    var propTypes;
-
-    if (typeof type === 'function') {
-      propTypes = type.propTypes;
-    } else if (typeof type === 'object' && (type.$$typeof === REACT_FORWARD_REF_TYPE || // Note: Memo only checks outer props here.
-    // Inner props are checked in the reconciler.
-    type.$$typeof === REACT_MEMO_TYPE)) {
-      propTypes = type.propTypes;
-    } else {
-      return;
-    }
-
-    if (propTypes) {
-      // Intentionally inside to avoid triggering lazy initializers:
-      var name = getComponentNameFromType(type);
-      checkPropTypes(propTypes, element.props, 'prop', name, element);
-    } else if (type.PropTypes !== undefined && !propTypesMisspellWarningShown) {
-      propTypesMisspellWarningShown = true; // Intentionally inside to avoid triggering lazy initializers:
-
-      var _name = getComponentNameFromType(type);
-
-      error('Component %s declared `PropTypes` instead of `propTypes`. Did you misspell the property assignment?', _name || 'Unknown');
-    }
-
-    if (typeof type.getDefaultProps === 'function' && !type.getDefaultProps.isReactClassApproved) {
-      error('getDefaultProps is only used on classic React.createClass ' + 'definitions. Use a static property named `defaultProps` instead.');
-    }
-  }
-}
-/**
- * Given a fragment, validate that it can only be provided with fragment props
- * @param {ReactElement} fragment
- */
-
-
-function validateFragmentProps(fragment) {
-  {
-    var keys = Object.keys(fragment.props);
-
-    for (var i = 0; i < keys.length; i++) {
-      var key = keys[i];
-
-      if (key !== 'children' && key !== 'key') {
-        setCurrentlyValidatingElement$1(fragment);
-
-        error('Invalid prop `%s` supplied to `React.Fragment`. ' + 'React.Fragment can only have `key` and `children` props.', key);
-
-        setCurrentlyValidatingElement$1(null);
-        break;
-      }
-    }
-
-    if (fragment.ref !== null) {
-      setCurrentlyValidatingElement$1(fragment);
-
-      error('Invalid attribute `ref` supplied to `React.Fragment`.');
-
-      setCurrentlyValidatingElement$1(null);
-    }
-  }
-}
-function createElementWithValidation(type, props, children) {
-  var validType = isValidElementType(type); // We warn in this case but don't throw. We expect the element creation to
-  // succeed and there will likely be errors in render.
-
-  if (!validType) {
-    var info = '';
-
-    if (type === undefined || typeof type === 'object' && type !== null && Object.keys(type).length === 0) {
-      info += ' You likely forgot to export your component from the file ' + "it's defined in, or you might have mixed up default and named imports.";
-    }
-
-    var sourceInfo = getSourceInfoErrorAddendumForProps(props);
-
-    if (sourceInfo) {
-      info += sourceInfo;
-    } else {
-      info += getDeclarationErrorAddendum();
-    }
-
-    var typeString;
-
-    if (type === null) {
-      typeString = 'null';
-    } else if (isArray(type)) {
-      typeString = 'array';
-    } else if (type !== undefined && type.$$typeof === REACT_ELEMENT_TYPE) {
-      typeString = "<" + (getComponentNameFromType(type.type) || 'Unknown') + " />";
-      info = ' Did you accidentally export a JSX literal instead of a component?';
-    } else {
-      typeString = typeof type;
-    }
-
-    {
-      error('React.createElement: type is invalid -- expected a string (for ' + 'built-in components) or a class/function (for composite ' + 'components) but got: %s.%s', typeString, info);
-    }
-  }
-
-  var element = createElement.apply(this, arguments); // The result can be nullish if a mock or a custom function is used.
-  // TODO: Drop this when these are no longer allowed as the type argument.
-
-  if (element == null) {
-    return element;
-  } // Skip key warning if the type isn't valid since our key validation logic
-  // doesn't expect a non-string/function type and can throw confusing errors.
-  // We don't want exception behavior to differ between dev and prod.
-  // (Rendering will throw with a helpful message and as soon as the type is
-  // fixed, the key warnings will appear.)
-
-
-  if (validType) {
-    for (var i = 2; i < arguments.length; i++) {
-      validateChildKeys(arguments[i], type);
-    }
-  }
-
-  if (type === REACT_FRAGMENT_TYPE) {
-    validateFragmentProps(element);
-  } else {
-    validatePropTypes(element);
-  }
-
-  return element;
-}
-var didWarnAboutDeprecatedCreateFactory = false;
-function createFactoryWithValidation(type) {
-  var validatedFactory = createElementWithValidation.bind(null, type);
-  validatedFactory.type = type;
-
-  {
-    if (!didWarnAboutDeprecatedCreateFactory) {
-      didWarnAboutDeprecatedCreateFactory = true;
-
-      warn('React.createFactory() is deprecated and will be removed in ' + 'a future major release. Consider using JSX ' + 'or use React.createElement() directly instead.');
-    } // Legacy hook: remove it
-
-
-    Object.defineProperty(validatedFactory, 'type', {
-      enumerable: false,
-      get: function () {
-        warn('Factory.type is deprecated. Access the class directly ' + 'before passing it to createFactory.');
-
-        Object.defineProperty(this, 'type', {
-          value: type
-        });
-        return type;
-      }
-    });
-  }
-
-  return validatedFactory;
-}
-function cloneElementWithValidation(element, props, children) {
-  var newElement = cloneElement.apply(this, arguments);
-
-  for (var i = 2; i < arguments.length; i++) {
-    validateChildKeys(arguments[i], newElement.type);
-  }
-
-  validatePropTypes(newElement);
-  return newElement;
-}
-
-function startTransition(scope, options) {
-  var prevTransition = ReactCurrentBatchConfig.transition;
-  ReactCurrentBatchConfig.transition = {};
-  var currentTransition = ReactCurrentBatchConfig.transition;
-
-  {
-    ReactCurrentBatchConfig.transition._updatedFibers = new Set();
-  }
-
-  try {
-    scope();
-  } finally {
-    ReactCurrentBatchConfig.transition = prevTransition;
-
-    {
-      if (prevTransition === null && currentTransition._updatedFibers) {
-        var updatedFibersCount = currentTransition._updatedFibers.size;
-
-        if (updatedFibersCount > 10) {
-          warn('Detected a large number of updates inside startTransition. ' + 'If this is due to a subscription please re-write it to use React provided hooks. ' + 'Otherwise concurrent mode guarantees are off the table.');
-        }
-
-        currentTransition._updatedFibers.clear();
-      }
-    }
-  }
-}
-
-var didWarnAboutMessageChannel = false;
-var enqueueTaskImpl = null;
-function enqueueTask(task) {
-  if (enqueueTaskImpl === null) {
-    try {
-      // read require off the module object to get around the bundlers.
-      // we don't want them to detect a require and bundle a Node polyfill.
-      var requireString = ('require' + Math.random()).slice(0, 7);
-      var nodeRequire = module && module[requireString]; // assuming we're in node, let's try to get node's
-      // version of setImmediate, bypassing fake timers if any.
-
-      enqueueTaskImpl = nodeRequire.call(module, 'timers').setImmediate;
-    } catch (_err) {
-      // we're in a browser
-      // we can't use regular timers because they may still be faked
-      // so we try MessageChannel+postMessage instead
-      enqueueTaskImpl = function (callback) {
-        {
-          if (didWarnAboutMessageChannel === false) {
-            didWarnAboutMessageChannel = true;
-
-            if (typeof MessageChannel === 'undefined') {
-              error('This browser does not have a MessageChannel implementation, ' + 'so enqueuing tasks via await act(async () => ...) will fail. ' + 'Please file an issue at https://github.com/facebook/react/issues ' + 'if you encounter this warning.');
-            }
-          }
-        }
-
-        var channel = new MessageChannel();
-        channel.port1.onmessage = callback;
-        channel.port2.postMessage(undefined);
-      };
-    }
-  }
-
-  return enqueueTaskImpl(task);
-}
-
-var actScopeDepth = 0;
-var didWarnNoAwaitAct = false;
-function act(callback) {
-  {
-    // `act` calls can be nested, so we track the depth. This represents the
-    // number of `act` scopes on the stack.
-    var prevActScopeDepth = actScopeDepth;
-    actScopeDepth++;
-
-    if (ReactCurrentActQueue.current === null) {
-      // This is the outermost `act` scope. Initialize the queue. The reconciler
-      // will detect the queue and use it instead of Scheduler.
-      ReactCurrentActQueue.current = [];
-    }
-
-    var prevIsBatchingLegacy = ReactCurrentActQueue.isBatchingLegacy;
-    var result;
-
-    try {
-      // Used to reproduce behavior of `batchedUpdates` in legacy mode. Only
-      // set to `true` while the given callback is executed, not for updates
-      // triggered during an async event, because this is how the legacy
-      // implementation of `act` behaved.
-      ReactCurrentActQueue.isBatchingLegacy = true;
-      result = callback(); // Replicate behavior of original `act` implementation in legacy mode,
-      // which flushed updates immediately after the scope function exits, even
-      // if it's an async function.
-
-      if (!prevIsBatchingLegacy && ReactCurrentActQueue.didScheduleLegacyUpdate) {
-        var queue = ReactCurrentActQueue.current;
-
-        if (queue !== null) {
-          ReactCurrentActQueue.didScheduleLegacyUpdate = false;
-          flushActQueue(queue);
-        }
-      }
-    } catch (error) {
-      popActScope(prevActScopeDepth);
-      throw error;
-    } finally {
-      ReactCurrentActQueue.isBatchingLegacy = prevIsBatchingLegacy;
-    }
-
-    if (result !== null && typeof result === 'object' && typeof result.then === 'function') {
-      var thenableResult = result; // The callback is an async function (i.e. returned a promise). Wait
-      // for it to resolve before exiting the current scope.
-
-      var wasAwaited = false;
-      var thenable = {
-        then: function (resolve, reject) {
-          wasAwaited = true;
-          thenableResult.then(function (returnValue) {
-            popActScope(prevActScopeDepth);
-
-            if (actScopeDepth === 0) {
-              // We've exited the outermost act scope. Recursively flush the
-              // queue until there's no remaining work.
-              recursivelyFlushAsyncActWork(returnValue, resolve, reject);
-            } else {
-              resolve(returnValue);
-            }
-          }, function (error) {
-            // The callback threw an error.
-            popActScope(prevActScopeDepth);
-            reject(error);
-          });
-        }
-      };
-
-      {
-        if (!didWarnNoAwaitAct && typeof Promise !== 'undefined') {
-          // eslint-disable-next-line no-undef
-          Promise.resolve().then(function () {}).then(function () {
-            if (!wasAwaited) {
-              didWarnNoAwaitAct = true;
-
-              error('You called act(async () => ...) without await. ' + 'This could lead to unexpected testing behaviour, ' + 'interleaving multiple act calls and mixing their ' + 'scopes. ' + 'You should - await act(async () => ...);');
-            }
-          });
-        }
-      }
-
-      return thenable;
-    } else {
-      var returnValue = result; // The callback is not an async function. Exit the current scope
-      // immediately, without awaiting.
-
-      popActScope(prevActScopeDepth);
-
-      if (actScopeDepth === 0) {
-        // Exiting the outermost act scope. Flush the queue.
-        var _queue = ReactCurrentActQueue.current;
-
-        if (_queue !== null) {
-          flushActQueue(_queue);
-          ReactCurrentActQueue.current = null;
-        } // Return a thenable. If the user awaits it, we'll flush again in
-        // case additional work was scheduled by a microtask.
-
-
-        var _thenable = {
-          then: function (resolve, reject) {
-            // Confirm we haven't re-entered another `act` scope, in case
-            // the user does something weird like await the thenable
-            // multiple times.
-            if (ReactCurrentActQueue.current === null) {
-              // Recursively flush the queue until there's no remaining work.
-              ReactCurrentActQueue.current = [];
-              recursivelyFlushAsyncActWork(returnValue, resolve, reject);
-            } else {
-              resolve(returnValue);
-            }
-          }
-        };
-        return _thenable;
-      } else {
-        // Since we're inside a nested `act` scope, the returned thenable
-        // immediately resolves. The outer scope will flush the queue.
-        var _thenable2 = {
-          then: function (resolve, reject) {
-            resolve(returnValue);
-          }
-        };
-        return _thenable2;
-      }
-    }
-  }
-}
-
-function popActScope(prevActScopeDepth) {
-  {
-    if (prevActScopeDepth !== actScopeDepth - 1) {
-      error('You seem to have overlapping act() calls, this is not supported. ' + 'Be sure to await previous act() calls before making a new one. ');
-    }
-
-    actScopeDepth = prevActScopeDepth;
-  }
-}
-
-function recursivelyFlushAsyncActWork(returnValue, resolve, reject) {
-  {
-    var queue = ReactCurrentActQueue.current;
-
-    if (queue !== null) {
-      try {
-        flushActQueue(queue);
-        enqueueTask(function () {
-          if (queue.length === 0) {
-            // No additional work was scheduled. Finish.
-            ReactCurrentActQueue.current = null;
-            resolve(returnValue);
-          } else {
-            // Keep flushing work until there's none left.
-            recursivelyFlushAsyncActWork(returnValue, resolve, reject);
-          }
-        });
-      } catch (error) {
-        reject(error);
-      }
-    } else {
-      resolve(returnValue);
-    }
-  }
-}
-
-var isFlushing = false;
-
-function flushActQueue(queue) {
-  {
-    if (!isFlushing) {
-      // Prevent re-entrance.
-      isFlushing = true;
-      var i = 0;
-
-      try {
-        for (; i < queue.length; i++) {
-          var callback = queue[i];
-
-          do {
-            callback = callback(true);
-          } while (callback !== null);
-        }
-
-        queue.length = 0;
-      } catch (error) {
-        // If something throws, leave the remaining callbacks on the queue.
-        queue = queue.slice(i + 1);
-        throw error;
-      } finally {
-        isFlushing = false;
-      }
-    }
-  }
-}
-
-var createElement$1 =  createElementWithValidation ;
-var cloneElement$1 =  cloneElementWithValidation ;
-var createFactory =  createFactoryWithValidation ;
-var Children = {
-  map: mapChildren,
-  forEach: forEachChildren,
-  count: countChildren,
-  toArray: toArray,
-  only: onlyChild
-};
-
-exports.Children = Children;
-exports.Component = Component;
-exports.Fragment = REACT_FRAGMENT_TYPE;
-exports.Profiler = REACT_PROFILER_TYPE;
-exports.PureComponent = PureComponent;
-exports.StrictMode = REACT_STRICT_MODE_TYPE;
-exports.Suspense = REACT_SUSPENSE_TYPE;
-exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
-exports.cloneElement = cloneElement$1;
-exports.createContext = createContext;
-exports.createElement = createElement$1;
-exports.createFactory = createFactory;
-exports.createRef = createRef;
-exports.forwardRef = forwardRef;
-exports.isValidElement = isValidElement;
-exports.lazy = lazy;
-exports.memo = memo;
-exports.startTransition = startTransition;
-exports.unstable_act = act;
-exports.useCallback = useCallback;
-exports.useContext = useContext;
-exports.useDebugValue = useDebugValue;
-exports.useDeferredValue = useDeferredValue;
-exports.useEffect = useEffect;
-exports.useId = useId;
-exports.useImperativeHandle = useImperativeHandle;
-exports.useInsertionEffect = useInsertionEffect;
-exports.useLayoutEffect = useLayoutEffect;
-exports.useMemo = useMemo;
-exports.useReducer = useReducer;
-exports.useRef = useRef;
-exports.useState = useState;
-exports.useSyncExternalStore = useSyncExternalStore;
-exports.useTransition = useTransition;
-exports.version = ReactVersion;
-          /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
-if (
-  typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== 'undefined' &&
-  typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop ===
-    'function'
-) {
-  __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStop(new Error());
-}
-        
-  })();
-}
-});
-
-var react = createCommonjsModule(function (module) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = react_production_min;
-} else {
-  module.exports = react_development;
-}
-});
-
 var GlobalStyle = styled.createGlobalStyle(["html,body,#root,#__next{min-height:100%;height:100%;}input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,input:-webkit-autofill:active{-webkit-box-shadow:0 0 0 30px white inset !important;}"]);
 
 var FreeBrandIconSet = {
@@ -2957,6 +142,27 @@ var FreeBrandIconSet = {
   fabTwitter: freeBrandsSvgIcons.faTwitter,
   fabWhatsapp: freeBrandsSvgIcons.faWhatsapp,
   fabWindows: freeBrandsSvgIcons.faWindows
+};
+
+/*!
+ * Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license (Commercial License)
+ * Copyright 2022 Fonticons, Inc.
+ */
+var faArrowDownToBracket = {
+  prefix: 'far',
+  iconName: 'arrow-down-to-bracket',
+  icon: [448, 512, [], "e094", "M352 512H96c-53.02 0-96-42.98-96-96v-72C0 330.7 10.75 320 24 320c13.26 0 24 10.75 24 24V416c0 26.4 21.6 48 48 48h256c26.4 0 48-21.6 48-48v-72c0-13.25 10.75-24 24-24c13.26 0 24 10.75 24 24V416C448 469 405 512 352 512zM240.4 345.5l136-128c9.688-9.094 10.12-24.28 1.031-33.91c-9.062-9.656-24.25-10.12-33.91-1.031L248 272.4V24C248 10.75 237.3 0 224 0S200 10.75 200 24v248.4L104.4 182.5C94.78 173.4 79.59 173.9 70.53 183.6C66.16 188.2 64 194.1 64 200c0 6.375 2.531 12.75 7.562 17.47l136 128C216.8 354.2 231.2 354.2 240.4 345.5z"]
+};
+var faFileArrowUp = {
+  prefix: 'far',
+  iconName: 'file-arrow-up',
+  icon: [384, 512, ["file-upload"], "f574", "M175 223l-80 80c-9.375 9.375-9.375 24.56 0 33.94s24.56 9.375 33.94 0L168 297.9V400c0 13.25 10.75 24 24 24s24-10.75 24-24V297.9l39.03 39.03C259.7 341.7 265.8 344 272 344s12.28-2.344 16.97-7.031c9.375-9.375 9.375-24.56 0-33.94l-80-80C199.6 213.7 184.4 213.7 175 223zM365.3 93.38l-74.63-74.64C278.6 6.742 262.3 0 245.4 0H64C28.65 0 0 28.65 0 64l.0065 384c0 35.34 28.65 64 64 64H320c35.2 0 64-28.8 64-64V138.6C384 121.7 377.3 105.4 365.3 93.38zM336 448c0 8.836-7.164 16-16 16H64.02c-8.838 0-16-7.164-16-16L48 64.13c0-8.836 7.164-16 16-16h160L224 128c0 17.67 14.33 32 32 32h79.1V448z"]
+};
+var faPhotoFilmMusic = {
+  prefix: 'far',
+  iconName: 'photo-film-music',
+  icon: [640, 512, [], "e228", "M272 112c0 17.67 14.33 32 32 32c17.68 0 32-14.33 32-32S321.7 80 304 80C286.3 80 272 94.33 272 112zM160 400v-288H64c-35.35 0-64 28.65-64 64V384c0 35.35 28.65 64 64 64h225.1c4.646-19.76 17.81-36.53 36.23-48H160zM112 400H64c-8.822 0-16-7.178-16-16v-32h64V400zM112 304h-64V256h64V304zM112 208h-64v-32C48 167.2 55.18 160 64 160h48V208zM576 0H256C220.7 0 192 28.65 192 64v192c0 35.35 28.65 64 64 64h112V245.3c0-20.7 13.19-39 32.83-45.53l102.8-34.27l-36.99-54.41C463.7 106.7 458.7 104 453.3 104c-5.352 0-10.35 2.672-13.31 7.125l-62.74 94.11l-22.35-30.66C351.9 170.4 347.1 168 341.1 168c-5.109 0-9.914 2.441-12.93 6.574L256 272C247.2 272 240 264.8 240 256V64c0-8.822 7.178-16 16-16h320c8.822 0 16 7.178 16 16v72.07l16.81-5.605C613.8 128.8 618.9 128 624 128C629.6 128 634.1 129.2 640 130.9V64C640 28.65 611.3 0 576 0zM618.9 160.8l-208 69.33C404.4 232.3 400 238.5 400 245.3v172.4C394.9 416.7 389.6 416 384 416c-35.35 0-64 21.49-64 48s28.65 48 64 48c35.35 0 64-21.49 64-48V319l144-48v82.7C586.9 352.7 581.6 352 576 352c-35.35 0-64 21.49-64 48s28.65 48 64 48c35.35 0 64-21.49 64-48V176C640 165.1 629.3 157.4 618.9 160.8z"]
 };
 
 var FreeSolidIconSet = {
@@ -3012,7 +218,10 @@ var FreeSolidIconSet = {
   faTv: freeSolidSvgIcons.faTv,
   faUser: freeSolidSvgIcons.faUser,
   faUserCircle: freeSolidSvgIcons.faUserCircle,
-  farFileArrowUp: proRegularSvgIcons.faFileArrowUp
+  farFileArrowUp: faFileArrowUp,
+  farArrowDownToBracket: faArrowDownToBracket,
+  farPhotoFilmMusic: faPhotoFilmMusic,
+  farHeart: freeRegularSvgIcons.faHeart
 };
 
 var KIT_COLORS = {
@@ -3452,7 +661,7 @@ var StyledFlex = styled__default["default"](Grid__default["default"]).withConfig
   return SPACER(theme);
 });
 var Flex = function Flex(props) {
-  return /*#__PURE__*/react.createElement(StyledFlex, props);
+  return /*#__PURE__*/React__default["default"].createElement(StyledFlex, props);
 };
 Flex.propTypes = FlexPropTypes;
 Flex.defaultProps = FlexDefaultProps;
@@ -3494,8 +703,8 @@ var ButtonBaseDefaultProps = {
   size: "md"
 };
 
-var _excluded$1B = ["colors", "content", "children", "loading", "endIcon", "href", "icon", "iconProps", "size", "startIcon"];
-var StyledButton$5 = styled__default["default"](MuiButtonBase__default["default"]).withConfig({
+var _excluded$1G = ["colors", "content", "children", "loading", "endIcon", "endIconPrefix", "href", "icon", "iconProps", "size", "startIcon", "startIconPrefix"];
+var StyledButton$6 = styled__default["default"](MuiButtonBase__default["default"]).withConfig({
   displayName: "Base__StyledButton",
   componentId: "sc-1vgypdg-0"
 })(["&&{box-sizing:border-box;text-transfrom:none !important;border-radius:24px;", " min-width:40px;height:40px;transition:all 100ms ease-in-out;width:", ";:hover{opacity:0.7;}:disabled{opacity:0.3;cursor:not-allowed;pointer-events:none;}", " ", " ", "}"], function (_ref) {
@@ -3547,29 +756,33 @@ var ButtonBase = function ButtonBase(_ref4) {
       children = _ref4.children,
       loading = _ref4.loading,
       endIcon = _ref4.endIcon,
+      endIconPrefix = _ref4.endIconPrefix,
       href = _ref4.href,
       icon = _ref4.icon,
       iconProps = _ref4.iconProps,
       size = _ref4.size,
       startIcon = _ref4.startIcon,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$1B);
+      startIconPrefix = _ref4.startIconPrefix,
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$1G);
 
   var iconSize = getIconSize(size);
-  return /*#__PURE__*/react.createElement(StyledButton$5, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledButton$6, _extends({
     component: href ? "a" : "button",
     href: href,
     size: size
-  }, props), loading ? /*#__PURE__*/react.createElement(DotsSpinner, {
+  }, props), loading ? /*#__PURE__*/React__default["default"].createElement(DotsSpinner, {
     color: colors == null ? void 0 : colors.color
-  }) : /*#__PURE__*/react.createElement(react.Fragment, null, startIcon && /*#__PURE__*/react.createElement(Icon, {
+  }) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, startIcon && /*#__PURE__*/React__default["default"].createElement(Icon, {
     icon: startIcon,
+    prefix: startIconPrefix && startIconPrefix,
     size: iconSize,
     mr: 2
-  }), icon && /*#__PURE__*/react.createElement(Icon, _extends({
+  }), icon && /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
     icon: icon,
     size: iconSize
-  }, iconProps)), content || children, endIcon && /*#__PURE__*/react.createElement(Icon, {
+  }, iconProps)), content || children, endIcon && /*#__PURE__*/React__default["default"].createElement(Icon, {
     icon: endIcon,
+    prefix: endIconPrefix && endIconPrefix,
     size: iconSize,
     ml: 2
   })));
@@ -3577,8 +790,8 @@ var ButtonBase = function ButtonBase(_ref4) {
 ButtonBase.propTypes = ButtonBasePropTypes;
 ButtonBase.defaultProps = ButtonBaseDefaultProps;
 
-var _excluded$1A = ["color"];
-var StyledButton$4 = styled__default["default"](ButtonBase).withConfig({
+var _excluded$1F = ["color"];
+var StyledButton$5 = styled__default["default"](ButtonBase).withConfig({
   displayName: "Button__StyledButton",
   componentId: "sc-rmizea-0"
 })(["&&{", "}"], function (_ref) {
@@ -3603,18 +816,18 @@ var colorMapper$2 = function colorMapper(color, theme) {
 
 var Button$1 = function Button(_ref2) {
   var color = _ref2.color,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$1A);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$1F);
 
   var theme = styled.useTheme();
   var colors = colorMapper$2(color, theme);
-  return /*#__PURE__*/react.createElement(StyledButton$4, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledButton$5, _extends({
     colors: colors
   }, props));
 };
 Button$1.propTypes = ButtonBasePropTypes;
 
-var _excluded$1z = ["color"];
-var StyledButton$3 = styled__default["default"](ButtonBase).withConfig({
+var _excluded$1E = ["color"];
+var StyledButton$4 = styled__default["default"](ButtonBase).withConfig({
   displayName: "OutlineButton__StyledButton",
   componentId: "sc-c22pyk-0"
 })(["&&{", "}"], function (_ref) {
@@ -3643,18 +856,18 @@ var colorMapper$1 = function colorMapper(color, theme) {
 
 var OutlineButton = function OutlineButton(_ref2) {
   var color = _ref2.color,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$1z);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$1E);
 
   var theme = styled.useTheme();
   var colors = colorMapper$1(color, theme);
-  return /*#__PURE__*/react.createElement(StyledButton$3, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledButton$4, _extends({
     colors: colors
   }, props));
 };
 OutlineButton.propTypes = ButtonBasePropTypes;
 
-var _excluded$1y = ["color"];
-var StyledButton$2 = styled__default["default"](ButtonBase).withConfig({
+var _excluded$1D = ["color"];
+var StyledButton$3 = styled__default["default"](ButtonBase).withConfig({
   displayName: "TextButton__StyledButton",
   componentId: "sc-rbrc68-0"
 })(["&&{", "}"], function (_ref) {
@@ -3676,17 +889,17 @@ var colorMapper = function colorMapper(color, theme) {
 
 var TextButton = function TextButton(_ref2) {
   var color = _ref2.color,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$1y);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$1D);
 
   var theme = styled.useTheme();
   var colors = colorMapper(color, theme);
-  return /*#__PURE__*/react.createElement(StyledButton$2, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledButton$3, _extends({
     colors: colors
   }, props));
 };
 TextButton.propTypes = ButtonBasePropTypes;
 
-var _excluded$1x = ["onClick", "title", "type"];
+var _excluded$1C = ["onClick", "title", "type"];
 var StyledOutlineButton = styled__default["default"](OutlineButton).attrs(function () {
   return {
     size: "small"
@@ -3701,7 +914,7 @@ var ItemActionButton = function ItemActionButton(_ref) {
       title = _ref$button.title,
       _ref$button$type = _ref$button.type,
       type = _ref$button$type === void 0 ? "normal" : _ref$button$type,
-      button = _objectWithoutPropertiesLoose(_ref$button, _excluded$1x);
+      button = _objectWithoutPropertiesLoose(_ref$button, _excluded$1C);
 
   var handleClick = function handleClick(e) {
     e.stopPropagation();
@@ -3709,10 +922,10 @@ var ItemActionButton = function ItemActionButton(_ref) {
   };
 
   var Button = function Button(props) {
-    return type === "normal" ? /*#__PURE__*/react.createElement(TextButton, props) : /*#__PURE__*/react.createElement(StyledOutlineButton, props);
+    return type === "normal" ? /*#__PURE__*/React__default["default"].createElement(TextButton, props) : /*#__PURE__*/React__default["default"].createElement(StyledOutlineButton, props);
   };
 
-  return /*#__PURE__*/react.createElement(Button, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(Button, _extends({
     key: title,
     onClick: handleClick
   }, button), title);
@@ -3725,7 +938,7 @@ ItemActionButton.propTypes = {
   }).isRequired
 };
 
-var _excluded$1w = ["badge", "badgeColor", "icon", "iconSize", "link", "linkSize", "linkText", "mainText", "mainTextSize", "skip", "text", "textSize"];
+var _excluded$1B = ["badge", "badgeColor", "icon", "iconSize", "link", "linkSize", "linkText", "mainText", "mainTextSize", "skip", "text", "textSize"];
 var Section = styled__default["default"](core.Grid).attrs(function (_ref) {
   var md = _ref.md,
       xs = _ref.xs;
@@ -3769,26 +982,26 @@ var ItemContent = function ItemContent(_ref5) {
       var skip = _ref5$item.skip,
       text = _ref5$item.text;
       _ref5$item.textSize;
-      var item = _objectWithoutPropertiesLoose(_ref5$item, _excluded$1w);
+      var item = _objectWithoutPropertiesLoose(_ref5$item, _excluded$1B);
 
-  return /*#__PURE__*/react.createElement(Section, item, skip && "", icon && /*#__PURE__*/react.createElement(Icon, {
+  return /*#__PURE__*/React__default["default"].createElement(Section, item, skip && "", icon && /*#__PURE__*/React__default["default"].createElement(Icon, {
     dInline: true,
     color: "secondary",
     icon: icon,
     size: iconSize,
     mr: 2
-  }), mainText && /*#__PURE__*/react.createElement(Text, {
+  }), mainText && /*#__PURE__*/React__default["default"].createElement(Text, {
     content: mainText,
     dInline: true,
     fontWeight: "bold"
-  }), text && /*#__PURE__*/react.createElement(Text, {
+  }), text && /*#__PURE__*/React__default["default"].createElement(Text, {
     color: "textSecondary",
     dInline: true,
     size: "sm"
-  }, text), link && /*#__PURE__*/react.createElement(Link$1, {
+  }, text), link && /*#__PURE__*/React__default["default"].createElement(Link$1, {
     href: link,
     size: linkSize
-  }, linkText), badge && /*#__PURE__*/react.createElement(TinyBadge, {
+  }, linkText), badge && /*#__PURE__*/React__default["default"].createElement(TinyBadge, {
     color: badgeColor,
     label: badge
   }));
@@ -3823,7 +1036,7 @@ var StyledLineItem = styled__default["default"].div.withConfig({
   var theme = _ref3.theme;
   return theme.spacing(2);
 });
-var Content$c = styled__default["default"](Flex).attrs(function () {
+var Content$d = styled__default["default"](Flex).attrs(function () {
   return {
     container: true,
     justify: "space-between",
@@ -3864,32 +1077,32 @@ var AdvancedLineItem = function AdvancedLineItem(_ref10) {
       hoverable = _ref10.hoverable,
       secondaryActionButton = _ref10.secondaryActionButton,
       Wrapper = _ref10.Wrapper;
-  var content = /*#__PURE__*/react.createElement(Content$c, {
+  var content = /*#__PURE__*/React__default["default"].createElement(Content$d, {
     hoverable: hoverable
   }, contentItems.map(function (item, idx) {
-    return /*#__PURE__*/react.createElement(ItemContent, {
+    return /*#__PURE__*/React__default["default"].createElement(ItemContent, {
       key: "item-" + itemId + "-" + idx,
       item: item
     });
   }));
-  return /*#__PURE__*/react.createElement(StyledLineItem, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledLineItem, {
     "data-cy": dataCy,
     showItemAction: actionButtons.length > 0
-  }, Wrapper ? /*#__PURE__*/react.createElement(Wrapper, null, content) : content, /*#__PURE__*/react.createElement(ActionButtons, {
+  }, Wrapper ? /*#__PURE__*/React__default["default"].createElement(Wrapper, null, content) : content, /*#__PURE__*/React__default["default"].createElement(ActionButtons, {
     show: actionButtons.length || secondaryActionButton,
     justifyEnd: !actionButtons.length
-  }, /*#__PURE__*/react.createElement("div", null, actionButtons.filter(function (_ref11) {
+  }, /*#__PURE__*/React__default["default"].createElement("div", null, actionButtons.filter(function (_ref11) {
     var _ref11$show = _ref11.show,
         show = _ref11$show === void 0 ? [true] : _ref11$show;
     return show.some(function (b) {
       return b;
     });
   }).map(function (button, idx) {
-    return /*#__PURE__*/react.createElement(ItemActionButton, {
+    return /*#__PURE__*/React__default["default"].createElement(ItemActionButton, {
       key: "item-" + itemId + "-" + idx,
       button: button
     });
-  })), secondaryActionButton && /*#__PURE__*/react.createElement(TextButton, _extends({
+  })), secondaryActionButton && /*#__PURE__*/React__default["default"].createElement(TextButton, _extends({
     content: secondaryActionButton.content,
     size: "sm"
   }, secondaryActionButton))), extraContent);
@@ -3914,7 +1127,7 @@ AdvancedLineItem.defaultProps = {
   secondaryActionButton: null
 };
 
-var _excluded$1v = ["icon", "prefix", "size"],
+var _excluded$1A = ["icon", "prefix", "size"],
     _excluded2$3 = ["className", "color", "onClick", "rounded", "squared", "prefix"];
 var Rounded = styled__default["default"].div.withConfig({
   displayName: "Icon__Rounded",
@@ -3954,9 +1167,9 @@ var StyledIcon$8 = styled__default["default"](function (_ref5) {
   var icon = _ref5.icon,
       prefix = _ref5.prefix;
       _ref5.size;
-      var props = _objectWithoutPropertiesLoose(_ref5, _excluded$1v);
+      var props = _objectWithoutPropertiesLoose(_ref5, _excluded$1A);
 
-  return /*#__PURE__*/react.createElement(reactFontawesome.FontAwesomeIcon, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(reactFontawesome.FontAwesomeIcon, _extends({
     icon: [prefix, icon]
   }, props));
 }).withConfig({
@@ -4008,11 +1221,11 @@ var Icon = function Icon(_ref11) {
   var Wrapper = null;
   if (rounded) Wrapper = Rounded;
   if (squared) Wrapper = Squared;
-  return Wrapper ? /*#__PURE__*/react.createElement(Wrapper, _extends({
+  return Wrapper ? /*#__PURE__*/React__default["default"].createElement(Wrapper, _extends({
     className: className,
     color: color,
     onClick: onClick
-  }, props), /*#__PURE__*/react.createElement(StyledIcon$8, defaultProps)) : /*#__PURE__*/react.createElement(StyledIcon$8, _extends({
+  }, props), /*#__PURE__*/React__default["default"].createElement(StyledIcon$8, defaultProps)) : /*#__PURE__*/React__default["default"].createElement(StyledIcon$8, _extends({
     className: className,
     onClick: onClick
   }, defaultProps));
@@ -4033,7 +1246,7 @@ var AlertDefaultProps = {
   rounded: true
 };
 
-var _excluded$1u = ["content", "cocreator", "children", "color"];
+var _excluded$1z = ["content", "cocreator", "children", "color"];
 var StyledMessage$1 = styled__default["default"].div.withConfig({
   displayName: "Alert__StyledMessage",
   componentId: "sc-1q2nixr-0"
@@ -4143,37 +1356,37 @@ var Alert = function Alert(_ref11) {
       cocreator = _ref11.cocreator,
       children = _ref11.children,
       color = _ref11.color,
-      props = _objectWithoutPropertiesLoose(_ref11, _excluded$1u);
+      props = _objectWithoutPropertiesLoose(_ref11, _excluded$1z);
 
   var theme = styled.useTheme();
   var colors = getColors(color, theme);
-  return /*#__PURE__*/react.createElement(StyledMessage$1, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledMessage$1, _extends({
     colors: colors
-  }, props), content && /*#__PURE__*/react.createElement(Icon, {
+  }, props), content && /*#__PURE__*/React__default["default"].createElement(Icon, {
     icon: "info-circle",
     mr: 2
-  }), content || children, (cocreator == null ? void 0 : cocreator.type) === "missingApproval" && /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(Icon, {
+  }), content || children, (cocreator == null ? void 0 : cocreator.type) === "missingApproval" && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Icon, {
     icon: "info-circle",
     mr: 2
-  }), /*#__PURE__*/react.createElement(Flex, null, /*#__PURE__*/react.createElement(Text, {
+  }), /*#__PURE__*/React__default["default"].createElement(Flex, null, /*#__PURE__*/React__default["default"].createElement(Text, {
     fontSize: "sm",
     fontWeight: "bold"
-  }, cocreator == null ? void 0 : cocreator.title), /*#__PURE__*/react.createElement(Text, {
+  }, cocreator == null ? void 0 : cocreator.title), /*#__PURE__*/React__default["default"].createElement(Text, {
     fontSize: "sm"
-  }, cocreator == null ? void 0 : cocreator.description))), (cocreator == null ? void 0 : cocreator.type) === "approvedCollab" && /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(Avatar$1, null, /*#__PURE__*/react.createElement(Image, {
+  }, cocreator == null ? void 0 : cocreator.description))), (cocreator == null ? void 0 : cocreator.type) === "approvedCollab" && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Avatar$1, null, /*#__PURE__*/React__default["default"].createElement(Image, {
     src: cocreator == null ? void 0 : cocreator.avatar
-  }), /*#__PURE__*/react.createElement(AcceptedStatus, null, /*#__PURE__*/react.createElement(Icon, {
+  }), /*#__PURE__*/React__default["default"].createElement(AcceptedStatus, null, /*#__PURE__*/React__default["default"].createElement(Icon, {
     icon: "check",
     size: "sm"
-  }))), /*#__PURE__*/react.createElement(AlertContainer, null, /*#__PURE__*/react.createElement(Text, {
+  }))), /*#__PURE__*/React__default["default"].createElement(AlertContainer, null, /*#__PURE__*/React__default["default"].createElement(Text, {
     fontSize: "sm",
     fontWeight: "bold"
-  }, cocreator == null ? void 0 : cocreator.title, ", approved state ", cocreator == null ? void 0 : cocreator.date))), (cocreator == null ? void 0 : cocreator.type) === "rejectedCollab" && /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(Avatar$1, null, /*#__PURE__*/react.createElement(Image, {
+  }, cocreator == null ? void 0 : cocreator.title, ", approved state ", cocreator == null ? void 0 : cocreator.date))), (cocreator == null ? void 0 : cocreator.type) === "rejectedCollab" && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Avatar$1, null, /*#__PURE__*/React__default["default"].createElement(Image, {
     src: cocreator == null ? void 0 : cocreator.avatar
-  }), /*#__PURE__*/react.createElement(RejectedStatus, null, /*#__PURE__*/react.createElement(Icon, {
+  }), /*#__PURE__*/React__default["default"].createElement(RejectedStatus, null, /*#__PURE__*/React__default["default"].createElement(Icon, {
     icon: "times",
     size: "sm"
-  }))), /*#__PURE__*/react.createElement(AlertContainer, null, /*#__PURE__*/react.createElement(Text, {
+  }))), /*#__PURE__*/React__default["default"].createElement(AlertContainer, null, /*#__PURE__*/React__default["default"].createElement(Text, {
     fontSize: "sm",
     fontWeight: "bold"
   }, cocreator == null ? void 0 : cocreator.title, ", rejected state ", cocreator == null ? void 0 : cocreator.date))));
@@ -4198,26 +1411,26 @@ var AppContainer = function AppContainer(_ref) {
       pageProgressBarListener = _ref.pageProgressBarListener,
       theme = _ref.theme;
   if (icons) fontawesomeSvgCore.library.add(icons);
-  return /*#__PURE__*/react.createElement(AppContextProvider, {
+  return /*#__PURE__*/React__default["default"].createElement(AppContextProvider, {
     config: appConfig
-  }, /*#__PURE__*/react.createElement(styles.ThemeProvider, {
+  }, /*#__PURE__*/React__default["default"].createElement(styles.ThemeProvider, {
     theme: theme
-  }, /*#__PURE__*/react.createElement(styled.ThemeProvider, {
+  }, /*#__PURE__*/React__default["default"].createElement(styled.ThemeProvider, {
     theme: theme
-  }, /*#__PURE__*/react.createElement(notistack.SnackbarProvider, {
+  }, /*#__PURE__*/React__default["default"].createElement(notistack.SnackbarProvider, {
     anchorOrigin: {
       vertical: "top",
       horizontal: "right"
     },
     content: function content(key, options) {
-      return /*#__PURE__*/react.createElement(Snackbar, _extends({
+      return /*#__PURE__*/React__default["default"].createElement(Snackbar, _extends({
         id: key
       }, options));
     },
     maxSnack: 3
-  }, /*#__PURE__*/react.createElement(GlobalStyle, null), /*#__PURE__*/react.createElement(CssBaseline__default["default"], null), pageProgressBar && /*#__PURE__*/react.createElement(PageProgressBar, {
+  }, /*#__PURE__*/React__default["default"].createElement(GlobalStyle, null), /*#__PURE__*/React__default["default"].createElement(CssBaseline__default["default"], null), pageProgressBar && /*#__PURE__*/React__default["default"].createElement(PageProgressBar, {
     listener: pageProgressBarListener
-  }), pageLoading ? /*#__PURE__*/react.createElement(PageLoading, {
+  }), pageLoading ? /*#__PURE__*/React__default["default"].createElement(PageLoading, {
     fullScreen: true
   }) : children))));
 };
@@ -4242,7 +1455,7 @@ var HeadingBasePropTypes = _extends({
   noWrap: PropTypes__default["default"].bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-var _excluded$1t = ["content", "children"];
+var _excluded$1y = ["content", "children"];
 var StyledHeading = styled__default["default"](Typography__default["default"]).withConfig({
   displayName: "Base__StyledHeading",
   componentId: "sc-1hr75b8-0"
@@ -4254,49 +1467,49 @@ var StyledHeading = styled__default["default"](Typography__default["default"]).w
 var HeadingBase = function HeadingBase(_ref) {
   var content = _ref.content,
       children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1t);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1y);
 
-  return /*#__PURE__*/react.createElement(StyledHeading, props, content || children);
+  return /*#__PURE__*/React__default["default"].createElement(StyledHeading, props, content || children);
 };
 HeadingBase.propTypes = HeadingBasePropTypes;
 
 var H1 = function H1(props) {
-  return /*#__PURE__*/react.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(HeadingBase, _extends({
     variant: "h1"
   }, props));
 };
 H1.propTypes = HeadingBasePropTypes;
 
 var H2 = function H2(props) {
-  return /*#__PURE__*/react.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(HeadingBase, _extends({
     variant: "h2"
   }, props));
 };
 H2.propTypes = HeadingBasePropTypes;
 
 var H3 = function H3(props) {
-  return /*#__PURE__*/react.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(HeadingBase, _extends({
     variant: "h3"
   }, props));
 };
 H3.propTypes = HeadingBasePropTypes;
 
 var H4 = function H4(props) {
-  return /*#__PURE__*/react.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(HeadingBase, _extends({
     variant: "h4"
   }, props));
 };
 H4.propTypes = HeadingBasePropTypes;
 
 var H5 = function H5(props) {
-  return /*#__PURE__*/react.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(HeadingBase, _extends({
     variant: "h5"
   }, props));
 };
 H5.propTypes = HeadingBasePropTypes;
 
 var H6 = function H6(props) {
-  return /*#__PURE__*/react.createElement(HeadingBase, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(HeadingBase, _extends({
     variant: "h6"
   }, props));
 };
@@ -4320,7 +1533,7 @@ var TextBaseDefaultProps = {
   fontSize: "md"
 };
 
-var _excluded$1s = ["content", "children"];
+var _excluded$1x = ["content", "children"];
 var StyledText$2 = styled__default["default"](Typography__default["default"]).withConfig({
   displayName: "Base__StyledText",
   componentId: "sc-17vyex8-0"
@@ -4364,9 +1577,9 @@ var StyledText$2 = styled__default["default"](Typography__default["default"]).wi
 var TextBase = function TextBase(_ref4) {
   var content = _ref4.content,
       children = _ref4.children,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$1s);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$1x);
 
-  return /*#__PURE__*/react.createElement(StyledText$2, props, content || children);
+  return /*#__PURE__*/React__default["default"].createElement(StyledText$2, props, content || children);
 };
 TextBase.propTypes = TextBasePropTypes;
 TextBase.defaultProps = TextBaseDefaultProps;
@@ -4379,7 +1592,7 @@ var StyledParagraph = styled__default["default"](TextBase).withConfig({
   return theme.spacing(2);
 });
 var Paragraph = function Paragraph(props) {
-  return /*#__PURE__*/react.createElement(StyledParagraph, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledParagraph, _extends({
     variant: "body1",
     paragraph: true
   }, props));
@@ -4387,14 +1600,14 @@ var Paragraph = function Paragraph(props) {
 Paragraph.propTypes = TextBasePropTypes;
 
 var Text = function Text(props) {
-  return /*#__PURE__*/react.createElement(TextBase, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(TextBase, _extends({
     component: "div",
     variant: "body2"
   }, props));
 };
 Text.propTypes = TextBasePropTypes;
 
-var _excluded$1r = ["color", "icon", "label"];
+var _excluded$1w = ["color", "icon", "label"];
 var StyledChip = styled__default["default"].div.withConfig({
   displayName: "Chip__StyledChip",
   componentId: "sc-2e49ss-0"
@@ -4411,7 +1624,7 @@ var StyledChip = styled__default["default"].div.withConfig({
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledLabel$4 = styled__default["default"](Text).attrs(function () {
+var StyledLabel$5 = styled__default["default"](Text).attrs(function () {
   return {
     fontWeight: "bold"
   };
@@ -4434,17 +1647,17 @@ var ChipBadge = function ChipBadge(_ref5) {
   var color = _ref5.color,
       icon = _ref5.icon,
       label = _ref5.label,
-      props = _objectWithoutPropertiesLoose(_ref5, _excluded$1r);
+      props = _objectWithoutPropertiesLoose(_ref5, _excluded$1w);
 
   var contentColor = ["success", "black", "error", "darkYellow"].includes(color) ? "white" : "black";
   console.log("🎉 color: ", color);
-  return /*#__PURE__*/react.createElement(StyledChip, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledChip, _extends({
     color: color,
     textColor: contentColor
-  }, props), icon && /*#__PURE__*/react.createElement(StyledIcon$7, {
+  }, props), icon && /*#__PURE__*/React__default["default"].createElement(StyledIcon$7, {
     color: contentColor,
     icon: icon
-  }), label && /*#__PURE__*/react.createElement(StyledLabel$4, {
+  }), label && /*#__PURE__*/React__default["default"].createElement(StyledLabel$5, {
     icon: icon,
     labelColor: color,
     color: "initial"
@@ -4461,7 +1674,7 @@ var ChipBadgeDefaultProps = {
   color: "black"
 };
 
-var _excluded$1q = ["color", "label"];
+var _excluded$1v = ["color", "label"];
 var StyledBadge = styled__default["default"].div.withConfig({
   displayName: "Tiny__StyledBadge",
   componentId: "sc-s2p0yz-0"
@@ -4497,14 +1710,14 @@ var StyledText$1 = styled__default["default"](Text).withConfig({
 var TinyBadge = function TinyBadge(_ref7) {
   var color = _ref7.color,
       label = _ref7.label,
-      props = _objectWithoutPropertiesLoose(_ref7, _excluded$1q);
+      props = _objectWithoutPropertiesLoose(_ref7, _excluded$1v);
 
   var contentColor = ["success", "black", "error", "darkYellow"].includes(color) ? "white" : "black";
-  return /*#__PURE__*/react.createElement(StyledBadge, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledBadge, _extends({
     color: contentColor,
     backgroundColor: color,
     isShort: label.length === 1
-  }, props), /*#__PURE__*/react.createElement(StyledText$1, {
+  }, props), /*#__PURE__*/React__default["default"].createElement(StyledText$1, {
     color: "initial",
     fontWeight: "bold",
     fontSize: "sm"
@@ -4544,12 +1757,12 @@ var StyledBox = styled__default["default"].div.withConfig({
   return DISPLAY(theme);
 });
 var BoxBase = function BoxBase(props) {
-  return /*#__PURE__*/react.createElement(StyledBox, props);
+  return /*#__PURE__*/React__default["default"].createElement(StyledBox, props);
 };
 BoxBase.propTypes = BoxBasePropTypes;
 BoxBase.defaultProps = BoxBaseDefaultProps;
 
-var _excluded$1p = ["action", "actionDisabled", "actionLoading", "actionSize", "actionTitle", "actionType", "renderAction", "renderTitle"];
+var _excluded$1u = ["action", "actionDisabled", "actionLoading", "actionSize", "actionTitle", "actionType", "renderAction", "renderTitle"];
 var StyledBoxFooter = styled__default["default"](Flex).attrs(function () {
   return {
     container: true,
@@ -4579,14 +1792,14 @@ var BoxFooter = function BoxFooter(_ref3) {
       actionType = _ref3.actionType,
       renderAction = _ref3.renderAction,
       renderTitle = _ref3.renderTitle,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1p);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1u);
 
   if (!renderTitle() && !renderAction() && !actionTitle) return null;
-  return /*#__PURE__*/react.createElement(StyledBoxFooter, props, /*#__PURE__*/react.createElement(Flex, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledBoxFooter, props, /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true
-  }, renderTitle()), /*#__PURE__*/react.createElement(Flex, {
+  }, renderTitle()), /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true
-  }, renderAction() || /*#__PURE__*/react.createElement(Button$1, {
+  }, renderAction() || /*#__PURE__*/React__default["default"].createElement(Button$1, {
     content: actionTitle,
     disabled: actionDisabled,
     loading: actionLoading,
@@ -4619,7 +1832,7 @@ BoxFooter.defaultProps = {
 /* eslint-disable global-require */
 var useMediaQuery = MuiUseMediaQuery__default["default"];
 
-var _excluded$1o = ["action", "actionIcon", "actionIconProps", "actionIconSize", "renderAction", "renderTitle", "metaTitle", "metaTitleColor", "subTitle", "subTitleColor", "tabs", "tabsProps", "title", "titleIcon", "titleIconHiddenSm", "titleIconProps", "titleSize", "transparentSm"];
+var _excluded$1t = ["action", "actionIcon", "actionIconProps", "actionIconSize", "renderAction", "renderTitle", "metaTitle", "metaTitleColor", "subTitle", "subTitleColor", "tabs", "tabsProps", "title", "titleIcon", "titleIconHiddenSm", "titleIconProps", "titleSize", "transparentSm"];
 var Wrapper$e = styled__default["default"].div.withConfig({
   displayName: "Header__Wrapper",
   componentId: "sc-sf2nje-0"
@@ -4655,7 +1868,7 @@ var StyledBoxHeader = styled__default["default"](Flex).attrs(function () {
       theme = _ref6.theme;
   return transparentSm && styled.css(["", "{background-color:transparent;padding:", ";}"], theme.breakpoints.down("sm"), theme.spacing(0));
 });
-var Content$b = styled__default["default"].div.withConfig({
+var Content$c = styled__default["default"].div.withConfig({
   displayName: "Header__Content",
   componentId: "sc-sf2nje-2"
 })(["", " ", ""], function (_ref7) {
@@ -4687,53 +1900,53 @@ var BoxHeader = function BoxHeader(_ref9) {
       titleIconProps = _ref9.titleIconProps,
       titleSize = _ref9.titleSize,
       transparentSm = _ref9.transparentSm,
-      props = _objectWithoutPropertiesLoose(_ref9, _excluded$1o);
+      props = _objectWithoutPropertiesLoose(_ref9, _excluded$1t);
 
   var isMobile = useMediaQuery(function (theme) {
     return theme.breakpoints.down("sm");
   });
   var showTitleIcon = isMobile ? !titleIconHiddenSm : !!titleIcon;
   if (!renderTitle() && !renderAction() && !title) return null;
-  return /*#__PURE__*/react.createElement(Wrapper$e, {
+  return /*#__PURE__*/React__default["default"].createElement(Wrapper$e, {
     transparentSm: transparentSm
-  }, /*#__PURE__*/react.createElement(StyledBoxHeader, _extends({
+  }, /*#__PURE__*/React__default["default"].createElement(StyledBoxHeader, _extends({
     transparentSm: transparentSm
-  }, props), /*#__PURE__*/react.createElement(Flex, {
+  }, props), /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true
-  }, renderTitle() || /*#__PURE__*/react.createElement(Flex, {
+  }, renderTitle() || /*#__PURE__*/React__default["default"].createElement(Flex, {
     container: true
-  }, showTitleIcon && /*#__PURE__*/react.createElement(Icon, _extends({
+  }, showTitleIcon && /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
     colorBlack: true,
     icon: titleIcon,
     mr: 2,
     size: "lg"
-  }, titleIconProps)), /*#__PURE__*/react.createElement("div", null, metaTitle && /*#__PURE__*/react.createElement(Text, {
+  }, titleIconProps)), /*#__PURE__*/React__default["default"].createElement("div", null, metaTitle && /*#__PURE__*/React__default["default"].createElement(Text, {
     content: metaTitle,
     color: metaTitleColor || "text",
     dBlock: true,
     gutterBottom: true,
     fontWeight: "normal",
     fontSize: "sm"
-  }), titleSize === "sm" ? /*#__PURE__*/react.createElement(H4, {
+  }), titleSize === "sm" ? /*#__PURE__*/React__default["default"].createElement(H4, {
     content: title
-  }) : /*#__PURE__*/react.createElement(H3, {
+  }) : /*#__PURE__*/React__default["default"].createElement(H3, {
     content: title
-  }), subTitle && /*#__PURE__*/react.createElement(Text, {
+  }), subTitle && /*#__PURE__*/React__default["default"].createElement(Text, {
     content: subTitle,
     color: subTitleColor,
     dBlock: true,
     fontStyle: "italic",
     fontSize: "sm"
-  })))), /*#__PURE__*/react.createElement(Flex, {
+  })))), /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true
-  }, renderAction() || actionIcon && /*#__PURE__*/react.createElement(Icon, _extends({
+  }, renderAction() || actionIcon && /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
     colorGrayMedium: true,
     icon: actionIcon,
     size: actionIconSize,
     onClick: action
-  }, actionIconProps)))), tabs.length > 0 && /*#__PURE__*/react.createElement(Content$b, _extends({
+  }, actionIconProps)))), tabs.length > 0 && /*#__PURE__*/React__default["default"].createElement(Content$c, _extends({
     transparentSm: transparentSm
-  }, props), /*#__PURE__*/react.createElement(Tab, _extends({
+  }, props), /*#__PURE__*/React__default["default"].createElement(Tab, _extends({
     tabs: tabs,
     mb: 0
   }, tabsProps))));
@@ -4820,7 +2033,7 @@ var BoxDefaultProps = _extends({
   transparentSm: false
 }, BoxBaseDefaultProps);
 
-var _excluded$1n = ["alert", "alertColor", "children", "cocreator", "contentPadding", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionSize", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconHiddenSm", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "loadingProps", "padding", "tabs", "tabsProps", "transition", "transparentSm"];
+var _excluded$1s = ["alert", "alertColor", "children", "cocreator", "contentPadding", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionSize", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconHiddenSm", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "loadingProps", "padding", "tabs", "tabsProps", "transition", "transparentSm"];
 var BoxContent = styled__default["default"].div.withConfig({
   displayName: "Box__BoxContent",
   componentId: "sc-1d03rz8-0"
@@ -4872,27 +2085,27 @@ var Box$1 = function Box(_ref3) {
       tabsProps = _ref3.tabsProps,
       transition = _ref3.transition,
       transparentSm = _ref3.transparentSm,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1n);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1s);
 
   var isMobile = useMediaQuery(function (theme) {
     return theme.breakpoints.down("sm");
   });
-  var content = /*#__PURE__*/react.createElement(react.Fragment, null, Object.keys(cocreator).length > 0 && /*#__PURE__*/react.createElement(Alert, {
+  var content = /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, Object.keys(cocreator).length > 0 && /*#__PURE__*/React__default["default"].createElement(Alert, {
     cocreator: cocreator,
     color: cocreator == null ? void 0 : cocreator.type,
     rounded: false,
     mt: isMobile && transparentSm ? 6 : 0,
     p: 3
-  }), alert && /*#__PURE__*/react.createElement(Alert, {
+  }), alert && /*#__PURE__*/React__default["default"].createElement(Alert, {
     content: alert,
     color: alertColor,
     rounded: isMobile && transparentSm,
     mt: isMobile && transparentSm ? 6 : 0
-  }), /*#__PURE__*/react.createElement(BoxContent, {
+  }), /*#__PURE__*/React__default["default"].createElement(BoxContent, {
     padding: padding,
     contentPadding: contentPadding,
     transparentSm: transparentSm
-  }, children), /*#__PURE__*/react.createElement(BoxFooter, {
+  }, children), /*#__PURE__*/React__default["default"].createElement(BoxFooter, {
     action: footerAction,
     actionDisabled: footerActionDisabled,
     actionLoading: footerActionLoading,
@@ -4905,13 +2118,13 @@ var Box$1 = function Box(_ref3) {
     renderTitle: footerRenderTitle,
     transparentSm: transparentSm
   }));
-  return /*#__PURE__*/react.createElement(BoxBase, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(BoxBase, _extends({
     transparentSm: transparentSm
-  }, props), loading && /*#__PURE__*/react.createElement(PageLoading, _extends({
+  }, props), loading && /*#__PURE__*/React__default["default"].createElement(PageLoading, _extends({
     message: loadingMessage,
     transparent: true,
     fullScreen: isMobile && transparentSm
-  }, loadingProps)), /*#__PURE__*/react.createElement(BoxHeader, {
+  }, loadingProps)), /*#__PURE__*/React__default["default"].createElement(BoxHeader, {
     action: headerAction,
     actionIcon: headerActionIcon,
     actionIconProps: headerActionIconProps,
@@ -4932,7 +2145,7 @@ var Box$1 = function Box(_ref3) {
     titleIconProps: headerTitleIconProps,
     titleSize: headerTitleSize,
     transparentSm: transparentSm
-  }), transition ? /*#__PURE__*/react.createElement(PageTransition, null, content) : content);
+  }), transition ? /*#__PURE__*/React__default["default"].createElement(PageTransition, null, content) : content);
 };
 Box$1.propTypes = BoxPropTypes;
 Box$1.defaultProps = BoxDefaultProps;
@@ -4956,7 +2169,7 @@ var CategoryItemDefaultProps = {
   subCategory: false
 };
 
-var _excluded$1m = ["checked", "dataCy", "description", "iconName", "iconImage", "id", "onChange", "subCategory", "name"];
+var _excluded$1r = ["checked", "dataCy", "description", "iconName", "iconImage", "id", "onChange", "subCategory", "name"];
 var StyledCategoryItem = styled__default["default"].div.withConfig({
   displayName: "CategoryItem__StyledCategoryItem",
   componentId: "sc-xowe4q-0"
@@ -5000,30 +2213,30 @@ var CategoryItem = function CategoryItem(_ref8) {
       onChange = _ref8.onChange,
       subCategory = _ref8.subCategory,
       name = _ref8.name,
-      props = _objectWithoutPropertiesLoose(_ref8, _excluded$1m);
+      props = _objectWithoutPropertiesLoose(_ref8, _excluded$1r);
 
-  return /*#__PURE__*/react.createElement(StyledCategoryItem, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledCategoryItem, _extends({
     checked: checked,
     "data-cy": dataCy,
     onClick: function onClick() {
       return onChange(id);
     }
-  }, props), checked && /*#__PURE__*/react.createElement(CheckIcon, null, /*#__PURE__*/react.createElement(Icon, {
+  }, props), checked && /*#__PURE__*/React__default["default"].createElement(CheckIcon, null, /*#__PURE__*/React__default["default"].createElement(Icon, {
     icon: "check",
     size: "sm"
-  })), iconName && /*#__PURE__*/react.createElement(Icon, {
+  })), iconName && /*#__PURE__*/React__default["default"].createElement(Icon, {
     colorGrayMedium: true,
     icon: iconName,
     size: "lg"
-  }), iconImage && /*#__PURE__*/react.createElement(StyledIcon$6, {
+  }), iconImage && /*#__PURE__*/React__default["default"].createElement(StyledIcon$6, {
     src: iconImage,
     alt: name
-  }), /*#__PURE__*/react.createElement(Text, {
+  }), /*#__PURE__*/React__default["default"].createElement(Text, {
     color: subCategory ? "textPrimary" : "primary",
     fontWeight: "bold",
     noWrap: true,
     py: 2
-  }, name), /*#__PURE__*/react.createElement(Text, {
+  }, name), /*#__PURE__*/React__default["default"].createElement(Text, {
     color: "textSecondary",
     fontSize: "sm"
   }, description));
@@ -5047,7 +2260,7 @@ var DESC2_TOP = DESC_TOP + DESC_HEIGHT + 8;
 var CategoryItemContentLoader = function CategoryItemContentLoader(_ref) {
   var subCategory = _ref.subCategory;
   var theme = styled.useTheme();
-  return /*#__PURE__*/react.createElement(RCL__default["default"], {
+  return /*#__PURE__*/React__default["default"].createElement(RCL__default["default"], {
     width: WIDTH,
     height: HEIGHT,
     backgroundColor: theme.palette.gray.light,
@@ -5057,28 +2270,28 @@ var CategoryItemContentLoader = function CategoryItemContentLoader(_ref) {
       backgroundColor: theme.palette.gray.light,
       borderRadius: 8
     }
-  }, /*#__PURE__*/react.createElement("rect", {
+  }, /*#__PURE__*/React__default["default"].createElement("rect", {
     x: WIDTH / 2 - ICON_SIZE / 2,
     y: ICON_TOP,
     rx: 4,
     ry: 4,
     width: ICON_SIZE,
     height: ICON_SIZE
-  }), /*#__PURE__*/react.createElement("rect", {
+  }), /*#__PURE__*/React__default["default"].createElement("rect", {
     x: WIDTH / 2 - TITLE_WIDTH / 2,
     y: TITLE_TOP,
     rx: 0,
     ry: 0,
     width: TITLE_WIDTH,
     height: TITLE_HEIGHT
-  }), !subCategory && /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("rect", {
+  }), !subCategory && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("rect", {
     x: WIDTH / 2 - DESC_WIDTH / 2,
     y: DESC_TOP,
     rx: 0,
     ry: 0,
     width: DESC_WIDTH,
     height: DESC_HEIGHT
-  }), /*#__PURE__*/react.createElement("rect", {
+  }), /*#__PURE__*/React__default["default"].createElement("rect", {
     x: WIDTH / 2 - DESC2_WIDTH / 2,
     y: DESC2_TOP,
     rx: 0,
@@ -5101,8 +2314,8 @@ var CartButtonDefaultProps = {
   count: "0"
 };
 
-var _excluded$1l = ["count"];
-var StyledButton$1 = styled__default["default"](MuiButtonBase__default["default"]).withConfig({
+var _excluded$1q = ["count"];
+var StyledButton$2 = styled__default["default"](MuiButtonBase__default["default"]).withConfig({
   displayName: "CartButton__StyledButton",
   componentId: "sc-199jgxq-0"
 })(["&&{background-color:", ";border-radius:44px;padding:", ";}"], function (_ref) {
@@ -5114,12 +2327,12 @@ var StyledButton$1 = styled__default["default"](MuiButtonBase__default["default"
 });
 var CartButton = function CartButton(_ref3) {
   var count = _ref3.count,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1l);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1q);
 
-  return /*#__PURE__*/react.createElement(StyledButton$1, props, /*#__PURE__*/react.createElement(Icon, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledButton$2, props, /*#__PURE__*/React__default["default"].createElement(Icon, {
     colorGrayMedium: true,
     icon: "shopping-cart"
-  }), /*#__PURE__*/react.createElement(Indicator, {
+  }), /*#__PURE__*/React__default["default"].createElement(Indicator, {
     content: count,
     ml: 1
   }));
@@ -5136,16 +2349,16 @@ var Wrapper$d = styled__default["default"].div.withConfig({
   componentId: "sc-u544hd-0"
 })([".ReactCollapse--collapse{transition:height 200ms ease-in-out;}"]);
 var Collapse = function Collapse(props) {
-  return /*#__PURE__*/react.createElement(Wrapper$d, null, /*#__PURE__*/react.createElement(reactCollapse.Collapse, props));
+  return /*#__PURE__*/React__default["default"].createElement(Wrapper$d, null, /*#__PURE__*/React__default["default"].createElement(reactCollapse.Collapse, props));
 };
 Collapse.propTypes = CollapsePropTypes;
 
-var _excluded$1k = ["isOpened"];
+var _excluded$1p = ["isOpened"];
 var CollapseButton = function CollapseButton(_ref) {
   var isOpened = _ref.isOpened,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1k);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1p);
 
-  return /*#__PURE__*/react.createElement(Icon, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
     icon: isOpened ? "chevron-up" : "chevron-down"
   }, props));
 };
@@ -5177,7 +2390,7 @@ var ImageDefaultProps = {
 var Image = function Image(_ref) {
   var props = _extends({}, _ref);
 
-  return /*#__PURE__*/react.createElement(StyledImg$1, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledImg$1, _extends({
     itemProp: "contentUrl"
   }, props));
 };
@@ -5204,7 +2417,7 @@ var StyledImg$1 = styled__default["default"].img.withConfig({
 Image.propTypes = ImagePropTypes;
 Image.defaultProps = ImageDefaultProps;
 
-var _excluded$1j = ["details", "largeImageUrl", "name", "smallImagesUrls"];
+var _excluded$1o = ["details", "largeImageUrl", "name", "smallImagesUrls"];
 var Box = styled__default["default"](BoxBase).withConfig({
   displayName: "CollectionItem__Box",
   componentId: "sc-1tzb5sa-0"
@@ -5223,11 +2436,11 @@ var StyledItem$1 = styled__default["default"](Flex).attrs(function () {
   var theme = _ref2.theme;
   return theme.palette.gray.regular;
 });
-var StyledImage$4 = styled__default["default"](Image).withConfig({
+var StyledImage$5 = styled__default["default"](Image).withConfig({
   displayName: "CollectionItem__StyledImage",
   componentId: "sc-1tzb5sa-2"
 })(["width:100%;height:100%;object-fit:cover;"]);
-var Content$a = styled__default["default"].div.withConfig({
+var Content$b = styled__default["default"].div.withConfig({
   displayName: "CollectionItem__Content",
   componentId: "sc-1tzb5sa-3"
 })(["padding:", ";"], function (_ref3) {
@@ -5239,34 +2452,34 @@ var CollectionItem = function CollectionItem(_ref4) {
       largeImageUrl = _ref4.largeImageUrl,
       name = _ref4.name,
       smallImagesUrls = _ref4.smallImagesUrls,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$1j);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$1o);
 
-  return /*#__PURE__*/react.createElement(Box, props, /*#__PURE__*/react.createElement(Flex, {
+  return /*#__PURE__*/React__default["default"].createElement(Box, props, /*#__PURE__*/React__default["default"].createElement(Flex, {
     container: true,
     spacing: 1
-  }, /*#__PURE__*/react.createElement(StyledItem$1, {
+  }, /*#__PURE__*/React__default["default"].createElement(StyledItem$1, {
     height: 230,
     xs: 12
-  }, /*#__PURE__*/react.createElement(StyledImage$4, {
+  }, /*#__PURE__*/React__default["default"].createElement(StyledImage$5, {
     height: 230,
     src: largeImageUrl
-  })), /*#__PURE__*/react.createElement(StyledItem$1, {
+  })), /*#__PURE__*/React__default["default"].createElement(StyledItem$1, {
     xs: 4
-  }, smallImagesUrls[0] && /*#__PURE__*/react.createElement(StyledImage$4, {
+  }, smallImagesUrls[0] && /*#__PURE__*/React__default["default"].createElement(StyledImage$5, {
     src: smallImagesUrls[0]
-  })), /*#__PURE__*/react.createElement(StyledItem$1, {
+  })), /*#__PURE__*/React__default["default"].createElement(StyledItem$1, {
     xs: 4
-  }, smallImagesUrls[1] && /*#__PURE__*/react.createElement(StyledImage$4, {
+  }, smallImagesUrls[1] && /*#__PURE__*/React__default["default"].createElement(StyledImage$5, {
     src: smallImagesUrls[1]
-  })), /*#__PURE__*/react.createElement(StyledItem$1, {
+  })), /*#__PURE__*/React__default["default"].createElement(StyledItem$1, {
     xs: 4
-  }, smallImagesUrls[2] && /*#__PURE__*/react.createElement(StyledImage$4, {
+  }, smallImagesUrls[2] && /*#__PURE__*/React__default["default"].createElement(StyledImage$5, {
     src: smallImagesUrls[2]
-  }))), /*#__PURE__*/react.createElement(Content$a, null, /*#__PURE__*/react.createElement(H3, {
+  }))), /*#__PURE__*/React__default["default"].createElement(Content$b, null, /*#__PURE__*/React__default["default"].createElement(H3, {
     content: name,
     mb: 4,
     noWrap: true
-  }), /*#__PURE__*/react.createElement(DetailsTable, {
+  }), /*#__PURE__*/React__default["default"].createElement(DetailsTable, {
     justifyBetween: true,
     rows: details
   })));
@@ -5282,14 +2495,14 @@ CollectionItem.defaultProps = {
   smallImagesUrls: []
 };
 
-var AppContext = /*#__PURE__*/react.createContext();
+var AppContext = /*#__PURE__*/React.createContext();
 
-var _excluded$1i = ["config"];
+var _excluded$1n = ["config"];
 var AppContextProvider = function AppContextProvider(_ref) {
   var config = _ref.config,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1i);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1n);
 
-  return /*#__PURE__*/react.createElement(AppContext.Provider, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(AppContext.Provider, _extends({
     value: config
   }, props));
 };
@@ -5301,7 +2514,7 @@ AppContextProvider.defaultProps = {
 };
 
 var useAppContext = function useAppContext() {
-  return react.useContext(AppContext);
+  return React.useContext(AppContext);
 };
 
 var DetailsTablePropTypes = _extends({
@@ -5336,7 +2549,7 @@ var DetailsTableDefaultProps = {
   size: "md"
 };
 
-var _excluded$1h = ["expandButtonTitle", "expandButtonProps", "labelTextTransform", "labelFontSize", "labelWidth", "labelWidthSm", "justifyBetween", "rows", "size"];
+var _excluded$1m = ["expandButtonTitle", "expandButtonProps", "labelTextTransform", "labelFontSize", "labelWidth", "labelWidthSm", "justifyBetween", "rows", "size"];
 var Wrapper$c = styled__default["default"].div.withConfig({
   displayName: "DetailsTable__Wrapper",
   componentId: "sc-41caw8-0"
@@ -5345,7 +2558,7 @@ var Wrapper$c = styled__default["default"].div.withConfig({
 }, function (theme) {
   return DISPLAY(theme);
 });
-var Row$3 = styled__default["default"].div.withConfig({
+var Row$4 = styled__default["default"].div.withConfig({
   displayName: "DetailsTable__Row",
   componentId: "sc-41caw8-1"
 })(["display:flex;align-items:center;", " min-height:", ";margin-bottom:", ";", "{", " margin-bottom:", ";flex-wrap:wrap;align-items:flex-start;}"], function (_ref) {
@@ -5420,9 +2633,9 @@ var DetailsTable = function DetailsTable(_ref16) {
       var justifyBetween = _ref16.justifyBetween,
       rows = _ref16.rows,
       size = _ref16.size,
-      props = _objectWithoutPropertiesLoose(_ref16, _excluded$1h);
+      props = _objectWithoutPropertiesLoose(_ref16, _excluded$1m);
 
-  var _useState = react.useState(false),
+  var _useState = React.useState(false),
       expanded = _useState[0],
       setExpanded = _useState[1];
 
@@ -5445,35 +2658,35 @@ var DetailsTable = function DetailsTable(_ref16) {
         _ref17$renderLabel = _ref17.renderLabel,
         renderLabel = _ref17$renderLabel === void 0 ? function () {} : _ref17$renderLabel,
         value = _ref17.value;
-    return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(Row$3, {
+    return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Row$4, {
       columnSm: columnSm,
       key: label + ":" + value,
       justifyBetween: justifyBetween,
       size: size
-    }, /*#__PURE__*/react.createElement(LabelWrapper, {
+    }, /*#__PURE__*/React__default["default"].createElement(LabelWrapper, {
       labelWidth: labelWidth
-    }, renderLabel() || /*#__PURE__*/react.createElement(react.Fragment, null, icon && /*#__PURE__*/react.createElement(Icon, _extends({
+    }, renderLabel() || /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, icon && /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
       icon: icon,
       mr: 2,
       colorGrayRegular: true
-    }, iconProps)), /*#__PURE__*/react.createElement(Label$2, {
+    }, iconProps)), /*#__PURE__*/React__default["default"].createElement(Label$2, {
       textTransform: labelTextTransform,
       content: label,
       fontSize: labelFontSize
-    }), labelHint && /*#__PURE__*/react.createElement(Tooltip, {
+    }), labelHint && /*#__PURE__*/React__default["default"].createElement(Tooltip, {
       content: labelHintContent
-    }, /*#__PURE__*/react.createElement(Hint$1, null, /*#__PURE__*/react.createElement(Icon, {
+    }, /*#__PURE__*/React__default["default"].createElement(Hint$1, null, /*#__PURE__*/React__default["default"].createElement(Icon, {
       icon: labelHintIcon
-    }))))), value || "-"), divider && /*#__PURE__*/react.createElement(Divider, {
+    }))))), value || "-"), divider && /*#__PURE__*/React__default["default"].createElement(Divider, {
       py: dividerSize
     }));
   };
 
-  return /*#__PURE__*/react.createElement(Wrapper$c, props, rows.filter(function (row) {
+  return /*#__PURE__*/React__default["default"].createElement(Wrapper$c, props, rows.filter(function (row) {
     return !row.expandable;
   }).map(function (row) {
     return renderRow(row);
-  }), showExpandButton && /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(OutlineButton, _extends({
+  }), showExpandButton && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(OutlineButton, _extends({
     color: "secondary",
     endIcon: expanded ? "chevron-up" : "chevron-down",
     onClick: function onClick() {
@@ -5503,7 +2716,7 @@ var DatepickerDefaultProps = {
   to: null
 };
 
-var _excluded$1g = ["from", "selectRange", "to"];
+var _excluded$1l = ["from", "selectRange", "to"];
 var Container$d = styled__default["default"].div.withConfig({
   displayName: "Datepicker__Container",
   componentId: "sc-1s1s47f-0"
@@ -5536,11 +2749,11 @@ var Datepicker = function Datepicker(_ref9) {
   var from = _ref9.from,
       selectRange = _ref9.selectRange,
       to = _ref9.to,
-      props = _objectWithoutPropertiesLoose(_ref9, _excluded$1g);
+      props = _objectWithoutPropertiesLoose(_ref9, _excluded$1l);
 
-  return /*#__PURE__*/react.createElement(Container$d, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$d, {
     selectRange: selectRange
-  }, /*#__PURE__*/react.createElement(DayPicker__default["default"], _extends({
+  }, /*#__PURE__*/React__default["default"].createElement(DayPicker__default["default"], _extends({
     className: "Selectable",
     initialMonth: from,
     selectedDays: [from].concat(selectRange ? [{
@@ -5590,7 +2803,7 @@ var StyledDivider = styled__default["default"].hr.withConfig({
   return SPACER(props);
 });
 var Divider = function Divider(props) {
-  return /*#__PURE__*/react.createElement(StyledDivider, props);
+  return /*#__PURE__*/React__default["default"].createElement(StyledDivider, props);
 };
 Divider.propTypes = DividerPropTypes;
 Divider.defaultProps = DividerDefaultProps;
@@ -5617,7 +2830,7 @@ var DropdownDefaultProps = {
   }
 };
 
-var _excluded$1f = ["children", "items", "responsive"],
+var _excluded$1k = ["children", "items", "responsive"],
     _excluded2$2 = ["label", "onClick", "value"];
 var StyledDropdown = styled__default["default"](Menu__default["default"]).withConfig({
   displayName: "Dropdown__StyledDropdown",
@@ -5650,21 +2863,21 @@ var Dropdown = function Dropdown(_ref3) {
   var children = _ref3.children,
       items = _ref3.items,
       responsive = _ref3.responsive,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1f);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1k);
 
   var theme = styled.useTheme();
   var isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  if (responsive && isMobile) return /*#__PURE__*/react.createElement(StyledDialog$1, _extends({
+  if (responsive && isMobile) return /*#__PURE__*/React__default["default"].createElement(StyledDialog$1, _extends({
     fullScreen: true,
     hideBackdrop: true
   }, props), children);
-  return /*#__PURE__*/react.createElement(StyledDropdown, props, children || items.map(function (_ref4) {
+  return /*#__PURE__*/React__default["default"].createElement(StyledDropdown, props, children || items.map(function (_ref4) {
     var label = _ref4.label,
         _onClick = _ref4.onClick,
         value = _ref4.value,
         itemProps = _objectWithoutPropertiesLoose(_ref4, _excluded2$2);
 
-    return /*#__PURE__*/react.createElement(StyledItem, _extends({
+    return /*#__PURE__*/React__default["default"].createElement(StyledItem, _extends({
       key: label,
       onClick: function onClick() {
         return _onClick(value);
@@ -5687,7 +2900,7 @@ var Wrapper$b = styled__default["default"].div.withConfig({
 });
 var DownloadModuleButton = function DownloadModuleButton(_ref3) {
   var icon = _ref3.icon;
-  return /*#__PURE__*/react.createElement(Wrapper$b, null, /*#__PURE__*/react.createElement(Icon, {
+  return /*#__PURE__*/React__default["default"].createElement(Wrapper$b, null, /*#__PURE__*/React__default["default"].createElement(Icon, {
     icon: icon,
     size: "lg"
   }));
@@ -5712,7 +2925,7 @@ var DownloadModuleDefaultProps = {
   qrCodeValue: "https://license.rocks"
 };
 
-var _excluded$1e = ["downloadPdfText", "downloadPdfUrl", "downloadQrCodeDesc", "downloadQrCodeText", "downloadQrCodeUrl", "qrCodeUrl", "qrCodeValue"];
+var _excluded$1j = ["downloadPdfText", "downloadPdfUrl", "downloadQrCodeDesc", "downloadQrCodeText", "downloadQrCodeUrl", "qrCodeUrl", "qrCodeValue"];
 var Container$c = styled__default["default"].div.withConfig({
   displayName: "DownloadModule__Container",
   componentId: "sc-lhoe08-0"
@@ -5735,30 +2948,30 @@ var DownloadModule = function DownloadModule(_ref3) {
       downloadQrCodeUrl = _ref3.downloadQrCodeUrl;
       _ref3.qrCodeUrl;
       var qrCodeValue = _ref3.qrCodeValue,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1e);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1j);
 
-  return /*#__PURE__*/react.createElement(Container$c, props, /*#__PURE__*/react.createElement(Flex, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$c, props, /*#__PURE__*/React__default["default"].createElement(Flex, {
     container: true,
     mb: 8
-  }, /*#__PURE__*/react.createElement(DownloadModuleButton, {
+  }, /*#__PURE__*/React__default["default"].createElement(DownloadModuleButton, {
     icon: "file-pdf"
-  }), /*#__PURE__*/react.createElement(TextButton, {
+  }), /*#__PURE__*/React__default["default"].createElement(TextButton, {
     content: downloadPdfText,
     href: downloadPdfUrl,
     size: "sm"
-  })), /*#__PURE__*/react.createElement(Flex, {
+  })), /*#__PURE__*/React__default["default"].createElement(Flex, {
     container: true,
     wrap: "nowrap"
-  }, /*#__PURE__*/react.createElement(QRCode__default["default"], {
+  }, /*#__PURE__*/React__default["default"].createElement(QRCode__default["default"], {
     includeMargin: true,
     size: 76,
     value: qrCodeValue
-  }), /*#__PURE__*/react.createElement(Flex, {
+  }), /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true
-  }, /*#__PURE__*/react.createElement(Text, {
+  }, /*#__PURE__*/React__default["default"].createElement(Text, {
     content: downloadQrCodeDesc,
     ml: 2
-  }), /*#__PURE__*/react.createElement(TextButton, {
+  }), /*#__PURE__*/React__default["default"].createElement(TextButton, {
     content: downloadQrCodeText,
     href: downloadQrCodeUrl,
     ml: 1,
@@ -5818,7 +3031,7 @@ var Wrapper$a = styled__default["default"].div.withConfig({
 }, function (theme) {
   return DISPLAY(theme);
 });
-var Row$2 = styled__default["default"].div.withConfig({
+var Row$3 = styled__default["default"].div.withConfig({
   displayName: "FileManager__Row",
   componentId: "sc-iqc9f7-2"
 })(["display:flex;align-items:center;flex-wrap:nowrap;width:100%;height:48px;margin-bottom:", ";", "{margin-bottom:", ";}"], function (_ref6) {
@@ -5854,12 +3067,12 @@ var Item$4 = styled__default["default"](Flex).attrs(function (_ref9) {
 var FileManager = function FileManager(_ref11) {
   var data = _ref11.data,
       noItemsText = _ref11.noItemsText;
-  return /*#__PURE__*/react.createElement(Container$b, null, data.map(function (_ref12) {
+  return /*#__PURE__*/React__default["default"].createElement(Container$b, null, data.map(function (_ref12) {
     var label = _ref12.label,
         files = _ref12.files;
-    return /*#__PURE__*/react.createElement(Wrapper$a, {
+    return /*#__PURE__*/React__default["default"].createElement(Wrapper$a, {
       key: label
-    }, /*#__PURE__*/react.createElement(Text, {
+    }, /*#__PURE__*/React__default["default"].createElement(Text, {
       content: label,
       fontWeight: "bold",
       mb: 2
@@ -5877,44 +3090,44 @@ var FileManager = function FileManager(_ref11) {
           renderName = _ref13$renderName === void 0 ? function () {} : _ref13$renderName,
           _ref13$renderPreview = _ref13.renderPreview,
           renderPreview = _ref13$renderPreview === void 0 ? function () {} : _ref13$renderPreview;
-      return /*#__PURE__*/react.createElement(Row$2, {
+      return /*#__PURE__*/React__default["default"].createElement(Row$3, {
         key: id
-      }, renderPreview() || /*#__PURE__*/react.createElement(Thumbnail, {
+      }, renderPreview() || /*#__PURE__*/React__default["default"].createElement(Thumbnail, {
         imgSrc: previewUrl,
         hasPreview: true,
         mr: 4
-      }), /*#__PURE__*/react.createElement(DetailsWrapper, null, /*#__PURE__*/react.createElement(Flex, {
+      }), /*#__PURE__*/React__default["default"].createElement(DetailsWrapper, null, /*#__PURE__*/React__default["default"].createElement(Flex, {
         container: true
-      }, /*#__PURE__*/react.createElement(Item$4, {
+      }, /*#__PURE__*/React__default["default"].createElement(Item$4, {
         md: 6,
         lg: 6
-      }, renderName() || /*#__PURE__*/react.createElement(Text, {
+      }, renderName() || /*#__PURE__*/React__default["default"].createElement(Text, {
         content: name,
         noWrap: true,
         fontWeight: "bold"
-      })), /*#__PURE__*/react.createElement(Item$4, {
+      })), /*#__PURE__*/React__default["default"].createElement(Item$4, {
         md: 2,
         lg: 2
-      }, renderDate() || /*#__PURE__*/react.createElement(Text, {
+      }, renderDate() || /*#__PURE__*/React__default["default"].createElement(Text, {
         content: date,
         color: "textSecondary",
         fontSize: "sm"
-      })), /*#__PURE__*/react.createElement(Item$4, {
+      })), /*#__PURE__*/React__default["default"].createElement(Item$4, {
         align: "flex-end",
         md: 4,
         lg: 4
-      }, renderDescription() || /*#__PURE__*/react.createElement(Text, {
+      }, renderDescription() || /*#__PURE__*/React__default["default"].createElement(Text, {
         content: description,
         color: "textSecondary",
         fontSize: "sm",
         noWrap: true
       })))));
-    }) : /*#__PURE__*/react.createElement(Item$4, {
+    }) : /*#__PURE__*/React__default["default"].createElement(Item$4, {
       xs: 12
-    }, /*#__PURE__*/react.createElement(Image, {
+    }, /*#__PURE__*/React__default["default"].createElement(Image, {
       src: img$6,
       mr: 4
-    }), /*#__PURE__*/react.createElement(Text, {
+    }), /*#__PURE__*/React__default["default"].createElement(Text, {
       content: noItemsText,
       color: "textSecondary",
       dInline: true,
@@ -5948,8 +3161,8 @@ var RadioBaseDefaultProps = {
   stacked: true
 };
 
-var _excluded$1d = ["bordered", "defaultValue", "hasError", "icon", "iconProps", "label", "labelHtml", "name", "register", "stacked", "type", "value"];
-var StyledInput$2 = styled__default["default"].input.withConfig({
+var _excluded$1i = ["bordered", "defaultValue", "hasError", "icon", "iconProps", "label", "labelHtml", "name", "register", "stacked", "type", "value"];
+var StyledInput$3 = styled__default["default"].input.withConfig({
   displayName: "Item__StyledInput",
   componentId: "sc-lk2kwt-0"
 })(["display:none;+ label{display:inline-flex;align-items:center;font-weight:600;font-size:14px;line-height:120%;margin:0 32px 0 0;cursor:pointer;transition:all 0.1s ease-in-out;a{text-decoration:none;color:", ";}", " &::before{content:\"\";display:inline-block;width:24px;min-width:24px;height:24px;border-radius:", ";background-color:", ";border:1px solid ", ";margin-right:8px;transition:background-color 0.1s ease-in-out;", "}}&:checked + label::before{background-color:", ";border-color:", ";background-image:url(\"", "\");background-size:16px 16px;background-repeat:no-repeat;background-position:center;}&:disabled + label{opacity:0.3;&,span{cursor:default;}}", ""], function (_ref) {
@@ -5984,7 +3197,7 @@ var StyledInput$2 = styled__default["default"].input.withConfig({
       theme = _ref10.theme;
   return bordered && styled.css(["+ label{margin:0;}+ label:first-of-type{margin:0 0 0 -1px;}+ label:last-of-type{margin:0 -1px 0 0;}&:checked + label{border:2px solid ", ";border-radius:12px;height:102%;}"], theme.palette.gray.dark);
 });
-var StyledLabel$3 = styled__default["default"].label.withConfig({
+var StyledLabel$4 = styled__default["default"].label.withConfig({
   displayName: "Item__StyledLabel",
   componentId: "sc-lk2kwt-1"
 })(["", ""], function (_ref11) {
@@ -6004,11 +3217,11 @@ var RadioBaseItem = function RadioBaseItem(_ref12) {
       stacked = _ref12.stacked,
       type = _ref12.type,
       value = _ref12.value,
-      props = _objectWithoutPropertiesLoose(_ref12, _excluded$1d);
+      props = _objectWithoutPropertiesLoose(_ref12, _excluded$1i);
 
   var id = name + "-" + value;
   var defaultChecked = type === "checkbox" ? defaultValue.includes(value) : defaultValue === value;
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(StyledInput$2, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(StyledInput$3, _extends({
     bordered: bordered,
     defaultChecked: defaultChecked,
     hasError: hasError,
@@ -6018,15 +3231,15 @@ var RadioBaseItem = function RadioBaseItem(_ref12) {
     stacked: stacked,
     type: type,
     value: value
-  }, props)), /*#__PURE__*/react.createElement(StyledLabel$3, {
+  }, props)), /*#__PURE__*/React__default["default"].createElement(StyledLabel$4, {
     bordered: bordered,
     htmlFor: id
-  }, icon && /*#__PURE__*/react.createElement(Icon, _extends({
+  }, icon && /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
     color: "secondary",
     mr: 2
   }, iconProps, {
     icon: icon
-  })), labelHtml ? /*#__PURE__*/react.createElement("span", {
+  })), labelHtml ? /*#__PURE__*/React__default["default"].createElement("span", {
     dangerouslySetInnerHTML: {
       __html: labelHtml
     }
@@ -6035,13 +3248,13 @@ var RadioBaseItem = function RadioBaseItem(_ref12) {
 RadioBaseItem.propTypes = RadioBasePropTypes;
 RadioBaseItem.defaultProps = RadioBaseDefaultProps;
 
-var _excluded$1c = ["options"];
+var _excluded$1h = ["options"];
 var RadioBase = function RadioBase(_ref) {
   var options = _ref.options,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1c);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1h);
 
-  return /*#__PURE__*/react.createElement(Fieldset, null, options.map(function (opt) {
-    return /*#__PURE__*/react.createElement(RadioBaseItem, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(Fieldset, null, options.map(function (opt) {
+    return /*#__PURE__*/React__default["default"].createElement(RadioBaseItem, _extends({
       key: opt.value
     }, opt, props));
   }));
@@ -6049,7 +3262,7 @@ var RadioBase = function RadioBase(_ref) {
 RadioBase.propTypes = RadioBasePropTypes;
 RadioBase.defaultProps = RadioBaseDefaultProps;
 
-var _excluded$1b = ["block", "hasError", "options"];
+var _excluded$1g = ["block", "hasError", "options"];
 var Wrapper$9 = styled__default["default"].div.withConfig({
   displayName: "BorderedRadio__Wrapper",
   componentId: "sc-1o0tnsl-0"
@@ -6069,13 +3282,13 @@ var BorderedRadio = function BorderedRadio(_ref3) {
   var block = _ref3.block,
       hasError = _ref3.hasError,
       options = _ref3.options,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1b);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1g);
 
-  return /*#__PURE__*/react.createElement(Wrapper$9, {
+  return /*#__PURE__*/React__default["default"].createElement(Wrapper$9, {
     block: block,
     hasError: hasError
   }, options.map(function (opt) {
-    return /*#__PURE__*/react.createElement(RadioBaseItem, _extends({
+    return /*#__PURE__*/React__default["default"].createElement(RadioBaseItem, _extends({
       key: opt.value,
       hasError: hasError
     }, props, opt, {
@@ -6097,7 +3310,7 @@ var StyledRadioBase$1 = styled__default["default"](RadioBase).withConfig({
   return DISPLAY(theme);
 });
 var Checkbox = function Checkbox(props) {
-  return /*#__PURE__*/react.createElement(StyledRadioBase$1, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledRadioBase$1, _extends({
     type: "checkbox"
   }, props));
 };
@@ -6142,11 +3355,11 @@ var FormDatepickerComponent = function FormDatepickerComponent(_ref6) {
     end: (value == null ? void 0 : value.end) || null
   };
 
-  var _useState = react.useState(),
+  var _useState = React.useState(),
       anchorEl = _useState[0],
       setAnchorEl = _useState[1];
 
-  var _useState2 = react.useState({
+  var _useState2 = React.useState({
     from: null,
     to: null
   }),
@@ -6161,7 +3374,7 @@ var FormDatepickerComponent = function FormDatepickerComponent(_ref6) {
   var toFormatted = currentValue.end ? formatDateAndTime(currentValue.end, {
     showTime: false
   }) : "-";
-  react.useEffect(function () {
+  React.useEffect(function () {
     setDate({
       from: currentValue.start,
       to: currentValue.end
@@ -6201,7 +3414,7 @@ var FormDatepickerComponent = function FormDatepickerComponent(_ref6) {
 
   var inputVal;
   if (!selectRange && currentValue.start) inputVal = fromFormatted;else if (selectRange && currentValue.start && currentValue.end) inputVal = fromFormatted + " - " + toFormatted;
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(Input, {
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Input, {
     disabled: disabled,
     hasError: hasError,
     placeholder: placeholder,
@@ -6211,7 +3424,7 @@ var FormDatepickerComponent = function FormDatepickerComponent(_ref6) {
     readOnly: true,
     selectable: true,
     value: inputVal
-  }), /*#__PURE__*/react.createElement(Popover, {
+  }), /*#__PURE__*/React__default["default"].createElement(Popover, {
     anchorEl: anchorEl,
     open: !!anchorEl,
     onClose: handleClosePopover,
@@ -6223,16 +3436,16 @@ var FormDatepickerComponent = function FormDatepickerComponent(_ref6) {
       vertical: "bottom",
       horizontal: "center"
     }
-  }, /*#__PURE__*/react.createElement(Datepicker, _extends({
+  }, /*#__PURE__*/React__default["default"].createElement(Datepicker, _extends({
     from: from,
     to: to,
     onDayClick: handleDayClick,
     selectRange: selectRange
-  }, datepickerProps)), /*#__PURE__*/react.createElement(BottomSection$1, null, /*#__PURE__*/react.createElement(TextButton, {
+  }, datepickerProps)), /*#__PURE__*/React__default["default"].createElement(BottomSection$1, null, /*#__PURE__*/React__default["default"].createElement(TextButton, {
     content: cancelText,
     onClick: handleClosePopover,
     size: "sm"
-  }), /*#__PURE__*/react.createElement(Button$1, {
+  }), /*#__PURE__*/React__default["default"].createElement(Button$1, {
     content: submitText,
     disabled: selectRange && (!from || !to) || !from,
     onClick: handleSubmit,
@@ -6272,16 +3485,16 @@ var FormDatepickerPropTypes = {
 };
 var FormDatepickerDefaultProps = {};
 
-var _excluded$1a = ["control", "defaultValue", "isRequired", "name"];
+var _excluded$1f = ["control", "defaultValue", "isRequired", "name"];
 var FormDatepicker = function FormDatepicker(_ref) {
   var control = _ref.control,
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1a);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1f);
 
-  return /*#__PURE__*/react.createElement(reactHookForm.Controller, {
-    as: /*#__PURE__*/react.createElement(FormDatepickerComponent, props),
+  return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
+    as: /*#__PURE__*/React__default["default"].createElement(FormDatepickerComponent, props),
     control: control,
     defaultValue: defaultValue,
     name: name,
@@ -6298,8 +3511,8 @@ var FormErrorPropTypes = _extends({
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FormErrorDefaultProps = {};
 
-var _excluded$19 = ["message"];
-var Error$1 = styled__default["default"].div.withConfig({
+var _excluded$1e = ["message"];
+var Error = styled__default["default"].div.withConfig({
   displayName: "Error",
   componentId: "sc-fbul9h-0"
 })(["font-weight:600;font-size:12px;line-height:120%;color:", ";margin-top:", ";", " ", ""], function (_ref) {
@@ -6315,9 +3528,9 @@ var Error$1 = styled__default["default"].div.withConfig({
 });
 var FormError = function FormError(_ref3) {
   var message = _ref3.message,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$19);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1e);
 
-  return /*#__PURE__*/react.createElement(Error$1, props, message);
+  return /*#__PURE__*/React__default["default"].createElement(Error, props, message);
 };
 FormError.propTypes = FormErrorPropTypes;
 FormError.defaultProps = FormErrorDefaultProps;
@@ -6347,7 +3560,7 @@ var FieldWrapperDefaultProps = {
   startIconColor: "input"
 };
 
-var _excluded$18 = ["children", "endIcon", "copyable", "valueToCopy", "endIconColor", "endIconOnClick", "endIconPrefix", "language", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"];
+var _excluded$1d = ["children", "endIcon", "copyable", "valueToCopy", "endIconColor", "endIconOnClick", "endIconPrefix", "language", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"];
 var StyledWrapper = styled__default["default"].div.withConfig({
   displayName: "FieldWrapper__StyledWrapper",
   componentId: "sc-tbw1oa-0"
@@ -6402,13 +3615,13 @@ var FieldWrapper = function FieldWrapper(_ref12) {
       startIconColor = _ref12.startIconColor,
       startIconOnClick = _ref12.startIconOnClick,
       startIconPrefix = _ref12.startIconPrefix,
-      props = _objectWithoutPropertiesLoose(_ref12, _excluded$18);
+      props = _objectWithoutPropertiesLoose(_ref12, _excluded$1d);
 
-  var _React$useState = react.useState(false),
+  var _React$useState = React__default["default"].useState(false),
       hasJustCopied = _React$useState[0],
       setHasJustCopied = _React$useState[1];
 
-  react.useEffect(function () {
+  React__default["default"].useEffect(function () {
     if (hasJustCopied) {
       var timeout = setTimeout(function () {
         setHasJustCopied(false);
@@ -6418,24 +3631,24 @@ var FieldWrapper = function FieldWrapper(_ref12) {
       };
     }
   }, [hasJustCopied]);
-  return /*#__PURE__*/react.createElement(StyledWrapper, props, startIcon && /*#__PURE__*/react.createElement(Icon, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledWrapper, props, startIcon && /*#__PURE__*/React__default["default"].createElement(Icon, {
     color: startIconColor,
     icon: startIcon,
     onClick: startIconOnClick,
     prefix: startIconPrefix
-  }), language && !startIcon && /*#__PURE__*/react.createElement(H5, {
+  }), language && !startIcon && /*#__PURE__*/React__default["default"].createElement(H5, {
     content: language
-  }), children, copyable ? !hasJustCopied ? /*#__PURE__*/react.createElement(Icon, {
+  }), children, copyable ? !hasJustCopied ? /*#__PURE__*/React__default["default"].createElement(Icon, {
     color: endIconColor,
     icon: "copy",
     onClick: function onClick() {
       setHasJustCopied(true);
       copy__default["default"](valueToCopy);
     }
-  }) : /*#__PURE__*/react.createElement(Icon, {
+  }) : /*#__PURE__*/React__default["default"].createElement(Icon, {
     icon: "check",
     color: endIconColor
-  }) : endIcon ? /*#__PURE__*/react.createElement(Icon, {
+  }) : endIcon ? /*#__PURE__*/React__default["default"].createElement(Icon, {
     color: endIconColor,
     icon: endIcon,
     onClick: endIconOnClick,
@@ -6464,16 +3677,16 @@ var FieldBaseDefaultProps = _extends({}, FieldWrapperDefaultProps, {
   type: "text"
 });
 
-var _excluded$17 = ["component"],
+var _excluded$1c = ["component"],
     _excluded2$1 = ["block", "className", "copyable", "valueToCopy", "disableScrollOnNumber", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "fixedHeight", "hasError", "hasWrapper", "register", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix", "language"];
-var StyledInput$1 = styled__default["default"](
+var StyledInput$2 = styled__default["default"](
 /*#__PURE__*/
 // eslint-disable-next-line react/prop-types
-react.forwardRef(function (_ref, ref) {
+React.forwardRef(function (_ref, ref) {
   var Component = _ref.component,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$17);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1c);
 
-  return /*#__PURE__*/react.createElement(Component, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(Component, _extends({
     ref: ref
   }, props));
 })).withConfig({
@@ -6526,7 +3739,7 @@ var FieldBase = function FieldBase(_ref10) {
       props = _objectWithoutPropertiesLoose(_ref10, _excluded2$1);
 
   var input = function input() {
-    return /*#__PURE__*/react.createElement(StyledInput$1, _extends({
+    return /*#__PURE__*/React__default["default"].createElement(StyledInput$2, _extends({
       block: block,
       className: hasWrapper ? "" : className,
       hasError: hasError,
@@ -6538,7 +3751,7 @@ var FieldBase = function FieldBase(_ref10) {
   };
 
   if (!hasWrapper) return input();
-  return /*#__PURE__*/react.createElement(FieldWrapper, {
+  return /*#__PURE__*/React__default["default"].createElement(FieldWrapper, {
     block: block,
     className: className,
     copyable: copyable,
@@ -6565,14 +3778,14 @@ var StyledFieldset = styled__default["default"].fieldset.withConfig({
 })(["border:none;padding:0%;margin:0;width:100%;flex:1;"]);
 var Fieldset = function Fieldset(_ref) {
   var children = _ref.children;
-  return /*#__PURE__*/react.createElement(StyledFieldset, null, children);
+  return /*#__PURE__*/React__default["default"].createElement(StyledFieldset, null, children);
 };
 Fieldset.propTypes = {
   children: PropTypes__default["default"].node.isRequired
 };
 Fieldset.defaultProps = {};
 
-var _excluded$16 = ["disabled", "hasError", "onChange", "value"];
+var _excluded$1b = ["disabled", "hasError", "onChange", "value"];
 var Wrapper$8 = styled__default["default"].div.withConfig({
   displayName: "Component__Wrapper",
   componentId: "sc-76gmmy-0"
@@ -6621,12 +3834,12 @@ var FilePondComponent = function FilePondComponent(_ref10) {
       hasError = _ref10.hasError,
       onChange = _ref10.onChange,
       value = _ref10.value,
-      props = _objectWithoutPropertiesLoose(_ref10, _excluded$16);
+      props = _objectWithoutPropertiesLoose(_ref10, _excluded$1b);
 
-  return /*#__PURE__*/react.createElement(Wrapper$8, null, /*#__PURE__*/react.createElement(Container$a, {
+  return /*#__PURE__*/React__default["default"].createElement(Wrapper$8, null, /*#__PURE__*/React__default["default"].createElement(Container$a, {
     disabled: disabled,
     hasError: hasError
-  }, /*#__PURE__*/react.createElement(StyledFilePond, _extends({
+  }, /*#__PURE__*/React__default["default"].createElement(StyledFilePond, _extends({
     disabled: disabled,
     onprocessfile: function onprocessfile(error, file) {
       if (file.status === 5) {
@@ -6674,16 +3887,16 @@ var FileUploadDefaultProps$1 = {
   name: "fileUpload"
 };
 
-var _excluded$15 = ["control", "defaultValue", "isRequired", "name"];
+var _excluded$1a = ["control", "defaultValue", "isRequired", "name"];
 var FilePond = function FilePond(_ref) {
   var control = _ref.control,
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$15);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1a);
 
-  return /*#__PURE__*/react.createElement(reactHookForm.Controller, {
-    as: /*#__PURE__*/react.createElement(FilePondComponent, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
+    as: /*#__PURE__*/React__default["default"].createElement(FilePondComponent, _extends({
       defaultValue: defaultValue
     }, props)),
     control: control,
@@ -6697,7 +3910,7 @@ var FilePond = function FilePond(_ref) {
 FilePond.propTypes = FileUploadPropTypes$1;
 FilePond.defaultProps = FileUploadDefaultProps$1;
 
-var _excluded$14 = ["imgFile", "isOpen", "onClose", "onSubmit", "size"];
+var _excluded$19 = ["imgFile", "isOpen", "onClose", "onSubmit", "size"];
 var EditorWrapper = styled__default["default"].div.withConfig({
   displayName: "CropModal__EditorWrapper",
   componentId: "sc-1m4psoy-0"
@@ -6708,13 +3921,13 @@ var CropModal = function CropModal(_ref) {
       onClose = _ref.onClose,
       onSubmit = _ref.onSubmit,
       size = _ref.size,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$14);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$19);
 
-  var _useState = react.useState(1),
+  var _useState = React.useState(1),
       scale = _useState[0],
       setScale = _useState[1];
 
-  var editorRef = /*#__PURE__*/react.createRef();
+  var editorRef = /*#__PURE__*/React.createRef();
 
   var handleSubmit = function handleSubmit() {
     var img = editorRef.current.getImageScaledToCanvas();
@@ -6726,7 +3939,7 @@ var CropModal = function CropModal(_ref) {
     });
   };
 
-  return /*#__PURE__*/react.createElement(Modal, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(Modal, _extends({
     action: handleSubmit,
     actionTitle: "Save Changes",
     isOpen: isOpen,
@@ -6734,7 +3947,7 @@ var CropModal = function CropModal(_ref) {
     maxWidth: size,
     padding: true,
     title: "Crop Image"
-  }, props), /*#__PURE__*/react.createElement(EditorWrapper, null, /*#__PURE__*/react.createElement(AvatarEditor__default["default"], {
+  }, props), /*#__PURE__*/React__default["default"].createElement(EditorWrapper, null, /*#__PURE__*/React__default["default"].createElement(AvatarEditor__default["default"], {
     ref: editorRef,
     image: imgFile,
     width: size === "lg" ? 1920 : 400,
@@ -6744,11 +3957,11 @@ var CropModal = function CropModal(_ref) {
     ,
     scale: scale,
     rotate: 0
-  })), /*#__PURE__*/react.createElement(FormRow, {
+  })), /*#__PURE__*/React__default["default"].createElement(FormRow, {
     errors: {},
     label: "Zoom",
     fields: []
-  }, /*#__PURE__*/react.createElement("input", {
+  }, /*#__PURE__*/React__default["default"].createElement("input", {
     name: "scale",
     type: "range",
     onChange: function onChange(e) {
@@ -6774,7 +3987,7 @@ CropModal.defaultProps = {
 };
 
 var Input = function Input(props) {
-  return /*#__PURE__*/react.createElement(FieldBase, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(FieldBase, _extends({
     component: "input"
   }, props));
 };
@@ -6834,11 +4047,11 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref9) {
   var name = file.altName || file.fileName || file.name;
   var fileExt = name.split(".").pop();
 
-  var _useState = react.useState(false),
+  var _useState = React.useState(false),
       editMode = _useState[0],
       setEditMode = _useState[1];
 
-  var _useState2 = react.useState(name.split(".").shift()),
+  var _useState2 = React.useState(name.split(".").shift()),
       altName = _useState2[0],
       setAltName = _useState2[1];
 
@@ -6847,55 +4060,55 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref9) {
     setEditMode(false);
   };
 
-  react.useEffect(function () {
+  React.useEffect(function () {
     if (editMode) {
       setAltName(name.split(".").shift());
     }
   }, [editMode]);
-  return /*#__PURE__*/react.createElement(Item$3, {
+  return /*#__PURE__*/React__default["default"].createElement(Item$3, {
     key: file.name
-  }, /*#__PURE__*/react.createElement("div", {
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "details"
-  }, file.type.startsWith("image") ? /*#__PURE__*/react.createElement(PreviewWrapper, null, file.preview ? /*#__PURE__*/react.createElement(Image, {
+  }, file.type.startsWith("image") ? /*#__PURE__*/React__default["default"].createElement(PreviewWrapper, null, file.preview ? /*#__PURE__*/React__default["default"].createElement(Image, {
     alt: name,
     height: "100%",
     src: file.preview,
     width: "100%"
-  }) : /*#__PURE__*/react.createElement(H4, {
+  }) : /*#__PURE__*/React__default["default"].createElement(H4, {
     content: fileExt,
     color: "textSecondary",
     noWrap: true
-  })) : null, file.type.startsWith("video") ? /*#__PURE__*/react.createElement(VideoThumbnail__default["default"], {
+  })) : null, file.type.startsWith("video") ? /*#__PURE__*/React__default["default"].createElement(VideoThumbnail__default["default"], {
     videoUrl: file.preview,
     width: 48,
     height: 48
-  }) : null, /*#__PURE__*/react.createElement("div", null, editMode ? /*#__PURE__*/react.createElement("div", {
+  }) : null, /*#__PURE__*/React__default["default"].createElement("div", null, editMode ? /*#__PURE__*/React__default["default"].createElement("div", {
     className: "details"
-  }, /*#__PURE__*/react.createElement(Input, {
+  }, /*#__PURE__*/React__default["default"].createElement(Input, {
     onChange: function onChange(e) {
       return setAltName(e.target.value);
     },
     mb: 2,
     value: altName
-  }), /*#__PURE__*/react.createElement(ActionIcon, {
+  }), /*#__PURE__*/React__default["default"].createElement(ActionIcon, {
     disabled: !altName,
     icon: "check",
     onClick: handleEdit,
     mx: 2
-  }), /*#__PURE__*/react.createElement(ActionIcon, {
+  }), /*#__PURE__*/React__default["default"].createElement(ActionIcon, {
     icon: "times",
     onClick: function onClick() {
       return setEditMode(false);
     }
-  })) : /*#__PURE__*/react.createElement("b", null, name), (file == null ? void 0 : file.size) && /*#__PURE__*/react.createElement("div", null, bytesToSize(file.size)))), /*#__PURE__*/react.createElement("div", {
+  })) : /*#__PURE__*/React__default["default"].createElement("b", null, name), (file == null ? void 0 : file.size) && /*#__PURE__*/React__default["default"].createElement("div", null, bytesToSize(file.size)))), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "details"
-  }, fileNameEditable && !editMode && /*#__PURE__*/react.createElement(ActionIcon, {
+  }, fileNameEditable && !editMode && /*#__PURE__*/React__default["default"].createElement(ActionIcon, {
     icon: "pencil-alt",
     onClick: function onClick() {
       return setEditMode(true);
     },
     mr: 2
-  }), onRemoveClick && /*#__PURE__*/react.createElement(ActionIcon, {
+  }), onRemoveClick && /*#__PURE__*/React__default["default"].createElement(ActionIcon, {
     icon: "trash",
     onClick: function onClick() {
       return onRemoveClick(file);
@@ -6914,13 +4127,13 @@ UploaderPreviewItem.propTypes = {
   onEdit: PropTypes__default["default"].func.isRequired
 };
 
-var _excluded$13 = ["files"];
+var _excluded$18 = ["files"];
 var UploaderPreview = function UploaderPreview(_ref) {
   var files = _ref.files,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$13);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$18);
 
   return Array.from(files).map(function (file) {
-    return /*#__PURE__*/react.createElement(UploaderPreviewItem, _extends({
+    return /*#__PURE__*/React__default["default"].createElement(UploaderPreviewItem, _extends({
       key: file.name,
       file: file
     }, props));
@@ -6933,7 +4146,7 @@ UploaderPreview.defaultProps = {
   files: []
 };
 
-var _excluded$12 = ["crop", "cropProps", "disabled", "defaultValue", "fileNameEditable", "hasError", "multiple", "onChange", "value"];
+var _excluded$17 = ["crop", "cropProps", "disabled", "defaultValue", "fileNameEditable", "hasError", "multiple", "onChange", "value"];
 var StyledContainer$3 = styled__default["default"].div.withConfig({
   displayName: "Dropzone__StyledContainer",
   componentId: "sc-1yejosv-0"
@@ -7015,13 +4228,13 @@ var Dropzone = function Dropzone(_ref19) {
       multiple = _ref19.multiple,
       onChange = _ref19.onChange,
       value = _ref19.value,
-      props = _objectWithoutPropertiesLoose(_ref19, _excluded$12);
+      props = _objectWithoutPropertiesLoose(_ref19, _excluded$17);
 
-  var _useState = react.useState(),
+  var _useState = React.useState(),
       cropFile = _useState[0],
       setCropFile = _useState[1];
 
-  var _useState2 = react.useState(false),
+  var _useState2 = React.useState(false),
       sizeError = _useState2[0],
       setSizeError = _useState2[1];
 
@@ -7080,25 +4293,25 @@ var Dropzone = function Dropzone(_ref19) {
     }));
   };
 
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(StyledContainer$3, props, /*#__PURE__*/react.createElement(DropzoneArea, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(StyledContainer$3, props, /*#__PURE__*/React__default["default"].createElement(DropzoneArea, _extends({
     dragActive: isDragActive,
     dragAccept: isDragAccept,
     dragReject: isDragReject,
     disabled: disabled,
     hasError: hasError,
     sizeError: sizeError
-  }, getRootProps()), /*#__PURE__*/react.createElement("input", getInputProps()), isDragAccept && /*#__PURE__*/react.createElement("p", null, "Accepted"), isDragReject && /*#__PURE__*/react.createElement("p", null, "Rejected"), /*#__PURE__*/react.createElement(StyledIcon$5, {
+  }, getRootProps()), /*#__PURE__*/React__default["default"].createElement("input", getInputProps()), isDragAccept && /*#__PURE__*/React__default["default"].createElement("p", null, "Accepted"), isDragReject && /*#__PURE__*/React__default["default"].createElement("p", null, "Rejected"), /*#__PURE__*/React__default["default"].createElement(StyledIcon$5, {
     icon: "file-arrow-up",
     prefix: "far",
     size: "lg"
-  }), isDragActive ? /*#__PURE__*/react.createElement("p", null, "Drop your files here") : /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("p", null, "Drop your files here", /*#__PURE__*/react.createElement("span", null, " or select from computer")), multiple ? /*#__PURE__*/react.createElement("p", null, "Add up to 20MB, supports multiple file formats") : /*#__PURE__*/react.createElement("p", null, "Single file only, supports multiple file formats"))), /*#__PURE__*/react.createElement(UploaderPreview, {
+  }), isDragActive ? /*#__PURE__*/React__default["default"].createElement("p", null, "Drop your files here") : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("p", null, "Drop your files here", /*#__PURE__*/React__default["default"].createElement("span", null, " or select from computer")), multiple ? /*#__PURE__*/React__default["default"].createElement("p", null, "Add up to 20MB, supports multiple file formats") : /*#__PURE__*/React__default["default"].createElement("p", null, "Single file only, supports multiple file formats"))), /*#__PURE__*/React__default["default"].createElement(UploaderPreview, {
     files: value,
     fileNameEditable: fileNameEditable,
     onRemoveClick: removeFile,
     onEdit: editFile
-  }), sizeError === true && /*#__PURE__*/react.createElement(FormError, {
+  }), sizeError === true && /*#__PURE__*/React__default["default"].createElement(FormError, {
     message: "Uploading size limit is " + parseFloat((props.maxSize / 1024 / 1024).toFixed(2)) + " MB, please attach smaller file"
-  })), /*#__PURE__*/react.createElement(CropModal, _extends({
+  })), /*#__PURE__*/React__default["default"].createElement(CropModal, _extends({
     isOpen: !!cropFile,
     onClose: function onClose() {
       return setCropFile();
@@ -7143,16 +4356,16 @@ var FileUploadDefaultProps = {
   name: "fileUpload"
 };
 
-var _excluded$11 = ["control", "defaultValue", "isRequired", "name"];
+var _excluded$16 = ["control", "defaultValue", "isRequired", "name"];
 var FileUpload = function FileUpload(_ref) {
   var control = _ref.control,
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$11);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$16);
 
-  return /*#__PURE__*/react.createElement(reactHookForm.Controller, {
-    as: /*#__PURE__*/react.createElement(Dropzone, props),
+  return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
+    as: /*#__PURE__*/React__default["default"].createElement(Dropzone, props),
     control: control,
     defaultValue: defaultValue,
     name: name,
@@ -7164,23 +4377,23 @@ var FileUpload = function FileUpload(_ref) {
 FileUpload.propTypes = FileUploadPropTypes;
 FileUpload.defaultProps = FileUploadDefaultProps;
 
-var _excluded$10 = ["children"];
+var _excluded$15 = ["children"];
 var StyledForm = styled__default["default"].form.withConfig({
   displayName: "Form__StyledForm",
   componentId: "sc-1aby0l8-0"
 })(["border:none;outline:none;"]);
 var Form = function Form(_ref) {
   var children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$10);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$15);
 
-  return /*#__PURE__*/react.createElement(StyledForm, props, children);
+  return /*#__PURE__*/React__default["default"].createElement(StyledForm, props, children);
 };
 Form.propTypes = {
   children: PropTypes__default["default"].node.isRequired
 };
 Form.defaultProps = {};
 
-var StyledLabel$2 = styled__default["default"].label.withConfig({
+var StyledLabel$3 = styled__default["default"].label.withConfig({
   displayName: "Label__StyledLabel",
   componentId: "sc-m2ki9p-0"
 })(["font-size:14px;line-height:120%;color:", ";"], function (_ref) {
@@ -7188,16 +4401,16 @@ var StyledLabel$2 = styled__default["default"].label.withConfig({
   return theme.palette.gray.medium;
 });
 var FormLabel = function FormLabel(props) {
-  return /*#__PURE__*/react.createElement(StyledLabel$2, props);
+  return /*#__PURE__*/React__default["default"].createElement(StyledLabel$3, props);
 };
 FormLabel.propTypes = {};
 FormLabel.defaultProps = {};
 
-var _excluded$$ = ["options"];
+var _excluded$14 = ["options"];
 
 var renderOptions = function renderOptions(options) {
   return options.map(function (opt) {
-    return /*#__PURE__*/react.createElement("option", {
+    return /*#__PURE__*/React__default["default"].createElement("option", {
       key: opt.value,
       value: opt.value
     }, opt.label);
@@ -7206,9 +4419,9 @@ var renderOptions = function renderOptions(options) {
 
 var Select = function Select(_ref) {
   var options = _ref.options,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$$);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$14);
 
-  return /*#__PURE__*/react.createElement(FieldBase, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(FieldBase, _extends({
     component: "select"
   }, props), renderOptions(options));
 };
@@ -7248,7 +4461,7 @@ var PriceFieldDefaultProps = {
   startIcon: "money-bill"
 };
 
-var _excluded$_ = ["currencies", "defaultValue", "hasError", "hasWrapper", "inputProps", "name", "register", "selectProps"];
+var _excluded$13 = ["currencies", "defaultValue", "hasError", "hasWrapper", "inputProps", "name", "register", "selectProps"];
 var StyledSelect = styled__default["default"](Select).withConfig({
   displayName: "Price__StyledSelect",
   componentId: "sc-3ss78-0"
@@ -7265,11 +4478,11 @@ var PriceField = function PriceField(_ref2) {
       name = _ref2.name,
       register = _ref2.register,
       selectProps = _ref2.selectProps,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$_);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$13);
 
-  return /*#__PURE__*/react.createElement(FieldWrapper, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(FieldWrapper, _extends({
     hasError: hasError
-  }, props), /*#__PURE__*/react.createElement(Input, _extends({
+  }, props), /*#__PURE__*/React__default["default"].createElement(Input, _extends({
     defaultValue: defaultValue,
     hasError: hasError,
     hasWrapper: false,
@@ -7277,7 +4490,7 @@ var PriceField = function PriceField(_ref2) {
     register: register,
     step: "0.01",
     type: "number"
-  }, inputProps)), /*#__PURE__*/react.createElement(StyledSelect, _extends({
+  }, inputProps)), /*#__PURE__*/React__default["default"].createElement(StyledSelect, _extends({
     hasWrapper: false,
     options: currencies,
     register: register
@@ -7295,21 +4508,21 @@ var StyledRadioBase = styled__default["default"](RadioBase).withConfig({
   return DISPLAY(theme);
 });
 var Radio = function Radio(props) {
-  return /*#__PURE__*/react.createElement(StyledRadioBase, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledRadioBase, _extends({
     type: "radio"
   }, props));
 };
 Radio.propTypes = RadioBasePropTypes;
 Radio.defaultProps = RadioBaseDefaultProps;
 
-var _excluded$Z = ["renderValue", "renderValueText"];
+var _excluded$12 = ["renderValue", "renderValueText"];
 var Thumb = function Thumb(_ref) {
   var renderValue = _ref.renderValue,
       renderValueText = _ref.renderValueText,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$Z);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$12);
 
   var currentVal = props["aria-valuenow"] || "0";
-  return /*#__PURE__*/react.createElement("span", props, renderValue(currentVal) || /*#__PURE__*/react.createElement(Text, {
+  return /*#__PURE__*/React__default["default"].createElement("span", props, renderValue(currentVal) || /*#__PURE__*/React__default["default"].createElement(Text, {
     content: renderValueText(currentVal) || String(currentVal),
     fontSize: "sm",
     fontWeight: "bold"
@@ -7324,7 +4537,7 @@ Thumb.defaultProps = {
   renderValueText: function renderValueText() {}
 };
 
-var _excluded$Y = ["onChange", "value"];
+var _excluded$11 = ["onChange", "value"];
 var StyledSlider = styled__default["default"](MuiSlider__default["default"]).withConfig({
   displayName: "Slider__StyledSlider",
   componentId: "sc-b53yre-0"
@@ -7349,9 +4562,9 @@ var StyledSlider = styled__default["default"](MuiSlider__default["default"]).wit
 var Slider = function Slider(_ref5) {
   var _onChange = _ref5.onChange,
       value = _ref5.value,
-      props = _objectWithoutPropertiesLoose(_ref5, _excluded$Y);
+      props = _objectWithoutPropertiesLoose(_ref5, _excluded$11);
 
-  return /*#__PURE__*/react.createElement(StyledSlider, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledSlider, _extends({
     onChange: function onChange(_, val) {
       return _onChange(val);
     },
@@ -7379,16 +4592,16 @@ var RangeSliderDefaultProps = {
   isRequired: false
 };
 
-var _excluded$X = ["control", "defaultValue", "isRequired", "name"];
+var _excluded$10 = ["control", "defaultValue", "isRequired", "name"];
 var RangeSlider = function RangeSlider(_ref) {
   var control = _ref.control,
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$X);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$10);
 
-  return /*#__PURE__*/react.createElement(reactHookForm.Controller, {
-    as: /*#__PURE__*/react.createElement(Slider, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
+    as: /*#__PURE__*/React__default["default"].createElement(Slider, _extends({
       defaultValue: defaultValue
     }, props)),
     control: control,
@@ -7402,17 +4615,17 @@ var RangeSlider = function RangeSlider(_ref) {
 RangeSlider.propTypes = RangeSliderPropTypes;
 RangeSlider.defaultProps = RangeSliderDefaultProps;
 
-var _excluded$W = ["children"];
+var _excluded$$ = ["children"];
 var Option = function Option(props) {
   var isSelected = props.isSelected,
       label = props.label;
-  return /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement(ReactSelect$1.components.Option, props, /*#__PURE__*/react.createElement("input", {
+  return /*#__PURE__*/React__default["default"].createElement("div", null, /*#__PURE__*/React__default["default"].createElement(ReactSelect$1.components.Option, props, /*#__PURE__*/React__default["default"].createElement("input", {
     type: "checkbox",
     checked: isSelected,
     onChange: function onChange() {
       return null;
     }
-  }), /*#__PURE__*/react.createElement("label", {
+  }), /*#__PURE__*/React__default["default"].createElement("label", {
     htmlFor: label
   }, label)));
 };
@@ -7422,7 +4635,7 @@ var allOption = {
 };
 var ValueContainer = function ValueContainer(_ref) {
   var children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$W);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$$);
 
   var getValue = props.getValue;
   var currentValues = getValue();
@@ -7434,7 +4647,7 @@ var ValueContainer = function ValueContainer(_ref) {
     toBeRendered = [[children[0][0]], children[1]];
   }
 
-  return /*#__PURE__*/react.createElement(ReactSelect$1.components.ValueContainer, props, toBeRendered);
+  return /*#__PURE__*/React__default["default"].createElement(ReactSelect$1.components.ValueContainer, props, toBeRendered);
 };
 var MultiValue = function MultiValue(props) {
   var data = props.data;
@@ -7444,7 +4657,7 @@ var MultiValue = function MultiValue(props) {
     labelToBeDisplayed = "All is selected";
   }
 
-  return /*#__PURE__*/react.createElement(ReactSelect$1.components.MultiValue, props, /*#__PURE__*/react.createElement("span", null, labelToBeDisplayed));
+  return /*#__PURE__*/React__default["default"].createElement(ReactSelect$1.components.MultiValue, props, /*#__PURE__*/React__default["default"].createElement("span", null, labelToBeDisplayed));
 };
 var animatedComponents = makeAnimated__default["default"]();
 
@@ -7461,7 +4674,7 @@ var CustomSelect = function CustomSelect(props) {
   });else options = rawOpts;
 
   if (allowSelectAll) {
-    return /*#__PURE__*/react.createElement(ReactSelect__default["default"], _extends({}, props, {
+    return /*#__PURE__*/React__default["default"].createElement(ReactSelect__default["default"], _extends({}, props, {
       components: {
         Option: Option,
         MultiValue: MultiValue,
@@ -7498,7 +4711,7 @@ var CustomSelect = function CustomSelect(props) {
     }));
   }
 
-  return /*#__PURE__*/react.createElement(ReactSelect__default["default"], props);
+  return /*#__PURE__*/React__default["default"].createElement(ReactSelect__default["default"], props);
 };
 CustomSelect.propTypes = {
   allowSelectAll: PropTypes__default["default"].bool,
@@ -7535,7 +4748,7 @@ var ReactSelectDefaultProps = {
   isRequired: false
 };
 
-var _excluded$V = ["async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "hasError", "loadOptions", "isRequired", "name", "options", "selectedOption"];
+var _excluded$_ = ["async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "hasError", "loadOptions", "isRequired", "name", "options", "selectedOption"];
 var ReactSelectWrapper = styled__default["default"].div.withConfig({
   displayName: "ReactSelect__ReactSelectWrapper",
   componentId: "sc-xq5gfv-0"
@@ -7591,7 +4804,7 @@ var ReactSelect = function ReactSelect(_ref12) {
       name = _ref12.name,
       options = _ref12.options,
       selectedOption = _ref12.selectedOption,
-      props = _objectWithoutPropertiesLoose(_ref12, _excluded$V);
+      props = _objectWithoutPropertiesLoose(_ref12, _excluded$_);
 
   var loadOptionsfromEndpoint = function loadOptionsfromEndpoint(inputValue, callback) {
     axios__default["default"].get("" + endpoint + (endpointQueryFlag ? "?" + endpointQueryFlag + "=" + inputValue : "")).then(function (_ref13) {
@@ -7602,24 +4815,24 @@ var ReactSelect = function ReactSelect(_ref12) {
     });
   };
 
-  var Component = /*#__PURE__*/react.forwardRef(function (data, ref) {
-    return async ? /*#__PURE__*/react.createElement(AsyncSelect__default["default"], _extends({
+  var Component = /*#__PURE__*/React.forwardRef(function (data, ref) {
+    return async ? /*#__PURE__*/React__default["default"].createElement(AsyncSelect__default["default"], _extends({
       defaultOptions: defaultOptions,
       loadOptions: endpoint ? loadOptionsfromEndpoint : loadOptions,
       cacheOptions: cacheOptions,
       ref: ref
-    }, data)) : /*#__PURE__*/react.createElement(CustomSelect, _extends({
+    }, data)) : /*#__PURE__*/React__default["default"].createElement(CustomSelect, _extends({
       ref: ref
     }, data));
   });
-  var As = /*#__PURE__*/react.createElement(Component, _extends({
+  var As = /*#__PURE__*/React__default["default"].createElement(Component, _extends({
     options: options,
     selectedOption: selectedOption,
     classNamePrefix: "react-select"
   }, props));
-  return /*#__PURE__*/react.createElement(ReactSelectWrapper, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(ReactSelectWrapper, _extends({
     hasError: hasError
-  }, props), /*#__PURE__*/react.createElement(reactHookForm.Controller, {
+  }, props), /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
     as: As,
     control: control,
     defaultValue: defaultValue,
@@ -7656,7 +4869,7 @@ var FormRowDefaultProps = {
   direction: "row"
 };
 
-var _excluded$U = ["children", "errors", "fields", "hint", "label", "labelAlign", "labelGutter", "show", "labelColor", "direction"];
+var _excluded$Z = ["children", "errors", "fields", "hint", "label", "labelAlign", "labelGutter", "show", "labelColor", "direction"];
 var StyledRow = styled__default["default"].div.withConfig({
   displayName: "Row__StyledRow",
   componentId: "sc-1ir0fqh-0"
@@ -7680,7 +4893,7 @@ var StyledRow = styled__default["default"].div.withConfig({
 }, function (theme) {
   return DISPLAY(theme);
 });
-var StyledLabel$1 = styled__default["default"](FormLabel).withConfig({
+var StyledLabel$2 = styled__default["default"](FormLabel).withConfig({
   displayName: "Row__StyledLabel",
   componentId: "sc-1ir0fqh-1"
 })(["flex:0 0 30%;", " ", " ", "{flex:100%;margin-bottom:", ";padding-top:0;}", ""], function (_ref6) {
@@ -7736,28 +4949,28 @@ var FormRow = function FormRow(_ref15) {
       show = _ref15.show,
       labelColor = _ref15.labelColor,
       direction = _ref15.direction,
-      props = _objectWithoutPropertiesLoose(_ref15, _excluded$U);
+      props = _objectWithoutPropertiesLoose(_ref15, _excluded$Z);
 
   var rowErrors = Array.isArray(errors) ? errors : getFormRowErrors(errors, fields);
-  var validChildren = react.Children.toArray(children).filter(Boolean);
-  return /*#__PURE__*/react.createElement(StyledRow, _extends({
+  var validChildren = React.Children.toArray(children).filter(Boolean);
+  return /*#__PURE__*/React__default["default"].createElement(StyledRow, _extends({
     labelAlign: labelAlign,
     show: show,
     direction: direction
-  }, props), label && /*#__PURE__*/react.createElement(StyledLabel$1, {
+  }, props), label && /*#__PURE__*/React__default["default"].createElement(StyledLabel$2, {
     labelAlign: labelAlign,
     labelGutter: labelGutter,
     direction: direction,
     labelColor: labelColor
-  }, label, hint && /*#__PURE__*/react.createElement(Tooltip, {
+  }, label, hint && /*#__PURE__*/React__default["default"].createElement(Tooltip, {
     content: hint
-  }, /*#__PURE__*/react.createElement(Hint, null, /*#__PURE__*/react.createElement(Icon, {
+  }, /*#__PURE__*/React__default["default"].createElement(Hint, null, /*#__PURE__*/React__default["default"].createElement(Icon, {
     icon: "question"
-  })), " ")), validChildren.length > 0 && /*#__PURE__*/react.createElement(FieldsAndErrorsWrapper, {
+  })), " ")), validChildren.length > 0 && /*#__PURE__*/React__default["default"].createElement(FieldsAndErrorsWrapper, {
     direction: direction,
     fullWidth: !label
-  }, /*#__PURE__*/react.createElement(Fields, null, children), rowErrors.map(function (err) {
-    return /*#__PURE__*/react.createElement(FormError, {
+  }, /*#__PURE__*/React__default["default"].createElement(Fields, null, children), rowErrors.map(function (err) {
+    return /*#__PURE__*/React__default["default"].createElement(FormError, {
       key: err,
       message: err
     });
@@ -7785,7 +4998,7 @@ var StepperDefaultProps = {
   value: 1
 };
 
-var _excluded$T = ["label", "value", "onChange", "min", "max", "size"];
+var _excluded$Y = ["label", "value", "onChange", "min", "max", "size"];
 var Wrapper$7 = styled__default["default"].div.withConfig({
   displayName: "Component__Wrapper",
   componentId: "sc-1apjhkv-0"
@@ -7800,7 +5013,7 @@ var StepperComponent = function StepperComponent(_ref2) {
       min = _ref2.min,
       max = _ref2.max,
       size = _ref2.size,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$T);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$Y);
 
   var handleChange = function handleChange(type) {
     var newVal = type === "sub" ? value - 1 : value + 1;
@@ -7808,7 +5021,7 @@ var StepperComponent = function StepperComponent(_ref2) {
     onChange(newVal);
   };
 
-  return /*#__PURE__*/react.createElement(FieldWrapper, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(FieldWrapper, _extends({
     endIcon: "plus",
     endIconColor: "secondary",
     endIconOnClick: function endIconOnClick() {
@@ -7819,27 +5032,27 @@ var StepperComponent = function StepperComponent(_ref2) {
     startIconOnClick: function startIconOnClick() {
       return handleChange("sub");
     }
-  }, props), /*#__PURE__*/react.createElement(Wrapper$7, {
+  }, props), /*#__PURE__*/React__default["default"].createElement(Wrapper$7, {
     size: size
-  }, /*#__PURE__*/react.createElement("input", {
+  }, /*#__PURE__*/React__default["default"].createElement("input", {
     onChange: onChange,
     value: value
-  }), /*#__PURE__*/react.createElement("span", null, label)));
+  }), /*#__PURE__*/React__default["default"].createElement("span", null, label)));
 };
 StepperComponent.propTypes = StepperPropTypes;
 StepperComponent.defaultProps = StepperDefaultProps;
 
-var _excluded$S = ["control", "defaultValue", "isRequired", "name"];
+var _excluded$X = ["control", "defaultValue", "isRequired", "name"];
 var Stepper = function Stepper(_ref) {
   var control = _ref.control,
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$S);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$X);
 
-  return /*#__PURE__*/react.createElement(reactHookForm.Controller, {
+  return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
     render: function render(events) {
-      return /*#__PURE__*/react.createElement(StepperComponent, _extends({
+      return /*#__PURE__*/React__default["default"].createElement(StepperComponent, _extends({
         defaultValue: defaultValue
       }, props, events));
     },
@@ -7868,7 +5081,7 @@ var TextAreaDefaultProps = _extends({}, FieldBaseDefaultProps, {
 });
 
 var TextArea = function TextArea(props) {
-  return /*#__PURE__*/react.createElement(FieldBase, _extends({}, props, {
+  return /*#__PURE__*/React__default["default"].createElement(FieldBase, _extends({}, props, {
     component: "textarea",
     fixedHeight: false
   }));
@@ -7876,21 +5089,21 @@ var TextArea = function TextArea(props) {
 TextArea.propTypes = TextAreaPropTypes;
 TextArea.defaultProps = TextAreaDefaultProps;
 
-var _excluded$R = ["disabled", "handleToggle", "size", "toggled"];
+var _excluded$W = ["disabled", "handleToggle", "size", "toggled"];
 
 var Switch = function Switch(_ref) {
   var disabled = _ref.disabled,
       handleToggle = _ref.handleToggle,
       size = _ref.size,
       toggled = _ref.toggled,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$R);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$W);
 
-  return /*#__PURE__*/react.createElement(StyledSwitchContainer$1, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledSwitchContainer$1, _extends({
     disabled: disabled,
     onClick: handleToggle,
     size: size,
     toggled: toggled
-  }, props), /*#__PURE__*/react.createElement(StyledSwitch$1, {
+  }, props), /*#__PURE__*/React__default["default"].createElement(StyledSwitch$1, {
     size: size,
     toggled: toggled
   }, toggled ? "Yes" : "No"));
@@ -7955,7 +5168,7 @@ Switch.defaultProps = {
   toggled: false
 };
 
-var _excluded$Q = ["disabled", "onChange", "size", "value"];
+var _excluded$V = ["disabled", "onChange", "size", "value"];
 var StyledToggle$1 = styled__default["default"].div.withConfig({
   displayName: "Toggle__StyledToggle",
   componentId: "sc-68gvde-0"
@@ -7969,13 +5182,13 @@ var Toggle = function Toggle(_ref) {
       onChange = _ref.onChange,
       size = _ref.size,
       value = _ref.value,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$Q);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$V);
 
   var handleToggle = function handleToggle() {
     onChange(!value);
   };
 
-  return /*#__PURE__*/react.createElement(StyledToggle$1, null, /*#__PURE__*/react.createElement(Switch, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledToggle$1, null, /*#__PURE__*/React__default["default"].createElement(Switch, _extends({
     disabled: disabled,
     handleToggle: !disabled ? handleToggle : undefined,
     size: size,
@@ -8007,17 +5220,17 @@ var ToggleSwitchDefaultProps = {
   name: "toggleSwitch"
 };
 
-var _excluded$P = ["control", "defaultValue", "isRequired", "name"];
+var _excluded$U = ["control", "defaultValue", "isRequired", "name"];
 var ToggleSwitch = function ToggleSwitch(_ref) {
   var control = _ref.control,
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$P);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$U);
 
-  return /*#__PURE__*/react.createElement(reactHookForm.Controller, {
+  return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
     render: function render(events) {
-      return /*#__PURE__*/react.createElement(Toggle, _extends({
+      return /*#__PURE__*/React__default["default"].createElement(Toggle, _extends({
         defaultValue: defaultValue
       }, props, events));
     },
@@ -8032,8 +5245,8 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
 ToggleSwitch.propTypes = ToggleSwitchPropTypes;
 ToggleSwitch.defaultProps = ToggleSwitchDefaultProps;
 
-var _excluded$O = ["hasError", "iconProps", "name", "register", "options", "price", "icon", "value", "title", "description"];
-var StyledInput = styled__default["default"].input.withConfig({
+var _excluded$T = ["hasError", "iconProps", "name", "register", "options", "price", "icon", "value", "title", "description"];
+var StyledInput$1 = styled__default["default"].input.withConfig({
   displayName: "BaseItem__StyledInput",
   componentId: "sc-1uvtn0l-0"
 })(["display:none;&:focus + label{border:2px solid ", ";}+ label{display:inline-flex;align-items:center;width:100%;height:100%;margin:0 32px 0 0;padding:", ";border:2px solid ", ";border-radius:12px;font-weight:600;font-size:14px;line-height:120%;cursor:pointer;transition:all 0.1s ease-in-out;a{text-decoration:none;color:", ";}&::before{content:\"\";display:inline-block;width:24px;min-width:24px;height:24px;border-radius:", ";background-color:", ";border:1px solid ", ";margin-right:8px;transition:background-color 0.1s ease-in-out;", "}}&:focus + label::before,&:checked + label::before{background-color:", ";border-color:", ";border-width:7px;background-size:16px 16px;background-repeat:no-repeat;background-position:center;}&:disabled + label{opacity:0.3;&,span{cursor:default;}}&:checked + label{border-color:", ";border-radius:12px;}"], function (_ref) {
@@ -8073,7 +5286,7 @@ var StyledInput = styled__default["default"].input.withConfig({
   var theme = _ref12.theme;
   return theme.palette.primary.main;
 });
-var StyledLabel = styled__default["default"].label.withConfig({
+var StyledLabel$1 = styled__default["default"].label.withConfig({
   displayName: "BaseItem__StyledLabel",
   componentId: "sc-1uvtn0l-1"
 })([".title{margin-bottom:", ";}.flex-center{display:flex;align-items:center;margin-left:", ";}.flex-column{display:flex;flex-direction:column;margin-left:", ";}.text-light{font-weight:400;}"], function (_ref13) {
@@ -8097,34 +5310,34 @@ var RadioEnhancedBaseItem = function RadioEnhancedBaseItem(_ref16) {
       value = _ref16.value,
       title = _ref16.title,
       description = _ref16.description,
-      props = _objectWithoutPropertiesLoose(_ref16, _excluded$O);
+      props = _objectWithoutPropertiesLoose(_ref16, _excluded$T);
 
   var id = name + "-" + value;
-  return /*#__PURE__*/react.createElement("div", {
+  return /*#__PURE__*/React__default["default"].createElement("div", {
     className: "radio-wrapper"
-  }, /*#__PURE__*/react.createElement(StyledInput, _extends({
+  }, /*#__PURE__*/React__default["default"].createElement(StyledInput$1, _extends({
     hasError: hasError,
     id: id,
     name: name,
     ref: register,
     value: value,
     defaultValue: value
-  }, props)), /*#__PURE__*/react.createElement(StyledLabel, {
+  }, props)), /*#__PURE__*/React__default["default"].createElement(StyledLabel$1, {
     htmlFor: id
-  }, /*#__PURE__*/react.createElement("div", {
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "flex-center"
-  }, /*#__PURE__*/react.createElement(Icon, _extends({
+  }, /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
     color: "secondary",
     mr: 2
   }, iconProps, {
     icon: icon
-  })), /*#__PURE__*/react.createElement("div", {
+  })), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "flex-column"
-  }, /*#__PURE__*/react.createElement("span", {
+  }, /*#__PURE__*/React__default["default"].createElement("span", {
     className: "title"
-  }, title), /*#__PURE__*/react.createElement("span", {
+  }, title), /*#__PURE__*/React__default["default"].createElement("span", {
     className: "text-light"
-  }, description), /*#__PURE__*/react.createElement("span", null, price)))));
+  }, description), /*#__PURE__*/React__default["default"].createElement("span", null, price)))));
 };
 RadioEnhancedBaseItem.propTypes = _extends({
   hasError: PropTypes__default["default"].bool,
@@ -8165,14 +5378,14 @@ var RadioEnhancedDefaultProps = {
   }))
 };
 
-var _excluded$N = ["options"];
+var _excluded$S = ["options"];
 
 var RadioEnhancedBase = function RadioEnhancedBase(_ref) {
   var options = _ref.options,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$N);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$S);
 
-  return /*#__PURE__*/react.createElement(Fieldset, null, options.map(function (opt) {
-    return /*#__PURE__*/react.createElement(RadioEnhancedBaseItem, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(Fieldset, null, options.map(function (opt) {
+    return /*#__PURE__*/React__default["default"].createElement(RadioEnhancedBaseItem, _extends({
       key: opt.value
     }, opt, props));
   }));
@@ -8196,14 +5409,14 @@ var StyledRadioEnhancedBase = styled__default["default"](RadioEnhancedBase).with
   return DISPLAY(theme);
 });
 var RadioEnhanced = function RadioEnhanced(props) {
-  return /*#__PURE__*/react.createElement(StyledRadioEnhancedBase, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledRadioEnhancedBase, _extends({
     type: "radio"
   }, props));
 };
 RadioEnhanced.propTypes = RadioEnhancedPropTypes;
 RadioEnhanced.defaultProps = RadioEnhancedDefaultProps;
 
-var _excluded$M = ["disabled", "handleToggle", "toggled", "leftValue", "leftValueWidth", "leftValueSideMargin", "rightValue", "rightValueWidth", "rightValueSideMargin", "totalWidth"];
+var _excluded$R = ["disabled", "handleToggle", "toggled", "leftValue", "leftValueWidth", "leftValueSideMargin", "rightValue", "rightValueWidth", "rightValueSideMargin", "totalWidth"];
 
 var TabsSwitch$1 = function TabsSwitch(_ref) {
   var disabled = _ref.disabled,
@@ -8216,9 +5429,9 @@ var TabsSwitch$1 = function TabsSwitch(_ref) {
       rightValueWidth = _ref.rightValueWidth,
       rightValueSideMargin = _ref.rightValueSideMargin,
       totalWidth = _ref.totalWidth,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$M);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$R);
 
-  return /*#__PURE__*/react.createElement(StyledSwitchContainer, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledSwitchContainer, _extends({
     disabled: disabled,
     onClick: handleToggle,
     toggled: toggled,
@@ -8227,9 +5440,9 @@ var TabsSwitch$1 = function TabsSwitch(_ref) {
     leftValueSideMargin: leftValueSideMargin,
     rightValueSideMargin: rightValueSideMargin,
     totalWidth: totalWidth
-  }, props), /*#__PURE__*/react.createElement("div", {
+  }, props), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "labels"
-  }, /*#__PURE__*/react.createElement("span", null, leftValue), /*#__PURE__*/react.createElement("span", null, rightValue)), /*#__PURE__*/react.createElement(StyledSwitch, {
+  }, /*#__PURE__*/React__default["default"].createElement("span", null, leftValue), /*#__PURE__*/React__default["default"].createElement("span", null, rightValue)), /*#__PURE__*/React__default["default"].createElement(StyledSwitch, {
     leftValueWidth: leftValueWidth,
     rightValueWidth: rightValueWidth,
     toggled: toggled
@@ -8239,7 +5452,7 @@ var TabsSwitch$1 = function TabsSwitch(_ref) {
 var StyledSwitchContainer = styled__default["default"].div.withConfig({
   displayName: "Switch__StyledSwitchContainer",
   componentId: "sc-10cvkyv-0"
-})(["align-items:center;background-color:", ";border-radius:20px;border:2px solid ", ";cursor:pointer;display:flex;justify-content:space-between;position:relative;transition:background-color 0.2s;height:40px;width:", ";.labels{position:relative;z-index:1;display:flex;justify-content:space-between;width:100%;span{font-weight:bold;transition:color 0.3s ease-out;}span:first-child{width:", ";color:", ";margin-left:", ";}span:last-child{width:", ";color:", ";margin-right:", ";}}", " ", ""], function (_ref2) {
+})(["align-items:center;background-color:", ";border-radius:20px;border:2px solid ", ";cursor:pointer;display:flex;justify-content:space-between;position:relative;transition:background-color 0.2s;height:40px;width:", ";.labels{position:relative;z-index:1;display:flex;justify-content:space-between;width:100%;span{font-weight:bold;line-height:1;transition:color 0.3s ease-out;}span:first-child{width:", ";color:", ";margin-left:", ";}span:last-child{width:", ";color:", ";margin-right:", ";}}", " ", ""], function (_ref2) {
   var theme = _ref2.theme;
   return theme.palette.gray.white;
 }, function (_ref3) {
@@ -8314,7 +5527,7 @@ TabsSwitch$1.defaultProps = {
   toggled: false
 };
 
-var _excluded$L = ["disabled", "onChange", "value"];
+var _excluded$Q = ["disabled", "onChange", "value"];
 var StyledToggle = styled__default["default"].div.withConfig({
   displayName: "TabsToggle__StyledToggle",
   componentId: "sc-1m9nhul-0"
@@ -8327,13 +5540,13 @@ var TabsToggle = function TabsToggle(_ref) {
   var disabled = _ref.disabled,
       onChange = _ref.onChange,
       value = _ref.value,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$L);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$Q);
 
   var handleToggle = function handleToggle() {
     onChange(!value);
   };
 
-  return /*#__PURE__*/react.createElement(StyledToggle, null, /*#__PURE__*/react.createElement(TabsSwitch$1, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledToggle, null, /*#__PURE__*/React__default["default"].createElement(TabsSwitch$1, _extends({
     disabled: disabled,
     handleToggle: !disabled ? handleToggle : undefined,
     toggled: value
@@ -8362,17 +5575,17 @@ var TabsSwitchDefaultProps = {
   name: "toggleSwitch"
 };
 
-var _excluded$K = ["control", "defaultValue", "isRequired", "name"];
+var _excluded$P = ["control", "defaultValue", "isRequired", "name"];
 var TabsSwitch = function TabsSwitch(_ref) {
   var control = _ref.control,
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$K);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$P);
 
-  return /*#__PURE__*/react.createElement(reactHookForm.Controller, {
+  return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
     render: function render(events) {
-      return /*#__PURE__*/react.createElement(TabsToggle, _extends({
+      return /*#__PURE__*/React__default["default"].createElement(TabsToggle, _extends({
         defaultValue: defaultValue
       }, props, events));
     },
@@ -8386,6 +5599,185 @@ var TabsSwitch = function TabsSwitch(_ref) {
 };
 TabsSwitch.propTypes = TabsSwitchPropTypes;
 TabsSwitch.defaultProps = TabsSwitchDefaultProps;
+
+var _excluded$O = ["name", "value", "title", "info", "icon", "iconPrefix", "iconRounded", "active", "activeLabel", "hasError", "iconProps", "register"];
+var StyledInput = styled__default["default"].input.withConfig({
+  displayName: "BaseItem__StyledInput",
+  componentId: "sc-tufszu-0"
+})(["display:none;&:focus + label{border:2px solid ", ";}+ label{display:inline-flex;align-items:center;width:100%;height:100%;margin:0 32px 0 0;padding-inline:", ";padding-block:", ";font-weight:600;font-size:14px;line-height:120%;cursor:pointer;transition:all 0.1s ease-in-out;a{text-decoration:none;color:", ";}}&:disabled + label{opacity:0.3;&,span{cursor:default;}}&:checked + label{background-color:", ";}"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.gray.regular;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.spacing(8);
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.spacing(5);
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.palette.primary.main;
+}, function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.palette.gray.semiLight;
+});
+var StyledLabel = styled__default["default"].label.withConfig({
+  displayName: "BaseItem__StyledLabel",
+  componentId: "sc-tufszu-1"
+})(["display:flex;align-items:center;.icon_wrapper{margin-right:", ";svg{color:", ";}}.icon_rounded_wrapper{display:grid;margin-right:", ";background-color:", ";border-radius:100%;padding:", ";box-sizing:content-box;border:", ";svg{color:", ";}}.text_wrapper{.title{margin-bottom:", ";}.description .badge{display:inline;margin-left:", ";}}"], function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.spacing(6);
+}, function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.palette.gray.black;
+}, function (_ref8) {
+  var theme = _ref8.theme;
+  return theme.spacing(3);
+}, function (_ref9) {
+  var theme = _ref9.theme;
+  return theme.palette.gray.semiLight;
+}, function (_ref10) {
+  var theme = _ref10.theme;
+  return theme.spacing(3);
+}, function (_ref11) {
+  var active = _ref11.active,
+      theme = _ref11.theme;
+  return active ? "2px solid " + theme.palette.success.main : "2px solid transparent";
+}, function (_ref12) {
+  var theme = _ref12.theme;
+  return theme.palette.gray.medium;
+}, function (_ref13) {
+  var theme = _ref13.theme;
+  return theme.spacing(2);
+}, function (_ref14) {
+  var theme = _ref14.theme;
+  return theme.spacing(2);
+});
+var RadioListBaseItem = function RadioListBaseItem(_ref15) {
+  var name = _ref15.name,
+      value = _ref15.value,
+      title = _ref15.title,
+      info = _ref15.info,
+      icon = _ref15.icon,
+      iconPrefix = _ref15.iconPrefix,
+      iconRounded = _ref15.iconRounded,
+      active = _ref15.active,
+      activeLabel = _ref15.activeLabel,
+      hasError = _ref15.hasError;
+      _ref15.iconProps;
+      var register = _ref15.register,
+      props = _objectWithoutPropertiesLoose(_ref15, _excluded$O);
+
+  var id = name + "-" + value;
+  console.log("🎉 activeLabel: ", activeLabel);
+  console.log("🎉 active: ", active);
+  return /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "radio-wrapper"
+  }, /*#__PURE__*/React__default["default"].createElement(StyledInput, _extends({
+    hasError: hasError,
+    id: id,
+    name: name,
+    ref: register,
+    value: value,
+    defaultValue: value
+  }, props)), /*#__PURE__*/React__default["default"].createElement(StyledLabel, {
+    htmlFor: id,
+    active: active
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
+    className: iconRounded ? "icon_rounded_wrapper" : "icon_wrapper"
+  }, /*#__PURE__*/React__default["default"].createElement(Icon, {
+    icon: icon,
+    prefix: iconPrefix,
+    size: "lg",
+    color: "gray"
+  })), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "text_wrapper"
+  }, /*#__PURE__*/React__default["default"].createElement(H4, {
+    className: "title"
+  }, title), /*#__PURE__*/React__default["default"].createElement(Text, {
+    className: "description"
+  }, info, active && /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "badge"
+  }, /*#__PURE__*/React__default["default"].createElement(TinyBadge, {
+    color: "success",
+    label: activeLabel
+  }))))));
+};
+RadioListBaseItem.propTypes = _extends({
+  hasError: PropTypes__default["default"].bool,
+  icon: PropTypes__default["default"].string,
+  name: PropTypes__default["default"].string,
+  register: PropTypes__default["default"].func,
+  value: PropTypes__default["default"].string.isRequired,
+  title: PropTypes__default["default"].string,
+  description: PropTypes__default["default"].string,
+  price: PropTypes__default["default"].string
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+RadioListBaseItem.defaultProps = {
+  hasError: false,
+  icon: "check-circle",
+  name: "radioEnhanced",
+  register: null,
+  title: "Radio Enhanced",
+  price: "Free",
+  description: "Radio Enhanced Description"
+};
+
+var RadioListPropTypes = _extends({
+  options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
+    value: PropTypes__default["default"].string,
+    title: PropTypes__default["default"].string,
+    description: PropTypes__default["default"].string,
+    price: PropTypes__default["default"].string,
+    icon: PropTypes__default["default"].string
+  })).isRequired
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+var RadioListDefaultProps = {
+  options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
+    value: "value",
+    title: "Title",
+    description: "Description",
+    price: "Free",
+    icon: "tv"
+  }))
+};
+
+var _excluded$N = ["options"];
+
+var RadioListBase = function RadioListBase(_ref) {
+  var options = _ref.options,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$N);
+
+  return /*#__PURE__*/React__default["default"].createElement(Fieldset, null, options.map(function (opt) {
+    return /*#__PURE__*/React__default["default"].createElement(RadioListBaseItem, _extends({
+      key: opt.value
+    }, opt, props));
+  }));
+};
+
+RadioListBase.propTypes = {
+  options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
+    value: PropTypes__default["default"].string,
+    title: PropTypes__default["default"].string,
+    description: PropTypes__default["default"].string,
+    price: PropTypes__default["default"].string,
+    icon: PropTypes__default["default"].string
+  })).isRequired
+};
+var StyledRadioListBase = styled__default["default"](RadioListBase).withConfig({
+  displayName: "RadioList__StyledRadioListBase",
+  componentId: "sc-8pypog-0"
+})(["", " ", ""], function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
+var RadioList = function RadioList(props) {
+  return /*#__PURE__*/React__default["default"].createElement(StyledRadioListBase, _extends({
+    type: "radio"
+  }, props));
+};
+RadioList.propTypes = RadioListPropTypes;
+RadioList.defaultProps = RadioListDefaultProps;
 
 var HideOnScrollPropTypes = {
   children: PropTypes__default["default"].element.isRequired,
@@ -8401,7 +5793,7 @@ var HideOnScroll = function HideOnScroll(_ref) {
   var trigger = useScrollTrigger__default["default"]({
     threshold: threshold
   });
-  return /*#__PURE__*/react.createElement(Slide__default["default"], {
+  return /*#__PURE__*/React__default["default"].createElement(Slide__default["default"], {
     appear: false,
     direction: "down",
     in: !trigger
@@ -8419,7 +5811,7 @@ var StyledHidden = styled__default["default"](MuiHidden__default["default"]).wit
   return DISPLAY(theme);
 });
 var Hidden = function Hidden(props) {
-  return /*#__PURE__*/react.createElement(StyledHidden, props);
+  return /*#__PURE__*/React__default["default"].createElement(StyledHidden, props);
 };
 
 var ItemConnector = styled__default["default"].div.withConfig({
@@ -8492,7 +5884,7 @@ var StyledCollapseButton$1 = styled__default["default"](CollapseButton).withConf
   var theme = _ref11.theme;
   return theme.breakpoints.down("sm");
 });
-var Content$9 = styled__default["default"].div.withConfig({
+var Content$a = styled__default["default"].div.withConfig({
   displayName: "Item__Content",
   componentId: "sc-1awk8nq-7"
 })(["padding:", ";", "{padding:", ";}"], function (_ref12) {
@@ -8515,40 +5907,40 @@ var HistoryItem = function HistoryItem(_ref15) {
       moreInfo = _ref15$data.moreInfo,
       title = _ref15$data.title;
 
-  var _useState = react.useState(false),
+  var _useState = React.useState(false),
       collapseOpen = _useState[0],
       setCollapseOpen = _useState[1];
 
-  return /*#__PURE__*/react.createElement(Container$9, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$9, {
     "data-cy": "historyItem"
-  }, /*#__PURE__*/react.createElement(ItemConnector, null), /*#__PURE__*/react.createElement(RowWrapper$1, null, /*#__PURE__*/react.createElement(StyledIcon$4, {
+  }, /*#__PURE__*/React__default["default"].createElement(ItemConnector, null), /*#__PURE__*/React__default["default"].createElement(RowWrapper$1, null, /*#__PURE__*/React__default["default"].createElement(StyledIcon$4, {
     rounded: true,
     color: iconColor,
     icon: icon
-  }), /*#__PURE__*/react.createElement(RowDetails, null, /*#__PURE__*/react.createElement(Item$2, {
+  }), /*#__PURE__*/React__default["default"].createElement(RowDetails, null, /*#__PURE__*/React__default["default"].createElement(Item$2, {
     lg: 5
-  }, /*#__PURE__*/react.createElement(Text, {
+  }, /*#__PURE__*/React__default["default"].createElement(Text, {
     fontWeight: "bold"
-  }, title)), /*#__PURE__*/react.createElement(Item$2, {
+  }, title)), /*#__PURE__*/React__default["default"].createElement(Item$2, {
     lg: 4
-  }, /*#__PURE__*/react.createElement(Text, {
+  }, /*#__PURE__*/React__default["default"].createElement(Text, {
     color: "textSecondary",
     noWrap: true
-  }, description)), /*#__PURE__*/react.createElement(Item$2, {
+  }, description)), /*#__PURE__*/React__default["default"].createElement(Item$2, {
     align: "flex-end"
-  }, /*#__PURE__*/react.createElement(Text, {
+  }, /*#__PURE__*/React__default["default"].createElement(Text, {
     color: "textSecondary",
     fontStyle: "italic"
-  }, moreInfo), collapsible && /*#__PURE__*/react.createElement(StyledCollapseButton$1, {
+  }, moreInfo), collapsible && /*#__PURE__*/React__default["default"].createElement(StyledCollapseButton$1, {
     isOpened: collapseOpen,
     onClick: function onClick() {
       return setCollapseOpen(function (prev) {
         return !prev;
       });
     }
-  })))), collapsible && /*#__PURE__*/react.createElement(Collapse, {
+  })))), collapsible && /*#__PURE__*/React__default["default"].createElement(Collapse, {
     isOpened: collapseOpen
-  }, /*#__PURE__*/react.createElement(Content$9, null, collapseContent)));
+  }, /*#__PURE__*/React__default["default"].createElement(Content$a, null, collapseContent)));
 };
 HistoryItem.propTypes = {
   data: PropTypes__default["default"].shape({
@@ -8574,7 +5966,7 @@ var HistoryPropTypes = _extends({
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-var _excluded$J = ["rows"];
+var _excluded$M = ["rows"];
 var Container$8 = styled__default["default"].div.withConfig({
   displayName: "History__Container",
   componentId: "sc-1u2gi2m-0"
@@ -8585,10 +5977,10 @@ var Container$8 = styled__default["default"].div.withConfig({
 });
 var History = function History(_ref) {
   var rows = _ref.rows,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$J);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$M);
 
-  return /*#__PURE__*/react.createElement(Container$8, props, rows.map(function (h) {
-    return /*#__PURE__*/react.createElement(HistoryItem, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$8, props, rows.map(function (h) {
+    return /*#__PURE__*/React__default["default"].createElement(HistoryItem, {
       key: h.id,
       data: h
     });
@@ -8606,7 +5998,7 @@ var HistoryTreeDefaultProps = {
   onNodeClick: function onNodeClick() {}
 };
 
-var _excluded$I = ["activeNodeId", "data", "onNodeClick"];
+var _excluded$L = ["activeNodeId", "data", "onNodeClick"];
 var NODE_SIZE = 20;
 var NODE_CONNECTOR_HEIGHT = 28;
 var ROW_HEIGHT = NODE_SIZE + 2 * NODE_CONNECTOR_HEIGHT;
@@ -8649,7 +6041,7 @@ var NodeWrapper = styled__default["default"].div.withConfig({
   var theme = _ref6.theme;
   return theme.palette.gray.medium;
 }, Label$1);
-var Row$1 = styled__default["default"].div.withConfig({
+var Row$2 = styled__default["default"].div.withConfig({
   displayName: "HistoryTree__Row",
   componentId: "sc-1go3l90-4"
 })(["display:flex;align-items:center;height:", "px;:last-child{", ",", "{::after{content:none;}}}"], ROW_HEIGHT, NodeWrapper, Node);
@@ -8665,32 +6057,32 @@ var HistoryTree = function HistoryTree(_ref7) {
   var activeNodeId = _ref7.activeNodeId,
       data = _ref7.data,
       onNodeClick = _ref7.onNodeClick,
-      props = _objectWithoutPropertiesLoose(_ref7, _excluded$I);
+      props = _objectWithoutPropertiesLoose(_ref7, _excluded$L);
 
-  return /*#__PURE__*/react.createElement(Wrapper$6, props, data.map(function (row) {
+  return /*#__PURE__*/React__default["default"].createElement(Wrapper$6, props, data.map(function (row) {
     var _row$nodes;
 
-    return /*#__PURE__*/react.createElement(Row$1, {
+    return /*#__PURE__*/React__default["default"].createElement(Row$2, {
       key: row.key
-    }, /*#__PURE__*/react.createElement(Description$1, null, /*#__PURE__*/react.createElement(Text, {
+    }, /*#__PURE__*/React__default["default"].createElement(Description$1, null, /*#__PURE__*/React__default["default"].createElement(Text, {
       content: row.description,
       color: "textSecondary",
       fontSize: "sm",
       noWrap: true,
       pr: 1
-    })), /*#__PURE__*/react.createElement(Nodes, null, (_row$nodes = row.nodes) == null ? void 0 : _row$nodes.map(function (node) {
+    })), /*#__PURE__*/React__default["default"].createElement(Nodes, null, (_row$nodes = row.nodes) == null ? void 0 : _row$nodes.map(function (node) {
       var isActive = activeNodeId === node.id;
-      return /*#__PURE__*/react.createElement(NodeWrapper, {
+      return /*#__PURE__*/React__default["default"].createElement(NodeWrapper, {
         key: node.id,
         onClick: function onClick(e) {
           return onNodeClick(e, node);
         }
-      }, /*#__PURE__*/react.createElement(Label$1, null, /*#__PURE__*/react.createElement(Text, {
+      }, /*#__PURE__*/React__default["default"].createElement(Label$1, null, /*#__PURE__*/React__default["default"].createElement(Text, {
         content: node.label,
         color: "textSecondary",
         fontSize: "sm",
         fontWeight: "bold"
-      })), /*#__PURE__*/react.createElement(Node, {
+      })), /*#__PURE__*/React__default["default"].createElement(Node, {
         active: isActive
       }));
     })));
@@ -8708,7 +6100,7 @@ var IndicatorDefaultProps = {
   color: "primary"
 };
 
-var _excluded$H = ["content", "children"];
+var _excluded$K = ["content", "children"];
 var StyledIndicator = styled__default["default"].div.withConfig({
   displayName: "Indicator__StyledIndicator",
   componentId: "sc-n41y77-0"
@@ -8728,14 +6120,14 @@ var StyledIndicator = styled__default["default"].div.withConfig({
 var Indicator = function Indicator(_ref3) {
   var content = _ref3.content,
       children = _ref3.children,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$H);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$K);
 
-  return /*#__PURE__*/react.createElement(StyledIndicator, props, content || children);
+  return /*#__PURE__*/React__default["default"].createElement(StyledIndicator, props, content || children);
 };
 Indicator.propTypes = IndicatorPropTypes;
 Indicator.defaultProps = IndicatorDefaultProps;
 
-var _excluded$G = ["rows"];
+var _excluded$J = ["rows"];
 var Container$7 = styled__default["default"].div.withConfig({
   displayName: "Inspector__Container",
   componentId: "sc-zw3vqo-0"
@@ -8746,10 +6138,10 @@ var Container$7 = styled__default["default"].div.withConfig({
 });
 var Inspector = function Inspector(_ref) {
   var rows = _ref.rows,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$G);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$J);
 
-  return /*#__PURE__*/react.createElement(Container$7, props, rows.map(function (row) {
-    return /*#__PURE__*/react.createElement(InspectorItem, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$7, props, rows.map(function (row) {
+    return /*#__PURE__*/React__default["default"].createElement(InspectorItem, {
       key: row.id,
       data: row
     });
@@ -8822,7 +6214,7 @@ var StyledCollapseButton = styled__default["default"](CollapseButton).withConfig
   var theme = _ref15.theme;
   return theme.spacing(3);
 });
-var Content$8 = styled__default["default"].div.withConfig({
+var Content$9 = styled__default["default"].div.withConfig({
   displayName: "Item__Content",
   componentId: "sc-1mr01kl-5"
 })(["display:flex;align-items:center;justify-content:space-between;padding:", ";div{max-width:80%;}", "{padding:", ";}"], function (_ref16) {
@@ -8844,7 +6236,7 @@ var InspectorItem = function InspectorItem(_ref19) {
       buttonContent = _ref19$data.buttonContent,
       title = _ref19$data.title;
 
-  var _useState = react.useState(false),
+  var _useState = React.useState(false),
       collapseOpen = _useState[0],
       setCollapseOpen = _useState[1];
 
@@ -8874,23 +6266,23 @@ var InspectorItem = function InspectorItem(_ref19) {
     }
   };
 
-  return /*#__PURE__*/react.createElement(Container$6, null, /*#__PURE__*/react.createElement(RowWrapper, null, /*#__PURE__*/react.createElement(StyledStatus, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$6, null, /*#__PURE__*/React__default["default"].createElement(RowWrapper, null, /*#__PURE__*/React__default["default"].createElement(StyledStatus, {
     color: getColor(status, theme)
-  }, /*#__PURE__*/react.createElement(Text, {
+  }, /*#__PURE__*/React__default["default"].createElement(Text, {
     content: status
-  })), /*#__PURE__*/react.createElement(StyledMessage, null, /*#__PURE__*/react.createElement(H5, null, title)), collapsible && /*#__PURE__*/react.createElement(StyledCollapseButton, {
+  })), /*#__PURE__*/React__default["default"].createElement(StyledMessage, null, /*#__PURE__*/React__default["default"].createElement(H5, null, title)), collapsible && /*#__PURE__*/React__default["default"].createElement(StyledCollapseButton, {
     isOpened: collapseOpen,
     onClick: function onClick() {
       return setCollapseOpen(function (prev) {
         return !prev;
       });
     }
-  })), collapsible && /*#__PURE__*/react.createElement(Collapse, {
+  })), collapsible && /*#__PURE__*/React__default["default"].createElement(Collapse, {
     isOpened: collapseOpen
-  }, /*#__PURE__*/react.createElement(Content$8, null, /*#__PURE__*/react.createElement(Text, {
+  }, /*#__PURE__*/React__default["default"].createElement(Content$9, null, /*#__PURE__*/React__default["default"].createElement(Text, {
     fontSize: "sm",
     content: collapseContent
-  }), /*#__PURE__*/react.createElement(Button$1, {
+  }), /*#__PURE__*/React__default["default"].createElement(Button$1, {
     onClick: buttonFunction,
     size: "sm",
     content: buttonContent
@@ -8993,7 +6385,7 @@ var Close = styled__default["default"](Icon).withConfig({
   var theme = _ref13.theme;
   return theme.spacing(2);
 });
-var StyledImage$3 = styled__default["default"](Image).withConfig({
+var StyledImage$4 = styled__default["default"](Image).withConfig({
   displayName: "itemsPreview__StyledImage",
   componentId: "sc-1mt253a-7"
 })(["width:148px;height:130px;object-fit:cover;z-index:2;border-radius:12px;margin-left:10px;margin-right:10px;mask-image:radial-gradient( circle at left center,transparent 20px,black 21px,black 55%,transparent 0 ),radial-gradient( circle at right center,transparent 20px,black 21px,black 55%,transparent 0 ),linear-gradient( to top,transparent 0px,black 0px,black 25%,transparent 0 ),linear-gradient( to bottom,transparent 0px,black 0px,black 25%,transparent 0 );"]);
@@ -9010,11 +6402,11 @@ var Title$1 = styled__default["default"](H6).withConfig({
 
 var SelectNftCard = function SelectNftCard(_ref16) {
   var onClick = _ref16.onClick;
-  return /*#__PURE__*/react.createElement(SelectItem, {
+  return /*#__PURE__*/React__default["default"].createElement(SelectItem, {
     onClick: onClick
-  }, /*#__PURE__*/react.createElement(AddIcon, {
+  }, /*#__PURE__*/React__default["default"].createElement(AddIcon, {
     icon: "plus"
-  }), /*#__PURE__*/react.createElement(Description, {
+  }), /*#__PURE__*/React__default["default"].createElement(Description, {
     content: "select"
   }));
 };
@@ -9026,17 +6418,17 @@ var Card = function Card(_ref17) {
       onClick = _ref17.onClick,
       isRemovable = _ref17.isRemovable,
       onRemove = _ref17.onRemove;
-  return /*#__PURE__*/react.createElement(Item$1, {
+  return /*#__PURE__*/React__default["default"].createElement(Item$1, {
     onClick: onClick
-  }, /*#__PURE__*/react.createElement(HeaderRow, null, /*#__PURE__*/react.createElement(Title$1, {
+  }, /*#__PURE__*/React__default["default"].createElement(HeaderRow, null, /*#__PURE__*/React__default["default"].createElement(Title$1, {
     content: title
-  }), isRemovable && /*#__PURE__*/react.createElement(Close, {
+  }), isRemovable && /*#__PURE__*/React__default["default"].createElement(Close, {
     onClick: function onClick() {
       return onRemove(id);
     },
     color: "secondary",
     icon: "times"
-  })), coverSrc && /*#__PURE__*/react.createElement(StyledImage$3, {
+  })), coverSrc && /*#__PURE__*/React__default["default"].createElement(StyledImage$4, {
     src: coverSrc
   }));
 };
@@ -9046,11 +6438,11 @@ var ItemsPreview = function ItemsPreview(_ref18) {
       onRemove = _ref18.onRemove,
       action = _ref18.action,
       maxWidth = _ref18.maxWidth;
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(Container$5, {
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Container$5, {
     maxWidth: maxWidth,
     items: items == null ? void 0 : items.length
   }, items == null ? void 0 : items.map(function (item) {
-    return /*#__PURE__*/react.createElement(Card, {
+    return /*#__PURE__*/React__default["default"].createElement(Card, {
       key: item.id,
       id: item.id,
       title: item.title,
@@ -9058,12 +6450,12 @@ var ItemsPreview = function ItemsPreview(_ref18) {
       isRemovable: true,
       onRemove: onRemove
     });
-  }), /*#__PURE__*/react.createElement(SelectNftCard, {
+  }), /*#__PURE__*/React__default["default"].createElement(SelectNftCard, {
     onClick: action
   })));
 };
 
-var _excluded$F = ["action", "actionDescription", "actionLoading", "actionTitle", "cancelButton", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled", "padding"];
+var _excluded$I = ["action", "actionDescription", "actionLoading", "actionTitle", "cancelButton", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled", "padding"];
 var StyledDialog = styled__default["default"](Dialog__default["default"]).withConfig({
   displayName: "Modal__StyledDialog",
   componentId: "sc-pqwu3e-0"
@@ -9141,30 +6533,30 @@ var Modal = function Modal(_ref9) {
       title = _ref9.title,
       disabled = _ref9.disabled,
       padding = _ref9.padding,
-      props = _objectWithoutPropertiesLoose(_ref9, _excluded$F);
+      props = _objectWithoutPropertiesLoose(_ref9, _excluded$I);
 
-  return /*#__PURE__*/react.createElement(StyledDialog, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledDialog, _extends({
     "data-cy": dataCy,
     fullScreen: typeof fullScreen !== "undefined" ? fullScreen : typeof window !== "undefined" && window.screen.width < 768,
     onClose: onClose,
     open: isOpen,
     maxWidth: maxWidth
-  }, props), loading && /*#__PURE__*/react.createElement(LoadingWrapper, null, /*#__PURE__*/react.createElement(CircularProgress__default["default"], {
+  }, props), loading && /*#__PURE__*/React__default["default"].createElement(LoadingWrapper, null, /*#__PURE__*/React__default["default"].createElement(CircularProgress__default["default"], {
     size: 60
-  })), title && /*#__PURE__*/react.createElement(Title, null, /*#__PURE__*/react.createElement(H3, {
+  })), title && /*#__PURE__*/React__default["default"].createElement(Title, null, /*#__PURE__*/React__default["default"].createElement(H3, {
     content: title
-  }), /*#__PURE__*/react.createElement(CloseModalIcon$1, {
+  }), /*#__PURE__*/React__default["default"].createElement(CloseModalIcon$1, {
     icon: "times",
     onClick: onClose
-  })), /*#__PURE__*/react.createElement(ContentWrapper, {
+  })), /*#__PURE__*/React__default["default"].createElement(ContentWrapper, {
     padding: padding
-  }, children), action && /*#__PURE__*/react.createElement(Actions, {
+  }, children), action && /*#__PURE__*/React__default["default"].createElement(Actions, {
     hasDesc: !!actionDescription
-  }, cancelButton && /*#__PURE__*/react.createElement(TextButton, {
+  }, cancelButton && /*#__PURE__*/React__default["default"].createElement(TextButton, {
     onClick: onClose,
     color: "secondary",
     content: "Cancel"
-  }), /*#__PURE__*/react.createElement("div", null, actionDescription), /*#__PURE__*/react.createElement(Button$1, {
+  }), /*#__PURE__*/React__default["default"].createElement("div", null, actionDescription), /*#__PURE__*/React__default["default"].createElement(Button$1, {
     disabled: disabled,
     loading: actionLoading,
     onClick: action
@@ -9270,21 +6662,21 @@ var SelectItemCard = function SelectItemCard(_ref13) {
       onClick = _ref13.onClick,
       isRemovable = _ref13.isRemovable,
       onRemove = _ref13.onRemove;
-  return /*#__PURE__*/react.createElement(CardItem, {
+  return /*#__PURE__*/React__default["default"].createElement(CardItem, {
     onClick: onClick
-  }, /*#__PURE__*/react.createElement(CardHeaderRow, null, /*#__PURE__*/react.createElement(CardTitle, {
+  }, /*#__PURE__*/React__default["default"].createElement(CardHeaderRow, null, /*#__PURE__*/React__default["default"].createElement(CardTitle, {
     content: title
-  }), /*#__PURE__*/react.createElement(CardSelectCircle, {
+  }), /*#__PURE__*/React__default["default"].createElement(CardSelectCircle, {
     checked: checked
-  }, checked && /*#__PURE__*/react.createElement(Icon, {
+  }, checked && /*#__PURE__*/React__default["default"].createElement(Icon, {
     icon: "check"
-  })), isRemovable && /*#__PURE__*/react.createElement(CardClose, {
+  })), isRemovable && /*#__PURE__*/React__default["default"].createElement(CardClose, {
     onClick: function onClick() {
       return onRemove(id);
     },
     color: "secondary",
     icon: "times"
-  })), coverSrc && /*#__PURE__*/react.createElement(CardStyledImage, {
+  })), coverSrc && /*#__PURE__*/React__default["default"].createElement(CardStyledImage, {
     src: coverSrc
   }));
 };
@@ -9329,7 +6721,7 @@ var SelectItemsModal = function SelectItemsModal(_ref9) {
       selectedItems = _ref9.selectedItems,
       options = _ref9.options;
 
-  var _useState = react.useState(false);
+  var _useState = React.useState(false);
       _useState[0];
       _useState[1];
 
@@ -9340,7 +6732,7 @@ var SelectItemsModal = function SelectItemsModal(_ref9) {
     return checkStatus;
   };
 
-  return /*#__PURE__*/react.createElement(StyledModal, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledModal, {
     cancelButton: true,
     action: onClose,
     actionTitle: "add",
@@ -9348,7 +6740,7 @@ var SelectItemsModal = function SelectItemsModal(_ref9) {
     isOpen: isOpen,
     onClose: onClose,
     className: "modal_select"
-  }, /*#__PURE__*/react.createElement(GridWrapper, null, /*#__PURE__*/react.createElement(Masonry__default["default"], {
+  }, /*#__PURE__*/React__default["default"].createElement(GridWrapper, null, /*#__PURE__*/React__default["default"].createElement(Masonry__default["default"], {
     breakpointCols: {
       default: 4,
       1265: 4,
@@ -9359,7 +6751,7 @@ var SelectItemsModal = function SelectItemsModal(_ref9) {
     className: "nft-masonry-grid",
     columnClassName: "nft-masonry-grid_column"
   }, options == null ? void 0 : options.map(function (option) {
-    return /*#__PURE__*/react.createElement(SelectItemCard, {
+    return /*#__PURE__*/React__default["default"].createElement(SelectItemCard, {
       checked: isChecked(option),
       onClick: function onClick() {
         if (!(selectedItems != null && selectedItems.some(function (item) {
@@ -9397,19 +6789,19 @@ var ItemSelect = function ItemSelect(_ref) {
       endpoint = _ref.endpoint;
       _ref.endpointQueryFlag;
 
-  var _useState = react.useState(false),
+  var _useState = React.useState(false),
       openModal = _useState[0],
       setOpenModal = _useState[1];
 
-  var _useState2 = react.useState([]),
+  var _useState2 = React.useState([]),
       selectedItems = _useState2[0],
       setSelectedItems = _useState2[1];
 
-  var _useState3 = react.useState([]),
+  var _useState3 = React.useState([]),
       endpointOptions = _useState3[0],
       setEndpointOptions = _useState3[1];
 
-  react.useEffect(function () {
+  React.useEffect(function () {
     if (endpoint) {
       loadOptionsfromEndpoint();
     }
@@ -9423,7 +6815,7 @@ var ItemSelect = function ItemSelect(_ref) {
     });
   };
 
-  react.useEffect(function () {
+  React.useEffect(function () {
     setValue("selectedItems", selectedItems == null ? void 0 : selectedItems.map(function (item) {
       return item == null ? void 0 : item.id;
     }));
@@ -9435,8 +6827,8 @@ var ItemSelect = function ItemSelect(_ref) {
     }));
   };
 
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(reactHookForm.Controller, {
-    as: /*#__PURE__*/react.createElement(ItemsPreview, {
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
+    as: /*#__PURE__*/React__default["default"].createElement(ItemsPreview, {
       action: function action() {
         return setOpenModal(true);
       },
@@ -9447,7 +6839,7 @@ var ItemSelect = function ItemSelect(_ref) {
     register: register,
     control: control,
     name: "selectedItems"
-  }), /*#__PURE__*/react.createElement(SelectItemsModal, {
+  }), /*#__PURE__*/React__default["default"].createElement(SelectItemsModal, {
     action: function action() {
       return setOpenModal(true);
     },
@@ -9484,14 +6876,14 @@ var LanguageDefaultProps = {
   size: "sm"
 };
 
-var _excluded$E = ["value", "languages", "onChange"];
+var _excluded$H = ["value", "languages", "onChange"];
 var Language = function Language(_ref) {
   var value = _ref.value,
       languages = _ref.languages,
       onChange = _ref.onChange,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$E);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$H);
 
-  var _useState = react.useState(null),
+  var _useState = React.useState(null),
       anchorEl = _useState[0],
       setAnchorEl = _useState[1];
 
@@ -9503,7 +6895,7 @@ var Language = function Language(_ref) {
   var current = languages.find(function (l) {
     return l.value === value;
   });
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(TextButton, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(TextButton, _extends({
     content: current == null ? void 0 : current.label,
     color: "subtle",
     endIcon: "chevron-down",
@@ -9512,7 +6904,7 @@ var Language = function Language(_ref) {
       return setAnchorEl(currentTarget);
     },
     startIcon: "globe"
-  }, props)), /*#__PURE__*/react.createElement(Dropdown, {
+  }, props)), /*#__PURE__*/React__default["default"].createElement(Dropdown, {
     anchorEl: anchorEl,
     items: languages.map(function (l) {
       return _extends({
@@ -9543,7 +6935,7 @@ var AuthLayoutHeaderDefaultProps = {
   renderLogo: function renderLogo() {}
 };
 
-var _excluded$D = ["backButtonOnClick", "headerLeft", "headerRight", "logoAction", "logoSrc", "renderLogo"];
+var _excluded$G = ["backButtonOnClick", "headerLeft", "headerRight", "logoAction", "logoSrc", "renderLogo"];
 var StyledHeader$4 = styled__default["default"](Flex).attrs(function () {
   return {
     container: true,
@@ -9581,19 +6973,19 @@ var AuthLayoutHeader = function AuthLayoutHeader(_ref2) {
       logoAction = _ref2.logoAction,
       logoSrc = _ref2.logoSrc,
       renderLogo = _ref2.renderLogo,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$D);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$G);
 
-  var backButton = /*#__PURE__*/react.createElement(TextButton, {
+  var backButton = /*#__PURE__*/React__default["default"].createElement(TextButton, {
     color: "secondary",
     onClick: backButtonOnClick,
     size: "sm"
   }, "Back");
-  return /*#__PURE__*/react.createElement(StyledHeader$4, props, /*#__PURE__*/react.createElement(Item, null, headerLeft || backButton), /*#__PURE__*/react.createElement(Item, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledHeader$4, props, /*#__PURE__*/React__default["default"].createElement(Item, null, headerLeft || backButton), /*#__PURE__*/React__default["default"].createElement(Item, {
     justify: "center"
-  }, renderLogo() || /*#__PURE__*/react.createElement(StyledLogo$1, {
+  }, renderLogo() || /*#__PURE__*/React__default["default"].createElement(StyledLogo$1, {
     src: logoSrc || img$4,
     onClick: logoAction
-  })), /*#__PURE__*/react.createElement(Item, {
+  })), /*#__PURE__*/React__default["default"].createElement(Item, {
     justify: "flex-end"
   }, headerRight));
 };
@@ -9612,7 +7004,7 @@ var AuthLayoutPropTypes = {
   loading: PropTypes__default["default"].bool
 };
 
-var _excluded$C = ["children", "content", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "loading"];
+var _excluded$F = ["children", "content", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "loading"];
 var StyledContainer$2 = styled__default["default"](MuiContainer__default["default"]).attrs(function () {
   return {
     maxWidth: "xs"
@@ -9621,7 +7013,7 @@ var StyledContainer$2 = styled__default["default"](MuiContainer__default["defaul
   displayName: "Auth__StyledContainer",
   componentId: "sc-11vk9ot-0"
 })(["height:100%;"]);
-var Content$7 = styled__default["default"].div.withConfig({
+var Content$8 = styled__default["default"].div.withConfig({
   displayName: "Auth__Content",
   componentId: "sc-11vk9ot-1"
 })(["flex:1;width:100%;padding:", ";"], function (_ref) {
@@ -9638,24 +7030,24 @@ var AuthLayout = function AuthLayout(_ref2) {
       headerRight = _ref2.headerRight,
       headerRenderLogo = _ref2.headerRenderLogo,
       loading = _ref2.loading,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$C);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$F);
 
-  return /*#__PURE__*/react.createElement(StyledContainer$2, props, loading && /*#__PURE__*/react.createElement(PageLoading, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledContainer$2, props, loading && /*#__PURE__*/React__default["default"].createElement(PageLoading, {
     fullScreen: true
-  }), /*#__PURE__*/react.createElement(Flex, {
+  }), /*#__PURE__*/React__default["default"].createElement(Flex, {
     container: true,
     direction: "column",
     mAuto: true,
     h100: true,
     wrap: "nowrap"
-  }, /*#__PURE__*/react.createElement(AuthLayoutHeader, {
+  }, /*#__PURE__*/React__default["default"].createElement(AuthLayoutHeader, {
     backButtonOnClick: headerBackButtonOnClick,
     headerLeft: headerLeft,
     headerRight: headerRight,
     logoAction: headerLogoAction,
     logoSrc: headerLogoSrc,
     renderLogo: headerRenderLogo
-  }), /*#__PURE__*/react.createElement(Content$7, null, children || content)));
+  }), /*#__PURE__*/React__default["default"].createElement(Content$8, null, children || content)));
 };
 AuthLayout.propTypes = AuthLayoutPropTypes;
 AuthLayout.defaultProps = {};
@@ -9667,7 +7059,7 @@ var CreatorsHubFooterPropTypes = {
 };
 var CreatorsHubFooterDefaultProps = {};
 
-var _excluded$B = ["bottomContent", "content", "navCols"];
+var _excluded$E = ["bottomContent", "content", "navCols"];
 var Footer = styled__default["default"].div.withConfig({
   displayName: "Footer",
   componentId: "sc-vpynnn-0"
@@ -9719,11 +7111,11 @@ var ColItem = styled__default["default"].li.withConfig({
 var renderCol = function renderCol(_ref10) {
   var title = _ref10.title,
       items = _ref10.items;
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(H4, {
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(H4, {
     content: title,
     mb: 4
-  }), /*#__PURE__*/react.createElement(Col, null, items == null ? void 0 : items.map(function (item) {
-    return /*#__PURE__*/react.createElement(ColItem, {
+  }), /*#__PURE__*/React__default["default"].createElement(Col, null, items == null ? void 0 : items.map(function (item) {
+    return /*#__PURE__*/React__default["default"].createElement(ColItem, {
       key: item.key
     }, item.render());
   })));
@@ -9733,26 +7125,26 @@ var CreatorsHubFooter = function CreatorsHubFooter(_ref11) {
   var bottomContent = _ref11.bottomContent,
       content = _ref11.content,
       navCols = _ref11.navCols,
-      props = _objectWithoutPropertiesLoose(_ref11, _excluded$B);
+      props = _objectWithoutPropertiesLoose(_ref11, _excluded$E);
 
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(Footer, props, /*#__PURE__*/react.createElement(Flex, {
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Footer, props, /*#__PURE__*/React__default["default"].createElement(Flex, {
     container: true,
     alignItems: "flex-start",
     spacing: 8
-  }, content && /*#__PURE__*/react.createElement(Flex, {
+  }, content && /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true,
     xs: 12,
     md: 6,
     lg: 3
   }, content), navCols == null ? void 0 : navCols.map(function (col) {
-    return /*#__PURE__*/react.createElement(Flex, {
+    return /*#__PURE__*/React__default["default"].createElement(Flex, {
       item: true,
       xs: 12,
       md: 6,
       lg: 3,
       key: col.title
     }, renderCol(col));
-  })), bottomContent && /*#__PURE__*/react.createElement(BottomSection, null, bottomContent)));
+  })), bottomContent && /*#__PURE__*/React__default["default"].createElement(BottomSection, null, bottomContent)));
 };
 CreatorsHubFooter.propTypes = CreatorsHubFooterPropTypes;
 CreatorsHubFooter.defaultProps = CreatorsHubFooterDefaultProps;
@@ -9775,7 +7167,7 @@ var CreatorsHubHeaderDefaultProps = {
   secondaryRenderRight: function secondaryRenderRight() {}
 };
 
-var _excluded$A = ["drawerOpen", "logoSrc", "logoAction", "primaryNavItems", "renderLogo", "setDrawerOpen"];
+var _excluded$D = ["drawerOpen", "logoSrc", "logoAction", "primaryNavItems", "renderLogo", "setDrawerOpen"];
 var StyledHeader$3 = styled__default["default"].div.withConfig({
   displayName: "Primary__StyledHeader",
   componentId: "sc-ton3vv-0"
@@ -9838,29 +7230,29 @@ var PrimaryHeader = function PrimaryHeader(_ref11) {
       primaryNavItems = _ref11.primaryNavItems,
       renderLogo = _ref11.renderLogo,
       setDrawerOpen = _ref11.setDrawerOpen,
-      props = _objectWithoutPropertiesLoose(_ref11, _excluded$A);
+      props = _objectWithoutPropertiesLoose(_ref11, _excluded$D);
 
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(StyledHeader$3, props, /*#__PURE__*/react.createElement(LogoContainer$1, null, /*#__PURE__*/react.createElement(Hidden, {
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(StyledHeader$3, props, /*#__PURE__*/React__default["default"].createElement(LogoContainer$1, null, /*#__PURE__*/React__default["default"].createElement(Hidden, {
     implementation: "js",
     mdUp: true
-  }, /*#__PURE__*/react.createElement(MenuIconButton, {
+  }, /*#__PURE__*/React__default["default"].createElement(MenuIconButton, {
     icon: drawerOpen ? "times" : "bars",
     onClick: function onClick() {
       return setDrawerOpen(function (prev) {
         return !prev;
       });
     }
-  })), renderLogo() || /*#__PURE__*/react.createElement(Image, {
+  })), renderLogo() || /*#__PURE__*/React__default["default"].createElement(Image, {
     alt: "Logo",
     height: "100%",
     onClick: logoAction,
     src: logoSrc || img$4
-  })), /*#__PURE__*/react.createElement(PrimaryList, null, primaryNavItems == null ? void 0 : primaryNavItems.map(function (item) {
-    return /*#__PURE__*/react.createElement(Hidden, {
+  })), /*#__PURE__*/React__default["default"].createElement(PrimaryList, null, primaryNavItems == null ? void 0 : primaryNavItems.map(function (item) {
+    return /*#__PURE__*/React__default["default"].createElement(Hidden, {
       implementation: "js",
       smDown: !item.showSm,
       key: item.key
-    }, /*#__PURE__*/react.createElement(PrimaryListItem, {
+    }, /*#__PURE__*/React__default["default"].createElement(PrimaryListItem, {
       key: item.key
     }, item.render()));
   }))));
@@ -9868,7 +7260,7 @@ var PrimaryHeader = function PrimaryHeader(_ref11) {
 PrimaryHeader.propTypes = CreatorsHubHeaderPropTypes;
 PrimaryHeader.defaultProps = CreatorsHubHeaderDefaultProps;
 
-var _excluded$z = ["navItems"];
+var _excluded$C = ["navItems"];
 var StyledDrawer = styled__default["default"](Drawer__default["default"]).withConfig({
   displayName: "Drawer__StyledDrawer",
   componentId: "sc-1n0twmf-0"
@@ -9919,17 +7311,17 @@ var ListItem = styled__default["default"].li.withConfig({
 });
 var HeaderDrawer = function HeaderDrawer(_ref13) {
   var navItems = _ref13.navItems,
-      props = _objectWithoutPropertiesLoose(_ref13, _excluded$z);
+      props = _objectWithoutPropertiesLoose(_ref13, _excluded$C);
 
-  return /*#__PURE__*/react.createElement(Hidden, {
+  return /*#__PURE__*/React__default["default"].createElement(Hidden, {
     implementation: "js",
     mdUp: true
-  }, /*#__PURE__*/react.createElement(StyledDrawer, _extends({
+  }, /*#__PURE__*/React__default["default"].createElement(StyledDrawer, _extends({
     ModalProps: {
       hideBackdrop: true
     }
-  }, props), /*#__PURE__*/react.createElement(List, null, navItems == null ? void 0 : navItems.map(function (item) {
-    return /*#__PURE__*/react.createElement(ListItem, {
+  }, props), /*#__PURE__*/React__default["default"].createElement(List, null, navItems == null ? void 0 : navItems.map(function (item) {
+    return /*#__PURE__*/React__default["default"].createElement(ListItem, {
       active: item.active,
       key: item.key
     }, item.render());
@@ -9938,7 +7330,7 @@ var HeaderDrawer = function HeaderDrawer(_ref13) {
 HeaderDrawer.propTypes = CreatorsHubHeaderPropTypes;
 HeaderDrawer.defaultProps = CreatorsHubHeaderDefaultProps;
 
-var _excluded$y = ["fixed", "heightSm", "logoSrc", "logoAction", "primaryNavItems", "primaryWhite", "renderLogo", "secondary", "secondaryHideOnScroll", "secondaryNavItems", "secondaryRenderRight", "smNavItems"];
+var _excluded$B = ["fixed", "heightSm", "logoSrc", "logoAction", "primaryNavItems", "primaryWhite", "renderLogo", "secondary", "secondaryHideOnScroll", "secondaryNavItems", "secondaryRenderRight", "smNavItems"];
 var Header = styled__default["default"].div.withConfig({
   displayName: "Header",
   componentId: "sc-1hpkor0-0"
@@ -9960,13 +7352,13 @@ var MainHeader = function MainHeader(_ref) {
       var secondaryNavItems = _ref.secondaryNavItems;
       _ref.secondaryRenderRight;
       var smNavItems = _ref.smNavItems,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$y);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$B);
 
-  var _useState = react.useState(false),
+  var _useState = React.useState(false),
       drawerOpen = _useState[0],
       setDrawerOpen = _useState[1];
 
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(Header, props, /*#__PURE__*/react.createElement(PrimaryHeader, {
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Header, props, /*#__PURE__*/React__default["default"].createElement(PrimaryHeader, {
     drawerOpen: drawerOpen,
     headerSmHeight: heightSm + "px",
     logoSrc: logoSrc,
@@ -9975,7 +7367,7 @@ var MainHeader = function MainHeader(_ref) {
     primaryWhite: primaryWhite,
     renderLogo: renderLogo,
     setDrawerOpen: setDrawerOpen
-  })), /*#__PURE__*/react.createElement(HeaderDrawer, {
+  })), /*#__PURE__*/React__default["default"].createElement(HeaderDrawer, {
     navItems: smNavItems || secondaryNavItems || primaryNavItems,
     open: drawerOpen,
     onClose: function onClose() {
@@ -9987,7 +7379,7 @@ var MainHeader = function MainHeader(_ref) {
 MainHeader.propTypes = CreatorsHubHeaderPropTypes;
 MainHeader.defaultProps = CreatorsHubHeaderDefaultProps;
 
-var _excluded$x = ["secondaryHideOnScroll", "secondaryNavItems", "secondaryRenderRight"];
+var _excluded$A = ["secondaryHideOnScroll", "secondaryNavItems", "secondaryRenderRight"];
 var StyledHeader$2 = styled__default["default"].div.withConfig({
   displayName: "Secondary__StyledHeader",
   componentId: "sc-17k8qal-0"
@@ -10044,16 +7436,16 @@ var SecondaryHeader = function SecondaryHeader(_ref13) {
   _ref13.secondaryHideOnScroll;
       var secondaryNavItems = _ref13.secondaryNavItems,
       secondaryRenderRight = _ref13.secondaryRenderRight,
-      props = _objectWithoutPropertiesLoose(_ref13, _excluded$x);
+      props = _objectWithoutPropertiesLoose(_ref13, _excluded$A);
 
-  return /*#__PURE__*/react.createElement(StyledHeader$2, props, /*#__PURE__*/react.createElement(Hidden, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledHeader$2, props, /*#__PURE__*/React__default["default"].createElement(Hidden, {
     implementation: "js",
     smDown: true
-  }, /*#__PURE__*/react.createElement(SecondaryList, null, secondaryNavItems == null ? void 0 : secondaryNavItems.map(function (item) {
-    return /*#__PURE__*/react.createElement(SecondaryListItem, {
+  }, /*#__PURE__*/React__default["default"].createElement(SecondaryList, null, secondaryNavItems == null ? void 0 : secondaryNavItems.map(function (item) {
+    return /*#__PURE__*/React__default["default"].createElement(SecondaryListItem, {
       active: item == null ? void 0 : item.active
     }, item.render());
-  }))), /*#__PURE__*/react.createElement(SecondaryRight, null, secondaryRenderRight()));
+  }))), /*#__PURE__*/React__default["default"].createElement(SecondaryRight, null, secondaryRenderRight()));
 };
 SecondaryHeader.propTypes = CreatorsHubHeaderPropTypes;
 SecondaryHeader.defaultProps = CreatorsHubHeaderDefaultProps;
@@ -10065,7 +7457,7 @@ var CreatorsHubAuthLayoutPropTypes = {
 };
 var CreatorsHubAuthLayoutDefaultProps = {};
 
-var _excluded$w = ["children", "headerProps", "loading"];
+var _excluded$z = ["children", "headerProps", "loading"];
 var StyledContainer$1 = styled__default["default"](MuiContainer__default["default"]).attrs(function () {
   return {
     maxWidth: "lg"
@@ -10092,7 +7484,7 @@ var InnerContainer = styled__default["default"](MuiContainer__default["default"]
   displayName: "Auth__InnerContainer",
   componentId: "sc-1wmfbd0-1"
 })(["&&{flex:1;}"]);
-var Content$6 = styled__default["default"].div.withConfig({
+var Content$7 = styled__default["default"].div.withConfig({
   displayName: "Auth__Content",
   componentId: "sc-1wmfbd0-2"
 })(["height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;"]);
@@ -10100,11 +7492,11 @@ var CreatorsHubAuthLayout = function CreatorsHubAuthLayout(_ref3) {
   var children = _ref3.children,
       headerProps = _ref3.headerProps,
       loading = _ref3.loading,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$w);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$z);
 
-  return /*#__PURE__*/react.createElement(react.Fragment, null, loading && /*#__PURE__*/react.createElement(PageLoading, {
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, loading && /*#__PURE__*/React__default["default"].createElement(PageLoading, {
     fullScreen: true
-  }), /*#__PURE__*/react.createElement(StyledContainer$1, props, /*#__PURE__*/react.createElement(MainHeader, headerProps), /*#__PURE__*/react.createElement(InnerContainer, null, /*#__PURE__*/react.createElement(Content$6, null, children))));
+  }), /*#__PURE__*/React__default["default"].createElement(StyledContainer$1, props, /*#__PURE__*/React__default["default"].createElement(MainHeader, headerProps), /*#__PURE__*/React__default["default"].createElement(InnerContainer, null, /*#__PURE__*/React__default["default"].createElement(Content$7, null, children))));
 };
 CreatorsHubAuthLayout.propTypes = CreatorsHubAuthLayoutPropTypes;
 CreatorsHubAuthLayout.defaultProps = CreatorsHubAuthLayoutDefaultProps;
@@ -10167,7 +7559,7 @@ var Container$4 = styled__default["default"](MuiContainer__default["default"]).a
   displayName: "Main__Container",
   componentId: "sc-1maeuko-1"
 })([""]);
-var Content$5 = styled__default["default"].div.withConfig({
+var Content$6 = styled__default["default"].div.withConfig({
   displayName: "Main__Content",
   componentId: "sc-1maeuko-2"
 })(["", ""], function (_ref8) {
@@ -10222,13 +7614,13 @@ var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref16) {
       sidebar = _ref16.sidebar;
 
   var renderSecondaryHeader = function renderSecondaryHeader() {
-    return /*#__PURE__*/react.createElement(FluidContainer, {
+    return /*#__PURE__*/React__default["default"].createElement(FluidContainer, {
       sticky: headerFixed,
       offsetTop: PRIMARY_HEADER_HEIGHT,
       offsetTopSm: PRIMARY_HEADER_HEIGHT_SM,
       white: true,
       zIndex: 98
-    }, /*#__PURE__*/react.createElement(Container$4, null, /*#__PURE__*/react.createElement(SecondaryHeader, {
+    }, /*#__PURE__*/React__default["default"].createElement(Container$4, null, /*#__PURE__*/React__default["default"].createElement(SecondaryHeader, {
       fixed: headerProps.fixed,
       secondaryHasBorder: headerProps.secondaryHasBorder,
       secondaryHideOnScroll: headerProps.secondaryHideOnScroll,
@@ -10237,33 +7629,33 @@ var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref16) {
     })));
   };
 
-  return /*#__PURE__*/react.createElement(react.Fragment, null, loading && /*#__PURE__*/react.createElement(PageLoading, {
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, loading && /*#__PURE__*/React__default["default"].createElement(PageLoading, {
     fullScreen: true
-  }), /*#__PURE__*/react.createElement(FluidContainer, {
+  }), /*#__PURE__*/React__default["default"].createElement(FluidContainer, {
     sticky: headerFixed,
     white: true,
     zIndex: 99
-  }, /*#__PURE__*/react.createElement(Container$4, null, renderHeader() || /*#__PURE__*/react.createElement(MainHeader, _extends({
+  }, /*#__PURE__*/React__default["default"].createElement(Container$4, null, renderHeader() || /*#__PURE__*/React__default["default"].createElement(MainHeader, _extends({
     fixed: headerFixed,
     height: PRIMARY_HEADER_HEIGHT,
     heightSm: PRIMARY_HEADER_HEIGHT_SM
-  }, headerProps)))), headerProps.secondary && /*#__PURE__*/react.createElement(react.Fragment, null, headerProps.secondaryHideOnScroll ? /*#__PURE__*/react.createElement(HideOnScroll, {
+  }, headerProps)))), headerProps.secondary && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, headerProps.secondaryHideOnScroll ? /*#__PURE__*/React__default["default"].createElement(HideOnScroll, {
     threshold: PRIMARY_HEADER_HEIGHT_SM - 8
-  }, renderSecondaryHeader()) : renderSecondaryHeader()), /*#__PURE__*/react.createElement(Content$5, {
+  }, renderSecondaryHeader()) : renderSecondaryHeader()), /*#__PURE__*/React__default["default"].createElement(Content$6, {
     headerFixed: headerFixed
-  }, renderHeading && /*#__PURE__*/react.createElement(Heading$1, null, renderHeading()), /*#__PURE__*/react.createElement(FluidContainer, null, /*#__PURE__*/react.createElement(Container$4, null, /*#__PURE__*/react.createElement(MainContent, {
+  }, renderHeading && /*#__PURE__*/React__default["default"].createElement(Heading$1, null, renderHeading()), /*#__PURE__*/React__default["default"].createElement(FluidContainer, null, /*#__PURE__*/React__default["default"].createElement(Container$4, null, /*#__PURE__*/React__default["default"].createElement(MainContent, {
     spacing: sidebar ? 8 : false
-  }, /*#__PURE__*/react.createElement(Flex, {
+  }, /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true,
     xs: 12,
     md: sidebar ? 10 : 12
-  }, children), sidebar && /*#__PURE__*/react.createElement(Flex, {
+  }, children), sidebar && /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true,
     xs: 12,
     md: 2
-  }, sidebar))))), (footer || renderFooter) && /*#__PURE__*/react.createElement(FluidContainer, {
+  }, sidebar))))), (footer || renderFooter) && /*#__PURE__*/React__default["default"].createElement(FluidContainer, {
     white: true
-  }, /*#__PURE__*/react.createElement(Container$4, null, renderFooter() || /*#__PURE__*/react.createElement(CreatorsHubFooter, footerProps))));
+  }, /*#__PURE__*/React__default["default"].createElement(Container$4, null, renderFooter() || /*#__PURE__*/React__default["default"].createElement(CreatorsHubFooter, footerProps))));
 };
 CreatorsHubMainLayout.propTypes = CreatorsHubMainLayoutPropTypes;
 CreatorsHubMainLayout.defaultProps = CreatorsHubMainLayoutDefaultProps;
@@ -10280,7 +7672,7 @@ var DashboardLayoutHeaderDefaultProps = {
   renderLogo: function renderLogo() {}
 };
 
-var _excluded$v = ["backButtonOnClick", "headerLeft", "headerRight", "logoAction", "logoSrc", "renderLogo"];
+var _excluded$y = ["backButtonOnClick", "headerLeft", "headerRight", "logoAction", "logoSrc", "renderLogo"];
 var StyledHeader$1 = styled__default["default"](Flex).attrs(function () {
   return {
     container: true,
@@ -10331,26 +7723,26 @@ var DashboardLayoutHeader = function DashboardLayoutHeader(_ref4) {
       logoAction = _ref4.logoAction,
       logoSrc = _ref4.logoSrc,
       renderLogo = _ref4.renderLogo,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$v);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$y);
 
-  var backButton = /*#__PURE__*/react.createElement(TextButton, {
+  var backButton = /*#__PURE__*/React__default["default"].createElement(TextButton, {
     color: "secondary",
     onClick: backButtonOnClick,
     px: 0,
     size: "sm"
   }, "Back");
-  return /*#__PURE__*/react.createElement(StyledHeader$1, props, /*#__PURE__*/react.createElement(LogoContainer, null, renderLogo() || /*#__PURE__*/react.createElement(Image, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledHeader$1, props, /*#__PURE__*/React__default["default"].createElement(LogoContainer, null, renderLogo() || /*#__PURE__*/React__default["default"].createElement(Image, {
     alt: "Logo",
     onClick: logoAction,
     src: logoSrc || img$4
-  })), /*#__PURE__*/react.createElement(Flex, {
+  })), /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true,
     md: 6,
     xs: 4
-  }, headerLeft || backButton), /*#__PURE__*/react.createElement(HeaderRight, null, headerRight), /*#__PURE__*/react.createElement(Hidden, {
+  }, headerLeft || backButton), /*#__PURE__*/React__default["default"].createElement(HeaderRight, null, headerRight), /*#__PURE__*/React__default["default"].createElement(Hidden, {
     smDown: true,
     implementation: "js"
-  }, /*#__PURE__*/react.createElement(Flex, {
+  }, /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true,
     md: 2
   })));
@@ -10374,7 +7766,7 @@ var DashboardLayoutDefaultProps = {
   navigationItems: []
 };
 
-var _excluded$u = ["component", "selected", "title", "icon", "additional", "dataCy", "nestedItems", "WrapperComponent"],
+var _excluded$x = ["component", "selected", "title", "icon", "additional", "dataCy", "nestedItems", "WrapperComponent"],
     _excluded2 = ["WrapperComponent"];
 var NestedListItem = styled__default["default"](core.ListItem).withConfig({
   displayName: "NavigationMenu__NestedListItem",
@@ -10427,7 +7819,7 @@ var ImprovedListItemIcon = styled__default["default"](core.ListItemIcon).withCon
 });
 var NavigationMenu = function NavigationMenu(_ref12) {
   var items = _ref12.items;
-  return /*#__PURE__*/react.createElement(ImprovedList, {
+  return /*#__PURE__*/React__default["default"].createElement(ImprovedList, {
     component: "nav"
   }, items.filter(function (m) {
     return typeof m.show === "boolean" ? m.show : true;
@@ -10443,44 +7835,44 @@ var NavigationMenu = function NavigationMenu(_ref12) {
         _ref13$nestedItems = _ref13.nestedItems,
         nestedItems = _ref13$nestedItems === void 0 ? [] : _ref13$nestedItems,
         Wrapper = _ref13.WrapperComponent,
-        props = _objectWithoutPropertiesLoose(_ref13, _excluded$u);
+        props = _objectWithoutPropertiesLoose(_ref13, _excluded$x);
 
     var showNested = nestedItems.length > 0 && selected;
 
     var item = function item() {
-      return /*#__PURE__*/react.createElement(ImprovedListItem, _extends({
+      return /*#__PURE__*/React__default["default"].createElement(ImprovedListItem, _extends({
         component: component,
         selected: selected
       }, dataCy ? {
         "data-cy": dataCy
-      } : {}, props), /*#__PURE__*/react.createElement(ImprovedListItemIcon, null, /*#__PURE__*/react.createElement(Icon, {
+      } : {}, props), /*#__PURE__*/React__default["default"].createElement(ImprovedListItemIcon, null, /*#__PURE__*/React__default["default"].createElement(Icon, {
         icon: icon
-      })), /*#__PURE__*/react.createElement(core.ListItemText, {
+      })), /*#__PURE__*/React__default["default"].createElement(core.ListItemText, {
         primary: title
       }), additional);
     };
 
     var nestedItem = function nestedItem(n) {
-      return /*#__PURE__*/react.createElement(NestedListItem, _extends({
+      return /*#__PURE__*/React__default["default"].createElement(NestedListItem, _extends({
         component: n.component || "a",
         key: n.title
-      }, n), /*#__PURE__*/react.createElement(core.ListItemText, {
+      }, n), /*#__PURE__*/React__default["default"].createElement(core.ListItemText, {
         primary: n.title
       }));
     };
 
     var listItem = function listItem() {
-      return Wrapper ? /*#__PURE__*/react.createElement(Wrapper, null, item()) : item();
+      return Wrapper ? /*#__PURE__*/React__default["default"].createElement(Wrapper, null, item()) : item();
     };
 
     var nestedListItem = function nestedListItem(_ref14) {
       var WrapperComponent = _ref14.WrapperComponent,
           nested = _objectWithoutPropertiesLoose(_ref14, _excluded2);
 
-      return WrapperComponent ? /*#__PURE__*/react.createElement(WrapperComponent, null, nestedItem(nested)) : nestedItem(nested);
+      return WrapperComponent ? /*#__PURE__*/React__default["default"].createElement(WrapperComponent, null, nestedItem(nested)) : nestedItem(nested);
     };
 
-    return /*#__PURE__*/react.createElement(react.Fragment, {
+    return /*#__PURE__*/React__default["default"].createElement(React.Fragment, {
       key: title
     }, listItem(), showNested && nestedItems.map(function (n) {
       return nestedListItem(n);
@@ -10491,17 +7883,17 @@ NavigationMenu.propTypes = {
   items: PropTypes__default["default"].arrayOf(PropTypes__default["default"].any).isRequired
 };
 
-var _excluded$t = ["menuItems", "onClick"];
+var _excluded$w = ["menuItems", "onClick"];
 var UserMenu = function UserMenu(_ref) {
   var menuItems = _ref.menuItems,
       _onClick = _ref.onClick,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$t);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$w);
 
-  var _useState = react.useState(null),
+  var _useState = React.useState(null),
       anchorEl = _useState[0],
       setAnchorEl = _useState[1];
 
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(TextButton, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(TextButton, _extends({
     block: true,
     content: "John Seller",
     color: "subtle",
@@ -10512,7 +7904,7 @@ var UserMenu = function UserMenu(_ref) {
       return setAnchorEl(currentTarget);
     },
     size: "sm"
-  }, props)), /*#__PURE__*/react.createElement(Dropdown, {
+  }, props)), /*#__PURE__*/React__default["default"].createElement(Dropdown, {
     anchorEl: anchorEl,
     items: menuItems.map(function (l) {
       return _extends({
@@ -10591,31 +7983,31 @@ var DashboardLayoutNavigation = function DashboardLayoutNavigation(_ref6) {
       userMenuItems = _ref6.userMenuItems,
       userMenuOnClick = _ref6.userMenuOnClick;
 
-  var _useState = react.useState(false),
+  var _useState = React.useState(false),
       mobileOpen = _useState[0],
       setMobileOpen = _useState[1];
 
   var renderMainNav = function renderMainNav() {
-    return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(NavigationMenu, {
+    return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(NavigationMenu, {
       items: navigationItems
-    }), userMenuItems.length > 0 && /*#__PURE__*/react.createElement(UserMenu, {
+    }), userMenuItems.length > 0 && /*#__PURE__*/React__default["default"].createElement(UserMenu, {
       menuItems: userMenuItems,
       onClick: userMenuOnClick
     }));
   };
 
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(Hidden, {
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Hidden, {
     smUp: true,
     implementation: "js"
-  }, /*#__PURE__*/react.createElement(StyledFab, {
+  }, /*#__PURE__*/React__default["default"].createElement(StyledFab, {
     "aria-label": "toggleNavigation",
     onClick: function onClick() {
       return setMobileOpen(true);
     }
-  }, /*#__PURE__*/react.createElement(NavIcon, null))), /*#__PURE__*/react.createElement(Hidden, {
+  }, /*#__PURE__*/React__default["default"].createElement(NavIcon, null))), /*#__PURE__*/React__default["default"].createElement(Hidden, {
     smUp: true,
     implementation: "js"
-  }, /*#__PURE__*/react.createElement(Drawer__default["default"], {
+  }, /*#__PURE__*/React__default["default"].createElement(Drawer__default["default"], {
     variant: "temporary",
     anchor: "left",
     open: mobileOpen,
@@ -10625,10 +8017,10 @@ var DashboardLayoutNavigation = function DashboardLayoutNavigation(_ref6) {
     ModalProps: {
       keepMounted: true
     }
-  }, /*#__PURE__*/react.createElement(DrawerWrapper, null, renderMainNav()))), /*#__PURE__*/react.createElement(Hidden, {
+  }, /*#__PURE__*/React__default["default"].createElement(DrawerWrapper, null, renderMainNav()))), /*#__PURE__*/React__default["default"].createElement(Hidden, {
     smDown: true,
     implementation: "js"
-  }, /*#__PURE__*/react.createElement(MainNav, null, renderMainNav())));
+  }, /*#__PURE__*/React__default["default"].createElement(MainNav, null, renderMainNav())));
 };
 DashboardLayoutNavigation.propTypes = DashboardLayoutNavigationPropTypes;
 DashboardLayoutNavigation.defaultProps = DashboardLayoutNavigationDefaultProps;
@@ -10637,7 +8029,7 @@ var DashboardLayoutFooterPropTypes = {
   content: PropTypes__default["default"].node
 };
 
-var _excluded$s = ["content"];
+var _excluded$v = ["content"];
 var StyledFooter$1 = styled__default["default"].div.withConfig({
   displayName: "Footer__StyledFooter",
   componentId: "sc-1d58k3u-0"
@@ -10647,13 +8039,13 @@ var StyledFooter$1 = styled__default["default"].div.withConfig({
 });
 var DashboardLayoutFooter = function DashboardLayoutFooter(_ref2) {
   var content = _ref2.content,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$s);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$v);
 
-  return /*#__PURE__*/react.createElement(StyledFooter$1, props, content);
+  return /*#__PURE__*/React__default["default"].createElement(StyledFooter$1, props, content);
 };
 DashboardLayoutFooter.propTypes = DashboardLayoutFooterPropTypes;
 
-var _excluded$r = ["children", "content", "footerContent", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "navigationItems", "loading", "sidebar", "userMenuItems", "userMenuOnClick"];
+var _excluded$u = ["children", "content", "footerContent", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "navigationItems", "loading", "sidebar", "userMenuItems", "userMenuOnClick"];
 var StyledContainer = styled__default["default"](MuiContainer__default["default"]).attrs(function () {
   return {
     maxWidth: "lg"
@@ -10662,7 +8054,7 @@ var StyledContainer = styled__default["default"](MuiContainer__default["default"
   displayName: "Dashboard__StyledContainer",
   componentId: "sc-1rqa7ed-0"
 })(["height:100%;"]);
-var Content$4 = styled__default["default"].div.withConfig({
+var Content$5 = styled__default["default"].div.withConfig({
   displayName: "Dashboard__Content",
   componentId: "sc-1rqa7ed-1"
 })(["flex:1;width:100%;"]);
@@ -10701,10 +8093,10 @@ var SidebarContainer = styled__default["default"](Flex).attrs(function () {
   var theme = _ref5.theme;
   return theme.spacing(0, 4);
 });
-var poweredBy$1 = /*#__PURE__*/react.createElement(Text, {
+var poweredBy$1 = /*#__PURE__*/React__default["default"].createElement(Text, {
   color: "textSecondary",
   fontStyle: "italic"
-}, "Powered by", /*#__PURE__*/react.createElement(Text, {
+}, "Powered by", /*#__PURE__*/React__default["default"].createElement(Text, {
   color: "textPrimary",
   fontWeight: "bold",
   dInline: true
@@ -10724,11 +8116,11 @@ var DashboardLayout = function DashboardLayout(_ref6) {
       sidebar = _ref6.sidebar,
       userMenuItems = _ref6.userMenuItems,
       userMenuOnClick = _ref6.userMenuOnClick,
-      props = _objectWithoutPropertiesLoose(_ref6, _excluded$r);
+      props = _objectWithoutPropertiesLoose(_ref6, _excluded$u);
 
-  return /*#__PURE__*/react.createElement(StyledContainer, props, loading && /*#__PURE__*/react.createElement(PageLoading, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledContainer, props, loading && /*#__PURE__*/React__default["default"].createElement(PageLoading, {
     fullScreen: true
-  }), /*#__PURE__*/react.createElement(Flex, {
+  }), /*#__PURE__*/React__default["default"].createElement(Flex, {
     container: true,
     direction: "column",
     alignItems: "flex-start",
@@ -10736,32 +8128,32 @@ var DashboardLayout = function DashboardLayout(_ref6) {
     xs: 12,
     h100: true,
     wrap: "nowrap"
-  }, /*#__PURE__*/react.createElement(DashboardLayoutHeader, {
+  }, /*#__PURE__*/React__default["default"].createElement(DashboardLayoutHeader, {
     backButtonOnClick: headerBackButtonOnClick,
     headerLeft: headerLeft,
     headerRight: headerRight,
     logoAction: headerLogoAction,
     logoSrc: headerLogoSrc,
     renderLogo: headerRenderLogo
-  }), /*#__PURE__*/react.createElement(Flex, {
+  }), /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true,
     container: true,
     alignItems: "flex-start",
     justify: "flex-start",
     xs: 12
-  }, /*#__PURE__*/react.createElement(NavigationContainer, null, /*#__PURE__*/react.createElement(DashboardLayoutNavigation, {
+  }, /*#__PURE__*/React__default["default"].createElement(NavigationContainer, null, /*#__PURE__*/React__default["default"].createElement(DashboardLayoutNavigation, {
     navigationItems: navigationItems,
     userMenuItems: userMenuItems,
     userMenuOnClick: userMenuOnClick
-  })), /*#__PURE__*/react.createElement(Flex, {
+  })), /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true,
     md: 8,
     xs: 12
-  }, /*#__PURE__*/react.createElement(Content$4, null, children || content)), /*#__PURE__*/react.createElement(SidebarContainer, null, sidebar)), /*#__PURE__*/react.createElement(Flex, {
+  }, /*#__PURE__*/React__default["default"].createElement(Content$5, null, children || content)), /*#__PURE__*/React__default["default"].createElement(SidebarContainer, null, sidebar)), /*#__PURE__*/React__default["default"].createElement(Flex, {
     container: true,
     item: true,
     xs: 12
-  }, /*#__PURE__*/react.createElement(DashboardLayoutFooter, {
+  }, /*#__PURE__*/React__default["default"].createElement(DashboardLayoutFooter, {
     content: footerContent || poweredBy$1
   }))));
 };
@@ -10772,7 +8164,7 @@ var ExplorerLayoutFooterPropTypes = {
   children: PropTypes__default["default"].node
 };
 
-var _excluded$q = ["action"];
+var _excluded$t = ["action"];
 var StyledFooter = styled__default["default"].div.withConfig({
   displayName: "Footer__StyledFooter",
   componentId: "sc-5p9du5-0"
@@ -10782,9 +8174,9 @@ var StyledFooter = styled__default["default"].div.withConfig({
 });
 var ExplorerLayoutFooter = function ExplorerLayoutFooter(_ref2) {
   _ref2.action;
-      var props = _objectWithoutPropertiesLoose(_ref2, _excluded$q);
+      var props = _objectWithoutPropertiesLoose(_ref2, _excluded$t);
 
-  return /*#__PURE__*/react.createElement(StyledFooter, props);
+  return /*#__PURE__*/React__default["default"].createElement(StyledFooter, props);
 };
 ExplorerLayoutFooter.propTypes = ExplorerLayoutFooterPropTypes;
 
@@ -10795,7 +8187,7 @@ var ExplorerLayoutHeaderPropTypes = {
   logoAction: PropTypes__default["default"].func
 };
 
-var _excluded$p = ["headerRight", "logoAction"];
+var _excluded$s = ["headerRight", "logoAction"];
 var StyledHeader = styled__default["default"](Grid__default["default"]).attrs(function () {
   return {
     container: true,
@@ -10823,15 +8215,15 @@ var StyledLogo = styled__default["default"](Image).attrs(function () {
 var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
   var headerRight = _ref3.headerRight,
       logoAction = _ref3.logoAction,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$p);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$s);
 
-  return /*#__PURE__*/react.createElement(StyledHeader, props, /*#__PURE__*/react.createElement(Grid__default["default"], {
+  return /*#__PURE__*/React__default["default"].createElement(StyledHeader, props, /*#__PURE__*/React__default["default"].createElement(Grid__default["default"], {
     item: true,
     lg: 9,
     xs: 6
-  }, /*#__PURE__*/react.createElement(StyledLogo, {
+  }, /*#__PURE__*/React__default["default"].createElement(StyledLogo, {
     onClick: logoAction
-  })), /*#__PURE__*/react.createElement(Grid__default["default"], {
+  })), /*#__PURE__*/React__default["default"].createElement(Grid__default["default"], {
     container: true,
     item: true,
     justify: "flex-end",
@@ -10853,8 +8245,8 @@ var ExplorerLayoutPropTypes = {
   sidebar: PropTypes__default["default"].node
 };
 
-var _excluded$o = ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "loading", "sidebar"];
-var Content$3 = styled__default["default"](Grid__default["default"]).attrs(function () {
+var _excluded$r = ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "loading", "sidebar"];
+var Content$4 = styled__default["default"](Grid__default["default"]).attrs(function () {
   return {
     container: true
   };
@@ -10880,10 +8272,10 @@ var Content$3 = styled__default["default"](Grid__default["default"]).attrs(funct
   var theme = _ref6.theme;
   return theme.spacing(6);
 });
-var poweredBy = /*#__PURE__*/react.createElement(Text, {
+var poweredBy = /*#__PURE__*/React__default["default"].createElement(Text, {
   color: "textSecondary",
   fontStyle: "italic"
-}, "Powered by", /*#__PURE__*/react.createElement(Text, {
+}, "Powered by", /*#__PURE__*/React__default["default"].createElement(Text, {
   color: "textPrimary",
   fontWeight: "bold"
 }, " ", "license.rocks"));
@@ -10897,46 +8289,46 @@ var ExplorerLayout = function ExplorerLayout(_ref7) {
       headerRight = _ref7.headerRight,
       loading = _ref7.loading,
       sidebar = _ref7.sidebar,
-      props = _objectWithoutPropertiesLoose(_ref7, _excluded$o);
+      props = _objectWithoutPropertiesLoose(_ref7, _excluded$r);
 
-  if (loading) return /*#__PURE__*/react.createElement(PageLoading, {
+  if (loading) return /*#__PURE__*/React__default["default"].createElement(PageLoading, {
     fullScreen: true
   });
-  return /*#__PURE__*/react.createElement(MuiContainer__default["default"], _extends({
+  return /*#__PURE__*/React__default["default"].createElement(MuiContainer__default["default"], _extends({
     maxWidth: "lg"
-  }, props), /*#__PURE__*/react.createElement(ExplorerLayoutHeader, {
+  }, props), /*#__PURE__*/React__default["default"].createElement(ExplorerLayoutHeader, {
     logoAction: headerLogoAction,
     headerRight: headerRight
-  }), /*#__PURE__*/react.createElement(Content$3, null, /*#__PURE__*/react.createElement(Hidden, {
+  }), /*#__PURE__*/React__default["default"].createElement(Content$4, null, /*#__PURE__*/React__default["default"].createElement(Hidden, {
     mdDown: true
-  }, /*#__PURE__*/react.createElement(Grid__default["default"], {
+  }, /*#__PURE__*/React__default["default"].createElement(Grid__default["default"], {
     item: true,
     lg: 9
-  }, content, extraContent), /*#__PURE__*/react.createElement(Grid__default["default"], {
+  }, content, extraContent), /*#__PURE__*/React__default["default"].createElement(Grid__default["default"], {
     item: true,
     lg: 3
-  }, sidebar, extraSidebar, ads)), /*#__PURE__*/react.createElement(Hidden, {
+  }, sidebar, extraSidebar, ads)), /*#__PURE__*/React__default["default"].createElement(Hidden, {
     lgUp: true
-  }, /*#__PURE__*/react.createElement(Grid__default["default"], {
+  }, /*#__PURE__*/React__default["default"].createElement(Grid__default["default"], {
     item: true,
     xs: 12
-  }, content), /*#__PURE__*/react.createElement(Grid__default["default"], {
+  }, content), /*#__PURE__*/React__default["default"].createElement(Grid__default["default"], {
     container: true,
     alignItems: "center",
     justify: "space-between",
     spacing: 4
-  }, /*#__PURE__*/react.createElement(Grid__default["default"], {
+  }, /*#__PURE__*/React__default["default"].createElement(Grid__default["default"], {
     item: true,
     md: 6,
     xs: 12
-  }, sidebar), /*#__PURE__*/react.createElement(Grid__default["default"], {
+  }, sidebar), /*#__PURE__*/React__default["default"].createElement(Grid__default["default"], {
     item: true,
     md: 6,
     xs: 12
-  }, extraSidebar)), /*#__PURE__*/react.createElement(Grid__default["default"], {
+  }, extraSidebar)), /*#__PURE__*/React__default["default"].createElement(Grid__default["default"], {
     item: true,
     xs: 12
-  }, extraContent, ads))), footerContent && /*#__PURE__*/react.createElement(ExplorerLayoutFooter, null, footerContent || poweredBy));
+  }, extraContent, ads))), footerContent && /*#__PURE__*/React__default["default"].createElement(ExplorerLayoutFooter, null, footerContent || poweredBy));
 };
 ExplorerLayout.propTypes = ExplorerLayoutPropTypes;
 ExplorerLayout.defaultProps = {
@@ -10955,7 +8347,7 @@ var LinkDefaultProps = {
   passHref: true
 };
 
-var _excluded$n = ["block", "className", "children", "Component", "href"];
+var _excluded$q = ["block", "className", "children", "Component", "href"];
 var StyledLink = styled__default["default"].a.withConfig({
   displayName: "Link__StyledLink",
   componentId: "sc-9lvaa8-0"
@@ -10973,11 +8365,11 @@ var Link = function Link(_ref2) {
       children = _ref2.children,
       Component = _ref2.Component,
       href = _ref2.href,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$n);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$q);
 
-  return /*#__PURE__*/react.createElement(Component, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(Component, _extends({
     href: href
-  }, props), /*#__PURE__*/react.createElement(StyledLink, {
+  }, props), /*#__PURE__*/React__default["default"].createElement(StyledLink, {
     block: block,
     className: className,
     href: (href == null ? void 0 : href.pathname) || href
@@ -11017,7 +8409,7 @@ var MarketPlaceItemDefaultProps = {
 
 var img$2 = "data:image/svg+xml,%3csvg width='92' height='109' viewBox='0 0 92 109' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M32 2.00015C36 3.00015 36 10.0002 36 10.0002C36 10.0002 37.2536 109.627 34 108C33.7765 107.888 22.7735 108 22 108C14 108 22 3.00015 22 3.00015C24 2.00015 28 1.00015 32 2.00015Z' fill='white' stroke='%23F0F0F4' stroke-width='1.5' stroke-linejoin='round'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M27 8.11923C27 4.39928 30.3502 1.57581 34.0163 2.20593L84.3551 10.8579C88.1942 11.5178 91 14.8469 91 18.7423V100C91 104.418 87.4183 108 83 108H33C29.6863 108 27 105.314 27 102V8.11923Z' fill='white' stroke='%23F0F0F4' stroke-width='1.5' stroke-linejoin='round'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M27 10.0534C27 5.75785 22.6182 2.85385 18.6622 4.52755L5.88288 9.93417C2.92312 11.1864 1 14.0882 1 17.3019V100C1 104.418 4.58172 108 9 108H21C24.3137 108 27 105.314 27 102V10.0534Z' fill='white' stroke='%23F0F0F4' stroke-width='1.5' stroke-linejoin='round'/%3e%3c/svg%3e";
 
-var _excluded$m = ["iconName", "iconPrefix", "iconColor"];
+var _excluded$p = ["iconName", "iconPrefix", "iconColor"];
 var LicenseBoxWrapper = styled__default["default"].div.withConfig({
   displayName: "LicenseBox__LicenseBoxWrapper",
   componentId: "sc-6tcqye-0"
@@ -11039,9 +8431,9 @@ var LicenseBox = function LicenseBox(_ref4) {
   var iconName = _ref4.iconName,
       iconPrefix = _ref4.iconPrefix,
       iconColor = _ref4.iconColor,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$m);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$p);
 
-  return /*#__PURE__*/react.createElement(LicenseBoxWrapper, props, /*#__PURE__*/react.createElement(StyledIcon$3, {
+  return /*#__PURE__*/React__default["default"].createElement(LicenseBoxWrapper, props, /*#__PURE__*/React__default["default"].createElement(StyledIcon$3, {
     color: iconColor,
     icon: iconName,
     prefix: iconPrefix
@@ -11058,15 +8450,15 @@ LicenseBox.defaultProps = {
   iconColor: "primary"
 };
 
-var _excluded$l = ["ActionWrapper", "action", "actionTitle", "dataCy", "details", "iconName", "iconPrefix", "iconColor", "megaTitle", "subTitle", "title"];
-var StyledMarketPlaceItem$2 = styled__default["default"](BoxBase).withConfig({
+var _excluded$o = ["ActionWrapper", "action", "actionTitle", "dataCy", "details", "iconName", "iconPrefix", "iconColor", "megaTitle", "subTitle", "title"];
+var StyledMarketPlaceItem$3 = styled__default["default"](BoxBase).withConfig({
   displayName: "Legacy__StyledMarketPlaceItem",
   componentId: "sc-v1aqdk-0"
 })(["border-radius:8px;overflow:initial;min-height:240px;text-align:center;margin-top:", ";width:100%;"], function (_ref) {
   var theme = _ref.theme;
   return theme.spacing(10);
 });
-var Content$2 = styled__default["default"].div.withConfig({
+var Content$3 = styled__default["default"].div.withConfig({
   displayName: "Legacy__Content",
   componentId: "sc-v1aqdk-1"
 })(["width:100%;padding:", ";box-sizing:border-box;", ""], function (_ref2) {
@@ -11088,82 +8480,82 @@ var LegacyItem = function LegacyItem(_ref4) {
       megaTitle = _ref4.megaTitle,
       subTitle = _ref4.subTitle,
       title = _ref4.title,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$l);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$o);
 
-  var actionButton = /*#__PURE__*/react.createElement(Button$1, {
+  var actionButton = /*#__PURE__*/React__default["default"].createElement(Button$1, {
     block: true,
     content: actionTitle,
     color: "subtle",
     onClick: action
   });
-  return /*#__PURE__*/react.createElement(StyledMarketPlaceItem$2, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledMarketPlaceItem$3, _extends({
     "data-cy": dataCy
-  }, props), /*#__PURE__*/react.createElement(LicenseBox, {
+  }, props), /*#__PURE__*/React__default["default"].createElement(LicenseBox, {
     iconName: iconName,
     iconPrefix: iconPrefix,
     iconColor: iconColor
-  }), /*#__PURE__*/react.createElement(Content$2, null, /*#__PURE__*/react.createElement(Text, {
+  }), /*#__PURE__*/React__default["default"].createElement(Content$3, null, /*#__PURE__*/React__default["default"].createElement(Text, {
     content: megaTitle,
     color: "textSecondary",
     noWrap: true
-  }), /*#__PURE__*/react.createElement(H3, {
+  }), /*#__PURE__*/React__default["default"].createElement(H3, {
     content: title,
     noWrap: true
-  }), /*#__PURE__*/react.createElement(Text, {
+  }), /*#__PURE__*/React__default["default"].createElement(Text, {
     content: subTitle,
     color: "textSecondary",
     fontSize: "sm",
     fontStyle: "italic",
     noWrap: true
-  })), /*#__PURE__*/react.createElement(Divider, null), /*#__PURE__*/react.createElement(Content$2, {
+  })), /*#__PURE__*/React__default["default"].createElement(Divider, null), /*#__PURE__*/React__default["default"].createElement(Content$3, {
     initialTextAlign: true
-  }, /*#__PURE__*/react.createElement(DetailsTable, {
+  }, /*#__PURE__*/React__default["default"].createElement(DetailsTable, {
     justifyBetween: true,
     rows: details
-  }), ActionWrapper ? /*#__PURE__*/react.createElement(ActionWrapper, null, actionButton) : actionButton));
+  }), ActionWrapper ? /*#__PURE__*/React__default["default"].createElement(ActionWrapper, null, actionButton) : actionButton));
 };
 LegacyItem.propTypes = MarketPlaceItemPropTypes;
 LegacyItem.defaultProps = MarketPlaceItemDefaultProps;
 
-var _excluded$k = ["imgSrc", "placeholderSrc"];
-var StyledImage$2 = styled__default["default"](Image).withConfig({
+var _excluded$n = ["imgSrc", "placeholderSrc"];
+var StyledImage$3 = styled__default["default"](Image).withConfig({
   displayName: "Cover__StyledImage",
   componentId: "sc-hgvfqd-0"
 })(["width:100%;object-fit:contain;z-index:2;"]);
-var Cover$1 = function Cover(_ref) {
+var Cover$2 = function Cover(_ref) {
   var imgSrc = _ref.imgSrc,
       placeholderSrc = _ref.placeholderSrc,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$k);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$n);
 
-  return /*#__PURE__*/react.createElement(StyledImage$2, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledImage$3, _extends({
     src: imgSrc || placeholderSrc
   }, props));
 };
-Cover$1.propTypes = {
+Cover$2.propTypes = {
   imgSrc: PropTypes__default["default"].string,
   placeholderSrc: PropTypes__default["default"].string
 };
-Cover$1.defaultProps = {
+Cover$2.defaultProps = {
   imgSrc: "",
   placeholderSrc: ""
 };
 
-var _excluded$j = ["badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "subTitle", "title", "Wrapper"];
-var StyledMarketPlaceItem$1 = styled__default["default"](BoxBase).withConfig({
+var _excluded$m = ["badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "subTitle", "title", "Wrapper"];
+var StyledMarketPlaceItem$2 = styled__default["default"](BoxBase).withConfig({
   displayName: "Modern__StyledMarketPlaceItem",
   componentId: "sc-1olkxan-0"
 })(["border-radius:8px;overflow:hidden;min-height:112px;width:100%;display:flex;flex-direction:column;transition:all 200ms ease-in-out;", ""], function (_ref) {
   var hoverEffect = _ref.hoverEffect;
   return hoverEffect && styled.css(["&:hover{transform:scale(1.03);}"]);
 });
-var Content$1 = styled__default["default"].div.withConfig({
+var Content$2 = styled__default["default"].div.withConfig({
   displayName: "Modern__Content",
   componentId: "sc-1olkxan-1"
 })(["flex:1;width:100%;padding:", ";box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;z-index:1;"], function (_ref2) {
   var theme = _ref2.theme;
   return theme.spacing(4);
 });
-var Badges = styled__default["default"].div.withConfig({
+var Badges$1 = styled__default["default"].div.withConfig({
   displayName: "Modern__Badges",
   componentId: "sc-1olkxan-2"
 })(["margin-top:", ";"], function (_ref3) {
@@ -11188,40 +8580,40 @@ var ModernItem = function ModernItem(_ref5) {
       subTitle = _ref5.subTitle,
       title = _ref5.title,
       Wrapper = _ref5.Wrapper,
-      props = _objectWithoutPropertiesLoose(_ref5, _excluded$j);
+      props = _objectWithoutPropertiesLoose(_ref5, _excluded$m);
 
   var Item = function Item() {
-    return /*#__PURE__*/react.createElement(StyledMarketPlaceItem$1, _extends({
+    return /*#__PURE__*/React__default["default"].createElement(StyledMarketPlaceItem$2, _extends({
       "data-cy": dataCy
-    }, props), /*#__PURE__*/react.createElement(Cover$1, {
+    }, props), /*#__PURE__*/React__default["default"].createElement(Cover$2, {
       imgSrc: coverSrc,
       placeholderSrc: coverPlaceholderSrc
-    }), highlight && /*#__PURE__*/react.createElement(Highlight$1, null, /*#__PURE__*/react.createElement(Text, {
+    }), highlight && /*#__PURE__*/React__default["default"].createElement(Highlight$1, null, /*#__PURE__*/React__default["default"].createElement(Text, {
       colorWhite: true,
       content: highlight,
       fontWeight: "bold",
       fontSize: "sm"
-    })), /*#__PURE__*/react.createElement(Content$1, null, /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement(H3, {
+    })), /*#__PURE__*/React__default["default"].createElement(Content$2, null, /*#__PURE__*/React__default["default"].createElement("div", null, /*#__PURE__*/React__default["default"].createElement(H3, {
       content: title,
       noWrap: true
-    }), /*#__PURE__*/react.createElement(Text, {
+    }), /*#__PURE__*/React__default["default"].createElement(Text, {
       content: megaTitle,
       color: "textSecondary",
       fontSize: "sm",
       fontStyle: "italic",
       noWrap: true
-    }), /*#__PURE__*/react.createElement(Text, {
+    }), /*#__PURE__*/React__default["default"].createElement(Text, {
       content: subTitle,
       color: "textSecondary",
       fontSize: "sm",
       fontStyle: "italic",
       noWrap: true
-    })), /*#__PURE__*/react.createElement(Badges, null, badges.map(function (badge) {
-      return /*#__PURE__*/react.createElement(TinyBadge, _extends({}, badge, {
+    })), /*#__PURE__*/React__default["default"].createElement(Badges$1, null, badges.map(function (badge) {
+      return /*#__PURE__*/React__default["default"].createElement(TinyBadge, _extends({}, badge, {
         mr: 1,
         mb: 1
       }));
-    })), /*#__PURE__*/react.createElement(DetailsTable, {
+    })), /*#__PURE__*/React__default["default"].createElement(DetailsTable, {
       justifyBetween: true,
       labelFontSize: "sm",
       mt: 4,
@@ -11230,12 +8622,12 @@ var ModernItem = function ModernItem(_ref5) {
     })));
   };
 
-  return Wrapper ? /*#__PURE__*/react.createElement(Wrapper, null, /*#__PURE__*/react.createElement(Item, null)) : /*#__PURE__*/react.createElement(Item, null);
+  return Wrapper ? /*#__PURE__*/React__default["default"].createElement(Wrapper, null, /*#__PURE__*/React__default["default"].createElement(Item, null)) : /*#__PURE__*/React__default["default"].createElement(Item, null);
 };
 ModernItem.propTypes = MarketPlaceItemPropTypes;
 ModernItem.defaultProps = MarketPlaceItemDefaultProps;
 
-var _excluded$i = ["imgSrc", "placeholderSrc"];
+var _excluded$l = ["imgSrc", "placeholderSrc"];
 var Wrapper$5 = styled__default["default"].div.withConfig({
   displayName: "Cover__Wrapper",
   componentId: "sc-1p24m3b-0"
@@ -11247,32 +8639,32 @@ var BGImage = styled__default["default"].div.withConfig({
   var imgSrc = _ref.imgSrc;
   return imgSrc;
 });
-var StyledImage$1 = styled__default["default"](Image).withConfig({
+var StyledImage$2 = styled__default["default"](Image).withConfig({
   displayName: "Cover__StyledImage",
   componentId: "sc-1p24m3b-2"
 })(["height:100%;width:100%;object-fit:contain;z-index:2;"]);
-var Cover = function Cover(_ref2) {
+var Cover$1 = function Cover(_ref2) {
   var imgSrc = _ref2.imgSrc,
       placeholderSrc = _ref2.placeholderSrc,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$i);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$l);
 
-  return /*#__PURE__*/react.createElement(Wrapper$5, props, /*#__PURE__*/react.createElement(BGImage, {
+  return /*#__PURE__*/React__default["default"].createElement(Wrapper$5, props, /*#__PURE__*/React__default["default"].createElement(BGImage, {
     imgSrc: imgSrc || placeholderSrc
-  }), /*#__PURE__*/react.createElement(StyledImage$1, {
+  }), /*#__PURE__*/React__default["default"].createElement(StyledImage$2, {
     src: imgSrc || placeholderSrc
   }));
 };
-Cover.propTypes = {
+Cover$1.propTypes = {
   imgSrc: PropTypes__default["default"].string,
   placeholderSrc: PropTypes__default["default"].string
 };
-Cover.defaultProps = {
+Cover$1.defaultProps = {
   imgSrc: "",
   placeholderSrc: ""
 };
 
-var _excluded$h = ["ActionWrapper", "action", "actionTitle", "badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "price", "priceLabel", "subTitle", "title", "Wrapper"];
-var StyledMarketPlaceItem = styled__default["default"](BoxBase).withConfig({
+var _excluded$k = ["ActionWrapper", "action", "actionTitle", "badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "price", "priceLabel", "subTitle", "title", "Wrapper"];
+var StyledMarketPlaceItem$1 = styled__default["default"](BoxBase).withConfig({
   displayName: "ModernHorizontal__StyledMarketPlaceItem",
   componentId: "sc-3m7a7f-0"
 })(["border-radius:8px;height:140px;width:100%;display:flex;align-items:center;transition:all 200ms ease-in-out;:not(:last-child){margin-bottom:", ";}", ""], function (_ref) {
@@ -11282,7 +8674,7 @@ var StyledMarketPlaceItem = styled__default["default"](BoxBase).withConfig({
   var hoverEffect = _ref2.hoverEffect;
   return hoverEffect && styled.css(["&:hover{transform:scale(1.02);}"]);
 });
-var Content = styled__default["default"](Flex).attrs(function () {
+var Content$1 = styled__default["default"](Flex).attrs(function () {
   return {
     container: true,
     alignItems: "flex-start",
@@ -11321,9 +8713,9 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
       subTitle = _ref6.subTitle,
       title = _ref6.title,
       Wrapper = _ref6.Wrapper,
-      props = _objectWithoutPropertiesLoose(_ref6, _excluded$h);
+      props = _objectWithoutPropertiesLoose(_ref6, _excluded$k);
 
-  var actionButton = /*#__PURE__*/react.createElement(Button$1, {
+  var actionButton = /*#__PURE__*/React__default["default"].createElement(Button$1, {
     block: true,
     content: actionTitle,
     color: "subtle",
@@ -11331,49 +8723,49 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
   });
 
   var Item = function Item() {
-    return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(StyledMarketPlaceItem, _extends({
+    return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(StyledMarketPlaceItem$1, _extends({
       "data-cy": dataCy
-    }, props), /*#__PURE__*/react.createElement(Cover, {
+    }, props), /*#__PURE__*/React__default["default"].createElement(Cover$1, {
       imgSrc: coverSrc,
       placeholderSrc: coverPlaceholderSrc
-    }), /*#__PURE__*/react.createElement(Content, null, /*#__PURE__*/react.createElement(Flex, {
+    }), /*#__PURE__*/React__default["default"].createElement(Content$1, null, /*#__PURE__*/React__default["default"].createElement(Flex, {
       item: true,
       xs: 12,
       md: 7,
       lg: 8,
       pl: 4
-    }, /*#__PURE__*/react.createElement(H3, {
+    }, /*#__PURE__*/React__default["default"].createElement(H3, {
       content: title,
       noWrap: true
-    }), /*#__PURE__*/react.createElement(Text, {
+    }), /*#__PURE__*/React__default["default"].createElement(Text, {
       content: megaTitle,
       color: "textSecondary",
       fontSize: "sm",
       fontStyle: "italic",
       noWrap: true
-    }), /*#__PURE__*/react.createElement(Text, {
+    }), /*#__PURE__*/React__default["default"].createElement(Text, {
       content: subTitle,
       color: "textSecondary",
       fontSize: "sm",
       fontStyle: "italic",
       noWrap: true
-    }), /*#__PURE__*/react.createElement(Hidden, {
+    }), /*#__PURE__*/React__default["default"].createElement(Hidden, {
       smDown: true
-    }, /*#__PURE__*/react.createElement(DetailsTable, {
+    }, /*#__PURE__*/React__default["default"].createElement(DetailsTable, {
       labelFontSize: "sm",
       mt: 4,
       size: "sm",
       rows: details
-    }))), /*#__PURE__*/react.createElement(Hidden, {
+    }))), /*#__PURE__*/React__default["default"].createElement(Hidden, {
       smDown: true
-    }, /*#__PURE__*/react.createElement(Flex, {
+    }, /*#__PURE__*/React__default["default"].createElement(Flex, {
       item: true
     }, badges.map(function (badge) {
-      return /*#__PURE__*/react.createElement(TinyBadge, _extends({}, badge, {
+      return /*#__PURE__*/React__default["default"].createElement(TinyBadge, _extends({}, badge, {
         dBlock: true,
         mb: 1
       }));
-    }))), /*#__PURE__*/react.createElement(Flex, {
+    }))), /*#__PURE__*/React__default["default"].createElement(Flex, {
       item: true,
       lg: 2,
       md: 3,
@@ -11382,16 +8774,16 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
       justify: "space-between",
       alignItems: "flex-start",
       h100: true
-    }, /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement(Text, {
+    }, /*#__PURE__*/React__default["default"].createElement("div", null, /*#__PURE__*/React__default["default"].createElement(Text, {
       content: priceLabel,
       fontStyle: "italic",
       fontSize: "sm",
       mb: 2
-    }), /*#__PURE__*/react.createElement(H3, {
+    }), /*#__PURE__*/React__default["default"].createElement(H3, {
       content: price,
       color: "primary",
       noWrap: true
-    })), ActionWrapper ? /*#__PURE__*/react.createElement(ActionWrapper, null, actionButton) : actionButton))), highlight && /*#__PURE__*/react.createElement(Highlight, null, /*#__PURE__*/react.createElement(Text, {
+    })), ActionWrapper ? /*#__PURE__*/React__default["default"].createElement(ActionWrapper, null, actionButton) : actionButton))), highlight && /*#__PURE__*/React__default["default"].createElement(Highlight, null, /*#__PURE__*/React__default["default"].createElement(Text, {
       color: "primary",
       content: highlight,
       fontWeight: "bold",
@@ -11399,19 +8791,134 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
     })));
   };
 
-  return Wrapper ? /*#__PURE__*/react.createElement(Wrapper, null, /*#__PURE__*/react.createElement(Item, null)) : /*#__PURE__*/react.createElement(Item, null);
+  return Wrapper ? /*#__PURE__*/React__default["default"].createElement(Wrapper, null, /*#__PURE__*/React__default["default"].createElement(Item, null)) : /*#__PURE__*/React__default["default"].createElement(Item, null);
 };
 ModernHorizontalItem.propTypes = MarketPlaceItemPropTypes;
 ModernHorizontalItem.defaultProps = MarketPlaceItemDefaultProps;
 
-var _excluded$g = ["type"];
+var _excluded$j = ["imgSrc", "placeholderSrc"];
+var StyledImage$1 = styled__default["default"](Image).withConfig({
+  displayName: "Cover__StyledImage",
+  componentId: "sc-lk418j-0"
+})(["width:100%;height:250px;object-fit:cover;z-index:2;border-radius:16px;"]);
+var Cover = function Cover(_ref) {
+  var imgSrc = _ref.imgSrc,
+      placeholderSrc = _ref.placeholderSrc,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$j);
+
+  return /*#__PURE__*/React__default["default"].createElement(StyledImage$1, _extends({
+    src: imgSrc || placeholderSrc
+  }, props));
+};
+Cover.propTypes = {
+  imgSrc: PropTypes__default["default"].string,
+  placeholderSrc: PropTypes__default["default"].string
+};
+Cover.defaultProps = {
+  imgSrc: "",
+  placeholderSrc: ""
+};
+
+var _excluded$i = ["badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "subTitle", "title", "Wrapper", "addToFavorites", "buttonText"];
+var StyledMarketPlaceItem = styled__default["default"](BoxBase).withConfig({
+  displayName: "ClaimForFree__StyledMarketPlaceItem",
+  componentId: "sc-k3agbr-0"
+})(["border-radius:16px;overflow:hidden;min-height:112px;width:100%;display:flex;flex-direction:column;transition:all 200ms ease-in-out;", ""], function (_ref) {
+  var hoverEffect = _ref.hoverEffect;
+  return hoverEffect && styled.css(["&:hover{transform:scale(1.03);}"]);
+});
+var Content = styled__default["default"].div.withConfig({
+  displayName: "ClaimForFree__Content",
+  componentId: "sc-k3agbr-1"
+})(["flex:1;width:100%;padding:", ";box-sizing:border-box;display:flex;flex-direction:column;justify-content:space-between;z-index:1;"], function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.spacing(4);
+});
+var Row$1 = styled__default["default"].div.withConfig({
+  displayName: "ClaimForFree__Row",
+  componentId: "sc-k3agbr-2"
+})(["display:flex;align-items:start;justify-content:space-between;"]);
+var StyledButton$1 = styled__default["default"].button.withConfig({
+  displayName: "ClaimForFree__StyledButton",
+  componentId: "sc-k3agbr-3"
+})(["border:none;background-color:transparent;cursor:pointer;svg{transition:color .3s ease-out;}&:hover svg{color:", ";}"], function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.palette.error.main;
+});
+var Badges = styled__default["default"].div.withConfig({
+  displayName: "ClaimForFree__Badges",
+  componentId: "sc-k3agbr-4"
+})(["margin-top:", ";"], function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.spacing(4);
+});
+var ClaimForFree = function ClaimForFree(_ref5) {
+  var badges = _ref5.badges,
+      coverSrc = _ref5.coverSrc,
+      coverPlaceholderSrc = _ref5.coverPlaceholderSrc,
+      dataCy = _ref5.dataCy,
+      details = _ref5.details;
+      _ref5.highlight;
+      _ref5.megaTitle;
+      _ref5.subTitle;
+      var title = _ref5.title,
+      Wrapper = _ref5.Wrapper,
+      addToFavorites = _ref5.addToFavorites,
+      buttonText = _ref5.buttonText,
+      props = _objectWithoutPropertiesLoose(_ref5, _excluded$i);
+
+  var creator = details.find(function (item) {
+    return item.label === "Creator";
+  }).value;
+
+  var Item = function Item() {
+    return /*#__PURE__*/React__default["default"].createElement(StyledMarketPlaceItem, _extends({
+      "data-cy": dataCy
+    }, props), /*#__PURE__*/React__default["default"].createElement(Content, null, /*#__PURE__*/React__default["default"].createElement(Row$1, null, /*#__PURE__*/React__default["default"].createElement(H3, {
+      content: title
+    }), /*#__PURE__*/React__default["default"].createElement(StyledButton$1, {
+      onClick: function onClick() {
+        return addToFavorites();
+      }
+    }, /*#__PURE__*/React__default["default"].createElement(Icon, {
+      icon: "heart",
+      prefix: "far",
+      color: "black",
+      size: "lg"
+    }))), /*#__PURE__*/React__default["default"].createElement(Text, {
+      content: creator,
+      fontSize: "sm",
+      mt: 2,
+      mb: 4
+    }), /*#__PURE__*/React__default["default"].createElement(Cover, {
+      imgSrc: coverSrc,
+      placeholderSrc: coverPlaceholderSrc
+    }), /*#__PURE__*/React__default["default"].createElement(Badges, null, badges.map(function (badge) {
+      return /*#__PURE__*/React__default["default"].createElement(TinyBadge, _extends({}, badge, {
+        mr: 1,
+        mb: 1
+      }));
+    })), /*#__PURE__*/React__default["default"].createElement(OutlineButton, {
+      mt: 6,
+      mb: 2,
+      color: "black"
+    }, buttonText)));
+  };
+
+  return Wrapper ? /*#__PURE__*/React__default["default"].createElement(Wrapper, null, /*#__PURE__*/React__default["default"].createElement(Item, null)) : /*#__PURE__*/React__default["default"].createElement(Item, null);
+};
+ClaimForFree.propTypes = MarketPlaceItemPropTypes;
+ClaimForFree.defaultProps = MarketPlaceItemDefaultProps;
+
+var _excluded$h = ["type"];
 var MarketPlaceItem = function MarketPlaceItem(_ref) {
   var type = _ref.type,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$h);
 
-  if (type === "legacy") return /*#__PURE__*/react.createElement(LegacyItem, props);
-  if (type === "modernHorizontal") return /*#__PURE__*/react.createElement(ModernHorizontalItem, props);
-  return /*#__PURE__*/react.createElement(ModernItem, props);
+  if (type === "legacy") return /*#__PURE__*/React__default["default"].createElement(LegacyItem, props);
+  if (type === "modernHorizontal") return /*#__PURE__*/React__default["default"].createElement(ModernHorizontalItem, props);
+  if (type === "claimForFree") return /*#__PURE__*/React__default["default"].createElement(ClaimForFree, props);
+  return /*#__PURE__*/React__default["default"].createElement(ModernItem, props);
 };
 MarketPlaceItem.propTypes = MarketPlaceItemPropTypes;
 MarketPlaceItem.defaultProps = MarketPlaceItemDefaultProps;
@@ -11430,7 +8937,7 @@ var ShareModuleDefaultProps$1 = {
   url: "#"
 };
 
-var _excluded$f = ["iconProps", "orientation", "shareOptions", "url"];
+var _excluded$g = ["iconProps", "orientation", "shareOptions", "url"];
 var BUTTON_SIZE = 32;
 var StyledPopover = styled__default["default"](MuiPopover__default["default"]).withConfig({
   displayName: "MiniShareModule__StyledPopover",
@@ -11473,9 +8980,9 @@ var MiniShareModule = function MiniShareModule(_ref7) {
       orientation = _ref7.orientation,
       shareOptions = _ref7.shareOptions,
       url = _ref7.url,
-      props = _objectWithoutPropertiesLoose(_ref7, _excluded$f);
+      props = _objectWithoutPropertiesLoose(_ref7, _excluded$g);
 
-  var _useState = react.useState(null),
+  var _useState = React.useState(null),
       anchorEl = _useState[0],
       setAnchorEl = _useState[1];
 
@@ -11490,26 +8997,26 @@ var MiniShareModule = function MiniShareModule(_ref7) {
   };
 
   var renderIcon = function renderIcon(icon, href) {
-    return /*#__PURE__*/react.createElement("a", {
+    return /*#__PURE__*/React__default["default"].createElement("a", {
       href: href,
       rel: "noreferrer",
       target: "_blank"
-    }, /*#__PURE__*/react.createElement(Icon, _extends({
+    }, /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
       icon: icon,
       prefix: "fab"
     }, iconProps)));
   };
 
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(StyledButton, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(StyledButton, _extends({
     icon: "share-alt",
     onClick: handlePopoverOpen,
     size: "sm"
-  }, props)), /*#__PURE__*/react.createElement(StyledPopover, {
+  }, props)), /*#__PURE__*/React__default["default"].createElement(StyledPopover, {
     id: "share-module-popover",
     open: !!anchorEl,
     anchorEl: anchorEl,
     onClose: handlePopoverClose
-  }, /*#__PURE__*/react.createElement(Container$3, {
+  }, /*#__PURE__*/React__default["default"].createElement(Container$3, {
     orientation: orientation
   }, shareOptions.includes("twitter") && renderIcon("twitter", "https://twitter.com/intent/tweet?url=" + encodedUrl), shareOptions.includes("facebook") && renderIcon("facebook-f", "https://www.facebook.com/sharer.php?u=" + encodedUrl), shareOptions.includes("linkedin") && renderIcon("linkedin-in", "https://www.linkedin.com/sharing/share-offsite/?url=" + encodedUrl))));
 };
@@ -11531,7 +9038,7 @@ var NoItemDefaultProps = {
   text: "Nothing yet..."
 };
 
-var _excluded$e = ["buttonAction", "buttonHref", "buttonText", "dataCy", "text"];
+var _excluded$f = ["buttonAction", "buttonHref", "buttonText", "dataCy", "text"];
 var Wrapper$4 = styled__default["default"].div.withConfig({
   displayName: "NoItem__Wrapper",
   componentId: "sc-1jez7tn-0"
@@ -11557,14 +9064,14 @@ var NoItem = function NoItem(_ref) {
       buttonText = _ref.buttonText,
       dataCy = _ref.dataCy,
       text = _ref.text,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$e);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$f);
 
-  return /*#__PURE__*/react.createElement(Wrapper$4, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(Wrapper$4, _extends({
     "data-cy": dataCy
-  }, props), /*#__PURE__*/react.createElement(StyledIcon$2, null), /*#__PURE__*/react.createElement(Text, {
+  }, props), /*#__PURE__*/React__default["default"].createElement(StyledIcon$2, null), /*#__PURE__*/React__default["default"].createElement(Text, {
     fontWeight: "bold",
     my: 2
-  }, text), buttonText && /*#__PURE__*/react.createElement(Button$1, {
+  }, text), buttonText && /*#__PURE__*/React__default["default"].createElement(Button$1, {
     color: "subtle",
     href: buttonHref,
     onClick: buttonAction,
@@ -11580,7 +9087,7 @@ var PageFigurePropTypes = _extends({
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var PageFigureDefaultProps = {};
 
-var _excluded$d = ["content", "children"];
+var _excluded$e = ["content", "children"];
 var StyledPageFigure = styled__default["default"].div.withConfig({
   displayName: "PageFigure__StyledPageFigure",
   componentId: "sc-1a8ool8-0"
@@ -11592,9 +9099,9 @@ var StyledPageFigure = styled__default["default"].div.withConfig({
 var PageFigure = function PageFigure(_ref) {
   var content = _ref.content,
       children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$d);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$e);
 
-  return /*#__PURE__*/react.createElement(StyledPageFigure, props, content || children);
+  return /*#__PURE__*/React__default["default"].createElement(StyledPageFigure, props, content || children);
 };
 PageFigure.propTypes = PageFigurePropTypes;
 PageFigure.defaultProps = PageFigureDefaultProps;
@@ -11606,7 +9113,7 @@ var PageLoadingPropTypes = {
 };
 var PageLoadingDefaultProps = {};
 
-var _excluded$c = ["message"];
+var _excluded$d = ["message"];
 var StyledLoading = styled__default["default"].div.withConfig({
   displayName: "PageLoading__StyledLoading",
   componentId: "sc-8xofl-0"
@@ -11629,7 +9136,7 @@ var StyledLoading = styled__default["default"].div.withConfig({
 });
 var PageLoading = function PageLoading(_ref6) {
   var message = _ref6.message,
-      props = _objectWithoutPropertiesLoose(_ref6, _excluded$c);
+      props = _objectWithoutPropertiesLoose(_ref6, _excluded$d);
 
   var _useTheme = styled.useTheme(),
       loadingIndicator = _useTheme.loadingIndicator;
@@ -11645,14 +9152,14 @@ var PageLoading = function PageLoading(_ref6) {
 
       msg = "Loading...";
     } else Spinner = function Spinner() {
-      return /*#__PURE__*/react.createElement("img", {
+      return /*#__PURE__*/React__default["default"].createElement("img", {
         alt: "Loading...",
         src: loadingIndicator
       });
     };
   }
 
-  return /*#__PURE__*/react.createElement(StyledLoading, props, /*#__PURE__*/react.createElement(Spinner, null), msg && /*#__PURE__*/react.createElement(Text, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledLoading, props, /*#__PURE__*/React__default["default"].createElement(Spinner, null), msg && /*#__PURE__*/React__default["default"].createElement(Text, {
     color: "primary",
     content: msg,
     fontWeight: "bold",
@@ -11679,56 +9186,56 @@ var PageMeta = function PageMeta(_ref) {
       title = _ref.title,
       url = _ref.url,
       Wrapper = _ref.Wrapper;
-  var meta = /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("title", null, title), /*#__PURE__*/react.createElement("meta", {
+  var meta = /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("title", null, title), /*#__PURE__*/React__default["default"].createElement("meta", {
     name: "title",
     content: title,
     key: "metaTitle"
-  }), /*#__PURE__*/react.createElement("meta", {
+  }), /*#__PURE__*/React__default["default"].createElement("meta", {
     name: "description",
     content: description,
     key: "metaDesc"
-  }), /*#__PURE__*/react.createElement("meta", {
+  }), /*#__PURE__*/React__default["default"].createElement("meta", {
     property: "og:type",
     content: "website",
     key: "ogType"
-  }), /*#__PURE__*/react.createElement("meta", {
+  }), /*#__PURE__*/React__default["default"].createElement("meta", {
     property: "og:url",
     content: url,
     key: "ogUrl"
-  }), /*#__PURE__*/react.createElement("meta", {
+  }), /*#__PURE__*/React__default["default"].createElement("meta", {
     property: "og:title",
     content: title,
     key: "ogTitle"
-  }), /*#__PURE__*/react.createElement("meta", {
+  }), /*#__PURE__*/React__default["default"].createElement("meta", {
     property: "og:description",
     content: description,
     key: "ogDesc"
-  }), /*#__PURE__*/react.createElement("meta", {
+  }), /*#__PURE__*/React__default["default"].createElement("meta", {
     property: "og:image",
     content: imgSrc,
     key: "ogImage"
-  }), /*#__PURE__*/react.createElement("meta", {
+  }), /*#__PURE__*/React__default["default"].createElement("meta", {
     property: "twitter:card",
     content: "summary_large_image",
     key: "twCard"
-  }), /*#__PURE__*/react.createElement("meta", {
+  }), /*#__PURE__*/React__default["default"].createElement("meta", {
     property: "twitter:url",
     content: url,
     key: "twUrl"
-  }), /*#__PURE__*/react.createElement("meta", {
+  }), /*#__PURE__*/React__default["default"].createElement("meta", {
     property: "twitter:title",
     content: title,
     key: "twTitle"
-  }), /*#__PURE__*/react.createElement("meta", {
+  }), /*#__PURE__*/React__default["default"].createElement("meta", {
     property: "twitter:description",
     content: description,
     key: "twDesc"
-  }), /*#__PURE__*/react.createElement("meta", {
+  }), /*#__PURE__*/React__default["default"].createElement("meta", {
     property: "twitter:image",
     content: imgSrc,
     key: "twImage"
   }), children);
-  return Wrapper ? /*#__PURE__*/react.createElement(Wrapper, null, meta) : meta;
+  return Wrapper ? /*#__PURE__*/React__default["default"].createElement(Wrapper, null, meta) : meta;
 };
 PageMeta.propTypes = pageMetaPropTypes;
 PageMeta.defaultProps = pageMetaDefaultProps;
@@ -11737,7 +9244,7 @@ var Container$2 = function Container(_ref) {
   var children = _ref.children,
       isFinished = _ref.isFinished,
       animationDuration = _ref.animationDuration;
-  return /*#__PURE__*/react.createElement("div", {
+  return /*#__PURE__*/React__default["default"].createElement("div", {
     style: {
       opacity: isFinished ? 0 : 1,
       pointerEvents: "none",
@@ -11768,12 +9275,12 @@ var InnerBar = styled__default["default"].div.withConfig({
 var Bar = function Bar(_ref3) {
   var animationDuration = _ref3.animationDuration,
       progress = _ref3.progress;
-  return /*#__PURE__*/react.createElement(StyledBar, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledBar, {
     style: {
       marginLeft: (-1 + progress) * 100 + "%",
       transition: "margin-left " + animationDuration + "ms linear"
     }
-  }, /*#__PURE__*/react.createElement(InnerBar, null));
+  }, /*#__PURE__*/React__default["default"].createElement(InnerBar, null));
 };
 Bar.propTypes = {
   animationDuration: PropTypes__default["default"].number.isRequired,
@@ -11790,10 +9297,10 @@ var Progress = function Progress(_ref) {
       isFinished = _useNProgress.isFinished,
       progress = _useNProgress.progress;
 
-  return /*#__PURE__*/react.createElement(Container$2, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$2, {
     animationDuration: animationDuration,
     isFinished: isFinished
-  }, /*#__PURE__*/react.createElement(Bar, {
+  }, /*#__PURE__*/React__default["default"].createElement(Bar, {
     animationDuration: animationDuration,
     progress: progress
   }));
@@ -11814,11 +9321,11 @@ var PageProgressBar = function PageProgressBar(_ref) {
       _ref.instanceKey;
       var listener = _ref.listener;
 
-  var _useState = react.useState(false),
+  var _useState = React.useState(false),
       isRouteChanging = _useState[0],
       setIsRouteChanging = _useState[1];
 
-  var _useState2 = react.useState(new Date().getTime());
+  var _useState2 = React.useState(new Date().getTime());
       _useState2[0];
       var setLoadingKey = _useState2[1];
 
@@ -11831,19 +9338,19 @@ var PageProgressBar = function PageProgressBar(_ref) {
     setIsRouteChanging(false);
   };
 
-  react.useEffect(function () {
+  React.useEffect(function () {
     if (listener) {
       listener(routeChangeStartHandler, routeChangeEndHandler);
     }
   }, []);
-  return /*#__PURE__*/react.createElement(Progress, {
+  return /*#__PURE__*/React__default["default"].createElement(Progress, {
     isAnimating: isRouteChanging || isAnimating
   });
 };
 PageProgressBar.propTypes = PageProgressBarPropTypes;
 PageProgressBar.defaultProps = PageProgressBarDefaultProps;
 
-var _excluded$b = ["children"];
+var _excluded$c = ["children"];
 var StyledContent$1 = styled__default["default"].div.withConfig({
   displayName: "PageTransition__StyledContent",
   componentId: "sc-eln28z-0"
@@ -11865,24 +9372,24 @@ var StyledContent$1 = styled__default["default"].div.withConfig({
 var duration = 200;
 var PageTransition = function PageTransition(_ref3) {
   var children = _ref3.children,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$b);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$c);
 
-  var _useState = react.useState(false),
+  var _useState = React.useState(false),
       mounted = _useState[0],
       setMounted = _useState[1];
 
-  react.useEffect(function () {
+  React.useEffect(function () {
     setMounted(true);
     return function () {
       setMounted(false);
     };
   }, []);
-  return /*#__PURE__*/react.createElement(reactTransitionGroup.Transition, {
+  return /*#__PURE__*/React__default["default"].createElement(reactTransitionGroup.Transition, {
     in: mounted,
     timeout: duration,
     unmountOnExit: true
   }, function (state) {
-    return /*#__PURE__*/react.createElement(StyledContent$1, _extends({
+    return /*#__PURE__*/React__default["default"].createElement(StyledContent$1, _extends({
       duration: duration,
       state: state
     }, props), children);
@@ -11905,7 +9412,7 @@ var PaginationDefaultProps = {
   prevText: "Prev"
 };
 
-var _excluded$a = ["currentPage", "itemProps", "ItemWrapper", "nextText", "pageCount", "prevText"];
+var _excluded$b = ["currentPage", "itemProps", "ItemWrapper", "nextText", "pageCount", "prevText"];
 var StyledPagination = styled__default["default"](MuiPagination__default["default"]).withConfig({
   displayName: "Pagination__StyledPagination",
   componentId: "sc-1ho9rhv-0"
@@ -11927,7 +9434,7 @@ var StyledPaginationItem = styled__default["default"](PaginationItem__default["d
 });
 
 var prevButton = function prevButton(prevText, disabled, item) {
-  return /*#__PURE__*/react.createElement(OutlineButton, _extends({}, item, {
+  return /*#__PURE__*/React__default["default"].createElement(OutlineButton, _extends({}, item, {
     content: prevText,
     color: "secondary",
     disabled: disabled,
@@ -11938,7 +9445,7 @@ var prevButton = function prevButton(prevText, disabled, item) {
 };
 
 var nextButton = function nextButton(nextText, disabled, item) {
-  return /*#__PURE__*/react.createElement(OutlineButton, _extends({}, item, {
+  return /*#__PURE__*/React__default["default"].createElement(OutlineButton, _extends({}, item, {
     content: nextText,
     color: "secondary",
     disabled: disabled,
@@ -11955,19 +9462,19 @@ var Pagination = function Pagination(_ref3) {
       nextText = _ref3.nextText,
       pageCount = _ref3.pageCount,
       prevText = _ref3.prevText,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$a);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$b);
 
   var _renderItem = function renderItem(item) {
     if (item.type === "previous") return prevButton(prevText, currentPage === 1, item);
     if (item.type === "next") return nextButton(nextText, currentPage === pageCount, item);
-    return /*#__PURE__*/react.createElement(StyledPaginationItem, _extends({}, item, itemProps));
+    return /*#__PURE__*/React__default["default"].createElement(StyledPaginationItem, _extends({}, item, itemProps));
   };
 
-  return /*#__PURE__*/react.createElement(StyledPagination, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledPagination, _extends({
     page: currentPage,
     count: pageCount,
     renderItem: function renderItem(item) {
-      return ItemWrapper ? /*#__PURE__*/react.createElement(ItemWrapper, {
+      return ItemWrapper ? /*#__PURE__*/React__default["default"].createElement(ItemWrapper, {
         page: item.page
       }, _renderItem(item)) : _renderItem(item);
     }
@@ -11989,7 +9496,7 @@ var ProfileDefaultProps = {
   socialLinks: []
 };
 
-var _excluded$9 = ["coverSrc", "description", "location", "name", "shareOnClick", "shareUrl", "socialLinks"];
+var _excluded$a = ["coverSrc", "description", "location", "name", "shareOnClick", "shareUrl", "socialLinks"];
 var Wrapper$3 = styled__default["default"].div.withConfig({
   displayName: "Profile__Wrapper",
   componentId: "sc-kdr8z7-0"
@@ -12041,12 +9548,12 @@ var Profile = function Profile(_ref6) {
       shareOnClick = _ref6.shareOnClick,
       shareUrl = _ref6.shareUrl,
       socialLinks = _ref6.socialLinks,
-      props = _objectWithoutPropertiesLoose(_ref6, _excluded$9);
+      props = _objectWithoutPropertiesLoose(_ref6, _excluded$a);
 
-  return /*#__PURE__*/react.createElement(Wrapper$3, props, /*#__PURE__*/react.createElement(AvatarWrapper, null, /*#__PURE__*/react.createElement(Avatar, {
+  return /*#__PURE__*/React__default["default"].createElement(Wrapper$3, props, /*#__PURE__*/React__default["default"].createElement(AvatarWrapper, null, /*#__PURE__*/React__default["default"].createElement(Avatar, {
     src: coverSrc,
     alt: name
-  }), (shareOnClick || shareUrl) && /*#__PURE__*/react.createElement(Social, {
+  }), (shareOnClick || shareUrl) && /*#__PURE__*/React__default["default"].createElement(Social, {
     as: shareOnClick ? "button" : "a",
     colorPrimary: true,
     fixed: true,
@@ -12054,22 +9561,22 @@ var Profile = function Profile(_ref6) {
     onClick: shareOnClick,
     offset: -16,
     target: "_blank"
-  }, /*#__PURE__*/react.createElement(Icon, {
+  }, /*#__PURE__*/React__default["default"].createElement(Icon, {
     icon: "share-alt"
-  }))), /*#__PURE__*/react.createElement(H1, {
+  }))), /*#__PURE__*/React__default["default"].createElement(H1, {
     content: name,
     mb: 2
-  }), /*#__PURE__*/react.createElement(Text, {
+  }), /*#__PURE__*/React__default["default"].createElement(Text, {
     color: "textSecondary",
     content: location,
     fontSize: "sm",
     fontStyle: "static",
     mb: 6
-  }), /*#__PURE__*/react.createElement(Paragraph, {
+  }), /*#__PURE__*/React__default["default"].createElement(Paragraph, {
     color: "textSecondary",
     content: description,
     fontWeight: "light"
-  }), socialLinks.length > 0 && /*#__PURE__*/react.createElement(Flex, {
+  }), socialLinks.length > 0 && /*#__PURE__*/React__default["default"].createElement(Flex, {
     container: true,
     justify: "center",
     spacing: 2
@@ -12077,13 +9584,13 @@ var Profile = function Profile(_ref6) {
     var icon = _ref7.icon,
         iconPrefix = _ref7.iconPrefix,
         url = _ref7.url;
-    return /*#__PURE__*/react.createElement(Flex, {
+    return /*#__PURE__*/React__default["default"].createElement(Flex, {
       item: true,
       key: "icon"
-    }, /*#__PURE__*/react.createElement(Social, {
+    }, /*#__PURE__*/React__default["default"].createElement(Social, {
       href: url,
       target: "_blank"
-    }, /*#__PURE__*/react.createElement(Icon, {
+    }, /*#__PURE__*/React__default["default"].createElement(Icon, {
       icon: icon,
       prefix: iconPrefix || "fab"
     })));
@@ -12108,7 +9615,7 @@ var SearchBarDefaultProps = {
   placeholder: "Type and press Enter"
 };
 
-var _excluded$8 = ["inputProps", "noBorderRadius", "onChange", "onSubmit", "placeholder", "showSearchIconEnd", "value"];
+var _excluded$9 = ["inputProps", "noBorderRadius", "onChange", "onSubmit", "placeholder", "showSearchIconEnd", "value"];
 var StyledSearchBar = styled__default["default"].form.withConfig({
   displayName: "SearchBar__StyledSearchBar",
   componentId: "sc-5s11x8-0"
@@ -12139,9 +9646,9 @@ var SearchBar = function SearchBar(_ref3) {
       placeholder = _ref3.placeholder,
       showSearchIconEnd = _ref3.showSearchIconEnd,
       value = _ref3.value,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$8);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$9);
 
-  var _useState = react.useState(value),
+  var _useState = React.useState(value),
       inputValue = _useState[0],
       setInputValue = _useState[1];
 
@@ -12167,9 +9674,9 @@ var SearchBar = function SearchBar(_ref3) {
   if (endIcon === "search") endIconColor = "secondary";
   var startIcon = null;
   if (!showSearchIconEnd) startIcon = "search";
-  return /*#__PURE__*/react.createElement(StyledSearchBar, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledSearchBar, _extends({
     onSubmit: handleSubmit
-  }, props), /*#__PURE__*/react.createElement(SearchInput, _extends({
+  }, props), /*#__PURE__*/React__default["default"].createElement(SearchInput, _extends({
     endIcon: endIcon,
     endIconColor: endIconColor,
     endIconOnClick: inputValue ? handleClear : undefined,
@@ -12209,7 +9716,7 @@ var ShareModuleButton = function ShareModuleButton(_ref6) {
       icon = _ref6.icon,
       iconPrefix = _ref6.iconPrefix,
       onClick = _ref6.onClick;
-  return /*#__PURE__*/react.createElement(Button, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(Button, _extends({
     href: href,
     icon: icon,
     iconProps: {
@@ -12248,7 +9755,7 @@ var ShareModuleDefaultProps = {
   url: "#"
 };
 
-var _excluded$7 = ["buttonProps", "copyText", "shareOptions", "url", "nftId", "appUrl"];
+var _excluded$8 = ["buttonProps", "copyText", "shareOptions", "url", "nftId", "appUrl"];
 var Container$1 = styled__default["default"].div.withConfig({
   displayName: "ShareModule__Container",
   componentId: "sc-1jmukyt-0"
@@ -12310,9 +9817,9 @@ var ShareModule = function ShareModule(_ref8) {
       url = _ref8.url,
       nftId = _ref8.nftId,
       appUrl = _ref8.appUrl,
-      props = _objectWithoutPropertiesLoose(_ref8, _excluded$7);
+      props = _objectWithoutPropertiesLoose(_ref8, _excluded$8);
 
-  var _useState = react.useState(false),
+  var _useState = React.useState(false),
       open = _useState[0],
       setOpen = _useState[1];
 
@@ -12330,49 +9837,49 @@ var ShareModule = function ShareModule(_ref8) {
     fullWidth: true
   }, props);
 
-  return /*#__PURE__*/react.createElement(Container$1, props, /*#__PURE__*/react.createElement(Modal, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(Container$1, props, /*#__PURE__*/React__default["default"].createElement(Modal, _extends({
     cancelButton: true,
     action: function action() {
       return copy__default["default"](codeSnippets);
     },
     actionTitle: "Copy code",
     title: "Get NFT embed code"
-  }, defaultProps), /*#__PURE__*/react.createElement(CodeContainer, null, " ", /*#__PURE__*/react.createElement(StyledCodeBlock, {
+  }, defaultProps), /*#__PURE__*/React__default["default"].createElement(CodeContainer, null, " ", /*#__PURE__*/React__default["default"].createElement(StyledCodeBlock, {
     language: "jsx",
     text: codeSnippets,
     theme: reactCodeBlocks.obsidian,
     wrapLines: true,
     showLineNumbers: false,
     codeBlock: true
-  }))), /*#__PURE__*/react.createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/react.createElement(ShareModuleButton, {
+  }))), /*#__PURE__*/React__default["default"].createElement(ButtonsWrapper, null, shareOptions.includes("twitter") && /*#__PURE__*/React__default["default"].createElement(ShareModuleButton, {
     icon: "twitter",
     href: "https://twitter.com/intent/tweet?url=" + encodedUrl,
     buttonProps: buttonProps
-  }), shareOptions.includes("facebook") && /*#__PURE__*/react.createElement(ShareModuleButton, {
+  }), shareOptions.includes("facebook") && /*#__PURE__*/React__default["default"].createElement(ShareModuleButton, {
     icon: "facebook-f",
     href: "https://www.facebook.com/sharer.php?u=" + encodedUrl,
     buttonProps: buttonProps
-  }), shareOptions.includes("telegram") && matches && /*#__PURE__*/react.createElement(ShareModuleButton, {
+  }), shareOptions.includes("telegram") && matches && /*#__PURE__*/React__default["default"].createElement(ShareModuleButton, {
     icon: "telegram-plane",
     href: "tg://msg?text=" + encodedUrl,
     buttonProps: buttonProps
-  }), shareOptions.includes("whatsapp") && matches && /*#__PURE__*/react.createElement(ShareModuleButton, {
+  }), shareOptions.includes("whatsapp") && matches && /*#__PURE__*/React__default["default"].createElement(ShareModuleButton, {
     icon: "whatsapp",
     href: "whatsapp://send?" + encodedUrl,
     buttonProps: buttonProps
-  }), shareOptions.includes("embed") && /*#__PURE__*/react.createElement(ShareModuleButton, {
+  }), shareOptions.includes("embed") && /*#__PURE__*/React__default["default"].createElement(ShareModuleButton, {
     icon: "code",
     iconPrefix: theme.defaultIconSet,
     onClick: function onClick() {
       return setOpen(true);
     },
     buttonProps: buttonProps
-  }), shareOptions.includes("email") && /*#__PURE__*/react.createElement(ShareModuleButton, {
+  }), shareOptions.includes("email") && /*#__PURE__*/React__default["default"].createElement(ShareModuleButton, {
     icon: "envelope",
     iconPrefix: theme.defaultIconSet,
     href: "mailto:?body=" + encodedUrl,
     buttonProps: buttonProps
-  }), shareOptions.includes("navigator") && canUseNavigator && /*#__PURE__*/react.createElement(ShareModuleButton, {
+  }), shareOptions.includes("navigator") && canUseNavigator && /*#__PURE__*/React__default["default"].createElement(ShareModuleButton, {
     icon: "ellipsis-h",
     iconPrefix: theme.defaultIconSet,
     onClick: function onClick() {
@@ -12383,9 +9890,9 @@ var ShareModule = function ShareModule(_ref8) {
       });
     },
     buttonProps: buttonProps
-  })), /*#__PURE__*/react.createElement(StyledText, {
+  })), /*#__PURE__*/React__default["default"].createElement(StyledText, {
     content: copyText
-  }), /*#__PURE__*/react.createElement(Input, {
+  }), /*#__PURE__*/React__default["default"].createElement(Input, {
     copyable: true,
     valueToCopy: url,
     endIconColor: "secondary",
@@ -12479,7 +9986,7 @@ var mapVariantToIcon = function mapVariantToIcon(variant) {
   }
 };
 
-var Snackbar = /*#__PURE__*/react.forwardRef(function (props, ref) {
+var Snackbar = /*#__PURE__*/React.forwardRef(function (props, ref) {
   var _useSnackbar = notistack.useSnackbar(),
       closeSnackbar = _useSnackbar.closeSnackbar;
 
@@ -12490,28 +9997,28 @@ var Snackbar = /*#__PURE__*/react.forwardRef(function (props, ref) {
     closeSnackbar(props.id);
   };
 
-  return /*#__PURE__*/react.createElement(StyledSnackbarContent, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledSnackbarContent, {
     ref: ref
-  }, /*#__PURE__*/react.createElement(Wrapper$2, {
+  }, /*#__PURE__*/React__default["default"].createElement(Wrapper$2, {
     variant: variant
-  }, /*#__PURE__*/react.createElement(CloseIcon, {
+  }, /*#__PURE__*/React__default["default"].createElement(CloseIcon, {
     onClick: handleDismiss,
     variant: variant
-  }), /*#__PURE__*/react.createElement(Flex, {
+  }), /*#__PURE__*/React__default["default"].createElement(Flex, {
     container: true,
     alignItems: "center"
-  }, /*#__PURE__*/react.createElement(Flex, {
+  }, /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true,
     xs: 2
-  }, /*#__PURE__*/react.createElement(IconWrapper$1, {
+  }, /*#__PURE__*/React__default["default"].createElement(IconWrapper$1, {
     variant: variant
-  }, /*#__PURE__*/react.createElement(StyledIcon$1, {
+  }, /*#__PURE__*/React__default["default"].createElement(StyledIcon$1, {
     icon: icon,
     variant: variant
-  }))), /*#__PURE__*/react.createElement(Flex, {
+  }))), /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true,
     xs: 10
-  }, /*#__PURE__*/react.createElement(Text, {
+  }, /*#__PURE__*/React__default["default"].createElement(Text, {
     content: props.message,
     fontWeight: "bold"
   })))));
@@ -12552,11 +10059,11 @@ var StyledDotsSpinner = styled__default["default"].div.withConfig({
   return SPACER(theme);
 });
 var DotsSpinner = function DotsSpinner(props) {
-  return /*#__PURE__*/react.createElement(StyledDotsSpinner, props, /*#__PURE__*/react.createElement("div", {
+  return /*#__PURE__*/React__default["default"].createElement(StyledDotsSpinner, props, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "bounce1"
-  }), /*#__PURE__*/react.createElement("div", {
+  }), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "bounce2"
-  }), /*#__PURE__*/react.createElement("div", {
+  }), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "bounce3"
   }));
 };
@@ -12612,9 +10119,9 @@ var StyledRocksSpinner = styled__default["default"].div.withConfig({
   return SPACER(theme);
 });
 var RocksSpinner = function RocksSpinner(props) {
-  return /*#__PURE__*/react.createElement(StyledRocksSpinner, props, /*#__PURE__*/react.createElement("div", {
+  return /*#__PURE__*/React__default["default"].createElement(StyledRocksSpinner, props, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "dot"
-  }), /*#__PURE__*/react.createElement("div", {
+  }), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "circle"
   }));
 };
@@ -12632,7 +10139,7 @@ var TabPropTypes = _extends({
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-var _excluded$6 = ["tabs", "currentTab", "onChange"];
+var _excluded$7 = ["tabs", "currentTab", "onChange"];
 var Wrapper$1 = styled__default["default"].div.withConfig({
   displayName: "Tab__Wrapper",
   componentId: "sc-q8ovtf-0"
@@ -12662,9 +10169,9 @@ var Tab = function Tab(_ref4) {
   var tabs = _ref4.tabs,
       currentTab = _ref4.currentTab,
       _onChange = _ref4.onChange,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$6);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$7);
 
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(Wrapper$1, props, /*#__PURE__*/react.createElement(StyledTabs, {
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Wrapper$1, props, /*#__PURE__*/React__default["default"].createElement(StyledTabs, {
     value: currentTab,
     onChange: function onChange(e, newTab) {
       return _onChange(newTab);
@@ -12674,7 +10181,7 @@ var Tab = function Tab(_ref4) {
   }, tabs.filter(function (t) {
     return typeof t.showTab === "boolean" ? t.showTab : true;
   }).map(function (t) {
-    return /*#__PURE__*/react.createElement(StyledTab, {
+    return /*#__PURE__*/React__default["default"].createElement(StyledTab, {
       disabled: t.disabled,
       value: t.index,
       disableRipple: true,
@@ -12736,7 +10243,7 @@ var StyledTd = styled__default["default"].td.withConfig({
 var getContentByColType = function getContentByColType(content, col) {
   switch (col == null ? void 0 : col.type) {
     case "text":
-      return /*#__PURE__*/react.createElement(Text, {
+      return /*#__PURE__*/React__default["default"].createElement(Text, {
         color: "textSecondary",
         content: content,
         fontWeight: "bold"
@@ -12744,7 +10251,7 @@ var getContentByColType = function getContentByColType(content, col) {
 
     case "action":
       return content.map(function (act) {
-        return /*#__PURE__*/react.createElement(Icon, _extends({
+        return /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
           icon: act.icon,
           color: "secondary",
           mx: 4
@@ -12752,7 +10259,7 @@ var getContentByColType = function getContentByColType(content, col) {
       });
 
     case "icon":
-      return /*#__PURE__*/react.createElement(Icon, _extends({
+      return /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
         icon: content.icon,
         color: "secondary",
         size: "lg"
@@ -12769,7 +10276,7 @@ var Rows = function Rows(_ref3) {
       rowsBottomBorderSm = _ref3.rowsBottomBorderSm,
       rowsSize = _ref3.rowsSize;
   return rows.map(function (row) {
-    return /*#__PURE__*/react.createElement(Row, {
+    return /*#__PURE__*/React__default["default"].createElement(Row, {
       hasData: rows.length > 0,
       size: rowsSize
     }, Object.keys(row).map(function (td) {
@@ -12777,7 +10284,7 @@ var Rows = function Rows(_ref3) {
         return c.key === td;
       });
       var content = row[td];
-      return /*#__PURE__*/react.createElement(StyledTd, {
+      return /*#__PURE__*/React__default["default"].createElement(StyledTd, {
         "data-label": (col == null ? void 0 : col.label) || "",
         align: col == null ? void 0 : col.tdAlign,
         displaySm: (col == null ? void 0 : col.displaySm) || "block",
@@ -12802,9 +10309,9 @@ var StyledThead = styled__default["default"].thead.withConfig({
 var Heading = function Heading(_ref2) {
   var columns = _ref2.columns,
       hasData = _ref2.hasData;
-  return columns.length > 0 && /*#__PURE__*/react.createElement(StyledThead, {
+  return columns.length > 0 && /*#__PURE__*/React__default["default"].createElement(StyledThead, {
     hasData: hasData
-  }, /*#__PURE__*/react.createElement(Row, {
+  }, /*#__PURE__*/React__default["default"].createElement(Row, {
     size: "sm",
     hasData: hasData
   }, columns.map(function (_ref3) {
@@ -12812,7 +10319,7 @@ var Heading = function Heading(_ref2) {
         label = _ref3$label === void 0 ? "" : _ref3$label,
         _ref3$render = _ref3.render,
         render = _ref3$render === void 0 ? function () {} : _ref3$render;
-    return /*#__PURE__*/react.createElement("th", null, render() || label && /*#__PURE__*/react.createElement(Text, {
+    return /*#__PURE__*/React__default["default"].createElement("th", null, render() || label && /*#__PURE__*/React__default["default"].createElement(Text, {
       align: "left",
       color: "textSecondary",
       content: label,
@@ -12827,7 +10334,7 @@ Heading.propTypes = {
   hasData: PropTypes__default["default"].bool.isRequired
 };
 
-var _excluded$5 = ["columnsCount"];
+var _excluded$6 = ["columnsCount"];
 var StyledTr = styled__default["default"].tr.withConfig({
   displayName: "NoData__StyledTr",
   componentId: "sc-1si669t-0"
@@ -12837,11 +10344,11 @@ var StyledTr = styled__default["default"].tr.withConfig({
 });
 var NoData = function NoData(_ref2) {
   var columnsCount = _ref2.columnsCount,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$5);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$6);
 
-  return /*#__PURE__*/react.createElement(StyledTr, null, /*#__PURE__*/react.createElement("td", {
+  return /*#__PURE__*/React__default["default"].createElement(StyledTr, null, /*#__PURE__*/React__default["default"].createElement("td", {
     colSpan: columnsCount
-  }, /*#__PURE__*/react.createElement(NoItem, _extends({
+  }, /*#__PURE__*/React__default["default"].createElement(NoItem, _extends({
     my: 4
   }, props))));
 };
@@ -12849,7 +10356,7 @@ NoData.propTypes = {
   columnsCount: PropTypes__default["default"].number.isRequired
 };
 
-var _excluded$4 = ["columns", "rows", "noDataProps", "rowsBottomBorderSm", "rowsSize"];
+var _excluded$5 = ["columns", "rows", "noDataProps", "rowsBottomBorderSm", "rowsSize"];
 var StyledTable = styled__default["default"].table.withConfig({
   displayName: "Table__StyledTable",
   componentId: "sc-1dprpyf-0"
@@ -12872,22 +10379,22 @@ var Table = function Table(_ref3) {
       noDataProps = _ref3.noDataProps,
       rowsBottomBorderSm = _ref3.rowsBottomBorderSm,
       rowsSize = _ref3.rowsSize,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$4);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$5);
 
   var hasData = rows.length > 0;
-  return /*#__PURE__*/react.createElement(StyledTable, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledTable, _extends({
     hasData: hasData
-  }, props), /*#__PURE__*/react.createElement(Heading, {
+  }, props), /*#__PURE__*/React__default["default"].createElement(Heading, {
     columns: columns,
     hasData: hasData
-  }), /*#__PURE__*/react.createElement(StyledTbody, {
+  }), /*#__PURE__*/React__default["default"].createElement(StyledTbody, {
     hasData: hasData
-  }, rows.length > 0 ? /*#__PURE__*/react.createElement(Rows, {
+  }, rows.length > 0 ? /*#__PURE__*/React__default["default"].createElement(Rows, {
     columns: columns,
     rows: rows,
     rowsBottomBorderSm: rowsBottomBorderSm,
     rowsSize: rowsSize
-  }) : /*#__PURE__*/react.createElement(NoData, _extends({
+  }) : /*#__PURE__*/React__default["default"].createElement(NoData, _extends({
     columnsCount: columns.length
   }, noDataProps))));
 };
@@ -12941,14 +10448,14 @@ var ErrorTemplate = function ErrorTemplate(_ref2) {
       subTitle = _ref2.subTitle,
       title = _ref2.title;
   var imgSrc = getImg(image, statusCode);
-  return /*#__PURE__*/react.createElement(ErrorWrapper, null, imgSrc && /*#__PURE__*/react.createElement(StyledImage, {
+  return /*#__PURE__*/React__default["default"].createElement(ErrorWrapper, null, imgSrc && /*#__PURE__*/React__default["default"].createElement(StyledImage, {
     src: imgSrc,
     alt: title,
     mb: 12
-  }), /*#__PURE__*/react.createElement(H1, {
+  }), /*#__PURE__*/React__default["default"].createElement(H1, {
     content: title,
     mb: 2
-  }), subTitle && /*#__PURE__*/react.createElement(Text, {
+  }), subTitle && /*#__PURE__*/React__default["default"].createElement(Text, {
     content: subTitle,
     color: "textSecondary",
     mb: 6
@@ -12976,15 +10483,15 @@ var ImageModal = function ImageModal(_ref2) {
   var isOpen = _ref2.isOpen,
       onClose = _ref2.onClose,
       imgSrc = _ref2.imgSrc;
-  return /*#__PURE__*/react.createElement(Modal, {
+  return /*#__PURE__*/React__default["default"].createElement(Modal, {
     onClose: onClose,
     isOpen: isOpen,
     maxWidth: "sm"
-  }, /*#__PURE__*/react.createElement(CloseModalIcon, {
+  }, /*#__PURE__*/React__default["default"].createElement(CloseModalIcon, {
     color: "secondary",
     icon: "times",
     onClick: onClose
-  }), /*#__PURE__*/react.createElement(StyledImg, {
+  }), /*#__PURE__*/React__default["default"].createElement(StyledImg, {
     src: imgSrc,
     alt: "Attachment preview"
   }));
@@ -13009,7 +10516,7 @@ var ThumbnailDefaultProps = {
   imgSrc: ""
 };
 
-var _excluded$3 = ["hasPreview", "imgSrc", "onClick"];
+var _excluded$4 = ["hasPreview", "imgSrc", "onClick"];
 var Container = styled__default["default"].div.withConfig({
   displayName: "Thumbnail__Container",
   componentId: "sc-142uf10-0"
@@ -13037,13 +10544,13 @@ var Thumbnail = function Thumbnail(_ref3) {
   var hasPreview = _ref3.hasPreview,
       imgSrc = _ref3.imgSrc,
       onClick = _ref3.onClick,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$3);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$4);
 
-  var _useState = react.useState(false),
+  var _useState = React.useState(false),
       loadError = _useState[0],
       setLoadError = _useState[1];
 
-  var _useState2 = react.useState(false),
+  var _useState2 = React.useState(false),
       previewOpen = _useState2[0],
       setPreviewOpen = _useState2[1];
 
@@ -13051,15 +10558,15 @@ var Thumbnail = function Thumbnail(_ref3) {
     if (hasPreview) setPreviewOpen(true);else onClick();
   };
 
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(Container, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Container, _extends({
     onClick: handleClick
-  }, props), loadError ? /*#__PURE__*/react.createElement(StyledIcon, {
+  }, props), loadError ? /*#__PURE__*/React__default["default"].createElement(StyledIcon, {
     color: "secondary",
     icon: "file",
     size: "lg"
-  }) : /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement(IconWrapper, null, /*#__PURE__*/react.createElement(StyledIcon, {
+  }) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(IconWrapper, null, /*#__PURE__*/React__default["default"].createElement(StyledIcon, {
     icon: "search-plus"
-  })), /*#__PURE__*/react.createElement(Image, {
+  })), /*#__PURE__*/React__default["default"].createElement(Image, {
     cover: true,
     src: imgSrc,
     alt: "Thumbnail",
@@ -13067,7 +10574,7 @@ var Thumbnail = function Thumbnail(_ref3) {
       return setLoadError(true);
     },
     width: "48px"
-  }))), hasPreview && /*#__PURE__*/react.createElement(ImageModal, {
+  }))), hasPreview && /*#__PURE__*/React__default["default"].createElement(ImageModal, {
     imgSrc: imgSrc,
     isOpen: previewOpen,
     onClose: function onClose() {
@@ -13094,9 +10601,9 @@ var TooltipDefaultProps = {
   renderContent: function renderContent() {}
 };
 
-var _excluded$2 = ["children", "content", "contentProps", "renderContent"];
+var _excluded$3 = ["children", "content", "contentProps", "renderContent"];
 var StyledTooltip = styled__default["default"](function (props) {
-  return /*#__PURE__*/react.createElement(MuiTooltip__default["default"], _extends({
+  return /*#__PURE__*/React__default["default"].createElement(MuiTooltip__default["default"], _extends({
     classes: {
       popper: props.className,
       tooltip: "tooltip"
@@ -13120,14 +10627,14 @@ var Tooltip = function Tooltip(_ref4) {
       content = _ref4.content,
       contentProps = _ref4.contentProps,
       renderContent = _ref4.renderContent,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$2);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$3);
 
-  return /*#__PURE__*/react.createElement(StyledTooltip, _extends({
-    title: renderContent() || /*#__PURE__*/react.createElement(Text, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledTooltip, _extends({
+    title: renderContent() || /*#__PURE__*/React__default["default"].createElement(Text, _extends({
       fontStyle: "italic",
       size: "sm"
     }, contentProps), content)
-  }, props), /*#__PURE__*/react.createElement("span", null, children));
+  }, props), /*#__PURE__*/React__default["default"].createElement("span", null, children));
 };
 Tooltip.propTypes = TooltipPropTypes;
 Tooltip.defaultProps = TooltipDefaultProps;
@@ -13227,7 +10734,7 @@ var handleScroll = function handleScroll(el) {
   });
 };
 
-var _excluded$1 = ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "isHorizontal", "nextStepMethod", "renderActionButtons", "stepCount", "submitButtonDisabled", "onFinishDisabled", "submitButtonLoading", "showNavigationButtons"];
+var _excluded$2 = ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "isHorizontal", "nextStepMethod", "renderActionButtons", "stepCount", "submitButtonDisabled", "onFinishDisabled", "submitButtonLoading", "showNavigationButtons"];
 var StyledContent = styled__default["default"].div.withConfig({
   displayName: "Content__StyledContent",
   componentId: "sc-196inky-0"
@@ -13266,11 +10773,11 @@ var WizardStepContent = function WizardStepContent(_ref5) {
       onFinishDisabled = _ref5.onFinishDisabled,
       submitButtonLoading = _ref5.submitButtonLoading,
       showNavigationButtons = _ref5.showNavigationButtons,
-      props = _objectWithoutPropertiesLoose(_ref5, _excluded$1);
+      props = _objectWithoutPropertiesLoose(_ref5, _excluded$2);
 
-  return /*#__PURE__*/react.createElement(StyledContent, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(StyledContent, _extends({
     isHorizontal: isHorizontal
-  }, props), children || content, showNavigationButtons && /*#__PURE__*/react.createElement(ActionWrapper, null, isHorizontal && /*#__PURE__*/react.createElement("div", null, /*#__PURE__*/react.createElement(OutlineButton, {
+  }, props), children || content, showNavigationButtons && /*#__PURE__*/React__default["default"].createElement(ActionWrapper, null, isHorizontal && /*#__PURE__*/React__default["default"].createElement("div", null, /*#__PURE__*/React__default["default"].createElement(OutlineButton, {
     color: "secondary",
     disabled: isFirstStep,
     icon: "arrow-left",
@@ -13279,18 +10786,18 @@ var WizardStepContent = function WizardStepContent(_ref5) {
     },
     noPadding: true,
     onClick: handlePrev
-  }), /*#__PURE__*/react.createElement(Text, {
+  }), /*#__PURE__*/React__default["default"].createElement(Text, {
     color: "textSecondary",
     dInline: true,
     fontStyle: "italic",
     ml: 2
-  }, currentStep + " of " + stepCount + " steps")), /*#__PURE__*/react.createElement("div", null, isLastStep && renderActionButtons(), !onFinishDisabled && /*#__PURE__*/react.createElement(Button$1, {
+  }, currentStep + " of " + stepCount + " steps")), /*#__PURE__*/React__default["default"].createElement("div", null, isLastStep && renderActionButtons(), !onFinishDisabled && /*#__PURE__*/React__default["default"].createElement(Button$1, {
     content: isLastStep ? "Finish" : "Next",
     disabled: submitButtonDisabled,
     loading: submitButtonLoading,
     onClick: nextStepMethod === "button" ? handleNext : undefined,
     type: nextStepMethod
-  }), !isLastStep && onFinishDisabled && /*#__PURE__*/react.createElement(Button$1, {
+  }), !isLastStep && onFinishDisabled && /*#__PURE__*/React__default["default"].createElement(Button$1, {
     content: isLastStep ? "Finish" : "Next",
     disabled: submitButtonDisabled,
     loading: submitButtonLoading,
@@ -13410,21 +10917,21 @@ var WizardStepTitle = function WizardStepTitle(_ref7) {
       onClick = _ref7.onClick,
       rightTitle = _ref7.rightTitle,
       transitionDuration = _ref7.transitionDuration;
-  return /*#__PURE__*/react.createElement(StyledTitle, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledTitle, {
     disabled: disabled,
     onClick: onClick,
     isHorizontal: isHorizontal,
     isPassed: isPassed
-  }, /*#__PURE__*/react.createElement(Flag, {
+  }, /*#__PURE__*/React__default["default"].createElement(Flag, {
     isActive: isActive,
     isPassed: isPassed,
     transitionDuration: transitionDuration
-  }, flag), /*#__PURE__*/react.createElement(Label, {
+  }, flag), /*#__PURE__*/React__default["default"].createElement(Label, {
     isActive: isActive,
     isHorizontal: isHorizontal,
     isPassed: isPassed,
     transitionDuration: transitionDuration
-  }, label), rightTitle && !isHorizontal && /*#__PURE__*/react.createElement(RightTitle, null, rightTitle));
+  }, label), rightTitle && !isHorizontal && /*#__PURE__*/React__default["default"].createElement(RightTitle, null, rightTitle));
 };
 WizardStepTitle.propTypes = {
   disabled: PropTypes__default["default"].bool.isRequired,
@@ -13459,7 +10966,7 @@ var WizardDefaultProps = {
   transitionDuration: 250
 };
 
-var _excluded = ["currentStepContent", "currentStepIndex", "headerFadeColor", "nextStepMethod", "orientation", "onFinishDisabled", "renderActionButtons", "setCurrentStepIndex", "steps", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons", "transitionDuration", "backgroundStyle"];
+var _excluded$1 = ["currentStepContent", "currentStepIndex", "headerFadeColor", "nextStepMethod", "orientation", "onFinishDisabled", "renderActionButtons", "setCurrentStepIndex", "steps", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons", "transitionDuration", "backgroundStyle"];
 var Wrapper = styled__default["default"].div.withConfig({
   displayName: "Wizard__Wrapper",
   componentId: "sc-3fjyf3-0"
@@ -13534,20 +11041,20 @@ var Wizard = function Wizard(_ref10) {
       showNavigationButtons = _ref10.showNavigationButtons,
       transitionDuration = _ref10.transitionDuration,
       backgroundStyle = _ref10.backgroundStyle,
-      props = _objectWithoutPropertiesLoose(_ref10, _excluded);
+      props = _objectWithoutPropertiesLoose(_ref10, _excluded$1);
 
-  var stepRef = react.useRef(null);
-  var wrapperRef = /*#__PURE__*/react.createRef();
+  var stepRef = React.useRef(null);
+  var wrapperRef = /*#__PURE__*/React.createRef();
   var isHorizontal = orientation === "horizontal";
   var stepCount = steps.length;
   var isLastStep = currentStepIndex === stepCount - 1;
   var isFirstStep = currentStepIndex === 0;
-  react.useEffect(function () {
+  React.useEffect(function () {
     if (isHorizontal) {
       handleScroll(wrapperRef.current);
     }
   }, []);
-  react.useEffect(function () {
+  React.useEffect(function () {
     if (isHorizontal && stepRef.current) stepRef.current.scrollIntoView({
       block: "end",
       behavior: "smooth"
@@ -13576,7 +11083,7 @@ var Wizard = function Wizard(_ref10) {
     }
   };
 
-  var content = /*#__PURE__*/react.createElement(WizardStepContent, {
+  var content = /*#__PURE__*/React__default["default"].createElement(WizardStepContent, {
     content: ((_steps$currentStepInd = steps[currentStepIndex]) == null ? void 0 : _steps$currentStepInd.content) || currentStepContent,
     currentStep: currentStepIndex + 1,
     isHorizontal: isHorizontal,
@@ -13593,24 +11100,24 @@ var Wizard = function Wizard(_ref10) {
     transitionDuration: transitionDuration,
     onFinishDisabled: onFinishDisabled
   });
-  return /*#__PURE__*/react.createElement(Wrapper, props, /*#__PURE__*/react.createElement(StepsWrapper, {
+  return /*#__PURE__*/React__default["default"].createElement(Wrapper, props, /*#__PURE__*/React__default["default"].createElement(StepsWrapper, {
     headerFadeColor: headerFadeColor,
     isHorizontal: isHorizontal,
     backgroundStyle: backgroundStyle
-  }, /*#__PURE__*/react.createElement(Steps, {
+  }, /*#__PURE__*/React__default["default"].createElement(Steps, {
     isHorizontal: isHorizontal,
     ref: wrapperRef
   }, steps.map(function (step, idx) {
     var isActive = idx === currentStepIndex;
     var isPassed = idx < currentStepIndex;
     var stepKey = "step-" + idx;
-    return /*#__PURE__*/react.createElement(Step, {
+    return /*#__PURE__*/React__default["default"].createElement(Step, {
       isActive: isActive,
       isHorizontal: isHorizontal,
       isPassed: isPassed,
       key: stepKey,
       ref: isActive ? stepRef : null
-    }, /*#__PURE__*/react.createElement(WizardStepTitle, {
+    }, /*#__PURE__*/React__default["default"].createElement(WizardStepTitle, {
       disabled: step == null ? void 0 : step.flagDisabled,
       label: step.title,
       flag: idx + 1,
@@ -13622,7 +11129,7 @@ var Wizard = function Wizard(_ref10) {
       },
       rightTitle: step == null ? void 0 : step.rightTitle,
       transitionDuration: transitionDuration
-    }), !isHorizontal && isActive && content, /*#__PURE__*/react.createElement(StepConnector, {
+    }), !isHorizontal && isActive && content, /*#__PURE__*/React__default["default"].createElement(StepConnector, {
       isActive: isActive,
       isHorizontal: isHorizontal,
       isPassed: isPassed,
@@ -13632,6 +11139,146 @@ var Wizard = function Wizard(_ref10) {
 };
 Wizard.propTypes = WizardPropTypes;
 Wizard.defaultProps = WizardDefaultProps;
+
+var FilesListBaseItem = function FilesListBaseItem(_ref) {
+  var listTitle = _ref.listTitle,
+      files = _ref.files,
+      LinkComponent = _ref.LinkComponent;
+  return /*#__PURE__*/React__default["default"].createElement(StyledStorageList, null, listTitle && /*#__PURE__*/React__default["default"].createElement("h4", null, listTitle), /*#__PURE__*/React__default["default"].createElement("ul", null, files.length === 0 && /*#__PURE__*/React__default["default"].createElement("p", null, "Loading..."), files == null ? void 0 : files.map(function (_ref2, index) {
+    var payload = _ref2.payload;
+    var data = "5/1/2022";
+    var size = "411 KB";
+    console.log(payload.storageOption, index);
+
+    if (payload.storageOption === listTitle || !listTitle) {
+      return /*#__PURE__*/React__default["default"].createElement("li", {
+        className: "single-file"
+      }, /*#__PURE__*/React__default["default"].createElement(LinkComponent, {
+        href: "/admin/fileCenter/file/" + payload.cover[0].id
+      }, /*#__PURE__*/React__default["default"].createElement("div", {
+        className: "image-wrapper"
+      }, /*#__PURE__*/React__default["default"].createElement(Image, {
+        src: payload.cover[0].publicUrl,
+        alt: payload.title,
+        width: 48,
+        height: 48
+      })), /*#__PURE__*/React__default["default"].createElement("div", {
+        className: "data-wrapper"
+      }, /*#__PURE__*/React__default["default"].createElement("div", {
+        className: "title-and-status"
+      }, /*#__PURE__*/React__default["default"].createElement("span", null, payload.title), payload.private && /*#__PURE__*/React__default["default"].createElement(TinyBadge, {
+        label: "Private",
+        ml: 2,
+        color: "white"
+      })), /*#__PURE__*/React__default["default"].createElement("div", {
+        className: "metadata"
+      }, /*#__PURE__*/React__default["default"].createElement("span", null, data, ", "), /*#__PURE__*/React__default["default"].createElement("span", null, size), listTitle && /*#__PURE__*/React__default["default"].createElement("span", null, ", ", listTitle)))), /*#__PURE__*/React__default["default"].createElement("a", {
+        className: "download",
+        download: true,
+        title: "Download",
+        href: "components/common/fileCenter/StorageList"
+      }, /*#__PURE__*/React__default["default"].createElement(Icon, {
+        icon: "arrow-down-to-bracket",
+        prefix: "far"
+      })));
+    }
+  })));
+};
+var StyledStorageList = styled__default["default"].div.withConfig({
+  displayName: "BaseItem__StyledStorageList",
+  componentId: "sc-1gcnlvp-0"
+})(["ul{padding:0;margin:0 0 ", ";list-style:none;li.single-file{display:flex;flex-direction:row;align-items:stretch;margin:0;background:", ";border-radius:8px;&:not(:last-child){margin-bottom:", ";}a.link{display:flex;align-items:center;width:100%;padding:", ";text-decoration:none;color:inherit;.image-wrapper{margin-right:", ";img{border-radius:8px;}}.data-wrapper{.title-and-status{display:flex;align-items:center;margin:0;padding-bottom:", ";font-weight:bold;}}}a.download{display:grid;place-items:center;align-self:stretch;border-radius:0 8px 8px 0;svg{color:", ";margin-inline:", ";}}a.link,a.download{transition:background .3s ease-out;&:hover{background:", ";}}}}h4{font-weight:600;}"], function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.spacing(10);
+}, function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.palette.gray.semiLight;
+}, function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.spacing(2);
+}, function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.spacing(2);
+}, function (_ref7) {
+  var theme = _ref7.theme;
+  return theme.spacing(2);
+}, function (_ref8) {
+  var theme = _ref8.theme;
+  return theme.spacing(1);
+}, function (_ref9) {
+  var theme = _ref9.theme;
+  return theme.palette.gray.black;
+}, function (_ref10) {
+  var theme = _ref10.theme;
+  return theme.spacing(7);
+}, function (_ref11) {
+  var theme = _ref11.theme;
+  return theme.palette.gray.regular;
+});
+RadioListBaseItem.propTypes = _extends({
+  listTitle: PropTypes__default["default"].string,
+  files: PropTypes__default["default"].array,
+  LinkComponent: PropTypes__default["default"].func
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+RadioListBaseItem.defaultProps = {};
+
+var FilesListPropTypes = _extends({
+  anchorEl: PropTypes__default["default"].object,
+  children: PropTypes__default["default"].node,
+  items: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
+    label: PropTypes__default["default"].string
+  })),
+  onClose: PropTypes__default["default"].func,
+  open: PropTypes__default["default"].bool.isRequired,
+  responsive: PropTypes__default["default"].bool
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+var FilesListDefaultProps = {
+  anchorOrigin: {
+    vertical: "bottom",
+    horizontal: "center"
+  },
+  getContentAnchorEl: null,
+  transformOrigin: {
+    vertical: "top",
+    horizontal: "center"
+  }
+};
+
+var _excluded = ["files", "LinkComponent"];
+
+var FilesListBase = function FilesListBase(_ref) {
+  var files = _ref.files,
+      LinkComponent = _ref.LinkComponent,
+      props = _objectWithoutPropertiesLoose(_ref, _excluded);
+
+  return /*#__PURE__*/React__default["default"].createElement(Fieldset, null, /*#__PURE__*/React__default["default"].createElement(FilesListBaseItem, _extends({
+    files: files,
+    LinkComponent: LinkComponent
+  }, props)));
+};
+
+FilesListBase.propTypes = {
+  options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
+    value: PropTypes__default["default"].string,
+    title: PropTypes__default["default"].string,
+    description: PropTypes__default["default"].string,
+    price: PropTypes__default["default"].string,
+    icon: PropTypes__default["default"].string
+  })).isRequired
+};
+var StyledFilesListBase = styled__default["default"](FilesListBase).withConfig({
+  displayName: "FilesList__StyledFilesListBase",
+  componentId: "sc-1nbslim-0"
+})(["", " ", ""], function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
+var FilesList = function FilesList(props) {
+  return /*#__PURE__*/React__default["default"].createElement(StyledFilesListBase, props);
+};
+FilesList.propTypes = FilesListPropTypes;
+FilesList.defaultProps = FilesListDefaultProps;
 
 exports.AdvancedLineItem = AdvancedLineItem;
 exports.Alert = Alert;
@@ -13676,6 +11323,7 @@ exports.Fieldset = Fieldset;
 exports.FileManager = FileManager;
 exports.FilePond = FilePond;
 exports.FileUpload = FileUpload;
+exports.FilesList = FilesList;
 exports.Flex = Flex;
 exports.Form = Form;
 exports.FormDatepicker = FormDatepicker;
@@ -13730,6 +11378,7 @@ exports.Profile = Profile;
 exports.Radio = Radio;
 exports.RadioBase = RadioBase;
 exports.RadioEnhanced = RadioEnhanced;
+exports.RadioList = RadioList;
 exports.RangeSlider = RangeSlider;
 exports.ReactSelect = ReactSelect;
 exports.RocksKitIcons = RocksKitIcons;

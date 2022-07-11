@@ -1,6 +1,6 @@
 {
   "name": "@licenserocks/kit",
-  "version": "3.1.9",
+  "version": "3.1.904",
   "description": "",
   "main": "dist/rockskit.common.js",
   "module": "dist/rockskit.es.js",
@@ -23,6 +23,7 @@
     "@fortawesome/fontawesome-svg-core": "^1.2.32",
     "@fortawesome/free-brands-svg-icons": "^5.15.1",
     "@fortawesome/free-solid-svg-icons": "^5.15.1",
+    "@fortawesome/free-regular-svg-icons": "^6.1.1",
     "@fortawesome/react-fontawesome": "^0.1.11",
     "@material-ui/core": "^4.11.3",
     "@material-ui/lab": "^4.0.0-alpha.57",

@@ -20,13 +20,16 @@ export const main = () => {
     coverSrc: "https://creatorshub.s3.eu-central-1.amazonaws.com/0x5a4e206426c168a62db840d653a420b629b402ae/nftFiles/10/cover/joker.jpg",
     badges: [
       {
-        label: "Badge",
+        label: "Warning Badge",
+        color: "warning"
       },
       {
-        label: "Badge",
+        label: "Error Badge",
+        color: "error"
       },
       {
-        label: "Badge",
+        label: "Gray Badge",
+        color: "gray"
       },
     ],
     details: [
@@ -42,8 +45,10 @@ export const main = () => {
     highlight: "This is highlight",
     megaTitle: "LIM MIRYANG",
     subTitle: "Size: 32 W x 25.5 H x 1 in",
-    title: "Shooting",
-    type: select("Type", ["legacy", "modern", "modernHorizontal"], "modern"),
+    title: text("Title", "Shooting"),
+    type: select("Type", ["legacy", "modern", "modernHorizontal", "claimForFree"], "modern"),
+    buttonText: text("Button Text", "Claim NFT for free"),
+    // addToFavorites: alert("Adding to favorites ❤️"),
   };
 
   return (
