@@ -1,5 +1,8 @@
 # IDE
 .vscode
+.DS_Store
+.idea/
+src/Table/.DS_Store
 
 node_modules
 node_modules_

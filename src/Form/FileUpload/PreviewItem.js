@@ -1,64 +1,11 @@
-/* eslint-disable no-restricted-properties */
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import VideoThumbnail from "react-video-thumbnail";
-import { H4, Image } from "../..";
+import { H4, Image, Text } from "../..";
 import { Icon } from "../../Icon";
+import { DropzoneItemStyles, PreviewWrapperStyles, TrashIcon } from "./SharedStyles";
 import { Input } from "../Input";
-
-const Item = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: ${({ theme }) => theme.spacing(2, 4)};
-  background-color: ${({ theme }) => theme.palette.success.main};
-  color: ${({ theme }) => theme.palette.common.white};
-  font-size: 12px;
-  margin-bottom: ${({ theme }) => theme.spacing(2)};
-  border-radius: 8px;
-
-  .details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    .react-thumbnail-generator {
-      border-radius: 8px;
-      object-fit: cover;
-      width: 48px;
-      height: 48px;
-      margin-right: ${({ theme }) => theme.spacing(2)};
-    }
-  }
-`;
-
-const ActionIcon = styled(Icon)`
-  color: ${({ theme }) => theme.palette.common.white};
-`;
-
-const PreviewWrapper = styled.div`
-  position: relative;
-  width: 48px;
-  height: 48px;
-  border-radius: 8px;
-  background-color: ${({ theme }) => theme.palette.gray.regular};
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: ${({ theme }) => theme.spacing(2)};
-
-  img {
-    border-radius: 8px;
-    object-fit: cover;
-  }
-
-  && {
-    h4 {
-      text-transform: uppercase;
-    }
-  }
-`;
 
 function bytesToSize(bytes) {
   const sizes = ["Bytes", "KB", "MB", "GB", "TB"];
@@ -67,11 +14,14 @@ function bytesToSize(bytes) {
   return `${Math.round(bytes / Math.pow(1024, i), 2)} ${sizes[i]}`;
 }
 
+const IMAGE_PREVIEW_SIZE = 48;
+
 export const UploaderPreviewItem = ({
   file,
   fileNameEditable,
-  onRemoveClick,
   onEdit,
+  index,
+  setFilesArray
 }) => {
   const name = file.altName || file.fileName || file.name;
   const fileExt = name.split(".").pop();
@@ -90,20 +40,22 @@ export const UploaderPreviewItem = ({
     }
   }, [editMode]);
 
+  const handleDelete = () => setFilesArray(prevState => prevState.filter((item, i) => i !== index));
+
   return (
-    <Item key={file.name}>
+    <DropzoneItem key={file.name}>
       <div className="details">
         {file.type.startsWith("image") ? (
           <PreviewWrapper>
             {file.preview ? (
-              <Image alt={name} height="100%" src={file.preview} width="100%" />
+              <Image alt={name} height={IMAGE_PREVIEW_SIZE} src={file.preview} width={IMAGE_PREVIEW_SIZE} />
             ) : (
               <H4 content={fileExt} color="textSecondary" noWrap />
             )}
           </PreviewWrapper>
         ) : null}
         {file.type.startsWith("video") ? (
-          <VideoThumbnail videoUrl={file.preview} width={48} height={48} />
+          <VideoThumbnail videoUrl={file.preview} width={IMAGE_PREVIEW_SIZE} height={IMAGE_PREVIEW_SIZE} />
         ) : null}
 
         <div>
@@ -127,26 +79,51 @@ export const UploaderPreviewItem = ({
           ) : (
             <b>{name}</b>
           )}
-          {file?.size && <div>{bytesToSize(file.size)}</div>}
+          {file?.size && <div>{bytesToSize(String(file.size))}</div>}
         </div>
       </div>
 
       <div className="details">
+        <ActionIcon icon="check" />
+        <Text ml={2} mr={4}>File uploaded</Text>
+
         {fileNameEditable && !editMode && (
           <ActionIcon
+            prefix="far"
             icon="pencil-alt"
             onClick={() => setEditMode(true)}
             mr={2}
+            title="Edit name"
           />
         )}
 
-        {onRemoveClick && (
-          <ActionIcon icon="trash" onClick={() => onRemoveClick(file)} />
-        )}
+        <TrashIcon onClick={handleDelete} />
       </div>
-    </Item>
+    </DropzoneItem>
   );
 };
+
+const DropzoneItem = styled.div`
+  ${DropzoneItemStyles};
+  background-color: ${({ theme }) => theme.palette.green.light};
+
+  .react-thumbnail-generator {
+    border-radius: 8px;
+    object-fit: cover;
+    width: ${IMAGE_PREVIEW_SIZE}px;
+    height: ${IMAGE_PREVIEW_SIZE}px;
+    margin-right: ${({ theme }) => theme.spacing(2)};
+  }
+`;
+
+const ActionIcon = styled(Icon)`
+  color: ${({ theme }) => theme.palette.common.black};
+`;
+
+const PreviewWrapper = styled.div`
+  ${PreviewWrapperStyles};
+  background-color: ${({ theme }) => theme.palette.gray.regular};
+`;
 
 UploaderPreviewItem.propTypes = {
   file: PropTypes.shape({

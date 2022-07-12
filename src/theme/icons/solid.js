@@ -53,6 +53,16 @@ import {
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
+import {
+  faHeart as farHeart,
+  faFileArrowUp as farFileArrowUp,
+  faArrowDownToBracket as farArrowDownToBracket,
+  faPhotoFilmMusic as farPhotoFilmMusic,
+  faTriangleExclamation as farTriangleExclamation,
+  faTrash as farTrash,
+  faPencil as farPencil
+} from "@fortawesome/pro-regular-svg-icons";
+
 export const FreeSolidIconSet = {
   faAngleDown,
   faAngleUp,
@@ -106,4 +116,11 @@ export const FreeSolidIconSet = {
   faTv,
   faUser,
   faUserCircle,
+  farHeart,
+  farFileArrowUp,
+  farArrowDownToBracket,
+  farPhotoFilmMusic,
+  farTriangleExclamation,
+  farTrash,
+  farPencil
 };

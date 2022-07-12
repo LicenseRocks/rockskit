@@ -21,4 +21,11 @@ export const KIT_COLORS = {
     darkYellow: "#5C5800",
     lightYellow: "#FFFC8A",
   },
+  green: {
+    light: "#D9FCD9"
+  },
+  red: {
+    light: "#FCDFD9",
+    dark: "#F15937"
+  }
 };

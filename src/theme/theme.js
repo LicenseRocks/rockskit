@@ -74,6 +74,13 @@ export const RocksKitTheme = ({ colors, fonts, loadingIndicator } = {}) => {
     background: {
       default: colors?.bgColor || KIT_COLORS.gray.light,
     },
+    green: {
+      light: KIT_COLORS.green.light,
+    },
+    red: {
+      light: KIT_COLORS.red.light,
+      dark: KIT_COLORS.red.dark
+    }
   };
 
   const typography = KIT_TYPOGRAPHY(theme);

@@ -6,7 +6,8 @@ import styled, { css } from "styled-components";
 import { UploaderPreview } from "./UploaderPreview";
 import { DISPLAY, SPACER } from "../../theme";
 import { CropModal } from "./CropModal";
-import { FormError } from "..";
+import { DropzoneError } from "..";
+import { Icon } from "../../Icon";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -33,20 +34,31 @@ const DropzoneArea = styled.div`
   justify-content: center;
   color: ${({ theme }) => theme.palette.gray.black};
   margin-bottom: 8px;
+  padding-top: ${({ theme }) => theme.spacing(9)};
+  padding-bottom: ${({ theme }) => theme.spacing(6)};
+
+  span {
+    color: ${({ theme }) => theme.palette.primary.main};
+    font-weight: bold;
+  }
+
+  p {
+    margin: 0;
+    padding: ${({ theme }) => theme.spacing(0, 8)};
+    text-align: center;
+  }
+
+  p:not(:last-child) {
+    padding-top: ${({ theme }) => theme.spacing(4)};
+    padding-bottom: ${({ theme }) => theme.spacing(4)};
+  }
 
   &:hover {
     border-color: ${({ theme }) => theme.palette.gray.medium};
   }
 
-  ${({ hasError }) =>
-    hasError &&
-    css`
-      border-color: ${({ theme }) => theme.palette.error.main};
-      background-color: ${({ theme }) => theme.palette.error.light};
-    `}
-
-  ${({ sizeError }) =>
-    sizeError &&
+  ${({ hasError, errorMessages }) =>
+    (hasError || errorMessages && errorMessages.length > 0) &&
     css`
       border-color: ${({ theme }) => theme.palette.error.main};
       background-color: ${({ theme }) => theme.palette.error.light};
@@ -67,6 +79,10 @@ const DropzoneArea = styled.div`
     `}
 `;
 
+const StyledIcon = styled(Icon)`
+  color: ${({ theme }) => theme.palette.gray.medium};
+`;
+
 export const Dropzone = ({
   crop,
   cropProps,
@@ -80,7 +96,9 @@ export const Dropzone = ({
   ...props
 }) => {
   const [cropFile, setCropFile] = useState();
-  const [sizeError, setSizeError] = useState(false);
+  const [errorMessages, setErrorMessages] = useState(null);
+  const [filesArray, setFilesArray] = useState(null);
+  const acceptedFileSizeInMb = `${(props.maxSize / 1000000).toString().split(".")[0]} MB`;
 
   const setFiles = (files) => {
     const accepted = files.map((file) =>
@@ -90,7 +108,7 @@ export const Dropzone = ({
             ? URL.createObjectURL(file)
             : "",
         altName: null,
-      })
+      }),
     );
 
     if (multiple) onChange([...value, ...accepted]);
@@ -107,14 +125,13 @@ export const Dropzone = ({
         }
 
         return f;
-      })
+      }),
     );
   };
 
   const handleCrop = (file) => {
     setFiles([file]);
     setCropFile();
-    setSizeError(false);
   };
 
   const {
@@ -128,22 +145,45 @@ export const Dropzone = ({
     multiple,
     onDrop: (acceptedFiles) => {
       if (crop && !multiple) {
-        setCropFile(acceptedFiles[0]);
+        setFilesArray(acceptedFiles[0]);
       } else {
-        setFiles(acceptedFiles);
-        setSizeError(false);
+        setFilesArray(prevState => {
+          if (prevState) {
+            return [...prevState, ...acceptedFiles]
+          }
+          return [...acceptedFiles]
+        })
       }
     },
-    onDropRejected: () => {
-      setSizeError(true);
+    onDropRejected: (rejectedItems) => {
+      setErrorMessages(prevState => {
+
+        const newItems = rejectedItems.map((item) => {
+          const errors = item.errors.map(item => {
+            if (item.code === "file-too-large") {
+              return `Max file size is ${acceptedFileSizeInMb}`;
+            } else {
+              return item.message;
+            }
+          });
+
+          return {
+            title: item.file.path,
+            errors: errors,
+          };
+        })
+
+
+        if (prevState) {
+          return newItems.concat(prevState)
+        }
+
+        return newItems;
+      });
     },
     ...props,
   });
-
-  const removeFile = (file) => {
-    onChange(value.filter((f) => f.preview !== file.preview));
-  };
-
+  
   return (
     <>
       <StyledContainer {...props}>
@@ -153,7 +193,7 @@ export const Dropzone = ({
           dragReject={isDragReject}
           disabled={disabled}
           hasError={hasError}
-          sizeError={sizeError}
+          errorMessages={errorMessages}
           {...getRootProps()}
         >
           <input {...getInputProps()} />
@@ -161,32 +201,40 @@ export const Dropzone = ({
           {isDragAccept && <p>Accepted</p>}
           {isDragReject && <p>Rejected</p>}
 
+          <StyledIcon icon="file-arrow-up" prefix="far" size="lg" />
+
           {isDragActive ? (
-            <p>Drop here</p>
+            <p>Drop your files here</p>
           ) : (
             <>
-              <p>Drop, or click to select</p>
+              <p>Drop your files here
+                <span> or select from computer</span>
+              </p>
               {multiple ? (
-                <p>Accepts multiple files</p>
+                <p>Add up multiple files. Supports {props.accept} file formats. Max {acceptedFileSizeInMb} per file.</p>
               ) : (
-                <p>Single file only</p>
+                <p>Single file only. Supports {props.accept} file formats. Max {acceptedFileSizeInMb} per file.</p>
               )}
             </>
           )}
         </DropzoneArea>
 
-        <UploaderPreview
-          files={value}
-          fileNameEditable={fileNameEditable}
-          onRemoveClick={removeFile}
-          onEdit={editFile}
-        />
-        {sizeError === true && (
-          <FormError
-            message={`Uploading size limit is ${parseFloat(
-              (props.maxSize / 1024 / 1024).toFixed(2)
-            )} MB, please attach smaller file`}
+        {filesArray &&
+          <UploaderPreview
+            files={filesArray}
+            fileNameEditable={fileNameEditable}
+            onEdit={editFile}
+            setFilesArray={setFilesArray}
           />
+        }
+        {errorMessages && errorMessages.map((item, index) =>
+          <DropzoneError
+            key={item.title+index}
+            title={item.title}
+            errors={item.errors}
+            index={index}
+            setErrorMessages={setErrorMessages}
+          />,
         )}
       </StyledContainer>
 
@@ -223,6 +271,7 @@ Dropzone.defaultProps = {
   fileNameEditable: false,
   hasError: false,
   multiple: true,
-  onChange: () => {},
+  onChange: () => {
+  },
   value: [],
 };
