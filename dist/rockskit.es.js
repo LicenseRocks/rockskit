@@ -4111,7 +4111,7 @@ var StyledContainer$3 = styled.div.withConfig({
 var DropzoneArea = styled.div.withConfig({
   displayName: "Dropzone__DropzoneArea",
   componentId: "sc-1yejosv-1"
-})(["background-color:", ";border-color:", ";border-radius:16px;border-style:dashed;border-width:2px;cursor:pointer;min-height:125px;outline:none;transition:all 100ms ease-in-out;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:", ";margin-bottom:8px;padding-top:", ";padding-bottom:", ";span{color:", ";font-weight:bold;}p{margin:0;}p:not(:last-child){padding-top:", ";padding-bottom:", ";}&:hover{border-color:", ";}", " ", " ", " ", ""], function (_ref) {
+})(["background-color:", ";border-color:", ";border-radius:16px;border-style:dashed;border-width:2px;cursor:pointer;min-height:125px;outline:none;transition:all 100ms ease-in-out;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:", ";margin-bottom:8px;padding-top:", ";padding-bottom:", ";span{color:", ";font-weight:bold;}p{margin:0;padding:", ";text-align:center;}p:not(:last-child){padding-top:", ";padding-bottom:", ";}&:hover{border-color:", ";}", " ", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -4131,65 +4131,62 @@ var DropzoneArea = styled.div.withConfig({
   return theme.palette.primary.main;
 }, function (_ref7) {
   var theme = _ref7.theme;
-  return theme.spacing(4);
+  return theme.spacing(0, 8);
 }, function (_ref8) {
   var theme = _ref8.theme;
   return theme.spacing(4);
 }, function (_ref9) {
   var theme = _ref9.theme;
-  return theme.palette.gray.medium;
+  return theme.spacing(4);
 }, function (_ref10) {
-  var hasError = _ref10.hasError;
-  return hasError && css(["border-color:", ";background-color:", ";"], function (_ref11) {
-    var theme = _ref11.theme;
-    return theme.palette.error.main;
-  }, function (_ref12) {
+  var theme = _ref10.theme;
+  return theme.palette.gray.medium;
+}, function (_ref11) {
+  var hasError = _ref11.hasError,
+      errorMessages = _ref11.errorMessages;
+  return (hasError || errorMessages) && css(["border-color:", ";background-color:", ";"], function (_ref12) {
     var theme = _ref12.theme;
-    return theme.palette.error.light;
-  });
-}, function (_ref13) {
-  var sizeError = _ref13.sizeError;
-  return sizeError && css(["border-color:", ";background-color:", ";"], function (_ref14) {
-    var theme = _ref14.theme;
     return theme.palette.error.main;
-  }, function (_ref15) {
-    var theme = _ref15.theme;
+  }, function (_ref13) {
+    var theme = _ref13.theme;
     return theme.palette.error.light;
   });
-}, function (_ref16) {
-  var disabled = _ref16.disabled;
+}, function (_ref14) {
+  var disabled = _ref14.disabled;
   return disabled && css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
-}, function (_ref17) {
-  var dragActive = _ref17.dragActive,
-      theme = _ref17.theme;
+}, function (_ref15) {
+  var dragActive = _ref15.dragActive,
+      theme = _ref15.theme;
   return dragActive && css(["border-color:", ";"], theme.palette.gray.medium);
 });
 var StyledIcon$5 = styled(Icon).withConfig({
   displayName: "Dropzone__StyledIcon",
   componentId: "sc-1yejosv-2"
-})(["color:", ";"], function (_ref18) {
-  var theme = _ref18.theme;
+})(["color:", ";"], function (_ref16) {
+  var theme = _ref16.theme;
   return theme.palette.gray.medium;
 });
-var Dropzone = function Dropzone(_ref19) {
-  var crop = _ref19.crop,
-      cropProps = _ref19.cropProps,
-      disabled = _ref19.disabled;
-      _ref19.defaultValue;
-      var fileNameEditable = _ref19.fileNameEditable,
-      hasError = _ref19.hasError,
-      multiple = _ref19.multiple,
-      onChange = _ref19.onChange,
-      value = _ref19.value,
-      props = _objectWithoutPropertiesLoose(_ref19, _excluded$17);
+var Dropzone = function Dropzone(_ref17) {
+  var crop = _ref17.crop,
+      cropProps = _ref17.cropProps,
+      disabled = _ref17.disabled;
+      _ref17.defaultValue;
+      var fileNameEditable = _ref17.fileNameEditable,
+      hasError = _ref17.hasError,
+      multiple = _ref17.multiple,
+      onChange = _ref17.onChange,
+      value = _ref17.value,
+      props = _objectWithoutPropertiesLoose(_ref17, _excluded$17);
 
   var _useState = useState(),
       cropFile = _useState[0],
       setCropFile = _useState[1];
 
-  var _useState2 = useState(false),
-      sizeError = _useState2[0],
-      setSizeError = _useState2[1];
+  var _useState2 = useState(null),
+      errorMessages = _useState2[0],
+      setErrorMessages = _useState2[1];
+
+  var acceptedFileSizeInMb = (props.maxSize / 1000000).toString().split(".")[0] + " MB";
 
   var setFiles = function setFiles(files) {
     var accepted = files.map(function (file) {
@@ -4216,22 +4213,31 @@ var Dropzone = function Dropzone(_ref19) {
   var handleCrop = function handleCrop(file) {
     setFiles([file]);
     setCropFile();
-    setSizeError(false);
   };
 
   var _useDropzone = useDropzone(_extends({
     disabled: disabled,
     multiple: multiple,
     onDrop: function onDrop(acceptedFiles) {
+      setErrorMessages(null);
+
       if (crop && !multiple) {
         setCropFile(acceptedFiles[0]);
       } else {
         setFiles(acceptedFiles);
-        setSizeError(false);
       }
     },
-    onDropRejected: function onDropRejected() {
-      setSizeError(true);
+    onDropRejected: function onDropRejected(rejectedItems) {
+      setErrorMessages(rejectedItems.map(function (item) {
+        var errors = item.errors.map(function (item) {
+          if (item.code === "file-too-large") {
+            return "Max file size is: " + acceptedFileSizeInMb;
+          } else {
+            return item.message;
+          }
+        }).toString().replace(",", ". ");
+        return item.file.path + ": " + errors;
+      }));
     }
   }, props)),
       getRootProps = _useDropzone.getRootProps,
@@ -4242,7 +4248,7 @@ var Dropzone = function Dropzone(_ref19) {
 
   var removeFile = function removeFile(file) {
     onChange(value.filter(function (f) {
-      return f.preview !== file.preview;
+      return f.path !== file.path;
     }));
   };
 
@@ -4252,18 +4258,21 @@ var Dropzone = function Dropzone(_ref19) {
     dragReject: isDragReject,
     disabled: disabled,
     hasError: hasError,
-    sizeError: sizeError
+    errorMessages: errorMessages
   }, getRootProps()), /*#__PURE__*/React.createElement("input", getInputProps()), isDragAccept && /*#__PURE__*/React.createElement("p", null, "Accepted"), isDragReject && /*#__PURE__*/React.createElement("p", null, "Rejected"), /*#__PURE__*/React.createElement(StyledIcon$5, {
     icon: "file-arrow-up",
     prefix: "far",
     size: "lg"
-  }), isDragActive ? /*#__PURE__*/React.createElement("p", null, "Drop your files here") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Drop your files here", /*#__PURE__*/React.createElement("span", null, " or select from computer")), multiple ? /*#__PURE__*/React.createElement("p", null, "Add up to 20MB, supports multiple file formats") : /*#__PURE__*/React.createElement("p", null, "Single file only, supports multiple file formats"))), /*#__PURE__*/React.createElement(UploaderPreview, {
+  }), isDragActive ? /*#__PURE__*/React.createElement("p", null, "Drop your files here") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Drop your files here", /*#__PURE__*/React.createElement("span", null, " or select from computer")), multiple ? /*#__PURE__*/React.createElement("p", null, "Add up multiple files. Supports ", props.accept, " file formats. Max ", acceptedFileSizeInMb, " per file.") : /*#__PURE__*/React.createElement("p", null, "Single file only. Supports ", props.accept, " file formats. Max ", acceptedFileSizeInMb, " per file."))), /*#__PURE__*/React.createElement(UploaderPreview, {
     files: value,
     fileNameEditable: fileNameEditable,
     onRemoveClick: removeFile,
     onEdit: editFile
-  }), sizeError === true && /*#__PURE__*/React.createElement(FormError, {
-    message: "Uploading size limit is " + parseFloat((props.maxSize / 1024 / 1024).toFixed(2)) + " MB, please attach smaller file"
+  }), errorMessages && errorMessages.map(function (item) {
+    return /*#__PURE__*/React.createElement(FormError, {
+      key: item,
+      message: item
+    });
   })), /*#__PURE__*/React.createElement(CropModal, _extends({
     isOpen: !!cropFile,
     onClose: function onClose() {

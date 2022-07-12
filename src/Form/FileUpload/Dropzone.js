@@ -44,6 +44,8 @@ const DropzoneArea = styled.div`
   
   p {
     margin: 0;
+    padding: ${({ theme }) => theme.spacing(0, 8)};
+    text-align: center;
   }
   
   p:not(:last-child) {
@@ -55,15 +57,8 @@ const DropzoneArea = styled.div`
     border-color: ${({ theme }) => theme.palette.gray.medium};
   }
 
-  ${({ hasError }) =>
-    hasError &&
-    css`
-      border-color: ${({ theme }) => theme.palette.error.main};
-      background-color: ${({ theme }) => theme.palette.error.light};
-    `}
-
-  ${({ sizeError }) =>
-    sizeError &&
+  ${({ hasError, errorMessages }) =>
+    (hasError || errorMessages) &&
     css`
       border-color: ${({ theme }) => theme.palette.error.main};
       background-color: ${({ theme }) => theme.palette.error.light};
@@ -101,7 +96,8 @@ export const Dropzone = ({
   ...props
 }) => {
   const [cropFile, setCropFile] = useState();
-  const [sizeError, setSizeError] = useState(false);
+  const [errorMessages, setErrorMessages] = useState(null);
+  const acceptedFileSizeInMb = `${(props.maxSize / 1000000).toString().split(".")[0]} MB`
 
   const setFiles = (files) => {
     const accepted = files.map((file) =>
@@ -135,7 +131,6 @@ export const Dropzone = ({
   const handleCrop = (file) => {
     setFiles([file]);
     setCropFile();
-    setSizeError(false);
   };
 
   const {
@@ -148,21 +143,31 @@ export const Dropzone = ({
     disabled,
     multiple,
     onDrop: (acceptedFiles) => {
+      setErrorMessages(null)
       if (crop && !multiple) {
         setCropFile(acceptedFiles[0]);
       } else {
         setFiles(acceptedFiles);
-        setSizeError(false);
       }
     },
-    onDropRejected: () => {
-      setSizeError(true);
+    onDropRejected: (rejectedItems) => {
+      setErrorMessages(rejectedItems.map(item => {
+        const errors = item.errors.map(item => {
+          if (item.code === "file-too-large") {
+            return `Max file size is: ${acceptedFileSizeInMb}`
+          } else {
+            return item.message
+          }
+        }).toString().replace(",", ". ")
+
+        return `${item.file.path}: ${errors}`
+      }))
     },
     ...props,
   });
 
   const removeFile = (file) => {
-    onChange(value.filter((f) => f.preview !== file.preview));
+    onChange(value.filter((f) => f.path !== file.path));
   };
 
   return (
@@ -174,7 +179,7 @@ export const Dropzone = ({
           dragReject={isDragReject}
           disabled={disabled}
           hasError={hasError}
-          sizeError={sizeError}
+          errorMessages={errorMessages}
           {...getRootProps()}
         >
           <input {...getInputProps()} />
@@ -192,9 +197,9 @@ export const Dropzone = ({
                 <span> or select from computer</span>
               </p>
               {multiple ? (
-                <p>Add up to 20MB, supports multiple file formats</p>
+                <p>Add up multiple files. Supports {props.accept} file formats. Max {acceptedFileSizeInMb} per file.</p>
               ) : (
-                <p>Single file only, supports multiple file formats</p>
+                <p>Single file only. Supports {props.accept} file formats. Max {acceptedFileSizeInMb} per file.</p>
               )}
             </>
           )}
@@ -206,11 +211,10 @@ export const Dropzone = ({
           onRemoveClick={removeFile}
           onEdit={editFile}
         />
-        {sizeError === true && (
+        {errorMessages && errorMessages.map(item =>
           <FormError
-            message={`Uploading size limit is ${parseFloat(
-              (props.maxSize / 1024 / 1024).toFixed(2)
-            )} MB, please attach smaller file`}
+            key={item}
+            message={item}
           />
         )}
       </StyledContainer>
