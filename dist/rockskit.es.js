@@ -1689,7 +1689,7 @@ var BoxBaseDefaultProps = {
 var StyledBox = styled.div.withConfig({
   displayName: "Base__StyledBox",
   componentId: "sc-mw8136-0"
-})(["background-color:", ";", " width:100%;box-sizing:border-box;border-radius:16px;position:relative;overflow:hidden;box-shadow:", ";", " ", " ", ""], function (_ref) {
+})(["background-color:", ";", " width:100%;box-sizing:border-box;border-radius:16px;position:relative;box-shadow:", ";", " ", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
