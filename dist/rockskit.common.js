@@ -1650,7 +1650,6 @@ var ChipBadge = function ChipBadge(_ref5) {
       props = _objectWithoutPropertiesLoose(_ref5, _excluded$1w);
 
   var contentColor = ["success", "black", "error", "darkYellow"].includes(color) ? "white" : "black";
-  console.log("🎉 color: ", color);
   return /*#__PURE__*/React__default["default"].createElement(StyledChip, _extends({
     color: color,
     textColor: contentColor
@@ -1736,7 +1735,7 @@ var BoxBaseDefaultProps = {
 var StyledBox = styled__default["default"].div.withConfig({
   displayName: "Base__StyledBox",
   componentId: "sc-mw8136-0"
-})(["background-color:", ";", " width:100%;box-sizing:border-box;border-radius:16px;position:relative;overflow:hidden;box-shadow:", ";", " ", " ", ""], function (_ref) {
+})(["background-color:", ";", " width:100%;box-sizing:border-box;border-radius:16px;position:relative;box-shadow:", ";", " ", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
@@ -5668,8 +5667,6 @@ var RadioListBaseItem = function RadioListBaseItem(_ref15) {
       props = _objectWithoutPropertiesLoose(_ref15, _excluded$O);
 
   var id = name + "-" + value;
-  console.log("🎉 activeLabel: ", activeLabel);
-  console.log("🎉 active: ", active);
   return /*#__PURE__*/React__default["default"].createElement("div", {
     className: "radio-wrapper"
   }, /*#__PURE__*/React__default["default"].createElement(StyledInput, _extends({
@@ -5726,18 +5723,18 @@ var RadioListPropTypes = _extends({
   options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
     value: PropTypes__default["default"].string,
     title: PropTypes__default["default"].string,
-    description: PropTypes__default["default"].string,
-    price: PropTypes__default["default"].string,
-    icon: PropTypes__default["default"].string
+    info: PropTypes__default["default"].string,
+    icon: PropTypes__default["default"].string,
+    iconPrefix: PropTypes__default["default"].string
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var RadioListDefaultProps = {
   options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
     value: "value",
     title: "Title",
-    description: "Description",
-    price: "Free",
-    icon: "tv"
+    info: "Description",
+    icon: "photo-film-music",
+    iconPrefix: "far"
   }))
 };
 
@@ -5758,9 +5755,9 @@ RadioListBase.propTypes = {
   options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
     value: PropTypes__default["default"].string,
     title: PropTypes__default["default"].string,
-    description: PropTypes__default["default"].string,
-    price: PropTypes__default["default"].string,
-    icon: PropTypes__default["default"].string
+    info: PropTypes__default["default"].string,
+    icon: PropTypes__default["default"].string,
+    iconPrefix: PropTypes__default["default"].string
   })).isRequired
 };
 var StyledRadioListBase = styled__default["default"](RadioListBase).withConfig({
@@ -11148,7 +11145,6 @@ var FilesListBaseItem = function FilesListBaseItem(_ref) {
     var payload = _ref2.payload;
     var data = "5/1/2022";
     var size = "411 KB";
-    console.log(payload.storageOption, index);
 
     if (payload.storageOption === listTitle || !listTitle) {
       return /*#__PURE__*/React__default["default"].createElement("li", {
@@ -11223,25 +11219,14 @@ RadioListBaseItem.propTypes = _extends({
 RadioListBaseItem.defaultProps = {};
 
 var FilesListPropTypes = _extends({
-  anchorEl: PropTypes__default["default"].object,
-  children: PropTypes__default["default"].node,
-  items: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
-    label: PropTypes__default["default"].string
-  })),
-  onClose: PropTypes__default["default"].func,
-  open: PropTypes__default["default"].bool.isRequired,
-  responsive: PropTypes__default["default"].bool
+  listTitle: PropTypes__default["default"].string,
+  files: PropTypes__default["default"].array,
+  LinkComponent: PropTypes__default["default"].func
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FilesListDefaultProps = {
-  anchorOrigin: {
-    vertical: "bottom",
-    horizontal: "center"
-  },
-  getContentAnchorEl: null,
-  transformOrigin: {
-    vertical: "top",
-    horizontal: "center"
-  }
+  listTitle: "List Title",
+  files: PropTypes__default["default"].array,
+  LinkComponent: PropTypes__default["default"].func
 };
 
 var _excluded = ["files", "LinkComponent"];
@@ -11258,13 +11243,9 @@ var FilesListBase = function FilesListBase(_ref) {
 };
 
 FilesListBase.propTypes = {
-  options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
-    value: PropTypes__default["default"].string,
-    title: PropTypes__default["default"].string,
-    description: PropTypes__default["default"].string,
-    price: PropTypes__default["default"].string,
-    icon: PropTypes__default["default"].string
-  })).isRequired
+  listTitle: PropTypes.string,
+  files: PropTypes.array.isRequired,
+  LinkComponent: PropTypes.func.isRequired
 };
 var StyledFilesListBase = styled__default["default"](FilesListBase).withConfig({
   displayName: "FilesList__StyledFilesListBase",

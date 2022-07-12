@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect, forwardRef, createRef, Children, Fragment, useRef } from 'react';
-import PropTypes, { bool, func, oneOf, number } from 'prop-types';
+import PropTypes, { bool, func, oneOf, number, string, array } from 'prop-types';
 import styled, { createGlobalStyle, css, useTheme, ThemeProvider as ThemeProvider$1 } from 'styled-components';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -1603,7 +1603,6 @@ var ChipBadge = function ChipBadge(_ref5) {
       props = _objectWithoutPropertiesLoose(_ref5, _excluded$1w);
 
   var contentColor = ["success", "black", "error", "darkYellow"].includes(color) ? "white" : "black";
-  console.log("🎉 color: ", color);
   return /*#__PURE__*/React.createElement(StyledChip, _extends({
     color: color,
     textColor: contentColor
@@ -1689,7 +1688,7 @@ var BoxBaseDefaultProps = {
 var StyledBox = styled.div.withConfig({
   displayName: "Base__StyledBox",
   componentId: "sc-mw8136-0"
-})(["background-color:", ";", " width:100%;box-sizing:border-box;border-radius:16px;position:relative;overflow:hidden;box-shadow:", ";", " ", " ", ""], function (_ref) {
+})(["background-color:", ";", " width:100%;box-sizing:border-box;border-radius:16px;position:relative;box-shadow:", ";", " ", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
@@ -5621,8 +5620,6 @@ var RadioListBaseItem = function RadioListBaseItem(_ref15) {
       props = _objectWithoutPropertiesLoose(_ref15, _excluded$O);
 
   var id = name + "-" + value;
-  console.log("🎉 activeLabel: ", activeLabel);
-  console.log("🎉 active: ", active);
   return /*#__PURE__*/React.createElement("div", {
     className: "radio-wrapper"
   }, /*#__PURE__*/React.createElement(StyledInput, _extends({
@@ -5679,18 +5676,18 @@ var RadioListPropTypes = _extends({
   options: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.string,
     title: PropTypes.string,
-    description: PropTypes.string,
-    price: PropTypes.string,
-    icon: PropTypes.string
+    info: PropTypes.string,
+    icon: PropTypes.string,
+    iconPrefix: PropTypes.string
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var RadioListDefaultProps = {
   options: PropTypes.arrayOf(PropTypes.shape({
     value: "value",
     title: "Title",
-    description: "Description",
-    price: "Free",
-    icon: "tv"
+    info: "Description",
+    icon: "photo-film-music",
+    iconPrefix: "far"
   }))
 };
 
@@ -5711,9 +5708,9 @@ RadioListBase.propTypes = {
   options: PropTypes.arrayOf(PropTypes.shape({
     value: PropTypes.string,
     title: PropTypes.string,
-    description: PropTypes.string,
-    price: PropTypes.string,
-    icon: PropTypes.string
+    info: PropTypes.string,
+    icon: PropTypes.string,
+    iconPrefix: PropTypes.string
   })).isRequired
 };
 var StyledRadioListBase = styled(RadioListBase).withConfig({
@@ -11101,7 +11098,6 @@ var FilesListBaseItem = function FilesListBaseItem(_ref) {
     var payload = _ref2.payload;
     var data = "5/1/2022";
     var size = "411 KB";
-    console.log(payload.storageOption, index);
 
     if (payload.storageOption === listTitle || !listTitle) {
       return /*#__PURE__*/React.createElement("li", {
@@ -11176,25 +11172,14 @@ RadioListBaseItem.propTypes = _extends({
 RadioListBaseItem.defaultProps = {};
 
 var FilesListPropTypes = _extends({
-  anchorEl: PropTypes.object,
-  children: PropTypes.node,
-  items: PropTypes.arrayOf(PropTypes.shape({
-    label: PropTypes.string
-  })),
-  onClose: PropTypes.func,
-  open: PropTypes.bool.isRequired,
-  responsive: PropTypes.bool
+  listTitle: PropTypes.string,
+  files: PropTypes.array,
+  LinkComponent: PropTypes.func
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FilesListDefaultProps = {
-  anchorOrigin: {
-    vertical: "bottom",
-    horizontal: "center"
-  },
-  getContentAnchorEl: null,
-  transformOrigin: {
-    vertical: "top",
-    horizontal: "center"
-  }
+  listTitle: "List Title",
+  files: PropTypes.array,
+  LinkComponent: PropTypes.func
 };
 
 var _excluded = ["files", "LinkComponent"];
@@ -11211,13 +11196,9 @@ var FilesListBase = function FilesListBase(_ref) {
 };
 
 FilesListBase.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string,
-    price: PropTypes.string,
-    icon: PropTypes.string
-  })).isRequired
+  listTitle: string,
+  files: array.isRequired,
+  LinkComponent: func.isRequired
 };
 var StyledFilesListBase = styled(FilesListBase).withConfig({
   displayName: "FilesList__StyledFilesListBase",
