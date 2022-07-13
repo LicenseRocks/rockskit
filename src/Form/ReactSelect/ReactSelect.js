@@ -42,6 +42,7 @@ const ReactSelectWrapper = styled.div`
     font-size: 14px;
     line-height: 160%;
     padding: ${({ theme }) => theme.spacing(2, 4)};
+    border-radius: 16px;
   }
 
   .react-select__option--is-focused {
@@ -53,6 +54,7 @@ const ReactSelectWrapper = styled.div`
   .react-select__option--is-selected {
     color: ${({ theme }) => theme.palette.common.white};
     background-color: ${({ theme }) => theme.palette.primary.main};
+    border-radius: 16px;
   }
 
   ${({ hasError }) =>
