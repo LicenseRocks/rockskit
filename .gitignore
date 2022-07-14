@@ -6,3 +6,8 @@ node_modules_
 package-dev.json
 yarn-error.log
 .cache
+
+.DS_Store
+.idea/
+src/Table/.DS_Store
+storybook-static/

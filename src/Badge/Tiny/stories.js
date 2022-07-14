@@ -1,5 +1,5 @@
 import React from "react";
-import { select, text } from "@storybook/addon-knobs";
+import { select, text, boolean } from "@storybook/addon-knobs";
 
 import { StoryWrapper } from "../../../.storybook/decorators";
 import { THEME_COLORS } from "../../theme";
@@ -12,7 +12,7 @@ export default {
 
 export const main = () => {
   const defaultProps = {
-    color: select("Color", THEME_COLORS, "primary"),
+    color: select("Color", THEME_COLORS, "black"),
     label: text("Chip label", "Label"),
   };
 

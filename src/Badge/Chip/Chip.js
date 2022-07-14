@@ -2,7 +2,8 @@ import React from "react";
 import styled, { css } from "styled-components";
 
 import { ChipBadgePropTypes, ChipBadgeDefaultProps } from "./props";
-import { Icon, DISPLAY, SPACER } from "../..";
+import { DISPLAY, SPACER } from "../..";
+import { Icon } from "../../Icon"
 import { Text } from "../../Typography";
 
 const StyledChip = styled.div`
@@ -15,11 +16,19 @@ const StyledChip = styled.div`
   min-height: 32px;
   width: max-content;
 
-  ${({ color, theme }) =>
+  ${({ color, theme, textColor }) =>
     css`
-      padding: ${theme.spacing(2)};
-      background-color: ${theme.palette[color].light};
-      color: ${theme.palette[color].main};
+      padding: ${theme.spacing(2, 3)};
+      background-color: ${theme.palette[color].main};
+      color: ${theme.palette[textColor].main};
+    `}
+
+  ${({ color }) => ["primary", "secondary"].includes(color)
+    && css`
+      svg {
+        mix-blend-mode: exclusion;
+        filter: invert(1);
+      }
     `}
 
   ${(theme) => SPACER(theme)}
@@ -29,14 +38,28 @@ const StyledChip = styled.div`
 const StyledLabel = styled(Text).attrs(() => ({
   fontWeight: "bold",
 }))`
-  padding-left: ${({ theme }) => theme.spacing(2)};
+  
+  ${({ labelColor }) => ["primary", "secondary"].includes(labelColor)
+    && css`
+      mix-blend-mode: exclusion;
+      filter: invert(1);
+    `}
+`;
+
+const StyledIcon = styled(Icon)`
+  margin-right: ${({ theme, icon }) => icon && theme.spacing(2)};
 `;
 
 export const ChipBadge = ({ color, icon, label, ...props }) => {
+  const contentColor =
+    ["success", "black", "error", "darkYellow"].includes(color)
+      ? "white"
+      : "black"
+
   return (
-    <StyledChip color={color} {...props}>
-      <Icon color={color} icon={icon} />
-      {label && <StyledLabel>{label}</StyledLabel>}
+    <StyledChip color={color} textColor={contentColor} {...props}>
+      {icon && <StyledIcon color={contentColor} icon={icon} />}
+      {label && <StyledLabel icon={icon} labelColor={color} color="initial">{label}</StyledLabel>}
     </StyledChip>
   );
 };

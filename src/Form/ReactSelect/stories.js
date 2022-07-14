@@ -6,7 +6,7 @@ import React from "react";
 import { boolean } from "@storybook/addon-knobs";
 import { useForm } from "react-hook-form";
 
-import { Button, FormError, ReactSelect, Box } from "../..";
+import { Button, FormError, ReactSelect } from "../..";
 import { StoryWrapper } from "../../../.storybook/decorators";
 
 const OPTIONS = [
@@ -117,25 +117,4 @@ export const withSelectAll = (props = {}) => {
   console.log("values: ", values);
 
   return <ReactSelect {...defaultProps} />;
-};
-
-export const withinBox = (props = {}) => {
-  const { control, errors } = useForm();
-
-  const defaultProps = {
-    allowSelectAll: true,
-    control,
-    errors,
-    hasError: boolean("Has error", false),
-    isClearable: true,
-    name: "reactSelect",
-    options: OPTIONS,
-    ...props,
-  };
-
-  return (
-    <Box>
-      <ReactSelect {...defaultProps} />
-    </Box>
-  );
 };
