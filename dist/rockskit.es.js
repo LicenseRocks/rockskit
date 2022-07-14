@@ -4704,7 +4704,7 @@ var _excluded$_ = ["async", "cacheOptions", "control", "defaultOptions", "defaul
 var ReactSelectWrapper = styled.div.withConfig({
   displayName: "ReactSelect__ReactSelectWrapper",
   componentId: "sc-xq5gfv-0"
-})(["flex:1;.react-select__control{border-radius:12px;color:", ";padding:", ";height:40px;box-sizing:border-box;box-shadow:none;border-color:", ";font-weight:600;font-size:14px;line-height:120%;}.react-select__control--is-focused{border-color:", ";}.react-select__menu{border-radius:12px;}.react-select__option{font-weight:300;font-size:14px;line-height:160%;padding:", ";}.react-select__option--is-focused{background-color:", ";color:", ";}.react-select__option:hover,.react-select__option--is-selected{color:", ";background-color:", ";}", " ", " ", ""], function (_ref) {
+})(["flex:1;.react-select__control{border-radius:12px;color:", ";padding:", ";height:40px;box-sizing:border-box;box-shadow:none;border-color:", ";font-weight:600;font-size:14px;line-height:120%;}.react-select__control--is-focused{border-color:", ";}.react-select__menu{border-radius:12px;}.react-select__option{font-weight:300;font-size:14px;line-height:160%;padding:", ";border-radius:16px;}.react-select__option--is-focused{background-color:", ";color:", ";}.react-select__option:hover,.react-select__option--is-selected{color:", ";background-color:", ";border-radius:16px;}", " ", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.text.primary;
 }, function (_ref2) {
