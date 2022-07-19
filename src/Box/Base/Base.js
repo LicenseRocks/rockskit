@@ -13,14 +13,14 @@ const StyledBox = styled.div`
   position: relative;
 
   box-shadow: ${({ shadow }) => {
-    if (shadow === "long") return "0px 16px 56px rgba(41, 40, 57, 0.16)";
-    if (shadow === "normal") return "0px 8px 32px rgba(41, 40, 57, 0.08)";
-    return "none";
-  }};
+  if (shadow === "long") return "0px 16px 56px rgba(41, 40, 57, 0.16)";
+  if (shadow === "normal") return "0px 8px 32px rgba(41, 40, 57, 0.08)";
+  return "none";
+}};
 
   ${({ transparentSm, theme }) =>
-    transparentSm &&
-    css`
+  transparentSm &&
+  css`
       ${theme.breakpoints.down("sm")} {
         box-shadow: none;
         background-color: transparent;

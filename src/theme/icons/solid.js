@@ -60,8 +60,9 @@ import {
   faPhotoFilmMusic as farPhotoFilmMusic,
   faTriangleExclamation as farTriangleExclamation,
   faTrash as farTrash,
-  faPencil as farPencil
+  faPencil as farPencil,
 } from "@fortawesome/pro-regular-svg-icons";
+
 
 export const FreeSolidIconSet = {
   faAngleDown,
