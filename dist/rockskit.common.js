@@ -11,7 +11,7 @@ var fontawesomeSvgCore = require('@fortawesome/fontawesome-svg-core');
 var notistack = require('notistack');
 var freeBrandsSvgIcons = require('@fortawesome/free-brands-svg-icons');
 var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
-var freeRegularSvgIcons = require('@fortawesome/free-regular-svg-icons');
+var proRegularSvgIcons = require('@fortawesome/pro-regular-svg-icons');
 var MuiButtonBase = require('@material-ui/core/ButtonBase');
 var RCL = require('react-content-loader');
 var reactCollapse = require('react-collapse');
@@ -29,13 +29,13 @@ var reactFilepond = require('react-filepond');
 var AvatarEditor = require('react-avatar-editor');
 var reactDropzone = require('react-dropzone');
 var VideoThumbnail = require('react-video-thumbnail');
+var Typography = require('@material-ui/core/Typography');
 var MuiSlider = require('@material-ui/core/Slider');
 var axios = require('axios');
 var AsyncSelect = require('react-select/async');
 var ReactSelect$1 = require('react-select');
 var flatMap = require('lodash/flatMap');
 var makeAnimated = require('react-select/animated');
-var Typography = require('@material-ui/core/Typography');
 var useScrollTrigger = require('@material-ui/core/useScrollTrigger');
 var Slide = require('@material-ui/core/Slide');
 var MuiHidden = require('@material-ui/core/Hidden');
@@ -76,13 +76,13 @@ var MuiPopover__default = /*#__PURE__*/_interopDefaultLegacy(MuiPopover);
 var copy__default = /*#__PURE__*/_interopDefaultLegacy(copy);
 var AvatarEditor__default = /*#__PURE__*/_interopDefaultLegacy(AvatarEditor);
 var VideoThumbnail__default = /*#__PURE__*/_interopDefaultLegacy(VideoThumbnail);
+var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography);
 var MuiSlider__default = /*#__PURE__*/_interopDefaultLegacy(MuiSlider);
 var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
 var AsyncSelect__default = /*#__PURE__*/_interopDefaultLegacy(AsyncSelect);
 var ReactSelect__default = /*#__PURE__*/_interopDefaultLegacy(ReactSelect$1);
 var flatMap__default = /*#__PURE__*/_interopDefaultLegacy(flatMap);
 var makeAnimated__default = /*#__PURE__*/_interopDefaultLegacy(makeAnimated);
-var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography);
 var useScrollTrigger__default = /*#__PURE__*/_interopDefaultLegacy(useScrollTrigger);
 var Slide__default = /*#__PURE__*/_interopDefaultLegacy(Slide);
 var MuiHidden__default = /*#__PURE__*/_interopDefaultLegacy(MuiHidden);
@@ -144,27 +144,6 @@ var FreeBrandIconSet = {
   fabWindows: freeBrandsSvgIcons.faWindows
 };
 
-/*!
- * Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com
- * License - https://fontawesome.com/license (Commercial License)
- * Copyright 2022 Fonticons, Inc.
- */
-var faArrowDownToBracket = {
-  prefix: 'far',
-  iconName: 'arrow-down-to-bracket',
-  icon: [448, 512, [], "e094", "M352 512H96c-53.02 0-96-42.98-96-96v-72C0 330.7 10.75 320 24 320c13.26 0 24 10.75 24 24V416c0 26.4 21.6 48 48 48h256c26.4 0 48-21.6 48-48v-72c0-13.25 10.75-24 24-24c13.26 0 24 10.75 24 24V416C448 469 405 512 352 512zM240.4 345.5l136-128c9.688-9.094 10.12-24.28 1.031-33.91c-9.062-9.656-24.25-10.12-33.91-1.031L248 272.4V24C248 10.75 237.3 0 224 0S200 10.75 200 24v248.4L104.4 182.5C94.78 173.4 79.59 173.9 70.53 183.6C66.16 188.2 64 194.1 64 200c0 6.375 2.531 12.75 7.562 17.47l136 128C216.8 354.2 231.2 354.2 240.4 345.5z"]
-};
-var faFileArrowUp = {
-  prefix: 'far',
-  iconName: 'file-arrow-up',
-  icon: [384, 512, ["file-upload"], "f574", "M175 223l-80 80c-9.375 9.375-9.375 24.56 0 33.94s24.56 9.375 33.94 0L168 297.9V400c0 13.25 10.75 24 24 24s24-10.75 24-24V297.9l39.03 39.03C259.7 341.7 265.8 344 272 344s12.28-2.344 16.97-7.031c9.375-9.375 9.375-24.56 0-33.94l-80-80C199.6 213.7 184.4 213.7 175 223zM365.3 93.38l-74.63-74.64C278.6 6.742 262.3 0 245.4 0H64C28.65 0 0 28.65 0 64l.0065 384c0 35.34 28.65 64 64 64H320c35.2 0 64-28.8 64-64V138.6C384 121.7 377.3 105.4 365.3 93.38zM336 448c0 8.836-7.164 16-16 16H64.02c-8.838 0-16-7.164-16-16L48 64.13c0-8.836 7.164-16 16-16h160L224 128c0 17.67 14.33 32 32 32h79.1V448z"]
-};
-var faPhotoFilmMusic = {
-  prefix: 'far',
-  iconName: 'photo-film-music',
-  icon: [640, 512, [], "e228", "M272 112c0 17.67 14.33 32 32 32c17.68 0 32-14.33 32-32S321.7 80 304 80C286.3 80 272 94.33 272 112zM160 400v-288H64c-35.35 0-64 28.65-64 64V384c0 35.35 28.65 64 64 64h225.1c4.646-19.76 17.81-36.53 36.23-48H160zM112 400H64c-8.822 0-16-7.178-16-16v-32h64V400zM112 304h-64V256h64V304zM112 208h-64v-32C48 167.2 55.18 160 64 160h48V208zM576 0H256C220.7 0 192 28.65 192 64v192c0 35.35 28.65 64 64 64h112V245.3c0-20.7 13.19-39 32.83-45.53l102.8-34.27l-36.99-54.41C463.7 106.7 458.7 104 453.3 104c-5.352 0-10.35 2.672-13.31 7.125l-62.74 94.11l-22.35-30.66C351.9 170.4 347.1 168 341.1 168c-5.109 0-9.914 2.441-12.93 6.574L256 272C247.2 272 240 264.8 240 256V64c0-8.822 7.178-16 16-16h320c8.822 0 16 7.178 16 16v72.07l16.81-5.605C613.8 128.8 618.9 128 624 128C629.6 128 634.1 129.2 640 130.9V64C640 28.65 611.3 0 576 0zM618.9 160.8l-208 69.33C404.4 232.3 400 238.5 400 245.3v172.4C394.9 416.7 389.6 416 384 416c-35.35 0-64 21.49-64 48s28.65 48 64 48c35.35 0 64-21.49 64-48V319l144-48v82.7C586.9 352.7 581.6 352 576 352c-35.35 0-64 21.49-64 48s28.65 48 64 48c35.35 0 64-21.49 64-48V176C640 165.1 629.3 157.4 618.9 160.8z"]
-};
-
 var FreeSolidIconSet = {
   faAngleDown: freeSolidSvgIcons.faAngleDown,
   faAngleUp: freeSolidSvgIcons.faAngleUp,
@@ -218,10 +197,13 @@ var FreeSolidIconSet = {
   faTv: freeSolidSvgIcons.faTv,
   faUser: freeSolidSvgIcons.faUser,
   faUserCircle: freeSolidSvgIcons.faUserCircle,
-  farFileArrowUp: faFileArrowUp,
-  farArrowDownToBracket: faArrowDownToBracket,
-  farPhotoFilmMusic: faPhotoFilmMusic,
-  farHeart: freeRegularSvgIcons.faHeart
+  farHeart: proRegularSvgIcons.faHeart,
+  farFileArrowUp: proRegularSvgIcons.faFileArrowUp,
+  farArrowDownToBracket: proRegularSvgIcons.faArrowDownToBracket,
+  farPhotoFilmMusic: proRegularSvgIcons.faPhotoFilmMusic,
+  farTriangleExclamation: proRegularSvgIcons.faTriangleExclamation,
+  farTrash: proRegularSvgIcons.faTrash,
+  farPencil: proRegularSvgIcons.faPencil
 };
 
 var KIT_COLORS = {
@@ -247,6 +229,13 @@ var KIT_COLORS = {
     darkYellow: "#5C5800",
     lightYellow: "#FFFC8A",
     yellow: "#FFFB4D"
+  },
+  green: {
+    light: "#D9FCD9"
+  },
+  red: {
+    light: "#FCDFD9",
+    dark: "#F15937"
   }
 };
 
@@ -434,6 +423,13 @@ var RocksKitTheme = function RocksKitTheme(_temp) {
     },
     background: {
       default: (colors == null ? void 0 : colors.bgColor) || KIT_COLORS.gray.light
+    },
+    green: {
+      light: KIT_COLORS.green.light
+    },
+    red: {
+      light: KIT_COLORS.red.light,
+      dark: KIT_COLORS.red.dark
     }
   });
   var typography = KIT_TYPOGRAPHY(theme);
@@ -3047,7 +3043,7 @@ var DetailsWrapper = styled__default["default"].div.withConfig({
   displayName: "FileManager__DetailsWrapper",
   componentId: "sc-iqc9f7-3"
 })(["min-width:0;flex:1;"]);
-var Item$4 = styled__default["default"](Flex).attrs(function (_ref9) {
+var Item$3 = styled__default["default"](Flex).attrs(function (_ref9) {
   _ref9.lg;
       _ref9.md;
       var xs = _ref9.xs;
@@ -3097,21 +3093,21 @@ var FileManager = function FileManager(_ref11) {
         mr: 4
       }), /*#__PURE__*/React__default["default"].createElement(DetailsWrapper, null, /*#__PURE__*/React__default["default"].createElement(Flex, {
         container: true
-      }, /*#__PURE__*/React__default["default"].createElement(Item$4, {
+      }, /*#__PURE__*/React__default["default"].createElement(Item$3, {
         md: 6,
         lg: 6
       }, renderName() || /*#__PURE__*/React__default["default"].createElement(Text, {
         content: name,
         noWrap: true,
         fontWeight: "bold"
-      })), /*#__PURE__*/React__default["default"].createElement(Item$4, {
+      })), /*#__PURE__*/React__default["default"].createElement(Item$3, {
         md: 2,
         lg: 2
       }, renderDate() || /*#__PURE__*/React__default["default"].createElement(Text, {
         content: date,
         color: "textSecondary",
         fontSize: "sm"
-      })), /*#__PURE__*/React__default["default"].createElement(Item$4, {
+      })), /*#__PURE__*/React__default["default"].createElement(Item$3, {
         align: "flex-end",
         md: 4,
         lg: 4
@@ -3121,7 +3117,7 @@ var FileManager = function FileManager(_ref11) {
         fontSize: "sm",
         noWrap: true
       })))));
-    }) : /*#__PURE__*/React__default["default"].createElement(Item$4, {
+    }) : /*#__PURE__*/React__default["default"].createElement(Item$3, {
       xs: 12
     }, /*#__PURE__*/React__default["default"].createElement(Image, {
       src: img$6,
@@ -3985,6 +3981,37 @@ CropModal.defaultProps = {
   size: "md"
 };
 
+var DropzoneItemStyles = styled.css(["display:flex;align-items:center;justify-content:space-between;padding:", ";color:", ";font-size:12px;margin-bottom:", ";border-radius:8px;.details{display:flex;align-items:center;justify-content:space-between;}"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.spacing(2, 6, 2, 4);
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.palette.common.black;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.spacing(2);
+});
+var RedIcon = styled__default["default"](Icon).withConfig({
+  displayName: "SharedStyles__RedIcon",
+  componentId: "sc-1lwvkui-0"
+})(["color:", ";"], function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.palette.red.dark;
+});
+var TrashIcon = function TrashIcon(_ref5) {
+  var onClick = _ref5.onClick;
+  return /*#__PURE__*/React__default["default"].createElement(RedIcon, {
+    icon: "trash",
+    prefix: "far",
+    onClick: onClick,
+    title: "Remove file"
+  });
+};
+var PreviewWrapperStyles = styled.css(["position:relative;width:48px;height:48px;display:flex;align-items:center;justify-content:center;margin-right:", ";border-radius:8px;img{border-radius:inherit;object-fit:cover;}"], function (_ref6) {
+  var theme = _ref6.theme;
+  return theme.spacing(4);
+});
+
 var Input = function Input(props) {
   return /*#__PURE__*/React__default["default"].createElement(FieldBase, _extends({
     component: "input"
@@ -3993,44 +4020,6 @@ var Input = function Input(props) {
 Input.propTypes = FieldBasePropTypes;
 Input.defaultProps = FieldBaseDefaultProps;
 
-/* eslint-disable no-restricted-properties */
-var Item$3 = styled__default["default"].div.withConfig({
-  displayName: "PreviewItem__Item",
-  componentId: "sc-gt2dk6-0"
-})(["display:flex;align-items:center;justify-content:space-between;padding:", ";background-color:", ";color:", ";font-size:12px;margin-bottom:", ";border-radius:8px;.details{display:flex;align-items:center;justify-content:space-between;.react-thumbnail-generator{border-radius:8px;object-fit:cover;width:48px;height:48px;margin-right:", ";}}"], function (_ref) {
-  var theme = _ref.theme;
-  return theme.spacing(2, 4);
-}, function (_ref2) {
-  var theme = _ref2.theme;
-  return theme.palette.success.main;
-}, function (_ref3) {
-  var theme = _ref3.theme;
-  return theme.palette.common.white;
-}, function (_ref4) {
-  var theme = _ref4.theme;
-  return theme.spacing(2);
-}, function (_ref5) {
-  var theme = _ref5.theme;
-  return theme.spacing(2);
-});
-var ActionIcon = styled__default["default"](Icon).withConfig({
-  displayName: "PreviewItem__ActionIcon",
-  componentId: "sc-gt2dk6-1"
-})(["color:", ";"], function (_ref6) {
-  var theme = _ref6.theme;
-  return theme.palette.common.white;
-});
-var PreviewWrapper = styled__default["default"].div.withConfig({
-  displayName: "PreviewItem__PreviewWrapper",
-  componentId: "sc-gt2dk6-2"
-})(["position:relative;width:48px;height:48px;border-radius:8px;background-color:", ";display:flex;align-items:center;justify-content:center;margin-right:", ";img{border-radius:8px;object-fit:cover;}&&{h4{text-transform:uppercase;}}"], function (_ref7) {
-  var theme = _ref7.theme;
-  return theme.palette.gray.regular;
-}, function (_ref8) {
-  var theme = _ref8.theme;
-  return theme.spacing(2);
-});
-
 function bytesToSize(bytes) {
   var sizes = ["Bytes", "KB", "MB", "GB", "TB"];
   if (bytes === 0) return "0 Byte";
@@ -4038,11 +4027,13 @@ function bytesToSize(bytes) {
   return Math.round(bytes / Math.pow(1024, i), 2) + " " + sizes[i];
 }
 
-var UploaderPreviewItem = function UploaderPreviewItem(_ref9) {
-  var file = _ref9.file,
-      fileNameEditable = _ref9.fileNameEditable,
-      onRemoveClick = _ref9.onRemoveClick,
-      onEdit = _ref9.onEdit;
+var IMAGE_PREVIEW_SIZE = 48;
+var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
+  var file = _ref.file,
+      fileNameEditable = _ref.fileNameEditable,
+      onEdit = _ref.onEdit,
+      index = _ref.index,
+      setFilesArray = _ref.setFilesArray;
   var name = file.altName || file.fileName || file.name;
   var fileExt = name.split(".").pop();
 
@@ -4064,23 +4055,32 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref9) {
       setAltName(name.split(".").shift());
     }
   }, [editMode]);
-  return /*#__PURE__*/React__default["default"].createElement(Item$3, {
+
+  var handleDelete = function handleDelete() {
+    return setFilesArray(function (prevState) {
+      return prevState.filter(function (item, i) {
+        return i !== index;
+      });
+    });
+  };
+
+  return /*#__PURE__*/React__default["default"].createElement(DropzoneItem$1, {
     key: file.name
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "details"
-  }, file.type.startsWith("image") ? /*#__PURE__*/React__default["default"].createElement(PreviewWrapper, null, file.preview ? /*#__PURE__*/React__default["default"].createElement(Image, {
+  }, file.type.startsWith("image") ? /*#__PURE__*/React__default["default"].createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React__default["default"].createElement(Image, {
     alt: name,
-    height: "100%",
+    height: IMAGE_PREVIEW_SIZE,
     src: file.preview,
-    width: "100%"
+    width: IMAGE_PREVIEW_SIZE
   }) : /*#__PURE__*/React__default["default"].createElement(H4, {
     content: fileExt,
     color: "textSecondary",
     noWrap: true
   })) : null, file.type.startsWith("video") ? /*#__PURE__*/React__default["default"].createElement(VideoThumbnail__default["default"], {
     videoUrl: file.preview,
-    width: 48,
-    height: 48
+    width: IMAGE_PREVIEW_SIZE,
+    height: IMAGE_PREVIEW_SIZE
   }) : null, /*#__PURE__*/React__default["default"].createElement("div", null, editMode ? /*#__PURE__*/React__default["default"].createElement("div", {
     className: "details"
   }, /*#__PURE__*/React__default["default"].createElement(Input, {
@@ -4099,21 +4099,49 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref9) {
     onClick: function onClick() {
       return setEditMode(false);
     }
-  })) : /*#__PURE__*/React__default["default"].createElement("b", null, name), (file == null ? void 0 : file.size) && /*#__PURE__*/React__default["default"].createElement("div", null, bytesToSize(file.size)))), /*#__PURE__*/React__default["default"].createElement("div", {
+  })) : /*#__PURE__*/React__default["default"].createElement("b", null, name), (file == null ? void 0 : file.size) && /*#__PURE__*/React__default["default"].createElement("div", null, bytesToSize(String(file.size))))), /*#__PURE__*/React__default["default"].createElement("div", {
     className: "details"
-  }, fileNameEditable && !editMode && /*#__PURE__*/React__default["default"].createElement(ActionIcon, {
+  }, /*#__PURE__*/React__default["default"].createElement(ActionIcon, {
+    icon: "check"
+  }), /*#__PURE__*/React__default["default"].createElement(Text, {
+    ml: 2,
+    mr: 4
+  }, "File uploaded"), fileNameEditable && !editMode && /*#__PURE__*/React__default["default"].createElement(ActionIcon, {
+    prefix: "far",
     icon: "pencil-alt",
     onClick: function onClick() {
       return setEditMode(true);
     },
-    mr: 2
-  }), onRemoveClick && /*#__PURE__*/React__default["default"].createElement(ActionIcon, {
-    icon: "trash",
-    onClick: function onClick() {
-      return onRemoveClick(file);
-    }
+    mr: 2,
+    title: "Edit name"
+  }), /*#__PURE__*/React__default["default"].createElement(TrashIcon, {
+    onClick: handleDelete
   })));
 };
+var DropzoneItem$1 = styled__default["default"].div.withConfig({
+  displayName: "PreviewItem__DropzoneItem",
+  componentId: "sc-gt2dk6-0"
+})(["", ";background-color:", ";.react-thumbnail-generator{border-radius:8px;object-fit:cover;width:", "px;height:", "px;margin-right:", ";}"], DropzoneItemStyles, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.palette.green.light;
+}, IMAGE_PREVIEW_SIZE, IMAGE_PREVIEW_SIZE, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.spacing(2);
+});
+var ActionIcon = styled__default["default"](Icon).withConfig({
+  displayName: "PreviewItem__ActionIcon",
+  componentId: "sc-gt2dk6-1"
+})(["color:", ";"], function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.palette.common.black;
+});
+var PreviewWrapper$1 = styled__default["default"].div.withConfig({
+  displayName: "PreviewItem__PreviewWrapper",
+  componentId: "sc-gt2dk6-2"
+})(["", ";background-color:", ";"], PreviewWrapperStyles, function (_ref5) {
+  var theme = _ref5.theme;
+  return theme.palette.gray.regular;
+});
 UploaderPreviewItem.propTypes = {
   file: PropTypes__default["default"].shape({
     altName: PropTypes__default["default"].string,
@@ -4126,15 +4154,19 @@ UploaderPreviewItem.propTypes = {
   onEdit: PropTypes__default["default"].func.isRequired
 };
 
-var _excluded$18 = ["files"];
+var _excluded$18 = ["files", "index", "setFilesArray"];
 var UploaderPreview = function UploaderPreview(_ref) {
-  var files = _ref.files,
+  var files = _ref.files;
+      _ref.index;
+      var setFilesArray = _ref.setFilesArray,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$18);
 
-  return Array.from(files).map(function (file) {
+  return Array.from(files).map(function (file, index) {
     return /*#__PURE__*/React__default["default"].createElement(UploaderPreviewItem, _extends({
-      key: file.name,
-      file: file
+      key: file.name + index,
+      file: file,
+      index: index,
+      setFilesArray: setFilesArray
     }, props));
   });
 };
@@ -4157,7 +4189,7 @@ var StyledContainer$3 = styled__default["default"].div.withConfig({
 var DropzoneArea = styled__default["default"].div.withConfig({
   displayName: "Dropzone__DropzoneArea",
   componentId: "sc-1yejosv-1"
-})(["background-color:", ";border-color:", ";border-radius:16px;border-style:dashed;border-width:2px;cursor:pointer;min-height:125px;outline:none;transition:all 100ms ease-in-out;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:", ";margin-bottom:8px;padding-top:", ";padding-bottom:", ";span{color:", ";font-weight:bold;}p{margin:0;}p:not(:last-child){padding-top:", ";padding-bottom:", ";}&:hover{border-color:", ";}", " ", " ", " ", ""], function (_ref) {
+})(["background-color:", ";border-color:", ";border-radius:16px;border-style:dashed;border-width:2px;cursor:pointer;min-height:125px;outline:none;transition:all 100ms ease-in-out;width:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:", ";margin-bottom:8px;padding-top:", ";padding-bottom:", ";span{color:", ";font-weight:bold;}p{margin:0;padding:", ";text-align:center;}p:not(:last-child){padding-top:", ";padding-bottom:", ";}&:hover{border-color:", ";}", " ", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.gray.semiLight;
 }, function (_ref2) {
@@ -4177,65 +4209,66 @@ var DropzoneArea = styled__default["default"].div.withConfig({
   return theme.palette.primary.main;
 }, function (_ref7) {
   var theme = _ref7.theme;
-  return theme.spacing(4);
+  return theme.spacing(0, 8);
 }, function (_ref8) {
   var theme = _ref8.theme;
   return theme.spacing(4);
 }, function (_ref9) {
   var theme = _ref9.theme;
-  return theme.palette.gray.medium;
+  return theme.spacing(4);
 }, function (_ref10) {
-  var hasError = _ref10.hasError;
-  return hasError && styled.css(["border-color:", ";background-color:", ";"], function (_ref11) {
-    var theme = _ref11.theme;
-    return theme.palette.error.main;
-  }, function (_ref12) {
+  var theme = _ref10.theme;
+  return theme.palette.gray.medium;
+}, function (_ref11) {
+  var hasError = _ref11.hasError,
+      errorMessages = _ref11.errorMessages;
+  return (hasError || errorMessages && errorMessages.length > 0) && styled.css(["border-color:", ";background-color:", ";"], function (_ref12) {
     var theme = _ref12.theme;
-    return theme.palette.error.light;
-  });
-}, function (_ref13) {
-  var sizeError = _ref13.sizeError;
-  return sizeError && styled.css(["border-color:", ";background-color:", ";"], function (_ref14) {
-    var theme = _ref14.theme;
     return theme.palette.error.main;
-  }, function (_ref15) {
-    var theme = _ref15.theme;
+  }, function (_ref13) {
+    var theme = _ref13.theme;
     return theme.palette.error.light;
   });
-}, function (_ref16) {
-  var disabled = _ref16.disabled;
+}, function (_ref14) {
+  var disabled = _ref14.disabled;
   return disabled && styled.css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
-}, function (_ref17) {
-  var dragActive = _ref17.dragActive,
-      theme = _ref17.theme;
+}, function (_ref15) {
+  var dragActive = _ref15.dragActive,
+      theme = _ref15.theme;
   return dragActive && styled.css(["border-color:", ";"], theme.palette.gray.medium);
 });
 var StyledIcon$5 = styled__default["default"](Icon).withConfig({
   displayName: "Dropzone__StyledIcon",
   componentId: "sc-1yejosv-2"
-})(["color:", ";"], function (_ref18) {
-  var theme = _ref18.theme;
+})(["color:", ";"], function (_ref16) {
+  var theme = _ref16.theme;
   return theme.palette.gray.medium;
 });
-var Dropzone = function Dropzone(_ref19) {
-  var crop = _ref19.crop,
-      cropProps = _ref19.cropProps,
-      disabled = _ref19.disabled;
-      _ref19.defaultValue;
-      var fileNameEditable = _ref19.fileNameEditable,
-      hasError = _ref19.hasError,
-      multiple = _ref19.multiple,
-      onChange = _ref19.onChange,
-      value = _ref19.value,
-      props = _objectWithoutPropertiesLoose(_ref19, _excluded$17);
+var Dropzone = function Dropzone(_ref17) {
+  var crop = _ref17.crop,
+      cropProps = _ref17.cropProps,
+      disabled = _ref17.disabled;
+      _ref17.defaultValue;
+      var fileNameEditable = _ref17.fileNameEditable,
+      hasError = _ref17.hasError,
+      multiple = _ref17.multiple,
+      onChange = _ref17.onChange,
+      value = _ref17.value,
+      props = _objectWithoutPropertiesLoose(_ref17, _excluded$17);
 
   var _useState = React.useState(),
       cropFile = _useState[0],
       setCropFile = _useState[1];
 
-  var _useState2 = React.useState(false),
-      sizeError = _useState2[0],
-      setSizeError = _useState2[1];
+  var _useState2 = React.useState(null),
+      errorMessages = _useState2[0],
+      setErrorMessages = _useState2[1];
+
+  var _useState3 = React.useState(null),
+      filesArray = _useState3[0],
+      setFilesArray = _useState3[1];
+
+  var acceptedFileSizeInMb = (props.maxSize / 1000000).toString().split(".")[0] + " MB";
 
   var setFiles = function setFiles(files) {
     var accepted = files.map(function (file) {
@@ -4262,7 +4295,6 @@ var Dropzone = function Dropzone(_ref19) {
   var handleCrop = function handleCrop(file) {
     setFiles([file]);
     setCropFile();
-    setSizeError(false);
   };
 
   var _useDropzone = reactDropzone.useDropzone(_extends({
@@ -4270,14 +4302,39 @@ var Dropzone = function Dropzone(_ref19) {
     multiple: multiple,
     onDrop: function onDrop(acceptedFiles) {
       if (crop && !multiple) {
-        setCropFile(acceptedFiles[0]);
+        setFilesArray(acceptedFiles[0]);
       } else {
-        setFiles(acceptedFiles);
-        setSizeError(false);
+        setFilesArray(function (prevState) {
+          if (prevState) {
+            return [].concat(prevState, acceptedFiles);
+          }
+
+          return [].concat(acceptedFiles);
+        });
       }
     },
-    onDropRejected: function onDropRejected() {
-      setSizeError(true);
+    onDropRejected: function onDropRejected(rejectedItems) {
+      setErrorMessages(function (prevState) {
+        var newItems = rejectedItems.map(function (item) {
+          var errors = item.errors.map(function (item) {
+            if (item.code === "file-too-large") {
+              return "Max file size is " + acceptedFileSizeInMb;
+            } else {
+              return item.message;
+            }
+          });
+          return {
+            title: item.file.path,
+            errors: errors
+          };
+        });
+
+        if (prevState) {
+          return newItems.concat(prevState);
+        }
+
+        return newItems;
+      });
     }
   }, props)),
       getRootProps = _useDropzone.getRootProps,
@@ -4286,30 +4343,30 @@ var Dropzone = function Dropzone(_ref19) {
       isDragAccept = _useDropzone.isDragAccept,
       isDragReject = _useDropzone.isDragReject;
 
-  var removeFile = function removeFile(file) {
-    onChange(value.filter(function (f) {
-      return f.preview !== file.preview;
-    }));
-  };
-
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(StyledContainer$3, props, /*#__PURE__*/React__default["default"].createElement(DropzoneArea, _extends({
     dragActive: isDragActive,
     dragAccept: isDragAccept,
     dragReject: isDragReject,
     disabled: disabled,
     hasError: hasError,
-    sizeError: sizeError
+    errorMessages: errorMessages
   }, getRootProps()), /*#__PURE__*/React__default["default"].createElement("input", getInputProps()), isDragAccept && /*#__PURE__*/React__default["default"].createElement("p", null, "Accepted"), isDragReject && /*#__PURE__*/React__default["default"].createElement("p", null, "Rejected"), /*#__PURE__*/React__default["default"].createElement(StyledIcon$5, {
     icon: "file-arrow-up",
     prefix: "far",
     size: "lg"
-  }), isDragActive ? /*#__PURE__*/React__default["default"].createElement("p", null, "Drop your files here") : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("p", null, "Drop your files here", /*#__PURE__*/React__default["default"].createElement("span", null, " or select from computer")), multiple ? /*#__PURE__*/React__default["default"].createElement("p", null, "Add up to 20MB, supports multiple file formats") : /*#__PURE__*/React__default["default"].createElement("p", null, "Single file only, supports multiple file formats"))), /*#__PURE__*/React__default["default"].createElement(UploaderPreview, {
-    files: value,
+  }), isDragActive ? /*#__PURE__*/React__default["default"].createElement("p", null, "Drop your files here") : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("p", null, "Drop your files here", /*#__PURE__*/React__default["default"].createElement("span", null, " or select from computer")), multiple ? /*#__PURE__*/React__default["default"].createElement("p", null, "Add up multiple files. Supports ", props.accept, " file formats. Max ", acceptedFileSizeInMb, " per file.") : /*#__PURE__*/React__default["default"].createElement("p", null, "Single file only. Supports ", props.accept, " file formats. Max ", acceptedFileSizeInMb, " per file."))), filesArray && /*#__PURE__*/React__default["default"].createElement(UploaderPreview, {
+    files: filesArray,
     fileNameEditable: fileNameEditable,
-    onRemoveClick: removeFile,
-    onEdit: editFile
-  }), sizeError === true && /*#__PURE__*/React__default["default"].createElement(FormError, {
-    message: "Uploading size limit is " + parseFloat((props.maxSize / 1024 / 1024).toFixed(2)) + " MB, please attach smaller file"
+    onEdit: editFile,
+    setFilesArray: setFilesArray
+  }), errorMessages && errorMessages.map(function (item, index) {
+    return /*#__PURE__*/React__default["default"].createElement(DropzoneError, {
+      key: item.title + index,
+      title: item.title,
+      errors: item.errors,
+      index: index,
+      setErrorMessages: setErrorMessages
+    });
   })), /*#__PURE__*/React__default["default"].createElement(CropModal, _extends({
     isOpen: !!cropFile,
     onClose: function onClose() {
@@ -4375,6 +4432,72 @@ var FileUpload = function FileUpload(_ref) {
 };
 FileUpload.propTypes = FileUploadPropTypes;
 FileUpload.defaultProps = FileUploadDefaultProps;
+
+var DropzoneError = function DropzoneError(_ref) {
+  var title = _ref.title,
+      errors = _ref.errors,
+      index = _ref.index,
+      setErrorMessages = _ref.setErrorMessages;
+
+  var handleErrorDelete = function handleErrorDelete() {
+    return setErrorMessages(function (prevState) {
+      return prevState.filter(function (item, i) {
+        return i !== index;
+      });
+    });
+  };
+
+  return /*#__PURE__*/React__default["default"].createElement(DropzoneItem, {
+    key: title
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "details"
+  }, /*#__PURE__*/React__default["default"].createElement(PreviewWrapper, null, /*#__PURE__*/React__default["default"].createElement(GrayIcon, {
+    icon: "triangle-exclamation",
+    prefix: "far",
+    size: "lg"
+  })), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "title"
+  }, /*#__PURE__*/React__default["default"].createElement("b", null, title), /*#__PURE__*/React__default["default"].createElement(Text, {
+    display: "block"
+  }, "\u2014"))), /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "details"
+  }, /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "errors"
+  }, errors.map(function (item) {
+    return /*#__PURE__*/React__default["default"].createElement(Text, {
+      key: item
+    }, item);
+  })), /*#__PURE__*/React__default["default"].createElement(TrashIcon, {
+    onClick: handleErrorDelete
+  })));
+};
+var DropzoneItem = styled__default["default"].div.withConfig({
+  displayName: "DropzoneError__DropzoneItem",
+  componentId: "sc-pc4zn1-0"
+})(["", ";background-color:", ";.title{display:flex;flex-direction:column;}.errors{margin-right:", ";}"], DropzoneItemStyles, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.palette.red.light;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.spacing(4);
+});
+var PreviewWrapper = styled__default["default"].div.withConfig({
+  displayName: "DropzoneError__PreviewWrapper",
+  componentId: "sc-pc4zn1-1"
+})(["", ";"], PreviewWrapperStyles);
+var GrayIcon = styled__default["default"](Icon).withConfig({
+  displayName: "DropzoneError__GrayIcon",
+  componentId: "sc-pc4zn1-2"
+})(["color:", ""], function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.palette.gray.medium;
+});
+DropzoneError.propTypes = {
+  title: PropTypes__default["default"].string.isRequired,
+  errors: PropTypes__default["default"].arrayOf(PropTypes__default["default"].string).isRequired,
+  index: PropTypes__default["default"].number.isRequired,
+  setErrorMessages: PropTypes__default["default"].func.isRequired
+};
 
 var _excluded$15 = ["children"];
 var StyledForm = styled__default["default"].form.withConfig({
@@ -11296,6 +11419,8 @@ exports.Divider = Divider;
 exports.DotsSpinner = DotsSpinner;
 exports.DownloadModule = DownloadModule;
 exports.Dropdown = Dropdown;
+exports.DropzoneError = DropzoneError;
+exports.DropzoneItemStyles = DropzoneItemStyles;
 exports.ErrorTemplate = ErrorTemplate;
 exports.ExplorerLayout = ExplorerLayout;
 exports.FieldBase = FieldBase;
@@ -11354,6 +11479,7 @@ exports.PageProgressBar = PageProgressBar;
 exports.PageTransition = PageTransition;
 exports.Pagination = Pagination;
 exports.Paragraph = Paragraph;
+exports.PreviewWrapperStyles = PreviewWrapperStyles;
 exports.PriceField = PriceField;
 exports.Profile = Profile;
 exports.Radio = Radio;
@@ -11390,6 +11516,7 @@ exports.TinyBadge = TinyBadge;
 exports.Toggle = Toggle;
 exports.ToggleSwitch = ToggleSwitch;
 exports.Tooltip = Tooltip;
+exports.TrashIcon = TrashIcon;
 exports.Wizard = Wizard;
 exports.convertHexToRGBA = convertHexToRGBA;
 exports.formatDateAndTime = formatDateAndTime;
