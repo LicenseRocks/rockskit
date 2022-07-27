@@ -30,10 +30,15 @@ const ReactSelectWrapper = styled.div`
   }
 
   .react-select__control--is-focused {
-    border-color: ${({ theme }) => theme.palette.primary.main};
+    border-color: ${({ theme }) => theme.palette.grey.regular};
   }
 
   .react-select__menu {
+    border-radius: 12px;
+  }
+
+  .react-select__menu-list {
+    padding: ${({ theme }) => theme.spacing(2, 2, 0, 2)};
     border-radius: 12px;
   }
 
@@ -42,19 +47,22 @@ const ReactSelectWrapper = styled.div`
     font-size: 14px;
     line-height: 160%;
     padding: ${({ theme }) => theme.spacing(2, 4)};
-    border-radius: 16px;
+    border-radius: 12px;
+    margin-bottom: ${({ theme }) => theme.spacing(2)};
   }
 
   .react-select__option--is-focused {
-    background-color: ${({ theme }) => theme.palette.primary.light};
+    background-color: ${({ theme }) => theme.palette.gray.regular};
     color: ${({ theme }) => theme.palette.text.primary};
   }
 
-  .react-select__option:hover,
+  .react-select__option:hover {
+    color: ${({ theme }) => theme.palette.text.primary};
+    background-color: ${({ theme }) => theme.palette.gray.regular};
+  }
   .react-select__option--is-selected {
     color: ${({ theme }) => theme.palette.common.white};
-    background-color: ${({ theme }) => theme.palette.primary.main};
-    border-radius: 16px;
+    background-color: ${({ theme }) => theme.palette.gray.dark};
   }
 
   ${({ hasError }) =>
