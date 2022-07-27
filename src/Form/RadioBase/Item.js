@@ -24,8 +24,8 @@ const StyledInput = styled.input`
     }
 
     ${({ stacked }) =>
-    stacked &&
-    css`
+      stacked &&
+      css`
         display: flex;
         :not(:last-child) {
           margin: 0 0 24px 0;
@@ -44,8 +44,8 @@ const StyledInput = styled.input`
       margin-right: 8px;
       transition: background-color 0.1s ease-in-out;
       ${({ hasError }) =>
-    hasError &&
-    css`
+        hasError &&
+        css`
           border-color: ${({ theme }) => theme.palette.error.main};
         `}
     }
@@ -73,6 +73,9 @@ const StyledInput = styled.input`
     bordered &&
     css`
       + label {
+        border: 2px solid transparent;
+        border-radius: 12px;
+        height: 102%;
         margin: 0;
       }
 
