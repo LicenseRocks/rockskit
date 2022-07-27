@@ -10,6 +10,7 @@ const Wrapper = styled.div`
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.palette.common.white};
   border-bottom: 1px solid ${({ theme }) => theme.palette.gray.semiLight};
+  border-radius: 16px !important;
 
   ${({ transparentSm, theme }) =>
     transparentSm &&

@@ -1784,7 +1784,7 @@ var _excluded$1t = ["action", "actionIcon", "actionIconProps", "actionIconSize",
 var Wrapper$e = styled.div.withConfig({
   displayName: "Header__Wrapper",
   componentId: "sc-sf2nje-0"
-})(["box-sizing:border-box;background-color:", ";border-bottom:1px solid ", ";", ""], function (_ref) {
+})(["box-sizing:border-box;background-color:", ";border-bottom:1px solid ", ";border-radius:16px !important;", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
@@ -1804,7 +1804,7 @@ var StyledBoxHeader = styled(Flex).attrs(function () {
 }).withConfig({
   displayName: "Header__StyledBoxHeader",
   componentId: "sc-sf2nje-1"
-})(["width:100%;box-sizing:border-box;background-color:", ";padding:", ";", ""], function (_ref4) {
+})(["width:100%;box-sizing:border-box;background-color:", ";padding:", ";border-radius:16px !important;", ""], function (_ref4) {
   var theme = _ref4.theme;
   return theme.palette.common.white;
 }, function (_ref5) {
