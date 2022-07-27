@@ -30,6 +30,7 @@ const StyledBoxHeader = styled(Flex).attrs(() => ({
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.palette.common.white};
   padding: ${({ padding, theme }) => theme.spacing(padding)};
+  border-radius: 16px !important;
 
   ${({ transparentSm, theme }) =>
     transparentSm &&
