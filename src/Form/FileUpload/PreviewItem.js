@@ -20,8 +20,7 @@ export const UploaderPreviewItem = ({
   file,
   fileNameEditable,
   onEdit,
-  index,
-  setFilesArray
+  removeFile,
 }) => {
   const name = file.altName || file.fileName || file.name;
   const fileExt = name.split(".").pop();
@@ -39,8 +38,6 @@ export const UploaderPreviewItem = ({
       setAltName(name.split(".").shift());
     }
   }, [editMode]);
-
-  const handleDelete = () => setFilesArray(prevState => prevState.filter((item, i) => i !== index));
 
   return (
     <DropzoneItem key={file.name}>
@@ -97,7 +94,7 @@ export const UploaderPreviewItem = ({
           />
         )}
 
-        <TrashIcon onClick={handleDelete} />
+        <TrashIcon onClick={() => removeFile(file)} />
       </div>
     </DropzoneItem>
   );

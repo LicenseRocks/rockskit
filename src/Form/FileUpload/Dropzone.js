@@ -97,7 +97,6 @@ export const Dropzone = ({
 }) => {
   const [cropFile, setCropFile] = useState();
   const [errorMessages, setErrorMessages] = useState(null);
-  const [filesArray, setFilesArray] = useState(null);
   const acceptedFileSizeInMb = `${(props.maxSize / 1000000).toString().split(".")[0]} MB`;
 
   const setFiles = (files) => {
@@ -145,14 +144,9 @@ export const Dropzone = ({
     multiple,
     onDrop: (acceptedFiles) => {
       if (crop && !multiple) {
-        setFilesArray(acceptedFiles[0]);
+        setCropFile(acceptedFiles[0]);
       } else {
-        setFilesArray(prevState => {
-          if (prevState) {
-            return [...prevState, ...acceptedFiles]
-          }
-          return [...acceptedFiles]
-        })
+        setFiles(acceptedFiles)
       }
     },
     onDropRejected: (rejectedItems) => {
@@ -173,7 +167,6 @@ export const Dropzone = ({
           };
         })
 
-
         if (prevState) {
           return newItems.concat(prevState)
         }
@@ -183,7 +176,11 @@ export const Dropzone = ({
     },
     ...props,
   });
-  
+
+  const removeFile = (file) => {
+    onChange(value.filter((f) => f.preview !== file.preview));
+  };
+
   return (
     <>
       <StyledContainer {...props}>
@@ -219,12 +216,12 @@ export const Dropzone = ({
           )}
         </DropzoneArea>
 
-        {filesArray &&
+        {value &&
           <UploaderPreview
-            files={filesArray}
+            files={value}
             fileNameEditable={fileNameEditable}
             onEdit={editFile}
-            setFilesArray={setFilesArray}
+            onRemoveClick={removeFile}
           />
         }
         {errorMessages && errorMessages.map((item, index) =>
