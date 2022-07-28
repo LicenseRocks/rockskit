@@ -167,7 +167,6 @@ export const Dropzone = ({
           };
         })
 
-
         if (prevState) {
           return newItems.concat(prevState)
         }

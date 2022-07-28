@@ -1,6 +1,6 @@
 {
   "name": "@licenserocks/kit",
-  "version": "3.2.7",
+  "version": "3.2.8",
   "description": "",
   "main": "dist/rockskit.common.js",
   "module": "dist/rockskit.es.js",
