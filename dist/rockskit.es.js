@@ -3143,7 +3143,7 @@ var StyledInput$3 = styled.input.withConfig({
 }, "" + img$5, function (_ref10) {
   var bordered = _ref10.bordered,
       theme = _ref10.theme;
-  return bordered && css(["+ label{margin:0;}+ label:first-of-type{margin:0 0 0 -1px;}+ label:last-of-type{margin:0 -1px 0 0;}&:checked + label{border:2px solid ", ";border-radius:12px;height:102%;}"], theme.palette.gray.dark);
+  return bordered && css(["+ label{border:2px solid transparent;border-radius:12px;height:102%;margin:0;}+ label:first-of-type{margin:0 0 0 -1px;}+ label:last-of-type{margin:0 -1px 0 0;}&:checked + label{border:2px solid ", ";border-radius:12px;height:102%;}"], theme.palette.gray.dark);
 });
 var StyledLabel$4 = styled.label.withConfig({
   displayName: "Item__StyledLabel",
