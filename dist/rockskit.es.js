@@ -1784,7 +1784,7 @@ var _excluded$1t = ["action", "actionIcon", "actionIconProps", "actionIconSize",
 var Wrapper$e = styled.div.withConfig({
   displayName: "Header__Wrapper",
   componentId: "sc-sf2nje-0"
-})(["box-sizing:border-box;background-color:", ";border-bottom:1px solid ", ";", ""], function (_ref) {
+})(["box-sizing:border-box;background-color:", ";border-bottom:1px solid ", ";border-radius:16px !important;", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (_ref2) {
@@ -1804,7 +1804,7 @@ var StyledBoxHeader = styled(Flex).attrs(function () {
 }).withConfig({
   displayName: "Header__StyledBoxHeader",
   componentId: "sc-sf2nje-1"
-})(["width:100%;box-sizing:border-box;background-color:", ";padding:", ";", ""], function (_ref4) {
+})(["width:100%;box-sizing:border-box;background-color:", ";padding:", ";border-radius:16px !important;", ""], function (_ref4) {
   var theme = _ref4.theme;
   return theme.palette.common.white;
 }, function (_ref5) {
@@ -4814,7 +4814,7 @@ var _excluded$_ = ["async", "cacheOptions", "control", "defaultOptions", "defaul
 var ReactSelectWrapper = styled.div.withConfig({
   displayName: "ReactSelect__ReactSelectWrapper",
   componentId: "sc-xq5gfv-0"
-})(["flex:1;.react-select__control{border-radius:12px;color:", ";padding:", ";height:40px;box-sizing:border-box;box-shadow:none;border-color:", ";font-weight:600;font-size:14px;line-height:120%;}.react-select__control--is-focused{border-color:", ";}.react-select__menu{border-radius:12px;}.react-select__option{font-weight:300;font-size:14px;line-height:160%;padding:", ";border-radius:16px;}.react-select__option--is-focused{background-color:", ";color:", ";}.react-select__option:hover,.react-select__option--is-selected{color:", ";background-color:", ";border-radius:16px;}", " ", " ", ""], function (_ref) {
+})(["flex:1;.react-select__control{border-radius:12px;color:", ";padding:", ";height:40px;box-sizing:border-box;box-shadow:none;border-color:", ";font-weight:600;font-size:14px;line-height:120%;}.react-select__control--is-focused{border-color:", ";}.react-select__menu{border-radius:12px;}.react-select__menu-list{padding:", ";border-radius:12px;}.react-select__option{font-weight:300;font-size:14px;line-height:160%;padding:", ";border-radius:12px;margin-bottom:", ";}.react-select__option--is-focused{background-color:", ";color:", ";}.react-select__option:hover{color:", ";background-color:", ";}.react-select__option--is-selected{color:", ";background-color:", ";}", " ", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.text.primary;
 }, function (_ref2) {
@@ -4825,26 +4825,38 @@ var ReactSelectWrapper = styled.div.withConfig({
   return theme.palette.gray.regular;
 }, function (_ref4) {
   var theme = _ref4.theme;
-  return theme.palette.primary.main;
+  return theme.palette.grey.regular;
 }, function (_ref5) {
   var theme = _ref5.theme;
-  return theme.spacing(2, 4);
+  return theme.spacing(2, 2, 0, 2);
 }, function (_ref6) {
   var theme = _ref6.theme;
-  return theme.palette.primary.light;
+  return theme.spacing(2, 4);
 }, function (_ref7) {
   var theme = _ref7.theme;
-  return theme.palette.text.primary;
+  return theme.spacing(2);
 }, function (_ref8) {
   var theme = _ref8.theme;
-  return theme.palette.common.white;
+  return theme.palette.gray.regular;
 }, function (_ref9) {
   var theme = _ref9.theme;
-  return theme.palette.primary.main;
+  return theme.palette.text.primary;
 }, function (_ref10) {
-  var hasError = _ref10.hasError;
-  return hasError && css([".react-select__control{border-color:", ";}"], function (_ref11) {
-    var theme = _ref11.theme;
+  var theme = _ref10.theme;
+  return theme.palette.text.primary;
+}, function (_ref11) {
+  var theme = _ref11.theme;
+  return theme.palette.gray.regular;
+}, function (_ref12) {
+  var theme = _ref12.theme;
+  return theme.palette.common.white;
+}, function (_ref13) {
+  var theme = _ref13.theme;
+  return theme.palette.gray.dark;
+}, function (_ref14) {
+  var hasError = _ref14.hasError;
+  return hasError && css([".react-select__control{border-color:", ";}"], function (_ref15) {
+    var theme = _ref15.theme;
     return theme.palette.error.main;
   });
 }, function (theme) {
@@ -4852,25 +4864,25 @@ var ReactSelectWrapper = styled.div.withConfig({
 }, function (theme) {
   return DISPLAY(theme);
 });
-var ReactSelect = function ReactSelect(_ref12) {
-  var async = _ref12.async,
-      cacheOptions = _ref12.cacheOptions,
-      control = _ref12.control,
-      defaultOptions = _ref12.defaultOptions,
-      defaultValue = _ref12.defaultValue,
-      endpoint = _ref12.endpoint,
-      endpointQueryFlag = _ref12.endpointQueryFlag,
-      hasError = _ref12.hasError,
-      loadOptions = _ref12.loadOptions,
-      isRequired = _ref12.isRequired,
-      name = _ref12.name,
-      options = _ref12.options,
-      selectedOption = _ref12.selectedOption,
-      props = _objectWithoutPropertiesLoose(_ref12, _excluded$_);
+var ReactSelect = function ReactSelect(_ref16) {
+  var async = _ref16.async,
+      cacheOptions = _ref16.cacheOptions,
+      control = _ref16.control,
+      defaultOptions = _ref16.defaultOptions,
+      defaultValue = _ref16.defaultValue,
+      endpoint = _ref16.endpoint,
+      endpointQueryFlag = _ref16.endpointQueryFlag,
+      hasError = _ref16.hasError,
+      loadOptions = _ref16.loadOptions,
+      isRequired = _ref16.isRequired,
+      name = _ref16.name,
+      options = _ref16.options,
+      selectedOption = _ref16.selectedOption,
+      props = _objectWithoutPropertiesLoose(_ref16, _excluded$_);
 
   var loadOptionsfromEndpoint = function loadOptionsfromEndpoint(inputValue, callback) {
-    axios.get("" + endpoint + (endpointQueryFlag ? "?" + endpointQueryFlag + "=" + inputValue : "")).then(function (_ref13) {
-      var data = _ref13.data;
+    axios.get("" + endpoint + (endpointQueryFlag ? "?" + endpointQueryFlag + "=" + inputValue : "")).then(function (_ref17) {
+      var data = _ref17.data;
       return callback(data.filter(function (item) {
         return item.label.toLowerCase().includes(inputValue);
       }));
@@ -4899,8 +4911,8 @@ var ReactSelect = function ReactSelect(_ref12) {
     control: control,
     defaultValue: defaultValue,
     name: name,
-    onChange: function onChange(_ref14) {
-      var selected = _ref14[0];
+    onChange: function onChange(_ref18) {
+      var selected = _ref18[0];
       return selected;
     },
     rules: {
