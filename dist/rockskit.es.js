@@ -3985,8 +3985,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
   var file = _ref.file,
       fileNameEditable = _ref.fileNameEditable,
       onEdit = _ref.onEdit,
-      index = _ref.index,
-      setFilesArray = _ref.setFilesArray;
+      removeFile = _ref.removeFile;
   var name = file.altName || file.fileName || file.name;
   var fileExt = name.split(".").pop();
 
@@ -4008,15 +4007,6 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
       setAltName(name.split(".").shift());
     }
   }, [editMode]);
-
-  var handleDelete = function handleDelete() {
-    return setFilesArray(function (prevState) {
-      return prevState.filter(function (item, i) {
-        return i !== index;
-      });
-    });
-  };
-
   return /*#__PURE__*/React.createElement(DropzoneItem$1, {
     key: file.name
   }, /*#__PURE__*/React.createElement("div", {
@@ -4068,7 +4058,9 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
     mr: 2,
     title: "Edit name"
   }), /*#__PURE__*/React.createElement(TrashIcon, {
-    onClick: handleDelete
+    onClick: function onClick() {
+      return removeFile(file);
+    }
   })));
 };
 var DropzoneItem$1 = styled.div.withConfig({
@@ -4107,19 +4099,18 @@ UploaderPreviewItem.propTypes = {
   onEdit: PropTypes.func.isRequired
 };
 
-var _excluded$18 = ["files", "index", "setFilesArray"];
+var _excluded$18 = ["files", "index", "onRemoveClick"];
 var UploaderPreview = function UploaderPreview(_ref) {
   var files = _ref.files;
       _ref.index;
-      var setFilesArray = _ref.setFilesArray,
+      var onRemoveClick = _ref.onRemoveClick,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$18);
 
   return Array.from(files).map(function (file, index) {
     return /*#__PURE__*/React.createElement(UploaderPreviewItem, _extends({
       key: file.name + index,
       file: file,
-      index: index,
-      setFilesArray: setFilesArray
+      removeFile: onRemoveClick
     }, props));
   });
 };
@@ -4217,10 +4208,6 @@ var Dropzone = function Dropzone(_ref17) {
       errorMessages = _useState2[0],
       setErrorMessages = _useState2[1];
 
-  var _useState3 = useState(null),
-      filesArray = _useState3[0],
-      setFilesArray = _useState3[1];
-
   var acceptedFileSizeInMb = (props.maxSize / 1000000).toString().split(".")[0] + " MB";
 
   var setFiles = function setFiles(files) {
@@ -4255,15 +4242,9 @@ var Dropzone = function Dropzone(_ref17) {
     multiple: multiple,
     onDrop: function onDrop(acceptedFiles) {
       if (crop && !multiple) {
-        setFilesArray(acceptedFiles[0]);
+        setCropFile(acceptedFiles[0]);
       } else {
-        setFilesArray(function (prevState) {
-          if (prevState) {
-            return [].concat(prevState, acceptedFiles);
-          }
-
-          return [].concat(acceptedFiles);
-        });
+        setFiles(acceptedFiles);
       }
     },
     onDropRejected: function onDropRejected(rejectedItems) {
@@ -4296,6 +4277,12 @@ var Dropzone = function Dropzone(_ref17) {
       isDragAccept = _useDropzone.isDragAccept,
       isDragReject = _useDropzone.isDragReject;
 
+  var removeFile = function removeFile(file) {
+    onChange(value.filter(function (f) {
+      return f.preview !== file.preview;
+    }));
+  };
+
   return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement(StyledContainer$3, props, /*#__PURE__*/React.createElement(DropzoneArea, _extends({
     dragActive: isDragActive,
     dragAccept: isDragAccept,
@@ -4307,11 +4294,11 @@ var Dropzone = function Dropzone(_ref17) {
     icon: "file-arrow-up",
     prefix: "far",
     size: "lg"
-  }), isDragActive ? /*#__PURE__*/React.createElement("p", null, "Drop your files here") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Drop your files here", /*#__PURE__*/React.createElement("span", null, " or select from computer")), multiple ? /*#__PURE__*/React.createElement("p", null, "Add up multiple files. Supports ", props.accept, " file formats. Max ", acceptedFileSizeInMb, " per file.") : /*#__PURE__*/React.createElement("p", null, "Single file only. Supports ", props.accept, " file formats. Max ", acceptedFileSizeInMb, " per file."))), filesArray && /*#__PURE__*/React.createElement(UploaderPreview, {
-    files: filesArray,
+  }), isDragActive ? /*#__PURE__*/React.createElement("p", null, "Drop your files here") : /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Drop your files here", /*#__PURE__*/React.createElement("span", null, " or select from computer")), multiple ? /*#__PURE__*/React.createElement("p", null, "Add up multiple files. Supports ", props.accept, " file formats. Max ", acceptedFileSizeInMb, " per file.") : /*#__PURE__*/React.createElement("p", null, "Single file only. Supports ", props.accept, " file formats. Max ", acceptedFileSizeInMb, " per file."))), value && /*#__PURE__*/React.createElement(UploaderPreview, {
+    files: value,
     fileNameEditable: fileNameEditable,
     onEdit: editFile,
-    setFilesArray: setFilesArray
+    onRemoveClick: removeFile
   }), errorMessages && errorMessages.map(function (item, index) {
     return /*#__PURE__*/React.createElement(DropzoneError, {
       key: item.title + index,

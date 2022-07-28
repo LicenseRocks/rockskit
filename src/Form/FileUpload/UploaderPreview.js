@@ -4,9 +4,9 @@ import PropTypes from "prop-types";
 
 import { UploaderPreviewItem } from "./PreviewItem";
 
-export const UploaderPreview = ({ files, index, setFilesArray, ...props }) => {
+export const UploaderPreview = ({ files, index, onRemoveClick, ...props }) => {
   return Array.from(files).map((file, index) => (
-    <UploaderPreviewItem key={file.name+index} file={file} index={index} setFilesArray={setFilesArray} {...props} />
+    <UploaderPreviewItem key={file.name+index} file={file} removeFile={onRemoveClick} {...props} />
   ));
 };
 
