@@ -87,7 +87,7 @@ export const UploaderPreviewItem = ({
         {fileNameEditable && !editMode && (
           <ActionIcon
             prefix="far"
-            icon="pencil-alt"
+            icon="pencil"
             onClick={() => setEditMode(true)}
             mr={2}
             title="Edit name"

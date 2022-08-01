@@ -8,6 +8,7 @@ import { DISPLAY, SPACER } from "../../theme";
 import { CropModal } from "./CropModal";
 import { DropzoneError } from "..";
 import { Icon } from "../../Icon";
+import { Text } from "../../Typography";
 
 const StyledContainer = styled.div`
   width: 100%;
@@ -93,11 +94,12 @@ export const Dropzone = ({
   multiple,
   onChange,
   value,
+  maxSize,
   ...props
 }) => {
   const [cropFile, setCropFile] = useState();
   const [errorMessages, setErrorMessages] = useState(null);
-  const acceptedFileSizeInMb = `${(props.maxSize / 1000000).toString().split(".")[0]} MB`;
+  const acceptedFileSizeInMb = `${(maxSize / 1000000).toString().split(".")[0]} MB`;
 
   const setFiles = (files) => {
     const accepted = files.map((file) =>
@@ -196,21 +198,20 @@ export const Dropzone = ({
           <input {...getInputProps()} />
 
           {isDragAccept && <p>Accepted</p>}
-          {isDragReject && <p>Rejected</p>}
 
           <StyledIcon icon="file-arrow-up" prefix="far" size="lg" />
 
           {isDragActive ? (
-            <p>Drop your files here</p>
+            <Text mt={4}>Drop your files here</Text>
           ) : (
             <>
               <p>Drop your files here
                 <span> or select from computer</span>
               </p>
               {multiple ? (
-                <p>Add up multiple files. Supports {props.accept} file formats. Max {acceptedFileSizeInMb} per file.</p>
+                <p>Add up multiple files. Supports {props.accept} file formats. {maxSize ? `Max ${acceptedFileSizeInMb} per file.` : null}</p>
               ) : (
-                <p>Single file only. Supports {props.accept} file formats. Max {acceptedFileSizeInMb} per file.</p>
+                <p>Single file only. Supports {props.accept} file formats. {maxSize ? `Max ${acceptedFileSizeInMb} per file.` : null}</p>
               )}
             </>
           )}
