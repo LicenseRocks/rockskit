@@ -10911,6 +10911,11 @@ react-collapse@^5.0.1:
   resolved "https://registry.yarnpkg.com/react-collapse/-/react-collapse-5.1.1.tgz#a2fa08ef13f372141b02e6a7d49ef72427bcbc2b"
   integrity sha512-k6cd7csF1o9LBhQ4AGBIdxB60SUEUMQDAnL2z1YvYNr9KoKr+nDkhN6FK7uGaBd/rYrYfrMpzpmJEIeHRYogBw==
 
+react-color-gradient-picker@^0.1.2:
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/react-color-gradient-picker/-/react-color-gradient-picker-0.1.2.tgz#e98cbae82e5b043f41e4d3e8c75d436981a9a6aa"
+  integrity sha512-/woJfVZbp/lEwqdNfk/vxmuUj7K9imyF6C5mrsfvwvtF1uFr7THHRyEDPLZd4mD9N3opPl6Z7G7SZrFQ8qBq9w==
+
 react-colorful@^5.1.2:
   version "5.5.1"
   resolved "https://registry.yarnpkg.com/react-colorful/-/react-colorful-5.5.1.tgz#29d9c4e496f2ca784dd2bb5053a3a4340cfaf784"

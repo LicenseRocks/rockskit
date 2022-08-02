@@ -1,0 +1,2 @@
+// Gradient
+export * from "./GradientBase";
