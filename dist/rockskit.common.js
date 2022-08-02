@@ -4098,7 +4098,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
     mr: 4
   }, "File uploaded"), fileNameEditable && !editMode && /*#__PURE__*/React__default["default"].createElement(ActionIcon, {
     prefix: "far",
-    icon: "pencil-alt",
+    icon: "pencil",
     onClick: function onClick() {
       return setEditMode(true);
     },
@@ -4168,7 +4168,7 @@ UploaderPreview.defaultProps = {
   files: []
 };
 
-var _excluded$17 = ["crop", "cropProps", "disabled", "defaultValue", "fileNameEditable", "hasError", "multiple", "onChange", "value"];
+var _excluded$17 = ["crop", "cropProps", "disabled", "defaultValue", "fileNameEditable", "hasError", "multiple", "onChange", "value", "maxSize"];
 var StyledContainer$3 = styled__default["default"].div.withConfig({
   displayName: "Dropzone__StyledContainer",
   componentId: "sc-1yejosv-0"
@@ -4245,6 +4245,7 @@ var Dropzone = function Dropzone(_ref17) {
       multiple = _ref17.multiple,
       onChange = _ref17.onChange,
       value = _ref17.value,
+      maxSize = _ref17.maxSize,
       props = _objectWithoutPropertiesLoose(_ref17, _excluded$17);
 
   var _useState = React.useState(),
@@ -4255,7 +4256,7 @@ var Dropzone = function Dropzone(_ref17) {
       errorMessages = _useState2[0],
       setErrorMessages = _useState2[1];
 
-  var acceptedFileSizeInMb = (props.maxSize / 1000000).toString().split(".")[0] + " MB";
+  var acceptedFileSizeInMb = (maxSize / 1000000).toString().split(".")[0] + " MB";
 
   var setFiles = function setFiles(files) {
     var accepted = files.map(function (file) {
@@ -4337,11 +4338,13 @@ var Dropzone = function Dropzone(_ref17) {
     disabled: disabled,
     hasError: hasError,
     errorMessages: errorMessages
-  }, getRootProps()), /*#__PURE__*/React__default["default"].createElement("input", getInputProps()), isDragAccept && /*#__PURE__*/React__default["default"].createElement("p", null, "Accepted"), isDragReject && /*#__PURE__*/React__default["default"].createElement("p", null, "Rejected"), /*#__PURE__*/React__default["default"].createElement(StyledIcon$5, {
+  }, getRootProps()), /*#__PURE__*/React__default["default"].createElement("input", getInputProps()), isDragAccept && /*#__PURE__*/React__default["default"].createElement("p", null, "Accepted"), /*#__PURE__*/React__default["default"].createElement(StyledIcon$5, {
     icon: "file-arrow-up",
     prefix: "far",
     size: "lg"
-  }), isDragActive ? /*#__PURE__*/React__default["default"].createElement("p", null, "Drop your files here") : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("p", null, "Drop your files here", /*#__PURE__*/React__default["default"].createElement("span", null, " or select from computer")), multiple ? /*#__PURE__*/React__default["default"].createElement("p", null, "Add up multiple files. Supports ", props.accept, " file formats. Max ", acceptedFileSizeInMb, " per file.") : /*#__PURE__*/React__default["default"].createElement("p", null, "Single file only. Supports ", props.accept, " file formats. Max ", acceptedFileSizeInMb, " per file."))), value && /*#__PURE__*/React__default["default"].createElement(UploaderPreview, {
+  }), isDragActive ? /*#__PURE__*/React__default["default"].createElement(Text, {
+    mt: 4
+  }, "Drop your files here") : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement("p", null, "Drop your files here", /*#__PURE__*/React__default["default"].createElement("span", null, " or select from computer")), multiple ? /*#__PURE__*/React__default["default"].createElement("p", null, "Add up multiple files. Supports ", props.accept, " file formats. ", maxSize ? "Max " + acceptedFileSizeInMb + " per file." : null) : /*#__PURE__*/React__default["default"].createElement("p", null, "Single file only. Supports ", props.accept, " file formats. ", maxSize ? "Max " + acceptedFileSizeInMb + " per file." : null))), value && /*#__PURE__*/React__default["default"].createElement(UploaderPreview, {
     files: value,
     fileNameEditable: fileNameEditable,
     onEdit: editFile,

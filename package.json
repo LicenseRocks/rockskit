@@ -1,6 +1,6 @@
 {
   "name": "@licenserocks/kit",
-  "version": "3.2.9",
+  "version": "3.3.1",
   "description": "",
   "main": "dist/rockskit.common.js",
   "module": "dist/rockskit.es.js",
@@ -13,7 +13,7 @@
     "prepublish": "yarn run build",
     "build-storybook": "build-storybook --quiet",
     "deploy-storybook": "storybook-to-ghpages",
-    "start-storybook": "start-storybook -p 9000 --quiet -c .storybook",
+    "start": "start-storybook -p 9000 --quiet -c .storybook",
     "test:snapshot": "jest",
     "test:snapshot:update": "jest --updateSnapshot"
   },
@@ -38,13 +38,13 @@
     "lodash": "^4.17.20",
     "notistack": "^1.0.5",
     "qrcode.react": "^1.0.0",
-    "react": "^18.1.0",
+    "react": "^18.2.0",
     "react-avatar-editor": "^11.1.0",
     "react-code-blocks": "^0.0.9-0",
     "react-collapse": "^5.0.1",
     "react-content-loader": "^5.1.0",
     "react-day-picker": "^7.4.8",
-    "react-dom": "^18.1.0",
+    "react-dom": "^18.2.0",
     "react-dropzone": "^11.0.2",
     "react-filepond": "^7.1.1",
     "react-hook-form": "^6.15.5",
@@ -65,14 +65,14 @@
     "@rollup/plugin-commonjs": "^13.0.0",
     "@rollup/plugin-image": "^2.0.5",
     "@rollup/plugin-node-resolve": "^8.1.0",
-    "@storybook/addon-actions": "^6.0.26",
-    "@storybook/addon-docs": "^6.0.26",
-    "@storybook/addon-knobs": "^6.0.26",
-    "@storybook/addon-storyshots": "^6.0.26",
-    "@storybook/addon-viewport": "^6.0.26",
-    "@storybook/cli": "^6.0.26",
-    "@storybook/react": "^6.0.26",
-    "@storybook/storybook-deployer": "^2.8.6",
+    "@storybook/addon-actions": "^6.5.9",
+    "@storybook/addon-docs": "^6.5.9",
+    "@storybook/addon-knobs": "^6.4.0",
+    "@storybook/addon-storyshots": "^6.5.9",
+    "@storybook/addon-viewport": "^6.5.9",
+    "@storybook/cli": "^6.5.9",
+    "@storybook/react": "^6.5.9",
+    "@storybook/storybook-deployer": "^2.8.12",
     "babel-eslint": "^10.1.0",
     "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
@@ -92,11 +92,11 @@
     "rollup-plugin-peer-deps-external": "^2.2.4",
     "rollup-plugin-svg": "^2.0.0",
     "rollup-plugin-terser": "^7.0.2",
-    "storybook": "^6.0.26"
+    "storybook": "^6.5.9"
   },
   "peerDependencies": {
     "prop-types": "^15.7.2",
-    "react": "^18.1.0",
-    "react-dom": "^18.1.0"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   }
 }
