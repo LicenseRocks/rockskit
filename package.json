@@ -36,6 +36,7 @@
     "copy-to-clipboard": "^3.3.1",
     "filepond": "^4.20.1",
     "lodash": "^4.17.20",
+    "material-ui-popup-state": "^4.0.1",
     "notistack": "^1.0.5",
     "qrcode.react": "^1.0.0",
     "react": "^18.2.0",
