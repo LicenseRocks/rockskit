@@ -11,10 +11,24 @@ export default {
 };
 
 export const main = () => {
+  const [isOpen, setIsOpen] = React.useState(false);
+
   const defaultProps = {
     items: [{ label: "EN" }, { label: "DE" }],
-    open: true,
+    open: isOpen,
     responsive: boolean("Responsive", false),
   };
-  return <Dropdown {...defaultProps}>Test</Dropdown>;
+
+  const handleOpen = () => {
+    setIsOpen(!isOpen);
+  };
+
+  return (
+    <>
+      <button onClick={handleOpen}>toggle</button>
+      <Dropdown {...defaultProps}>
+        <button onClick={handleOpen}>toggle</button>
+      </Dropdown>
+    </>
+  );
 };
