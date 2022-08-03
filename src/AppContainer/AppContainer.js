@@ -32,7 +32,9 @@ export const AppContainer = ({
             content={(key, options) => <Snackbar id={key} {...options} />}
             maxSnack={3}
           >
-            <GlobalStyle />
+            <GlobalStyle
+              gradientColors={theme?.palette?.background?.gradient}
+            />
 
             <CssBaseline />
 

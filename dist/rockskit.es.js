@@ -86,7 +86,10 @@ function _objectWithoutPropertiesLoose(source, excluded) {
   return target;
 }
 
-var GlobalStyle = createGlobalStyle(["html,body,#root,#__next{min-height:100%;height:100%;}input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,input:-webkit-autofill:active{-webkit-box-shadow:0 0 0 30px white inset !important;}"]);
+var GlobalStyle = createGlobalStyle(["html,body,#root,#__next{min-height:100%;height:100%;", "}input:-webkit-autofill,input:-webkit-autofill:hover,input:-webkit-autofill:focus,input:-webkit-autofill:active{-webkit-box-shadow:0 0 0 30px white inset !important;}"], function (_ref) {
+  var gradientColors = _ref.gradientColors;
+  return gradientColors && css(["background:", " !important;"], gradientColors);
+});
 
 var FreeBrandIconSet = {
   fabFacebookF: faFacebookF,
@@ -375,7 +378,8 @@ var RocksKitTheme = function RocksKitTheme(_temp) {
       yellow: KIT_COLORS.alert.yellow
     },
     background: {
-      default: (colors == null ? void 0 : colors.bgColor) || KIT_COLORS.gray.light
+      default: (colors == null ? void 0 : colors.bgColor) || KIT_COLORS.gray.light,
+      gradient: (colors == null ? void 0 : colors.bgColorGradient) || null
     },
     green: {
       light: KIT_COLORS.green.light
@@ -1352,6 +1356,8 @@ var AppContainerPropTypes = {
 };
 
 var AppContainer = function AppContainer(_ref) {
+  var _theme$palette, _theme$palette$backgr;
+
   var appConfig = _ref.appConfig,
       children = _ref.children,
       icons = _ref.icons,
@@ -1377,7 +1383,9 @@ var AppContainer = function AppContainer(_ref) {
       }, options));
     },
     maxSnack: 3
-  }, /*#__PURE__*/React.createElement(GlobalStyle, null), /*#__PURE__*/React.createElement(CssBaseline, null), pageProgressBar && /*#__PURE__*/React.createElement(PageProgressBar, {
+  }, /*#__PURE__*/React.createElement(GlobalStyle, {
+    gradientColors: theme == null ? void 0 : (_theme$palette = theme.palette) == null ? void 0 : (_theme$palette$backgr = _theme$palette.background) == null ? void 0 : _theme$palette$backgr.gradient
+  }), /*#__PURE__*/React.createElement(CssBaseline, null), pageProgressBar && /*#__PURE__*/React.createElement(PageProgressBar, {
     listener: pageProgressBarListener
   }), pageLoading ? /*#__PURE__*/React.createElement(PageLoading, {
     fullScreen: true
