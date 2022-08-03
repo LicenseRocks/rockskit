@@ -2783,7 +2783,7 @@ var _excluded$1k = ["children", "items", "responsive"],
 var StyledDropdown = styled(Menu).withConfig({
   displayName: "Dropdown__StyledDropdown",
   componentId: "sc-1hslh2d-0"
-})([".MuiMenu-paper{border-radius:12px;background-color:", ";box-shadow:0px 16px 56px rgba(41,40,57,0.16);}", " ", ""], function (_ref) {
+})(["&{pointer-events:none;}.MuiMenu-paper{position:relative;border-radius:12px;pointer-events:all;background-color:", ";box-shadow:0px 16px 56px rgba(41,40,57,0.16);}", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
