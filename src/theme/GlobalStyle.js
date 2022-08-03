@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
     ${({ gradientColors }) =>
       gradientColors &&
       css`
-        background: ${gradientColors} !important;
+        background: ${gradientColors} fixed !important;
       `}
    
   }
