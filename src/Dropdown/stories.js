@@ -26,7 +26,9 @@ export const main = () => {
   return (
     <>
       <button onClick={handleOpen}>toggle</button>
-      <Dropdown {...defaultProps}>Test</Dropdown>
+      <Dropdown {...defaultProps}>
+        <button onClick={handleOpen}>toggle</button>
+      </Dropdown>
     </>
   );
 };

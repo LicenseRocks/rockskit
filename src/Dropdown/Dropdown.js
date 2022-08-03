@@ -16,6 +16,7 @@ const StyledDropdown = styled(Menu)`
   .MuiMenu-paper {
     position: relative;
     border-radius: 12px;
+    pointer-events: all;
     background-color: ${({ theme }) => theme.palette.common.white};
     box-shadow: 0px 16px 56px rgba(41, 40, 57, 0.16);
   }
