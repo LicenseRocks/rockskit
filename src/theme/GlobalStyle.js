@@ -1,9 +1,15 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   html, body, #root, #__next {
     min-height: 100%;
     height: 100%;
+    ${({ gradientColors }) =>
+      gradientColors &&
+      css`
+        background: ${gradientColors} fixed !important;
+      `}
+   
   }
 
   input:-webkit-autofill,
