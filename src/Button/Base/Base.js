@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styled, { css } from "styled-components";
 import MuiButtonBase from "@material-ui/core/ButtonBase";
 
@@ -79,43 +79,63 @@ const getIconSize = (buttonSize) => {
   }
 };
 
-export const ButtonBase = ({
-  colors,
-  content,
-  children,
-  loading,
-  endIcon,
-  endIconPrefix,
-  href,
-  icon,
-  iconProps,
-  size,
-  startIcon,
-  startIconPrefix,
-  ...props
-}) => {
-  const iconSize = getIconSize(size);
+export const ButtonBase = forwardRef(
+  (
+    {
+      colors,
+      content,
+      children,
+      loading,
+      endIcon,
+      endIconPrefix,
+      href,
+      icon,
+      iconProps,
+      size,
+      startIcon,
+      startIconPrefix,
+      ...props
+    },
+    ref
+  ) => {
+    const iconSize = getIconSize(size);
 
-  return (
-    <StyledButton
-      component={href ? "a" : "button"}
-      href={href}
-      size={size}
-      {...props}
-    >
-      {loading ? (
-        <DotsSpinner color={colors?.color} />
-      ) : (
-        <>
-          {startIcon && <Icon icon={startIcon} prefix={startIconPrefix && startIconPrefix} size={iconSize} mr={2} />}
-          {icon && <Icon icon={icon} size={iconSize} {...iconProps} />}
-          {content || children}
-          {endIcon && <Icon icon={endIcon} prefix={endIconPrefix && endIconPrefix} size={iconSize} ml={2} />}
-        </>
-      )}
-    </StyledButton>
-  );
-};
+    return (
+      <StyledButton
+        component={href ? "a" : "button"}
+        href={href}
+        size={size}
+        ref={ref}
+        {...props}
+      >
+        {loading ? (
+          <DotsSpinner color={colors?.color} />
+        ) : (
+          <>
+            {startIcon && (
+              <Icon
+                icon={startIcon}
+                prefix={startIconPrefix && startIconPrefix}
+                size={iconSize}
+                mr={2}
+              />
+            )}
+            {icon && <Icon icon={icon} size={iconSize} {...iconProps} />}
+            {content || children}
+            {endIcon && (
+              <Icon
+                icon={endIcon}
+                prefix={endIconPrefix && endIconPrefix}
+                size={iconSize}
+                ml={2}
+              />
+            )}
+          </>
+        )}
+      </StyledButton>
+    );
+  }
+);
 
 ButtonBase.propTypes = ButtonBasePropTypes;
 

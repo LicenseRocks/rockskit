@@ -1,4 +1,4 @@
-import React from "react";
+import React, { forwardRef } from "react";
 import styled, { css, useTheme } from "styled-components";
 
 import { ButtonBase, ButtonBasePropTypes } from "../Base";
@@ -36,11 +36,11 @@ const colorMapper = (color, theme) => {
   };
 };
 
-export const Button = ({ color, ...props }) => {
+export const Button = forwardRef(({ color, ...props }, ref) => {
   const theme = useTheme();
   const colors = colorMapper(color, theme);
 
-  return <StyledButton colors={colors} {...props} />;
-};
+  return <StyledButton ref={ref} colors={colors} {...props} />;
+});
 
 Button.propTypes = ButtonBasePropTypes;
