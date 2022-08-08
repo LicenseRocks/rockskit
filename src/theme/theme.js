@@ -46,7 +46,7 @@ export const RocksKitTheme = ({ colors, fonts, loadingIndicator } = {}) => {
       secondary: colors?.secondaryFontColor || KIT_COLORS.gray.medium,
     },
     black: {
-      main: colors?.basicFontsColor || KIT_COLORS.gray.black
+      main: colors?.basicFontsColor || KIT_COLORS.gray.black,
     },
     white: {
       main: KIT_COLORS.gray.white,
@@ -80,18 +80,19 @@ export const RocksKitTheme = ({ colors, fonts, loadingIndicator } = {}) => {
     common: {
       white: colors?.componentsColor || KIT_COLORS.gray.white,
       black: KIT_COLORS.gray.black,
-      yellow: KIT_COLORS.alert.yellow
+      yellow: KIT_COLORS.alert.yellow,
     },
     background: {
       default: colors?.bgColor || KIT_COLORS.gray.light,
+      gradient: colors?.bgColorGradient || null,
     },
     green: {
       light: KIT_COLORS.green.light,
     },
     red: {
       light: KIT_COLORS.red.light,
-      dark: KIT_COLORS.red.dark
-    }
+      dark: KIT_COLORS.red.dark,
+    },
   };
 
   const typography = KIT_TYPOGRAPHY(theme);
