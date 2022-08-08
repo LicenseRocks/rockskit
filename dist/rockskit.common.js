@@ -16,8 +16,10 @@ var MuiButtonBase = require('@material-ui/core/ButtonBase');
 var RCL = require('react-content-loader');
 var reactCollapse = require('react-collapse');
 var DayPicker = require('react-day-picker');
+var lodash = require('lodash');
 var Dialog = require('@material-ui/core/Dialog');
 var Menu = require('@material-ui/core/Menu');
+var ClickAwayListener = require('@material-ui/core/ClickAwayListener');
 var MenuItem = require('@material-ui/core/MenuItem');
 var QRCode = require('qrcode.react');
 var Grid = require('@material-ui/core/Grid');
@@ -69,6 +71,7 @@ var RCL__default = /*#__PURE__*/_interopDefaultLegacy(RCL);
 var DayPicker__default = /*#__PURE__*/_interopDefaultLegacy(DayPicker);
 var Dialog__default = /*#__PURE__*/_interopDefaultLegacy(Dialog);
 var Menu__default = /*#__PURE__*/_interopDefaultLegacy(Menu);
+var ClickAwayListener__default = /*#__PURE__*/_interopDefaultLegacy(ClickAwayListener);
 var MenuItem__default = /*#__PURE__*/_interopDefaultLegacy(MenuItem);
 var QRCode__default = /*#__PURE__*/_interopDefaultLegacy(QRCode);
 var Grid__default = /*#__PURE__*/_interopDefaultLegacy(Grid);
@@ -750,7 +753,7 @@ var getIconSize = function getIconSize(buttonSize) {
   }
 };
 
-var ButtonBase = function ButtonBase(_ref4) {
+var ButtonBase = /*#__PURE__*/React.forwardRef(function (_ref4, ref) {
   var colors = _ref4.colors,
       content = _ref4.content,
       children = _ref4.children,
@@ -769,7 +772,8 @@ var ButtonBase = function ButtonBase(_ref4) {
   return /*#__PURE__*/React__default["default"].createElement(StyledButton$6, _extends({
     component: href ? "a" : "button",
     href: href,
-    size: size
+    size: size,
+    ref: ref
   }, props), loading ? /*#__PURE__*/React__default["default"].createElement(DotsSpinner, {
     color: colors == null ? void 0 : colors.color
   }) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, startIcon && /*#__PURE__*/React__default["default"].createElement(Icon, {
@@ -786,7 +790,7 @@ var ButtonBase = function ButtonBase(_ref4) {
     size: iconSize,
     ml: 2
   })));
-};
+});
 ButtonBase.propTypes = ButtonBasePropTypes;
 ButtonBase.defaultProps = ButtonBaseDefaultProps;
 
@@ -814,16 +818,17 @@ var colorMapper$2 = function colorMapper(color, theme) {
   };
 };
 
-var Button$1 = function Button(_ref2) {
+var Button$1 = /*#__PURE__*/React.forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
       props = _objectWithoutPropertiesLoose(_ref2, _excluded$1F);
 
   var theme = styled.useTheme();
   var colors = colorMapper$2(color, theme);
   return /*#__PURE__*/React__default["default"].createElement(StyledButton$5, _extends({
+    ref: ref,
     colors: colors
   }, props));
-};
+});
 Button$1.propTypes = ButtonBasePropTypes;
 
 var _excluded$1E = ["color"];
@@ -854,16 +859,17 @@ var colorMapper$1 = function colorMapper(color, theme) {
   };
 };
 
-var OutlineButton = function OutlineButton(_ref2) {
+var OutlineButton = /*#__PURE__*/React.forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
       props = _objectWithoutPropertiesLoose(_ref2, _excluded$1E);
 
   var theme = styled.useTheme();
   var colors = colorMapper$1(color, theme);
   return /*#__PURE__*/React__default["default"].createElement(StyledButton$4, _extends({
+    ref: ref,
     colors: colors
   }, props));
-};
+});
 OutlineButton.propTypes = ButtonBasePropTypes;
 
 var _excluded$1D = ["color"];
@@ -887,16 +893,17 @@ var colorMapper = function colorMapper(color, theme) {
   };
 };
 
-var TextButton = function TextButton(_ref2) {
+var TextButton = /*#__PURE__*/React.forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
       props = _objectWithoutPropertiesLoose(_ref2, _excluded$1D);
 
   var theme = styled.useTheme();
   var colors = colorMapper(color, theme);
   return /*#__PURE__*/React__default["default"].createElement(StyledButton$3, _extends({
+    ref: ref,
     colors: colors
   }, props));
-};
+});
 TextButton.propTypes = ButtonBasePropTypes;
 
 var _excluded$1C = ["onClick", "title", "type"];
@@ -2818,7 +2825,8 @@ var DropdownPropTypes = _extends({
     label: PropTypes__default["default"].string
   })),
   onClose: PropTypes__default["default"].func,
-  open: PropTypes__default["default"].bool.isRequired,
+  disableOutsideClickClose: PropTypes__default["default"].bool,
+  render: PropTypes__default["default"].func,
   responsive: PropTypes__default["default"].bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var DropdownDefaultProps = {
@@ -2826,6 +2834,7 @@ var DropdownDefaultProps = {
     vertical: "bottom",
     horizontal: "center"
   },
+  disableOutsideClickClose: false,
   getContentAnchorEl: null,
   transformOrigin: {
     vertical: "top",
@@ -2833,12 +2842,12 @@ var DropdownDefaultProps = {
   }
 };
 
-var _excluded$1k = ["children", "items", "responsive"],
+var _excluded$1k = ["children", "items", "disableOutsideClickClose", "responsive", "render"],
     _excluded2$2 = ["label", "onClick", "value"];
 var StyledDropdown = styled__default["default"](Menu__default["default"]).withConfig({
   displayName: "Dropdown__StyledDropdown",
   componentId: "sc-1hslh2d-0"
-})(["&{pointer-events:none;}.MuiMenu-paper{position:relative;border-radius:12px;pointer-events:all;background-color:", ";box-shadow:0px 16px 56px rgba(41,40,57,0.16);}", " ", ""], function (_ref) {
+})(["&{pointer-events:none;}.MuiMenu-paper{border-radius:12px;pointer-events:all;background-color:", ";box-shadow:0px 16px 56px rgba(41,40,57,0.16);}", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
@@ -2862,19 +2871,123 @@ var StyledDialog$1 = styled__default["default"](Dialog__default["default"]).attr
   var theme = _ref2.theme;
   return theme.palette.common.white;
 });
+
+function useOpen() {
+  var _React$useState = React__default["default"].useState(false),
+      isOpen = _React$useState[0],
+      setIsOpen = _React$useState[1];
+
+  var close = function close() {
+    setIsOpen(false);
+  };
+
+  var open = function open() {
+    setIsOpen(true);
+  };
+
+  var toggle = function toggle() {
+    setIsOpen(!isOpen);
+  };
+
+  return {
+    close: close,
+    open: open,
+    toggle: toggle,
+    isOpen: isOpen
+  };
+}
+
+var useMousePosition = function useMousePosition() {
+  var _React$useState2 = React__default["default"].useState({
+    x: null,
+    y: null
+  }),
+      mousePosition = _React$useState2[0],
+      setMousePosition = _React$useState2[1];
+
+  React__default["default"].useEffect(function () {
+    var updateMousePosition = function updateMousePosition(ev) {
+      setMousePosition({
+        x: ev.clientX,
+        y: ev.clientY
+      });
+    };
+
+    window.addEventListener("mousemove", updateMousePosition);
+    return function () {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return mousePosition;
+};
+
 var Dropdown = function Dropdown(_ref3) {
   var children = _ref3.children,
       items = _ref3.items,
+      disableOutsideClickClose = _ref3.disableOutsideClickClose,
       responsive = _ref3.responsive,
+      render = _ref3.render,
       props = _objectWithoutPropertiesLoose(_ref3, _excluded$1k);
 
   var theme = styled.useTheme();
+
+  var _useOpen = useOpen(),
+      close = _useOpen.close,
+      open = _useOpen.open,
+      toggle = _useOpen.toggle,
+      isOpen = _useOpen.isOpen;
+
+  var ref = React__default["default"].useRef();
+
+  var _useMousePosition = useMousePosition(),
+      x = _useMousePosition.x,
+      y = _useMousePosition.y;
+
   var isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  if (responsive && isMobile) return /*#__PURE__*/React__default["default"].createElement(StyledDialog$1, _extends({
+  var sanitizedRestProps = lodash.omit(props, "open");
+  if (responsive && isMobile) return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].cloneElement(children, _extends({
+    onClick: function onClick() {
+      toggle();
+    },
+    ref: ref
+  }, children.props)), /*#__PURE__*/React__default["default"].createElement(StyledDialog$1, _extends({
     fullScreen: true,
-    hideBackdrop: true
-  }, props), children);
-  return /*#__PURE__*/React__default["default"].createElement(StyledDropdown, props, children || items.map(function (_ref4) {
+    hideBackdrop: true,
+    open: isOpen
+  }, sanitizedRestProps), render({
+    close: close,
+    toggle: toggle,
+    open: open,
+    isMobile: isMobile,
+    isOpen: isOpen
+  })));
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].cloneElement(children, _extends({
+    onClick: function onClick() {
+      toggle();
+    },
+    ref: ref
+  }, children.props)), /*#__PURE__*/React__default["default"].createElement(ClickAwayListener__default["default"], {
+    mouseEvent: "onMouseDown",
+    onClickAway: function onClickAway() {
+      if (!disableOutsideClickClose) {
+        if (document.elementsFromPoint(x, y).reverse().pop() === ref.current) {
+          return;
+        }
+
+        if (isOpen) {
+          close();
+        }
+      }
+    }
+  }, /*#__PURE__*/React__default["default"].createElement(StyledDropdown, _extends({
+    open: isOpen
+  }, sanitizedRestProps), render ? render({
+    close: close,
+    toggle: toggle,
+    open: open,
+    isMobile: isMobile,
+    isOpen: isOpen
+  }) : items.map(function (_ref4) {
     var label = _ref4.label,
         _onClick = _ref4.onClick,
         value = _ref4.value,
@@ -2886,7 +2999,7 @@ var Dropdown = function Dropdown(_ref3) {
         return _onClick(value);
       }
     }, itemProps), label);
-  }));
+  }))));
 };
 Dropdown.propTypes = DropdownPropTypes;
 Dropdown.defaultProps = DropdownDefaultProps;

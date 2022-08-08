@@ -10,24 +10,50 @@ export default {
   decorators: [StoryWrapper],
 };
 
-export const main = () => {
-  const [isOpen, setIsOpen] = React.useState(false);
+const sharedDefaultProps = () => ({
+  responsive: boolean("Responsive", false),
+  disableOutsideClickClose: boolean(
+    "Disable close on outside content click",
+    false
+  ),
+});
 
+export const customContentRender = () => {
   const defaultProps = {
-    items: [{ label: "EN" }, { label: "DE" }],
-    open: isOpen,
-    responsive: boolean("Responsive", false),
-  };
-
-  const handleOpen = () => {
-    setIsOpen(!isOpen);
+    ...sharedDefaultProps(),
+    render: ({ close, isMobile }) => (
+      <div>
+        <p>Test render custom content</p>
+        <button type="button" onClick={close}>
+          Close
+        </button>
+        <p>{`Is mobile? ${isMobile}`}</p>
+      </div>
+    ),
   };
 
   return (
     <>
-      <button onClick={handleOpen}>toggle</button>
       <Dropdown {...defaultProps}>
-        <button onClick={handleOpen}>toggle</button>
+        <button type="button">toggle</button>
+      </Dropdown>
+    </>
+  );
+};
+
+export const itemsRender = () => {
+  const defaultProps = {
+    items: [
+      { label: "EN", value: "en", onClick: () => console.log("en") },
+      { label: "DE", value: "de", onClick: () => console.log("de") },
+    ],
+    ...sharedDefaultProps(),
+  };
+
+  return (
+    <>
+      <Dropdown {...defaultProps}>
+        <button type="button">Toggle</button>
       </Dropdown>
     </>
   );

@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, forwardRef, createRef, Children, Fragment, useRef } from 'react';
+import React, { forwardRef, createContext, useContext, useState, useEffect, createRef, Children, Fragment, useRef } from 'react';
 import PropTypes, { bool, func, oneOf, number, string, array } from 'prop-types';
 import styled, { createGlobalStyle, css, useTheme, ThemeProvider as ThemeProvider$1 } from 'styled-components';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -12,8 +12,10 @@ import MuiButtonBase from '@material-ui/core/ButtonBase';
 import RCL from 'react-content-loader';
 import { Collapse as Collapse$1 } from 'react-collapse';
 import DayPicker, { DateUtils } from 'react-day-picker';
+import { omit } from 'lodash';
 import Dialog from '@material-ui/core/Dialog';
 import Menu from '@material-ui/core/Menu';
+import ClickAwayListener from '@material-ui/core/ClickAwayListener';
 import MenuItem from '@material-ui/core/MenuItem';
 import QRCode from 'qrcode.react';
 import Grid from '@material-ui/core/Grid';
@@ -703,7 +705,7 @@ var getIconSize = function getIconSize(buttonSize) {
   }
 };
 
-var ButtonBase = function ButtonBase(_ref4) {
+var ButtonBase = /*#__PURE__*/forwardRef(function (_ref4, ref) {
   var colors = _ref4.colors,
       content = _ref4.content,
       children = _ref4.children,
@@ -722,7 +724,8 @@ var ButtonBase = function ButtonBase(_ref4) {
   return /*#__PURE__*/React.createElement(StyledButton$6, _extends({
     component: href ? "a" : "button",
     href: href,
-    size: size
+    size: size,
+    ref: ref
   }, props), loading ? /*#__PURE__*/React.createElement(DotsSpinner, {
     color: colors == null ? void 0 : colors.color
   }) : /*#__PURE__*/React.createElement(React.Fragment, null, startIcon && /*#__PURE__*/React.createElement(Icon, {
@@ -739,7 +742,7 @@ var ButtonBase = function ButtonBase(_ref4) {
     size: iconSize,
     ml: 2
   })));
-};
+});
 ButtonBase.propTypes = ButtonBasePropTypes;
 ButtonBase.defaultProps = ButtonBaseDefaultProps;
 
@@ -767,16 +770,17 @@ var colorMapper$2 = function colorMapper(color, theme) {
   };
 };
 
-var Button$1 = function Button(_ref2) {
+var Button$1 = /*#__PURE__*/forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
       props = _objectWithoutPropertiesLoose(_ref2, _excluded$1F);
 
   var theme = useTheme();
   var colors = colorMapper$2(color, theme);
   return /*#__PURE__*/React.createElement(StyledButton$5, _extends({
+    ref: ref,
     colors: colors
   }, props));
-};
+});
 Button$1.propTypes = ButtonBasePropTypes;
 
 var _excluded$1E = ["color"];
@@ -807,16 +811,17 @@ var colorMapper$1 = function colorMapper(color, theme) {
   };
 };
 
-var OutlineButton = function OutlineButton(_ref2) {
+var OutlineButton = /*#__PURE__*/forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
       props = _objectWithoutPropertiesLoose(_ref2, _excluded$1E);
 
   var theme = useTheme();
   var colors = colorMapper$1(color, theme);
   return /*#__PURE__*/React.createElement(StyledButton$4, _extends({
+    ref: ref,
     colors: colors
   }, props));
-};
+});
 OutlineButton.propTypes = ButtonBasePropTypes;
 
 var _excluded$1D = ["color"];
@@ -840,16 +845,17 @@ var colorMapper = function colorMapper(color, theme) {
   };
 };
 
-var TextButton = function TextButton(_ref2) {
+var TextButton = /*#__PURE__*/forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
       props = _objectWithoutPropertiesLoose(_ref2, _excluded$1D);
 
   var theme = useTheme();
   var colors = colorMapper(color, theme);
   return /*#__PURE__*/React.createElement(StyledButton$3, _extends({
+    ref: ref,
     colors: colors
   }, props));
-};
+});
 TextButton.propTypes = ButtonBasePropTypes;
 
 var _excluded$1C = ["onClick", "title", "type"];
@@ -2771,7 +2777,8 @@ var DropdownPropTypes = _extends({
     label: PropTypes.string
   })),
   onClose: PropTypes.func,
-  open: PropTypes.bool.isRequired,
+  disableOutsideClickClose: PropTypes.bool,
+  render: PropTypes.func,
   responsive: PropTypes.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var DropdownDefaultProps = {
@@ -2779,6 +2786,7 @@ var DropdownDefaultProps = {
     vertical: "bottom",
     horizontal: "center"
   },
+  disableOutsideClickClose: false,
   getContentAnchorEl: null,
   transformOrigin: {
     vertical: "top",
@@ -2786,12 +2794,12 @@ var DropdownDefaultProps = {
   }
 };
 
-var _excluded$1k = ["children", "items", "responsive"],
+var _excluded$1k = ["children", "items", "disableOutsideClickClose", "responsive", "render"],
     _excluded2$2 = ["label", "onClick", "value"];
 var StyledDropdown = styled(Menu).withConfig({
   displayName: "Dropdown__StyledDropdown",
   componentId: "sc-1hslh2d-0"
-})(["&{pointer-events:none;}.MuiMenu-paper{position:relative;border-radius:12px;pointer-events:all;background-color:", ";box-shadow:0px 16px 56px rgba(41,40,57,0.16);}", " ", ""], function (_ref) {
+})(["&{pointer-events:none;}.MuiMenu-paper{border-radius:12px;pointer-events:all;background-color:", ";box-shadow:0px 16px 56px rgba(41,40,57,0.16);}", " ", ""], function (_ref) {
   var theme = _ref.theme;
   return theme.palette.common.white;
 }, function (theme) {
@@ -2815,19 +2823,123 @@ var StyledDialog$1 = styled(Dialog).attrs(function () {
   var theme = _ref2.theme;
   return theme.palette.common.white;
 });
+
+function useOpen() {
+  var _React$useState = React.useState(false),
+      isOpen = _React$useState[0],
+      setIsOpen = _React$useState[1];
+
+  var close = function close() {
+    setIsOpen(false);
+  };
+
+  var open = function open() {
+    setIsOpen(true);
+  };
+
+  var toggle = function toggle() {
+    setIsOpen(!isOpen);
+  };
+
+  return {
+    close: close,
+    open: open,
+    toggle: toggle,
+    isOpen: isOpen
+  };
+}
+
+var useMousePosition = function useMousePosition() {
+  var _React$useState2 = React.useState({
+    x: null,
+    y: null
+  }),
+      mousePosition = _React$useState2[0],
+      setMousePosition = _React$useState2[1];
+
+  React.useEffect(function () {
+    var updateMousePosition = function updateMousePosition(ev) {
+      setMousePosition({
+        x: ev.clientX,
+        y: ev.clientY
+      });
+    };
+
+    window.addEventListener("mousemove", updateMousePosition);
+    return function () {
+      window.removeEventListener("mousemove", updateMousePosition);
+    };
+  }, []);
+  return mousePosition;
+};
+
 var Dropdown = function Dropdown(_ref3) {
   var children = _ref3.children,
       items = _ref3.items,
+      disableOutsideClickClose = _ref3.disableOutsideClickClose,
       responsive = _ref3.responsive,
+      render = _ref3.render,
       props = _objectWithoutPropertiesLoose(_ref3, _excluded$1k);
 
   var theme = useTheme();
+
+  var _useOpen = useOpen(),
+      close = _useOpen.close,
+      open = _useOpen.open,
+      toggle = _useOpen.toggle,
+      isOpen = _useOpen.isOpen;
+
+  var ref = React.useRef();
+
+  var _useMousePosition = useMousePosition(),
+      x = _useMousePosition.x,
+      y = _useMousePosition.y;
+
   var isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  if (responsive && isMobile) return /*#__PURE__*/React.createElement(StyledDialog$1, _extends({
+  var sanitizedRestProps = omit(props, "open");
+  if (responsive && isMobile) return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.cloneElement(children, _extends({
+    onClick: function onClick() {
+      toggle();
+    },
+    ref: ref
+  }, children.props)), /*#__PURE__*/React.createElement(StyledDialog$1, _extends({
     fullScreen: true,
-    hideBackdrop: true
-  }, props), children);
-  return /*#__PURE__*/React.createElement(StyledDropdown, props, children || items.map(function (_ref4) {
+    hideBackdrop: true,
+    open: isOpen
+  }, sanitizedRestProps), render({
+    close: close,
+    toggle: toggle,
+    open: open,
+    isMobile: isMobile,
+    isOpen: isOpen
+  })));
+  return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.cloneElement(children, _extends({
+    onClick: function onClick() {
+      toggle();
+    },
+    ref: ref
+  }, children.props)), /*#__PURE__*/React.createElement(ClickAwayListener, {
+    mouseEvent: "onMouseDown",
+    onClickAway: function onClickAway() {
+      if (!disableOutsideClickClose) {
+        if (document.elementsFromPoint(x, y).reverse().pop() === ref.current) {
+          return;
+        }
+
+        if (isOpen) {
+          close();
+        }
+      }
+    }
+  }, /*#__PURE__*/React.createElement(StyledDropdown, _extends({
+    open: isOpen
+  }, sanitizedRestProps), render ? render({
+    close: close,
+    toggle: toggle,
+    open: open,
+    isMobile: isMobile,
+    isOpen: isOpen
+  }) : items.map(function (_ref4) {
     var label = _ref4.label,
         _onClick = _ref4.onClick,
         value = _ref4.value,
@@ -2839,7 +2951,7 @@ var Dropdown = function Dropdown(_ref3) {
         return _onClick(value);
       }
     }, itemProps), label);
-  }));
+  }))));
 };
 Dropdown.propTypes = DropdownPropTypes;
 Dropdown.defaultProps = DropdownDefaultProps;

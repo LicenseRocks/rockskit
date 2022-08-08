@@ -11,7 +11,8 @@ export const DropdownPropTypes = {
     })
   ),
   onClose: PropTypes.func,
-  open: PropTypes.bool.isRequired,
+  disableOutsideClickClose: PropTypes.bool,
+  render: PropTypes.func,
   responsive: PropTypes.bool,
   ...SPACER_PROP_TYPES,
   ...DISPLAY_PROP_TYPES,
@@ -22,6 +23,7 @@ export const DropdownDefaultProps = {
     vertical: "bottom",
     horizontal: "center",
   },
+  disableOutsideClickClose: false,
   getContentAnchorEl: null,
   transformOrigin: {
     vertical: "top",
