@@ -17,14 +17,16 @@ const Container = styled.div`
 `;
 
 const Indicator = styled.div`
-  background-color: ${({ theme }) => theme.palette.primary.main};
+  color: ${({ theme }) => theme.palette.common.white};
   height: 18px;
   border-radius: 16px;
   font-size: 12px;
   padding-left: ${({ theme }) => theme.spacing(2)};
   display: flex;
   align-items: center;
-  color: ${({ theme }) => theme.palette.common.white};
+  ${({ color, theme }) =>
+    `background-color: ${color ? color : theme.palette.primary.main};`}
+
   ${({ percentage }) => `width: ${percentage * 100}%;`}
 `;
 
@@ -35,12 +37,12 @@ const LeftNumber = styled.div`
   padding-right: ${({ theme }) => theme.spacing(2)};
 `;
 
-export const ProgressBar = ({ value, total, ...props }) => {
+export const ProgressBar = ({ value, progressColor, total, ...props }) => {
   const [percentage, setPercentage] = useState(value / total);
 
   return (
     <Container {...props}>
-      <Indicator value={value} percentage={percentage}>
+      <Indicator color={progressColor} value={value} percentage={percentage}>
         {value}
       </Indicator>
       <LeftNumber percentage={percentage}>{total - value}</LeftNumber>
