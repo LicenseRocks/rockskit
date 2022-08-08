@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect, forwardRef, createRef, Children, Fragment, useRef } from 'react';
+import React, { forwardRef, createContext, useContext, useState, useEffect, createRef, Children, Fragment, useRef } from 'react';
 import PropTypes, { bool, func, oneOf, number, string, array } from 'prop-types';
 import styled, { createGlobalStyle, css, useTheme, ThemeProvider as ThemeProvider$1 } from 'styled-components';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
@@ -701,7 +701,7 @@ var getIconSize = function getIconSize(buttonSize) {
   }
 };
 
-var ButtonBase = function ButtonBase(_ref4) {
+var ButtonBase = /*#__PURE__*/forwardRef(function (_ref4, ref) {
   var colors = _ref4.colors,
       content = _ref4.content,
       children = _ref4.children,
@@ -720,7 +720,8 @@ var ButtonBase = function ButtonBase(_ref4) {
   return /*#__PURE__*/React.createElement(StyledButton$6, _extends({
     component: href ? "a" : "button",
     href: href,
-    size: size
+    size: size,
+    ref: ref
   }, props), loading ? /*#__PURE__*/React.createElement(DotsSpinner, {
     color: colors == null ? void 0 : colors.color
   }) : /*#__PURE__*/React.createElement(React.Fragment, null, startIcon && /*#__PURE__*/React.createElement(Icon, {
@@ -737,7 +738,7 @@ var ButtonBase = function ButtonBase(_ref4) {
     size: iconSize,
     ml: 2
   })));
-};
+});
 ButtonBase.propTypes = ButtonBasePropTypes;
 ButtonBase.defaultProps = ButtonBaseDefaultProps;
 
@@ -765,16 +766,17 @@ var colorMapper$2 = function colorMapper(color, theme) {
   };
 };
 
-var Button$1 = function Button(_ref2) {
+var Button$1 = /*#__PURE__*/forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
       props = _objectWithoutPropertiesLoose(_ref2, _excluded$1F);
 
   var theme = useTheme();
   var colors = colorMapper$2(color, theme);
   return /*#__PURE__*/React.createElement(StyledButton$5, _extends({
+    ref: ref,
     colors: colors
   }, props));
-};
+});
 Button$1.propTypes = ButtonBasePropTypes;
 
 var _excluded$1E = ["color"];
@@ -805,16 +807,17 @@ var colorMapper$1 = function colorMapper(color, theme) {
   };
 };
 
-var OutlineButton = function OutlineButton(_ref2) {
+var OutlineButton = /*#__PURE__*/forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
       props = _objectWithoutPropertiesLoose(_ref2, _excluded$1E);
 
   var theme = useTheme();
   var colors = colorMapper$1(color, theme);
   return /*#__PURE__*/React.createElement(StyledButton$4, _extends({
+    ref: ref,
     colors: colors
   }, props));
-};
+});
 OutlineButton.propTypes = ButtonBasePropTypes;
 
 var _excluded$1D = ["color"];
@@ -838,16 +841,17 @@ var colorMapper = function colorMapper(color, theme) {
   };
 };
 
-var TextButton = function TextButton(_ref2) {
+var TextButton = /*#__PURE__*/forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
       props = _objectWithoutPropertiesLoose(_ref2, _excluded$1D);
 
   var theme = useTheme();
   var colors = colorMapper(color, theme);
   return /*#__PURE__*/React.createElement(StyledButton$3, _extends({
+    ref: ref,
     colors: colors
   }, props));
-};
+});
 TextButton.propTypes = ButtonBasePropTypes;
 
 var _excluded$1C = ["onClick", "title", "type"];
