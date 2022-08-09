@@ -2896,7 +2896,7 @@ function useOpen() {
   };
 }
 
-var useMousePosition = function useMousePosition() {
+var useMousePosition = function useMousePosition(shouldUpdate) {
   var _React$useState2 = React__default["default"].useState({
     x: null,
     y: null
@@ -2906,17 +2906,19 @@ var useMousePosition = function useMousePosition() {
 
   React__default["default"].useEffect(function () {
     var updateMousePosition = function updateMousePosition(ev) {
-      setMousePosition({
-        x: ev.clientX,
-        y: ev.clientY
-      });
+      if (shouldUpdate) {
+        setMousePosition({
+          x: ev.clientX,
+          y: ev.clientY
+        });
+      }
     };
 
     window.addEventListener("mousemove", updateMousePosition);
     return function () {
       window.removeEventListener("mousemove", updateMousePosition);
     };
-  }, []);
+  }, [shouldUpdate]);
   return mousePosition;
 };
 
@@ -2936,7 +2938,7 @@ var Dropdown = function Dropdown(_ref3) {
       toggle = _useOpen.toggle,
       isOpen = _useOpen.isOpen;
 
-  var _useMousePosition = useMousePosition(),
+  var _useMousePosition = useMousePosition(isOpen),
       x = _useMousePosition.x,
       y = _useMousePosition.y;
 
