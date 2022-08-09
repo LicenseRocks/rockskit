@@ -3,6 +3,7 @@ import { boolean } from "@storybook/addon-knobs";
 
 import { StoryWrapper } from "../../.storybook/decorators";
 import { Dropdown } from ".";
+import { TextButton } from "../Button";
 
 export default {
   title: "Dropdown",
@@ -54,6 +55,34 @@ export const itemsRender = () => {
     <>
       <Dropdown {...defaultProps}>
         <button type="button">Toggle</button>
+      </Dropdown>
+    </>
+  );
+};
+
+export const buttonTrigger = () => {
+  const defaultProps = {
+    items: [
+      { label: "EN", value: "en", onClick: () => console.log("en") },
+      { label: "DE", value: "de", onClick: () => console.log("de") },
+    ],
+    ...sharedDefaultProps(),
+  };
+
+  return (
+    <>
+      <Dropdown
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "center",
+        }}
+        transformOrigin={{
+          vertical: "top",
+          horizontal: "right",
+        }}
+        {...defaultProps}
+      >
+        <TextButton type="button">Toggle</TextButton>
       </Dropdown>
     </>
   );
