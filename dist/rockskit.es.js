@@ -2771,7 +2771,6 @@ Divider.propTypes = DividerPropTypes;
 Divider.defaultProps = DividerDefaultProps;
 
 var DropdownPropTypes = _extends({
-  anchorEl: PropTypes.object,
   children: PropTypes.node,
   items: PropTypes.arrayOf(PropTypes.shape({
     label: PropTypes.string
@@ -2889,14 +2888,13 @@ var Dropdown = function Dropdown(_ref3) {
       toggle = _useOpen.toggle,
       isOpen = _useOpen.isOpen;
 
-  var ref = React.useRef();
-
   var _useMousePosition = useMousePosition(),
       x = _useMousePosition.x,
       y = _useMousePosition.y;
 
   var isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  var sanitizedRestProps = omit(props, "open");
+  var ref = React.useRef(null);
+  var sanitizedRestProps = omit(props, ["open", "anchorEl"]);
   if (responsive && isMobile) return /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.cloneElement(children, _extends({
     onClick: function onClick() {
       toggle();
@@ -2932,6 +2930,7 @@ var Dropdown = function Dropdown(_ref3) {
       }
     }
   }, /*#__PURE__*/React.createElement(StyledDropdown, _extends({
+    anchorEl: ref.current,
     open: isOpen
   }, sanitizedRestProps), render ? render({
     close: close,
