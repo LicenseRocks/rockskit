@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import React from "react";
 import { omit } from "lodash";
 import styled, { useTheme } from "styled-components";
 import Dialog from "@material-ui/core/Dialog";
@@ -63,20 +63,22 @@ function useOpen() {
   };
 }
 
-const useMousePosition = () => {
+const useMousePosition = (shouldUpdate) => {
   const [mousePosition, setMousePosition] = React.useState({
     x: null,
     y: null,
   });
   React.useEffect(() => {
     const updateMousePosition = (ev) => {
-      setMousePosition({ x: ev.clientX, y: ev.clientY });
+      if (shouldUpdate) {
+        setMousePosition({ x: ev.clientX, y: ev.clientY });
+      }
     };
     window.addEventListener("mousemove", updateMousePosition);
     return () => {
       window.removeEventListener("mousemove", updateMousePosition);
     };
-  }, []);
+  }, [shouldUpdate]);
   return mousePosition;
 };
 
@@ -90,11 +92,11 @@ export const Dropdown = ({
 }) => {
   const theme = useTheme();
   const { close, open, toggle, isOpen } = useOpen();
-  const ref = React.useRef();
-  const { x, y } = useMousePosition();
+  const { x, y } = useMousePosition(isOpen);
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+  const ref = React.useRef(null);
 
-  const sanitizedRestProps = omit(props, "open");
+  const sanitizedRestProps = omit(props, ["open", "anchorEl"]);
 
   if (responsive && isMobile)
     return (
@@ -143,7 +145,11 @@ export const Dropdown = ({
           }
         }}
       >
-        <StyledDropdown open={isOpen} {...sanitizedRestProps}>
+        <StyledDropdown
+          anchorEl={ref.current}
+          open={isOpen}
+          {...sanitizedRestProps}
+        >
           {render
             ? render({ close, toggle, open, isMobile, isOpen })
             : items.map(({ label, onClick, value, ...itemProps }) => (
