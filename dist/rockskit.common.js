@@ -2819,7 +2819,6 @@ Divider.propTypes = DividerPropTypes;
 Divider.defaultProps = DividerDefaultProps;
 
 var DropdownPropTypes = _extends({
-  anchorEl: PropTypes__default["default"].object,
   children: PropTypes__default["default"].node,
   items: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
     label: PropTypes__default["default"].string
@@ -2897,7 +2896,7 @@ function useOpen() {
   };
 }
 
-var useMousePosition = function useMousePosition() {
+var useMousePosition = function useMousePosition(shouldUpdate) {
   var _React$useState2 = React__default["default"].useState({
     x: null,
     y: null
@@ -2907,17 +2906,19 @@ var useMousePosition = function useMousePosition() {
 
   React__default["default"].useEffect(function () {
     var updateMousePosition = function updateMousePosition(ev) {
-      setMousePosition({
-        x: ev.clientX,
-        y: ev.clientY
-      });
+      if (shouldUpdate) {
+        setMousePosition({
+          x: ev.clientX,
+          y: ev.clientY
+        });
+      }
     };
 
     window.addEventListener("mousemove", updateMousePosition);
     return function () {
       window.removeEventListener("mousemove", updateMousePosition);
     };
-  }, []);
+  }, [shouldUpdate]);
   return mousePosition;
 };
 
@@ -2937,14 +2938,13 @@ var Dropdown = function Dropdown(_ref3) {
       toggle = _useOpen.toggle,
       isOpen = _useOpen.isOpen;
 
-  var ref = React__default["default"].useRef();
-
-  var _useMousePosition = useMousePosition(),
+  var _useMousePosition = useMousePosition(isOpen),
       x = _useMousePosition.x,
       y = _useMousePosition.y;
 
   var isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-  var sanitizedRestProps = lodash.omit(props, "open");
+  var ref = React__default["default"].useRef(null);
+  var sanitizedRestProps = lodash.omit(props, ["open", "anchorEl"]);
   if (responsive && isMobile) return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].cloneElement(children, _extends({
     onClick: function onClick() {
       toggle();
@@ -2980,6 +2980,7 @@ var Dropdown = function Dropdown(_ref3) {
       }
     }
   }, /*#__PURE__*/React__default["default"].createElement(StyledDropdown, _extends({
+    anchorEl: ref.current,
     open: isOpen
   }, sanitizedRestProps), render ? render({
     close: close,
