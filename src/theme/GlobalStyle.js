@@ -8,6 +8,7 @@ export const GlobalStyle = createGlobalStyle`
       gradientColors &&
       css`
         background: ${gradientColors} fixed !important;
+        height: fill-content !important;
       `}
    
   }
