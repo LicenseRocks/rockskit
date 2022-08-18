@@ -1,2 +1,2 @@
 export * from "./brands";
-export * from "./solid";
+export * from "./icons";

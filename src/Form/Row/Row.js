@@ -62,7 +62,6 @@ const StyledLabel = styled(FormLabel)`
 
 const FieldsAndErrorsWrapper = styled.div`
   flex: 1;
-
   ${({ direction }) =>
     direction === "column" &&
     css`
@@ -80,6 +79,30 @@ const Fields = styled.div`
       margin-right: ${({ theme }) => theme.spacing(4)};
     }
   }
+
+  ${({ bottomHintText }) =>
+    bottomHintText &&
+    css`
+      position: relative;
+      z-index: 1;
+      margin-bottom: ${({ theme }) => theme.spacing(5)};
+
+      &::after {
+        content: "${bottomHintText}";
+        position: absolute;
+        bottom: -50%;
+        left: 0;
+        z-index: -1;
+        display: flex;
+        align-items: flex-end;
+        width: 100%;
+        height: 100%;
+        border-radius: 6px 6px 12px 12px;
+        padding-bottom: 2px;
+        padding-left: ${({ theme }) => theme.spacing(6)};
+        background-color: ${({ theme }) => theme.palette.gray.regular};
+      }
+    `}
 `;
 
 const Hint = styled.span`
@@ -109,6 +132,7 @@ export const FormRow = ({
   show,
   labelColor,
   direction,
+  bottomHintText,
   ...props
 }) => {
   const rowErrors = Array.isArray(errors)
@@ -144,7 +168,7 @@ export const FormRow = ({
 
       {validChildren.length > 0 && (
         <FieldsAndErrorsWrapper direction={direction} fullWidth={!label}>
-          <Fields>{children}</Fields>
+          <Fields bottomHintText={bottomHintText} >{children}</Fields>
 
           {rowErrors.map((err) => (
             <FormError key={err} message={err} />
