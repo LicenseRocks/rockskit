@@ -23,7 +23,10 @@ export const main = () => {
   };
 
   return (
-    <StyledWrapper width={text("Wrapper width", "50%")}>
+    <StyledWrapper width={text("Wrapper width", "100%")}>
+      <FormRow bottomHintText="street" hint="Just type one of that" label="Label with Hint" {...defaultProps}>
+        <Input name="input1" placeholder="Input 1" />
+      </FormRow>
       <FormRow hint="Just type one of that" label="Label" {...defaultProps}>
         <Input name="input1" placeholder="Input 1" />
         <Input name="input2" placeholder="Input 2" />

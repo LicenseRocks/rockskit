@@ -61,7 +61,12 @@ import {
   faTriangleExclamation as farTriangleExclamation,
   faTrash as farTrash,
   faPencil as farPencil,
+  faPassport as farPassport,
 } from "@fortawesome/pro-regular-svg-icons";
+
+import {
+  faIdCard as farIdCard
+} from "@fortawesome/free-regular-svg-icons";
 
 
 export const FreeSolidIconSet = {
@@ -123,5 +128,7 @@ export const FreeSolidIconSet = {
   farPhotoFilmMusic,
   farTriangleExclamation,
   farTrash,
-  farPencil
+  farPencil,
+  farPassport,
+  farIdCard
 };
