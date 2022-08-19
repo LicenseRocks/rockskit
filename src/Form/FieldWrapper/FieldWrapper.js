@@ -31,6 +31,7 @@ const StyledWrapper = styled.div`
   ${({ hasError }) =>
     hasError &&
     css`
+      background-color: ${({ theme }) => theme.palette.error.light};
       border: 1px solid ${({ theme }) => theme.palette.error.main};
     `}
 
@@ -65,6 +66,7 @@ export const FieldWrapper = ({
   startIconColor,
   startIconOnClick,
   startIconPrefix,
+  hasError,
   ...props
 }) => {
   const [hasJustCopied, setHasJustCopied] = React.useState(false);
@@ -82,7 +84,7 @@ export const FieldWrapper = ({
   }, [hasJustCopied]);
 
   return (
-    <StyledWrapper {...props}>
+    <StyledWrapper hasError={hasError} {...props}>
       {startIcon && (
         <Icon
           color={startIconColor}
