@@ -7,7 +7,7 @@ export default {
 
 export const main = () => {
   const defaultProps = {
-    value: 80,
+    value: 20,
     total: 100,
     progressColor: "#714FF8",
   };

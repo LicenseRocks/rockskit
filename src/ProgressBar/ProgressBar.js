@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import { DISPLAY, SPACER } from "..";
 import { ProgressBarDefaultProps, ProgressBarPropTypes } from "./props";
 
@@ -28,6 +28,13 @@ const Indicator = styled.div`
     `background-color: ${color ? color : theme.palette.primary.main};`}
 
   ${({ percentage }) => `width: ${percentage * 100}%;`}
+
+  ${({ percentage }) =>
+    percentage === 1 &&
+    css`
+      justify-content: space-between;
+      padding-right: ${({ theme }) => theme.spacing(2)};
+    `};
 `;
 
 const LeftNumber = styled.div`
@@ -42,10 +49,23 @@ export const ProgressBar = ({ value, progressColor, total, ...props }) => {
 
   return (
     <Container {...props}>
-      <Indicator color={progressColor} value={value} percentage={percentage}>
-        {value}
-      </Indicator>
-      <LeftNumber percentage={percentage}>{total - value}</LeftNumber>
+      {value === total ? (
+        <Indicator color={progressColor} value={value} percentage={percentage}>
+          <div> {value}</div>
+          <div> {total - value}</div>
+        </Indicator>
+      ) : (
+        <>
+          <Indicator
+            color={progressColor}
+            value={value}
+            percentage={percentage}
+          >
+            {value}
+          </Indicator>
+          <LeftNumber percentage={percentage}>{total - value}</LeftNumber>
+        </>
+      )}
     </Container>
   );
 };
