@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var React = require('react');
-var PropTypes = require('prop-types');
+var PropTypes$1 = require('prop-types');
 var styled = require('styled-components');
 var styles = require('@material-ui/core/styles');
 var CssBaseline = require('@material-ui/core/CssBaseline');
@@ -64,7 +64,7 @@ var core = require('@material-ui/core');
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
-var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
+var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes$1);
 var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
 var CssBaseline__default = /*#__PURE__*/_interopDefaultLegacy(CssBaseline);
 var MuiButtonBase__default = /*#__PURE__*/_interopDefaultLegacy(MuiButtonBase);
@@ -709,7 +709,7 @@ var ButtonBaseDefaultProps = {
   size: "md"
 };
 
-var _excluded$1I = ["colors", "content", "children", "loading", "endIcon", "endIconPrefix", "href", "icon", "iconProps", "size", "startIcon", "startIconPrefix"];
+var _excluded$1J = ["colors", "content", "children", "loading", "endIcon", "endIconPrefix", "href", "icon", "iconProps", "size", "startIcon", "startIconPrefix"];
 var StyledButton$6 = styled__default["default"](MuiButtonBase__default["default"]).withConfig({
   displayName: "Base__StyledButton",
   componentId: "sc-1vgypdg-0"
@@ -769,7 +769,7 @@ var ButtonBase = /*#__PURE__*/React.forwardRef(function (_ref4, ref) {
       size = _ref4.size,
       startIcon = _ref4.startIcon,
       startIconPrefix = _ref4.startIconPrefix,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$1I);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$1J);
 
   var iconSize = getIconSize(size);
   return /*#__PURE__*/React__default["default"].createElement(StyledButton$6, _extends({
@@ -797,7 +797,7 @@ var ButtonBase = /*#__PURE__*/React.forwardRef(function (_ref4, ref) {
 ButtonBase.propTypes = ButtonBasePropTypes;
 ButtonBase.defaultProps = ButtonBaseDefaultProps;
 
-var _excluded$1H = ["color"];
+var _excluded$1I = ["color"];
 var StyledButton$5 = styled__default["default"](ButtonBase).withConfig({
   displayName: "Button__StyledButton",
   componentId: "sc-rmizea-0"
@@ -823,7 +823,7 @@ var colorMapper$2 = function colorMapper(color, theme) {
 
 var Button$1 = /*#__PURE__*/React.forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$1H);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$1I);
 
   var theme = styled.useTheme();
   var colors = colorMapper$2(color, theme);
@@ -834,7 +834,7 @@ var Button$1 = /*#__PURE__*/React.forwardRef(function (_ref2, ref) {
 });
 Button$1.propTypes = ButtonBasePropTypes;
 
-var _excluded$1G = ["color"];
+var _excluded$1H = ["color"];
 var StyledButton$4 = styled__default["default"](ButtonBase).withConfig({
   displayName: "OutlineButton__StyledButton",
   componentId: "sc-c22pyk-0"
@@ -864,7 +864,7 @@ var colorMapper$1 = function colorMapper(color, theme) {
 
 var OutlineButton = /*#__PURE__*/React.forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$1G);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$1H);
 
   var theme = styled.useTheme();
   var colors = colorMapper$1(color, theme);
@@ -875,7 +875,7 @@ var OutlineButton = /*#__PURE__*/React.forwardRef(function (_ref2, ref) {
 });
 OutlineButton.propTypes = ButtonBasePropTypes;
 
-var _excluded$1F = ["color"];
+var _excluded$1G = ["color"];
 var StyledButton$3 = styled__default["default"](ButtonBase).withConfig({
   displayName: "TextButton__StyledButton",
   componentId: "sc-rbrc68-0"
@@ -898,7 +898,7 @@ var colorMapper = function colorMapper(color, theme) {
 
 var TextButton = /*#__PURE__*/React.forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$1F);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$1G);
 
   var theme = styled.useTheme();
   var colors = colorMapper(color, theme);
@@ -909,7 +909,7 @@ var TextButton = /*#__PURE__*/React.forwardRef(function (_ref2, ref) {
 });
 TextButton.propTypes = ButtonBasePropTypes;
 
-var _excluded$1E = ["onClick", "title", "type"];
+var _excluded$1F = ["onClick", "title", "type"];
 var StyledOutlineButton = styled__default["default"](OutlineButton).attrs(function () {
   return {
     size: "small"
@@ -924,7 +924,7 @@ var ItemActionButton = function ItemActionButton(_ref) {
       title = _ref$button.title,
       _ref$button$type = _ref$button.type,
       type = _ref$button$type === void 0 ? "normal" : _ref$button$type,
-      button = _objectWithoutPropertiesLoose(_ref$button, _excluded$1E);
+      button = _objectWithoutPropertiesLoose(_ref$button, _excluded$1F);
 
   var handleClick = function handleClick(e) {
     e.stopPropagation();
@@ -948,7 +948,7 @@ ItemActionButton.propTypes = {
   }).isRequired
 };
 
-var _excluded$1D = ["badge", "badgeColor", "icon", "iconSize", "link", "linkSize", "linkText", "mainText", "mainTextSize", "skip", "text", "textSize"];
+var _excluded$1E = ["badge", "badgeColor", "icon", "iconSize", "link", "linkSize", "linkText", "mainText", "mainTextSize", "skip", "text", "textSize"];
 var Section = styled__default["default"](core.Grid).attrs(function (_ref) {
   var md = _ref.md,
       xs = _ref.xs;
@@ -992,7 +992,7 @@ var ItemContent = function ItemContent(_ref5) {
       var skip = _ref5$item.skip,
       text = _ref5$item.text;
       _ref5$item.textSize;
-      var item = _objectWithoutPropertiesLoose(_ref5$item, _excluded$1D);
+      var item = _objectWithoutPropertiesLoose(_ref5$item, _excluded$1E);
 
   return /*#__PURE__*/React__default["default"].createElement(Section, item, skip && "", icon && /*#__PURE__*/React__default["default"].createElement(Icon, {
     dInline: true,
@@ -1137,7 +1137,7 @@ AdvancedLineItem.defaultProps = {
   secondaryActionButton: null
 };
 
-var _excluded$1C = ["icon", "prefix", "size"],
+var _excluded$1D = ["icon", "prefix", "size"],
     _excluded2$3 = ["className", "color", "onClick", "rounded", "squared", "prefix"];
 var Rounded = styled__default["default"].div.withConfig({
   displayName: "Icon__Rounded",
@@ -1177,7 +1177,7 @@ var StyledIcon$8 = styled__default["default"](function (_ref5) {
   var icon = _ref5.icon,
       prefix = _ref5.prefix;
       _ref5.size;
-      var props = _objectWithoutPropertiesLoose(_ref5, _excluded$1C);
+      var props = _objectWithoutPropertiesLoose(_ref5, _excluded$1D);
 
   return /*#__PURE__*/React__default["default"].createElement(reactFontawesome.FontAwesomeIcon, _extends({
     icon: [prefix, icon]
@@ -1256,7 +1256,7 @@ var AlertDefaultProps = {
   rounded: true
 };
 
-var _excluded$1B = ["content", "cocreator", "children", "color"];
+var _excluded$1C = ["content", "cocreator", "children", "color"];
 var StyledMessage$1 = styled__default["default"].div.withConfig({
   displayName: "Alert__StyledMessage",
   componentId: "sc-1q2nixr-0"
@@ -1366,7 +1366,7 @@ var Alert = function Alert(_ref11) {
       cocreator = _ref11.cocreator,
       children = _ref11.children,
       color = _ref11.color,
-      props = _objectWithoutPropertiesLoose(_ref11, _excluded$1B);
+      props = _objectWithoutPropertiesLoose(_ref11, _excluded$1C);
 
   var theme = styled.useTheme();
   var colors = getColors(color, theme);
@@ -1469,7 +1469,7 @@ var HeadingBasePropTypes = _extends({
   noWrap: PropTypes__default["default"].bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-var _excluded$1A = ["content", "children"];
+var _excluded$1B = ["content", "children"];
 var StyledHeading = styled__default["default"](Typography__default["default"]).withConfig({
   displayName: "Base__StyledHeading",
   componentId: "sc-1hr75b8-0"
@@ -1481,7 +1481,7 @@ var StyledHeading = styled__default["default"](Typography__default["default"]).w
 var HeadingBase = function HeadingBase(_ref) {
   var content = _ref.content,
       children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1A);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1B);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledHeading, props, content || children);
 };
@@ -1547,7 +1547,7 @@ var TextBaseDefaultProps = {
   fontSize: "md"
 };
 
-var _excluded$1z = ["content", "children"];
+var _excluded$1A = ["content", "children"];
 var StyledText$2 = styled__default["default"](Typography__default["default"]).withConfig({
   displayName: "Base__StyledText",
   componentId: "sc-17vyex8-0"
@@ -1591,7 +1591,7 @@ var StyledText$2 = styled__default["default"](Typography__default["default"]).wi
 var TextBase = function TextBase(_ref4) {
   var content = _ref4.content,
       children = _ref4.children,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$1z);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$1A);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledText$2, props, content || children);
 };
@@ -1621,7 +1621,7 @@ var Text = function Text(props) {
 };
 Text.propTypes = TextBasePropTypes;
 
-var _excluded$1y = ["color", "icon", "label"];
+var _excluded$1z = ["color", "icon", "label"];
 var StyledChip = styled__default["default"].div.withConfig({
   displayName: "Chip__StyledChip",
   componentId: "sc-2e49ss-0"
@@ -1661,7 +1661,7 @@ var ChipBadge = function ChipBadge(_ref5) {
   var color = _ref5.color,
       icon = _ref5.icon,
       label = _ref5.label,
-      props = _objectWithoutPropertiesLoose(_ref5, _excluded$1y);
+      props = _objectWithoutPropertiesLoose(_ref5, _excluded$1z);
 
   var contentColor = ["success", "black", "error", "darkYellow"].includes(color) ? "white" : "black";
   return /*#__PURE__*/React__default["default"].createElement(StyledChip, _extends({
@@ -1687,7 +1687,7 @@ var ChipBadgeDefaultProps = {
   color: "black"
 };
 
-var _excluded$1x = ["color", "label"];
+var _excluded$1y = ["color", "label"];
 var StyledBadge = styled__default["default"].div.withConfig({
   displayName: "Tiny__StyledBadge",
   componentId: "sc-s2p0yz-0"
@@ -1723,7 +1723,7 @@ var StyledText$1 = styled__default["default"](Text).withConfig({
 var TinyBadge = function TinyBadge(_ref7) {
   var color = _ref7.color,
       label = _ref7.label,
-      props = _objectWithoutPropertiesLoose(_ref7, _excluded$1x);
+      props = _objectWithoutPropertiesLoose(_ref7, _excluded$1y);
 
   var contentColor = ["success", "black", "error", "darkYellow"].includes(color) ? "white" : "black";
   return /*#__PURE__*/React__default["default"].createElement(StyledBadge, _extends({
@@ -1775,7 +1775,7 @@ var BoxBase = function BoxBase(props) {
 BoxBase.propTypes = BoxBasePropTypes;
 BoxBase.defaultProps = BoxBaseDefaultProps;
 
-var _excluded$1w = ["action", "actionDisabled", "actionLoading", "actionSize", "actionTitle", "actionType", "renderAction", "renderTitle"];
+var _excluded$1x = ["action", "actionDisabled", "actionLoading", "actionSize", "actionTitle", "actionType", "renderAction", "renderTitle"];
 var StyledBoxFooter = styled__default["default"](Flex).attrs(function () {
   return {
     container: true,
@@ -1805,7 +1805,7 @@ var BoxFooter = function BoxFooter(_ref3) {
       actionType = _ref3.actionType,
       renderAction = _ref3.renderAction,
       renderTitle = _ref3.renderTitle,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1w);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1x);
 
   if (!renderTitle() && !renderAction() && !actionTitle) return null;
   return /*#__PURE__*/React__default["default"].createElement(StyledBoxFooter, props, /*#__PURE__*/React__default["default"].createElement(Flex, {
@@ -1845,7 +1845,7 @@ BoxFooter.defaultProps = {
 /* eslint-disable global-require */
 var useMediaQuery = MuiUseMediaQuery__default["default"];
 
-var _excluded$1v = ["action", "actionIcon", "actionIconProps", "actionIconSize", "renderAction", "renderTitle", "metaTitle", "metaTitleColor", "subTitle", "subTitleColor", "tabs", "tabsProps", "title", "titleIcon", "titleIconHiddenSm", "titleIconProps", "titleSize", "transparentSm"];
+var _excluded$1w = ["action", "actionIcon", "actionIconProps", "actionIconSize", "renderAction", "renderTitle", "metaTitle", "metaTitleColor", "subTitle", "subTitleColor", "tabs", "tabsProps", "title", "titleIcon", "titleIconHiddenSm", "titleIconProps", "titleSize", "transparentSm"];
 var Wrapper$e = styled__default["default"].div.withConfig({
   displayName: "Header__Wrapper",
   componentId: "sc-sf2nje-0"
@@ -1913,7 +1913,7 @@ var BoxHeader = function BoxHeader(_ref9) {
       titleIconProps = _ref9.titleIconProps,
       titleSize = _ref9.titleSize,
       transparentSm = _ref9.transparentSm,
-      props = _objectWithoutPropertiesLoose(_ref9, _excluded$1v);
+      props = _objectWithoutPropertiesLoose(_ref9, _excluded$1w);
 
   var isMobile = useMediaQuery(function (theme) {
     return theme.breakpoints.down("sm");
@@ -2046,7 +2046,7 @@ var BoxDefaultProps = _extends({
   transparentSm: false
 }, BoxBaseDefaultProps);
 
-var _excluded$1u = ["alert", "alertColor", "children", "cocreator", "contentPadding", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionSize", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconHiddenSm", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "loadingProps", "padding", "tabs", "tabsProps", "transition", "transparentSm"];
+var _excluded$1v = ["alert", "alertColor", "children", "cocreator", "contentPadding", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionSize", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconHiddenSm", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "loadingProps", "padding", "tabs", "tabsProps", "transition", "transparentSm"];
 var BoxContent = styled__default["default"].div.withConfig({
   displayName: "Box__BoxContent",
   componentId: "sc-1d03rz8-0"
@@ -2098,7 +2098,7 @@ var Box$1 = function Box(_ref3) {
       tabsProps = _ref3.tabsProps,
       transition = _ref3.transition,
       transparentSm = _ref3.transparentSm,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1u);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1v);
 
   var isMobile = useMediaQuery(function (theme) {
     return theme.breakpoints.down("sm");
@@ -2182,7 +2182,7 @@ var CategoryItemDefaultProps = {
   subCategory: false
 };
 
-var _excluded$1t = ["checked", "dataCy", "description", "iconName", "iconImage", "id", "onChange", "subCategory", "name"];
+var _excluded$1u = ["checked", "dataCy", "description", "iconName", "iconImage", "id", "onChange", "subCategory", "name"];
 var StyledCategoryItem = styled__default["default"].div.withConfig({
   displayName: "CategoryItem__StyledCategoryItem",
   componentId: "sc-xowe4q-0"
@@ -2226,7 +2226,7 @@ var CategoryItem = function CategoryItem(_ref8) {
       onChange = _ref8.onChange,
       subCategory = _ref8.subCategory,
       name = _ref8.name,
-      props = _objectWithoutPropertiesLoose(_ref8, _excluded$1t);
+      props = _objectWithoutPropertiesLoose(_ref8, _excluded$1u);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledCategoryItem, _extends({
     checked: checked,
@@ -2327,7 +2327,7 @@ var CartButtonDefaultProps = {
   count: "0"
 };
 
-var _excluded$1s = ["count"];
+var _excluded$1t = ["count"];
 var StyledButton$2 = styled__default["default"](MuiButtonBase__default["default"]).withConfig({
   displayName: "CartButton__StyledButton",
   componentId: "sc-199jgxq-0"
@@ -2340,12 +2340,12 @@ var StyledButton$2 = styled__default["default"](MuiButtonBase__default["default"
 });
 var CartButton = function CartButton(_ref3) {
   var count = _ref3.count,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1s);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1t);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledButton$2, props, /*#__PURE__*/React__default["default"].createElement(Icon, {
     colorGrayMedium: true,
     icon: "shopping-cart"
-  }), /*#__PURE__*/React__default["default"].createElement(Indicator, {
+  }), /*#__PURE__*/React__default["default"].createElement(Indicator$1, {
     content: count,
     ml: 1
   }));
@@ -2366,10 +2366,10 @@ var Collapse = function Collapse(props) {
 };
 Collapse.propTypes = CollapsePropTypes;
 
-var _excluded$1r = ["isOpened"];
+var _excluded$1s = ["isOpened"];
 var CollapseButton = function CollapseButton(_ref) {
   var isOpened = _ref.isOpened,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1r);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1s);
 
   return /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
     icon: isOpened ? "chevron-up" : "chevron-down"
@@ -2430,7 +2430,7 @@ var StyledImg$1 = styled__default["default"].img.withConfig({
 Image.propTypes = ImagePropTypes;
 Image.defaultProps = ImageDefaultProps;
 
-var _excluded$1q = ["details", "largeImageUrl", "name", "smallImagesUrls"];
+var _excluded$1r = ["details", "largeImageUrl", "name", "smallImagesUrls"];
 var Box = styled__default["default"](BoxBase).withConfig({
   displayName: "CollectionItem__Box",
   componentId: "sc-1tzb5sa-0"
@@ -2465,7 +2465,7 @@ var CollectionItem = function CollectionItem(_ref4) {
       largeImageUrl = _ref4.largeImageUrl,
       name = _ref4.name,
       smallImagesUrls = _ref4.smallImagesUrls,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$1q);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$1r);
 
   return /*#__PURE__*/React__default["default"].createElement(Box, props, /*#__PURE__*/React__default["default"].createElement(Flex, {
     container: true,
@@ -2510,10 +2510,10 @@ CollectionItem.defaultProps = {
 
 var AppContext = /*#__PURE__*/React.createContext();
 
-var _excluded$1p = ["config"];
+var _excluded$1q = ["config"];
 var AppContextProvider = function AppContextProvider(_ref) {
   var config = _ref.config,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1p);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1q);
 
   return /*#__PURE__*/React__default["default"].createElement(AppContext.Provider, _extends({
     value: config
@@ -2562,7 +2562,7 @@ var DetailsTableDefaultProps = {
   size: "md"
 };
 
-var _excluded$1o = ["expandButtonTitle", "expandButtonProps", "labelTextTransform", "labelFontSize", "labelWidth", "labelWidthSm", "justifyBetween", "rows", "size"];
+var _excluded$1p = ["expandButtonTitle", "expandButtonProps", "labelTextTransform", "labelFontSize", "labelWidth", "labelWidthSm", "justifyBetween", "rows", "size"];
 var Wrapper$c = styled__default["default"].div.withConfig({
   displayName: "DetailsTable__Wrapper",
   componentId: "sc-41caw8-0"
@@ -2646,7 +2646,7 @@ var DetailsTable = function DetailsTable(_ref16) {
       var justifyBetween = _ref16.justifyBetween,
       rows = _ref16.rows,
       size = _ref16.size,
-      props = _objectWithoutPropertiesLoose(_ref16, _excluded$1o);
+      props = _objectWithoutPropertiesLoose(_ref16, _excluded$1p);
 
   var _useState = React.useState(false),
       expanded = _useState[0],
@@ -2729,8 +2729,8 @@ var DatepickerDefaultProps = {
   to: null
 };
 
-var _excluded$1n = ["from", "selectRange", "to"];
-var Container$d = styled__default["default"].div.withConfig({
+var _excluded$1o = ["from", "selectRange", "to"];
+var Container$e = styled__default["default"].div.withConfig({
   displayName: "Datepicker__Container",
   componentId: "sc-1s1s47f-0"
 })(["display:flex;background-color:", " !important;.Selectable .DayPicker-Day--selected:not(.DayPicker-Day--start):not(.DayPicker-Day--end):not(.DayPicker-Day--outside){background-color:", " !important;color:", ";}.Selectable .DayPicker-Day{border-radius:", " !important;}.Selectable .DayPicker-Day--start{background-color:", " !important;color:", ";border-top-left-radius:8px !important;border-bottom-left-radius:8px !important;}.Selectable .DayPicker-Day--end{background-color:", " !important;color:", ";border-top-right-radius:8px !important;border-bottom-right-radius:8px !important;}"], function (_ref) {
@@ -2762,9 +2762,9 @@ var Datepicker = function Datepicker(_ref9) {
   var from = _ref9.from,
       selectRange = _ref9.selectRange,
       to = _ref9.to,
-      props = _objectWithoutPropertiesLoose(_ref9, _excluded$1n);
+      props = _objectWithoutPropertiesLoose(_ref9, _excluded$1o);
 
-  return /*#__PURE__*/React__default["default"].createElement(Container$d, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$e, {
     selectRange: selectRange
   }, /*#__PURE__*/React__default["default"].createElement(DayPicker__default["default"], _extends({
     className: "Selectable",
@@ -2844,7 +2844,7 @@ var DropdownDefaultProps = {
   }
 };
 
-var _excluded$1m = ["children", "items", "disableOutsideClickClose", "responsive", "render"],
+var _excluded$1n = ["children", "items", "disableOutsideClickClose", "responsive", "render"],
     _excluded2$2 = ["label", "onClick", "value"];
 var StyledDropdown = styled__default["default"](Menu__default["default"]).withConfig({
   displayName: "Dropdown__StyledDropdown",
@@ -2931,7 +2931,7 @@ var Dropdown = function Dropdown(_ref3) {
       disableOutsideClickClose = _ref3.disableOutsideClickClose,
       responsive = _ref3.responsive,
       render = _ref3.render,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1m);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1n);
 
   var theme = styled.useTheme();
 
@@ -3045,8 +3045,8 @@ var DownloadModuleDefaultProps = {
   qrCodeValue: "https://license.rocks"
 };
 
-var _excluded$1l = ["downloadPdfText", "downloadPdfUrl", "downloadQrCodeDesc", "downloadQrCodeText", "downloadQrCodeUrl", "qrCodeUrl", "qrCodeValue"];
-var Container$c = styled__default["default"].div.withConfig({
+var _excluded$1m = ["downloadPdfText", "downloadPdfUrl", "downloadQrCodeDesc", "downloadQrCodeText", "downloadQrCodeUrl", "qrCodeUrl", "qrCodeValue"];
+var Container$d = styled__default["default"].div.withConfig({
   displayName: "DownloadModule__Container",
   componentId: "sc-lhoe08-0"
 })(["background-color:", ";padding:", ";border-radius:16px;", " ", ""], function (_ref) {
@@ -3068,9 +3068,9 @@ var DownloadModule = function DownloadModule(_ref3) {
       downloadQrCodeUrl = _ref3.downloadQrCodeUrl;
       _ref3.qrCodeUrl;
       var qrCodeValue = _ref3.qrCodeValue,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1l);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1m);
 
-  return /*#__PURE__*/React__default["default"].createElement(Container$c, props, /*#__PURE__*/React__default["default"].createElement(Flex, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$d, props, /*#__PURE__*/React__default["default"].createElement(Flex, {
     container: true,
     mb: 8
   }, /*#__PURE__*/React__default["default"].createElement(DownloadModuleButton, {
@@ -3124,7 +3124,7 @@ var FileManagerDefaultProps = {
 
 var img$6 = "data:image/svg+xml,%3csvg width='33' height='40' viewBox='0 0 33 40' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M1.37397 3.33126C1.37678 1.67614 2.72079 0.334236 4.37591 0.334036L24.5333 0.331592C24.8105 0.331558 25.0348 0.556224 25.0344 0.833397L25.0247 6.56026C25.0236 7.20172 25.5427 7.72166 26.1842 7.72158L31.4682 7.72094C31.7454 7.72091 31.9697 7.94558 31.9692 8.22275L31.921 36.6682C31.9182 38.3233 30.5742 39.6652 28.9191 39.6654L4.30932 39.6684C2.65419 39.6686 1.31472 38.327 1.31752 36.6719L1.37397 3.33126Z' fill='white' stroke='%23CECDD9' stroke-width='0.659601'/%3e%3cmask id='mask0' mask-type='alpha' maskUnits='userSpaceOnUse' x='0' y='0' width='33' height='41'%3e%3cpath d='M1.41698 3.33054C1.42171 1.67541 2.76728 0.333546 4.42241 0.333387L24.5431 0.331456C24.8203 0.33143 25.0444 0.556101 25.0436 0.833274L25.0272 6.56069C25.0254 7.20215 25.5439 7.72211 26.1854 7.72205L31.4589 7.72154C31.7361 7.72151 31.9601 7.94618 31.9593 8.22336L31.8781 36.6713C31.8733 38.3264 30.5278 39.6683 28.8726 39.6684L4.31004 39.6708C2.65492 39.6709 1.31701 38.3293 1.32173 36.6742L1.41698 3.33054Z' fill='white' stroke='black' stroke-width='0.659601'/%3e%3c/mask%3e%3cg mask='url(%23mask0)'%3e%3cellipse rx='25.706' ry='25.7619' transform='matrix(1 -9.78625e-05 -0.00286006 0.999999 6.34329 49.0401)' fill='%23CECDD9'/%3e%3c/g%3e%3cpath d='M27.0942 5.49303L27.1027 0.497559C27.103 0.338688 27.3045 0.270214 27.4011 0.396184L31.2307 5.39119C31.3146 5.50058 31.2363 5.65887 31.0984 5.65888L27.2603 5.65935C27.1684 5.65936 27.0941 5.5849 27.0942 5.49303Z' stroke='%23CECDD9' stroke-width='0.659601'/%3e%3cpath d='M1.33511 10.7673L20.6233 10.7654C21.1301 10.7654 21.5403 11.1762 21.5394 11.683L21.5305 17.0158C21.5297 17.5227 21.1181 17.9336 20.6113 17.9336L1.32314 17.9355L1.33511 10.7673Z' fill='white' stroke='%23CECDD9' stroke-width='0.659601'/%3e%3cpath d='M10.8275 32.317L7.92595 32.3174L7.92078 35.3709L7.009 35.371L7.02071 28.4566L11.3042 28.4561L11.3029 29.2064L7.93122 29.2069L7.92721 31.5718L10.8288 31.5714L10.8275 32.317ZM13.2015 35.3702L12.323 35.3704L12.3317 30.2321L13.2102 30.232L13.2015 35.3702ZM12.2628 28.8692C12.263 28.7267 12.3059 28.6064 12.3916 28.5082C12.4804 28.4101 12.6103 28.361 12.7812 28.361C12.9522 28.361 13.0819 28.41 13.1704 28.5081C13.2589 28.6063 13.303 28.7266 13.3028 28.869C13.3025 29.0115 13.258 29.1302 13.1692 29.2252C13.0804 29.3202 12.9505 29.3677 12.7795 29.3677C12.6086 29.3678 12.4789 29.3203 12.3904 29.2253C12.3051 29.1303 12.2625 29.0116 12.2628 28.8692ZM15.5665 35.37L14.6879 35.3701L14.7003 28.0758L15.5788 28.0757L15.5665 35.37ZM19.109 35.4645C18.4125 35.4646 17.8461 35.2367 17.41 34.7809C16.9739 34.3219 16.7565 33.7093 16.7578 32.9431L16.7581 32.7817C16.7589 32.272 16.8563 31.8177 17.05 31.4187C17.247 31.0166 17.5198 30.7032 17.8684 30.4784C18.2202 30.2504 18.6003 30.1363 19.0088 30.1363C19.6768 30.1362 20.1956 30.3562 20.5653 30.7962C20.9349 31.2362 21.1191 31.8662 21.1177 32.6862L21.1171 33.0518L17.6361 33.0523C17.6479 33.5588 17.7945 33.9688 18.0757 34.2822C18.3601 34.5924 18.7208 34.7475 19.1577 34.7474C19.4679 34.7474 19.7308 34.684 19.9463 34.5574C20.1618 34.4307 20.3504 34.2629 20.5123 34.0539L21.0482 34.4718C20.6165 35.1335 19.9701 35.4644 19.109 35.4645ZM19.0075 30.8581C18.6529 30.8582 18.3551 30.988 18.1141 31.2476C17.873 31.5041 17.7236 31.865 17.6659 32.3304L20.2397 32.3301L20.2399 32.2636C20.2153 31.8173 20.0956 31.4722 19.8807 31.2284C19.6658 30.9815 19.3748 30.8581 19.0075 30.8581Z' fill='white'/%3e%3c/svg%3e";
 
-var Container$b = styled__default["default"].div.withConfig({
+var Container$c = styled__default["default"].div.withConfig({
   displayName: "FileManager__Container",
   componentId: "sc-iqc9f7-0"
 })([""]);
@@ -3187,7 +3187,7 @@ var Item$3 = styled__default["default"](Flex).attrs(function (_ref9) {
 var FileManager = function FileManager(_ref11) {
   var data = _ref11.data,
       noItemsText = _ref11.noItemsText;
-  return /*#__PURE__*/React__default["default"].createElement(Container$b, null, data.map(function (_ref12) {
+  return /*#__PURE__*/React__default["default"].createElement(Container$c, null, data.map(function (_ref12) {
     var label = _ref12.label,
         files = _ref12.files;
     return /*#__PURE__*/React__default["default"].createElement(Wrapper$a, {
@@ -3281,7 +3281,7 @@ var RadioBaseDefaultProps = {
   stacked: true
 };
 
-var _excluded$1k = ["bordered", "defaultValue", "hasError", "icon", "iconProps", "label", "labelHtml", "name", "register", "stacked", "type", "value"];
+var _excluded$1l = ["bordered", "defaultValue", "hasError", "icon", "iconProps", "label", "labelHtml", "name", "register", "stacked", "type", "value"];
 var StyledInput$4 = styled__default["default"].input.withConfig({
   displayName: "Item__StyledInput",
   componentId: "sc-lk2kwt-0"
@@ -3337,7 +3337,7 @@ var RadioBaseItem = function RadioBaseItem(_ref12) {
       stacked = _ref12.stacked,
       type = _ref12.type,
       value = _ref12.value,
-      props = _objectWithoutPropertiesLoose(_ref12, _excluded$1k);
+      props = _objectWithoutPropertiesLoose(_ref12, _excluded$1l);
 
   var id = name + "-" + value;
   var defaultChecked = type === "checkbox" ? defaultValue.includes(value) : defaultValue === value;
@@ -3368,12 +3368,12 @@ var RadioBaseItem = function RadioBaseItem(_ref12) {
 RadioBaseItem.propTypes = RadioBasePropTypes;
 RadioBaseItem.defaultProps = RadioBaseDefaultProps;
 
-var _excluded$1j = ["options"];
+var _excluded$1k = ["options"];
 var RadioBase = function RadioBase(_ref) {
   var options = _ref.options,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1j);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1k);
 
-  return /*#__PURE__*/React__default["default"].createElement(Fieldset, null, options.map(function (opt) {
+  return /*#__PURE__*/React__default["default"].createElement(Fieldset$1, null, options.map(function (opt) {
     return /*#__PURE__*/React__default["default"].createElement(RadioBaseItem, _extends({
       key: opt.value
     }, opt, props));
@@ -3382,7 +3382,7 @@ var RadioBase = function RadioBase(_ref) {
 RadioBase.propTypes = RadioBasePropTypes;
 RadioBase.defaultProps = RadioBaseDefaultProps;
 
-var _excluded$1i = ["block", "hasError", "options"];
+var _excluded$1j = ["block", "hasError", "options"];
 var Wrapper$9 = styled__default["default"].div.withConfig({
   displayName: "BorderedRadio__Wrapper",
   componentId: "sc-1o0tnsl-0"
@@ -3402,7 +3402,7 @@ var BorderedRadio = function BorderedRadio(_ref3) {
   var block = _ref3.block,
       hasError = _ref3.hasError,
       options = _ref3.options,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1i);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1j);
 
   return /*#__PURE__*/React__default["default"].createElement(Wrapper$9, {
     block: block,
@@ -3605,13 +3605,13 @@ var FormDatepickerPropTypes = {
 };
 var FormDatepickerDefaultProps = {};
 
-var _excluded$1h = ["control", "defaultValue", "isRequired", "name"];
+var _excluded$1i = ["control", "defaultValue", "isRequired", "name"];
 var FormDatepicker = function FormDatepicker(_ref) {
   var control = _ref.control,
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1h);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1i);
 
   return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
     as: /*#__PURE__*/React__default["default"].createElement(FormDatepickerComponent, props),
@@ -3631,7 +3631,7 @@ var FormErrorPropTypes = _extends({
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FormErrorDefaultProps = {};
 
-var _excluded$1g = ["message"];
+var _excluded$1h = ["message"];
 var Error = styled__default["default"].div.withConfig({
   displayName: "Error",
   componentId: "sc-fbul9h-0"
@@ -3648,7 +3648,7 @@ var Error = styled__default["default"].div.withConfig({
 });
 var FormError = function FormError(_ref3) {
   var message = _ref3.message,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1g);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$1h);
 
   return /*#__PURE__*/React__default["default"].createElement(Error, props, message);
 };
@@ -3680,7 +3680,7 @@ var FieldWrapperDefaultProps = {
   startIconColor: "input"
 };
 
-var _excluded$1f = ["children", "endIcon", "copyable", "valueToCopy", "endIconColor", "endIconOnClick", "endIconPrefix", "language", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"];
+var _excluded$1g = ["children", "endIcon", "copyable", "valueToCopy", "endIconColor", "endIconOnClick", "endIconPrefix", "language", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"];
 var StyledWrapper = styled__default["default"].div.withConfig({
   displayName: "FieldWrapper__StyledWrapper",
   componentId: "sc-tbw1oa-0"
@@ -3735,7 +3735,7 @@ var FieldWrapper = function FieldWrapper(_ref12) {
       startIconColor = _ref12.startIconColor,
       startIconOnClick = _ref12.startIconOnClick,
       startIconPrefix = _ref12.startIconPrefix,
-      props = _objectWithoutPropertiesLoose(_ref12, _excluded$1f);
+      props = _objectWithoutPropertiesLoose(_ref12, _excluded$1g);
 
   var _React$useState = React__default["default"].useState(false),
       hasJustCopied = _React$useState[0],
@@ -3797,14 +3797,14 @@ var FieldBaseDefaultProps = _extends({}, FieldWrapperDefaultProps, {
   type: "text"
 });
 
-var _excluded$1e = ["component"],
+var _excluded$1f = ["component"],
     _excluded2$1 = ["block", "className", "copyable", "valueToCopy", "disableScrollOnNumber", "endIcon", "endIconColor", "endIconOnClick", "endIconPrefix", "fixedHeight", "hasError", "hasWrapper", "register", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix", "language"];
 var StyledInput$3 = styled__default["default"](
 /*#__PURE__*/
 // eslint-disable-next-line react/prop-types
 React.forwardRef(function (_ref, ref) {
   var Component = _ref.component,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1e);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1f);
 
   return /*#__PURE__*/React__default["default"].createElement(Component, _extends({
     ref: ref
@@ -3892,25 +3892,25 @@ var FieldBase = function FieldBase(_ref10) {
 FieldBase.propTypes = FieldBasePropTypes;
 FieldBase.defaultProps = FieldBaseDefaultProps;
 
-var StyledFieldset = styled__default["default"].fieldset.withConfig({
+var StyledFieldset$1 = styled__default["default"].fieldset.withConfig({
   displayName: "Fieldset__StyledFieldset",
   componentId: "sc-1qv5ut9-0"
-})(["display:grid;grid-template-columns:repeat(auto-fit,minmax(5rem,1fr));gap:1rem;border:none;padding:0;margin:0;width:100%;"]);
-var Fieldset = function Fieldset(_ref) {
+})(["border:none;padding:0;margin:0;width:100%;flex:1;"]);
+var Fieldset$1 = function Fieldset(_ref) {
   var children = _ref.children;
-  return /*#__PURE__*/React__default["default"].createElement(StyledFieldset, null, children);
+  return /*#__PURE__*/React__default["default"].createElement(StyledFieldset$1, null, children);
 };
-Fieldset.propTypes = {
+Fieldset$1.propTypes = {
   children: PropTypes__default["default"].node.isRequired
 };
-Fieldset.defaultProps = {};
+Fieldset$1.defaultProps = {};
 
-var _excluded$1d = ["disabled", "hasError", "onChange", "value"];
+var _excluded$1e = ["disabled", "hasError", "onChange", "value"];
 var Wrapper$8 = styled__default["default"].div.withConfig({
   displayName: "Component__Wrapper",
   componentId: "sc-76gmmy-0"
 })(["flex:1;width:100%;height:100%;"]);
-var Container$a = styled__default["default"].div.withConfig({
+var Container$b = styled__default["default"].div.withConfig({
   displayName: "Component__Container",
   componentId: "sc-76gmmy-1"
 })(["width:100%;height:100%;background-color:", ";border-color:", ";border-radius:16px;border-style:dashed;border-width:2px;cursor:pointer;min-height:125px;outline:none;transition:all 100ms ease-in-out;color:", ";margin-bottom:", ";overflow:hidden;&:hover{border-color:", ";}", " ", " ", " ", ""], function (_ref) {
@@ -3954,9 +3954,9 @@ var FilePondComponent = function FilePondComponent(_ref10) {
       hasError = _ref10.hasError,
       onChange = _ref10.onChange,
       value = _ref10.value,
-      props = _objectWithoutPropertiesLoose(_ref10, _excluded$1d);
+      props = _objectWithoutPropertiesLoose(_ref10, _excluded$1e);
 
-  return /*#__PURE__*/React__default["default"].createElement(Wrapper$8, null, /*#__PURE__*/React__default["default"].createElement(Container$a, {
+  return /*#__PURE__*/React__default["default"].createElement(Wrapper$8, null, /*#__PURE__*/React__default["default"].createElement(Container$b, {
     disabled: disabled,
     hasError: hasError
   }, /*#__PURE__*/React__default["default"].createElement(StyledFilePond, _extends({
@@ -4007,13 +4007,13 @@ var FileUploadDefaultProps$1 = {
   name: "fileUpload"
 };
 
-var _excluded$1c = ["control", "defaultValue", "isRequired", "name"];
+var _excluded$1d = ["control", "defaultValue", "isRequired", "name"];
 var FilePond = function FilePond(_ref) {
   var control = _ref.control,
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1c);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1d);
 
   return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
     as: /*#__PURE__*/React__default["default"].createElement(FilePondComponent, _extends({
@@ -4030,7 +4030,7 @@ var FilePond = function FilePond(_ref) {
 FilePond.propTypes = FileUploadPropTypes$1;
 FilePond.defaultProps = FileUploadDefaultProps$1;
 
-var _excluded$1b = ["imgFile", "isOpen", "onClose", "onSubmit", "size"];
+var _excluded$1c = ["imgFile", "isOpen", "onClose", "onSubmit", "size"];
 var EditorWrapper = styled__default["default"].div.withConfig({
   displayName: "CropModal__EditorWrapper",
   componentId: "sc-1m4psoy-0"
@@ -4041,7 +4041,7 @@ var CropModal = function CropModal(_ref) {
       onClose = _ref.onClose,
       onSubmit = _ref.onSubmit,
       size = _ref.size,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1b);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1c);
 
   var _useState = React.useState(1),
       scale = _useState[0],
@@ -4271,12 +4271,12 @@ UploaderPreviewItem.propTypes = {
   onEdit: PropTypes__default["default"].func.isRequired
 };
 
-var _excluded$1a = ["files", "index", "onRemoveClick"];
+var _excluded$1b = ["files", "index", "onRemoveClick"];
 var UploaderPreview = function UploaderPreview(_ref) {
   var files = _ref.files;
       _ref.index;
       var onRemoveClick = _ref.onRemoveClick,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$1a);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1b);
 
   return files.map(function (file, index) {
     return /*#__PURE__*/React__default["default"].createElement(UploaderPreviewItem, _extends({
@@ -4293,7 +4293,7 @@ UploaderPreview.defaultProps = {
   files: []
 };
 
-var _excluded$19 = ["crop", "cropProps", "disabled", "defaultValue", "fileNameEditable", "hasError", "multiple", "onChange", "value", "maxSize"];
+var _excluded$1a = ["crop", "cropProps", "disabled", "defaultValue", "fileNameEditable", "hasError", "multiple", "onChange", "value", "maxSize"];
 var StyledContainer$3 = styled__default["default"].div.withConfig({
   displayName: "Dropzone__StyledContainer",
   componentId: "sc-1yejosv-0"
@@ -4371,7 +4371,7 @@ var Dropzone = function Dropzone(_ref17) {
       onChange = _ref17.onChange,
       value = _ref17.value,
       maxSize = _ref17.maxSize,
-      props = _objectWithoutPropertiesLoose(_ref17, _excluded$19);
+      props = _objectWithoutPropertiesLoose(_ref17, _excluded$1a);
 
   var _useState = React.useState(),
       cropFile = _useState[0],
@@ -4527,13 +4527,13 @@ var FileUploadDefaultProps = {
   name: "fileUpload"
 };
 
-var _excluded$18 = ["control", "defaultValue", "isRequired", "name"];
+var _excluded$19 = ["control", "defaultValue", "isRequired", "name"];
 var FileUpload = function FileUpload(_ref) {
   var control = _ref.control,
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$18);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$19);
 
   return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
     as: /*#__PURE__*/React__default["default"].createElement(Dropzone, props),
@@ -4614,14 +4614,14 @@ DropzoneError.propTypes = {
   setErrorMessages: PropTypes__default["default"].func.isRequired
 };
 
-var _excluded$17 = ["children"];
+var _excluded$18 = ["children"];
 var StyledForm = styled__default["default"].form.withConfig({
   displayName: "Form__StyledForm",
   componentId: "sc-1aby0l8-0"
 })(["border:none;outline:none;"]);
 var Form = function Form(_ref) {
   var children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$17);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$18);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledForm, props, children);
 };
@@ -4643,7 +4643,7 @@ var FormLabel = function FormLabel(props) {
 FormLabel.propTypes = {};
 FormLabel.defaultProps = {};
 
-var _excluded$16 = ["options"];
+var _excluded$17 = ["options"];
 
 var renderOptions = function renderOptions(options) {
   return options.map(function (opt) {
@@ -4656,7 +4656,7 @@ var renderOptions = function renderOptions(options) {
 
 var Select = function Select(_ref) {
   var options = _ref.options,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$16);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$17);
 
   return /*#__PURE__*/React__default["default"].createElement(FieldBase, _extends({
     component: "select"
@@ -4698,7 +4698,7 @@ var PriceFieldDefaultProps = {
   startIcon: "money-bill"
 };
 
-var _excluded$15 = ["currencies", "defaultValue", "hasError", "hasWrapper", "inputProps", "name", "register", "selectProps"];
+var _excluded$16 = ["currencies", "defaultValue", "hasError", "hasWrapper", "inputProps", "name", "register", "selectProps"];
 var StyledSelect = styled__default["default"](Select).withConfig({
   displayName: "Price__StyledSelect",
   componentId: "sc-3ss78-0"
@@ -4715,7 +4715,7 @@ var PriceField = function PriceField(_ref2) {
       name = _ref2.name,
       register = _ref2.register,
       selectProps = _ref2.selectProps,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$15);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$16);
 
   return /*#__PURE__*/React__default["default"].createElement(FieldWrapper, _extends({
     hasError: hasError
@@ -4752,11 +4752,11 @@ var Radio = function Radio(props) {
 Radio.propTypes = RadioBasePropTypes;
 Radio.defaultProps = RadioBaseDefaultProps;
 
-var _excluded$14 = ["renderValue", "renderValueText"];
+var _excluded$15 = ["renderValue", "renderValueText"];
 var Thumb = function Thumb(_ref) {
   var renderValue = _ref.renderValue,
       renderValueText = _ref.renderValueText,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$14);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$15);
 
   var currentVal = props["aria-valuenow"] || "0";
   return /*#__PURE__*/React__default["default"].createElement("span", props, renderValue(currentVal) || /*#__PURE__*/React__default["default"].createElement(Text, {
@@ -4774,7 +4774,7 @@ Thumb.defaultProps = {
   renderValueText: function renderValueText() {}
 };
 
-var _excluded$13 = ["onChange", "value"];
+var _excluded$14 = ["onChange", "value"];
 var StyledSlider = styled__default["default"](MuiSlider__default["default"]).withConfig({
   displayName: "Slider__StyledSlider",
   componentId: "sc-b53yre-0"
@@ -4799,7 +4799,7 @@ var StyledSlider = styled__default["default"](MuiSlider__default["default"]).wit
 var Slider = function Slider(_ref5) {
   var _onChange = _ref5.onChange,
       value = _ref5.value,
-      props = _objectWithoutPropertiesLoose(_ref5, _excluded$13);
+      props = _objectWithoutPropertiesLoose(_ref5, _excluded$14);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledSlider, _extends({
     onChange: function onChange(_, val) {
@@ -4829,13 +4829,13 @@ var RangeSliderDefaultProps = {
   isRequired: false
 };
 
-var _excluded$12 = ["control", "defaultValue", "isRequired", "name"];
+var _excluded$13 = ["control", "defaultValue", "isRequired", "name"];
 var RangeSlider = function RangeSlider(_ref) {
   var control = _ref.control,
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$12);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$13);
 
   return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
     as: /*#__PURE__*/React__default["default"].createElement(Slider, _extends({
@@ -4852,7 +4852,7 @@ var RangeSlider = function RangeSlider(_ref) {
 RangeSlider.propTypes = RangeSliderPropTypes;
 RangeSlider.defaultProps = RangeSliderDefaultProps;
 
-var _excluded$11 = ["children"];
+var _excluded$12 = ["children"];
 var Option = function Option(props) {
   var isSelected = props.isSelected,
       label = props.label;
@@ -4872,7 +4872,7 @@ var allOption = {
 };
 var ValueContainer = function ValueContainer(_ref) {
   var children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$11);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$12);
 
   var getValue = props.getValue;
   var currentValues = getValue();
@@ -4985,7 +4985,7 @@ var ReactSelectDefaultProps = {
   isRequired: false
 };
 
-var _excluded$10 = ["async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "hasError", "loadOptions", "isRequired", "name", "options", "selectedOption"];
+var _excluded$11 = ["async", "cacheOptions", "control", "defaultOptions", "defaultValue", "endpoint", "endpointQueryFlag", "hasError", "loadOptions", "isRequired", "name", "options", "selectedOption"];
 var ReactSelectWrapper = styled__default["default"].div.withConfig({
   displayName: "ReactSelect__ReactSelectWrapper",
   componentId: "sc-xq5gfv-0"
@@ -5053,7 +5053,7 @@ var ReactSelect = function ReactSelect(_ref16) {
       name = _ref16.name,
       options = _ref16.options,
       selectedOption = _ref16.selectedOption,
-      props = _objectWithoutPropertiesLoose(_ref16, _excluded$10);
+      props = _objectWithoutPropertiesLoose(_ref16, _excluded$11);
 
   var loadOptionsfromEndpoint = function loadOptionsfromEndpoint(inputValue, callback) {
     axios__default["default"].get("" + endpoint + (endpointQueryFlag ? "?" + endpointQueryFlag + "=" + inputValue : "")).then(function (_ref17) {
@@ -5118,7 +5118,7 @@ var FormRowDefaultProps = {
   direction: "row"
 };
 
-var _excluded$$ = ["children", "errors", "fields", "hint", "label", "labelAlign", "labelGutter", "show", "labelColor", "direction", "bottomHintText"];
+var _excluded$10 = ["children", "errors", "fields", "hint", "label", "labelAlign", "labelGutter", "show", "labelColor", "direction", "bottomHintText"];
 var StyledRow = styled__default["default"].div.withConfig({
   displayName: "Row__StyledRow",
   componentId: "sc-1ir0fqh-0"
@@ -5211,7 +5211,7 @@ var FormRow = function FormRow(_ref19) {
       labelColor = _ref19.labelColor,
       direction = _ref19.direction,
       bottomHintText = _ref19.bottomHintText,
-      props = _objectWithoutPropertiesLoose(_ref19, _excluded$$);
+      props = _objectWithoutPropertiesLoose(_ref19, _excluded$10);
 
   var rowErrors = Array.isArray(errors) ? errors : getFormRowErrors(errors, fields);
   var validChildren = React.Children.toArray(children).filter(Boolean);
@@ -5262,7 +5262,7 @@ var StepperDefaultProps = {
   value: 1
 };
 
-var _excluded$_ = ["label", "value", "onChange", "min", "max", "size"];
+var _excluded$$ = ["label", "value", "onChange", "min", "max", "size"];
 var Wrapper$7 = styled__default["default"].div.withConfig({
   displayName: "Component__Wrapper",
   componentId: "sc-1apjhkv-0"
@@ -5277,7 +5277,7 @@ var StepperComponent = function StepperComponent(_ref2) {
       min = _ref2.min,
       max = _ref2.max,
       size = _ref2.size,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$_);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$$);
 
   var handleChange = function handleChange(type) {
     var newVal = type === "sub" ? value - 1 : value + 1;
@@ -5306,13 +5306,13 @@ var StepperComponent = function StepperComponent(_ref2) {
 StepperComponent.propTypes = StepperPropTypes;
 StepperComponent.defaultProps = StepperDefaultProps;
 
-var _excluded$Z = ["control", "defaultValue", "isRequired", "name"];
+var _excluded$_ = ["control", "defaultValue", "isRequired", "name"];
 var Stepper = function Stepper(_ref) {
   var control = _ref.control,
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$Z);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$_);
 
   return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
     render: function render(events) {
@@ -5353,14 +5353,14 @@ var TextArea = function TextArea(props) {
 TextArea.propTypes = TextAreaPropTypes;
 TextArea.defaultProps = TextAreaDefaultProps;
 
-var _excluded$Y = ["disabled", "handleToggle", "size", "toggled"];
+var _excluded$Z = ["disabled", "handleToggle", "size", "toggled"];
 
 var Switch = function Switch(_ref) {
   var disabled = _ref.disabled,
       handleToggle = _ref.handleToggle,
       size = _ref.size,
       toggled = _ref.toggled,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$Y);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$Z);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledSwitchContainer$1, _extends({
     disabled: disabled,
@@ -5420,10 +5420,10 @@ var StyledSwitch$1 = styled__default["default"].span.withConfig({
   return size === "lg" && styled.css(["border-radius:46px;height:46px;width:46px;"]);
 });
 Switch.propTypes = {
-  disabled: PropTypes.bool,
-  handleToggle: PropTypes.func,
-  size: PropTypes.oneOf(["sm", "md", "lg"]),
-  toggled: PropTypes.bool
+  disabled: PropTypes$1.bool,
+  handleToggle: PropTypes$1.func,
+  size: PropTypes$1.oneOf(["sm", "md", "lg"]),
+  toggled: PropTypes$1.bool
 };
 Switch.defaultProps = {
   disabled: false,
@@ -5432,7 +5432,7 @@ Switch.defaultProps = {
   toggled: false
 };
 
-var _excluded$X = ["disabled", "onChange", "size", "value"];
+var _excluded$Y = ["disabled", "onChange", "size", "value"];
 var StyledToggle$1 = styled__default["default"].div.withConfig({
   displayName: "Toggle__StyledToggle",
   componentId: "sc-68gvde-0"
@@ -5446,7 +5446,7 @@ var Toggle = function Toggle(_ref) {
       onChange = _ref.onChange,
       size = _ref.size,
       value = _ref.value,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$X);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$Y);
 
   var handleToggle = function handleToggle() {
     onChange(!value);
@@ -5460,10 +5460,10 @@ var Toggle = function Toggle(_ref) {
   }, props)));
 };
 Toggle.propTypes = {
-  disabled: PropTypes.bool,
-  onChange: PropTypes.func,
-  size: PropTypes.oneOf(["sm", "md", "lg"]),
-  value: PropTypes.bool
+  disabled: PropTypes$1.bool,
+  onChange: PropTypes$1.func,
+  size: PropTypes$1.oneOf(["sm", "md", "lg"]),
+  value: PropTypes$1.bool
 };
 Toggle.defaultProps = {
   disabled: false,
@@ -5484,13 +5484,13 @@ var ToggleSwitchDefaultProps = {
   name: "toggleSwitch"
 };
 
-var _excluded$W = ["control", "defaultValue", "isRequired", "name"];
+var _excluded$X = ["control", "defaultValue", "isRequired", "name"];
 var ToggleSwitch = function ToggleSwitch(_ref) {
   var control = _ref.control,
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$W);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$X);
 
   return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
     render: function render(events) {
@@ -5509,7 +5509,7 @@ var ToggleSwitch = function ToggleSwitch(_ref) {
 ToggleSwitch.propTypes = ToggleSwitchPropTypes;
 ToggleSwitch.defaultProps = ToggleSwitchDefaultProps;
 
-var _excluded$V = ["hasError", "iconProps", "name", "register", "options", "price", "icon", "value", "title", "description"];
+var _excluded$W = ["hasError", "iconProps", "name", "register", "options", "price", "icon", "value", "title", "description"];
 var StyledInput$2 = styled__default["default"].input.withConfig({
   displayName: "BaseItem__StyledInput",
   componentId: "sc-1uvtn0l-0"
@@ -5574,7 +5574,7 @@ var RadioEnhancedBaseItem = function RadioEnhancedBaseItem(_ref16) {
       value = _ref16.value,
       title = _ref16.title,
       description = _ref16.description,
-      props = _objectWithoutPropertiesLoose(_ref16, _excluded$V);
+      props = _objectWithoutPropertiesLoose(_ref16, _excluded$W);
 
   var id = name + "-" + value;
   return /*#__PURE__*/React__default["default"].createElement("div", {
@@ -5642,13 +5642,13 @@ var RadioEnhancedDefaultProps = {
   }))
 };
 
-var _excluded$U = ["options"];
+var _excluded$V = ["options"];
 
 var RadioEnhancedBase = function RadioEnhancedBase(_ref) {
   var options = _ref.options,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$U);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$V);
 
-  return /*#__PURE__*/React__default["default"].createElement(Fieldset, null, options.map(function (opt) {
+  return /*#__PURE__*/React__default["default"].createElement(Fieldset$1, null, options.map(function (opt) {
     return /*#__PURE__*/React__default["default"].createElement(RadioEnhancedBaseItem, _extends({
       key: opt.value
     }, opt, props));
@@ -5680,7 +5680,7 @@ var RadioEnhanced = function RadioEnhanced(props) {
 RadioEnhanced.propTypes = RadioEnhancedPropTypes;
 RadioEnhanced.defaultProps = RadioEnhancedDefaultProps;
 
-var _excluded$T = ["disabled", "handleToggle", "toggled", "leftValue", "leftValueWidth", "leftValueSideMargin", "rightValue", "rightValueWidth", "rightValueSideMargin", "totalWidth"];
+var _excluded$U = ["disabled", "handleToggle", "toggled", "leftValue", "leftValueWidth", "leftValueSideMargin", "rightValue", "rightValueWidth", "rightValueSideMargin", "totalWidth"];
 
 var TabsSwitch$1 = function TabsSwitch(_ref) {
   var disabled = _ref.disabled,
@@ -5693,7 +5693,7 @@ var TabsSwitch$1 = function TabsSwitch(_ref) {
       rightValueWidth = _ref.rightValueWidth,
       rightValueSideMargin = _ref.rightValueSideMargin,
       totalWidth = _ref.totalWidth,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$T);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$U);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledSwitchContainer, _extends({
     disabled: disabled,
@@ -5774,16 +5774,16 @@ var StyledSwitch = styled__default["default"].span.withConfig({
   return toggled && styled.css(["left:calc(100% - 2px);transform:translateX(-100%);color:", ";width:", "px;"], theme.palette.primary.main, rightValueWidth + 16);
 });
 TabsSwitch$1.propTypes = {
-  disabled: PropTypes.bool,
-  handleToggle: PropTypes.func,
-  leftValue: PropTypes.number.isRequired,
-  leftValueWidth: PropTypes.number.isRequired,
-  leftValueSideMargin: PropTypes.number.isRequired,
-  rightValue: PropTypes.number.isRequired,
-  rightValueWidth: PropTypes.number.isRequired,
-  rightValueSideMargin: PropTypes.number.isRequired,
-  totalWidth: PropTypes.number.isRequired,
-  toggled: PropTypes.bool
+  disabled: PropTypes$1.bool,
+  handleToggle: PropTypes$1.func,
+  leftValue: PropTypes$1.number.isRequired,
+  leftValueWidth: PropTypes$1.number.isRequired,
+  leftValueSideMargin: PropTypes$1.number.isRequired,
+  rightValue: PropTypes$1.number.isRequired,
+  rightValueWidth: PropTypes$1.number.isRequired,
+  rightValueSideMargin: PropTypes$1.number.isRequired,
+  totalWidth: PropTypes$1.number.isRequired,
+  toggled: PropTypes$1.bool
 };
 TabsSwitch$1.defaultProps = {
   disabled: false,
@@ -5791,7 +5791,7 @@ TabsSwitch$1.defaultProps = {
   toggled: false
 };
 
-var _excluded$S = ["disabled", "onChange", "value"];
+var _excluded$T = ["disabled", "onChange", "value"];
 var StyledToggle = styled__default["default"].div.withConfig({
   displayName: "TabsToggle__StyledToggle",
   componentId: "sc-1m9nhul-0"
@@ -5804,7 +5804,7 @@ var TabsToggle = function TabsToggle(_ref) {
   var disabled = _ref.disabled,
       onChange = _ref.onChange,
       value = _ref.value,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$S);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$T);
 
   var handleToggle = function handleToggle() {
     onChange(!value);
@@ -5817,9 +5817,9 @@ var TabsToggle = function TabsToggle(_ref) {
   }, props)));
 };
 TabsToggle.propTypes = {
-  disabled: PropTypes.bool,
-  onChange: PropTypes.func,
-  value: PropTypes.bool
+  disabled: PropTypes$1.bool,
+  onChange: PropTypes$1.func,
+  value: PropTypes$1.bool
 };
 TabsToggle.defaultProps = {
   disabled: false,
@@ -5839,13 +5839,13 @@ var TabsSwitchDefaultProps = {
   name: "toggleSwitch"
 };
 
-var _excluded$R = ["control", "defaultValue", "isRequired", "name"];
+var _excluded$S = ["control", "defaultValue", "isRequired", "name"];
 var TabsSwitch = function TabsSwitch(_ref) {
   var control = _ref.control,
       defaultValue = _ref.defaultValue,
       isRequired = _ref.isRequired,
       name = _ref.name,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$R);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$S);
 
   return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
     render: function render(events) {
@@ -5864,7 +5864,7 @@ var TabsSwitch = function TabsSwitch(_ref) {
 TabsSwitch.propTypes = TabsSwitchPropTypes;
 TabsSwitch.defaultProps = TabsSwitchDefaultProps;
 
-var _excluded$Q = ["name", "value", "title", "info", "icon", "iconPrefix", "iconRounded", "active", "activeLabel", "hasError", "iconProps", "register"];
+var _excluded$R = ["name", "value", "title", "info", "icon", "iconPrefix", "iconRounded", "active", "activeLabel", "hasError", "iconProps", "register"];
 var StyledInput$1 = styled__default["default"].input.withConfig({
   displayName: "BaseItem__StyledInput",
   componentId: "sc-tufszu-0"
@@ -5929,7 +5929,7 @@ var RadioListBaseItem = function RadioListBaseItem(_ref15) {
       hasError = _ref15.hasError;
       _ref15.iconProps;
       var register = _ref15.register,
-      props = _objectWithoutPropertiesLoose(_ref15, _excluded$Q);
+      props = _objectWithoutPropertiesLoose(_ref15, _excluded$R);
 
   var id = name + "-" + value;
   return /*#__PURE__*/React__default["default"].createElement("div", {
@@ -6003,13 +6003,13 @@ var RadioListDefaultProps = {
   }))
 };
 
-var _excluded$P = ["options"];
+var _excluded$Q = ["options"];
 
 var RadioListBase = function RadioListBase(_ref) {
   var options = _ref.options,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$P);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$Q);
 
-  return /*#__PURE__*/React__default["default"].createElement(Fieldset, null, options.map(function (opt) {
+  return /*#__PURE__*/React__default["default"].createElement(Fieldset$1, null, options.map(function (opt) {
     return /*#__PURE__*/React__default["default"].createElement(RadioListBaseItem, _extends({
       key: opt.value
     }, opt, props));
@@ -6041,7 +6041,7 @@ var RadioList = function RadioList(props) {
 RadioList.propTypes = RadioListPropTypes;
 RadioList.defaultProps = RadioListDefaultProps;
 
-var _excluded$O = ["hasError", "iconProps", "iconPrefix", "name", "register", "options", "icon", "value", "title", "description"];
+var _excluded$P = ["hasError", "iconProps", "iconPrefix", "name", "register", "options", "icon", "value", "title", "description"];
 var StyledInput = styled__default["default"].input.withConfig({
   displayName: "BaseItem__StyledInput",
   componentId: "sc-1owydwv-0"
@@ -6091,7 +6091,7 @@ var RadioExtraBaseItem = function RadioExtraBaseItem(_ref10) {
       value = _ref10.value,
       title = _ref10.title,
       description = _ref10.description,
-      props = _objectWithoutPropertiesLoose(_ref10, _excluded$O);
+      props = _objectWithoutPropertiesLoose(_ref10, _excluded$P);
 
   var id = name + "-" + value;
   return /*#__PURE__*/React__default["default"].createElement("div", {
@@ -6161,11 +6161,11 @@ var RadioExtraDefaultProps = {
   }))
 };
 
-var _excluded$N = ["options"];
+var _excluded$O = ["options"];
 
 var RadioExtraBase = function RadioExtraBase(_ref) {
   var options = _ref.options,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$N);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$O);
 
   return /*#__PURE__*/React__default["default"].createElement(Fieldset, null, options.map(function (opt) {
     return /*#__PURE__*/React__default["default"].createElement(RadioExtraBaseItem, _extends({
@@ -6175,17 +6175,27 @@ var RadioExtraBase = function RadioExtraBase(_ref) {
 };
 
 RadioExtraBase.propTypes = {
-  options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
-    value: PropTypes__default["default"].string,
-    title: PropTypes__default["default"].string,
-    description: PropTypes__default["default"].string,
-    icon: PropTypes__default["default"].string,
-    iconPrefix: PropTypes__default["default"].string
+  options: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    icon: PropTypes.string,
+    iconPrefix: PropTypes.string
   })).isRequired
 };
+
+var Fieldset = function Fieldset(_ref2) {
+  var children = _ref2.children;
+  return /*#__PURE__*/React__default["default"].createElement(StyledFieldset, null, children);
+};
+
+var StyledFieldset = styled__default["default"].fieldset.withConfig({
+  displayName: "RadioExtra__StyledFieldset",
+  componentId: "sc-tcnr55-0"
+})(["display:grid;grid-template-columns:repeat(auto-fit,minmax(5rem,1fr));gap:1rem;border:none;padding:0;margin:0;width:100%;"]);
 var StyledRadioExtraBase = styled__default["default"](RadioExtraBase).withConfig({
   displayName: "RadioExtra__StyledRadioExtraBase",
-  componentId: "sc-tcnr55-0"
+  componentId: "sc-tcnr55-1"
 })(["", " ", ""], function (theme) {
   return SPACER(theme);
 }, function (theme) {
@@ -6241,7 +6251,7 @@ var ItemConnector = styled__default["default"].div.withConfig({
   var theme = _ref.theme;
   return theme.palette.gray.regular;
 });
-var Container$9 = styled__default["default"].div.withConfig({
+var Container$a = styled__default["default"].div.withConfig({
   displayName: "Item__Container",
   componentId: "sc-1awk8nq-1"
 })(["position:relative;min-height:40px;padding-bottom:", ";:last-child{", "{border-left-width:0;}}"], function (_ref2) {
@@ -6331,7 +6341,7 @@ var HistoryItem = function HistoryItem(_ref15) {
       collapseOpen = _useState[0],
       setCollapseOpen = _useState[1];
 
-  return /*#__PURE__*/React__default["default"].createElement(Container$9, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$a, {
     "data-cy": "historyItem"
   }, /*#__PURE__*/React__default["default"].createElement(ItemConnector, null), /*#__PURE__*/React__default["default"].createElement(RowWrapper$1, null, /*#__PURE__*/React__default["default"].createElement(StyledIcon$4, {
     rounded: true,
@@ -6386,8 +6396,8 @@ var HistoryPropTypes = _extends({
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-var _excluded$M = ["rows"];
-var Container$8 = styled__default["default"].div.withConfig({
+var _excluded$N = ["rows"];
+var Container$9 = styled__default["default"].div.withConfig({
   displayName: "History__Container",
   componentId: "sc-1u2gi2m-0"
 })(["", " ", ""], function (theme) {
@@ -6397,9 +6407,9 @@ var Container$8 = styled__default["default"].div.withConfig({
 });
 var History = function History(_ref) {
   var rows = _ref.rows,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$M);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$N);
 
-  return /*#__PURE__*/React__default["default"].createElement(Container$8, props, rows.map(function (h) {
+  return /*#__PURE__*/React__default["default"].createElement(Container$9, props, rows.map(function (h) {
     return /*#__PURE__*/React__default["default"].createElement(HistoryItem, {
       key: h.id,
       data: h
@@ -6418,7 +6428,7 @@ var HistoryTreeDefaultProps = {
   onNodeClick: function onNodeClick() {}
 };
 
-var _excluded$L = ["activeNodeId", "data", "onNodeClick"];
+var _excluded$M = ["activeNodeId", "data", "onNodeClick"];
 var NODE_SIZE = 20;
 var NODE_CONNECTOR_HEIGHT = 28;
 var ROW_HEIGHT = NODE_SIZE + 2 * NODE_CONNECTOR_HEIGHT;
@@ -6477,7 +6487,7 @@ var HistoryTree = function HistoryTree(_ref7) {
   var activeNodeId = _ref7.activeNodeId,
       data = _ref7.data,
       onNodeClick = _ref7.onNodeClick,
-      props = _objectWithoutPropertiesLoose(_ref7, _excluded$L);
+      props = _objectWithoutPropertiesLoose(_ref7, _excluded$M);
 
   return /*#__PURE__*/React__default["default"].createElement(Wrapper$6, props, data.map(function (row) {
     var _row$nodes;
@@ -6520,7 +6530,7 @@ var IndicatorDefaultProps = {
   color: "primary"
 };
 
-var _excluded$K = ["content", "children"];
+var _excluded$L = ["content", "children"];
 var StyledIndicator = styled__default["default"].div.withConfig({
   displayName: "Indicator__StyledIndicator",
   componentId: "sc-n41y77-0"
@@ -6537,18 +6547,18 @@ var StyledIndicator = styled__default["default"].div.withConfig({
 }, function (theme) {
   return DISPLAY(theme);
 });
-var Indicator = function Indicator(_ref3) {
+var Indicator$1 = function Indicator(_ref3) {
   var content = _ref3.content,
       children = _ref3.children,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$K);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$L);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledIndicator, props, content || children);
 };
-Indicator.propTypes = IndicatorPropTypes;
-Indicator.defaultProps = IndicatorDefaultProps;
+Indicator$1.propTypes = IndicatorPropTypes;
+Indicator$1.defaultProps = IndicatorDefaultProps;
 
-var _excluded$J = ["rows"];
-var Container$7 = styled__default["default"].div.withConfig({
+var _excluded$K = ["rows"];
+var Container$8 = styled__default["default"].div.withConfig({
   displayName: "Inspector__Container",
   componentId: "sc-zw3vqo-0"
 })(["", " ", ""], function (theme) {
@@ -6558,9 +6568,9 @@ var Container$7 = styled__default["default"].div.withConfig({
 });
 var Inspector = function Inspector(_ref) {
   var rows = _ref.rows,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$J);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$K);
 
-  return /*#__PURE__*/React__default["default"].createElement(Container$7, props, rows.map(function (row) {
+  return /*#__PURE__*/React__default["default"].createElement(Container$8, props, rows.map(function (row) {
     return /*#__PURE__*/React__default["default"].createElement(InspectorItem, {
       key: row.id,
       data: row
@@ -6569,7 +6579,7 @@ var Inspector = function Inspector(_ref) {
 };
 Inspector.propTypes = InspectorPropTypes;
 
-var Container$6 = styled__default["default"].div.withConfig({
+var Container$7 = styled__default["default"].div.withConfig({
   displayName: "Item__Container",
   componentId: "sc-1mr01kl-0"
 })(["position:relative;min-height:41px;padding:", ";"], function (_ref) {
@@ -6686,7 +6696,7 @@ var InspectorItem = function InspectorItem(_ref19) {
     }
   };
 
-  return /*#__PURE__*/React__default["default"].createElement(Container$6, null, /*#__PURE__*/React__default["default"].createElement(RowWrapper, null, /*#__PURE__*/React__default["default"].createElement(StyledStatus, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$7, null, /*#__PURE__*/React__default["default"].createElement(RowWrapper, null, /*#__PURE__*/React__default["default"].createElement(StyledStatus, {
     color: getColor(status, theme)
   }, /*#__PURE__*/React__default["default"].createElement(Text, {
     content: status
@@ -6737,7 +6747,7 @@ var ItemSelectPropTypes = _extends({
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ItemSelectDefaultProps = {};
 
-var Container$5 = styled__default["default"].div.withConfig({
+var Container$6 = styled__default["default"].div.withConfig({
   displayName: "itemsPreview__Container",
   componentId: "sc-1mt253a-0"
 })(["display:flex;flex-direction:row;flex-wrap:wrap;background-color:", ";border-radius:16px;padding:", ";margin-top:", ";margin-bottom:", ";", ""], function (_ref) {
@@ -6858,7 +6868,7 @@ var ItemsPreview = function ItemsPreview(_ref18) {
       onRemove = _ref18.onRemove,
       action = _ref18.action,
       maxWidth = _ref18.maxWidth;
-  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Container$5, {
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Container$6, {
     maxWidth: maxWidth,
     items: items == null ? void 0 : items.length
   }, items == null ? void 0 : items.map(function (item) {
@@ -6875,7 +6885,7 @@ var ItemsPreview = function ItemsPreview(_ref18) {
   })));
 };
 
-var _excluded$I = ["action", "actionDescription", "actionLoading", "actionTitle", "cancelButton", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled", "padding"];
+var _excluded$J = ["action", "actionDescription", "actionLoading", "actionTitle", "cancelButton", "dataCy", "fullScreen", "isOpen", "loading", "onClose", "children", "maxWidth", "title", "disabled", "padding"];
 var StyledDialog = styled__default["default"](Dialog__default["default"]).withConfig({
   displayName: "Modal__StyledDialog",
   componentId: "sc-pqwu3e-0"
@@ -6953,7 +6963,7 @@ var Modal = function Modal(_ref9) {
       title = _ref9.title,
       disabled = _ref9.disabled,
       padding = _ref9.padding,
-      props = _objectWithoutPropertiesLoose(_ref9, _excluded$I);
+      props = _objectWithoutPropertiesLoose(_ref9, _excluded$J);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledDialog, _extends({
     "data-cy": dataCy,
@@ -7296,12 +7306,12 @@ var LanguageDefaultProps = {
   size: "sm"
 };
 
-var _excluded$H = ["value", "languages", "onChange"];
+var _excluded$I = ["value", "languages", "onChange"];
 var Language = function Language(_ref) {
   var value = _ref.value,
       languages = _ref.languages,
       onChange = _ref.onChange,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$H);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$I);
 
   var _useState = React.useState(null),
       anchorEl = _useState[0],
@@ -7355,7 +7365,7 @@ var AuthLayoutHeaderDefaultProps = {
   renderLogo: function renderLogo() {}
 };
 
-var _excluded$G = ["backButtonOnClick", "headerLeft", "headerRight", "logoAction", "logoSrc", "renderLogo"];
+var _excluded$H = ["backButtonOnClick", "headerLeft", "headerRight", "logoAction", "logoSrc", "renderLogo"];
 var StyledHeader$4 = styled__default["default"](Flex).attrs(function () {
   return {
     container: true,
@@ -7393,7 +7403,7 @@ var AuthLayoutHeader = function AuthLayoutHeader(_ref2) {
       logoAction = _ref2.logoAction,
       logoSrc = _ref2.logoSrc,
       renderLogo = _ref2.renderLogo,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$G);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$H);
 
   var backButton = /*#__PURE__*/React__default["default"].createElement(TextButton, {
     color: "secondary",
@@ -7424,7 +7434,7 @@ var AuthLayoutPropTypes = {
   loading: PropTypes__default["default"].bool
 };
 
-var _excluded$F = ["children", "content", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "loading"];
+var _excluded$G = ["children", "content", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "loading"];
 var StyledContainer$2 = styled__default["default"](MuiContainer__default["default"]).attrs(function () {
   return {
     maxWidth: "xs"
@@ -7450,7 +7460,7 @@ var AuthLayout = function AuthLayout(_ref2) {
       headerRight = _ref2.headerRight,
       headerRenderLogo = _ref2.headerRenderLogo,
       loading = _ref2.loading,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$F);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$G);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledContainer$2, props, loading && /*#__PURE__*/React__default["default"].createElement(PageLoading, {
     fullScreen: true
@@ -7479,7 +7489,7 @@ var CreatorsHubFooterPropTypes = {
 };
 var CreatorsHubFooterDefaultProps = {};
 
-var _excluded$E = ["bottomContent", "content", "navCols"];
+var _excluded$F = ["bottomContent", "content", "navCols"];
 var Footer = styled__default["default"].div.withConfig({
   displayName: "Footer",
   componentId: "sc-vpynnn-0"
@@ -7545,7 +7555,7 @@ var CreatorsHubFooter = function CreatorsHubFooter(_ref11) {
   var bottomContent = _ref11.bottomContent,
       content = _ref11.content,
       navCols = _ref11.navCols,
-      props = _objectWithoutPropertiesLoose(_ref11, _excluded$E);
+      props = _objectWithoutPropertiesLoose(_ref11, _excluded$F);
 
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Footer, props, /*#__PURE__*/React__default["default"].createElement(Flex, {
     container: true,
@@ -7587,7 +7597,7 @@ var CreatorsHubHeaderDefaultProps = {
   secondaryRenderRight: function secondaryRenderRight() {}
 };
 
-var _excluded$D = ["drawerOpen", "logoSrc", "logoAction", "primaryNavItems", "renderLogo", "setDrawerOpen"];
+var _excluded$E = ["drawerOpen", "logoSrc", "logoAction", "primaryNavItems", "renderLogo", "setDrawerOpen"];
 var StyledHeader$3 = styled__default["default"].div.withConfig({
   displayName: "Primary__StyledHeader",
   componentId: "sc-ton3vv-0"
@@ -7650,7 +7660,7 @@ var PrimaryHeader = function PrimaryHeader(_ref11) {
       primaryNavItems = _ref11.primaryNavItems,
       renderLogo = _ref11.renderLogo,
       setDrawerOpen = _ref11.setDrawerOpen,
-      props = _objectWithoutPropertiesLoose(_ref11, _excluded$D);
+      props = _objectWithoutPropertiesLoose(_ref11, _excluded$E);
 
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(StyledHeader$3, props, /*#__PURE__*/React__default["default"].createElement(LogoContainer$1, null, /*#__PURE__*/React__default["default"].createElement(Hidden, {
     implementation: "js",
@@ -7680,7 +7690,7 @@ var PrimaryHeader = function PrimaryHeader(_ref11) {
 PrimaryHeader.propTypes = CreatorsHubHeaderPropTypes;
 PrimaryHeader.defaultProps = CreatorsHubHeaderDefaultProps;
 
-var _excluded$C = ["navItems"];
+var _excluded$D = ["navItems"];
 var StyledDrawer = styled__default["default"](Drawer__default["default"]).withConfig({
   displayName: "Drawer__StyledDrawer",
   componentId: "sc-1n0twmf-0"
@@ -7731,7 +7741,7 @@ var ListItem = styled__default["default"].li.withConfig({
 });
 var HeaderDrawer = function HeaderDrawer(_ref13) {
   var navItems = _ref13.navItems,
-      props = _objectWithoutPropertiesLoose(_ref13, _excluded$C);
+      props = _objectWithoutPropertiesLoose(_ref13, _excluded$D);
 
   return /*#__PURE__*/React__default["default"].createElement(Hidden, {
     implementation: "js",
@@ -7750,7 +7760,7 @@ var HeaderDrawer = function HeaderDrawer(_ref13) {
 HeaderDrawer.propTypes = CreatorsHubHeaderPropTypes;
 HeaderDrawer.defaultProps = CreatorsHubHeaderDefaultProps;
 
-var _excluded$B = ["fixed", "heightSm", "logoSrc", "logoAction", "primaryNavItems", "primaryWhite", "renderLogo", "secondary", "secondaryHideOnScroll", "secondaryNavItems", "secondaryRenderRight", "smNavItems"];
+var _excluded$C = ["fixed", "heightSm", "logoSrc", "logoAction", "primaryNavItems", "primaryWhite", "renderLogo", "secondary", "secondaryHideOnScroll", "secondaryNavItems", "secondaryRenderRight", "smNavItems"];
 var Header = styled__default["default"].div.withConfig({
   displayName: "Header",
   componentId: "sc-1hpkor0-0"
@@ -7772,7 +7782,7 @@ var MainHeader = function MainHeader(_ref) {
       var secondaryNavItems = _ref.secondaryNavItems;
       _ref.secondaryRenderRight;
       var smNavItems = _ref.smNavItems,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$B);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$C);
 
   var _useState = React.useState(false),
       drawerOpen = _useState[0],
@@ -7799,7 +7809,7 @@ var MainHeader = function MainHeader(_ref) {
 MainHeader.propTypes = CreatorsHubHeaderPropTypes;
 MainHeader.defaultProps = CreatorsHubHeaderDefaultProps;
 
-var _excluded$A = ["secondaryHideOnScroll", "secondaryNavItems", "secondaryRenderRight"];
+var _excluded$B = ["secondaryHideOnScroll", "secondaryNavItems", "secondaryRenderRight"];
 var StyledHeader$2 = styled__default["default"].div.withConfig({
   displayName: "Secondary__StyledHeader",
   componentId: "sc-17k8qal-0"
@@ -7856,7 +7866,7 @@ var SecondaryHeader = function SecondaryHeader(_ref13) {
   _ref13.secondaryHideOnScroll;
       var secondaryNavItems = _ref13.secondaryNavItems,
       secondaryRenderRight = _ref13.secondaryRenderRight,
-      props = _objectWithoutPropertiesLoose(_ref13, _excluded$A);
+      props = _objectWithoutPropertiesLoose(_ref13, _excluded$B);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledHeader$2, props, /*#__PURE__*/React__default["default"].createElement(Hidden, {
     implementation: "js",
@@ -7877,7 +7887,7 @@ var CreatorsHubAuthLayoutPropTypes = {
 };
 var CreatorsHubAuthLayoutDefaultProps = {};
 
-var _excluded$z = ["children", "headerProps", "loading"];
+var _excluded$A = ["children", "headerProps", "loading"];
 var StyledContainer$1 = styled__default["default"](MuiContainer__default["default"]).attrs(function () {
   return {
     maxWidth: "lg"
@@ -7912,7 +7922,7 @@ var CreatorsHubAuthLayout = function CreatorsHubAuthLayout(_ref3) {
   var children = _ref3.children,
       headerProps = _ref3.headerProps,
       loading = _ref3.loading,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$z);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$A);
 
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, loading && /*#__PURE__*/React__default["default"].createElement(PageLoading, {
     fullScreen: true
@@ -7971,7 +7981,7 @@ var FluidContainer = styled__default["default"](MuiContainer__default["default"]
   var theme = _ref7.theme;
   return theme.spacing(0, 4);
 });
-var Container$4 = styled__default["default"](MuiContainer__default["default"]).attrs(function () {
+var Container$5 = styled__default["default"](MuiContainer__default["default"]).attrs(function () {
   return {
     maxWidth: "lg"
   };
@@ -8040,7 +8050,7 @@ var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref16) {
       offsetTopSm: PRIMARY_HEADER_HEIGHT_SM,
       white: true,
       zIndex: 98
-    }, /*#__PURE__*/React__default["default"].createElement(Container$4, null, /*#__PURE__*/React__default["default"].createElement(SecondaryHeader, {
+    }, /*#__PURE__*/React__default["default"].createElement(Container$5, null, /*#__PURE__*/React__default["default"].createElement(SecondaryHeader, {
       fixed: headerProps.fixed,
       secondaryHasBorder: headerProps.secondaryHasBorder,
       secondaryHideOnScroll: headerProps.secondaryHideOnScroll,
@@ -8055,7 +8065,7 @@ var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref16) {
     sticky: headerFixed,
     white: true,
     zIndex: 99
-  }, /*#__PURE__*/React__default["default"].createElement(Container$4, null, renderHeader() || /*#__PURE__*/React__default["default"].createElement(MainHeader, _extends({
+  }, /*#__PURE__*/React__default["default"].createElement(Container$5, null, renderHeader() || /*#__PURE__*/React__default["default"].createElement(MainHeader, _extends({
     fixed: headerFixed,
     height: PRIMARY_HEADER_HEIGHT,
     heightSm: PRIMARY_HEADER_HEIGHT_SM
@@ -8063,7 +8073,7 @@ var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref16) {
     threshold: PRIMARY_HEADER_HEIGHT_SM - 8
   }, renderSecondaryHeader()) : renderSecondaryHeader()), /*#__PURE__*/React__default["default"].createElement(Content$6, {
     headerFixed: headerFixed
-  }, renderHeading && /*#__PURE__*/React__default["default"].createElement(Heading$1, null, renderHeading()), /*#__PURE__*/React__default["default"].createElement(FluidContainer, null, /*#__PURE__*/React__default["default"].createElement(Container$4, null, /*#__PURE__*/React__default["default"].createElement(MainContent, {
+  }, renderHeading && /*#__PURE__*/React__default["default"].createElement(Heading$1, null, renderHeading()), /*#__PURE__*/React__default["default"].createElement(FluidContainer, null, /*#__PURE__*/React__default["default"].createElement(Container$5, null, /*#__PURE__*/React__default["default"].createElement(MainContent, {
     spacing: sidebar ? 8 : false
   }, /*#__PURE__*/React__default["default"].createElement(Flex, {
     item: true,
@@ -8075,7 +8085,7 @@ var CreatorsHubMainLayout = function CreatorsHubMainLayout(_ref16) {
     md: 2
   }, sidebar))))), (footer || renderFooter) && /*#__PURE__*/React__default["default"].createElement(FluidContainer, {
     white: true
-  }, /*#__PURE__*/React__default["default"].createElement(Container$4, null, renderFooter() || /*#__PURE__*/React__default["default"].createElement(CreatorsHubFooter, footerProps))));
+  }, /*#__PURE__*/React__default["default"].createElement(Container$5, null, renderFooter() || /*#__PURE__*/React__default["default"].createElement(CreatorsHubFooter, footerProps))));
 };
 CreatorsHubMainLayout.propTypes = CreatorsHubMainLayoutPropTypes;
 CreatorsHubMainLayout.defaultProps = CreatorsHubMainLayoutDefaultProps;
@@ -8092,7 +8102,7 @@ var DashboardLayoutHeaderDefaultProps = {
   renderLogo: function renderLogo() {}
 };
 
-var _excluded$y = ["backButtonOnClick", "headerLeft", "headerRight", "logoAction", "logoSrc", "renderLogo"];
+var _excluded$z = ["backButtonOnClick", "headerLeft", "headerRight", "logoAction", "logoSrc", "renderLogo"];
 var StyledHeader$1 = styled__default["default"](Flex).attrs(function () {
   return {
     container: true,
@@ -8143,7 +8153,7 @@ var DashboardLayoutHeader = function DashboardLayoutHeader(_ref4) {
       logoAction = _ref4.logoAction,
       logoSrc = _ref4.logoSrc,
       renderLogo = _ref4.renderLogo,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$y);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$z);
 
   var backButton = /*#__PURE__*/React__default["default"].createElement(TextButton, {
     color: "secondary",
@@ -8186,7 +8196,7 @@ var DashboardLayoutDefaultProps = {
   navigationItems: []
 };
 
-var _excluded$x = ["component", "selected", "title", "icon", "additional", "dataCy", "nestedItems", "WrapperComponent"],
+var _excluded$y = ["component", "selected", "title", "icon", "additional", "dataCy", "nestedItems", "WrapperComponent"],
     _excluded2 = ["WrapperComponent"];
 var NestedListItem = styled__default["default"](core.ListItem).withConfig({
   displayName: "NavigationMenu__NestedListItem",
@@ -8255,7 +8265,7 @@ var NavigationMenu = function NavigationMenu(_ref12) {
         _ref13$nestedItems = _ref13.nestedItems,
         nestedItems = _ref13$nestedItems === void 0 ? [] : _ref13$nestedItems,
         Wrapper = _ref13.WrapperComponent,
-        props = _objectWithoutPropertiesLoose(_ref13, _excluded$x);
+        props = _objectWithoutPropertiesLoose(_ref13, _excluded$y);
 
     var showNested = nestedItems.length > 0 && selected;
 
@@ -8303,11 +8313,11 @@ NavigationMenu.propTypes = {
   items: PropTypes__default["default"].arrayOf(PropTypes__default["default"].any).isRequired
 };
 
-var _excluded$w = ["menuItems", "onClick"];
+var _excluded$x = ["menuItems", "onClick"];
 var UserMenu = function UserMenu(_ref) {
   var menuItems = _ref.menuItems,
       _onClick = _ref.onClick,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$w);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$x);
 
   var _useState = React.useState(null),
       anchorEl = _useState[0],
@@ -8449,7 +8459,7 @@ var DashboardLayoutFooterPropTypes = {
   content: PropTypes__default["default"].node
 };
 
-var _excluded$v = ["content"];
+var _excluded$w = ["content"];
 var StyledFooter$1 = styled__default["default"].div.withConfig({
   displayName: "Footer__StyledFooter",
   componentId: "sc-1d58k3u-0"
@@ -8459,13 +8469,13 @@ var StyledFooter$1 = styled__default["default"].div.withConfig({
 });
 var DashboardLayoutFooter = function DashboardLayoutFooter(_ref2) {
   var content = _ref2.content,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$v);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$w);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledFooter$1, props, content);
 };
 DashboardLayoutFooter.propTypes = DashboardLayoutFooterPropTypes;
 
-var _excluded$u = ["children", "content", "footerContent", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "navigationItems", "loading", "sidebar", "userMenuItems", "userMenuOnClick"];
+var _excluded$v = ["children", "content", "footerContent", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "navigationItems", "loading", "sidebar", "userMenuItems", "userMenuOnClick"];
 var StyledContainer = styled__default["default"](MuiContainer__default["default"]).attrs(function () {
   return {
     maxWidth: "lg"
@@ -8536,7 +8546,7 @@ var DashboardLayout = function DashboardLayout(_ref6) {
       sidebar = _ref6.sidebar,
       userMenuItems = _ref6.userMenuItems,
       userMenuOnClick = _ref6.userMenuOnClick,
-      props = _objectWithoutPropertiesLoose(_ref6, _excluded$u);
+      props = _objectWithoutPropertiesLoose(_ref6, _excluded$v);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledContainer, props, loading && /*#__PURE__*/React__default["default"].createElement(PageLoading, {
     fullScreen: true
@@ -8584,7 +8594,7 @@ var ExplorerLayoutFooterPropTypes = {
   children: PropTypes__default["default"].node
 };
 
-var _excluded$t = ["action"];
+var _excluded$u = ["action"];
 var StyledFooter = styled__default["default"].div.withConfig({
   displayName: "Footer__StyledFooter",
   componentId: "sc-5p9du5-0"
@@ -8594,7 +8604,7 @@ var StyledFooter = styled__default["default"].div.withConfig({
 });
 var ExplorerLayoutFooter = function ExplorerLayoutFooter(_ref2) {
   _ref2.action;
-      var props = _objectWithoutPropertiesLoose(_ref2, _excluded$t);
+      var props = _objectWithoutPropertiesLoose(_ref2, _excluded$u);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledFooter, props);
 };
@@ -8607,7 +8617,7 @@ var ExplorerLayoutHeaderPropTypes = {
   logoAction: PropTypes__default["default"].func
 };
 
-var _excluded$s = ["headerRight", "logoAction"];
+var _excluded$t = ["headerRight", "logoAction"];
 var StyledHeader = styled__default["default"](Grid__default["default"]).attrs(function () {
   return {
     container: true,
@@ -8635,7 +8645,7 @@ var StyledLogo = styled__default["default"](Image).attrs(function () {
 var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
   var headerRight = _ref3.headerRight,
       logoAction = _ref3.logoAction,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$s);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$t);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledHeader, props, /*#__PURE__*/React__default["default"].createElement(Grid__default["default"], {
     item: true,
@@ -8665,7 +8675,7 @@ var ExplorerLayoutPropTypes = {
   sidebar: PropTypes__default["default"].node
 };
 
-var _excluded$r = ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "loading", "sidebar"];
+var _excluded$s = ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "loading", "sidebar"];
 var Content$4 = styled__default["default"](Grid__default["default"]).attrs(function () {
   return {
     container: true
@@ -8709,7 +8719,7 @@ var ExplorerLayout = function ExplorerLayout(_ref7) {
       headerRight = _ref7.headerRight,
       loading = _ref7.loading,
       sidebar = _ref7.sidebar,
-      props = _objectWithoutPropertiesLoose(_ref7, _excluded$r);
+      props = _objectWithoutPropertiesLoose(_ref7, _excluded$s);
 
   if (loading) return /*#__PURE__*/React__default["default"].createElement(PageLoading, {
     fullScreen: true
@@ -8767,7 +8777,7 @@ var LinkDefaultProps = {
   passHref: true
 };
 
-var _excluded$q = ["block", "className", "children", "Component", "href"];
+var _excluded$r = ["block", "className", "children", "Component", "href"];
 var StyledLink = styled__default["default"].a.withConfig({
   displayName: "Link__StyledLink",
   componentId: "sc-9lvaa8-0"
@@ -8785,7 +8795,7 @@ var Link = function Link(_ref2) {
       children = _ref2.children,
       Component = _ref2.Component,
       href = _ref2.href,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$q);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$r);
 
   return /*#__PURE__*/React__default["default"].createElement(Component, _extends({
     href: href
@@ -8829,7 +8839,7 @@ var MarketPlaceItemDefaultProps = {
 
 var img$2 = "data:image/svg+xml,%3csvg width='92' height='109' viewBox='0 0 92 109' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M32 2.00015C36 3.00015 36 10.0002 36 10.0002C36 10.0002 37.2536 109.627 34 108C33.7765 107.888 22.7735 108 22 108C14 108 22 3.00015 22 3.00015C24 2.00015 28 1.00015 32 2.00015Z' fill='white' stroke='%23F0F0F4' stroke-width='1.5' stroke-linejoin='round'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M27 8.11923C27 4.39928 30.3502 1.57581 34.0163 2.20593L84.3551 10.8579C88.1942 11.5178 91 14.8469 91 18.7423V100C91 104.418 87.4183 108 83 108H33C29.6863 108 27 105.314 27 102V8.11923Z' fill='white' stroke='%23F0F0F4' stroke-width='1.5' stroke-linejoin='round'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M27 10.0534C27 5.75785 22.6182 2.85385 18.6622 4.52755L5.88288 9.93417C2.92312 11.1864 1 14.0882 1 17.3019V100C1 104.418 4.58172 108 9 108H21C24.3137 108 27 105.314 27 102V10.0534Z' fill='white' stroke='%23F0F0F4' stroke-width='1.5' stroke-linejoin='round'/%3e%3c/svg%3e";
 
-var _excluded$p = ["iconName", "iconPrefix", "iconColor"];
+var _excluded$q = ["iconName", "iconPrefix", "iconColor"];
 var LicenseBoxWrapper = styled__default["default"].div.withConfig({
   displayName: "LicenseBox__LicenseBoxWrapper",
   componentId: "sc-6tcqye-0"
@@ -8851,7 +8861,7 @@ var LicenseBox = function LicenseBox(_ref4) {
   var iconName = _ref4.iconName,
       iconPrefix = _ref4.iconPrefix,
       iconColor = _ref4.iconColor,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$p);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$q);
 
   return /*#__PURE__*/React__default["default"].createElement(LicenseBoxWrapper, props, /*#__PURE__*/React__default["default"].createElement(StyledIcon$3, {
     color: iconColor,
@@ -8870,7 +8880,7 @@ LicenseBox.defaultProps = {
   iconColor: "primary"
 };
 
-var _excluded$o = ["ActionWrapper", "action", "actionTitle", "dataCy", "details", "iconName", "iconPrefix", "iconColor", "megaTitle", "subTitle", "title"];
+var _excluded$p = ["ActionWrapper", "action", "actionTitle", "dataCy", "details", "iconName", "iconPrefix", "iconColor", "megaTitle", "subTitle", "title"];
 var StyledMarketPlaceItem$3 = styled__default["default"](BoxBase).withConfig({
   displayName: "Legacy__StyledMarketPlaceItem",
   componentId: "sc-v1aqdk-0"
@@ -8900,7 +8910,7 @@ var LegacyItem = function LegacyItem(_ref4) {
       megaTitle = _ref4.megaTitle,
       subTitle = _ref4.subTitle,
       title = _ref4.title,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$o);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$p);
 
   var actionButton = /*#__PURE__*/React__default["default"].createElement(Button$1, {
     block: true,
@@ -8937,7 +8947,7 @@ var LegacyItem = function LegacyItem(_ref4) {
 LegacyItem.propTypes = MarketPlaceItemPropTypes;
 LegacyItem.defaultProps = MarketPlaceItemDefaultProps;
 
-var _excluded$n = ["imgSrc", "placeholderSrc"];
+var _excluded$o = ["imgSrc", "placeholderSrc"];
 var StyledImage$3 = styled__default["default"](Image).withConfig({
   displayName: "Cover__StyledImage",
   componentId: "sc-hgvfqd-0"
@@ -8945,7 +8955,7 @@ var StyledImage$3 = styled__default["default"](Image).withConfig({
 var Cover$2 = function Cover(_ref) {
   var imgSrc = _ref.imgSrc,
       placeholderSrc = _ref.placeholderSrc,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$n);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$o);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledImage$3, _extends({
     src: imgSrc || placeholderSrc
@@ -8960,7 +8970,7 @@ Cover$2.defaultProps = {
   placeholderSrc: ""
 };
 
-var _excluded$m = ["badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "subTitle", "title", "Wrapper"];
+var _excluded$n = ["badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "subTitle", "title", "Wrapper"];
 var StyledMarketPlaceItem$2 = styled__default["default"](BoxBase).withConfig({
   displayName: "Modern__StyledMarketPlaceItem",
   componentId: "sc-1olkxan-0"
@@ -9000,7 +9010,7 @@ var ModernItem = function ModernItem(_ref5) {
       subTitle = _ref5.subTitle,
       title = _ref5.title,
       Wrapper = _ref5.Wrapper,
-      props = _objectWithoutPropertiesLoose(_ref5, _excluded$m);
+      props = _objectWithoutPropertiesLoose(_ref5, _excluded$n);
 
   var Item = function Item() {
     return /*#__PURE__*/React__default["default"].createElement(StyledMarketPlaceItem$2, _extends({
@@ -9047,7 +9057,7 @@ var ModernItem = function ModernItem(_ref5) {
 ModernItem.propTypes = MarketPlaceItemPropTypes;
 ModernItem.defaultProps = MarketPlaceItemDefaultProps;
 
-var _excluded$l = ["imgSrc", "placeholderSrc"];
+var _excluded$m = ["imgSrc", "placeholderSrc"];
 var Wrapper$5 = styled__default["default"].div.withConfig({
   displayName: "Cover__Wrapper",
   componentId: "sc-1p24m3b-0"
@@ -9066,7 +9076,7 @@ var StyledImage$2 = styled__default["default"](Image).withConfig({
 var Cover$1 = function Cover(_ref2) {
   var imgSrc = _ref2.imgSrc,
       placeholderSrc = _ref2.placeholderSrc,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$l);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$m);
 
   return /*#__PURE__*/React__default["default"].createElement(Wrapper$5, props, /*#__PURE__*/React__default["default"].createElement(BGImage, {
     imgSrc: imgSrc || placeholderSrc
@@ -9083,7 +9093,7 @@ Cover$1.defaultProps = {
   placeholderSrc: ""
 };
 
-var _excluded$k = ["ActionWrapper", "action", "actionTitle", "badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "price", "priceLabel", "subTitle", "title", "Wrapper"];
+var _excluded$l = ["ActionWrapper", "action", "actionTitle", "badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "price", "priceLabel", "subTitle", "title", "Wrapper"];
 var StyledMarketPlaceItem$1 = styled__default["default"](BoxBase).withConfig({
   displayName: "ModernHorizontal__StyledMarketPlaceItem",
   componentId: "sc-3m7a7f-0"
@@ -9133,7 +9143,7 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
       subTitle = _ref6.subTitle,
       title = _ref6.title,
       Wrapper = _ref6.Wrapper,
-      props = _objectWithoutPropertiesLoose(_ref6, _excluded$k);
+      props = _objectWithoutPropertiesLoose(_ref6, _excluded$l);
 
   var actionButton = /*#__PURE__*/React__default["default"].createElement(Button$1, {
     block: true,
@@ -9216,7 +9226,7 @@ var ModernHorizontalItem = function ModernHorizontalItem(_ref6) {
 ModernHorizontalItem.propTypes = MarketPlaceItemPropTypes;
 ModernHorizontalItem.defaultProps = MarketPlaceItemDefaultProps;
 
-var _excluded$j = ["imgSrc", "placeholderSrc"];
+var _excluded$k = ["imgSrc", "placeholderSrc"];
 var StyledImage$1 = styled__default["default"](Image).withConfig({
   displayName: "Cover__StyledImage",
   componentId: "sc-lk418j-0"
@@ -9224,7 +9234,7 @@ var StyledImage$1 = styled__default["default"](Image).withConfig({
 var Cover = function Cover(_ref) {
   var imgSrc = _ref.imgSrc,
       placeholderSrc = _ref.placeholderSrc,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$j);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$k);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledImage$1, _extends({
     src: imgSrc || placeholderSrc
@@ -9239,7 +9249,7 @@ Cover.defaultProps = {
   placeholderSrc: ""
 };
 
-var _excluded$i = ["badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "subTitle", "title", "Wrapper", "addToFavorites", "buttonText"];
+var _excluded$j = ["badges", "coverSrc", "coverPlaceholderSrc", "dataCy", "details", "highlight", "megaTitle", "subTitle", "title", "Wrapper", "addToFavorites", "buttonText"];
 var StyledMarketPlaceItem = styled__default["default"](BoxBase).withConfig({
   displayName: "ClaimForFree__StyledMarketPlaceItem",
   componentId: "sc-k3agbr-0"
@@ -9285,7 +9295,7 @@ var ClaimForFree = function ClaimForFree(_ref5) {
       Wrapper = _ref5.Wrapper,
       addToFavorites = _ref5.addToFavorites,
       buttonText = _ref5.buttonText,
-      props = _objectWithoutPropertiesLoose(_ref5, _excluded$i);
+      props = _objectWithoutPropertiesLoose(_ref5, _excluded$j);
 
   var creator = details.find(function (item) {
     return item.label === "Creator";
@@ -9330,10 +9340,10 @@ var ClaimForFree = function ClaimForFree(_ref5) {
 ClaimForFree.propTypes = MarketPlaceItemPropTypes;
 ClaimForFree.defaultProps = MarketPlaceItemDefaultProps;
 
-var _excluded$h = ["type"];
+var _excluded$i = ["type"];
 var MarketPlaceItem = function MarketPlaceItem(_ref) {
   var type = _ref.type,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$h);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$i);
 
   if (type === "legacy") return /*#__PURE__*/React__default["default"].createElement(LegacyItem, props);
   if (type === "modernHorizontal") return /*#__PURE__*/React__default["default"].createElement(ModernHorizontalItem, props);
@@ -9357,7 +9367,7 @@ var ShareModuleDefaultProps$1 = {
   url: "#"
 };
 
-var _excluded$g = ["iconProps", "orientation", "shareOptions", "url"];
+var _excluded$h = ["iconProps", "orientation", "shareOptions", "url"];
 var BUTTON_SIZE = 32;
 var StyledPopover = styled__default["default"](MuiPopover__default["default"]).withConfig({
   displayName: "MiniShareModule__StyledPopover",
@@ -9377,7 +9387,7 @@ var StyledButton = styled__default["default"](Button$1).withConfig({
 }, function (theme) {
   return DISPLAY(theme);
 });
-var Container$3 = styled__default["default"].div.withConfig({
+var Container$4 = styled__default["default"].div.withConfig({
   displayName: "MiniShareModule__Container",
   componentId: "sc-dq8hyk-2"
 })(["display:inline-flex;align-items:center;flex-direction:", ";a{display:block;cursor:pointer;svg{color:", ";transition:all 0.1s ease-in-out;}:hover{svg{color:", ";}}:not(:last-child){", "}}"], function (_ref3) {
@@ -9400,7 +9410,7 @@ var MiniShareModule = function MiniShareModule(_ref7) {
       orientation = _ref7.orientation,
       shareOptions = _ref7.shareOptions,
       url = _ref7.url,
-      props = _objectWithoutPropertiesLoose(_ref7, _excluded$g);
+      props = _objectWithoutPropertiesLoose(_ref7, _excluded$h);
 
   var _useState = React.useState(null),
       anchorEl = _useState[0],
@@ -9436,7 +9446,7 @@ var MiniShareModule = function MiniShareModule(_ref7) {
     open: !!anchorEl,
     anchorEl: anchorEl,
     onClose: handlePopoverClose
-  }, /*#__PURE__*/React__default["default"].createElement(Container$3, {
+  }, /*#__PURE__*/React__default["default"].createElement(Container$4, {
     orientation: orientation
   }, shareOptions.includes("twitter") && renderIcon("twitter", "https://twitter.com/intent/tweet?url=" + encodedUrl), shareOptions.includes("facebook") && renderIcon("facebook-f", "https://www.facebook.com/sharer.php?u=" + encodedUrl), shareOptions.includes("linkedin") && renderIcon("linkedin-in", "https://www.linkedin.com/sharing/share-offsite/?url=" + encodedUrl))));
 };
@@ -9458,7 +9468,7 @@ var NoItemDefaultProps = {
   text: "Nothing yet..."
 };
 
-var _excluded$f = ["buttonAction", "buttonHref", "buttonText", "dataCy", "text"];
+var _excluded$g = ["buttonAction", "buttonHref", "buttonText", "dataCy", "text"];
 var Wrapper$4 = styled__default["default"].div.withConfig({
   displayName: "NoItem__Wrapper",
   componentId: "sc-1jez7tn-0"
@@ -9484,7 +9494,7 @@ var NoItem = function NoItem(_ref) {
       buttonText = _ref.buttonText,
       dataCy = _ref.dataCy,
       text = _ref.text,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$f);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$g);
 
   return /*#__PURE__*/React__default["default"].createElement(Wrapper$4, _extends({
     "data-cy": dataCy
@@ -9507,7 +9517,7 @@ var PageFigurePropTypes = _extends({
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var PageFigureDefaultProps = {};
 
-var _excluded$e = ["content", "children"];
+var _excluded$f = ["content", "children"];
 var StyledPageFigure = styled__default["default"].div.withConfig({
   displayName: "PageFigure__StyledPageFigure",
   componentId: "sc-1a8ool8-0"
@@ -9519,7 +9529,7 @@ var StyledPageFigure = styled__default["default"].div.withConfig({
 var PageFigure = function PageFigure(_ref) {
   var content = _ref.content,
       children = _ref.children,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded$e);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$f);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledPageFigure, props, content || children);
 };
@@ -9533,7 +9543,7 @@ var PageLoadingPropTypes = {
 };
 var PageLoadingDefaultProps = {};
 
-var _excluded$d = ["message"];
+var _excluded$e = ["message"];
 var StyledLoading = styled__default["default"].div.withConfig({
   displayName: "PageLoading__StyledLoading",
   componentId: "sc-8xofl-0"
@@ -9556,7 +9566,7 @@ var StyledLoading = styled__default["default"].div.withConfig({
 });
 var PageLoading = function PageLoading(_ref6) {
   var message = _ref6.message,
-      props = _objectWithoutPropertiesLoose(_ref6, _excluded$d);
+      props = _objectWithoutPropertiesLoose(_ref6, _excluded$e);
 
   var _useTheme = styled.useTheme(),
       loadingIndicator = _useTheme.loadingIndicator;
@@ -9660,7 +9670,7 @@ var PageMeta = function PageMeta(_ref) {
 PageMeta.propTypes = pageMetaPropTypes;
 PageMeta.defaultProps = pageMetaDefaultProps;
 
-var Container$2 = function Container(_ref) {
+var Container$3 = function Container(_ref) {
   var children = _ref.children,
       isFinished = _ref.isFinished,
       animationDuration = _ref.animationDuration;
@@ -9672,7 +9682,7 @@ var Container$2 = function Container(_ref) {
     }
   }, children);
 };
-Container$2.propTypes = {
+Container$3.propTypes = {
   animationDuration: PropTypes__default["default"].number.isRequired,
   children: PropTypes__default["default"].node.isRequired,
   isFinished: PropTypes__default["default"].bool.isRequired
@@ -9717,7 +9727,7 @@ var Progress = function Progress(_ref) {
       isFinished = _useNProgress.isFinished,
       progress = _useNProgress.progress;
 
-  return /*#__PURE__*/React__default["default"].createElement(Container$2, {
+  return /*#__PURE__*/React__default["default"].createElement(Container$3, {
     animationDuration: animationDuration,
     isFinished: isFinished
   }, /*#__PURE__*/React__default["default"].createElement(Bar, {
@@ -9770,7 +9780,7 @@ var PageProgressBar = function PageProgressBar(_ref) {
 PageProgressBar.propTypes = PageProgressBarPropTypes;
 PageProgressBar.defaultProps = PageProgressBarDefaultProps;
 
-var _excluded$c = ["children"];
+var _excluded$d = ["children"];
 var StyledContent$1 = styled__default["default"].div.withConfig({
   displayName: "PageTransition__StyledContent",
   componentId: "sc-eln28z-0"
@@ -9792,7 +9802,7 @@ var StyledContent$1 = styled__default["default"].div.withConfig({
 var duration = 200;
 var PageTransition = function PageTransition(_ref3) {
   var children = _ref3.children,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$c);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$d);
 
   var _useState = React.useState(false),
       mounted = _useState[0],
@@ -9832,7 +9842,7 @@ var PaginationDefaultProps = {
   prevText: "Prev"
 };
 
-var _excluded$b = ["currentPage", "itemProps", "ItemWrapper", "nextText", "pageCount", "prevText"];
+var _excluded$c = ["currentPage", "itemProps", "ItemWrapper", "nextText", "pageCount", "prevText"];
 var StyledPagination = styled__default["default"](MuiPagination__default["default"]).withConfig({
   displayName: "Pagination__StyledPagination",
   componentId: "sc-1ho9rhv-0"
@@ -9882,7 +9892,7 @@ var Pagination = function Pagination(_ref3) {
       nextText = _ref3.nextText,
       pageCount = _ref3.pageCount,
       prevText = _ref3.prevText,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$b);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$c);
 
   var _renderItem = function renderItem(item) {
     if (item.type === "previous") return prevButton(prevText, currentPage === 1, item);
@@ -9916,7 +9926,7 @@ var ProfileDefaultProps = {
   socialLinks: []
 };
 
-var _excluded$a = ["coverSrc", "description", "location", "name", "shareOnClick", "shareUrl", "socialLinks"];
+var _excluded$b = ["coverSrc", "description", "location", "name", "shareOnClick", "shareUrl", "socialLinks"];
 var Wrapper$3 = styled__default["default"].div.withConfig({
   displayName: "Profile__Wrapper",
   componentId: "sc-kdr8z7-0"
@@ -9968,7 +9978,7 @@ var Profile = function Profile(_ref6) {
       shareOnClick = _ref6.shareOnClick,
       shareUrl = _ref6.shareUrl,
       socialLinks = _ref6.socialLinks,
-      props = _objectWithoutPropertiesLoose(_ref6, _excluded$a);
+      props = _objectWithoutPropertiesLoose(_ref6, _excluded$b);
 
   return /*#__PURE__*/React__default["default"].createElement(Wrapper$3, props, /*#__PURE__*/React__default["default"].createElement(AvatarWrapper, null, /*#__PURE__*/React__default["default"].createElement(Avatar, {
     src: coverSrc,
@@ -10035,7 +10045,7 @@ var SearchBarDefaultProps = {
   placeholder: "Type and press Enter"
 };
 
-var _excluded$9 = ["inputProps", "noBorderRadius", "onChange", "onSubmit", "placeholder", "showSearchIconEnd", "value"];
+var _excluded$a = ["inputProps", "noBorderRadius", "onChange", "onSubmit", "placeholder", "showSearchIconEnd", "value"];
 var StyledSearchBar = styled__default["default"].form.withConfig({
   displayName: "SearchBar__StyledSearchBar",
   componentId: "sc-5s11x8-0"
@@ -10066,7 +10076,7 @@ var SearchBar = function SearchBar(_ref3) {
       placeholder = _ref3.placeholder,
       showSearchIconEnd = _ref3.showSearchIconEnd,
       value = _ref3.value,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$9);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$a);
 
   var _useState = React.useState(value),
       inputValue = _useState[0],
@@ -10175,8 +10185,8 @@ var ShareModuleDefaultProps = {
   url: "#"
 };
 
-var _excluded$8 = ["buttonProps", "copyText", "shareOptions", "url", "nftId", "appUrl"];
-var Container$1 = styled__default["default"].div.withConfig({
+var _excluded$9 = ["buttonProps", "copyText", "shareOptions", "url", "nftId", "appUrl"];
+var Container$2 = styled__default["default"].div.withConfig({
   displayName: "ShareModule__Container",
   componentId: "sc-1jmukyt-0"
 })(["", " ", ""], function (theme) {
@@ -10237,7 +10247,7 @@ var ShareModule = function ShareModule(_ref8) {
       url = _ref8.url,
       nftId = _ref8.nftId,
       appUrl = _ref8.appUrl,
-      props = _objectWithoutPropertiesLoose(_ref8, _excluded$8);
+      props = _objectWithoutPropertiesLoose(_ref8, _excluded$9);
 
   var _useState = React.useState(false),
       open = _useState[0],
@@ -10257,7 +10267,7 @@ var ShareModule = function ShareModule(_ref8) {
     fullWidth: true
   }, props);
 
-  return /*#__PURE__*/React__default["default"].createElement(Container$1, props, /*#__PURE__*/React__default["default"].createElement(Modal, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(Container$2, props, /*#__PURE__*/React__default["default"].createElement(Modal, _extends({
     cancelButton: true,
     action: function action() {
       return copy__default["default"](codeSnippets);
@@ -10559,7 +10569,7 @@ var TabPropTypes = _extends({
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
-var _excluded$7 = ["tabs", "currentTab", "onChange"];
+var _excluded$8 = ["tabs", "currentTab", "onChange"];
 var Wrapper$1 = styled__default["default"].div.withConfig({
   displayName: "Tab__Wrapper",
   componentId: "sc-q8ovtf-0"
@@ -10589,7 +10599,7 @@ var Tab = function Tab(_ref4) {
   var tabs = _ref4.tabs,
       currentTab = _ref4.currentTab,
       _onChange = _ref4.onChange,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$7);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$8);
 
   return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Wrapper$1, props, /*#__PURE__*/React__default["default"].createElement(StyledTabs, {
     value: currentTab,
@@ -10754,7 +10764,7 @@ Heading.propTypes = {
   hasData: PropTypes__default["default"].bool.isRequired
 };
 
-var _excluded$6 = ["columnsCount"];
+var _excluded$7 = ["columnsCount"];
 var StyledTr = styled__default["default"].tr.withConfig({
   displayName: "NoData__StyledTr",
   componentId: "sc-1si669t-0"
@@ -10764,7 +10774,7 @@ var StyledTr = styled__default["default"].tr.withConfig({
 });
 var NoData = function NoData(_ref2) {
   var columnsCount = _ref2.columnsCount,
-      props = _objectWithoutPropertiesLoose(_ref2, _excluded$6);
+      props = _objectWithoutPropertiesLoose(_ref2, _excluded$7);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledTr, null, /*#__PURE__*/React__default["default"].createElement("td", {
     colSpan: columnsCount
@@ -10776,7 +10786,7 @@ NoData.propTypes = {
   columnsCount: PropTypes__default["default"].number.isRequired
 };
 
-var _excluded$5 = ["columns", "rows", "noDataProps", "rowsBottomBorderSm", "rowsSize"];
+var _excluded$6 = ["columns", "rows", "noDataProps", "rowsBottomBorderSm", "rowsSize"];
 var StyledTable = styled__default["default"].table.withConfig({
   displayName: "Table__StyledTable",
   componentId: "sc-1dprpyf-0"
@@ -10799,7 +10809,7 @@ var Table = function Table(_ref3) {
       noDataProps = _ref3.noDataProps,
       rowsBottomBorderSm = _ref3.rowsBottomBorderSm,
       rowsSize = _ref3.rowsSize,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$5);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$6);
 
   var hasData = rows.length > 0;
   return /*#__PURE__*/React__default["default"].createElement(StyledTable, _extends({
@@ -10936,8 +10946,8 @@ var ThumbnailDefaultProps = {
   imgSrc: ""
 };
 
-var _excluded$4 = ["hasPreview", "imgSrc", "onClick"];
-var Container = styled__default["default"].div.withConfig({
+var _excluded$5 = ["hasPreview", "imgSrc", "onClick"];
+var Container$1 = styled__default["default"].div.withConfig({
   displayName: "Thumbnail__Container",
   componentId: "sc-142uf10-0"
 })(["position:relative;height:48px;width:48px;text-align:center;border-radius:8px;overflow:hidden;background-color:", ";display:flex;align-items:center;justify-content:center;flex-shrink:0;", " ", ""], function (_ref) {
@@ -10964,7 +10974,7 @@ var Thumbnail = function Thumbnail(_ref3) {
   var hasPreview = _ref3.hasPreview,
       imgSrc = _ref3.imgSrc,
       onClick = _ref3.onClick,
-      props = _objectWithoutPropertiesLoose(_ref3, _excluded$4);
+      props = _objectWithoutPropertiesLoose(_ref3, _excluded$5);
 
   var _useState = React.useState(false),
       loadError = _useState[0],
@@ -10978,7 +10988,7 @@ var Thumbnail = function Thumbnail(_ref3) {
     if (hasPreview) setPreviewOpen(true);else onClick();
   };
 
-  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Container, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Container$1, _extends({
     onClick: handleClick
   }, props), loadError ? /*#__PURE__*/React__default["default"].createElement(StyledIcon, {
     color: "secondary",
@@ -11021,7 +11031,7 @@ var TooltipDefaultProps = {
   renderContent: function renderContent() {}
 };
 
-var _excluded$3 = ["children", "content", "contentProps", "renderContent"];
+var _excluded$4 = ["children", "content", "contentProps", "renderContent"];
 var StyledTooltip = styled__default["default"](function (props) {
   return /*#__PURE__*/React__default["default"].createElement(MuiTooltip__default["default"], _extends({
     classes: {
@@ -11047,7 +11057,7 @@ var Tooltip = function Tooltip(_ref4) {
       content = _ref4.content,
       contentProps = _ref4.contentProps,
       renderContent = _ref4.renderContent,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$3);
+      props = _objectWithoutPropertiesLoose(_ref4, _excluded$4);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledTooltip, _extends({
     title: renderContent() || /*#__PURE__*/React__default["default"].createElement(Text, _extends({
@@ -11154,7 +11164,7 @@ var handleScroll = function handleScroll(el) {
   });
 };
 
-var _excluded$2 = ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "isHorizontal", "nextStepMethod", "renderActionButtons", "stepCount", "submitButtonDisabled", "onFinishDisabled", "submitButtonLoading", "showNavigationButtons"];
+var _excluded$3 = ["children", "content", "currentStep", "handleNext", "handlePrev", "isFirstStep", "isLastStep", "isHorizontal", "nextStepMethod", "renderActionButtons", "stepCount", "submitButtonDisabled", "onFinishDisabled", "submitButtonLoading", "showNavigationButtons"];
 var StyledContent = styled__default["default"].div.withConfig({
   displayName: "Content__StyledContent",
   componentId: "sc-196inky-0"
@@ -11193,7 +11203,7 @@ var WizardStepContent = function WizardStepContent(_ref5) {
       onFinishDisabled = _ref5.onFinishDisabled,
       submitButtonLoading = _ref5.submitButtonLoading,
       showNavigationButtons = _ref5.showNavigationButtons,
-      props = _objectWithoutPropertiesLoose(_ref5, _excluded$2);
+      props = _objectWithoutPropertiesLoose(_ref5, _excluded$3);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledContent, _extends({
     isHorizontal: isHorizontal
@@ -11386,7 +11396,7 @@ var WizardDefaultProps = {
   transitionDuration: 250
 };
 
-var _excluded$1 = ["currentStepContent", "currentStepIndex", "headerFadeColor", "nextStepMethod", "orientation", "onFinishDisabled", "renderActionButtons", "setCurrentStepIndex", "steps", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons", "transitionDuration", "backgroundStyle"];
+var _excluded$2 = ["currentStepContent", "currentStepIndex", "headerFadeColor", "nextStepMethod", "orientation", "onFinishDisabled", "renderActionButtons", "setCurrentStepIndex", "steps", "submitButtonDisabled", "submitButtonLoading", "showNavigationButtons", "transitionDuration", "backgroundStyle"];
 var Wrapper = styled__default["default"].div.withConfig({
   displayName: "Wizard__Wrapper",
   componentId: "sc-3fjyf3-0"
@@ -11461,7 +11471,7 @@ var Wizard = function Wizard(_ref10) {
       showNavigationButtons = _ref10.showNavigationButtons,
       transitionDuration = _ref10.transitionDuration,
       backgroundStyle = _ref10.backgroundStyle,
-      props = _objectWithoutPropertiesLoose(_ref10, _excluded$1);
+      props = _objectWithoutPropertiesLoose(_ref10, _excluded$2);
 
   var stepRef = React.useRef(null);
   var wrapperRef = /*#__PURE__*/React.createRef();
@@ -11652,23 +11662,23 @@ var FilesListDefaultProps = {
   LinkComponent: PropTypes__default["default"].func
 };
 
-var _excluded = ["files", "LinkComponent"];
+var _excluded$1 = ["files", "LinkComponent"];
 
 var FilesListBase = function FilesListBase(_ref) {
   var files = _ref.files,
       LinkComponent = _ref.LinkComponent,
-      props = _objectWithoutPropertiesLoose(_ref, _excluded);
+      props = _objectWithoutPropertiesLoose(_ref, _excluded$1);
 
-  return /*#__PURE__*/React__default["default"].createElement(Fieldset, null, /*#__PURE__*/React__default["default"].createElement(FilesListBaseItem, _extends({
+  return /*#__PURE__*/React__default["default"].createElement(Fieldset$1, null, /*#__PURE__*/React__default["default"].createElement(FilesListBaseItem, _extends({
     files: files,
     LinkComponent: LinkComponent
   }, props)));
 };
 
 FilesListBase.propTypes = {
-  listTitle: PropTypes.string,
-  files: PropTypes.array.isRequired,
-  LinkComponent: PropTypes.func.isRequired
+  listTitle: PropTypes$1.string,
+  files: PropTypes$1.array.isRequired,
+  LinkComponent: PropTypes$1.func.isRequired
 };
 var StyledFilesListBase = styled__default["default"](FilesListBase).withConfig({
   displayName: "FilesList__StyledFilesListBase",
@@ -11683,6 +11693,83 @@ var FilesList = function FilesList(props) {
 };
 FilesList.propTypes = FilesListPropTypes;
 FilesList.defaultProps = FilesListDefaultProps;
+
+var ProgressBarPropTypes = _extends({
+  value: PropTypes__default["default"].number.isRequired,
+  total: PropTypes__default["default"].number.isRequired,
+  progressColor: PropTypes__default["default"].string
+}, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
+var ProgressBarDefaultProps = {};
+
+var _excluded = ["value", "progressColor", "total"];
+var Container = styled__default["default"].div.withConfig({
+  displayName: "ProgressBar__Container",
+  componentId: "sc-dh3xz0-0"
+})(["background-color:", ";width:100%;height:18px;display:flex;align-items:center;justify-content:start;border-radius:16px;", " ", ""], function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.gray.regular;
+}, function (theme) {
+  return SPACER(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+});
+var Indicator = styled__default["default"].div.withConfig({
+  displayName: "ProgressBar__Indicator",
+  componentId: "sc-dh3xz0-1"
+})(["color:", ";height:18px;border-radius:16px;font-size:12px;padding-left:", ";display:flex;align-items:center;", " ", " ", ";"], function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.palette.common.white;
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.spacing(2);
+}, function (_ref4) {
+  var color = _ref4.color,
+      theme = _ref4.theme;
+  return "background-color: " + (color ? color : theme.palette.primary.main) + ";";
+}, function (_ref5) {
+  var percentage = _ref5.percentage;
+  return "width: " + percentage * 100 + "%;";
+}, function (_ref6) {
+  var percentage = _ref6.percentage;
+  return percentage === 1 && styled.css(["justify-content:space-between;padding-right:", ";"], function (_ref7) {
+    var theme = _ref7.theme;
+    return theme.spacing(2);
+  });
+});
+var LeftNumber = styled__default["default"].div.withConfig({
+  displayName: "ProgressBar__LeftNumber",
+  componentId: "sc-dh3xz0-2"
+})(["", " display:flex;justify-content:flex-end;padding-right:", ";"], function (_ref8) {
+  var percentage = _ref8.percentage;
+  return "width: " + (100 - percentage * 100) + "%;";
+}, function (_ref9) {
+  var theme = _ref9.theme;
+  return theme.spacing(2);
+});
+var ProgressBar = function ProgressBar(_ref10) {
+  var value = _ref10.value,
+      progressColor = _ref10.progressColor,
+      total = _ref10.total,
+      props = _objectWithoutPropertiesLoose(_ref10, _excluded);
+
+  var _useState = React.useState(value / total),
+      percentage = _useState[0];
+      _useState[1];
+
+  return /*#__PURE__*/React__default["default"].createElement(Container, props, value === total ? /*#__PURE__*/React__default["default"].createElement(Indicator, {
+    color: progressColor,
+    value: value,
+    percentage: percentage
+  }, /*#__PURE__*/React__default["default"].createElement("div", null, " ", value), /*#__PURE__*/React__default["default"].createElement("div", null, " ", total - value)) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(Indicator, {
+    color: progressColor,
+    value: value,
+    percentage: percentage
+  }, value), /*#__PURE__*/React__default["default"].createElement(LeftNumber, {
+    percentage: percentage
+  }, total - value)));
+};
+ProgressBar.propTypes = ProgressBarPropTypes;
+ProgressBar.defaultProps = ProgressBarDefaultProps;
 
 exports.AdvancedLineItem = AdvancedLineItem;
 exports.Alert = Alert;
@@ -11725,7 +11812,7 @@ exports.ErrorTemplate = ErrorTemplate;
 exports.ExplorerLayout = ExplorerLayout;
 exports.FieldBase = FieldBase;
 exports.FieldWrapper = FieldWrapper;
-exports.Fieldset = Fieldset;
+exports.Fieldset = Fieldset$1;
 exports.FileManager = FileManager;
 exports.FilePond = FilePond;
 exports.FileUpload = FileUpload;
@@ -11753,7 +11840,7 @@ exports.HistoryTree = HistoryTree;
 exports.Icon = Icon;
 exports.Image = Image;
 exports.ImageModal = ImageModal;
-exports.Indicator = Indicator;
+exports.Indicator = Indicator$1;
 exports.Input = Input;
 exports.Inspector = Inspector;
 exports.InspectorDefaultProps = InspectorDefaultProps;
@@ -11782,6 +11869,7 @@ exports.Paragraph = Paragraph;
 exports.PreviewWrapperStyles = PreviewWrapperStyles;
 exports.PriceField = PriceField;
 exports.Profile = Profile;
+exports.ProgressBar = ProgressBar;
 exports.Radio = Radio;
 exports.RadioBase = RadioBase;
 exports.RadioEnhanced = RadioEnhanced;
