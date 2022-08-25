@@ -1,9 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import PropTypes from "prop-types";
 
 import { DISPLAY, SPACER } from "../../theme";
-import { Fieldset } from "../Fieldset";
 import { RadioExtraBaseItem } from "./BaseItem";
 import { RadioExtraDefaultProps, RadioExtraPropTypes } from "./props";
 
@@ -28,6 +26,20 @@ RadioExtraBase.propTypes = {
     })
   ).isRequired,
 };
+
+const Fieldset = ({ children }) => {
+  return <StyledFieldset>{children}</StyledFieldset>;
+};
+
+const StyledFieldset = styled.fieldset`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(5rem, 1fr));
+  gap: 1rem;
+  border: none;
+  padding: 0;
+  margin: 0;
+  width: 100%;
+`;
 
 const StyledRadioExtraBase = styled(RadioExtraBase)`
   ${(theme) => SPACER(theme)}
