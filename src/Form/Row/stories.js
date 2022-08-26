@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { select, text } from "@storybook/addon-knobs";
+import { boolean, select, text } from "@storybook/addon-knobs";
 
 import { FormRow, Input } from "../..";
 import { StoryWrapper } from "../../../.storybook/decorators";
@@ -25,10 +25,10 @@ export const main = () => {
   return (
     <StyledWrapper width={text("Wrapper width", "100%")}>
       <FormRow bottomHintText="street" hint="Just type one of that" label="Label with Hint" {...defaultProps}>
-        <Input name="input1" placeholder="Input 1" />
+        <Input hasError={boolean("1st input hasError", false)} name="input1" placeholder="Input 1" />
       </FormRow>
       <FormRow hint="Just type one of that" label="Label" {...defaultProps}>
-        <Input name="input1" placeholder="Input 1" />
+        <Input hasError={boolean("2nd input hasError", false)} name="input1" placeholder="Input 1" />
         <Input name="input2" placeholder="Input 2" />
       </FormRow>
 

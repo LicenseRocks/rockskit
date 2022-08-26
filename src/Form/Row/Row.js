@@ -84,7 +84,7 @@ const Fields = styled.div`
     bottomHintText &&
     css`
       position: relative;
-      z-index: 1;
+      z-index: 0;
       margin-bottom: ${({ theme }) => theme.spacing(5)};
 
       &::after {

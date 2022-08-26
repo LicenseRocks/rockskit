@@ -52,7 +52,7 @@ const StyledInput = styled(
       ::placeholder {
         color: ${({ theme }) => theme.palette.error.main};
       }
-      color: ${({ theme }) => theme.palette.error.main};
+      color: ${({ theme }) => theme.palette.black.regular};
     `}
 
   ${({ block }) =>
