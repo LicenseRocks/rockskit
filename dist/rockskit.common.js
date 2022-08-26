@@ -3,7 +3,7 @@
 Object.defineProperty(exports, '__esModule', { value: true });
 
 var React = require('react');
-var PropTypes$1 = require('prop-types');
+var PropTypes = require('prop-types');
 var styled = require('styled-components');
 var styles = require('@material-ui/core/styles');
 var CssBaseline = require('@material-ui/core/CssBaseline');
@@ -64,7 +64,7 @@ var core = require('@material-ui/core');
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
 var React__default = /*#__PURE__*/_interopDefaultLegacy(React);
-var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes$1);
+var PropTypes__default = /*#__PURE__*/_interopDefaultLegacy(PropTypes);
 var styled__default = /*#__PURE__*/_interopDefaultLegacy(styled);
 var CssBaseline__default = /*#__PURE__*/_interopDefaultLegacy(CssBaseline);
 var MuiButtonBase__default = /*#__PURE__*/_interopDefaultLegacy(MuiButtonBase);
@@ -3680,7 +3680,7 @@ var FieldWrapperDefaultProps = {
   startIconColor: "input"
 };
 
-var _excluded$1g = ["children", "endIcon", "copyable", "valueToCopy", "endIconColor", "endIconOnClick", "endIconPrefix", "language", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"];
+var _excluded$1g = ["children", "endIcon", "copyable", "valueToCopy", "endIconColor", "endIconOnClick", "endIconPrefix", "language", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix", "hasError"];
 var StyledWrapper = styled__default["default"].div.withConfig({
   displayName: "FieldWrapper__StyledWrapper",
   componentId: "sc-tbw1oa-0"
@@ -3707,35 +3707,39 @@ var StyledWrapper = styled__default["default"].div.withConfig({
   return theme.palette.gray.regular;
 }, function (_ref8) {
   var hasError = _ref8.hasError;
-  return hasError && styled.css(["border:1px solid ", ";"], function (_ref9) {
+  return hasError && styled.css(["background-color:", ";border:1px solid ", ";"], function (_ref9) {
     var theme = _ref9.theme;
+    return theme.palette.error.light;
+  }, function (_ref10) {
+    var theme = _ref10.theme;
     return theme.palette.error.main;
   });
-}, function (_ref10) {
-  var disabled = _ref10.disabled;
-  return disabled && styled.css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
 }, function (_ref11) {
-  var block = _ref11.block;
+  var disabled = _ref11.disabled;
+  return disabled && styled.css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
+}, function (_ref12) {
+  var block = _ref12.block;
   return block && styled.css(["flex:1;"]);
 }, function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var FieldWrapper = function FieldWrapper(_ref12) {
-  var children = _ref12.children,
-      endIcon = _ref12.endIcon,
-      copyable = _ref12.copyable,
-      valueToCopy = _ref12.valueToCopy,
-      endIconColor = _ref12.endIconColor,
-      endIconOnClick = _ref12.endIconOnClick,
-      endIconPrefix = _ref12.endIconPrefix,
-      language = _ref12.language,
-      startIcon = _ref12.startIcon,
-      startIconColor = _ref12.startIconColor,
-      startIconOnClick = _ref12.startIconOnClick,
-      startIconPrefix = _ref12.startIconPrefix,
-      props = _objectWithoutPropertiesLoose(_ref12, _excluded$1g);
+var FieldWrapper = function FieldWrapper(_ref13) {
+  var children = _ref13.children,
+      endIcon = _ref13.endIcon,
+      copyable = _ref13.copyable,
+      valueToCopy = _ref13.valueToCopy,
+      endIconColor = _ref13.endIconColor,
+      endIconOnClick = _ref13.endIconOnClick,
+      endIconPrefix = _ref13.endIconPrefix,
+      language = _ref13.language,
+      startIcon = _ref13.startIcon,
+      startIconColor = _ref13.startIconColor,
+      startIconOnClick = _ref13.startIconOnClick,
+      startIconPrefix = _ref13.startIconPrefix,
+      hasError = _ref13.hasError,
+      props = _objectWithoutPropertiesLoose(_ref13, _excluded$1g);
 
   var _React$useState = React__default["default"].useState(false),
       hasJustCopied = _React$useState[0],
@@ -3751,7 +3755,9 @@ var FieldWrapper = function FieldWrapper(_ref12) {
       };
     }
   }, [hasJustCopied]);
-  return /*#__PURE__*/React__default["default"].createElement(StyledWrapper, props, startIcon && /*#__PURE__*/React__default["default"].createElement(Icon, {
+  return /*#__PURE__*/React__default["default"].createElement(StyledWrapper, _extends({
+    hasError: hasError
+  }, props), startIcon && /*#__PURE__*/React__default["default"].createElement(Icon, {
     color: startIconColor,
     icon: startIcon,
     onClick: startIconOnClick,
@@ -3828,7 +3834,7 @@ React.forwardRef(function (_ref, ref) {
     return theme.palette.error.main;
   }, function (_ref7) {
     var theme = _ref7.theme;
-    return theme.palette.error.main;
+    return theme.palette.black.regular;
   });
 }, function (_ref8) {
   var block = _ref8.block;
@@ -5184,7 +5190,7 @@ var Fields = styled__default["default"].div.withConfig({
   return theme.spacing(4);
 }, function (_ref15) {
   var bottomHintText = _ref15.bottomHintText;
-  return bottomHintText && styled.css(["position:relative;z-index:1;margin-bottom:", ";&::after{content:\"", "\";position:absolute;bottom:-50%;left:0;z-index:-1;display:flex;align-items:flex-end;width:100%;height:100%;border-radius:6px 6px 12px 12px;padding-bottom:2px;padding-left:", ";background-color:", ";}"], function (_ref16) {
+  return bottomHintText && styled.css(["position:relative;z-index:0;margin-bottom:", ";&::after{content:\"", "\";position:absolute;bottom:-50%;left:0;z-index:-1;display:flex;align-items:flex-end;width:100%;height:100%;border-radius:6px 6px 12px 12px;padding-bottom:2px;padding-left:", ";background-color:", ";}"], function (_ref16) {
     var theme = _ref16.theme;
     return theme.spacing(5);
   }, bottomHintText, function (_ref17) {
@@ -5420,10 +5426,10 @@ var StyledSwitch$1 = styled__default["default"].span.withConfig({
   return size === "lg" && styled.css(["border-radius:46px;height:46px;width:46px;"]);
 });
 Switch.propTypes = {
-  disabled: PropTypes$1.bool,
-  handleToggle: PropTypes$1.func,
-  size: PropTypes$1.oneOf(["sm", "md", "lg"]),
-  toggled: PropTypes$1.bool
+  disabled: PropTypes.bool,
+  handleToggle: PropTypes.func,
+  size: PropTypes.oneOf(["sm", "md", "lg"]),
+  toggled: PropTypes.bool
 };
 Switch.defaultProps = {
   disabled: false,
@@ -5460,10 +5466,10 @@ var Toggle = function Toggle(_ref) {
   }, props)));
 };
 Toggle.propTypes = {
-  disabled: PropTypes$1.bool,
-  onChange: PropTypes$1.func,
-  size: PropTypes$1.oneOf(["sm", "md", "lg"]),
-  value: PropTypes$1.bool
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  size: PropTypes.oneOf(["sm", "md", "lg"]),
+  value: PropTypes.bool
 };
 Toggle.defaultProps = {
   disabled: false,
@@ -5774,16 +5780,16 @@ var StyledSwitch = styled__default["default"].span.withConfig({
   return toggled && styled.css(["left:calc(100% - 2px);transform:translateX(-100%);color:", ";width:", "px;"], theme.palette.primary.main, rightValueWidth + 16);
 });
 TabsSwitch$1.propTypes = {
-  disabled: PropTypes$1.bool,
-  handleToggle: PropTypes$1.func,
-  leftValue: PropTypes$1.number.isRequired,
-  leftValueWidth: PropTypes$1.number.isRequired,
-  leftValueSideMargin: PropTypes$1.number.isRequired,
-  rightValue: PropTypes$1.number.isRequired,
-  rightValueWidth: PropTypes$1.number.isRequired,
-  rightValueSideMargin: PropTypes$1.number.isRequired,
-  totalWidth: PropTypes$1.number.isRequired,
-  toggled: PropTypes$1.bool
+  disabled: PropTypes.bool,
+  handleToggle: PropTypes.func,
+  leftValue: PropTypes.number.isRequired,
+  leftValueWidth: PropTypes.number.isRequired,
+  leftValueSideMargin: PropTypes.number.isRequired,
+  rightValue: PropTypes.number.isRequired,
+  rightValueWidth: PropTypes.number.isRequired,
+  rightValueSideMargin: PropTypes.number.isRequired,
+  totalWidth: PropTypes.number.isRequired,
+  toggled: PropTypes.bool
 };
 TabsSwitch$1.defaultProps = {
   disabled: false,
@@ -5817,9 +5823,9 @@ var TabsToggle = function TabsToggle(_ref) {
   }, props)));
 };
 TabsToggle.propTypes = {
-  disabled: PropTypes$1.bool,
-  onChange: PropTypes$1.func,
-  value: PropTypes$1.bool
+  disabled: PropTypes.bool,
+  onChange: PropTypes.func,
+  value: PropTypes.bool
 };
 TabsToggle.defaultProps = {
   disabled: false,
@@ -6175,12 +6181,12 @@ var RadioExtraBase = function RadioExtraBase(_ref) {
 };
 
 RadioExtraBase.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.shape({
-    value: PropTypes.string,
-    title: PropTypes.string,
-    description: PropTypes.string,
-    icon: PropTypes.string,
-    iconPrefix: PropTypes.string
+  options: PropTypes__default["default"].arrayOf(PropTypes__default["default"].shape({
+    value: PropTypes__default["default"].string,
+    title: PropTypes__default["default"].string,
+    description: PropTypes__default["default"].string,
+    icon: PropTypes__default["default"].string,
+    iconPrefix: PropTypes__default["default"].string
   })).isRequired
 };
 
@@ -11676,9 +11682,9 @@ var FilesListBase = function FilesListBase(_ref) {
 };
 
 FilesListBase.propTypes = {
-  listTitle: PropTypes$1.string,
-  files: PropTypes$1.array.isRequired,
-  LinkComponent: PropTypes$1.func.isRequired
+  listTitle: PropTypes.string,
+  files: PropTypes.array.isRequired,
+  LinkComponent: PropTypes.func.isRequired
 };
 var StyledFilesListBase = styled__default["default"](FilesListBase).withConfig({
   displayName: "FilesList__StyledFilesListBase",
