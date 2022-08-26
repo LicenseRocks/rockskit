@@ -1,5 +1,5 @@
 import React, { forwardRef, createContext, useContext, useState, useEffect, createRef, Children, Fragment, useRef } from 'react';
-import PropTypes$1, { bool, func, oneOf, number, string, array } from 'prop-types';
+import PropTypes, { bool, func, oneOf, number, string, array } from 'prop-types';
 import styled, { createGlobalStyle, css, useTheme, ThemeProvider as ThemeProvider$1 } from 'styled-components';
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -436,21 +436,21 @@ var RocksKitTheme = function RocksKitTheme(_temp) {
 };
 
 var COLOR_PROP_TYPES = {
-  colorPrimary: PropTypes$1.bool,
-  colorPrimaryLight: PropTypes$1.bool,
-  colorGrayLight: PropTypes$1.bool,
-  colorGraySemiLight: PropTypes$1.bool,
-  colorGrayRegular: PropTypes$1.bool,
-  colorGrayMedium: PropTypes$1.bool,
-  colorGrayDark: PropTypes$1.bool,
-  colorBlack: PropTypes$1.bool,
-  colorWhite: PropTypes$1.bool,
-  colorError: PropTypes$1.bool,
-  colorErrorLight: PropTypes$1.bool,
-  colorWarning: PropTypes$1.bool,
-  colorWarningLight: PropTypes$1.bool,
-  colorSuccess: PropTypes$1.bool,
-  colorSuccessLight: PropTypes$1.bool
+  colorPrimary: PropTypes.bool,
+  colorPrimaryLight: PropTypes.bool,
+  colorGrayLight: PropTypes.bool,
+  colorGraySemiLight: PropTypes.bool,
+  colorGrayRegular: PropTypes.bool,
+  colorGrayMedium: PropTypes.bool,
+  colorGrayDark: PropTypes.bool,
+  colorBlack: PropTypes.bool,
+  colorWhite: PropTypes.bool,
+  colorError: PropTypes.bool,
+  colorErrorLight: PropTypes.bool,
+  colorWarning: PropTypes.bool,
+  colorWarningLight: PropTypes.bool,
+  colorSuccess: PropTypes.bool,
+  colorSuccessLight: PropTypes.bool
 };
 var COLOR = function COLOR(_ref) {
   var colorPrimary = _ref.colorPrimary,
@@ -488,10 +488,10 @@ var COLOR = function COLOR(_ref) {
 };
 
 var DIMENSION_PROP_TYPES = {
-  h100: PropTypes$1.bool,
-  w100: PropTypes$1.bool,
-  h100vh: PropTypes$1.bool,
-  w100vw: PropTypes$1.bool
+  h100: PropTypes.bool,
+  w100: PropTypes.bool,
+  h100vh: PropTypes.bool,
+  w100vw: PropTypes.bool
 };
 var DIMENSION = function DIMENSION(_ref) {
   var h100 = _ref.h100,
@@ -507,12 +507,12 @@ var DIMENSION = function DIMENSION(_ref) {
 };
 
 var DISPLAY_PROP_TYPES = {
-  dBlock: PropTypes$1.bool,
-  dFlex: PropTypes$1.bool,
-  dInline: PropTypes$1.bool,
-  dInlineBlock: PropTypes$1.bool,
-  dInlineFlex: PropTypes$1.bool,
-  dNone: PropTypes$1.bool
+  dBlock: PropTypes.bool,
+  dFlex: PropTypes.bool,
+  dInline: PropTypes.bool,
+  dInlineBlock: PropTypes.bool,
+  dInlineFlex: PropTypes.bool,
+  dNone: PropTypes.bool
 };
 var DISPLAY = function DISPLAY(_ref) {
   var dBlock = _ref.dBlock,
@@ -538,23 +538,23 @@ var SPACER_POSTFIX = function SPACER_POSTFIX(space) {
   return "" + (space > 0 ? "px" : "");
 };
 var SPACER_PROP_TYPES = {
-  m: PropTypes$1.number,
-  m0: PropTypes$1.bool,
-  mx: PropTypes$1.number,
-  my: PropTypes$1.number,
-  mt: PropTypes$1.number,
-  mb: PropTypes$1.number,
-  mr: PropTypes$1.number,
-  ml: PropTypes$1.number,
-  mAuto: PropTypes$1.bool,
-  p: PropTypes$1.number,
-  p0: PropTypes$1.bool,
-  px: PropTypes$1.number,
-  py: PropTypes$1.number,
-  pt: PropTypes$1.number,
-  pb: PropTypes$1.number,
-  pr: PropTypes$1.number,
-  pl: PropTypes$1.number
+  m: PropTypes.number,
+  m0: PropTypes.bool,
+  mx: PropTypes.number,
+  my: PropTypes.number,
+  mt: PropTypes.number,
+  mb: PropTypes.number,
+  mr: PropTypes.number,
+  ml: PropTypes.number,
+  mAuto: PropTypes.bool,
+  p: PropTypes.number,
+  p0: PropTypes.bool,
+  px: PropTypes.number,
+  py: PropTypes.number,
+  pt: PropTypes.number,
+  pb: PropTypes.number,
+  pr: PropTypes.number,
+  pl: PropTypes.number
 };
 var SPACER = function SPACER(_ref) {
   var m = _ref.m,
@@ -598,10 +598,10 @@ var SPACER = function SPACER(_ref) {
 var THEME_COLORS = ["primary", "black", "white", "gray", "darkYellow", "secondary", "success", "error", "warning"];
 
 var FlexPropTypes = _extends({
-  alignItems: PropTypes$1.oneOf(["flex-start", "center", "flex-end", "stretch", "baseline"]),
-  container: PropTypes$1.bool,
-  item: PropTypes$1.bool,
-  justify: PropTypes$1.oneOf(["flex-start", "center", "flex-end", "space-between", "space-around", "space-evenly"])
+  alignItems: PropTypes.oneOf(["flex-start", "center", "flex-end", "stretch", "baseline"]),
+  container: PropTypes.bool,
+  item: PropTypes.bool,
+  justify: PropTypes.oneOf(["flex-start", "center", "flex-end", "space-between", "space-around", "space-evenly"])
 }, SPACER_PROP_TYPES, DIMENSION_PROP_TYPES);
 var FlexDefaultProps = {
   alignItems: "center",
@@ -625,12 +625,12 @@ Flex.propTypes = FlexPropTypes;
 Flex.defaultProps = FlexDefaultProps;
 
 var IconPropTypes = _extends({
-  color: PropTypes$1.oneOf(THEME_COLORS),
-  icon: PropTypes$1.string.isRequired,
-  onClick: PropTypes$1.func,
-  prefix: PropTypes$1.string,
-  rounded: PropTypes$1.bool,
-  size: PropTypes$1.oneOf(Object.keys(KIT_ICON_SIZES))
+  color: PropTypes.oneOf(THEME_COLORS),
+  icon: PropTypes.string.isRequired,
+  onClick: PropTypes.func,
+  prefix: PropTypes.string,
+  rounded: PropTypes.bool,
+  size: PropTypes.oneOf(Object.keys(KIT_ICON_SIZES))
 }, COLOR_PROP_TYPES, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var IconDefaultProps = {
   color: "primary",
@@ -639,21 +639,21 @@ var IconDefaultProps = {
 };
 
 var ButtonBasePropTypes = _extends({
-  block: PropTypes$1.bool,
-  color: PropTypes$1.oneOf(["primary", "secondary", "subtle"]),
-  content: PropTypes$1.string,
-  children: PropTypes$1.node,
-  disabled: PropTypes$1.bool,
-  loading: PropTypes$1.bool,
-  endIcon: PropTypes$1.string,
-  href: PropTypes$1.string,
-  icon: PropTypes$1.string,
+  block: PropTypes.bool,
+  color: PropTypes.oneOf(["primary", "secondary", "subtle"]),
+  content: PropTypes.string,
+  children: PropTypes.node,
+  disabled: PropTypes.bool,
+  loading: PropTypes.bool,
+  endIcon: PropTypes.string,
+  href: PropTypes.string,
+  icon: PropTypes.string,
   iconProps: IconPropTypes,
-  noPadding: PropTypes$1.bool,
-  onClick: PropTypes$1.func,
-  size: PropTypes$1.oneOf(["lg", "md", "sm", "xs"]),
-  startIcon: PropTypes$1.string,
-  target: PropTypes$1.string
+  noPadding: PropTypes.bool,
+  onClick: PropTypes.func,
+  size: PropTypes.oneOf(["lg", "md", "sm", "xs"]),
+  startIcon: PropTypes.string,
+  target: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ButtonBaseDefaultProps = {
   block: false,
@@ -893,10 +893,10 @@ var ItemActionButton = function ItemActionButton(_ref) {
   }, button), title);
 };
 ItemActionButton.propTypes = {
-  button: PropTypes$1.PropTypes.shape({
-    onClick: PropTypes$1.func,
-    type: PropTypes$1.string,
-    title: PropTypes$1.string
+  button: PropTypes.PropTypes.shape({
+    onClick: PropTypes.func,
+    type: PropTypes.string,
+    title: PropTypes.string
   }).isRequired
 };
 
@@ -969,19 +969,19 @@ var ItemContent = function ItemContent(_ref5) {
   }));
 };
 ItemContent.propTypes = {
-  item: PropTypes$1.shape({
-    badge: PropTypes$1.string,
-    badgeColor: PropTypes$1.string,
-    icon: PropTypes$1.shape({}),
-    iconSize: PropTypes$1.number,
-    link: PropTypes$1.string,
-    linkSize: PropTypes$1.number,
-    linkText: PropTypes$1.string,
-    mainText: PropTypes$1.string,
-    mainTextSize: PropTypes$1.number,
-    skip: PropTypes$1.bool,
-    text: PropTypes$1.string,
-    textSize: PropTypes$1.number
+  item: PropTypes.shape({
+    badge: PropTypes.string,
+    badgeColor: PropTypes.string,
+    icon: PropTypes.shape({}),
+    iconSize: PropTypes.number,
+    link: PropTypes.string,
+    linkSize: PropTypes.number,
+    linkText: PropTypes.string,
+    mainText: PropTypes.string,
+    mainTextSize: PropTypes.number,
+    skip: PropTypes.bool,
+    text: PropTypes.string,
+    textSize: PropTypes.number
   }).isRequired
 };
 
@@ -1070,15 +1070,15 @@ var AdvancedLineItem = function AdvancedLineItem(_ref10) {
   }, secondaryActionButton))), extraContent);
 };
 AdvancedLineItem.propTypes = {
-  actionButtons: PropTypes$1.arrayOf(PropTypes$1.shape({})),
-  contentItems: PropTypes$1.arrayOf(PropTypes$1.shape({})).isRequired,
-  dataCy: PropTypes$1.string,
-  extraContent: PropTypes$1.node,
-  itemId: PropTypes$1.number.isRequired,
-  hoverable: PropTypes$1.bool,
-  secondaryActionButton: PropTypes$1.shape({
-    icon: PropTypes$1.node,
-    text: PropTypes$1.node
+  actionButtons: PropTypes.arrayOf(PropTypes.shape({})),
+  contentItems: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  dataCy: PropTypes.string,
+  extraContent: PropTypes.node,
+  itemId: PropTypes.number.isRequired,
+  hoverable: PropTypes.bool,
+  secondaryActionButton: PropTypes.shape({
+    icon: PropTypes.node,
+    text: PropTypes.node
   })
 };
 AdvancedLineItem.defaultProps = {
@@ -1196,10 +1196,10 @@ Icon.propTypes = IconPropTypes;
 Icon.defaultProps = IconDefaultProps;
 
 var AlertPropTypes = _extends({
-  content: PropTypes$1.node,
-  children: PropTypes$1.node,
-  color: PropTypes$1.oneOf(["info", "danger", "warning"]),
-  rounded: PropTypes$1.bool
+  content: PropTypes.node,
+  children: PropTypes.node,
+  color: PropTypes.oneOf(["info", "danger", "warning"]),
+  rounded: PropTypes.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var AlertDefaultProps = {
   content: null,
@@ -1357,11 +1357,11 @@ Alert.propTypes = AlertPropTypes;
 Alert.defaultProps = AlertDefaultProps;
 
 var AppContainerPropTypes = {
-  appConfig: PropTypes$1.shape({}),
-  children: PropTypes$1.node.isRequired,
-  icons: PropTypes$1.object,
-  pageLoading: PropTypes$1.bool,
-  theme: PropTypes$1.object.isRequired
+  appConfig: PropTypes.shape({}),
+  children: PropTypes.node.isRequired,
+  icons: PropTypes.object,
+  pageLoading: PropTypes.bool,
+  theme: PropTypes.object.isRequired
 };
 
 var AppContainer = function AppContainer(_ref) {
@@ -1403,22 +1403,22 @@ var AppContainer = function AppContainer(_ref) {
 AppContainer.propTypes = AppContainerPropTypes;
 
 var ChipBadgePropTypes$1 = _extends({
-  color: PropTypes$1.oneOf(THEME_COLORS),
-  label: PropTypes$1.string,
-  icon: PropTypes$1.string
+  color: PropTypes.oneOf(THEME_COLORS),
+  label: PropTypes.string,
+  icon: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ChipBadgeDefaultProps$1 = {
   color: "black"
 };
 
 var HeadingBasePropTypes = _extends({
-  align: PropTypes$1.oneOf(["inherit", "left", "center", "right", "justify"]),
-  children: PropTypes$1.node,
-  content: PropTypes$1.string,
-  color: PropTypes$1.oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
-  display: PropTypes$1.oneOf(["initial", "block", "inline"]),
-  gutterBottom: PropTypes$1.bool,
-  noWrap: PropTypes$1.bool
+  align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
+  children: PropTypes.node,
+  content: PropTypes.string,
+  color: PropTypes.oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
+  display: PropTypes.oneOf(["initial", "block", "inline"]),
+  gutterBottom: PropTypes.bool,
+  noWrap: PropTypes.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
 var _excluded$1B = ["content", "children"];
@@ -1482,16 +1482,16 @@ var H6 = function H6(props) {
 H6.propTypes = HeadingBasePropTypes;
 
 var TextBasePropTypes = _extends({
-  align: PropTypes$1.oneOf(["inherit", "left", "center", "right", "justify"]),
-  children: PropTypes$1.node,
-  content: PropTypes$1.string,
-  color: PropTypes$1.oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
-  display: PropTypes$1.oneOf(["initial", "block", "inline"]),
-  fontStyle: PropTypes$1.oneOf(["normal", "italic"]),
-  fontWeight: PropTypes$1.oneOf(["light", "regular", "bold"]),
-  fontSize: PropTypes$1.oneOf(["sm", "md", "lg"]),
-  gutterBottom: PropTypes$1.bool,
-  noWrap: PropTypes$1.bool
+  align: PropTypes.oneOf(["inherit", "left", "center", "right", "justify"]),
+  children: PropTypes.node,
+  content: PropTypes.string,
+  color: PropTypes.oneOf(["initial", "inherit", "primary", "secondary", "textPrimary", "textSecondary", "error"]),
+  display: PropTypes.oneOf(["initial", "block", "inline"]),
+  fontStyle: PropTypes.oneOf(["normal", "italic"]),
+  fontWeight: PropTypes.oneOf(["light", "regular", "bold"]),
+  fontSize: PropTypes.oneOf(["sm", "md", "lg"]),
+  gutterBottom: PropTypes.bool,
+  noWrap: PropTypes.bool
 }, COLOR_PROP_TYPES, DISPLAY_PROP_TYPES, SPACER_PROP_TYPES);
 var TextBaseDefaultProps = {
   fontStyle: "normal",
@@ -1632,8 +1632,8 @@ ChipBadge.propTypes = ChipBadgePropTypes$1;
 ChipBadge.defaultProps = ChipBadgeDefaultProps$1;
 
 var ChipBadgePropTypes = _extends({
-  color: PropTypes$1.oneOf(THEME_COLORS),
-  label: PropTypes$1.string
+  color: PropTypes.oneOf(THEME_COLORS),
+  label: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ChipBadgeDefaultProps = {
   color: "black"
@@ -1692,7 +1692,7 @@ TinyBadge.propTypes = ChipBadgePropTypes;
 TinyBadge.defaultProps = ChipBadgeDefaultProps;
 
 var BoxBasePropTypes = _extends({
-  shadow: PropTypes$1.oneOf(["none", "normal", "long"])
+  shadow: PropTypes.oneOf(["none", "normal", "long"])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var BoxBaseDefaultProps = {
   shadow: "normal"
@@ -1774,15 +1774,15 @@ var BoxFooter = function BoxFooter(_ref3) {
   })));
 };
 BoxFooter.propTypes = {
-  action: PropTypes$1.func,
-  actionDisabled: PropTypes$1.bool,
-  actionLoading: PropTypes$1.bool,
-  actionSize: PropTypes$1.string,
-  actionTitle: PropTypes$1.string.isRequired,
-  actionType: PropTypes$1.string,
-  padding: PropTypes$1.number.isRequired,
-  renderAction: PropTypes$1.func,
-  renderTitle: PropTypes$1.func
+  action: PropTypes.func,
+  actionDisabled: PropTypes.bool,
+  actionLoading: PropTypes.bool,
+  actionSize: PropTypes.string,
+  actionTitle: PropTypes.string.isRequired,
+  actionType: PropTypes.string,
+  padding: PropTypes.number.isRequired,
+  renderAction: PropTypes.func,
+  renderTitle: PropTypes.func
 };
 BoxFooter.defaultProps = {
   action: function action() {},
@@ -1917,25 +1917,25 @@ var BoxHeader = function BoxHeader(_ref9) {
   }, tabsProps))));
 };
 BoxHeader.propTypes = {
-  action: PropTypes$1.func,
-  actionIcon: PropTypes$1.string,
-  actionIconProps: PropTypes$1.shape({}),
-  actionIconSize: PropTypes$1.string,
-  metaTitle: PropTypes$1.string,
-  metaTitleColor: PropTypes$1.string,
-  padding: PropTypes$1.number.isRequired,
-  renderAction: PropTypes$1.func,
-  renderTitle: PropTypes$1.func,
-  subTitle: PropTypes$1.string,
-  subTitleColor: PropTypes$1.string,
-  tabs: PropTypes$1.arrayOf(PropTypes$1.shape({})),
-  tabsProps: PropTypes$1.shape({}),
-  title: PropTypes$1.string.isRequired,
-  titleIcon: PropTypes$1.string,
-  titleIconHiddenSm: PropTypes$1.bool,
-  titleIconProps: PropTypes$1.shape({}),
-  titleSize: PropTypes$1.string,
-  transparentSm: PropTypes$1.bool.isRequired
+  action: PropTypes.func,
+  actionIcon: PropTypes.string,
+  actionIconProps: PropTypes.shape({}),
+  actionIconSize: PropTypes.string,
+  metaTitle: PropTypes.string,
+  metaTitleColor: PropTypes.string,
+  padding: PropTypes.number.isRequired,
+  renderAction: PropTypes.func,
+  renderTitle: PropTypes.func,
+  subTitle: PropTypes.string,
+  subTitleColor: PropTypes.string,
+  tabs: PropTypes.arrayOf(PropTypes.shape({})),
+  tabsProps: PropTypes.shape({}),
+  title: PropTypes.string.isRequired,
+  titleIcon: PropTypes.string,
+  titleIconHiddenSm: PropTypes.bool,
+  titleIconProps: PropTypes.shape({}),
+  titleSize: PropTypes.string,
+  transparentSm: PropTypes.bool.isRequired
 };
 BoxHeader.defaultProps = {
   action: function action() {},
@@ -1957,38 +1957,38 @@ BoxHeader.defaultProps = {
 };
 
 var BoxPropTypes = _extends({
-  children: PropTypes$1.node.isRequired,
-  footerAction: PropTypes$1.func,
-  footerActionLoading: PropTypes$1.bool,
-  footerActionDisabled: PropTypes$1.bool,
-  footerActionSize: PropTypes$1.string,
-  footerActionTitle: PropTypes$1.string,
-  footerActionType: PropTypes$1.string,
-  footerRenderAction: PropTypes$1.func,
-  footerRenderTitle: PropTypes$1.func,
-  headerAction: PropTypes$1.func,
-  headerActionIcon: PropTypes$1.string,
-  headerActionIconProps: PropTypes$1.shape({}),
-  headerActionIconSize: PropTypes$1.string,
-  headerMetaTitle: PropTypes$1.string,
-  headerMetaTitleColor: PropTypes$1.string,
-  headerRenderAction: PropTypes$1.func,
-  headerRenderTitle: PropTypes$1.func,
-  headerSubTitle: PropTypes$1.string,
-  headerSubTitleColor: PropTypes$1.string,
-  headerTitle: PropTypes$1.string,
-  headerTitleIcon: PropTypes$1.string,
-  headerTitleIconHiddenSm: PropTypes$1.string,
-  headerTitleIconProps: PropTypes$1.shape({}),
-  headerTitleSize: PropTypes$1.string,
-  loading: PropTypes$1.bool,
-  loadingMessage: PropTypes$1.string,
-  loadingProps: PropTypes$1.shape({}),
-  padding: PropTypes$1.number,
-  tabs: PropTypes$1.arrayOf(PropTypes$1.shape({})),
-  tabsProps: PropTypes$1.shape({}),
-  transition: PropTypes$1.bool,
-  transparentSm: PropTypes$1.bool
+  children: PropTypes.node.isRequired,
+  footerAction: PropTypes.func,
+  footerActionLoading: PropTypes.bool,
+  footerActionDisabled: PropTypes.bool,
+  footerActionSize: PropTypes.string,
+  footerActionTitle: PropTypes.string,
+  footerActionType: PropTypes.string,
+  footerRenderAction: PropTypes.func,
+  footerRenderTitle: PropTypes.func,
+  headerAction: PropTypes.func,
+  headerActionIcon: PropTypes.string,
+  headerActionIconProps: PropTypes.shape({}),
+  headerActionIconSize: PropTypes.string,
+  headerMetaTitle: PropTypes.string,
+  headerMetaTitleColor: PropTypes.string,
+  headerRenderAction: PropTypes.func,
+  headerRenderTitle: PropTypes.func,
+  headerSubTitle: PropTypes.string,
+  headerSubTitleColor: PropTypes.string,
+  headerTitle: PropTypes.string,
+  headerTitleIcon: PropTypes.string,
+  headerTitleIconHiddenSm: PropTypes.string,
+  headerTitleIconProps: PropTypes.shape({}),
+  headerTitleSize: PropTypes.string,
+  loading: PropTypes.bool,
+  loadingMessage: PropTypes.string,
+  loadingProps: PropTypes.shape({}),
+  padding: PropTypes.number,
+  tabs: PropTypes.arrayOf(PropTypes.shape({})),
+  tabsProps: PropTypes.shape({}),
+  transition: PropTypes.bool,
+  transparentSm: PropTypes.bool
 }, BoxBasePropTypes);
 var BoxDefaultProps = _extends({
   loadingProps: {},
@@ -2116,15 +2116,15 @@ Box$1.propTypes = BoxPropTypes;
 Box$1.defaultProps = BoxDefaultProps;
 
 var CategoryItemPropTypes = {
-  checked: PropTypes$1.bool.isRequired,
-  dataCy: PropTypes$1.string,
-  description: PropTypes$1.string,
-  iconName: PropTypes$1.string,
-  iconImage: PropTypes$1.string,
-  id: PropTypes$1.number.isRequired,
-  onChange: PropTypes$1.func.isRequired,
-  subCategory: PropTypes$1.bool,
-  name: PropTypes$1.string.isRequired
+  checked: PropTypes.bool.isRequired,
+  dataCy: PropTypes.string,
+  description: PropTypes.string,
+  iconName: PropTypes.string,
+  iconImage: PropTypes.string,
+  id: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+  subCategory: PropTypes.bool,
+  name: PropTypes.string.isRequired
 };
 var CategoryItemDefaultProps = {
   dataCy: "categoryItem",
@@ -2266,14 +2266,14 @@ var CategoryItemContentLoader = function CategoryItemContentLoader(_ref) {
   })));
 };
 CategoryItemContentLoader.propTypes = {
-  subCategory: PropTypes$1.bool
+  subCategory: PropTypes.bool
 };
 CategoryItemContentLoader.defaultProps = {
   subCategory: false
 };
 
 var CartButtonPropTypes = {
-  count: PropTypes$1.oneOfType([PropTypes$1.number, PropTypes$1.string])
+  count: PropTypes.oneOfType([PropTypes.number, PropTypes.string])
 };
 var CartButtonDefaultProps = {
   count: "0"
@@ -2306,7 +2306,7 @@ CartButton.propTypes = CartButtonPropTypes;
 CartButton.defaultProps = CartButtonDefaultProps;
 
 var CollapsePropTypes = {
-  isOpened: PropTypes$1.bool
+  isOpened: PropTypes.bool
 };
 
 var Wrapper$d = styled.div.withConfig({
@@ -2328,22 +2328,22 @@ var CollapseButton = function CollapseButton(_ref) {
   }, props));
 };
 CollapseButton.propTypes = {
-  isOpened: PropTypes$1.bool.isRequired
+  isOpened: PropTypes.bool.isRequired
 };
 
 var ImagePropTypes = _extends({
-  alt: PropTypes$1.string.isRequired,
-  className: PropTypes$1.any,
-  cover: PropTypes$1.bool,
-  fluid: PropTypes$1.bool,
-  height: PropTypes$1.number,
-  onClick: PropTypes$1.func,
-  rounded: PropTypes$1.bool,
-  roundedCircle: PropTypes$1.bool,
-  src: PropTypes$1.string.isRequired,
-  style: PropTypes$1.object,
-  thumbnail: PropTypes$1.bool,
-  width: PropTypes$1.number
+  alt: PropTypes.string.isRequired,
+  className: PropTypes.any,
+  cover: PropTypes.bool,
+  fluid: PropTypes.bool,
+  height: PropTypes.number,
+  onClick: PropTypes.func,
+  rounded: PropTypes.bool,
+  roundedCircle: PropTypes.bool,
+  src: PropTypes.string.isRequired,
+  style: PropTypes.object,
+  thumbnail: PropTypes.bool,
+  width: PropTypes.number
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ImageDefaultProps = {
   fluid: false,
@@ -2450,10 +2450,10 @@ var CollectionItem = function CollectionItem(_ref4) {
   })));
 };
 CollectionItem.propTypes = {
-  details: PropTypes$1.arrayOf(PropTypes$1.string),
-  largeImageUrl: PropTypes$1.string.isRequired,
-  name: PropTypes$1.string.isRequired,
-  smallImagesUrls: PropTypes$1.arrayOf(PropTypes$1.string)
+  details: PropTypes.arrayOf(PropTypes.string),
+  largeImageUrl: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  smallImagesUrls: PropTypes.arrayOf(PropTypes.string)
 };
 CollectionItem.defaultProps = {
   details: [],
@@ -2472,7 +2472,7 @@ var AppContextProvider = function AppContextProvider(_ref) {
   }, props));
 };
 AppContextProvider.propTypes = {
-  config: PropTypes$1.shape({})
+  config: PropTypes.shape({})
 };
 AppContextProvider.defaultProps = {
   config: {}
@@ -2483,27 +2483,27 @@ var useAppContext = function useAppContext() {
 };
 
 var DetailsTablePropTypes = _extends({
-  expandButtonTitle: PropTypes$1.string,
-  expandButtonProps: PropTypes$1.shape({}),
-  justifyBetween: PropTypes$1.bool,
-  labelFontSize: PropTypes$1.string,
-  labelTextTransform: PropTypes$1.string,
-  labelWidth: PropTypes$1.number,
-  rows: PropTypes$1.arrayOf(PropTypes$1.shape({
-    columnSm: PropTypes$1.bool,
-    divider: PropTypes$1.bool,
-    dividerSize: PropTypes$1.number,
-    expandable: PropTypes$1.bool,
-    icon: PropTypes$1.string,
-    iconProps: PropTypes$1.shape({}),
-    label: PropTypes$1.string,
-    labelHint: PropTypes$1.bool,
-    labelHintIcon: PropTypes$1.string,
-    labelHintContent: PropTypes$1.string,
-    renderLabel: PropTypes$1.func,
-    value: PropTypes$1.node
+  expandButtonTitle: PropTypes.string,
+  expandButtonProps: PropTypes.shape({}),
+  justifyBetween: PropTypes.bool,
+  labelFontSize: PropTypes.string,
+  labelTextTransform: PropTypes.string,
+  labelWidth: PropTypes.number,
+  rows: PropTypes.arrayOf(PropTypes.shape({
+    columnSm: PropTypes.bool,
+    divider: PropTypes.bool,
+    dividerSize: PropTypes.number,
+    expandable: PropTypes.bool,
+    icon: PropTypes.string,
+    iconProps: PropTypes.shape({}),
+    label: PropTypes.string,
+    labelHint: PropTypes.bool,
+    labelHintIcon: PropTypes.string,
+    labelHintContent: PropTypes.string,
+    renderLabel: PropTypes.func,
+    value: PropTypes.node
   })),
-  size: PropTypes$1.oneOf(["sm", "md"])
+  size: PropTypes.oneOf(["sm", "md"])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var DetailsTableDefaultProps = {
   expandButtonTitle: "Expandable items",
@@ -2671,9 +2671,9 @@ DetailsTable.propTypes = DetailsTablePropTypes;
 DetailsTable.defaultProps = DetailsTableDefaultProps;
 
 var DatepickerPropTypes = {
-  from: PropTypes$1.string,
-  selectRange: PropTypes$1.bool,
-  to: PropTypes$1.string
+  from: PropTypes.string,
+  selectRange: PropTypes.bool,
+  to: PropTypes.string
 };
 var DatepickerDefaultProps = {
   from: null,
@@ -2735,8 +2735,8 @@ Datepicker.propTypes = DatepickerPropTypes;
 Datepicker.defaultProps = DatepickerDefaultProps;
 
 var DividerPropTypes = _extends({
-  className: PropTypes$1.any,
-  thickness: PropTypes$1.number
+  className: PropTypes.any,
+  thickness: PropTypes.number
 }, SPACER_PROP_TYPES);
 var DividerDefaultProps = {
   thickness: 1
@@ -2774,14 +2774,14 @@ Divider.propTypes = DividerPropTypes;
 Divider.defaultProps = DividerDefaultProps;
 
 var DropdownPropTypes = _extends({
-  children: PropTypes$1.node,
-  items: PropTypes$1.arrayOf(PropTypes$1.shape({
-    label: PropTypes$1.string
+  children: PropTypes.node,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string
   })),
-  onClose: PropTypes$1.func,
-  disableOutsideClickClose: PropTypes$1.bool,
-  render: PropTypes$1.func,
-  responsive: PropTypes$1.bool
+  onClose: PropTypes.func,
+  disableOutsideClickClose: PropTypes.bool,
+  render: PropTypes.func,
+  responsive: PropTypes.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var DropdownDefaultProps = {
   anchorOrigin: {
@@ -2978,17 +2978,17 @@ var DownloadModuleButton = function DownloadModuleButton(_ref3) {
   }));
 };
 DownloadModuleButton.propTypes = {
-  icon: PropTypes$1.string.isRequired
+  icon: PropTypes.string.isRequired
 };
 
 var DownloadModulePropTypes = _extends({
-  downloadPdfText: PropTypes$1.string,
-  downloadPdfUrl: PropTypes$1.string,
-  downloadQrCodeDesc: PropTypes$1.string,
-  downloadQrCodeText: PropTypes$1.string,
-  downloadQrCodeUrl: PropTypes$1.string,
-  qrCodeUrl: PropTypes$1.string,
-  qrCodeValue: PropTypes$1.string
+  downloadPdfText: PropTypes.string,
+  downloadPdfUrl: PropTypes.string,
+  downloadQrCodeDesc: PropTypes.string,
+  downloadQrCodeText: PropTypes.string,
+  downloadQrCodeUrl: PropTypes.string,
+  qrCodeUrl: PropTypes.string,
+  qrCodeValue: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var DownloadModuleDefaultProps = {
   downloadPdfText: "Download as PDF",
@@ -3054,21 +3054,21 @@ DownloadModule.propTypes = DownloadModulePropTypes;
 DownloadModule.defaultProps = DownloadModuleDefaultProps;
 
 var FileManagerPropTypes = _extends({
-  data: PropTypes$1.arrayOf(PropTypes$1.shape({
-    label: PropTypes$1.string,
-    files: PropTypes$1.arrayOf(PropTypes$1.shape({
-      id: PropTypes$1.number,
-      name: PropTypes$1.string,
-      date: PropTypes$1.string,
-      description: PropTypes$1.string,
-      previewUrl: PropTypes$1.string,
-      renderDate: PropTypes$1.func,
-      renderDescription: PropTypes$1.func,
-      renderName: PropTypes$1.func,
-      renderPreview: PropTypes$1.func
+  data: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string,
+    files: PropTypes.arrayOf(PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      date: PropTypes.string,
+      description: PropTypes.string,
+      previewUrl: PropTypes.string,
+      renderDate: PropTypes.func,
+      renderDescription: PropTypes.func,
+      renderName: PropTypes.func,
+      renderPreview: PropTypes.func
     }))
   })),
-  noItemsText: PropTypes$1.string
+  noItemsText: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FileManagerDefaultProps = {
   noItemsText: "No items yet"
@@ -3214,16 +3214,16 @@ FileManager.defaultProps = FileManagerDefaultProps;
 var img$5 = "data:image/svg+xml,%3csvg width='16' height='12' viewBox='0 0 16 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M13.5938 0.625L5.375 8.84375L2.375 5.8125C2.21875 5.6875 1.96875 5.6875 1.84375 5.8125L0.9375 6.71875C0.8125 6.84375 0.8125 7.09375 0.9375 7.25L5.125 11.4062C5.28125 11.5625 5.5 11.5625 5.65625 11.4062L15.0312 2.03125C15.1562 1.90625 15.1562 1.65625 15.0312 1.5L14.125 0.625C14 0.46875 13.75 0.46875 13.5938 0.625Z' fill='white'/%3e%3c/svg%3e";
 
 var RadioBasePropTypes = _extends({
-  block: PropTypes$1.bool,
-  defaultValue: PropTypes$1.oneOfType([PropTypes$1.arrayOf(PropTypes$1.string), PropTypes$1.string]),
-  hasError: PropTypes$1.bool,
-  name: PropTypes$1.string,
-  options: PropTypes$1.arrayOf(PropTypes$1.shape({
-    label: PropTypes$1.node,
-    value: PropTypes$1.string
+  block: PropTypes.bool,
+  defaultValue: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.string), PropTypes.string]),
+  hasError: PropTypes.bool,
+  name: PropTypes.string,
+  options: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.node,
+    value: PropTypes.string
   })),
-  register: PropTypes$1.func.isRequired,
-  stacked: PropTypes$1.bool
+  register: PropTypes.func.isRequired,
+  stacked: PropTypes.bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var RadioBaseDefaultProps = {
   block: true,
@@ -3525,18 +3525,18 @@ var FormDatepickerComponent = function FormDatepickerComponent(_ref6) {
   }))));
 };
 FormDatepickerComponent.propTypes = {
-  cancelText: PropTypes$1.string,
-  disabled: PropTypes$1.bool,
-  datepickerProps: PropTypes$1.shape({}),
-  hasError: PropTypes$1.bool,
-  onChange: PropTypes$1.func.isRequired,
-  placeholder: PropTypes$1.string,
-  selectRange: PropTypes$1.bool,
-  submitText: PropTypes$1.string,
-  value: PropTypes$1.oneOfType([PropTypes$1.shape({
-    start: PropTypes$1.string,
-    end: PropTypes$1.string
-  }), PropTypes$1.string])
+  cancelText: PropTypes.string,
+  disabled: PropTypes.bool,
+  datepickerProps: PropTypes.shape({}),
+  hasError: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
+  placeholder: PropTypes.string,
+  selectRange: PropTypes.bool,
+  submitText: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.shape({
+    start: PropTypes.string,
+    end: PropTypes.string
+  }), PropTypes.string])
 };
 FormDatepickerComponent.defaultProps = {
   cancelText: "Cancel",
@@ -3550,10 +3550,10 @@ FormDatepickerComponent.defaultProps = {
 };
 
 var FormDatepickerPropTypes = {
-  control: PropTypes$1.shape({}),
-  defaultValue: PropTypes$1.shape({}),
-  isRequired: PropTypes$1.bool,
-  name: PropTypes$1.name
+  control: PropTypes.shape({}),
+  defaultValue: PropTypes.shape({}),
+  isRequired: PropTypes.bool,
+  name: PropTypes.name
 };
 var FormDatepickerDefaultProps = {};
 
@@ -3579,7 +3579,7 @@ FormDatepicker.propTypes = FormDatepickerPropTypes;
 FormDatepicker.defaultProps = FormDatepickerDefaultProps;
 
 var FormErrorPropTypes = _extends({
-  message: PropTypes$1.node.isRequired
+  message: PropTypes.node.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FormErrorDefaultProps = {};
 
@@ -3608,18 +3608,18 @@ FormError.propTypes = FormErrorPropTypes;
 FormError.defaultProps = FormErrorDefaultProps;
 
 var FieldWrapperPropTypes = _extends({
-  block: PropTypes$1.bool,
-  endIcon: PropTypes$1.string,
-  copyable: PropTypes$1.bool,
-  valueToCopy: PropTypes$1.string,
-  endIconColor: PropTypes$1.oneOf(THEME_COLORS),
-  endIconOnClick: PropTypes$1.func,
-  endIconPrefix: PropTypes$1.string,
-  fixedHeight: PropTypes$1.bool,
-  startIcon: PropTypes$1.string,
-  startIconColor: PropTypes$1.oneOf(THEME_COLORS),
-  startIconOnClick: PropTypes$1.func,
-  startIconPrefix: PropTypes$1.string
+  block: PropTypes.bool,
+  endIcon: PropTypes.string,
+  copyable: PropTypes.bool,
+  valueToCopy: PropTypes.string,
+  endIconColor: PropTypes.oneOf(THEME_COLORS),
+  endIconOnClick: PropTypes.func,
+  endIconPrefix: PropTypes.string,
+  fixedHeight: PropTypes.bool,
+  startIcon: PropTypes.string,
+  startIconColor: PropTypes.oneOf(THEME_COLORS),
+  startIconOnClick: PropTypes.func,
+  startIconPrefix: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FieldWrapperDefaultProps = {
   block: true,
@@ -3632,7 +3632,7 @@ var FieldWrapperDefaultProps = {
   startIconColor: "input"
 };
 
-var _excluded$1g = ["children", "endIcon", "copyable", "valueToCopy", "endIconColor", "endIconOnClick", "endIconPrefix", "language", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix"];
+var _excluded$1g = ["children", "endIcon", "copyable", "valueToCopy", "endIconColor", "endIconOnClick", "endIconPrefix", "language", "startIcon", "startIconColor", "startIconOnClick", "startIconPrefix", "hasError"];
 var StyledWrapper = styled.div.withConfig({
   displayName: "FieldWrapper__StyledWrapper",
   componentId: "sc-tbw1oa-0"
@@ -3659,35 +3659,39 @@ var StyledWrapper = styled.div.withConfig({
   return theme.palette.gray.regular;
 }, function (_ref8) {
   var hasError = _ref8.hasError;
-  return hasError && css(["border:1px solid ", ";"], function (_ref9) {
+  return hasError && css(["background-color:", ";border:1px solid ", ";"], function (_ref9) {
     var theme = _ref9.theme;
+    return theme.palette.error.light;
+  }, function (_ref10) {
+    var theme = _ref10.theme;
     return theme.palette.error.main;
   });
-}, function (_ref10) {
-  var disabled = _ref10.disabled;
-  return disabled && css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
 }, function (_ref11) {
-  var block = _ref11.block;
+  var disabled = _ref11.disabled;
+  return disabled && css(["opacity:0.3;cursor:not-allowed;pointer-events:none;"]);
+}, function (_ref12) {
+  var block = _ref12.block;
   return block && css(["flex:1;"]);
 }, function (theme) {
   return SPACER(theme);
 }, function (theme) {
   return DISPLAY(theme);
 });
-var FieldWrapper = function FieldWrapper(_ref12) {
-  var children = _ref12.children,
-      endIcon = _ref12.endIcon,
-      copyable = _ref12.copyable,
-      valueToCopy = _ref12.valueToCopy,
-      endIconColor = _ref12.endIconColor,
-      endIconOnClick = _ref12.endIconOnClick,
-      endIconPrefix = _ref12.endIconPrefix,
-      language = _ref12.language,
-      startIcon = _ref12.startIcon,
-      startIconColor = _ref12.startIconColor,
-      startIconOnClick = _ref12.startIconOnClick,
-      startIconPrefix = _ref12.startIconPrefix,
-      props = _objectWithoutPropertiesLoose(_ref12, _excluded$1g);
+var FieldWrapper = function FieldWrapper(_ref13) {
+  var children = _ref13.children,
+      endIcon = _ref13.endIcon,
+      copyable = _ref13.copyable,
+      valueToCopy = _ref13.valueToCopy,
+      endIconColor = _ref13.endIconColor,
+      endIconOnClick = _ref13.endIconOnClick,
+      endIconPrefix = _ref13.endIconPrefix,
+      language = _ref13.language,
+      startIcon = _ref13.startIcon,
+      startIconColor = _ref13.startIconColor,
+      startIconOnClick = _ref13.startIconOnClick,
+      startIconPrefix = _ref13.startIconPrefix,
+      hasError = _ref13.hasError,
+      props = _objectWithoutPropertiesLoose(_ref13, _excluded$1g);
 
   var _React$useState = React.useState(false),
       hasJustCopied = _React$useState[0],
@@ -3703,7 +3707,9 @@ var FieldWrapper = function FieldWrapper(_ref12) {
       };
     }
   }, [hasJustCopied]);
-  return /*#__PURE__*/React.createElement(StyledWrapper, props, startIcon && /*#__PURE__*/React.createElement(Icon, {
+  return /*#__PURE__*/React.createElement(StyledWrapper, _extends({
+    hasError: hasError
+  }, props), startIcon && /*#__PURE__*/React.createElement(Icon, {
     color: startIconColor,
     icon: startIcon,
     onClick: startIconOnClick,
@@ -3731,13 +3737,13 @@ FieldWrapper.propTypes = FieldWrapperPropTypes;
 FieldWrapper.defaultProps = FieldWrapperDefaultProps;
 
 var FieldBasePropTypes = _extends({}, FieldWrapperPropTypes, {
-  disabled: PropTypes$1.bool,
-  disableScrollOnNumber: PropTypes$1.bool,
-  hasError: PropTypes$1.bool,
-  hasWrapper: PropTypes$1.bool,
-  readOnly: PropTypes$1.bool,
-  register: PropTypes$1.func,
-  type: PropTypes$1.string
+  disabled: PropTypes.bool,
+  disableScrollOnNumber: PropTypes.bool,
+  hasError: PropTypes.bool,
+  hasWrapper: PropTypes.bool,
+  readOnly: PropTypes.bool,
+  register: PropTypes.func,
+  type: PropTypes.string
 });
 var FieldBaseDefaultProps = _extends({}, FieldWrapperDefaultProps, {
   disabled: false,
@@ -3780,7 +3786,7 @@ forwardRef(function (_ref, ref) {
     return theme.palette.error.main;
   }, function (_ref7) {
     var theme = _ref7.theme;
-    return theme.palette.error.main;
+    return theme.palette.black.regular;
   });
 }, function (_ref8) {
   var block = _ref8.block;
@@ -3853,7 +3859,7 @@ var Fieldset$1 = function Fieldset(_ref) {
   return /*#__PURE__*/React.createElement(StyledFieldset$1, null, children);
 };
 Fieldset$1.propTypes = {
-  children: PropTypes$1.node.isRequired
+  children: PropTypes.node.isRequired
 };
 Fieldset$1.defaultProps = {};
 
@@ -3926,12 +3932,12 @@ var FilePondComponent = function FilePondComponent(_ref10) {
   }, props))));
 };
 FilePondComponent.propTypes = {
-  accept: PropTypes$1.string,
-  disabled: PropTypes$1.bool,
-  hasError: PropTypes$1.bool,
-  multiple: PropTypes$1.bool,
-  onChange: PropTypes$1.func,
-  value: PropTypes$1.arrayOf(PropTypes$1.shape)
+  accept: PropTypes.string,
+  disabled: PropTypes.bool,
+  hasError: PropTypes.bool,
+  multiple: PropTypes.bool,
+  onChange: PropTypes.func,
+  value: PropTypes.arrayOf(PropTypes.shape)
 };
 FilePondComponent.defaultProps = {
   accept: "image/*",
@@ -3943,13 +3949,13 @@ FilePondComponent.defaultProps = {
 };
 
 var FileUploadPropTypes$1 = _extends({
-  allowRemove: PropTypes$1.bool,
-  allowRevert: PropTypes$1.bool,
-  allowMultiple: PropTypes$1.bool,
-  control: PropTypes$1.shape({}).isRequired,
-  defaultValue: PropTypes$1.arrayOf(PropTypes$1.object),
-  isRequired: PropTypes$1.string,
-  name: PropTypes$1.string
+  allowRemove: PropTypes.bool,
+  allowRevert: PropTypes.bool,
+  allowMultiple: PropTypes.bool,
+  control: PropTypes.shape({}).isRequired,
+  defaultValue: PropTypes.arrayOf(PropTypes.object),
+  isRequired: PropTypes.string,
+  name: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FileUploadDefaultProps$1 = {
   allowRemove: false,
@@ -4046,13 +4052,13 @@ var CropModal = function CropModal(_ref) {
   })));
 };
 CropModal.propTypes = {
-  imgFile: PropTypes$1.shape({
-    name: PropTypes$1.string
+  imgFile: PropTypes.shape({
+    name: PropTypes.string
   }).isRequired,
-  isOpen: PropTypes$1.bool.isRequired,
-  onClose: PropTypes$1.func.isRequired,
-  onSubmit: PropTypes$1.func.isRequired,
-  size: PropTypes$1.string
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  onSubmit: PropTypes.func.isRequired,
+  size: PropTypes.string
 };
 CropModal.defaultProps = {
   size: "md"
@@ -4212,15 +4218,15 @@ var PreviewWrapper$1 = styled.div.withConfig({
   return theme.palette.gray.regular;
 });
 UploaderPreviewItem.propTypes = {
-  file: PropTypes$1.shape({
-    altName: PropTypes$1.string,
-    name: PropTypes$1.string,
-    preview: PropTypes$1.string,
-    size: PropTypes$1.string
+  file: PropTypes.shape({
+    altName: PropTypes.string,
+    name: PropTypes.string,
+    preview: PropTypes.string,
+    size: PropTypes.string
   }).isRequired,
-  fileNameEditable: PropTypes$1.bool.isRequired,
-  onRemoveClick: PropTypes$1.func.isRequired,
-  onEdit: PropTypes$1.func.isRequired
+  fileNameEditable: PropTypes.bool.isRequired,
+  onRemoveClick: PropTypes.func.isRequired,
+  onEdit: PropTypes.func.isRequired
 };
 
 var _excluded$1b = ["files", "index", "onRemoveClick"];
@@ -4239,7 +4245,7 @@ var UploaderPreview = function UploaderPreview(_ref) {
   });
 };
 UploaderPreview.propTypes = {
-  files: PropTypes$1.arrayOf(PropTypes$1.object)
+  files: PropTypes.arrayOf(PropTypes.object)
 };
 UploaderPreview.defaultProps = {
   files: []
@@ -4444,16 +4450,16 @@ var Dropzone = function Dropzone(_ref17) {
   }, cropProps)));
 };
 Dropzone.propTypes = {
-  accept: PropTypes$1.string,
-  crop: PropTypes$1.bool,
-  cropProps: PropTypes$1.shape({}),
-  defaultValue: PropTypes$1.arrayOf(PropTypes$1.object),
-  disabled: PropTypes$1.bool,
-  fileNameEditable: PropTypes$1.bool,
-  hasError: PropTypes$1.bool,
-  multiple: PropTypes$1.bool,
-  onChange: PropTypes$1.func,
-  value: PropTypes$1.arrayOf(PropTypes$1.shape)
+  accept: PropTypes.string,
+  crop: PropTypes.bool,
+  cropProps: PropTypes.shape({}),
+  defaultValue: PropTypes.arrayOf(PropTypes.object),
+  disabled: PropTypes.bool,
+  fileNameEditable: PropTypes.bool,
+  hasError: PropTypes.bool,
+  multiple: PropTypes.bool,
+  onChange: PropTypes.func,
+  value: PropTypes.arrayOf(PropTypes.shape)
 };
 Dropzone.defaultProps = {
   accept: "image/*",
@@ -4469,10 +4475,10 @@ Dropzone.defaultProps = {
 };
 
 var FileUploadPropTypes = _extends({
-  control: PropTypes$1.shape({}).isRequired,
-  defaultValue: PropTypes$1.arrayOf(PropTypes$1.object),
-  isRequired: PropTypes$1.string,
-  name: PropTypes$1.string
+  control: PropTypes.shape({}).isRequired,
+  defaultValue: PropTypes.arrayOf(PropTypes.object),
+  isRequired: PropTypes.string,
+  name: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FileUploadDefaultProps = {
   defaultValue: undefined,
@@ -4560,10 +4566,10 @@ var GrayIcon = styled(Icon).withConfig({
   return theme.palette.gray.medium;
 });
 DropzoneError.propTypes = {
-  title: PropTypes$1.string.isRequired,
-  errors: PropTypes$1.arrayOf(PropTypes$1.string).isRequired,
-  index: PropTypes$1.number.isRequired,
-  setErrorMessages: PropTypes$1.func.isRequired
+  title: PropTypes.string.isRequired,
+  errors: PropTypes.arrayOf(PropTypes.string).isRequired,
+  index: PropTypes.number.isRequired,
+  setErrorMessages: PropTypes.func.isRequired
 };
 
 var _excluded$18 = ["children"];
@@ -4578,7 +4584,7 @@ var Form = function Form(_ref) {
   return /*#__PURE__*/React.createElement(StyledForm, props, children);
 };
 Form.propTypes = {
-  children: PropTypes$1.node.isRequired
+  children: PropTypes.node.isRequired
 };
 Form.defaultProps = {};
 
@@ -4618,13 +4624,13 @@ Select.propTypes = FieldBasePropTypes;
 Select.defaultProps = FieldBaseDefaultProps;
 
 var PriceFieldPropTypes = _extends({
-  currencies: PropTypes$1.arrayOf(PropTypes$1.shape({
-    label: PropTypes$1.string,
-    value: PropTypes$1.string,
-    sign: PropTypes$1.string
+  currencies: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string,
+    value: PropTypes.string,
+    sign: PropTypes.string
   })),
-  inputProps: PropTypes$1.shape({}),
-  selectProps: PropTypes$1.shape({})
+  inputProps: PropTypes.shape({}),
+  selectProps: PropTypes.shape({})
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var PriceFieldDefaultProps = {
   currencies: [{
@@ -4718,8 +4724,8 @@ var Thumb = function Thumb(_ref) {
   }));
 };
 Thumb.propTypes = {
-  renderValue: PropTypes$1.func,
-  renderValueText: PropTypes$1.func
+  renderValue: PropTypes.func,
+  renderValueText: PropTypes.func
 };
 Thumb.defaultProps = {
   renderValue: function renderValue() {},
@@ -4762,10 +4768,10 @@ var Slider = function Slider(_ref5) {
   }, props));
 };
 Slider.propTypes = {
-  renderValue: PropTypes$1.func,
-  renderValueText: PropTypes$1.func,
-  onChange: PropTypes$1.func.isRequired,
-  value: PropTypes$1.oneOfType([PropTypes$1.array, PropTypes$1.number]).isRequired
+  renderValue: PropTypes.func,
+  renderValueText: PropTypes.func,
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.oneOfType([PropTypes.array, PropTypes.number]).isRequired
 };
 Slider.defaultProps = {
   renderValue: function renderValue() {},
@@ -4773,8 +4779,8 @@ Slider.defaultProps = {
 };
 
 var RangeSliderPropTypes = _extends({
-  defaultValue: PropTypes$1.oneOfType([PropTypes$1.array, PropTypes$1.number]),
-  isRequired: PropTypes$1.oneOfType([PropTypes$1.bool, PropTypes$1.string])
+  defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.number]),
+  isRequired: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var RangeSliderDefaultProps = {
   defaultValue: 0,
@@ -4903,15 +4909,15 @@ var CustomSelect = function CustomSelect(props) {
   return /*#__PURE__*/React.createElement(ReactSelect$1, props);
 };
 CustomSelect.propTypes = {
-  allowSelectAll: PropTypes$1.bool,
-  allOption: PropTypes$1.shape({
-    label: PropTypes$1.string,
-    value: PropTypes$1.string
+  allowSelectAll: PropTypes.bool,
+  allOption: PropTypes.shape({
+    label: PropTypes.string,
+    value: PropTypes.string
   }),
-  isGrouped: PropTypes$1.bool,
-  onChange: PropTypes$1.func.isRequired,
-  options: PropTypes$1.arrayOf(PropTypes$1.shape({})).isRequired,
-  value: PropTypes$1.oneOfType([PropTypes$1.array, PropTypes$1.object]).isRequired
+  isGrouped: PropTypes.bool,
+  onChange: PropTypes.func.isRequired,
+  options: PropTypes.arrayOf(PropTypes.shape({})).isRequired,
+  value: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired
 };
 CustomSelect.defaultProps = {
   allowSelectAll: false,
@@ -4923,13 +4929,13 @@ CustomSelect.defaultProps = {
 };
 
 var ReactSelectPropTypes = _extends({
-  async: PropTypes$1.bool,
-  defaultValue: PropTypes$1.oneOfType([PropTypes$1.array, PropTypes$1.object]),
-  endpoint: PropTypes$1.string,
-  endpointQueryFlag: PropTypes$1.string,
-  isClearable: PropTypes$1.bool,
-  isDisabled: PropTypes$1.bool,
-  isRequired: PropTypes$1.oneOfType([PropTypes$1.bool, PropTypes$1.string])
+  async: PropTypes.bool,
+  defaultValue: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
+  endpoint: PropTypes.string,
+  endpointQueryFlag: PropTypes.string,
+  isClearable: PropTypes.bool,
+  isDisabled: PropTypes.bool,
+  isRequired: PropTypes.oneOfType([PropTypes.bool, PropTypes.string])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ReactSelectDefaultProps = {
   defaultValue: undefined,
@@ -5051,15 +5057,15 @@ ReactSelect.propTypes = ReactSelectPropTypes;
 ReactSelect.defaultProps = ReactSelectDefaultProps;
 
 var FormRowPropTypes = _extends({
-  children: PropTypes$1.node.isRequired,
-  errors: PropTypes$1.arrayOf(PropTypes$1.node).isRequired,
-  fields: PropTypes$1.arrayOf(PropTypes$1.string).isRequired,
-  label: PropTypes$1.node,
-  labelAlign: PropTypes$1.oneOf(["start", "center"]),
-  labelGutter: PropTypes$1.bool,
-  show: PropTypes$1.bool.isRequired,
-  labelColor: PropTypes$1.oneOf(["dark", "light"]),
-  direction: PropTypes$1.oneOf(["column", "row"])
+  children: PropTypes.node.isRequired,
+  errors: PropTypes.arrayOf(PropTypes.node).isRequired,
+  fields: PropTypes.arrayOf(PropTypes.string).isRequired,
+  label: PropTypes.node,
+  labelAlign: PropTypes.oneOf(["start", "center"]),
+  labelGutter: PropTypes.bool,
+  show: PropTypes.bool.isRequired,
+  labelColor: PropTypes.oneOf(["dark", "light"]),
+  direction: PropTypes.oneOf(["column", "row"])
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FormRowDefaultProps = {
   label: "",
@@ -5136,7 +5142,7 @@ var Fields = styled.div.withConfig({
   return theme.spacing(4);
 }, function (_ref15) {
   var bottomHintText = _ref15.bottomHintText;
-  return bottomHintText && css(["position:relative;z-index:1;margin-bottom:", ";&::after{content:\"", "\";position:absolute;bottom:-50%;left:0;z-index:-1;display:flex;align-items:flex-end;width:100%;height:100%;border-radius:6px 6px 12px 12px;padding-bottom:2px;padding-left:", ";background-color:", ";}"], function (_ref16) {
+  return bottomHintText && css(["position:relative;z-index:0;margin-bottom:", ";&::after{content:\"", "\";position:absolute;bottom:-50%;left:0;z-index:-1;display:flex;align-items:flex-end;width:100%;height:100%;border-radius:6px 6px 12px 12px;padding-bottom:2px;padding-left:", ";background-color:", ";}"], function (_ref16) {
     var theme = _ref16.theme;
     return theme.spacing(5);
   }, bottomHintText, function (_ref17) {
@@ -5196,14 +5202,14 @@ FormRow.propTypes = FormRowPropTypes;
 FormRow.defaultProps = FormRowDefaultProps;
 
 var StepperPropTypes = {
-  control: PropTypes$1.object,
-  label: PropTypes$1.string,
-  min: PropTypes$1.number,
-  max: PropTypes$1.number,
-  name: PropTypes$1.string,
-  onChange: PropTypes$1.func,
-  size: PropTypes$1.oneOf(["sm", "normal"]),
-  value: PropTypes$1.number
+  control: PropTypes.object,
+  label: PropTypes.string,
+  min: PropTypes.number,
+  max: PropTypes.number,
+  name: PropTypes.string,
+  onChange: PropTypes.func,
+  size: PropTypes.oneOf(["sm", "normal"]),
+  value: PropTypes.number
 };
 var StepperDefaultProps = {
   label: "Days",
@@ -5284,13 +5290,13 @@ Stepper.propTypes = StepperPropTypes;
 Stepper.defaultProps = StepperDefaultProps;
 
 var TextAreaPropTypes = _extends({}, FieldBasePropTypes, {
-  autoFocus: PropTypes$1.bool,
-  cols: PropTypes$1.number,
-  dir: PropTypes$1.oneOf(["ltr", "rtl"]),
-  rows: PropTypes$1.number,
-  spellCheck: PropTypes$1.bool,
-  tabIndex: PropTypes$1.number,
-  wrap: PropTypes$1.oneOf(["soft", "hard"])
+  autoFocus: PropTypes.bool,
+  cols: PropTypes.number,
+  dir: PropTypes.oneOf(["ltr", "rtl"]),
+  rows: PropTypes.number,
+  spellCheck: PropTypes.bool,
+  tabIndex: PropTypes.number,
+  wrap: PropTypes.oneOf(["soft", "hard"])
 });
 var TextAreaDefaultProps = _extends({}, FieldBaseDefaultProps, {
   rows: 5
@@ -5425,10 +5431,10 @@ Toggle.defaultProps = {
 };
 
 var ToggleSwitchPropTypes = _extends({
-  control: PropTypes$1.shape({}).isRequired,
-  defaultValue: PropTypes$1.bool,
-  isRequired: PropTypes$1.string,
-  name: PropTypes$1.string
+  control: PropTypes.shape({}).isRequired,
+  defaultValue: PropTypes.bool,
+  isRequired: PropTypes.string,
+  name: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ToggleSwitchDefaultProps = {
   defaultValue: undefined,
@@ -5556,14 +5562,14 @@ var RadioEnhancedBaseItem = function RadioEnhancedBaseItem(_ref16) {
   }, description), /*#__PURE__*/React.createElement("span", null, price)))));
 };
 RadioEnhancedBaseItem.propTypes = _extends({
-  hasError: PropTypes$1.bool,
-  icon: PropTypes$1.string,
-  name: PropTypes$1.string,
-  register: PropTypes$1.func,
-  value: PropTypes$1.string.isRequired,
-  title: PropTypes$1.string,
-  description: PropTypes$1.string,
-  price: PropTypes$1.string
+  hasError: PropTypes.bool,
+  icon: PropTypes.string,
+  name: PropTypes.string,
+  register: PropTypes.func,
+  value: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  price: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 RadioEnhancedBaseItem.defaultProps = {
   hasError: false,
@@ -5576,16 +5582,16 @@ RadioEnhancedBaseItem.defaultProps = {
 };
 
 var RadioEnhancedPropTypes = _extends({
-  options: PropTypes$1.arrayOf(PropTypes$1.shape({
-    value: PropTypes$1.string,
-    title: PropTypes$1.string,
-    description: PropTypes$1.string,
-    price: PropTypes$1.string,
-    icon: PropTypes$1.string
+  options: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    price: PropTypes.string,
+    icon: PropTypes.string
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var RadioEnhancedDefaultProps = {
-  options: PropTypes$1.arrayOf(PropTypes$1.shape({
+  options: PropTypes.arrayOf(PropTypes.shape({
     value: "value",
     title: "Title",
     description: "Description",
@@ -5608,12 +5614,12 @@ var RadioEnhancedBase = function RadioEnhancedBase(_ref) {
 };
 
 RadioEnhancedBase.propTypes = {
-  options: PropTypes$1.arrayOf(PropTypes$1.shape({
-    value: PropTypes$1.string,
-    title: PropTypes$1.string,
-    description: PropTypes$1.string,
-    price: PropTypes$1.string,
-    icon: PropTypes$1.string
+  options: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    price: PropTypes.string,
+    icon: PropTypes.string
   })).isRequired
 };
 var StyledRadioEnhancedBase = styled(RadioEnhancedBase).withConfig({
@@ -5780,10 +5786,10 @@ TabsToggle.defaultProps = {
 };
 
 var TabsSwitchPropTypes = _extends({
-  control: PropTypes$1.shape({}).isRequired,
-  defaultValue: PropTypes$1.bool,
-  isRequired: PropTypes$1.string,
-  name: PropTypes$1.string
+  control: PropTypes.shape({}).isRequired,
+  defaultValue: PropTypes.bool,
+  isRequired: PropTypes.string,
+  name: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var TabsSwitchDefaultProps = {
   defaultValue: undefined,
@@ -5917,14 +5923,14 @@ var RadioListBaseItem = function RadioListBaseItem(_ref15) {
   }))))));
 };
 RadioListBaseItem.propTypes = _extends({
-  hasError: PropTypes$1.bool,
-  icon: PropTypes$1.string,
-  name: PropTypes$1.string,
-  register: PropTypes$1.func,
-  value: PropTypes$1.string.isRequired,
-  title: PropTypes$1.string,
-  description: PropTypes$1.string,
-  price: PropTypes$1.string
+  hasError: PropTypes.bool,
+  icon: PropTypes.string,
+  name: PropTypes.string,
+  register: PropTypes.func,
+  value: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  description: PropTypes.string,
+  price: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 RadioListBaseItem.defaultProps = {
   hasError: false,
@@ -5937,16 +5943,16 @@ RadioListBaseItem.defaultProps = {
 };
 
 var RadioListPropTypes = _extends({
-  options: PropTypes$1.arrayOf(PropTypes$1.shape({
-    value: PropTypes$1.string,
-    title: PropTypes$1.string,
-    info: PropTypes$1.string,
-    icon: PropTypes$1.string,
-    iconPrefix: PropTypes$1.string
+  options: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string,
+    title: PropTypes.string,
+    info: PropTypes.string,
+    icon: PropTypes.string,
+    iconPrefix: PropTypes.string
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var RadioListDefaultProps = {
-  options: PropTypes$1.arrayOf(PropTypes$1.shape({
+  options: PropTypes.arrayOf(PropTypes.shape({
     value: "value",
     title: "Title",
     info: "Description",
@@ -5969,12 +5975,12 @@ var RadioListBase = function RadioListBase(_ref) {
 };
 
 RadioListBase.propTypes = {
-  options: PropTypes$1.arrayOf(PropTypes$1.shape({
-    value: PropTypes$1.string,
-    title: PropTypes$1.string,
-    info: PropTypes$1.string,
-    icon: PropTypes$1.string,
-    iconPrefix: PropTypes$1.string
+  options: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string,
+    title: PropTypes.string,
+    info: PropTypes.string,
+    icon: PropTypes.string,
+    iconPrefix: PropTypes.string
   })).isRequired
 };
 var StyledRadioListBase = styled(RadioListBase).withConfig({
@@ -6075,14 +6081,14 @@ var RadioExtraBaseItem = function RadioExtraBaseItem(_ref10) {
   }, description)))));
 };
 RadioExtraBaseItem.propTypes = _extends({
-  hasError: PropTypes$1.bool,
-  icon: PropTypes$1.string,
-  iconPrefix: PropTypes$1.string,
-  name: PropTypes$1.string,
-  register: PropTypes$1.func,
-  value: PropTypes$1.string.isRequired,
-  title: PropTypes$1.string,
-  description: PropTypes$1.string
+  hasError: PropTypes.bool,
+  icon: PropTypes.string,
+  iconPrefix: PropTypes.string,
+  name: PropTypes.string,
+  register: PropTypes.func,
+  value: PropTypes.string.isRequired,
+  title: PropTypes.string,
+  description: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 RadioExtraBaseItem.defaultProps = {
   hasError: false,
@@ -6095,16 +6101,16 @@ RadioExtraBaseItem.defaultProps = {
 };
 
 var RadioExtraPropTypes = _extends({
-  options: PropTypes$1.arrayOf(PropTypes$1.shape({
-    value: PropTypes$1.string,
-    title: PropTypes$1.string,
-    description: PropTypes$1.string,
-    icon: PropTypes$1.string,
-    iconPrefix: PropTypes$1.string
+  options: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string,
+    title: PropTypes.string,
+    description: PropTypes.string,
+    icon: PropTypes.string,
+    iconPrefix: PropTypes.string
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var RadioExtraDefaultProps = {
-  options: PropTypes$1.arrayOf(PropTypes$1.shape({
+  options: PropTypes.arrayOf(PropTypes.shape({
     value: "value",
     title: "Title",
     description: "Description",
@@ -6162,8 +6168,8 @@ RadioExtra.propTypes = RadioExtraPropTypes;
 RadioExtra.defaultProps = RadioExtraDefaultProps;
 
 var HideOnScrollPropTypes = {
-  children: PropTypes$1.element.isRequired,
-  threshold: PropTypes$1.number
+  children: PropTypes.element.isRequired,
+  threshold: PropTypes.number
 };
 var HideOnScrollDefaultProps = {
   threshold: 100
@@ -6325,26 +6331,26 @@ var HistoryItem = function HistoryItem(_ref15) {
   }, /*#__PURE__*/React.createElement(Content$a, null, collapseContent)));
 };
 HistoryItem.propTypes = {
-  data: PropTypes$1.shape({
-    collapsible: PropTypes$1.bool,
-    collapseContent: PropTypes$1.node,
-    id: PropTypes$1.number.isRequired,
-    description: PropTypes$1.string,
-    moreInfo: PropTypes$1.string.isRequired,
-    title: PropTypes$1.string.isRequired,
-    icon: PropTypes$1.string.isRequired,
-    iconColor: PropTypes$1.string
+  data: PropTypes.shape({
+    collapsible: PropTypes.bool,
+    collapseContent: PropTypes.node,
+    id: PropTypes.number.isRequired,
+    description: PropTypes.string,
+    moreInfo: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    iconColor: PropTypes.string
   }).isRequired
 };
 
 var HistoryPropTypes = _extends({
-  rows: PropTypes$1.arrayOf(PropTypes$1.shape({
-    id: PropTypes$1.number.isRequired,
-    description: PropTypes$1.string,
-    moreInfo: PropTypes$1.string.isRequired,
-    title: PropTypes$1.string.isRequired,
-    icon: PropTypes$1.string.isRequired,
-    iconColor: PropTypes$1.string
+  rows: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    description: PropTypes.string,
+    moreInfo: PropTypes.string.isRequired,
+    title: PropTypes.string.isRequired,
+    icon: PropTypes.string.isRequired,
+    iconColor: PropTypes.string
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
@@ -6371,9 +6377,9 @@ var History = function History(_ref) {
 History.propTypes = HistoryPropTypes;
 
 var HistoryTreePropTypes = _extends({
-  activeNodeId: PropTypes$1.number,
-  data: PropTypes$1.array.isRequired,
-  onNodeClick: PropTypes$1.func
+  activeNodeId: PropTypes.number,
+  data: PropTypes.array.isRequired,
+  onNodeClick: PropTypes.func
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var HistoryTreeDefaultProps = {
   activeNodeId: null,
@@ -6474,9 +6480,9 @@ HistoryTree.propTypes = HistoryTreePropTypes;
 HistoryTree.defaultProps = HistoryTreeDefaultProps;
 
 var IndicatorPropTypes = _extends({
-  color: PropTypes$1.string,
-  content: PropTypes$1.node,
-  children: PropTypes$1.node
+  color: PropTypes.string,
+  content: PropTypes.node,
+  children: PropTypes.node
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var IndicatorDefaultProps = {
   color: "primary"
@@ -6671,31 +6677,31 @@ var InspectorItem = function InspectorItem(_ref19) {
   }))));
 };
 InspectorItem.propTypes = {
-  data: PropTypes$1.shape({
-    collapsible: PropTypes$1.bool,
-    collapseContent: PropTypes$1.node,
-    id: PropTypes$1.number.isRequired,
-    title: PropTypes$1.string.isRequired,
-    status: PropTypes$1.string.isRequired,
-    buttonFunction: PropTypes$1.func.isRequired,
-    buttonContent: PropTypes$1.string.isRequired
+  data: PropTypes.shape({
+    collapsible: PropTypes.bool,
+    collapseContent: PropTypes.node,
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    buttonFunction: PropTypes.func.isRequired,
+    buttonContent: PropTypes.string.isRequired
   }).isRequired
 };
 
 var InspectorPropTypes = _extends({
-  rows: PropTypes$1.arrayOf(PropTypes$1.shape({
-    id: PropTypes$1.number.isRequired,
-    title: PropTypes$1.string.isRequired,
-    status: PropTypes$1.string.isRequired,
-    buttonFunction: PropTypes$1.func.isRequired,
-    buttonContent: PropTypes$1.string.isRequired
+  rows: PropTypes.arrayOf(PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    title: PropTypes.string.isRequired,
+    status: PropTypes.string.isRequired,
+    buttonFunction: PropTypes.func.isRequired,
+    buttonContent: PropTypes.string.isRequired
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var InspectorDefaultProps = {};
 
 var ItemSelectPropTypes = _extends({
-  async: PropTypes$1.bool,
-  endpoint: PropTypes$1.string
+  async: PropTypes.bool,
+  endpoint: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ItemSelectDefaultProps = {};
 
@@ -6945,21 +6951,21 @@ var Modal = function Modal(_ref9) {
   }, actionTitle)));
 };
 Modal.propTypes = {
-  action: PropTypes$1.func,
-  actionDescription: PropTypes$1.node,
-  actionLoading: PropTypes$1.bool,
-  actionTitle: PropTypes$1.string,
-  cancelButton: PropTypes$1.bool,
-  dataCy: PropTypes$1.string,
-  fullScreen: PropTypes$1.bool,
-  isOpen: PropTypes$1.bool.isRequired,
-  loading: PropTypes$1.bool,
-  onClose: PropTypes$1.func.isRequired,
-  children: PropTypes$1.oneOfType([PropTypes$1.any]).isRequired,
-  maxWidth: PropTypes$1.string,
-  title: PropTypes$1.string,
-  disabled: PropTypes$1.bool,
-  padding: PropTypes$1.bool
+  action: PropTypes.func,
+  actionDescription: PropTypes.node,
+  actionLoading: PropTypes.bool,
+  actionTitle: PropTypes.string,
+  cancelButton: PropTypes.bool,
+  dataCy: PropTypes.string,
+  fullScreen: PropTypes.bool,
+  isOpen: PropTypes.bool.isRequired,
+  loading: PropTypes.bool,
+  onClose: PropTypes.func.isRequired,
+  children: PropTypes.oneOfType([PropTypes.any]).isRequired,
+  maxWidth: PropTypes.string,
+  title: PropTypes.string,
+  disabled: PropTypes.bool,
+  padding: PropTypes.bool
 };
 Modal.defaultProps = {
   action: undefined,
@@ -7240,12 +7246,12 @@ ItemSelect.propTypes = ItemSelectPropTypes;
 ItemSelect.defaultProps = ItemSelectDefaultProps;
 
 var LanguagePropTypes = _extends({
-  languages: PropTypes$1.arrayOf(PropTypes$1.shape({
-    value: PropTypes$1.string,
-    label: PropTypes$1.string
+  languages: PropTypes.arrayOf(PropTypes.shape({
+    value: PropTypes.string,
+    label: PropTypes.string
   })),
-  onChange: PropTypes$1.func.isRequired,
-  value: PropTypes$1.string.isRequired
+  onChange: PropTypes.func.isRequired,
+  value: PropTypes.string.isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var LanguageDefaultProps = {
   languages: [{
@@ -7306,12 +7312,12 @@ Language.defaultProps = LanguageDefaultProps;
 var img$4 = "data:image/svg+xml,%3csvg width='60' height='60' viewBox='0 0 60 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M6.20827 41.2468C9.85226 41.2468 12.484 44.0937 12.484 47.415C12.484 50.8719 9.85226 53.4477 6.20827 53.4477C2.56429 53.4477 0 50.8719 0 47.415C0 44.0937 2.56429 41.2468 6.20827 41.2468ZM35.9092 6C49.4054 6 60 16.5063 60 29.7916C60 43.0092 49.4054 53.4477 35.9092 53.4477C22.413 53.4477 11.8184 43.0092 11.8184 29.7916C11.8184 16.5063 22.413 6 35.9092 6ZM35.9092 43.2125C43.2647 43.2125 48.8656 37.5188 48.8656 29.7916C48.8656 21.9966 43.2647 16.2351 35.9092 16.2351C28.5538 16.2351 22.9528 21.9966 22.9528 29.7916C22.9528 37.5188 28.5538 43.2125 35.9092 43.2125Z' fill='%23AC00FC'/%3e%3c/svg%3e";
 
 var AuthLayoutHeaderPropTypes = {
-  backButtonOnClick: PropTypes$1.func,
-  headerLeft: PropTypes$1.node,
-  headerRight: PropTypes$1.node,
-  logoAction: PropTypes$1.func,
-  logoSrc: PropTypes$1.string,
-  renderLogo: PropTypes$1.func
+  backButtonOnClick: PropTypes.func,
+  headerLeft: PropTypes.node,
+  headerRight: PropTypes.node,
+  logoAction: PropTypes.func,
+  logoSrc: PropTypes.string,
+  renderLogo: PropTypes.func
 };
 var AuthLayoutHeaderDefaultProps = {
   renderLogo: function renderLogo() {}
@@ -7375,15 +7381,15 @@ AuthLayoutHeader.propTypes = AuthLayoutHeaderPropTypes;
 AuthLayoutHeader.defaultProps = AuthLayoutHeaderDefaultProps;
 
 var AuthLayoutPropTypes = {
-  children: PropTypes$1.node.isRequired,
-  content: PropTypes$1.node.isRequired,
-  headerBackButtonOnClick: PropTypes$1.func,
-  headerLeft: PropTypes$1.node,
-  headerLogoAction: PropTypes$1.func,
-  headerLogoSrc: PropTypes$1.string,
-  headerRight: PropTypes$1.node,
-  headerRenderLogo: PropTypes$1.func,
-  loading: PropTypes$1.bool
+  children: PropTypes.node.isRequired,
+  content: PropTypes.node.isRequired,
+  headerBackButtonOnClick: PropTypes.func,
+  headerLeft: PropTypes.node,
+  headerLogoAction: PropTypes.func,
+  headerLogoSrc: PropTypes.string,
+  headerRight: PropTypes.node,
+  headerRenderLogo: PropTypes.func,
+  loading: PropTypes.bool
 };
 
 var _excluded$G = ["children", "content", "headerLeft", "headerBackButtonOnClick", "headerLogoAction", "headerLogoSrc", "headerRight", "headerRenderLogo", "loading"];
@@ -7435,9 +7441,9 @@ AuthLayout.propTypes = AuthLayoutPropTypes;
 AuthLayout.defaultProps = {};
 
 var CreatorsHubFooterPropTypes = {
-  bottomContent: PropTypes$1.node,
-  content: PropTypes$1.node,
-  navCols: PropTypes$1.array
+  bottomContent: PropTypes.node,
+  content: PropTypes.node,
+  navCols: PropTypes.array
 };
 var CreatorsHubFooterDefaultProps = {};
 
@@ -7532,17 +7538,17 @@ CreatorsHubFooter.propTypes = CreatorsHubFooterPropTypes;
 CreatorsHubFooter.defaultProps = CreatorsHubFooterDefaultProps;
 
 var CreatorsHubHeaderPropTypes = {
-  fixed: PropTypes$1.bool,
-  logoAction: PropTypes$1.func,
-  logoSrc: PropTypes$1.string,
-  primaryNavItems: PropTypes$1.array,
-  primaryWhite: PropTypes$1.bool,
-  renderLogo: PropTypes$1.func,
-  secondary: PropTypes$1.bool,
-  secondaryHasBorder: PropTypes$1.bool,
-  secondaryHideOnScroll: PropTypes$1.bool,
-  secondaryNavItems: PropTypes$1.array,
-  secondaryRenderRight: PropTypes$1.func
+  fixed: PropTypes.bool,
+  logoAction: PropTypes.func,
+  logoSrc: PropTypes.string,
+  primaryNavItems: PropTypes.array,
+  primaryWhite: PropTypes.bool,
+  renderLogo: PropTypes.func,
+  secondary: PropTypes.bool,
+  secondaryHasBorder: PropTypes.bool,
+  secondaryHideOnScroll: PropTypes.bool,
+  secondaryNavItems: PropTypes.array,
+  secondaryRenderRight: PropTypes.func
 };
 var CreatorsHubHeaderDefaultProps = {
   renderLogo: function renderLogo() {},
@@ -7833,9 +7839,9 @@ SecondaryHeader.propTypes = CreatorsHubHeaderPropTypes;
 SecondaryHeader.defaultProps = CreatorsHubHeaderDefaultProps;
 
 var CreatorsHubAuthLayoutPropTypes = {
-  children: PropTypes$1.node,
-  headerProps: PropTypes$1.shape(CreatorsHubHeaderPropTypes),
-  loading: PropTypes$1.bool
+  children: PropTypes.node,
+  headerProps: PropTypes.shape(CreatorsHubHeaderPropTypes),
+  loading: PropTypes.bool
 };
 var CreatorsHubAuthLayoutDefaultProps = {};
 
@@ -7884,14 +7890,14 @@ CreatorsHubAuthLayout.propTypes = CreatorsHubAuthLayoutPropTypes;
 CreatorsHubAuthLayout.defaultProps = CreatorsHubAuthLayoutDefaultProps;
 
 var CreatorsHubMainLayoutPropTypes = {
-  children: PropTypes$1.node,
-  footer: PropTypes$1.bool,
-  footerProps: PropTypes$1.shape(CreatorsHubFooterPropTypes),
-  headerProps: PropTypes$1.shape(CreatorsHubHeaderPropTypes),
-  loading: PropTypes$1.bool,
-  renderFooter: PropTypes$1.func,
-  renderHeader: PropTypes$1.func,
-  sidebar: PropTypes$1.node
+  children: PropTypes.node,
+  footer: PropTypes.bool,
+  footerProps: PropTypes.shape(CreatorsHubFooterPropTypes),
+  headerProps: PropTypes.shape(CreatorsHubHeaderPropTypes),
+  loading: PropTypes.bool,
+  renderFooter: PropTypes.func,
+  renderHeader: PropTypes.func,
+  sidebar: PropTypes.node
 };
 var CreatorsHubMainLayoutDefaultProps = {
   renderFooter: function renderFooter() {},
@@ -8043,12 +8049,12 @@ CreatorsHubMainLayout.propTypes = CreatorsHubMainLayoutPropTypes;
 CreatorsHubMainLayout.defaultProps = CreatorsHubMainLayoutDefaultProps;
 
 var DashboardLayoutHeaderPropTypes = {
-  backButtonOnClick: PropTypes$1.func,
-  headerLeft: PropTypes$1.node,
-  headerRight: PropTypes$1.node,
-  logoAction: PropTypes$1.func,
-  logoSrc: PropTypes$1.string,
-  renderLogo: PropTypes$1.func
+  backButtonOnClick: PropTypes.func,
+  headerLeft: PropTypes.node,
+  headerRight: PropTypes.node,
+  logoAction: PropTypes.func,
+  logoSrc: PropTypes.string,
+  renderLogo: PropTypes.func
 };
 var DashboardLayoutHeaderDefaultProps = {
   renderLogo: function renderLogo() {}
@@ -8133,16 +8139,16 @@ DashboardLayoutHeader.propTypes = DashboardLayoutHeaderPropTypes;
 DashboardLayoutHeader.defaultProps = DashboardLayoutHeaderDefaultProps;
 
 var DashboardLayoutPropTypes = {
-  children: PropTypes$1.node.isRequired,
-  content: PropTypes$1.node.isRequired,
-  headerBackButtonOnClick: PropTypes$1.func,
-  headerLeft: PropTypes$1.node,
-  headerLogoAction: PropTypes$1.func,
-  headerLogoSrc: PropTypes$1.string,
-  headerRight: PropTypes$1.node,
-  headerRenderLogo: PropTypes$1.func,
-  loading: PropTypes$1.bool,
-  navigationItems: PropTypes$1.array
+  children: PropTypes.node.isRequired,
+  content: PropTypes.node.isRequired,
+  headerBackButtonOnClick: PropTypes.func,
+  headerLeft: PropTypes.node,
+  headerLogoAction: PropTypes.func,
+  headerLogoSrc: PropTypes.string,
+  headerRight: PropTypes.node,
+  headerRenderLogo: PropTypes.func,
+  loading: PropTypes.bool,
+  navigationItems: PropTypes.array
 };
 var DashboardLayoutDefaultProps = {
   navigationItems: []
@@ -8262,7 +8268,7 @@ var NavigationMenu = function NavigationMenu(_ref12) {
   }));
 };
 NavigationMenu.propTypes = {
-  items: PropTypes$1.arrayOf(PropTypes$1.any).isRequired
+  items: PropTypes.arrayOf(PropTypes.any).isRequired
 };
 
 var _excluded$x = ["menuItems", "onClick"];
@@ -8302,7 +8308,7 @@ var UserMenu = function UserMenu(_ref) {
   }));
 };
 UserMenu.propTypes = {
-  menuItems: PropTypes$1.arrayOf(PropTypes$1.shape)
+  menuItems: PropTypes.arrayOf(PropTypes.shape)
 };
 UserMenu.defaultProps = {
   menuItems: [{
@@ -8312,8 +8318,8 @@ UserMenu.defaultProps = {
 };
 
 var DashboardLayoutNavigationPropTypes = {
-  navigationItems: PropTypes$1.arrayOf(PropTypes$1.shape).isRequired,
-  userMenuItems: PropTypes$1.arrayOf(PropTypes$1.shape)
+  navigationItems: PropTypes.arrayOf(PropTypes.shape).isRequired,
+  userMenuItems: PropTypes.arrayOf(PropTypes.shape)
 };
 var DashboardLayoutNavigationDefaultProps = {
   userMenuItems: []
@@ -8408,7 +8414,7 @@ DashboardLayoutNavigation.propTypes = DashboardLayoutNavigationPropTypes;
 DashboardLayoutNavigation.defaultProps = DashboardLayoutNavigationDefaultProps;
 
 var DashboardLayoutFooterPropTypes = {
-  content: PropTypes$1.node
+  content: PropTypes.node
 };
 
 var _excluded$w = ["content"];
@@ -8543,7 +8549,7 @@ DashboardLayout.propTypes = DashboardLayoutPropTypes;
 DashboardLayout.defaultProps = DashboardLayoutDefaultProps;
 
 var ExplorerLayoutFooterPropTypes = {
-  children: PropTypes$1.node
+  children: PropTypes.node
 };
 
 var _excluded$u = ["action"];
@@ -8565,8 +8571,8 @@ ExplorerLayoutFooter.propTypes = ExplorerLayoutFooterPropTypes;
 var img$3 = "data:image/svg+xml,%3csvg width='194' height='60' viewBox='0 0 194 60' fill='none' xmlns='http://www.w3.org/2000/svg'%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 52.0601C88.0083 52.0601 89.3892 53.5534 89.3892 55.2955C89.3892 57.1088 88.0083 58.4599 86.0961 58.4599C84.184 58.4599 82.8384 57.1088 82.8384 55.2955C82.8384 53.5534 84.184 52.0601 86.0961 52.0601Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M103.965 40.1848C104.461 40.1848 104.815 40.2204 105.24 40.327L104.992 46.0158H103.965C99.9993 46.0158 97.8393 48.0779 97.8393 52.7V58.2821H92.1737V40.4337H97.8393V43.8469C99.114 41.7136 101.062 40.1848 103.965 40.1848Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M120.118 33.9272C127.2 33.9272 132.76 39.4382 132.76 46.4069C132.76 53.34 127.2 58.8155 120.118 58.8155C113.037 58.8155 107.477 53.34 107.477 46.4069C107.477 39.4382 113.037 33.9272 120.118 33.9272ZM120.118 53.4467C123.978 53.4467 126.917 50.4601 126.917 46.4069C126.917 42.3181 123.978 39.2959 120.118 39.2959C116.259 39.2959 113.32 42.3181 113.32 46.4069C113.32 50.4601 116.259 53.4467 120.118 53.4467Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M144.587 53.8378C146.392 53.8378 147.844 52.8778 148.446 50.709L153.651 51.8467C152.766 56.0777 149.013 58.8154 144.587 58.8154C139.275 58.8154 134.884 55.0111 134.884 49.3579C134.884 43.7403 139.275 39.9003 144.587 39.9003C148.907 39.9003 152.66 42.5669 153.651 46.7624L148.34 48.0424C147.844 45.8735 146.392 44.878 144.587 44.878C142.037 44.878 140.337 46.7624 140.337 49.3579C140.337 51.9889 142.037 53.8378 144.587 53.8378Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M175.992 58.2821H168.733L162.961 51.8467H161.934V58.2821H156.269V32.6828H161.934V46.5135H162.713L168.343 40.4337H175.177L167.387 48.9312L175.992 58.2821Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M176.087 53.6483L181.611 52.5105C181.859 54.0394 183.24 54.6083 184.762 54.6083C186.25 54.6083 187.064 53.9683 187.064 53.1861C187.064 52.5817 186.604 52.1194 185.294 51.8706L181.682 51.1595C178.389 50.555 176.512 48.7773 176.512 45.9685C176.512 42.3064 179.663 39.9242 184.16 39.9242C188.587 39.9242 191.526 41.9508 192.234 45.0441L187.064 46.0752C186.887 44.973 185.825 43.9774 184.09 43.9774C182.567 43.9774 182.071 44.7241 182.071 45.3641C182.071 45.8618 182.284 46.3596 183.417 46.6085L187.595 47.4618C190.959 48.1729 192.517 50.1995 192.517 52.8305C192.517 56.7771 189.118 58.8393 184.444 58.8393C180.265 58.8393 176.689 57.3104 176.087 53.6483Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M79.4906 27.4174H73.825V1.81807H79.4906V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M88.9289 27.4174H83.2634V9.569H88.9289V27.4174Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M86.0961 1.07143C88.0083 1.07143 89.3892 2.56472 89.3892 4.3069C89.3892 6.12019 88.0083 7.47127 86.0961 7.47127C84.184 7.47127 82.8384 6.12019 82.8384 4.3069C82.8384 2.56472 84.184 1.07143 86.0961 1.07143Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M101.853 22.9731C103.659 22.9731 105.111 22.0131 105.713 19.8443L110.918 20.982C110.033 25.213 106.28 27.9507 101.853 27.9507C96.542 27.9507 92.1512 24.1464 92.1512 18.4932C92.1512 12.8756 96.542 9.03566 101.853 9.03566C106.173 9.03566 109.927 11.7023 110.918 15.8977L105.607 17.1777C105.111 15.0088 103.659 14.0133 101.853 14.0133C99.3039 14.0133 97.6043 15.8977 97.6043 18.4932C97.6043 21.1242 99.3039 22.9731 101.853 22.9731Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M131.601 18.4932V19.9509H118.57C119.03 22.0842 120.482 23.3997 122.394 23.3997C123.704 23.3997 125.227 23.0798 126.183 21.3376L131.211 22.3687C129.689 26.1375 126.466 27.9507 122.394 27.9507C117.26 27.9507 113.011 24.1464 113.011 18.4932C113.011 12.8756 117.26 9.03566 122.43 9.03566C127.458 9.03566 131.495 12.6622 131.601 18.4932ZM122.43 13.6578C120.836 13.6578 119.207 14.6533 118.676 16.4666H126.006C125.475 14.5466 124.059 13.6578 122.43 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M145.659 9.03566C149.801 9.03566 152.563 11.9867 152.563 16.4666V27.4174H146.933V17.6754C146.933 15.5777 145.694 14.1555 143.888 14.1555C141.657 14.1555 140.205 15.6844 140.205 19.1332V27.4174H134.54V9.56898H140.205V11.2756C141.551 9.85342 143.428 9.03566 145.659 9.03566Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M155.219 22.7598L160.743 21.622C160.991 23.1509 162.372 23.7197 163.895 23.7197C165.382 23.7197 166.196 23.0798 166.196 22.2975C166.196 21.6931 165.736 21.2309 164.426 20.982L160.814 20.2709C157.521 19.6665 155.644 17.8888 155.644 15.08C155.644 11.4178 158.796 9.03566 163.293 9.03566C167.719 9.03566 170.658 11.0623 171.366 14.1555L166.196 15.1866C166.019 14.0844 164.957 13.0889 163.222 13.0889C161.699 13.0889 161.203 13.8355 161.203 14.4755C161.203 14.9733 161.416 15.4711 162.549 15.7199L166.727 16.5732C170.091 17.2843 171.649 19.311 171.649 21.942C171.649 25.8886 168.25 27.9507 163.576 27.9507C159.397 27.9507 155.821 26.4219 155.219 22.7598Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M192.403 18.4932V19.9509H179.372C179.832 22.0842 181.284 23.3997 183.196 23.3997C184.506 23.3997 186.029 23.0798 186.985 21.3376L192.013 22.3687C190.49 26.1375 187.268 27.9507 183.196 27.9507C178.062 27.9507 173.812 24.1464 173.812 18.4932C173.812 12.8756 178.062 9.03566 183.231 9.03566C188.26 9.03566 192.296 12.6622 192.403 18.4932ZM183.231 13.6578C181.638 13.6578 180.009 14.6533 179.478 16.4666H186.808C186.277 14.5466 184.86 13.6578 183.231 13.6578Z' fill='%23AC00FC'/%3e%3cpath fill-rule='evenodd' clip-rule='evenodd' d='M7.58723 46.6197C11.4115 46.6197 14.1734 49.6063 14.1734 53.0907C14.1734 56.7172 11.4115 59.4194 7.58723 59.4194C3.76298 59.4194 1.07184 56.7172 1.07184 53.0907C1.07184 49.6063 3.76298 46.6197 7.58723 46.6197ZM38.7574 9.64285C52.9213 9.64285 64.04 20.6648 64.04 34.6022C64.04 48.4685 52.9213 59.4194 38.7574 59.4194C24.5936 59.4194 13.4749 48.4685 13.4749 34.6022C13.4749 20.6648 24.5936 9.64285 38.7574 9.64285ZM38.7574 48.6819C46.4768 48.6819 52.3548 42.7087 52.3548 34.6022C52.3548 26.4247 46.4768 20.3804 38.7574 20.3804C31.0381 20.3804 25.1601 26.4247 25.1601 34.6022C25.1601 42.7087 31.0381 48.6819 38.7574 48.6819Z' fill='%23AC00FC'/%3e%3c/svg%3e";
 
 var ExplorerLayoutHeaderPropTypes = {
-  headerRight: PropTypes$1.node,
-  logoAction: PropTypes$1.func
+  headerRight: PropTypes.node,
+  logoAction: PropTypes.func
 };
 
 var _excluded$t = ["headerRight", "logoAction"];
@@ -8616,15 +8622,15 @@ var ExplorerLayoutHeader = function ExplorerLayoutHeader(_ref3) {
 ExplorerLayoutHeader.propTypes = ExplorerLayoutHeaderPropTypes;
 
 var ExplorerLayoutPropTypes = {
-  ads: PropTypes$1.node,
-  content: PropTypes$1.node.isRequired,
-  extraContent: PropTypes$1.node,
-  extraSidebar: PropTypes$1.node,
-  footerContent: PropTypes$1.node,
-  headerLogoAction: PropTypes$1.func,
-  headerRight: PropTypes$1.node,
-  loading: PropTypes$1.bool,
-  sidebar: PropTypes$1.node
+  ads: PropTypes.node,
+  content: PropTypes.node.isRequired,
+  extraContent: PropTypes.node,
+  extraSidebar: PropTypes.node,
+  footerContent: PropTypes.node,
+  headerLogoAction: PropTypes.func,
+  headerRight: PropTypes.node,
+  loading: PropTypes.bool,
+  sidebar: PropTypes.node
 };
 
 var _excluded$s = ["ads", "content", "extraContent", "extraSidebar", "footerContent", "headerLogoAction", "headerRight", "loading", "sidebar"];
@@ -8718,12 +8724,12 @@ ExplorerLayout.defaultProps = {
 };
 
 var LinkPropTypes = {
-  block: PropTypes$1.bool,
-  children: PropTypes$1.node.isRequired,
-  className: PropTypes$1.string,
-  Component: PropTypes$1.element.isRequired,
-  href: PropTypes$1.oneOfType([PropTypes$1.string, PropTypes$1.object]).isRequired,
-  passHref: PropTypes$1.bool
+  block: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+  className: PropTypes.string,
+  Component: PropTypes.element.isRequired,
+  href: PropTypes.oneOfType([PropTypes.string, PropTypes.object]).isRequired,
+  passHref: PropTypes.bool
 };
 var LinkDefaultProps = {
   passHref: true
@@ -8761,25 +8767,25 @@ Link.propTypes = LinkPropTypes;
 Link.defaultProps = LinkDefaultProps;
 
 var MarketPlaceItemPropTypes = {
-  action: PropTypes$1.func,
-  actionTitle: PropTypes$1.string,
-  badges: PropTypes$1.arrayOf(PropTypes$1.shape({
-    label: PropTypes$1.string,
-    color: PropTypes$1.string
+  action: PropTypes.func,
+  actionTitle: PropTypes.string,
+  badges: PropTypes.arrayOf(PropTypes.shape({
+    label: PropTypes.string,
+    color: PropTypes.string
   })),
-  coverSrc: PropTypes$1.string,
-  coverPlaceholderSrc: PropTypes$1.string,
-  details: PropTypes$1.array,
-  hoverEffect: PropTypes$1.bool,
-  iconColor: PropTypes$1.string,
-  iconName: PropTypes$1.string,
-  iconPrefix: PropTypes$1.string,
-  megaTitle: PropTypes$1.string,
-  price: PropTypes$1.string,
-  priceLabel: PropTypes$1.string,
-  subTitle: PropTypes$1.string,
-  title: PropTypes$1.string,
-  type: PropTypes$1.oneOf("legacy", "modern", "modernHorizontal")
+  coverSrc: PropTypes.string,
+  coverPlaceholderSrc: PropTypes.string,
+  details: PropTypes.array,
+  hoverEffect: PropTypes.bool,
+  iconColor: PropTypes.string,
+  iconName: PropTypes.string,
+  iconPrefix: PropTypes.string,
+  megaTitle: PropTypes.string,
+  price: PropTypes.string,
+  priceLabel: PropTypes.string,
+  subTitle: PropTypes.string,
+  title: PropTypes.string,
+  type: PropTypes.oneOf("legacy", "modern", "modernHorizontal")
 };
 var MarketPlaceItemDefaultProps = {
   actionTitle: "More info",
@@ -8822,9 +8828,9 @@ var LicenseBox = function LicenseBox(_ref4) {
   }));
 };
 LicenseBox.propTypes = {
-  iconName: PropTypes$1.string,
-  iconPrefix: PropTypes$1.string,
-  iconColor: PropTypes$1.string
+  iconName: PropTypes.string,
+  iconPrefix: PropTypes.string,
+  iconColor: PropTypes.string
 };
 LicenseBox.defaultProps = {
   iconName: "th-large",
@@ -8914,8 +8920,8 @@ var Cover$2 = function Cover(_ref) {
   }, props));
 };
 Cover$2.propTypes = {
-  imgSrc: PropTypes$1.string,
-  placeholderSrc: PropTypes$1.string
+  imgSrc: PropTypes.string,
+  placeholderSrc: PropTypes.string
 };
 Cover$2.defaultProps = {
   imgSrc: "",
@@ -9037,8 +9043,8 @@ var Cover$1 = function Cover(_ref2) {
   }));
 };
 Cover$1.propTypes = {
-  imgSrc: PropTypes$1.string,
-  placeholderSrc: PropTypes$1.string
+  imgSrc: PropTypes.string,
+  placeholderSrc: PropTypes.string
 };
 Cover$1.defaultProps = {
   imgSrc: "",
@@ -9193,8 +9199,8 @@ var Cover = function Cover(_ref) {
   }, props));
 };
 Cover.propTypes = {
-  imgSrc: PropTypes$1.string,
-  placeholderSrc: PropTypes$1.string
+  imgSrc: PropTypes.string,
+  placeholderSrc: PropTypes.string
 };
 Cover.defaultProps = {
   imgSrc: "",
@@ -9308,10 +9314,10 @@ MarketPlaceItem.defaultProps = MarketPlaceItemDefaultProps;
 var MINI_SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "linkedin"];
 
 var ShareModulePropTypes$1 = _extends({
-  iconProps: PropTypes$1.shape(ButtonBasePropTypes),
-  orientation: PropTypes$1.oneOf(["vertical", "horizontal"]),
-  shareOptions: PropTypes$1.arrayOf(PropTypes$1.oneOf(MINI_SHARE_MODULE_SHARE_OPTIONS)),
-  url: PropTypes$1.string
+  iconProps: PropTypes.shape(ButtonBasePropTypes),
+  orientation: PropTypes.oneOf(["vertical", "horizontal"]),
+  shareOptions: PropTypes.arrayOf(PropTypes.oneOf(MINI_SHARE_MODULE_SHARE_OPTIONS)),
+  url: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ShareModuleDefaultProps$1 = {
   orientation: "vertical",
@@ -9406,11 +9412,11 @@ MiniShareModule.propTypes = ShareModulePropTypes$1;
 MiniShareModule.defaultProps = ShareModuleDefaultProps$1;
 
 var NoItemPropTypes = _extends({
-  buttonAction: PropTypes$1.func,
-  buttonHref: PropTypes$1.string,
-  buttonText: PropTypes$1.string,
-  dataCy: PropTypes$1.string,
-  text: PropTypes$1.string
+  buttonAction: PropTypes.func,
+  buttonHref: PropTypes.string,
+  buttonText: PropTypes.string,
+  dataCy: PropTypes.string,
+  text: PropTypes.string
 }, COLOR_PROP_TYPES, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var NoItemDefaultProps = {
   buttonAction: null,
@@ -9464,8 +9470,8 @@ NoItem.propTypes = NoItemPropTypes;
 NoItem.defaultProps = NoItemDefaultProps;
 
 var PageFigurePropTypes = _extends({
-  content: PropTypes$1.node,
-  children: PropTypes$1.node
+  content: PropTypes.node,
+  children: PropTypes.node
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var PageFigureDefaultProps = {};
 
@@ -9489,9 +9495,9 @@ PageFigure.propTypes = PageFigurePropTypes;
 PageFigure.defaultProps = PageFigureDefaultProps;
 
 var PageLoadingPropTypes = {
-  fullScreen: PropTypes$1.bool,
-  message: PropTypes$1.string,
-  transparent: PropTypes$1.bool
+  fullScreen: PropTypes.bool,
+  message: PropTypes.string,
+  transparent: PropTypes.bool
 };
 var PageLoadingDefaultProps = {};
 
@@ -9552,12 +9558,12 @@ PageLoading.propTypes = PageLoadingPropTypes;
 PageLoading.defaultProps = PageLoadingDefaultProps;
 
 var pageMetaPropTypes = {
-  children: PropTypes$1.node,
-  description: PropTypes$1.string.isRequired,
-  imgSrc: PropTypes$1.string.isRequired,
-  title: PropTypes$1.string.isRequired,
-  url: PropTypes$1.string.isRequired,
-  Wrapper: PropTypes$1.node
+  children: PropTypes.node,
+  description: PropTypes.string.isRequired,
+  imgSrc: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  url: PropTypes.string.isRequired,
+  Wrapper: PropTypes.node
 };
 var pageMetaDefaultProps = {};
 
@@ -9635,9 +9641,9 @@ var Container$3 = function Container(_ref) {
   }, children);
 };
 Container$3.propTypes = {
-  animationDuration: PropTypes$1.number.isRequired,
-  children: PropTypes$1.node.isRequired,
-  isFinished: PropTypes$1.bool.isRequired
+  animationDuration: PropTypes.number.isRequired,
+  children: PropTypes.node.isRequired,
+  isFinished: PropTypes.bool.isRequired
 };
 
 var StyledBar = styled.div.withConfig({
@@ -9665,8 +9671,8 @@ var Bar = function Bar(_ref3) {
   }, /*#__PURE__*/React.createElement(InnerBar, null));
 };
 Bar.propTypes = {
-  animationDuration: PropTypes$1.number.isRequired,
-  progress: PropTypes$1.number.isRequired
+  animationDuration: PropTypes.number.isRequired,
+  progress: PropTypes.number.isRequired
 };
 
 var Progress = function Progress(_ref) {
@@ -9689,9 +9695,9 @@ var Progress = function Progress(_ref) {
 };
 
 var PageProgressBarPropTypes = {
-  isAnimating: PropTypes$1.bool,
-  instanceKey: PropTypes$1.string,
-  listener: PropTypes$1.func
+  isAnimating: PropTypes.bool,
+  instanceKey: PropTypes.string,
+  listener: PropTypes.func
 };
 var PageProgressBarDefaultProps = {
   isAnimating: false,
@@ -9778,16 +9784,16 @@ var PageTransition = function PageTransition(_ref3) {
   });
 };
 PageTransition.propTypes = {
-  children: PropTypes$1.node.isRequired
+  children: PropTypes.node.isRequired
 };
 PageTransition.defaultProps = {};
 
 var PaginationPropTypes = {
-  currentPage: PropTypes$1.number,
-  itemProps: PropTypes$1.shape({}),
-  nextText: PropTypes$1.string,
-  pageCount: PropTypes$1.number,
-  prevText: PropTypes$1.string
+  currentPage: PropTypes.number,
+  itemProps: PropTypes.shape({}),
+  nextText: PropTypes.string,
+  pageCount: PropTypes.number,
+  prevText: PropTypes.string
 };
 var PaginationDefaultProps = {
   nextText: "Next",
@@ -9866,13 +9872,13 @@ Pagination.propTypes = PaginationPropTypes;
 Pagination.defaultProps = PaginationDefaultProps;
 
 var ProfilePropTypes = _extends({
-  coverSrc: PropTypes$1.string,
-  description: PropTypes$1.string,
-  location: PropTypes$1.string,
-  name: PropTypes$1.string,
-  shareOnClick: PropTypes$1.func,
-  shareUrl: PropTypes$1.string,
-  socialLinks: PropTypes$1.array
+  coverSrc: PropTypes.string,
+  description: PropTypes.string,
+  location: PropTypes.string,
+  name: PropTypes.string,
+  shareOnClick: PropTypes.func,
+  shareUrl: PropTypes.string,
+  socialLinks: PropTypes.array
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ProfileDefaultProps = {
   socialLinks: []
@@ -9982,14 +9988,14 @@ Profile.propTypes = ProfilePropTypes;
 Profile.defaultProps = ProfileDefaultProps;
 
 var SearchBarPropTypes = _extends({
-  filterButtonText: PropTypes$1.string,
-  filterItems: PropTypes$1.array,
-  noBorderRadius: PropTypes$1.bool,
-  onChange: PropTypes$1.func,
-  onSubmit: PropTypes$1.func,
-  placeholder: PropTypes$1.string,
-  showFilter: PropTypes$1.nool,
-  value: PropTypes$1.string
+  filterButtonText: PropTypes.string,
+  filterItems: PropTypes.array,
+  noBorderRadius: PropTypes.bool,
+  onChange: PropTypes.func,
+  onSubmit: PropTypes.func,
+  placeholder: PropTypes.string,
+  showFilter: PropTypes.nool,
+  value: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var SearchBarDefaultProps = {
   filterButtonText: "Filter",
@@ -10110,11 +10116,11 @@ var ShareModuleButton = function ShareModuleButton(_ref6) {
   }, buttonProps));
 };
 ShareModuleButton.propTypes = {
-  buttonProps: PropTypes$1.shape({}),
-  href: PropTypes$1.string,
-  icon: PropTypes$1.string.isRequired,
-  iconPrefix: PropTypes$1.string,
-  onClick: PropTypes$1.func
+  buttonProps: PropTypes.shape({}),
+  href: PropTypes.string,
+  icon: PropTypes.string.isRequired,
+  iconPrefix: PropTypes.string,
+  onClick: PropTypes.func
 };
 ShareModuleButton.defaultProps = {
   buttonProps: {},
@@ -10126,10 +10132,10 @@ ShareModuleButton.defaultProps = {
 var SHARE_MODULE_SHARE_OPTIONS = ["twitter", "facebook", "telegram", "whatsapp", "email", "embed", "navigator"];
 
 var ShareModulePropTypes = _extends({
-  buttonProps: PropTypes$1.shape(ButtonBasePropTypes),
-  copyText: PropTypes$1.string,
-  shareOptions: PropTypes$1.arrayOf(PropTypes$1.oneOf(SHARE_MODULE_SHARE_OPTIONS)),
-  url: PropTypes$1.string
+  buttonProps: PropTypes.shape(ButtonBasePropTypes),
+  copyText: PropTypes.string,
+  shareOptions: PropTypes.arrayOf(PropTypes.oneOf(SHARE_MODULE_SHARE_OPTIONS)),
+  url: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ShareModuleDefaultProps = {
   copyText: "Or copy the link",
@@ -10409,7 +10415,7 @@ Snackbar.propTypes = SnackbarPropTypes;
 Snackbar.defaultProps = SnackbarDefaultProps;
 
 var DotsSpinnerPropTypes = _extends({
-  size: PropTypes$1.number
+  size: PropTypes.number
 }, COLOR_PROP_TYPES, DISPLAY_PROP_TYPES, DIMENSION_PROP_TYPES, SPACER_PROP_TYPES);
 var DotsSpinnerDefaultProps = {
   size: 60
@@ -10453,7 +10459,7 @@ DotsSpinner.propTypes = DotsSpinnerPropTypes;
 DotsSpinner.defaultProps = DotsSpinnerDefaultProps;
 
 var RocksSpinnerPropTypes = _extends({
-  size: PropTypes$1.number
+  size: PropTypes.number
 }, COLOR_PROP_TYPES, DISPLAY_PROP_TYPES, DIMENSION_PROP_TYPES, SPACER_PROP_TYPES);
 var RocksSpinnerDefaultProps = {
   size: 60
@@ -10511,13 +10517,13 @@ RocksSpinner.propTypes = RocksSpinnerPropTypes;
 RocksSpinner.defaultProps = RocksSpinnerDefaultProps;
 
 var TabPropTypes = _extends({
-  currentTab: PropTypes$1.number.isRequired,
-  onChange: PropTypes$1.func.isRequired,
-  tabs: PropTypes$1.arrayOf(PropTypes$1.shape({
-    index: PropTypes$1.number.isRequired,
-    label: PropTypes$1.string.isRequired,
-    disabled: PropTypes$1.bool,
-    showTab: PropTypes$1.bbol
+  currentTab: PropTypes.number.isRequired,
+  onChange: PropTypes.func.isRequired,
+  tabs: PropTypes.arrayOf(PropTypes.shape({
+    index: PropTypes.number.isRequired,
+    label: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    showTab: PropTypes.bbol
   })).isRequired
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 
@@ -10575,11 +10581,11 @@ var Tab = function Tab(_ref4) {
 Tab.propTypes = TabPropTypes;
 
 var TablePropTypes = _extends({
-  columns: PropTypes$1.array.isRequired,
-  noDataProps: PropTypes$1.shape(),
-  rows: PropTypes$1.array.isRequired,
-  rowsBottomBorderSm: PropTypes$1.bool,
-  rowsSize: PropTypes$1.string
+  columns: PropTypes.array.isRequired,
+  noDataProps: PropTypes.shape(),
+  rows: PropTypes.array.isRequired,
+  rowsBottomBorderSm: PropTypes.bool,
+  rowsSize: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var TableDefaultProps = {
   columns: [],
@@ -10712,8 +10718,8 @@ var Heading = function Heading(_ref2) {
   })));
 };
 Heading.propTypes = {
-  columns: PropTypes$1.arrayOf(PropTypes$1.shape()).isRequired,
-  hasData: PropTypes$1.bool.isRequired
+  columns: PropTypes.arrayOf(PropTypes.shape()).isRequired,
+  hasData: PropTypes.bool.isRequired
 };
 
 var _excluded$7 = ["columnsCount"];
@@ -10735,7 +10741,7 @@ var NoData = function NoData(_ref2) {
   }, props))));
 };
 NoData.propTypes = {
-  columnsCount: PropTypes$1.number.isRequired
+  columnsCount: PropTypes.number.isRequired
 };
 
 var _excluded$6 = ["columns", "rows", "noDataProps", "rowsBottomBorderSm", "rowsSize"];
@@ -10784,11 +10790,11 @@ Table.propTypes = TablePropTypes;
 Table.defaultProps = TableDefaultProps;
 
 var ErrorTemplatePropTypes = {
-  action: PropTypes$1.node,
-  image: PropTypes$1.string,
-  statusCode: PropTypes$1.number,
-  subTitle: PropTypes$1.string,
-  title: PropTypes$1.string
+  action: PropTypes.node,
+  image: PropTypes.string,
+  statusCode: PropTypes.number,
+  subTitle: PropTypes.string,
+  title: PropTypes.string
 };
 var ErrorTemplateDefaultProps = {
   title: "oops!"
@@ -10879,18 +10885,18 @@ var ImageModal = function ImageModal(_ref2) {
   }));
 };
 ImageModal.propTypes = {
-  isOpen: PropTypes$1.bool.isRequired,
-  onClose: PropTypes$1.func.isRequired,
-  imgSrc: PropTypes$1.string
+  isOpen: PropTypes.bool.isRequired,
+  onClose: PropTypes.func.isRequired,
+  imgSrc: PropTypes.string
 };
 ImageModal.defaultProps = {
   imgSrc: ""
 };
 
 var ThumbnailPropTypes = _extends({
-  hasPreview: PropTypes$1.bool,
-  imgSrc: PropTypes$1.string,
-  onClick: PropTypes$1.func
+  hasPreview: PropTypes.bool,
+  imgSrc: PropTypes.string,
+  onClick: PropTypes.func
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ThumbnailDefaultProps = {
   hasPreview: false,
@@ -10968,13 +10974,13 @@ Thumbnail.propTypes = ThumbnailPropTypes;
 Thumbnail.defaultProps = ThumbnailDefaultProps;
 
 var TooltipPropTypes = {
-  arrow: PropTypes$1.bool,
-  children: PropTypes$1.node.isRequired,
-  content: PropTypes$1.node,
-  contentProps: PropTypes$1.shape({}),
-  interactive: PropTypes$1.bool,
-  placement: PropTypes$1.string,
-  renderContent: PropTypes$1.func
+  arrow: PropTypes.bool,
+  children: PropTypes.node.isRequired,
+  content: PropTypes.node,
+  contentProps: PropTypes.shape({}),
+  interactive: PropTypes.bool,
+  placement: PropTypes.string,
+  renderContent: PropTypes.func
 };
 var TooltipDefaultProps = {
   arrow: true,
@@ -11188,21 +11194,21 @@ var WizardStepContent = function WizardStepContent(_ref5) {
   }))));
 };
 WizardStepContent.propTypes = {
-  children: PropTypes$1.node,
-  content: PropTypes$1.node,
-  currentStep: PropTypes$1.number.isRequired,
-  handleNext: PropTypes$1.func.isRequired,
-  handlePrev: PropTypes$1.func.isRequired,
-  isFirstStep: PropTypes$1.bool.isRequired,
-  isHorizontal: PropTypes$1.bool.isRequired,
-  isLastStep: PropTypes$1.bool.isRequired,
-  nextStepMethod: PropTypes$1.string.isRequired,
-  renderActionButtons: PropTypes$1.func,
-  stepCount: PropTypes$1.number.isRequired,
-  submitButtonDisabled: PropTypes$1.bool,
-  submitButtonLoading: PropTypes$1.bool,
-  onFinishDisabled: PropTypes$1.bool,
-  showNavigationButtons: PropTypes$1.bool
+  children: PropTypes.node,
+  content: PropTypes.node,
+  currentStep: PropTypes.number.isRequired,
+  handleNext: PropTypes.func.isRequired,
+  handlePrev: PropTypes.func.isRequired,
+  isFirstStep: PropTypes.bool.isRequired,
+  isHorizontal: PropTypes.bool.isRequired,
+  isLastStep: PropTypes.bool.isRequired,
+  nextStepMethod: PropTypes.string.isRequired,
+  renderActionButtons: PropTypes.func,
+  stepCount: PropTypes.number.isRequired,
+  submitButtonDisabled: PropTypes.bool,
+  submitButtonLoading: PropTypes.bool,
+  onFinishDisabled: PropTypes.bool,
+  showNavigationButtons: PropTypes.bool
 };
 WizardStepContent.defaultProps = {
   children: null,
@@ -11316,30 +11322,30 @@ var WizardStepTitle = function WizardStepTitle(_ref7) {
   }, label), rightTitle && !isHorizontal && /*#__PURE__*/React.createElement(RightTitle, null, rightTitle));
 };
 WizardStepTitle.propTypes = {
-  disabled: PropTypes$1.bool.isRequired,
-  isActive: PropTypes$1.bool.isRequired,
-  isHorizontal: PropTypes$1.bool.isRequired,
-  isPassed: PropTypes$1.bool.isRequired,
-  label: PropTypes$1.node.isRequired,
-  flag: PropTypes$1.node.isRequired,
-  onClick: PropTypes$1.func,
-  transitionDuration: PropTypes$1.number.isRequired
+  disabled: PropTypes.bool.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  isHorizontal: PropTypes.bool.isRequired,
+  isPassed: PropTypes.bool.isRequired,
+  label: PropTypes.node.isRequired,
+  flag: PropTypes.node.isRequired,
+  onClick: PropTypes.func,
+  transitionDuration: PropTypes.number.isRequired
 };
 WizardStepTitle.defaultProps = {
   onClick: function onClick() {}
 };
 
 var WizardPropTypes = _extends({
-  currentStepContent: PropTypes$1.node.isRequired,
-  currentStepIndex: PropTypes$1.number.isRequired,
-  headerFadeColor: PropTypes$1.string,
-  nextStepMethod: PropTypes$1.oneOf(["submit", "button"]),
-  orientation: PropTypes$1.string,
-  setCurrentStepIndex: PropTypes$1.func.isRequired,
-  steps: PropTypes$1.arrayOf(PropTypes$1.string).isRequired,
-  submitButtonDisabled: PropTypes$1.bool,
-  submitButtonLoading: PropTypes$1.bool,
-  transitionDuration: PropTypes$1.number
+  currentStepContent: PropTypes.node.isRequired,
+  currentStepIndex: PropTypes.number.isRequired,
+  headerFadeColor: PropTypes.string,
+  nextStepMethod: PropTypes.oneOf(["submit", "button"]),
+  orientation: PropTypes.string,
+  setCurrentStepIndex: PropTypes.func.isRequired,
+  steps: PropTypes.arrayOf(PropTypes.string).isRequired,
+  submitButtonDisabled: PropTypes.bool,
+  submitButtonLoading: PropTypes.bool,
+  transitionDuration: PropTypes.number
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var WizardDefaultProps = {
   headerFadeColor: "#ffffff",
@@ -11597,21 +11603,21 @@ var StyledStorageList = styled.div.withConfig({
   return theme.palette.gray.regular;
 });
 RadioListBaseItem.propTypes = _extends({
-  listTitle: PropTypes$1.string,
-  files: PropTypes$1.array,
-  LinkComponent: PropTypes$1.func
+  listTitle: PropTypes.string,
+  files: PropTypes.array,
+  LinkComponent: PropTypes.func
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 RadioListBaseItem.defaultProps = {};
 
 var FilesListPropTypes = _extends({
-  listTitle: PropTypes$1.string,
-  files: PropTypes$1.array,
-  LinkComponent: PropTypes$1.func
+  listTitle: PropTypes.string,
+  files: PropTypes.array,
+  LinkComponent: PropTypes.func
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var FilesListDefaultProps = {
   listTitle: "List Title",
-  files: PropTypes$1.array,
-  LinkComponent: PropTypes$1.func
+  files: PropTypes.array,
+  LinkComponent: PropTypes.func
 };
 
 var _excluded$1 = ["files", "LinkComponent"];
@@ -11647,9 +11653,9 @@ FilesList.propTypes = FilesListPropTypes;
 FilesList.defaultProps = FilesListDefaultProps;
 
 var ProgressBarPropTypes = _extends({
-  value: PropTypes$1.number.isRequired,
-  total: PropTypes$1.number.isRequired,
-  progressColor: PropTypes$1.string
+  value: PropTypes.number.isRequired,
+  total: PropTypes.number.isRequired,
+  progressColor: PropTypes.string
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var ProgressBarDefaultProps = {};
 
