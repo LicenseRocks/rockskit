@@ -1,6 +1,6 @@
-import React from 'react';
+import React from "react";
 import { Text } from "../../Typography";
-import styled  from "styled-components";
+import styled from "styled-components";
 import { Icon } from "../../Icon";
 import { DropzoneItemStyles, PreviewWrapperStyles, TrashIcon } from "./SharedStyles";
 import PropTypes from "prop-types";
@@ -22,9 +22,15 @@ export const DropzoneError = ({ title, errors, index, setErrorMessages }) => {
       </div>
       <div className="details">
         <div className="errors">
-          {errors.map(item =>
-            <Text key={item}>{item}</Text>
-          )}
+          {errors.map(error => {
+            let errorMsg = error;
+            if (error.includes("application/")) {
+              errorMsg = error.split("application/")[0] + "." + error.split("application/")[1];
+            }
+            return (
+              <Text key={error}>{errorMsg}</Text>
+            );
+          })}
         </div>
         <TrashIcon onClick={handleErrorDelete} />
       </div>
@@ -35,12 +41,12 @@ export const DropzoneError = ({ title, errors, index, setErrorMessages }) => {
 const DropzoneItem = styled.div`
   ${DropzoneItemStyles};
   background-color: ${({ theme }) => theme.palette.red.light};
-  
+
   .title {
     display: flex;
     flex-direction: column;
   }
-  
+
   .errors {
     margin-right: ${({ theme }) => theme.spacing(4)};
   }
@@ -59,5 +65,5 @@ DropzoneError.propTypes = {
   errors: PropTypes.arrayOf(PropTypes.string).isRequired,
   index: PropTypes.number.isRequired,
   setErrorMessages: PropTypes.func.isRequired,
-}
+};
 
