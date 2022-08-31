@@ -56,3 +56,4 @@ export * from "./utils";
 export * from "./Wizard/Wizard";
 export * from "./FilesList";
 export * from "./ProgressBar";
+export * from "./AspectRatio";
