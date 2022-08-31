@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { text } from "@storybook/addon-knobs";
 
 import { StoryWrapper } from "../../.storybook/decorators";
-import { Icon } from ".";
 import { AspectRatio } from "./AspectRatio";
 
 export default {
