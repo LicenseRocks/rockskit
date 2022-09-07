@@ -13,13 +13,8 @@ import { BoxHeader } from "./Header";
 import { BoxPropTypes, BoxDefaultProps } from "./props";
 
 const BoxContent = styled.div`
-  ${({ contentPadding, padding, theme }) => css`
-    padding: ${theme.spacing(
-      padding,
-      padding,
-      padding,
-      contentPadding ? 20 : padding
-    )};
+  ${({ padding, theme }) => css`
+    padding: ${theme.spacing(padding)};
 
     ${theme.breakpoints.down("sm")} {
       padding: ${theme.spacing(padding)};
@@ -40,7 +35,6 @@ export const Box = ({
   alertColor,
   children,
   cocreator,
-  contentPadding,
   footerAction,
   footerActionLoading,
   footerActionDisabled,
@@ -97,7 +91,6 @@ export const Box = ({
       )}
       <BoxContent
         padding={padding}
-        contentPadding={contentPadding}
         transparentSm={transparentSm}
       >
         {children}
@@ -110,7 +103,6 @@ export const Box = ({
         actionSize={footerActionSize}
         actionTitle={footerActionTitle}
         actionType={footerActionType}
-        contentPadding={contentPadding}
         padding={padding}
         renderAction={footerRenderAction}
         renderTitle={footerRenderTitle}
@@ -135,7 +127,6 @@ export const Box = ({
         actionIcon={headerActionIcon}
         actionIconProps={headerActionIconProps}
         actionIconSize={headerActionIconSize}
-        contentPadding={contentPadding}
         padding={padding}
         metaTitle={headerMetaTitle}
         metaTitleColor={headerMetaTitleColor}

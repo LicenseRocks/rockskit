@@ -9,8 +9,8 @@ import { useMediaQuery } from "../../hooks";
 const Wrapper = styled.div`
   box-sizing: border-box;
   background-color: ${({ theme }) => theme.palette.common.white};
-  border-bottom: 1px solid ${({ theme }) => theme.palette.gray.semiLight};
-  border-radius: 16px !important;
+  border-bottom: 2px solid ${({ theme }) => theme.palette.gray.regular};
+  border-radius: 16px 16px 0 0;
 
   ${({ transparentSm, theme }) =>
     transparentSm &&
@@ -44,21 +44,13 @@ const StyledBoxHeader = styled(Flex).attrs(() => ({
 `;
 
 const Content = styled.div`
-  ${({ contentPadding, padding, theme }) => css`
-    padding: ${theme.spacing(0, contentPadding ? 20 : padding)};
+  ${({ padding, theme }) => css`
+    padding: ${theme.spacing(0, padding)};
 
     ${theme.breakpoints.down("sm")} {
       padding: ${theme.spacing(0, padding)};
     }
   `}
-
-  ${({ transparentSm, theme }) =>
-    transparentSm &&
-    css`
-      ${theme.breakpoints.down("sm")} {
-        padding: ${theme.spacing(8, 0, 0, 0)};
-      }
-    `}
 `;
 
 export const BoxHeader = ({

@@ -10,7 +10,6 @@ export const FormRowPropTypes = {
   labelAlign: PropTypes.oneOf(["start", "center"]),
   labelGutter: PropTypes.bool,
   show: PropTypes.bool.isRequired,
-  labelColor: PropTypes.oneOf(["dark", "light"]),
   direction: PropTypes.oneOf(["column", "row"]),
   ...SPACER_PROP_TYPES,
   ...DISPLAY_PROP_TYPES,
@@ -21,6 +20,5 @@ export const FormRowDefaultProps = {
   labelAlign: "center",
   labelGutter: false,
   show: true,
-  labelColor: "light",
   direction: "row",
 };

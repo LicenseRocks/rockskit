@@ -33,17 +33,12 @@ const StyledRow = styled.div`
 
 const StyledLabel = styled(FormLabel)`
   flex: 0 0 30%;
+  color: ${({ theme }) => theme.palette.gray.black};
 
   ${({ direction }) =>
     direction === "column" &&
     css`
       margin-bottom: ${({ theme }) => theme.spacing(3)};
-    `}
-
-  ${({ labelColor }) =>
-    labelColor === "dark" &&
-    css`
-      color: ${({ theme }) => theme.palette.gray.black};
     `}
 
   ${({ theme }) => theme.breakpoints.down("sm")} {
@@ -130,7 +125,6 @@ export const FormRow = ({
   labelAlign,
   labelGutter,
   show,
-  labelColor,
   direction,
   bottomHintText,
   ...props
@@ -153,7 +147,6 @@ export const FormRow = ({
           labelAlign={labelAlign}
           labelGutter={labelGutter}
           direction={direction}
-          labelColor={labelColor}
         >
           {label}
           {hint && (
