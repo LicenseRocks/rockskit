@@ -14,12 +14,12 @@ const StyledDivider = styled.hr`
 
   &:before {
     content: "";
-    background-color: ${({ theme }) => theme.palette.gray.semiLight};
+    background-color: ${({ theme, black }) => black ? theme.palette.gray.black : theme.palette.gray.regular};
     position: absolute;
     left: 0;
     top: 50%;
     width: 100%;
-    height: ${({ thickness }) => thickness}px;
+    height: ${({ thickness = "2", black }) => black ? "1" : thickness}px;
   }
   &:after {
     content: "${({ text }) => text}";
@@ -37,7 +37,7 @@ const StyledDivider = styled.hr`
   ${({ vertical }) =>
     vertical &&
     css`
-      width: ${({ thickness }) => thickness}px;
+      width: ${({ thickness = "2", black }) => black ? "1" : thickness}px;
       height: 100%;
     `}
 

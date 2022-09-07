@@ -11,7 +11,6 @@ export default {
 };
 
 const createSharedDefaultProps = () => ({
-  contentPadding: boolean("Content padding", false),
   footerActionTitle: text("Footer action title", "Submit"),
   footerActionDisabled: boolean("Footer action disabled", false),
   footerActionLoading: boolean("Footer action loading", false),

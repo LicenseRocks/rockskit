@@ -10,12 +10,13 @@ const StyledBoxFooter = styled(Flex).attrs(() => ({
   alignItems: "center",
   justify: "space-between",
 }))`
-  ${({ contentPadding, padding, theme }) => css`
+  ${({ padding, theme }) => css`
     width: 100%;
     box-sizing: border-box;
     background-color: ${theme.palette.common.white};
-    padding: ${theme.spacing(4, padding, 4, contentPadding ? 20 : padding)};
-    border-top: 1px solid ${theme.palette.gray.semiLight};
+    padding: ${theme.spacing(4, padding, 4, padding)};
+    border-top: 2px solid ${theme.palette.gray.regular};
+    border-radius: 0 0 16px 16px;
 
     ${theme.breakpoints.down("sm")} {
       padding: ${theme.spacing(padding, padding, 0, padding)};
@@ -45,7 +46,7 @@ export const BoxFooter = ({
   ...props
 }) => {
   if (!renderTitle() && !renderAction() && !actionTitle) return null;
-
+  
   return (
     <StyledBoxFooter {...props}>
       <Flex item>{renderTitle()}</Flex>
