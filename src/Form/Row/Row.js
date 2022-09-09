@@ -8,6 +8,8 @@ import { DISPLAY, getFormRowErrors, Icon, SPACER, Tooltip } from "../..";
 const StyledRow = styled.div`
   display: flex;
   min-height: 40px;
+  gap: ${({ theme }) => theme.spacing(4)};
+  word-break: break-word;
   margin-bottom: ${({ theme }) => theme.spacing(2)};
   ${({ show }) => !show && "display: none"};
   ${({ theme }) => theme.breakpoints.down("sm")} {
