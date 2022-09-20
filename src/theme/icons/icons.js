@@ -62,12 +62,11 @@ import {
   faTrash as farTrash,
   faPencil as farPencil,
   faPassport as farPassport,
+  farUpRightAndDownLeftFromCenter as farMaximize,
+  faArrowUpRight as farArrowUpRight,
 } from "@fortawesome/pro-regular-svg-icons";
 
-import {
-  faIdCard as farIdCard
-} from "@fortawesome/free-regular-svg-icons";
-
+import { faIdCard as farIdCard } from "@fortawesome/free-regular-svg-icons";
 
 export const FreeSolidIconSet = {
   faAngleDown,
@@ -127,8 +126,10 @@ export const FreeSolidIconSet = {
   farArrowDownToBracket,
   farPhotoFilmMusic,
   farTriangleExclamation,
+  farArrowUpRight,
   farTrash,
   farPencil,
   farPassport,
-  farIdCard
+  farIdCard,
+  farMaximize,
 };
