@@ -152,6 +152,8 @@ var FreeBrandIconSet = {
 };
 
 var FreeSolidIconSet = {
+  farArrowUpRight: proRegularSvgIcons.faArrowUpRight,
+  farUpRightAndDownLeftFromCenter: proRegularSvgIcons.faUpRightAndDownLeftFromCenter,
   faAngleDown: freeSolidSvgIcons.faAngleDown,
   faAngleUp: freeSolidSvgIcons.faAngleUp,
   faArrowLeft: freeSolidSvgIcons.faArrowLeft,
@@ -807,6 +809,10 @@ var StyledButton$5 = styled__default["default"](ButtonBase).withConfig({
 });
 
 var colorMapper$2 = function colorMapper(color, theme) {
+  if (color === "black") return {
+    backgroundColor: theme.palette.black.main,
+    color: theme.palette.common.white
+  };
   if (color === "secondary") return {
     backgroundColor: theme.palette.gray.dark,
     color: theme.palette.common.white
@@ -1716,9 +1722,9 @@ var StyledBadge = styled__default["default"].div.withConfig({
 var StyledText$1 = styled__default["default"](Text).withConfig({
   displayName: "Tiny__StyledText",
   componentId: "sc-s2p0yz-1"
-})(["", ""], function (_ref6) {
+})(["line-height:1;", ""], function (_ref6) {
   var color = _ref6.color;
-  return color === "primary" && styled.css(["mix-blend-mode:exclusion;filter:invert(1);"]);
+  return color === "primary" && styled.css(["line-height:1;mix-blend-mode:exclusion;filter:invert(1);"]);
 });
 var TinyBadge = function TinyBadge(_ref7) {
   var color = _ref7.color,
@@ -1788,7 +1794,7 @@ var StyledBoxFooter = styled__default["default"](Flex).attrs(function () {
 })(["", " ", ""], function (_ref) {
   var padding = _ref.padding,
       theme = _ref.theme;
-  return styled.css(["width:100%;box-sizing:border-box;background-color:", ";padding:", ";border-top:2px solid ", ";border-radius:0 0 16px 16px;", "{padding:", ";}"], theme.palette.common.white, theme.spacing(4, padding, 4, padding), theme.palette.gray.regular, theme.breakpoints.down("sm"), theme.spacing(padding, padding, 0, padding));
+  return styled.css(["width:100%;box-sizing:border-box;background-color:", ";padding:", ";border-top:2px solid ", ";border-radius:0 0 16px 16px !important;", "{padding:", ";}"], theme.palette.common.white, theme.spacing(4, padding, 4, padding), theme.palette.gray.regular, theme.breakpoints.down("sm"), theme.spacing(padding, padding, 0, padding));
 }, function (_ref2) {
   var padding = _ref2.padding,
       transparentSm = _ref2.transparentSm,
@@ -2040,19 +2046,21 @@ var BoxDefaultProps = _extends({
   transparentSm: false
 }, BoxBaseDefaultProps);
 
-var _excluded$1v = ["alert", "alertColor", "children", "cocreator", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionSize", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconHiddenSm", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "loadingProps", "padding", "tabs", "tabsProps", "transition", "transparentSm"];
+var _excluded$1v = ["alert", "alertColor", "children", "cocreator", "footerAction", "footerActionLoading", "footerActionDisabled", "footerActionSize", "footerActionTitle", "footerActionType", "footerRenderAction", "footerRenderTitle", "headerAction", "headerActionIcon", "headerActionIconProps", "headerActionIconSize", "headerMetaTitle", "headerMetaTitleColor", "headerRenderAction", "headerRenderTitle", "headerSubTitle", "headerSubTitleColor", "headerTitle", "headerTitleIcon", "headerTitleIconHiddenSm", "headerTitleIconProps", "headerTitleSize", "loading", "loadingMessage", "loadingProps", "padding", "noContentPadding", "tabs", "tabsProps", "transition", "transparentSm"];
 var BoxContent = styled__default["default"].div.withConfig({
   displayName: "Box__BoxContent",
   componentId: "sc-1d03rz8-0"
 })(["", " ", ""], function (_ref) {
   var padding = _ref.padding,
-      theme = _ref.theme;
-  return styled.css(["padding:", ";", "{padding:", ";}"], theme.spacing(padding), theme.breakpoints.down("sm"), theme.spacing(padding));
+      theme = _ref.theme,
+      noContentPadding = _ref.noContentPadding;
+  return styled.css(["padding:", ";", "{padding:", ";}"], noContentPadding ? 0 : theme.spacing(padding), theme.breakpoints.down("sm"), noContentPadding ? 0 : theme.spacing(padding));
 }, function (_ref2) {
   var padding = _ref2.padding,
       transparentSm = _ref2.transparentSm,
-      theme = _ref2.theme;
-  return transparentSm && styled.css(["", "{padding:", ";}"], theme.breakpoints.down("sm"), theme.spacing(padding, 0));
+      theme = _ref2.theme,
+      noContentPadding = _ref2.noContentPadding;
+  return transparentSm && styled.css(["", "{padding:", ";}"], theme.breakpoints.down("sm"), noContentPadding ? 0 : theme.spacing(padding, 0));
 });
 var Box$1 = function Box(_ref3) {
   var alert = _ref3.alert,
@@ -2086,6 +2094,7 @@ var Box$1 = function Box(_ref3) {
       loadingMessage = _ref3.loadingMessage,
       loadingProps = _ref3.loadingProps,
       padding = _ref3.padding,
+      noContentPadding = _ref3.noContentPadding,
       tabs = _ref3.tabs,
       tabsProps = _ref3.tabsProps,
       transition = _ref3.transition,
@@ -2108,6 +2117,7 @@ var Box$1 = function Box(_ref3) {
     mt: isMobile && transparentSm ? 6 : 0
   }), /*#__PURE__*/React__default["default"].createElement(BoxContent, {
     padding: padding,
+    noContentPadding: noContentPadding,
     transparentSm: transparentSm
   }, children), /*#__PURE__*/React__default["default"].createElement(BoxFooter, {
     action: footerAction,
@@ -5124,20 +5134,23 @@ var _excluded$10 = ["children", "errors", "fields", "hint", "label", "labelAlign
 var StyledRow$1 = styled__default["default"].div.withConfig({
   displayName: "Row__StyledRow",
   componentId: "sc-1ir0fqh-0"
-})(["display:flex;min-height:40px;margin-bottom:", ";", ";", "{flex-wrap:wrap;}", " ", " ", " ", ""], function (_ref) {
+})(["display:flex;min-height:40px;gap:", ";word-break:break-word;margin-bottom:", ";", ";", "{flex-wrap:wrap;}", " ", " ", " ", ""], function (_ref) {
   var theme = _ref.theme;
-  return theme.spacing(2);
+  return theme.spacing(4);
 }, function (_ref2) {
-  var show = _ref2.show;
-  return !show && "display: none";
+  var theme = _ref2.theme;
+  return theme.spacing(2);
 }, function (_ref3) {
-  var theme = _ref3.theme;
-  return theme.breakpoints.down("sm");
+  var show = _ref3.show;
+  return !show && "display: none";
 }, function (_ref4) {
-  var labelAlign = _ref4.labelAlign;
-  return labelAlign === "center" && styled.css(["align-items:center;"]);
+  var theme = _ref4.theme;
+  return theme.breakpoints.down("sm");
 }, function (_ref5) {
-  var direction = _ref5.direction;
+  var labelAlign = _ref5.labelAlign;
+  return labelAlign === "center" && styled.css(["align-items:center;"]);
+}, function (_ref6) {
+  var direction = _ref6.direction;
   return direction === "column" && styled.css(["flex-direction:column;align-items:start;"]);
 }, function (theme) {
   return SPACER(theme);
@@ -5147,50 +5160,50 @@ var StyledRow$1 = styled__default["default"].div.withConfig({
 var StyledLabel$3 = styled__default["default"](FormLabel).withConfig({
   displayName: "Row__StyledLabel",
   componentId: "sc-1ir0fqh-1"
-})(["flex:0 0 30%;color:", ";", " ", "{flex:100%;margin-bottom:", ";padding-top:0;}", ""], function (_ref6) {
-  var theme = _ref6.theme;
+})(["flex:0 0 30%;color:", ";", " ", "{flex:100%;margin-bottom:", ";padding-top:0;}", ""], function (_ref7) {
+  var theme = _ref7.theme;
   return theme.palette.gray.black;
-}, function (_ref7) {
-  var direction = _ref7.direction;
-  return direction === "column" && styled.css(["margin-bottom:", ";"], function (_ref8) {
-    var theme = _ref8.theme;
+}, function (_ref8) {
+  var direction = _ref8.direction;
+  return direction === "column" && styled.css(["margin-bottom:", ";"], function (_ref9) {
+    var theme = _ref9.theme;
     return theme.spacing(3);
   });
-}, function (_ref9) {
-  var theme = _ref9.theme;
-  return theme.breakpoints.down("sm");
 }, function (_ref10) {
   var theme = _ref10.theme;
-  return theme.spacing(2);
+  return theme.breakpoints.down("sm");
 }, function (_ref11) {
-  var labelAlign = _ref11.labelAlign,
-      labelGutter = _ref11.labelGutter,
-      theme = _ref11.theme;
+  var theme = _ref11.theme;
+  return theme.spacing(2);
+}, function (_ref12) {
+  var labelAlign = _ref12.labelAlign,
+      labelGutter = _ref12.labelGutter,
+      theme = _ref12.theme;
   return labelAlign === "start" && labelGutter && styled.css(["padding-top:", ";"], theme.spacing(3));
 });
 var FieldsAndErrorsWrapper = styled__default["default"].div.withConfig({
   displayName: "Row__FieldsAndErrorsWrapper",
   componentId: "sc-1ir0fqh-2"
-})(["flex:1;", ""], function (_ref12) {
-  var direction = _ref12.direction;
+})(["flex:1;", ""], function (_ref13) {
+  var direction = _ref13.direction;
   return direction === "column" && styled.css(["width:100%;"]);
 });
 var Fields = styled__default["default"].div.withConfig({
   displayName: "Row__Fields",
   componentId: "sc-1ir0fqh-3"
-})(["display:flex;align-items:center;width:100%;& > *{:not(:last-child){margin-right:", ";}}", ""], function (_ref13) {
-  var theme = _ref13.theme;
+})(["display:flex;align-items:center;width:100%;& > *{:not(:last-child){margin-right:", ";}}", ""], function (_ref14) {
+  var theme = _ref14.theme;
   return theme.spacing(4);
-}, function (_ref14) {
-  var bottomHintText = _ref14.bottomHintText;
-  return bottomHintText && styled.css(["position:relative;z-index:0;margin-bottom:", ";&::after{content:\"", "\";position:absolute;bottom:-50%;left:0;z-index:-1;display:flex;align-items:flex-end;width:100%;height:100%;border-radius:6px 6px 12px 12px;padding-bottom:2px;padding-left:", ";background-color:", ";}"], function (_ref15) {
-    var theme = _ref15.theme;
-    return theme.spacing(5);
-  }, bottomHintText, function (_ref16) {
+}, function (_ref15) {
+  var bottomHintText = _ref15.bottomHintText;
+  return bottomHintText && styled.css(["position:relative;z-index:0;margin-bottom:", ";&::after{content:\"", "\";position:absolute;bottom:-50%;left:0;z-index:-1;display:flex;align-items:flex-end;width:100%;height:100%;border-radius:6px 6px 12px 12px;padding-bottom:2px;padding-left:", ";background-color:", ";}"], function (_ref16) {
     var theme = _ref16.theme;
-    return theme.spacing(6);
-  }, function (_ref17) {
+    return theme.spacing(5);
+  }, bottomHintText, function (_ref17) {
     var theme = _ref17.theme;
+    return theme.spacing(6);
+  }, function (_ref18) {
+    var theme = _ref18.theme;
     return theme.palette.gray.regular;
   });
 });
@@ -5198,18 +5211,18 @@ var Hint = styled__default["default"].span.withConfig({
   displayName: "Row__Hint",
   componentId: "sc-1ir0fqh-4"
 })(["background:#f0f0f4;border-radius:100%;width:20px;height:20px;display:inline-flex;align-items:center;justify-content:center;margin-left:8px;vertical-align:middle;svg{color:#8685a6;font-size:10px;}"]);
-var FormRow = function FormRow(_ref18) {
-  var children = _ref18.children,
-      errors = _ref18.errors,
-      fields = _ref18.fields,
-      hint = _ref18.hint,
-      label = _ref18.label,
-      labelAlign = _ref18.labelAlign,
-      labelGutter = _ref18.labelGutter,
-      show = _ref18.show,
-      direction = _ref18.direction,
-      bottomHintText = _ref18.bottomHintText,
-      props = _objectWithoutPropertiesLoose(_ref18, _excluded$10);
+var FormRow = function FormRow(_ref19) {
+  var children = _ref19.children,
+      errors = _ref19.errors,
+      fields = _ref19.fields,
+      hint = _ref19.hint,
+      label = _ref19.label,
+      labelAlign = _ref19.labelAlign,
+      labelGutter = _ref19.labelGutter,
+      show = _ref19.show,
+      direction = _ref19.direction,
+      bottomHintText = _ref19.bottomHintText,
+      props = _objectWithoutPropertiesLoose(_ref19, _excluded$10);
 
   var rowErrors = Array.isArray(errors) ? errors : getFormRowErrors(errors, fields);
   var validChildren = React.Children.toArray(children).filter(Boolean);
@@ -10650,12 +10663,12 @@ var TableDefaultProps = {
 var Row = styled__default["default"].tr.withConfig({
   displayName: "Row",
   componentId: "sc-1ciagy6-0"
-})(["height:", "px;border-bottom:1px solid ", ";background-color:", ";", ""], function (_ref) {
+})(["height:", "px;border-bottom:2px solid ", ";background-color:", ";&:last-of-type{border-bottom:none;}", ""], function (_ref) {
   var size = _ref.size;
-  return size === "sm" ? 32 : 64;
+  return size === "sm" ? 32 : 80;
 }, function (_ref2) {
   var theme = _ref2.theme;
-  return theme.palette.gray.semiLight;
+  return theme.palette.gray.regular;
 }, function (_ref3) {
   var theme = _ref3.theme;
   return theme.palette.common.white;
@@ -10675,7 +10688,7 @@ var StyledTd = styled__default["default"].td.withConfig({
       flexSm = _ref.flexSm,
       rowsBottomBorderSm = _ref.rowsBottomBorderSm,
       theme = _ref.theme;
-  return styled.css(["", " ", "{display:", ";margin-bottom:", ";", " ", " ", " ", " ", ":last-child{border-bottom:0;margin-bottom:0;}}"], align && "text-align: " + align + ";", theme.breakpoints.down("sm"), function (_ref2) {
+  return styled.css(["&:first-child{padding-left:", "}&:last-child{padding-right:", "}", " ", "{display:", ";margin-bottom:", ";", " ", " ", " ", " ", " &:first-child{padding-left:0;}:last-child{border-bottom:0;margin-bottom:0;padding-right:0;}}"], theme.spacing(4), theme.spacing(4), align && "text-align: " + align + ";", theme.breakpoints.down("sm"), function (_ref2) {
     var hiddenSm = _ref2.hiddenSm;
     return hiddenSm ? "none" : "block";
   }, theme.spacing(4), rowsBottomBorderSm && styled.css(["border-bottom:1px solid ", ";"], theme.palette.gray.semiLight), displaySm === "inline" && "text-align: right;", hiddenLabelSm && "text-align: left;", !hiddenLabelSm && styled.css(["::before{content:attr(data-label);", " color:", ";padding-bottom:", ";display:block;font-weight:normal;font-size:12px;line-height:120%;}"], displaySm === "inline" && "float: left;", theme.palette.text.secondary, theme.spacing(2)), flexSm && styled.css(["display:flex;align-items:center;justify-content:space-around;"]));
@@ -10685,16 +10698,17 @@ var getContentByColType = function getContentByColType(content, col) {
   switch (col == null ? void 0 : col.type) {
     case "text":
       return /*#__PURE__*/React__default["default"].createElement(Text, {
-        color: "textSecondary",
+        color: "textPrimary",
         content: content,
-        fontWeight: "bold"
+        fontWeight: "bold",
+        fontSize: "lg"
       });
 
     case "action":
       return content.map(function (act) {
         return /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
           icon: act.icon,
-          color: "secondary",
+          color: "black",
           mx: 4
         }, act));
       });
@@ -10702,7 +10716,7 @@ var getContentByColType = function getContentByColType(content, col) {
     case "icon":
       return /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
         icon: content.icon,
-        color: "secondary",
+        color: "black",
         size: "lg"
       }, content));
 
@@ -10745,27 +10759,28 @@ var StyledThead = styled__default["default"].thead.withConfig({
 })(["", ""], function (_ref) {
   var hasData = _ref.hasData,
       theme = _ref.theme;
-  return hasData && styled.css(["", "{border:none;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;}"], theme.breakpoints.down("sm"));
+  return hasData && styled.css(["tr th{&:first-child{padding-left:", ";}&:last-child{padding-right:", ";}}border-bottom:2px solid ", ";", "{border:none;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;}"], theme.spacing(6), theme.spacing(6), function (_ref2) {
+    var theme = _ref2.theme;
+    return theme.palette.gray.regular;
+  }, theme.breakpoints.down("sm"));
 });
-var Heading = function Heading(_ref2) {
-  var columns = _ref2.columns,
-      hasData = _ref2.hasData;
+var Heading = function Heading(_ref3) {
+  var columns = _ref3.columns,
+      hasData = _ref3.hasData;
   return columns.length > 0 && /*#__PURE__*/React__default["default"].createElement(StyledThead, {
     hasData: hasData
   }, /*#__PURE__*/React__default["default"].createElement(Row, {
     size: "sm",
     hasData: hasData
-  }, columns.map(function (_ref3) {
-    var _ref3$label = _ref3.label,
-        label = _ref3$label === void 0 ? "" : _ref3$label,
-        _ref3$render = _ref3.render,
-        render = _ref3$render === void 0 ? function () {} : _ref3$render;
+  }, columns.map(function (_ref4) {
+    var _ref4$label = _ref4.label,
+        label = _ref4$label === void 0 ? "" : _ref4$label,
+        _ref4$render = _ref4.render,
+        render = _ref4$render === void 0 ? function () {} : _ref4$render;
     return /*#__PURE__*/React__default["default"].createElement("th", null, render() || label && /*#__PURE__*/React__default["default"].createElement(Text, {
       align: "left",
-      color: "textSecondary",
+      color: "textPrimary",
       content: label,
-      fontSize: "sm",
-      fontStyle: "italic",
       fontWeight: "normal"
     }));
   })));
