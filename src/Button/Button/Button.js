@@ -18,6 +18,12 @@ const StyledButton = styled(ButtonBase)`
 `;
 
 const colorMapper = (color, theme) => {
+  if (color === "black")
+    return {
+      backgroundColor: theme.palette.black.main,
+      color: theme.palette.common.white,
+    };
+
   if (color === "secondary")
     return {
       backgroundColor: theme.palette.gray.dark,

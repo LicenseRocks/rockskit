@@ -16,7 +16,7 @@ const StyledBoxFooter = styled(Flex).attrs(() => ({
     background-color: ${theme.palette.common.white};
     padding: ${theme.spacing(4, padding, 4, padding)};
     border-top: 2px solid ${theme.palette.gray.regular};
-    border-radius: 0 0 16px 16px;
+    border-radius: 0 0 16px 16px !important;
 
     ${theme.breakpoints.down("sm")} {
       padding: ${theme.spacing(padding, padding, 0, padding)};

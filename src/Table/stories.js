@@ -9,7 +9,7 @@ const ROW = {
   },
   license: (
     <div>
-      <Text content="Adobe" color="textSecondary" />
+      <Text content="Adobe" color="textPrimary" />
       <H4 content="Acrobat Pro Publisher" />
     </div>
   ),

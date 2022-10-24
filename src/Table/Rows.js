@@ -13,8 +13,17 @@ const StyledTd = styled.td`
     rowsBottomBorderSm,
     theme,
   }) => css`
+    &:first-child {
+      padding-left: ${theme.spacing(4)}
+    }
+    
+    &:last-child {
+      padding-right: ${theme.spacing(4)}
+    }
+    
     ${align && `text-align: ${align};`}
     ${theme.breakpoints.down("sm")} {
+
       display: ${({ hiddenSm }) => (hiddenSm ? "none" : "block")};
       margin-bottom: ${theme.spacing(4)};
 
@@ -47,9 +56,14 @@ const StyledTd = styled.td`
         justify-content: space-around;
       `}
 
+      &:first-child {
+        padding-left: 0;
+      }
+      
       :last-child {
         border-bottom: 0;
         margin-bottom: 0;
+        padding-right: 0;
       }
     }
   `}
@@ -58,14 +72,14 @@ const StyledTd = styled.td`
 const getContentByColType = (content, col) => {
   switch (col?.type) {
     case "text":
-      return <Text color="textSecondary" content={content} fontWeight="bold" />;
+      return <Text color="textPrimary" content={content} fontWeight="bold" fontSize="lg" />;
     case "action":
       return content.map((act) => (
-        <Icon icon={act.icon} color="secondary" mx={4} {...act} />
+        <Icon icon={act.icon} color="black" mx={4} {...act} />
       ));
     case "icon":
       return (
-        <Icon icon={content.icon} color="secondary" size="lg" {...content} />
+        <Icon icon={content.icon} color="black" size="lg" {...content} />
       );
     default:
       return content;

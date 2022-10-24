@@ -13,19 +13,19 @@ import { BoxHeader } from "./Header";
 import { BoxPropTypes, BoxDefaultProps } from "./props";
 
 const BoxContent = styled.div`
-  ${({ padding, theme }) => css`
-    padding: ${theme.spacing(padding)};
+  ${({ padding, theme, noContentPadding }) => css`
+    padding: ${noContentPadding ? 0 : theme.spacing(padding)};
 
     ${theme.breakpoints.down("sm")} {
-      padding: ${theme.spacing(padding)};
+      padding: ${noContentPadding ? 0 : theme.spacing(padding)};
     }
   `}
 
-  ${({ padding, transparentSm, theme }) =>
+  ${({ padding, transparentSm, theme, noContentPadding }) =>
     transparentSm &&
     css`
       ${theme.breakpoints.down("sm")} {
-        padding: ${theme.spacing(padding, 0)};
+        padding: ${noContentPadding ? 0 : theme.spacing(padding, 0)};
       }
     `}
 `;
@@ -62,6 +62,7 @@ export const Box = ({
   loadingMessage,
   loadingProps,
   padding,
+  noContentPadding,
   tabs,
   tabsProps,
   transition,
@@ -91,6 +92,7 @@ export const Box = ({
       )}
       <BoxContent
         padding={padding}
+        noContentPadding={noContentPadding}
         transparentSm={transparentSm}
       >
         {children}

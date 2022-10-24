@@ -28,8 +28,10 @@ const StyledBadge = styled.div`
 `;
 
 const StyledText = styled(Text)`
+  line-height: 1;
   ${({ color }) => color === "primary"
     && css`
+      line-height: 1;
       mix-blend-mode: exclusion;
       filter: invert(1);
     `}
