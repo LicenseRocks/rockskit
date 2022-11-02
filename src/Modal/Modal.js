@@ -123,7 +123,7 @@ export const Modal = ({
         <Title>
           <H3 content={title} />
 
-          <CloseModalIcon icon="times" onClick={onClose} />
+          <CloseModalIcon icon="xmark-large" onClick={onClose} />
         </Title>
       )}
 

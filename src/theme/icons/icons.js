@@ -53,6 +53,8 @@ import {
   faUserCircle,
 } from "@fortawesome/free-solid-svg-icons";
 
+import { faXmarkLarge as faXmarkLarge } from "@fortawesome/pro-solid-svg-icons";
+
 import {
   faHeart as farHeart,
   faFileArrowUp as farFileArrowUp,
@@ -64,6 +66,7 @@ import {
   faPassport as farPassport,
   faUpRightAndDownLeftFromCenter as farUpRightAndDownLeftFromCenter,
   faArrowUpRight as farArrowUpRight,
+  faXmark as farXmark
 } from "@fortawesome/pro-regular-svg-icons";
 
 import { faIdCard as farIdCard } from "@fortawesome/free-regular-svg-icons";
@@ -132,4 +135,6 @@ export const FreeSolidIconSet = {
   farPencil,
   farPassport,
   farIdCard,
+  farXmark,
+  faXmarkLarge
 };

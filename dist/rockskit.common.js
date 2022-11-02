@@ -1722,7 +1722,7 @@ var StyledBadge = styled__default["default"].div.withConfig({
 var StyledText$1 = styled__default["default"](Text).withConfig({
   displayName: "Tiny__StyledText",
   componentId: "sc-s2p0yz-1"
-})(["line-height:1;", ""], function (_ref6) {
+})(["line-height:1 !important;", ""], function (_ref6) {
   var color = _ref6.color;
   return color === "primary" && styled.css(["line-height:1;mix-blend-mode:exclusion;filter:invert(1);"]);
 });
@@ -2561,7 +2561,7 @@ var DetailsTableDefaultProps = {
   size: "md"
 };
 
-var _excluded$1p = ["expandButtonTitle", "expandButtonProps", "labelTextTransform", "labelFontSize", "labelWidth", "labelWidthSm", "justifyBetween", "rows", "size"];
+var _excluded$1p = ["expandButtonTitle", "expandButtonProps", "labelTextTransform", "labelFontSize", "labelWidth", "labelWidthSm", "justifyBetween", "rows", "size", "showContentImmediately"];
 var Wrapper$c = styled__default["default"].div.withConfig({
   displayName: "DetailsTable__Wrapper",
   componentId: "sc-41caw8-0"
@@ -2645,9 +2645,10 @@ var DetailsTable = function DetailsTable(_ref16) {
       var justifyBetween = _ref16.justifyBetween,
       rows = _ref16.rows,
       size = _ref16.size,
+      showContentImmediately = _ref16.showContentImmediately,
       props = _objectWithoutPropertiesLoose(_ref16, _excluded$1p);
 
-  var _useState = React.useState(false),
+  var _useState = React.useState(showContentImmediately),
       expanded = _useState[0],
       setExpanded = _useState[1];
 
@@ -2698,7 +2699,7 @@ var DetailsTable = function DetailsTable(_ref16) {
     return !row.expandable;
   }).map(function (row) {
     return renderRow(row);
-  }), showExpandButton && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(OutlineButton, _extends({
+  }), showExpandButton && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, showContentImmediately ? null : /*#__PURE__*/React__default["default"].createElement(OutlineButton, _extends({
     color: "secondary",
     endIcon: expanded ? "chevron-up" : "chevron-down",
     onClick: function onClick() {

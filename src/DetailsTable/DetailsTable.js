@@ -75,9 +75,10 @@ export const DetailsTable = ({
   justifyBetween,
   rows,
   size,
+  showContentImmediately,
   ...props
 }) => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(showContentImmediately);
   const showExpandButton = rows?.some((row) => row.expandable);
 
   const renderRow = ({
@@ -135,16 +136,19 @@ export const DetailsTable = ({
       {rows.filter((row) => !row.expandable).map((row) => renderRow(row))}
       {showExpandButton && (
         <>
-          <OutlineButton
-            color="secondary"
-            endIcon={expanded ? "chevron-up" : "chevron-down"}
-            onClick={() => setExpanded((prev) => !prev)}
-            size="xs"
-            mb={4}
-            {...expandButtonProps}
-          >
-            {expandButtonTitle}
-          </OutlineButton>
+          {showContentImmediately
+            ? null
+            : <OutlineButton
+                color="secondary"
+                endIcon={expanded ? "chevron-up" : "chevron-down"}
+                onClick={() => setExpanded((prev) => !prev)}
+                size="xs"
+                mb={4}
+                {...expandButtonProps}
+              >
+                {expandButtonTitle}
+              </OutlineButton>
+          }
           {expanded &&
             rows.filter((row) => row.expandable).map((row) => renderRow(row))}
         </>

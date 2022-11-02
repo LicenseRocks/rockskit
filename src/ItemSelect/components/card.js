@@ -16,6 +16,7 @@ const CardItem = styled.div`
 
 const CardTitle = styled(H6)`
   flex: 1;
+  align-items: center;
   height: 60px;
   width: 100%;
   padding-left: ${({ theme }) => theme.spacing(3)};

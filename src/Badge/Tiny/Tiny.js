@@ -28,7 +28,7 @@ const StyledBadge = styled.div`
 `;
 
 const StyledText = styled(Text)`
-  line-height: 1;
+  line-height: 1 !important;
   ${({ color }) => color === "primary"
     && css`
       line-height: 1;
