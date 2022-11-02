@@ -40,7 +40,7 @@ export const UploaderPreviewItem = ({
   }, [editMode]);
 
   return (
-    <DropzoneItem key={file.name}>
+    <DropzoneItem key={name}>
       <div className="details">
         {file.type.startsWith("image") ? (
           <PreviewWrapper>
@@ -52,7 +52,13 @@ export const UploaderPreviewItem = ({
           </PreviewWrapper>
         ) : null}
         {file.type.startsWith("video") ? (
-          <VideoThumbnail videoUrl={file.preview} width={IMAGE_PREVIEW_SIZE} height={IMAGE_PREVIEW_SIZE} />
+          <PreviewWrapper>
+            {file.preview ? (
+              <VideoThumbnail videoUrl={file.preview} width={IMAGE_PREVIEW_SIZE} height={IMAGE_PREVIEW_SIZE} />
+            ) : (
+              <H4 content={fileExt} color="textSecondary" noWrap />
+            )}
+          </PreviewWrapper>
         ) : null}
 
         <div>
