@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
-import VideoThumbnail from "react-video-thumbnail";
 import { H4, Image, Text } from "../..";
 import { Icon } from "../../Icon";
 import { DropzoneItemStyles, PreviewWrapperStyles, TrashIcon } from "./SharedStyles";
@@ -53,11 +52,7 @@ export const UploaderPreviewItem = ({
         ) : null}
         {file.type.startsWith("video") ? (
           <PreviewWrapper>
-            {file.preview ? (
-              <VideoThumbnail videoUrl={file.preview} width={IMAGE_PREVIEW_SIZE} height={IMAGE_PREVIEW_SIZE} />
-            ) : (
-              <H4 content={fileExt} color="textSecondary" noWrap />
-            )}
+            <H4 content={fileExt} color="textSecondary" noWrap />
           </PreviewWrapper>
         ) : null}
 
