@@ -4188,7 +4188,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
     }
   }, [editMode]);
   return /*#__PURE__*/React__default["default"].createElement(DropzoneItem$1, {
-    key: file.name
+    key: name
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "details"
   }, file.type.startsWith("image") ? /*#__PURE__*/React__default["default"].createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React__default["default"].createElement(Image, {
@@ -4200,11 +4200,15 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
     content: fileExt,
     color: "textSecondary",
     noWrap: true
-  })) : null, file.type.startsWith("video") ? /*#__PURE__*/React__default["default"].createElement(VideoThumbnail__default["default"], {
+  })) : null, file.type.startsWith("video") ? /*#__PURE__*/React__default["default"].createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React__default["default"].createElement(VideoThumbnail__default["default"], {
     videoUrl: file.preview,
     width: IMAGE_PREVIEW_SIZE,
     height: IMAGE_PREVIEW_SIZE
-  }) : null, /*#__PURE__*/React__default["default"].createElement("div", null, editMode ? /*#__PURE__*/React__default["default"].createElement("div", {
+  }) : /*#__PURE__*/React__default["default"].createElement(H4, {
+    content: fileExt,
+    color: "textSecondary",
+    noWrap: true
+  })) : null, /*#__PURE__*/React__default["default"].createElement("div", null, editMode ? /*#__PURE__*/React__default["default"].createElement("div", {
     className: "details"
   }, /*#__PURE__*/React__default["default"].createElement(Input, {
     onChange: function onChange(e) {
