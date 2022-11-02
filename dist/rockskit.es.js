@@ -27,7 +27,6 @@ import copy from 'copy-to-clipboard';
 import { FilePond as FilePond$1 } from 'react-filepond';
 import AvatarEditor from 'react-avatar-editor';
 import { useDropzone } from 'react-dropzone';
-import VideoThumbnail from 'react-video-thumbnail';
 import Typography from '@material-ui/core/Typography';
 import MuiSlider from '@material-ui/core/Slider';
 import axios from 'axios';
@@ -4152,11 +4151,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
     content: fileExt,
     color: "textSecondary",
     noWrap: true
-  })) : null, file.type.startsWith("video") ? /*#__PURE__*/React.createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React.createElement(VideoThumbnail, {
-    videoUrl: file.preview,
-    width: IMAGE_PREVIEW_SIZE,
-    height: IMAGE_PREVIEW_SIZE
-  }) : /*#__PURE__*/React.createElement(H4, {
+  })) : null, file.type.startsWith("video") ? /*#__PURE__*/React.createElement(PreviewWrapper$1, null, /*#__PURE__*/React.createElement(H4, {
     content: fileExt,
     color: "textSecondary",
     noWrap: true

@@ -31,7 +31,6 @@ var copy = require('copy-to-clipboard');
 var reactFilepond = require('react-filepond');
 var AvatarEditor = require('react-avatar-editor');
 var reactDropzone = require('react-dropzone');
-var VideoThumbnail = require('react-video-thumbnail');
 var Typography = require('@material-ui/core/Typography');
 var MuiSlider = require('@material-ui/core/Slider');
 var axios = require('axios');
@@ -79,7 +78,6 @@ var Grid__default = /*#__PURE__*/_interopDefaultLegacy(Grid);
 var MuiPopover__default = /*#__PURE__*/_interopDefaultLegacy(MuiPopover);
 var copy__default = /*#__PURE__*/_interopDefaultLegacy(copy);
 var AvatarEditor__default = /*#__PURE__*/_interopDefaultLegacy(AvatarEditor);
-var VideoThumbnail__default = /*#__PURE__*/_interopDefaultLegacy(VideoThumbnail);
 var Typography__default = /*#__PURE__*/_interopDefaultLegacy(Typography);
 var MuiSlider__default = /*#__PURE__*/_interopDefaultLegacy(MuiSlider);
 var axios__default = /*#__PURE__*/_interopDefaultLegacy(axios);
@@ -4200,11 +4198,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
     content: fileExt,
     color: "textSecondary",
     noWrap: true
-  })) : null, file.type.startsWith("video") ? /*#__PURE__*/React__default["default"].createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React__default["default"].createElement(VideoThumbnail__default["default"], {
-    videoUrl: file.preview,
-    width: IMAGE_PREVIEW_SIZE,
-    height: IMAGE_PREVIEW_SIZE
-  }) : /*#__PURE__*/React__default["default"].createElement(H4, {
+  })) : null, file.type.startsWith("video") ? /*#__PURE__*/React__default["default"].createElement(PreviewWrapper$1, null, /*#__PURE__*/React__default["default"].createElement(H4, {
     content: fileExt,
     color: "textSecondary",
     noWrap: true
