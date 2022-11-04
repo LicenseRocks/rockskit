@@ -7,6 +7,7 @@ import { library } from '@fortawesome/fontawesome-svg-core';
 import { SnackbarProvider, SnackbarContent, useSnackbar } from 'notistack';
 import { faFacebookF, faLinkedinIn, faTelegramPlane, faTwitter, faWhatsapp, faWindows } from '@fortawesome/free-brands-svg-icons';
 import { faAngleDown, faAngleUp, faArrowLeft, faArrowRight, faAt, faBars, faBox, faBoxes, faBuilding, faCalendar, faCheck, faCheckCircle, faChevronDown, faChevronLeft, faChevronRight, faChevronUp, faComments, faCopy, faCode, faEllipsisH, faEnvelope, faEuroSign, faFile, faFilePdf, faFilter, faHashtag, faGlobe, faInfoCircle, faKey, faLink, faMapMarker, faMinus, faMoneyBill, faPencilAlt, faPhone, faPlus, faQuestion, faSadCry, faSearch, faSearchPlus, faShareAlt, faShoppingCart, faSignInAlt, faStore, faTachometerAlt, faThLarge, faTimes, faTrash, faTruck, faTv, faUser, faUserCircle } from '@fortawesome/free-solid-svg-icons';
+import { faXmarkLarge } from '@fortawesome/pro-solid-svg-icons';
 import { faArrowUpRight, faUpRightAndDownLeftFromCenter, faHeart, faFileArrowUp, faArrowDownToBracket, faPhotoFilmMusic, faTriangleExclamation, faTrash as faTrash$1, faPencil, faPassport } from '@fortawesome/pro-regular-svg-icons';
 import { faIdCard } from '@fortawesome/free-regular-svg-icons';
 import MuiButtonBase from '@material-ui/core/ButtonBase';
@@ -166,7 +167,8 @@ var FreeSolidIconSet = {
   farTrash: faTrash$1,
   farPencil: faPencil,
   farPassport: faPassport,
-  farIdCard: faIdCard
+  farIdCard: faIdCard,
+  faXmarkLarge: faXmarkLarge
 };
 
 var KIT_COLORS = {
@@ -4114,6 +4116,8 @@ function bytesToSize(bytes) {
 
 var IMAGE_PREVIEW_SIZE = 48;
 var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
+  var _file$type, _file$type2;
+
   var file = _ref.file,
       fileNameEditable = _ref.fileNameEditable,
       onEdit = _ref.onEdit,
@@ -4143,7 +4147,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
     key: file.name
   }, /*#__PURE__*/React.createElement("div", {
     className: "details"
-  }, file.type.startsWith("image") ? /*#__PURE__*/React.createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React.createElement(Image, {
+  }, file != null && (_file$type = file.type) != null && _file$type.startsWith("image") ? /*#__PURE__*/React.createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React.createElement(Image, {
     alt: name,
     height: IMAGE_PREVIEW_SIZE,
     src: file.preview,
@@ -4152,7 +4156,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
     content: fileExt,
     color: "textSecondary",
     noWrap: true
-  })) : null, file.type.startsWith("video") ? /*#__PURE__*/React.createElement(VideoThumbnail, {
+  })) : null, file != null && (_file$type2 = file.type) != null && _file$type2.startsWith("video") ? /*#__PURE__*/React.createElement(VideoThumbnail, {
     videoUrl: file.preview,
     width: IMAGE_PREVIEW_SIZE,
     height: IMAGE_PREVIEW_SIZE

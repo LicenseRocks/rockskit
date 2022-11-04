@@ -26,7 +26,7 @@ const BaseComponent = (props) => {
   return (
     <>
       <Button content="Open Modal" onClick={() => setOpen(true)} />
-      <Modal {...defaultProps}>
+      <Modal title="Modal" {...defaultProps}>
         <StyledWrapper>
           <p>
             Lorem Ipsum is simply dummy text of the printing and typesetting

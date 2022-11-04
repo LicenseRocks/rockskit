@@ -42,7 +42,7 @@ export const UploaderPreviewItem = ({
   return (
     <DropzoneItem key={file.name}>
       <div className="details">
-        {file.type.startsWith("image") ? (
+        {file?.type?.startsWith("image") ? (
           <PreviewWrapper>
             {file.preview ? (
               <Image alt={name} height={IMAGE_PREVIEW_SIZE} src={file.preview} width={IMAGE_PREVIEW_SIZE} />
@@ -51,7 +51,7 @@ export const UploaderPreviewItem = ({
             )}
           </PreviewWrapper>
         ) : null}
-        {file.type.startsWith("video") ? (
+        {file?.type?.startsWith("video") ? (
           <VideoThumbnail videoUrl={file.preview} width={IMAGE_PREVIEW_SIZE} height={IMAGE_PREVIEW_SIZE} />
         ) : null}
 

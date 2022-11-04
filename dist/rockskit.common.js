@@ -11,6 +11,7 @@ var fontawesomeSvgCore = require('@fortawesome/fontawesome-svg-core');
 var notistack = require('notistack');
 var freeBrandsSvgIcons = require('@fortawesome/free-brands-svg-icons');
 var freeSolidSvgIcons = require('@fortawesome/free-solid-svg-icons');
+var proSolidSvgIcons = require('@fortawesome/pro-solid-svg-icons');
 var proRegularSvgIcons = require('@fortawesome/pro-regular-svg-icons');
 var freeRegularSvgIcons = require('@fortawesome/free-regular-svg-icons');
 var MuiButtonBase = require('@material-ui/core/ButtonBase');
@@ -214,7 +215,8 @@ var FreeSolidIconSet = {
   farTrash: proRegularSvgIcons.faTrash,
   farPencil: proRegularSvgIcons.faPencil,
   farPassport: proRegularSvgIcons.faPassport,
-  farIdCard: freeRegularSvgIcons.faIdCard
+  farIdCard: freeRegularSvgIcons.faIdCard,
+  faXmarkLarge: proSolidSvgIcons.faXmarkLarge
 };
 
 var KIT_COLORS = {
@@ -4162,6 +4164,8 @@ function bytesToSize(bytes) {
 
 var IMAGE_PREVIEW_SIZE = 48;
 var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
+  var _file$type, _file$type2;
+
   var file = _ref.file,
       fileNameEditable = _ref.fileNameEditable,
       onEdit = _ref.onEdit,
@@ -4191,7 +4195,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
     key: file.name
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "details"
-  }, file.type.startsWith("image") ? /*#__PURE__*/React__default["default"].createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React__default["default"].createElement(Image, {
+  }, file != null && (_file$type = file.type) != null && _file$type.startsWith("image") ? /*#__PURE__*/React__default["default"].createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React__default["default"].createElement(Image, {
     alt: name,
     height: IMAGE_PREVIEW_SIZE,
     src: file.preview,
@@ -4200,7 +4204,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
     content: fileExt,
     color: "textSecondary",
     noWrap: true
-  })) : null, file.type.startsWith("video") ? /*#__PURE__*/React__default["default"].createElement(VideoThumbnail__default["default"], {
+  })) : null, file != null && (_file$type2 = file.type) != null && _file$type2.startsWith("video") ? /*#__PURE__*/React__default["default"].createElement(VideoThumbnail__default["default"], {
     videoUrl: file.preview,
     width: IMAGE_PREVIEW_SIZE,
     height: IMAGE_PREVIEW_SIZE
