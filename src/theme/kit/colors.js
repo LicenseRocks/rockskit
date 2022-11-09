@@ -16,17 +16,17 @@ export const KIT_COLORS = {
   alert: {
     darkRed: "#F15937",
     lightRed: "#FCDFD9",
-    darkGreen: "#0EC811",
+    darkGreen: "#6BE294",
     lightGreen: "#D9FCD9",
     darkYellow: "#5C5800",
     lightYellow: "#FFFC8A",
     yellow: "#FFFB4D",
   },
   green: {
-    light: "#D9FCD9"
+    light: "#D9FCD9",
   },
   red: {
     light: "#FCDFD9",
-    dark: "#F15937"
-  }
+    dark: "#F15937",
+  },
 };
