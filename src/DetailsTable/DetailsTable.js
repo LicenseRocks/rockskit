@@ -42,7 +42,7 @@ const LabelWrapper = styled.div`
 `;
 
 const Label = styled(Text).attrs(() => ({
-  color: "textSecondary",
+  color: "black",
 }))`
   && {
     text-transform: ${({ textTransform }) => textTransform};
@@ -75,6 +75,7 @@ export const DetailsTable = ({
   justifyBetween,
   rows,
   size,
+  allowEmptyValue,
   ...props
 }) => {
   const [expanded, setExpanded] = useState(false);
@@ -124,7 +125,7 @@ export const DetailsTable = ({
           )}
         </LabelWrapper>
 
-        {value || "-"}
+        {value || (allowEmptyValue ? "" : "-")}
       </Row>
       {divider && <Divider py={dividerSize} />}
     </>
