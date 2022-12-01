@@ -8,7 +8,7 @@ import {
   PreviewWrapperStyles,
   TrashIcon,
 } from "./SharedStyles";
-import { VideoThumbnail } from "react-video-thumbnail";
+import VideoThumbnail from "react-video-thumbnail";
 import { Input } from "../Input";
 
 function bytesToSize(bytes) {
