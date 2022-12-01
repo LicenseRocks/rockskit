@@ -3,7 +3,12 @@ import PropTypes from "prop-types";
 import styled from "styled-components";
 import { H4, Image, Text } from "../..";
 import { Icon } from "../../Icon";
-import { DropzoneItemStyles, PreviewWrapperStyles, TrashIcon } from "./SharedStyles";
+import {
+  DropzoneItemStyles,
+  PreviewWrapperStyles,
+  TrashIcon,
+} from "./SharedStyles";
+import { VideoThumbnail } from "react-video-thumbnail";
 import { Input } from "../Input";
 
 function bytesToSize(bytes) {
@@ -44,14 +49,23 @@ export const UploaderPreviewItem = ({
         {file?.type?.startsWith("image") ? (
           <PreviewWrapper>
             {file.preview ? (
-              <Image alt={name} height={IMAGE_PREVIEW_SIZE} src={file.preview} width={IMAGE_PREVIEW_SIZE} />
+              <Image
+                alt={name}
+                height={IMAGE_PREVIEW_SIZE}
+                src={file.preview}
+                width={IMAGE_PREVIEW_SIZE}
+              />
             ) : (
               <H4 content={fileExt} color="textSecondary" noWrap />
             )}
           </PreviewWrapper>
         ) : null}
         {file?.type?.startsWith("video") ? (
-          <VideoThumbnail videoUrl={file.preview} width={IMAGE_PREVIEW_SIZE} height={IMAGE_PREVIEW_SIZE} />
+          <VideoThumbnail
+            videoUrl={file.preview}
+            width={IMAGE_PREVIEW_SIZE}
+            height={IMAGE_PREVIEW_SIZE}
+          />
         ) : null}
 
         <div>
@@ -81,7 +95,9 @@ export const UploaderPreviewItem = ({
 
       <div className="details">
         <ActionIcon icon="check" />
-        <Text ml={2} mr={4}>File uploaded</Text>
+        <Text ml={2} mr={4}>
+          File uploaded
+        </Text>
 
         {fileNameEditable && !editMode && (
           <ActionIcon
