@@ -1,6 +1,6 @@
 {
   "name": "@licenserocks/kit",
-  "version": "3.5.9",
+  "version": "3.5.10",
   "description": "",
   "main": "dist/rockskit.common.js",
   "module": "dist/rockskit.es.js",
@@ -36,7 +36,7 @@
     "copy-to-clipboard": "^3.3.1",
     "filepond": "^4.20.1",
     "lodash": "^4.17.20",
-    "notistack": "^1.0.5",
+    "notistack": "1.0.10",
     "qrcode.react": "^1.0.0",
     "react": "^18.2.0",
     "react-avatar-editor": "^11.1.0",
