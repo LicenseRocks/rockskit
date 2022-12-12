@@ -56,6 +56,7 @@ import MuiTooltip from '@material-ui/core/Tooltip';
 import Drawer from '@material-ui/core/Drawer';
 import Fab from '@material-ui/core/Fab';
 import { Grid as Grid$1, Link as Link$2, ListItem as ListItem$1, List as List$1, ListItemIcon, ListItemText } from '@material-ui/core';
+import { VideoThumbnail } from 'react-video-thumbnail';
 
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
@@ -188,7 +189,7 @@ var KIT_COLORS = {
   alert: {
     darkRed: "#F15937",
     lightRed: "#FCDFD9",
-    darkGreen: "#0EC811",
+    darkGreen: "#6BE294",
     lightGreen: "#D9FCD9",
     darkYellow: "#5C5800",
     lightYellow: "#FFFC8A",
@@ -611,7 +612,7 @@ var FlexDefaultProps = {
   justify: "flex-start"
 };
 
-var StyledFlex = styled(Grid).withConfig({
+var StyledFlex$1 = styled(Grid).withConfig({
   displayName: "Flex__StyledFlex",
   componentId: "sc-1db77mn-0"
 })(["", " ", " ", ""], function (theme) {
@@ -622,7 +623,7 @@ var StyledFlex = styled(Grid).withConfig({
   return SPACER(theme);
 });
 var Flex = function Flex(props) {
-  return /*#__PURE__*/React.createElement(StyledFlex, props);
+  return /*#__PURE__*/React.createElement(StyledFlex$1, props);
 };
 Flex.propTypes = FlexPropTypes;
 Flex.defaultProps = FlexDefaultProps;
@@ -1747,12 +1748,12 @@ var StyledBoxFooter = styled(Flex).attrs(function () {
 })(["", " ", ""], function (_ref) {
   var padding = _ref.padding,
       theme = _ref.theme;
-  return css(["width:100%;box-sizing:border-box;background-color:", ";padding:", ";border-top:2px solid ", ";border-radius:0 0 16px 16px !important;", "{padding:", ";}"], theme.palette.common.white, theme.spacing(4, padding, 4, padding), theme.palette.gray.regular, theme.breakpoints.down("sm"), theme.spacing(padding, padding, 0, padding));
+  return css(["width:100%;box-sizing:border-box;background-color:", ";padding:", ";border-top:2px solid ", ";border-radius:0 0 16px 16px !important;", "{padding:", ";}"], theme.palette.common.white, theme.spacing(4, padding, 4, padding), theme.palette.gray.regular, theme.breakpoints.down("sm"), theme.spacing(padding - padding / 3, padding));
 }, function (_ref2) {
   var padding = _ref2.padding,
       transparentSm = _ref2.transparentSm,
       theme = _ref2.theme;
-  return transparentSm && css(["", "{background-color:transparent;border-top:none;padding:", ";}"], theme.breakpoints.down("sm"), theme.spacing(padding, 0));
+  return transparentSm && css(["", "{background-color:transparent;border-top:none;padding:", ";}"], theme.breakpoints.down("sm"), theme.spacing(padding - padding / 3, padding));
 });
 var BoxFooter = function BoxFooter(_ref3) {
   var action = _ref3.action,
@@ -1827,7 +1828,7 @@ var StyledBoxHeader = styled(Flex).attrs(function () {
 }).withConfig({
   displayName: "Header__StyledBoxHeader",
   componentId: "sc-sf2nje-1"
-})(["width:100%;box-sizing:border-box;background-color:", ";padding:", ";border-radius:16px !important;", ""], function (_ref4) {
+})(["width:100%;box-sizing:border-box;background-color:", ";padding:", ";border-radius:16px !important;", " ", ""], function (_ref4) {
   var theme = _ref4.theme;
   return theme.palette.common.white;
 }, function (_ref5) {
@@ -1835,38 +1836,41 @@ var StyledBoxHeader = styled(Flex).attrs(function () {
       theme = _ref5.theme;
   return theme.spacing(padding);
 }, function (_ref6) {
-  var transparentSm = _ref6.transparentSm,
-      theme = _ref6.theme;
+  var theme = _ref6.theme;
+  return css(["", "{display:flex;flex-direction:column;align-items:flex-start;word-break:break-all;}"], theme.breakpoints.down("md"));
+}, function (_ref7) {
+  var transparentSm = _ref7.transparentSm,
+      theme = _ref7.theme;
   return transparentSm && css(["", "{background-color:transparent;padding:", ";}"], theme.breakpoints.down("sm"), theme.spacing(0));
 });
 var Content$c = styled.div.withConfig({
   displayName: "Header__Content",
   componentId: "sc-sf2nje-2"
-})(["", ""], function (_ref7) {
-  var padding = _ref7.padding,
-      theme = _ref7.theme;
+})(["", ""], function (_ref8) {
+  var padding = _ref8.padding,
+      theme = _ref8.theme;
   return css(["padding:", ";", "{padding:", ";}"], theme.spacing(0, padding), theme.breakpoints.down("sm"), theme.spacing(0, padding));
 });
-var BoxHeader = function BoxHeader(_ref8) {
-  var action = _ref8.action,
-      actionIcon = _ref8.actionIcon,
-      actionIconProps = _ref8.actionIconProps,
-      actionIconSize = _ref8.actionIconSize,
-      renderAction = _ref8.renderAction,
-      renderTitle = _ref8.renderTitle,
-      metaTitle = _ref8.metaTitle,
-      metaTitleColor = _ref8.metaTitleColor,
-      subTitle = _ref8.subTitle,
-      subTitleColor = _ref8.subTitleColor,
-      tabs = _ref8.tabs,
-      tabsProps = _ref8.tabsProps,
-      title = _ref8.title,
-      titleIcon = _ref8.titleIcon,
-      titleIconHiddenSm = _ref8.titleIconHiddenSm,
-      titleIconProps = _ref8.titleIconProps,
-      titleSize = _ref8.titleSize,
-      transparentSm = _ref8.transparentSm,
-      props = _objectWithoutPropertiesLoose(_ref8, _excluded$1w);
+var BoxHeader = function BoxHeader(_ref9) {
+  var action = _ref9.action,
+      actionIcon = _ref9.actionIcon,
+      actionIconProps = _ref9.actionIconProps,
+      actionIconSize = _ref9.actionIconSize,
+      renderAction = _ref9.renderAction,
+      renderTitle = _ref9.renderTitle,
+      metaTitle = _ref9.metaTitle,
+      metaTitleColor = _ref9.metaTitleColor,
+      subTitle = _ref9.subTitle,
+      subTitleColor = _ref9.subTitleColor,
+      tabs = _ref9.tabs,
+      tabsProps = _ref9.tabsProps,
+      title = _ref9.title,
+      titleIcon = _ref9.titleIcon,
+      titleIconHiddenSm = _ref9.titleIconHiddenSm,
+      titleIconProps = _ref9.titleIconProps,
+      titleSize = _ref9.titleSize,
+      transparentSm = _ref9.transparentSm,
+      props = _objectWithoutPropertiesLoose(_ref9, _excluded$1w);
 
   var isMobile = useMediaQuery(function (theme) {
     return theme.breakpoints.down("sm");
@@ -1877,7 +1881,7 @@ var BoxHeader = function BoxHeader(_ref8) {
     transparentSm: transparentSm
   }, /*#__PURE__*/React.createElement(StyledBoxHeader, _extends({
     transparentSm: transparentSm
-  }, props), /*#__PURE__*/React.createElement(Flex, {
+  }, props), /*#__PURE__*/React.createElement(StyledFlex, {
     item: true
   }, renderTitle() || /*#__PURE__*/React.createElement(Flex, {
     container: true
@@ -1903,7 +1907,7 @@ var BoxHeader = function BoxHeader(_ref8) {
     dBlock: true,
     fontStyle: "italic",
     fontSize: "sm"
-  })))), /*#__PURE__*/React.createElement(Flex, {
+  })))), /*#__PURE__*/React.createElement(StyledFlex, {
     item: true
   }, renderAction() || actionIcon && /*#__PURE__*/React.createElement(Icon, _extends({
     colorGrayMedium: true,
@@ -1917,6 +1921,13 @@ var BoxHeader = function BoxHeader(_ref8) {
     mb: 0
   }, tabsProps))));
 };
+var StyledFlex = styled(Flex).withConfig({
+  displayName: "Header__StyledFlex",
+  componentId: "sc-sf2nje-3"
+})(["", "{width:100%;}"], function (_ref10) {
+  var theme = _ref10.theme;
+  return theme.breakpoints.down("sm");
+});
 BoxHeader.propTypes = {
   action: PropTypes.func,
   actionIcon: PropTypes.string,
@@ -2514,7 +2525,7 @@ var DetailsTableDefaultProps = {
   size: "md"
 };
 
-var _excluded$1p = ["expandButtonTitle", "expandButtonProps", "labelTextTransform", "labelFontSize", "labelWidth", "labelWidthSm", "justifyBetween", "rows", "size"];
+var _excluded$1p = ["expandButtonTitle", "expandButtonProps", "labelTextTransform", "labelFontSize", "labelWidth", "labelWidthSm", "justifyBetween", "rows", "size", "allowEmptyValue"];
 var Wrapper$c = styled.div.withConfig({
   displayName: "DetailsTable__Wrapper",
   componentId: "sc-41caw8-0"
@@ -2566,7 +2577,7 @@ var LabelWrapper = styled.div.withConfig({
 });
 var Label$2 = styled(Text).attrs(function () {
   return {
-    color: "textSecondary"
+    color: "black"
   };
 }).withConfig({
   displayName: "DetailsTable__Label",
@@ -2598,6 +2609,7 @@ var DetailsTable = function DetailsTable(_ref16) {
       var justifyBetween = _ref16.justifyBetween,
       rows = _ref16.rows,
       size = _ref16.size,
+      allowEmptyValue = _ref16.allowEmptyValue,
       props = _objectWithoutPropertiesLoose(_ref16, _excluded$1p);
 
   var _useState = useState(false),
@@ -2642,7 +2654,7 @@ var DetailsTable = function DetailsTable(_ref16) {
       content: labelHintContent
     }, /*#__PURE__*/React.createElement(Hint$1, null, /*#__PURE__*/React.createElement(Icon, {
       icon: labelHintIcon
-    }))))), value || "-"), divider && /*#__PURE__*/React.createElement(Divider, {
+    }))))), value || (allowEmptyValue ? "" : "-")), divider && /*#__PURE__*/React.createElement(Divider, {
       py: dividerSize
     }));
   };
@@ -6955,7 +6967,7 @@ var Modal = function Modal(_ref9) {
   })), title && /*#__PURE__*/React.createElement(Title, null, /*#__PURE__*/React.createElement(H3, {
     content: title
   }), /*#__PURE__*/React.createElement(CloseModalIcon$1, {
-    icon: "times",
+    icon: "xmark-large",
     onClick: onClose
   })), /*#__PURE__*/React.createElement(ContentWrapper, {
     padding: padding
@@ -10618,19 +10630,19 @@ var TableDefaultProps = {
 var Row = styled.tr.withConfig({
   displayName: "Row",
   componentId: "sc-1ciagy6-0"
-})(["height:", "px;border-bottom:2px solid ", ";background-color:", ";&:last-of-type{border-bottom:none;}", ""], function (_ref) {
+})(["height:", "px;background-color:", ";&:not(:last-child){border-bottom:2px solid ", ";}", ""], function (_ref) {
   var size = _ref.size;
   return size === "sm" ? 32 : 80;
 }, function (_ref2) {
   var theme = _ref2.theme;
-  return theme.palette.gray.regular;
+  return theme.palette.common.white;
 }, function (_ref3) {
   var theme = _ref3.theme;
-  return theme.palette.common.white;
+  return theme.palette.gray.regular;
 }, function (_ref4) {
   var hasData = _ref4.hasData,
       theme = _ref4.theme;
-  return hasData && css(["", "{height:unset;display:block;border-bottom:0;margin-bottom:", ";padding:", ";border-radius:8px;}"], theme.breakpoints.down("sm"), theme.spacing(2), theme.spacing(4));
+  return hasData && css(["", "{height:unset;display:block;margin-bottom:", ";padding:", ";border-radius:0;}"], theme.breakpoints.down("sm"), theme.spacing(2), theme.spacing(4));
 });
 
 var StyledTd = styled.td.withConfig({
@@ -10643,10 +10655,13 @@ var StyledTd = styled.td.withConfig({
       flexSm = _ref.flexSm,
       rowsBottomBorderSm = _ref.rowsBottomBorderSm,
       theme = _ref.theme;
-  return css(["&:first-child{padding-left:", "}&:last-child{padding-right:", "}", " ", "{display:", ";margin-bottom:", ";", " ", " ", " ", " ", " &:first-child{padding-left:0;}:last-child{border-bottom:0;margin-bottom:0;padding-right:0;}}"], theme.spacing(4), theme.spacing(4), align && "text-align: " + align + ";", theme.breakpoints.down("sm"), function (_ref2) {
+  return css(["&:first-child{padding-left:", "}&:last-child{padding-right:", "}", " ", "{display:", ";margin-bottom:", ";", " ", " ", " ", " ", " &:first-child{padding-left:0;}:last-child{border-bottom:0;margin-bottom:0;padding-right:0;}}", "{display:flex;justify-content:space-between;align-items:center;", "}"], theme.spacing(4), theme.spacing(4), align && "text-align: " + align + ";", theme.breakpoints.down("sm"), function (_ref2) {
     var hiddenSm = _ref2.hiddenSm;
     return hiddenSm ? "none" : "block";
-  }, theme.spacing(4), rowsBottomBorderSm && css(["border-bottom:1px solid ", ";"], theme.palette.gray.semiLight), displaySm === "inline" && "text-align: right;", hiddenLabelSm && "text-align: left;", !hiddenLabelSm && css(["::before{content:attr(data-label);", " color:", ";padding-bottom:", ";display:block;font-weight:normal;font-size:12px;line-height:120%;}"], displaySm === "inline" && "float: left;", theme.palette.text.secondary, theme.spacing(2)), flexSm && css(["display:flex;align-items:center;justify-content:space-around;"]));
+  }, theme.spacing(4), rowsBottomBorderSm && css(["border-bottom:1px solid ", ";"], theme.palette.gray.semiLight), displaySm === "inline" && "text-align: right;", hiddenLabelSm && "text-align: left;", !hiddenLabelSm && css(["::before{content:attr(data-label);", " padding-bottom:", ";display:block;font-weight:normal;line-height:120%;}"], displaySm === "inline" && "float: left;", theme.spacing(2)), flexSm && css(["display:flex;align-items:center;justify-content:space-around;"]), function (_ref3) {
+    var theme = _ref3.theme;
+    return theme.breakpoints.down("sm");
+  }, !hiddenLabelSm && css(["::before{padding-bottom:0;}"]));
 });
 
 var getContentByColType = function getContentByColType(content, col) {
@@ -10680,11 +10695,11 @@ var getContentByColType = function getContentByColType(content, col) {
   }
 };
 
-var Rows = function Rows(_ref3) {
-  var columns = _ref3.columns,
-      rows = _ref3.rows,
-      rowsBottomBorderSm = _ref3.rowsBottomBorderSm,
-      rowsSize = _ref3.rowsSize;
+var Rows = function Rows(_ref4) {
+  var columns = _ref4.columns,
+      rows = _ref4.rows,
+      rowsBottomBorderSm = _ref4.rowsBottomBorderSm,
+      rowsSize = _ref4.rowsSize;
   return rows.map(function (row) {
     return /*#__PURE__*/React.createElement(Row, {
       hasData: rows.length > 0,

@@ -33,6 +33,15 @@ const StyledBoxHeader = styled(Flex).attrs(() => ({
   padding: ${({ padding, theme }) => theme.spacing(padding)};
   border-radius: 16px !important;
 
+  ${({ theme }) => css`
+    ${theme.breakpoints.down("md")} {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      word-break: break-all;
+    }
+  `}
+
   ${({ transparentSm, theme }) =>
     transparentSm &&
     css`
@@ -81,7 +90,7 @@ export const BoxHeader = ({
   return (
     <Wrapper transparentSm={transparentSm}>
       <StyledBoxHeader transparentSm={transparentSm} {...props}>
-        <Flex item>
+        <StyledFlex item>
           {renderTitle() || (
             <Flex container>
               {showTitleIcon && (
@@ -124,9 +133,9 @@ export const BoxHeader = ({
               </div>
             </Flex>
           )}
-        </Flex>
+        </StyledFlex>
 
-        <Flex item>
+        <StyledFlex item>
           {renderAction() ||
             (actionIcon && (
               <Icon
@@ -137,7 +146,7 @@ export const BoxHeader = ({
                 {...actionIconProps}
               />
             ))}
-        </Flex>
+        </StyledFlex>
       </StyledBoxHeader>
       {tabs.length > 0 && (
         <Content transparentSm={transparentSm} {...props}>
@@ -147,6 +156,12 @@ export const BoxHeader = ({
     </Wrapper>
   );
 };
+
+const StyledFlex = styled(Flex)`
+  ${({ theme }) => theme.breakpoints.down("sm")} {
+    width: 100%;
+  }
+`;
 
 BoxHeader.propTypes = {
   action: PropTypes.func,
@@ -171,14 +186,17 @@ BoxHeader.propTypes = {
 };
 
 BoxHeader.defaultProps = {
-  action: () => {},
+  action: () => {
+  },
   actionIcon: "",
   actionIconProps: {},
   actionIconSize: "lg",
   metaTitle: "",
   metaTitleColor: "",
-  renderAction: () => {},
-  renderTitle: () => {},
+  renderAction: () => {
+  },
+  renderTitle: () => {
+  },
   subTitle: "",
   subTitleColor: "textSecondary",
   tabs: [],
