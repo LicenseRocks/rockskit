@@ -19,7 +19,7 @@ const StyledBoxFooter = styled(Flex).attrs(() => ({
     border-radius: 0 0 16px 16px !important;
 
     ${theme.breakpoints.down("sm")} {
-      padding: ${theme.spacing(padding, padding, 0, padding)};
+      padding: ${theme.spacing(padding - (padding / 3), padding)};
     }
   `}
 
@@ -29,7 +29,7 @@ const StyledBoxFooter = styled(Flex).attrs(() => ({
       ${theme.breakpoints.down("sm")} {
         background-color: transparent;
         border-top: none;
-        padding: ${theme.spacing(padding, 0)};
+        padding: ${theme.spacing(padding - (padding / 3), padding)};
       }
     `}
 `;

@@ -40,11 +40,9 @@ const StyledTd = styled.td`
         ::before {
           content: attr(data-label);
           ${displaySm === "inline" && "float: left;"}
-          color: ${theme.palette.text.secondary};
           padding-bottom: ${theme.spacing(2)};
           display: block;
           font-weight: normal;
-          font-size: 12px;
           line-height: 120%;
         }
       `}
@@ -65,6 +63,19 @@ const StyledTd = styled.td`
         margin-bottom: 0;
         padding-right: 0;
       }
+    }
+
+    ${({ theme }) => theme.breakpoints.down("sm")} {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      ${!hiddenLabelSm &&
+      css`
+        ::before {
+          padding-bottom: 0;
+        }
+      `}
     }
   `}
 `;
