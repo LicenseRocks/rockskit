@@ -26,6 +26,8 @@ export const DetailsTablePropTypes = {
     })
   ),
   size: PropTypes.oneOf(["sm", "md"]),
+  allowEmptyValue: PropTypes.bool,
+  showContentImmediately: PropTypes.bool,
   ...SPACER_PROP_TYPES,
   ...DISPLAY_PROP_TYPES,
 };
@@ -37,4 +39,6 @@ export const DetailsTableDefaultProps = {
   labelTextTransform: "initial",
   labelWidth: 140,
   size: "md",
+  allowEmptyValue: false,
+  showContentImmediately: false
 };

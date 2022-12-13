@@ -76,9 +76,10 @@ export const DetailsTable = ({
   rows,
   size,
   allowEmptyValue,
+  showContentImmediately = false,
   ...props
 }) => {
-  const [expanded, setExpanded] = useState(false);
+  const [expanded, setExpanded] = useState(showContentImmediately);
   const showExpandButton = rows?.some((row) => row.expandable);
 
   const renderRow = ({
@@ -134,7 +135,7 @@ export const DetailsTable = ({
   return (
     <Wrapper {...props}>
       {rows.filter((row) => !row.expandable).map((row) => renderRow(row))}
-      {showExpandButton && (
+      {!showContentImmediately && showExpandButton && (
         <>
           <OutlineButton
             color="secondary"
@@ -146,10 +147,9 @@ export const DetailsTable = ({
           >
             {expandButtonTitle}
           </OutlineButton>
-          {expanded &&
-            rows.filter((row) => row.expandable).map((row) => renderRow(row))}
         </>
       )}
+      {expanded && rows.filter((row) => row.expandable).map((row) => renderRow(row))}
     </Wrapper>
   );
 };
