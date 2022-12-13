@@ -8,6 +8,13 @@ import { SnackbarProvider } from "notistack";
 import { AppContainerPropTypes } from "./props";
 import { GlobalStyle } from "../theme";
 import { AppContextProvider, PageLoading, PageProgressBar, Snackbar } from "..";
+import styled from "styled-components";
+
+const SnackbarStyles = styled.div`
+  .snackbar-container-root {
+    top: 100px;
+  }
+`;
 
 export const AppContainer = ({
   appConfig,
@@ -24,26 +31,31 @@ export const AppContainer = ({
     <AppContextProvider config={appConfig}>
       <MuiThemeProvider theme={theme}>
         <ThemeProvider theme={theme}>
-          <SnackbarProvider
-            anchorOrigin={{
-              vertical: "top",
-              horizontal: "right",
-            }}
-            content={(key, options) => <Snackbar id={key} {...options} />}
-            maxSnack={3}
-          >
-            <GlobalStyle
-              gradientColors={theme?.palette?.background?.gradient}
-            />
+          <SnackbarStyles>
+            <SnackbarProvider
+              anchorOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              classes={{
+                containerRoot: "snackbar-container-root",
+              }}
+              content={(key, options) => <Snackbar id={key} {...options} />}
+              maxSnack={3}
+            >
+              <GlobalStyle
+                gradientColors={theme?.palette?.background?.gradient}
+              />
 
-            <CssBaseline />
+              <CssBaseline />
 
-            {pageProgressBar && (
-              <PageProgressBar listener={pageProgressBarListener} />
-            )}
+              {pageProgressBar && (
+                <PageProgressBar listener={pageProgressBarListener} />
+              )}
 
-            {pageLoading ? <PageLoading fullScreen /> : children}
-          </SnackbarProvider>
+              {pageLoading ? <PageLoading fullScreen /> : children}
+            </SnackbarProvider>
+          </SnackbarStyles>
         </ThemeProvider>
       </MuiThemeProvider>
     </AppContextProvider>
