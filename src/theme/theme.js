@@ -85,6 +85,7 @@ export const RocksKitTheme = ({ colors, fonts, loadingIndicator } = {}) => {
     background: {
       default: colors?.bgColor || KIT_COLORS.gray.light,
       gradient: colors?.bgColorGradient || null,
+      header: colors?.headerColor || KIT_COLORS.gray.semiLight,
     },
     green: {
       light: KIT_COLORS.green.light,
