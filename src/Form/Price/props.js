@@ -42,4 +42,5 @@ export const PriceFieldDefaultProps = {
     name: "currency",
   },
   startIcon: "money-bill",
+  min: "0.01",
 };

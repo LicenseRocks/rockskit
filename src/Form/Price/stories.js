@@ -32,5 +32,5 @@ export const main = () => {
   const values = watch();
   console.log("values: ", values);
 
-  return <PriceField {...defaultProps} />;
+  return <PriceField formState={values} {...defaultProps} />;
 };
