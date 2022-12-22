@@ -24,8 +24,9 @@ export const PriceField = ({
   min,
   ...props
 }) => {
-  console.log(props);
+  console.log("🧨", props);
   const doNotAllowNegativePrice = Number(props?.value) < Number(min);
+  console.log("It is a PriceField");
 
   return (
     <FieldWrapper hasError={doNotAllowNegativePrice || hasError} {...props}>
