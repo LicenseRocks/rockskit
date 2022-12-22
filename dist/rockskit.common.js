@@ -4761,9 +4761,8 @@ var PriceField = function PriceField(_ref2) {
       min = _ref2.min,
       props = _objectWithoutPropertiesLoose(_ref2, _excluded$16);
 
-  console.log("🧨", props);
-  var doNotAllowNegativePrice = Number(props == null ? void 0 : props.value) < Number(min);
-  console.log("It is a PriceField");
+  var initialValue = (props == null ? void 0 : props.value) === "";
+  var doNotAllowNegativePrice = !initialValue ? Number(props == null ? void 0 : props.value) < Number(min) : false;
   return /*#__PURE__*/React__default["default"].createElement(FieldWrapper, _extends({
     hasError: doNotAllowNegativePrice || hasError
   }, props), /*#__PURE__*/React__default["default"].createElement(Input, _extends({
