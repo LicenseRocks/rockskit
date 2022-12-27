@@ -435,7 +435,8 @@ var RocksKitTheme = function RocksKitTheme(_temp) {
     },
     background: {
       default: (colors == null ? void 0 : colors.bgColor) || KIT_COLORS.gray.light,
-      gradient: (colors == null ? void 0 : colors.bgColorGradient) || null
+      gradient: (colors == null ? void 0 : colors.bgColorGradient) || null,
+      header: (colors == null ? void 0 : colors.headerColor) || KIT_COLORS.gray.semiLight
     },
     green: {
       light: KIT_COLORS.green.light
@@ -1419,6 +1420,10 @@ var AppContainerPropTypes = {
   theme: PropTypes__default["default"].object.isRequired
 };
 
+var SnackbarStyles = styled__default["default"].div.withConfig({
+  displayName: "AppContainer__SnackbarStyles",
+  componentId: "sc-jc8a4q-0"
+})([".snackbar-container-root{top:100px;}"]);
 var AppContainer = function AppContainer(_ref) {
   var _theme$palette, _theme$palette$backgr;
 
@@ -1436,10 +1441,13 @@ var AppContainer = function AppContainer(_ref) {
     theme: theme
   }, /*#__PURE__*/React__default["default"].createElement(styled.ThemeProvider, {
     theme: theme
-  }, /*#__PURE__*/React__default["default"].createElement(notistack.SnackbarProvider, {
+  }, /*#__PURE__*/React__default["default"].createElement(SnackbarStyles, null, /*#__PURE__*/React__default["default"].createElement(notistack.SnackbarProvider, {
     anchorOrigin: {
       vertical: "top",
       horizontal: "right"
+    },
+    classes: {
+      containerRoot: "snackbar-container-root"
     },
     content: function content(key, options) {
       return /*#__PURE__*/React__default["default"].createElement(Snackbar, _extends({
@@ -1453,7 +1461,7 @@ var AppContainer = function AppContainer(_ref) {
     listener: pageProgressBarListener
   }), pageLoading ? /*#__PURE__*/React__default["default"].createElement(PageLoading, {
     fullScreen: true
-  }) : children))));
+  }) : children)))));
 };
 AppContainer.propTypes = AppContainerPropTypes;
 
@@ -2561,7 +2569,9 @@ var DetailsTablePropTypes = _extends({
     renderLabel: PropTypes__default["default"].func,
     value: PropTypes__default["default"].node
   })),
-  size: PropTypes__default["default"].oneOf(["sm", "md"])
+  size: PropTypes__default["default"].oneOf(["sm", "md"]),
+  allowEmptyValue: PropTypes__default["default"].bool,
+  showContentImmediately: PropTypes__default["default"].bool
 }, SPACER_PROP_TYPES, DISPLAY_PROP_TYPES);
 var DetailsTableDefaultProps = {
   expandButtonTitle: "Expandable items",
@@ -2569,10 +2579,12 @@ var DetailsTableDefaultProps = {
   labelFontSize: "md",
   labelTextTransform: "initial",
   labelWidth: 140,
-  size: "md"
+  size: "md",
+  allowEmptyValue: false,
+  showContentImmediately: false
 };
 
-var _excluded$1p = ["expandButtonTitle", "expandButtonProps", "labelTextTransform", "labelFontSize", "labelWidth", "labelWidthSm", "justifyBetween", "rows", "size", "allowEmptyValue"];
+var _excluded$1p = ["expandButtonTitle", "expandButtonProps", "labelTextTransform", "labelFontSize", "labelWidth", "labelWidthSm", "justifyBetween", "rows", "size", "allowEmptyValue", "showContentImmediately"];
 var Wrapper$c = styled__default["default"].div.withConfig({
   displayName: "DetailsTable__Wrapper",
   componentId: "sc-41caw8-0"
@@ -2657,9 +2669,11 @@ var DetailsTable = function DetailsTable(_ref16) {
       rows = _ref16.rows,
       size = _ref16.size,
       allowEmptyValue = _ref16.allowEmptyValue,
+      _ref16$showContentImm = _ref16.showContentImmediately,
+      showContentImmediately = _ref16$showContentImm === void 0 ? false : _ref16$showContentImm,
       props = _objectWithoutPropertiesLoose(_ref16, _excluded$1p);
 
-  var _useState = React.useState(false),
+  var _useState = React.useState(showContentImmediately),
       expanded = _useState[0],
       setExpanded = _useState[1];
 
@@ -2710,7 +2724,7 @@ var DetailsTable = function DetailsTable(_ref16) {
     return !row.expandable;
   }).map(function (row) {
     return renderRow(row);
-  }), showExpandButton && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(OutlineButton, _extends({
+  }), !showContentImmediately && showExpandButton && /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, /*#__PURE__*/React__default["default"].createElement(OutlineButton, _extends({
     color: "secondary",
     endIcon: expanded ? "chevron-up" : "chevron-down",
     onClick: function onClick() {
@@ -2720,11 +2734,11 @@ var DetailsTable = function DetailsTable(_ref16) {
     },
     size: "xs",
     mb: 4
-  }, expandButtonProps), expandButtonTitle), expanded && rows.filter(function (row) {
+  }, expandButtonProps), expandButtonTitle)), expanded && rows.filter(function (row) {
     return row.expandable;
   }).map(function (row) {
     return renderRow(row);
-  })));
+  }));
 };
 DetailsTable.propTypes = DetailsTablePropTypes;
 DetailsTable.defaultProps = DetailsTableDefaultProps;
@@ -4723,10 +4737,11 @@ var PriceFieldDefaultProps = {
   selectProps: {
     name: "currency"
   },
-  startIcon: "money-bill"
+  startIcon: "money-bill",
+  min: "0.01"
 };
 
-var _excluded$16 = ["currencies", "defaultValue", "hasError", "hasWrapper", "inputProps", "name", "register", "selectProps"];
+var _excluded$16 = ["currencies", "defaultValue", "hasError", "hasWrapper", "inputProps", "name", "register", "selectProps", "min"];
 var StyledSelect = styled__default["default"](Select).withConfig({
   displayName: "Price__StyledSelect",
   componentId: "sc-3ss78-0"
@@ -4743,18 +4758,22 @@ var PriceField = function PriceField(_ref2) {
       name = _ref2.name,
       register = _ref2.register,
       selectProps = _ref2.selectProps,
+      min = _ref2.min,
       props = _objectWithoutPropertiesLoose(_ref2, _excluded$16);
 
+  var initialValue = (props == null ? void 0 : props.value) === "";
+  var doNotAllowNegativePrice = !initialValue ? Number(props == null ? void 0 : props.value) < Number(min) : false;
   return /*#__PURE__*/React__default["default"].createElement(FieldWrapper, _extends({
-    hasError: hasError
+    hasError: doNotAllowNegativePrice || hasError
   }, props), /*#__PURE__*/React__default["default"].createElement(Input, _extends({
     defaultValue: defaultValue,
-    hasError: hasError,
+    hasError: doNotAllowNegativePrice || hasError,
     hasWrapper: false,
     name: name,
     register: register,
     step: "0.01",
-    type: "number"
+    type: "number",
+    min: Number(min)
   }, inputProps)), /*#__PURE__*/React__default["default"].createElement(StyledSelect, _extends({
     hasWrapper: false,
     options: currencies,

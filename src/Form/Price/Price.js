@@ -22,10 +22,12 @@ export const PriceField = ({
   register,
   selectProps,
   min,
-  formState,
   ...props
 }) => {
-  const doNotAllowNegativePrice = Number(formState?.price) < Number(min);
+  const initialValue = props?.value === "";
+  const doNotAllowNegativePrice = !initialValue
+    ? Number(props?.value) < Number(min)
+    : false;
 
   return (
     <FieldWrapper hasError={doNotAllowNegativePrice || hasError} {...props}>
