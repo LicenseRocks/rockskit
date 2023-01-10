@@ -4267,9 +4267,9 @@ var UploaderPreview = function UploaderPreview(_ref) {
       var onRemoveClick = _ref.onRemoveClick,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$1b);
 
-  return files.map(function (file, index) {
+  return files.map(function (file, idx) {
     return /*#__PURE__*/React.createElement(UploaderPreviewItem, _extends({
-      key: file.name + index,
+      key: (file == null ? void 0 : file.name) + idx,
       file: file,
       removeFile: onRemoveClick
     }, props));

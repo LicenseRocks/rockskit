@@ -5,8 +5,8 @@ import PropTypes from "prop-types";
 import { UploaderPreviewItem } from "./PreviewItem";
 
 export const UploaderPreview = ({ files, index, onRemoveClick, ...props }) => {
-  return files.map((file, index) => (
-    <UploaderPreviewItem key={file.name+index} file={file} removeFile={onRemoveClick} {...props} />
+  return files.map((file, idx) => (
+    <UploaderPreviewItem key={file?.name + idx} file={file} removeFile={onRemoveClick} {...props} />
   ));
 };
 

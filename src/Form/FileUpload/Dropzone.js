@@ -109,7 +109,7 @@ export const Dropzone = ({
             ? URL.createObjectURL(file)
             : "",
         altName: null,
-      }),
+      })
     );
 
     if (multiple) onChange([...value, ...accepted]);
@@ -126,7 +126,7 @@ export const Dropzone = ({
         }
 
         return f;
-      }),
+      })
     );
   };
 
