@@ -4194,16 +4194,21 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
       fileNameEditable = _ref.fileNameEditable,
       onEdit = _ref.onEdit,
       removeFile = _ref.removeFile;
-  var name = file.altName || file.fileName || file.name;
-  var fileExt = name.split(".").pop();
+  console.log("👻 file - from uploader preview", file);
+  var name = (file == null ? void 0 : file.altName) || (file == null ? void 0 : file.fileName) || (file == null ? void 0 : file.name);
+  var fileExt = name == null ? void 0 : name.split(".").pop();
 
   var _useState = React.useState(false),
       editMode = _useState[0],
       setEditMode = _useState[1];
 
-  var _useState2 = React.useState(name.split(".").shift()),
+  var _useState2 = React.useState(name == null ? void 0 : name.split(".").shift()),
       altName = _useState2[0],
       setAltName = _useState2[1];
+
+  console.log("name", name, file == null ? void 0 : file.altName, file == null ? void 0 : file.fileName, file == null ? void 0 : file.name);
+  console.log("file ext", fileExt);
+  console.log("altname", altName);
 
   var handleEdit = function handleEdit() {
     onEdit(file, altName + "." + fileExt);
@@ -4212,7 +4217,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
 
   React.useEffect(function () {
     if (editMode) {
-      setAltName(name.split(".").shift());
+      setAltName(name == null ? void 0 : name.split(".").shift());
     }
   }, [editMode]);
   return /*#__PURE__*/React__default["default"].createElement(DropzoneItem$1, {
@@ -4222,14 +4227,14 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
   }, file != null && (_file$type = file.type) != null && _file$type.startsWith("image") ? /*#__PURE__*/React__default["default"].createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React__default["default"].createElement(Image, {
     alt: name,
     height: IMAGE_PREVIEW_SIZE,
-    src: file.preview,
+    src: file == null ? void 0 : file.preview,
     width: IMAGE_PREVIEW_SIZE
   }) : /*#__PURE__*/React__default["default"].createElement(H4, {
     content: fileExt,
     color: "textSecondary",
     noWrap: true
   })) : null, file != null && (_file$type2 = file.type) != null && _file$type2.startsWith("video") ? /*#__PURE__*/React__default["default"].createElement(reactVideoThumbnail.VideoThumbnail, {
-    videoUrl: file.preview,
+    videoUrl: file == null ? void 0 : file.preview,
     width: IMAGE_PREVIEW_SIZE,
     height: IMAGE_PREVIEW_SIZE
   }) : null, /*#__PURE__*/React__default["default"].createElement("div", null, editMode ? /*#__PURE__*/React__default["default"].createElement("div", {
@@ -4309,14 +4314,19 @@ UploaderPreviewItem.propTypes = {
 
 var _excluded$1b = ["files", "index", "onRemoveClick"];
 var UploaderPreview = function UploaderPreview(_ref) {
-  var files = _ref.files;
-      _ref.index;
-      var onRemoveClick = _ref.onRemoveClick,
+  var files = _ref.files,
+      index = _ref.index,
+      onRemoveClick = _ref.onRemoveClick,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$1b);
 
-  return files.map(function (file, idx) {
+  console.log(files, index);
+  var filteredFiles = files == null ? void 0 : files.filter(function (f) {
+    return f;
+  });
+  console.log(filteredFiles);
+  return filteredFiles.map(function (file, index) {
     return /*#__PURE__*/React__default["default"].createElement(UploaderPreviewItem, _extends({
-      key: (file == null ? void 0 : file.name) + idx,
+      key: (file == null ? void 0 : file.name) + index,
       file: file,
       removeFile: onRemoveClick
     }, props));
@@ -4418,6 +4428,7 @@ var Dropzone = function Dropzone(_ref17) {
       setErrorMessages = _useState2[1];
 
   var acceptedFileSizeInMb = (maxSize / 1000000).toString().split(".")[0] + " MB";
+  console.log("value - dropzone", value);
 
   var setFiles = function setFiles(files) {
     var accepted = files.map(function (file) {
@@ -4571,6 +4582,7 @@ var FileUpload = function FileUpload(_ref) {
       name = _ref.name,
       props = _objectWithoutPropertiesLoose(_ref, _excluded$19);
 
+  console.log(props);
   return /*#__PURE__*/React__default["default"].createElement(reactHookForm.Controller, {
     as: /*#__PURE__*/React__default["default"].createElement(Dropzone, props),
     control: control,

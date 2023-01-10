@@ -101,7 +101,7 @@ export const Dropzone = ({
   const [errorMessages, setErrorMessages] = useState(null);
   const acceptedFileSizeInMb = `${(maxSize / 1000000).toString().split(".")[0]} MB`;
 
-  const setFiles = (files) => {
+ const setFiles = (files) => {
     const accepted = files.map((file) =>
       Object.assign(file, {
         preview:
