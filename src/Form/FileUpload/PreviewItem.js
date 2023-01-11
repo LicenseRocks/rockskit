@@ -26,11 +26,11 @@ export const UploaderPreviewItem = ({
   onEdit,
   removeFile,
 }) => {
-  const name = file.altName || file.fileName || file.name;
-  const fileExt = name.split(".").pop();
+  const name = file?.altName || file?.fileName || file?.name;
+  const fileExt = name?.split(".").pop();
 
   const [editMode, setEditMode] = useState(false);
-  const [altName, setAltName] = useState(name.split(".").shift());
+  const [altName, setAltName] = useState(name?.split(".").shift());
 
   const handleEdit = () => {
     onEdit(file, `${altName}.${fileExt}`);
@@ -39,7 +39,7 @@ export const UploaderPreviewItem = ({
 
   useEffect(() => {
     if (editMode) {
-      setAltName(name.split(".").shift());
+      setAltName(name?.split(".").shift());
     }
   }, [editMode]);
 
@@ -52,7 +52,7 @@ export const UploaderPreviewItem = ({
               <Image
                 alt={name}
                 height={IMAGE_PREVIEW_SIZE}
-                src={file.preview}
+                src={file?.preview}
                 width={IMAGE_PREVIEW_SIZE}
               />
             ) : (
@@ -62,7 +62,7 @@ export const UploaderPreviewItem = ({
         ) : null}
         {file?.type?.startsWith("video") ? (
           <VideoThumbnail
-            videoUrl={file.preview}
+            videoUrl={file?.preview}
             width={IMAGE_PREVIEW_SIZE}
             height={IMAGE_PREVIEW_SIZE}
           />
