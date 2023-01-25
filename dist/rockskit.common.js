@@ -32,6 +32,7 @@ var copy = require('copy-to-clipboard');
 var reactFilepond = require('react-filepond');
 var AvatarEditor = require('react-avatar-editor');
 var reactDropzone = require('react-dropzone');
+require('react-video-thumbnail');
 var Typography = require('@material-ui/core/Typography');
 var MuiSlider = require('@material-ui/core/Slider');
 var axios = require('axios');
@@ -60,7 +61,6 @@ var MuiTooltip = require('@material-ui/core/Tooltip');
 var Drawer = require('@material-ui/core/Drawer');
 var Fab = require('@material-ui/core/Fab');
 var core = require('@material-ui/core');
-var VideoThumbnail = require('react-video-thumbnail');
 
 function _interopDefaultLegacy (e) { return e && typeof e === 'object' && 'default' in e ? e : { 'default': e }; }
 
@@ -104,7 +104,6 @@ var MuiTab__default = /*#__PURE__*/_interopDefaultLegacy(MuiTab);
 var MuiTooltip__default = /*#__PURE__*/_interopDefaultLegacy(MuiTooltip);
 var Drawer__default = /*#__PURE__*/_interopDefaultLegacy(Drawer);
 var Fab__default = /*#__PURE__*/_interopDefaultLegacy(Fab);
-var VideoThumbnail__default = /*#__PURE__*/_interopDefaultLegacy(VideoThumbnail);
 
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
@@ -4197,6 +4196,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
       removeFile = _ref.removeFile;
   var name = (file == null ? void 0 : file.altName) || (file == null ? void 0 : file.fileName) || (file == null ? void 0 : file.name);
   var fileExt = name == null ? void 0 : name.split(".").pop();
+  console.log("💽", file);
 
   var _useState = React.useState(false),
       editMode = _useState[0],
@@ -4216,11 +4216,13 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
       setAltName(name == null ? void 0 : name.split(".").shift());
     }
   }, [editMode]);
+  console.log('🚀 statement', file == null ? void 0 : (_file$type = file.type) == null ? void 0 : _file$type.startsWith("video"));
+  console.log('🚀 props', file == null ? void 0 : file.preview, IMAGE_PREVIEW_SIZE, IMAGE_PREVIEW_SIZE);
   return /*#__PURE__*/React__default["default"].createElement(DropzoneItem$1, {
     key: name
   }, /*#__PURE__*/React__default["default"].createElement("div", {
     className: "details"
-  }, file != null && (_file$type = file.type) != null && _file$type.startsWith("image") ? /*#__PURE__*/React__default["default"].createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React__default["default"].createElement(Image, {
+  }, file != null && (_file$type2 = file.type) != null && _file$type2.startsWith("image") ? /*#__PURE__*/React__default["default"].createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React__default["default"].createElement(Image, {
     alt: name,
     height: IMAGE_PREVIEW_SIZE,
     src: file == null ? void 0 : file.preview,
@@ -4229,11 +4231,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
     content: fileExt,
     color: "textSecondary",
     noWrap: true
-  })) : null, file != null && (_file$type2 = file.type) != null && _file$type2.startsWith("video") ? /*#__PURE__*/React__default["default"].createElement(VideoThumbnail__default["default"], {
-    videoUrl: file == null ? void 0 : file.preview,
-    width: IMAGE_PREVIEW_SIZE,
-    height: IMAGE_PREVIEW_SIZE
-  }) : null, /*#__PURE__*/React__default["default"].createElement("div", null, editMode ? /*#__PURE__*/React__default["default"].createElement("div", {
+  })) : null, /*#__PURE__*/React__default["default"].createElement("div", null, editMode ? /*#__PURE__*/React__default["default"].createElement("div", {
     className: "details"
   }, /*#__PURE__*/React__default["default"].createElement(Input, {
     onChange: function onChange(e) {
@@ -12018,6 +12016,7 @@ exports.Toggle = Toggle;
 exports.ToggleSwitch = ToggleSwitch;
 exports.Tooltip = Tooltip;
 exports.TrashIcon = TrashIcon;
+exports.UploaderPreviewItem = UploaderPreviewItem;
 exports.Wizard = Wizard;
 exports.convertHexToRGBA = convertHexToRGBA;
 exports.formatDateAndTime = formatDateAndTime;

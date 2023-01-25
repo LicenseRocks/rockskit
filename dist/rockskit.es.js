@@ -28,6 +28,7 @@ import copy from 'copy-to-clipboard';
 import { FilePond as FilePond$1 } from 'react-filepond';
 import AvatarEditor from 'react-avatar-editor';
 import { useDropzone } from 'react-dropzone';
+import 'react-video-thumbnail';
 import Typography from '@material-ui/core/Typography';
 import MuiSlider from '@material-ui/core/Slider';
 import axios from 'axios';
@@ -56,7 +57,6 @@ import MuiTooltip from '@material-ui/core/Tooltip';
 import Drawer from '@material-ui/core/Drawer';
 import Fab from '@material-ui/core/Fab';
 import { Grid as Grid$1, Link as Link$2, ListItem as ListItem$1, List as List$1, ListItemIcon, ListItemText } from '@material-ui/core';
-import VideoThumbnail from 'react-video-thumbnail';
 
 function _extends() {
   _extends = Object.assign ? Object.assign.bind() : function (target) {
@@ -4149,6 +4149,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
       removeFile = _ref.removeFile;
   var name = (file == null ? void 0 : file.altName) || (file == null ? void 0 : file.fileName) || (file == null ? void 0 : file.name);
   var fileExt = name == null ? void 0 : name.split(".").pop();
+  console.log("💽", file);
 
   var _useState = useState(false),
       editMode = _useState[0],
@@ -4168,11 +4169,13 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
       setAltName(name == null ? void 0 : name.split(".").shift());
     }
   }, [editMode]);
+  console.log('🚀 statement', file == null ? void 0 : (_file$type = file.type) == null ? void 0 : _file$type.startsWith("video"));
+  console.log('🚀 props', file == null ? void 0 : file.preview, IMAGE_PREVIEW_SIZE, IMAGE_PREVIEW_SIZE);
   return /*#__PURE__*/React.createElement(DropzoneItem$1, {
     key: name
   }, /*#__PURE__*/React.createElement("div", {
     className: "details"
-  }, file != null && (_file$type = file.type) != null && _file$type.startsWith("image") ? /*#__PURE__*/React.createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React.createElement(Image, {
+  }, file != null && (_file$type2 = file.type) != null && _file$type2.startsWith("image") ? /*#__PURE__*/React.createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React.createElement(Image, {
     alt: name,
     height: IMAGE_PREVIEW_SIZE,
     src: file == null ? void 0 : file.preview,
@@ -4181,11 +4184,7 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
     content: fileExt,
     color: "textSecondary",
     noWrap: true
-  })) : null, file != null && (_file$type2 = file.type) != null && _file$type2.startsWith("video") ? /*#__PURE__*/React.createElement(VideoThumbnail, {
-    videoUrl: file == null ? void 0 : file.preview,
-    width: IMAGE_PREVIEW_SIZE,
-    height: IMAGE_PREVIEW_SIZE
-  }) : null, /*#__PURE__*/React.createElement("div", null, editMode ? /*#__PURE__*/React.createElement("div", {
+  })) : null, /*#__PURE__*/React.createElement("div", null, editMode ? /*#__PURE__*/React.createElement("div", {
     className: "details"
   }, /*#__PURE__*/React.createElement(Input, {
     onChange: function onChange(e) {
@@ -11833,5 +11832,5 @@ var AspectRatio = /*#__PURE__*/forwardRef(function (_ref3, ref) {
   }, child);
 });
 
-export { AdvancedLineItem, Alert, AppContainer, AppContext, AppContextProvider, AspectRatio, AuthLayout, BorderedRadio, Box$1 as Box, BoxBase, Button$1 as Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CartButton, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, CollectionItem, CreatorsHubAuthLayout, CreatorsHubMainLayout, CropModal, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, Datepicker, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, DropzoneError, DropzoneItemStyles, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset$1 as Fieldset, FileManager, FilePond, FileUpload, FilesList, Flex, Form, FormButtonHandlers, FormDatepicker, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, Hidden, HideOnScroll, History, HistoryTree, Icon, Image, ImageModal, Indicator$1 as Indicator, Input, Inspector, InspectorDefaultProps, InspectorItem, InspectorPropTypes, ItemSelect, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, Link, MINI_SHARE_MODULE_SHARE_OPTIONS, MarketPlaceItem, MiniShareModule, Modal, NoItem, OutlineButton, PageFigure, PageLoading, PageMeta, PageProgressBar, PageTransition, Pagination, Paragraph, PreviewWrapperStyles, PriceField, Profile, ProgressBar, Radio, RadioBase, RadioEnhanced, RadioExtra, RadioList, RangeSlider, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, ShareModuleDefaultProps$1 as ShareModuleDefaultProps, ShareModulePropTypes$1 as ShareModulePropTypes, Snackbar, Stepper, THEME_COLORS, Tab, Table, TabsSwitch, TabsToggle, Text, TextArea, TextBase, TextButton, Thumbnail, TinyBadge, Toggle, ToggleSwitch, Tooltip, TrashIcon, Wizard, convertHexToRGBA, formatDateAndTime, formatPrice, getFormInputError, getFormRowErrors, handleScroll, mapResponsive, useAppContext, useMediaQuery };
+export { AdvancedLineItem, Alert, AppContainer, AppContext, AppContextProvider, AspectRatio, AuthLayout, BorderedRadio, Box$1 as Box, BoxBase, Button$1 as Button, ButtonBase, COLOR, COLOR_PROP_TYPES, CartButton, CategoryItem, CategoryItemContentLoader, Checkbox, ChipBadge, Collapse, CollapseButton, CollectionItem, CreatorsHubAuthLayout, CreatorsHubMainLayout, CropModal, DIMENSION, DIMENSION_PROP_TYPES, DISPLAY, DISPLAY_PROP_TYPES, DashboardLayout, Datepicker, DetailsTable, Divider, DotsSpinner, DownloadModule, Dropdown, DropzoneError, DropzoneItemStyles, ErrorTemplate, ExplorerLayout, FieldBase, FieldWrapper, Fieldset$1 as Fieldset, FileManager, FilePond, FileUpload, FilesList, Flex, Form, FormButtonHandlers, FormDatepicker, FormError, FormLabel, FormRow, FreeBrandIconSet, FreeSolidIconSet, GlobalStyle, H1, H2, H3, H4, H5, H6, HeadingBase, Hidden, HideOnScroll, History, HistoryTree, Icon, Image, ImageModal, Indicator$1 as Indicator, Input, Inspector, InspectorDefaultProps, InspectorItem, InspectorPropTypes, ItemSelect, KIT_COLORS, KIT_FONTS, KIT_ICON_SIZES, KIT_TYPOGRAPHY, Language, Link, MINI_SHARE_MODULE_SHARE_OPTIONS, MarketPlaceItem, MiniShareModule, Modal, NoItem, OutlineButton, PageFigure, PageLoading, PageMeta, PageProgressBar, PageTransition, Pagination, Paragraph, PreviewWrapperStyles, PriceField, Profile, ProgressBar, Radio, RadioBase, RadioEnhanced, RadioExtra, RadioList, RangeSlider, ReactSelect, RocksKitIcons, RocksKitTheme, RocksSpinner, SPACER, SPACER_FORMULA, SPACER_POSTFIX, SPACER_PROP_TYPES, SearchBar, Select, ShareModule, ShareModuleDefaultProps$1 as ShareModuleDefaultProps, ShareModulePropTypes$1 as ShareModulePropTypes, Snackbar, Stepper, THEME_COLORS, Tab, Table, TabsSwitch, TabsToggle, Text, TextArea, TextBase, TextButton, Thumbnail, TinyBadge, Toggle, ToggleSwitch, Tooltip, TrashIcon, UploaderPreviewItem, Wizard, convertHexToRGBA, formatDateAndTime, formatPrice, getFormInputError, getFormRowErrors, handleScroll, mapResponsive, useAppContext, useMediaQuery };
 //# sourceMappingURL=rockskit.es.js.map
