@@ -25,3 +25,4 @@ export * from "./TabsSwitch";
 export * from "./RadioList";
 export * from "./RadioExtra";
 export * from "./ButtonHandlers";
+export * from "./SingleCheckbox";
