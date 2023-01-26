@@ -4141,7 +4141,7 @@ function bytesToSize(bytes) {
 
 var IMAGE_PREVIEW_SIZE = 48;
 var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
-  var _file$type, _file$type2;
+  var _file$type;
 
   var file = _ref.file,
       fileNameEditable = _ref.fileNameEditable,
@@ -4149,7 +4149,6 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
       removeFile = _ref.removeFile;
   var name = (file == null ? void 0 : file.altName) || (file == null ? void 0 : file.fileName) || (file == null ? void 0 : file.name);
   var fileExt = name == null ? void 0 : name.split(".").pop();
-  console.log("💽", file);
 
   var _useState = useState(false),
       editMode = _useState[0],
@@ -4169,13 +4168,11 @@ var UploaderPreviewItem = function UploaderPreviewItem(_ref) {
       setAltName(name == null ? void 0 : name.split(".").shift());
     }
   }, [editMode]);
-  console.log('🚀 statement', file == null ? void 0 : (_file$type = file.type) == null ? void 0 : _file$type.startsWith("video"));
-  console.log('🚀 props', file == null ? void 0 : file.preview, IMAGE_PREVIEW_SIZE, IMAGE_PREVIEW_SIZE);
   return /*#__PURE__*/React.createElement(DropzoneItem$1, {
     key: name
   }, /*#__PURE__*/React.createElement("div", {
     className: "details"
-  }, file != null && (_file$type2 = file.type) != null && _file$type2.startsWith("image") ? /*#__PURE__*/React.createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React.createElement(Image, {
+  }, file != null && (_file$type = file.type) != null && _file$type.startsWith("image") ? /*#__PURE__*/React.createElement(PreviewWrapper$1, null, file.preview ? /*#__PURE__*/React.createElement(Image, {
     alt: name,
     height: IMAGE_PREVIEW_SIZE,
     src: file == null ? void 0 : file.preview,
