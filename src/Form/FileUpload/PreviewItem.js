@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import VideoThumbnail from "react-video-thumbnail";
 import { H4, Image, Text } from "../..";
 import { Icon } from "../../Icon";
 import {
@@ -8,7 +9,6 @@ import {
   PreviewWrapperStyles,
   TrashIcon,
 } from "./SharedStyles";
-import { VideoThumbnail } from "react-video-thumbnail";
 import { Input } from "../Input";
 
 function bytesToSize(bytes) {
@@ -28,6 +28,8 @@ export const UploaderPreviewItem = ({
 }) => {
   const name = file?.altName || file?.fileName || file?.name;
   const fileExt = name?.split(".").pop();
+
+
 
   const [editMode, setEditMode] = useState(false);
   const [altName, setAltName] = useState(name?.split(".").shift());
@@ -59,13 +61,6 @@ export const UploaderPreviewItem = ({
               <H4 content={fileExt} color="textSecondary" noWrap />
             )}
           </PreviewWrapper>
-        ) : null}
-        {file?.type?.startsWith("video") ? (
-          <VideoThumbnail
-            videoUrl={file?.preview}
-            width={IMAGE_PREVIEW_SIZE}
-            height={IMAGE_PREVIEW_SIZE}
-          />
         ) : null}
 
         <div>
