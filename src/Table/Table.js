@@ -37,13 +37,14 @@ export const Table = ({
   noDataProps,
   rowsBottomBorderSm,
   rowsSize,
+  blackBorders,
   ...props
 }) => {
   const hasData = rows.length > 0;
 
   return (
     <StyledTable hasData={hasData} {...props}>
-      <Heading columns={columns} hasData={hasData} />
+      <Heading columns={columns} hasData={hasData} blackBorders={blackBorders} />
 
       <StyledTbody hasData={hasData}>
         {rows.length > 0 ? (
@@ -52,6 +53,7 @@ export const Table = ({
             rows={rows}
             rowsBottomBorderSm={rowsBottomBorderSm}
             rowsSize={rowsSize}
+            blackBorders={blackBorders}
           />
         ) : (
           <NoData columnsCount={columns.length} {...noDataProps} />

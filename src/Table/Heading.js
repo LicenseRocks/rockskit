@@ -19,7 +19,7 @@ const StyledThead = styled.thead`
         }
       }
       
-      border-bottom: 2px solid ${({ theme }) => theme.palette.gray.regular};
+      border-bottom: 2px solid ${({ theme, blackBorders }) => blackBorders ? theme.palette.gray.black : theme.palette.gray.regular};
       ${theme.breakpoints.down("sm")} {
         border: none;
         clip: rect(0 0 0 0);
@@ -33,9 +33,9 @@ const StyledThead = styled.thead`
     `}
 `;
 
-export const Heading = ({ columns, hasData }) =>
+export const Heading = ({ columns, hasData, blackBorders }) =>
   columns.length > 0 && (
-    <StyledThead hasData={hasData}>
+    <StyledThead hasData={hasData} blackBorders={blackBorders}>
       <Row size="sm" hasData={hasData}>
         {columns.map(({ label = "", render = () => {} }) => (
           <th>

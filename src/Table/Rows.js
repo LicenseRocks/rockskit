@@ -97,9 +97,9 @@ const getContentByColType = (content, col) => {
   }
 };
 
-export const Rows = ({ columns, rows, rowsBottomBorderSm, rowsSize }) =>
+export const Rows = ({ columns, rows, rowsBottomBorderSm, rowsSize, blackBorders }) =>
   rows.map((row) => (
-    <Row hasData={rows.length > 0} size={rowsSize}>
+    <Row hasData={rows.length > 0} size={rowsSize} blackBorders={blackBorders}>
       {Object.keys(row).map((td) => {
         const col = columns.find((c) => c.key === td);
         const content = row[td];

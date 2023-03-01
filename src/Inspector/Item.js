@@ -55,8 +55,8 @@ const StyledMessage = styled.div`
 `;
 
 const StyledCollapseButton = styled(CollapseButton)`
-  width: 33px !important;
-  height: 33px !important;
+  width: 17px !important;
+  height: 17px !important;
   padding: ${({ theme }) => theme.spacing(2)};
   color: ${({ theme }) => theme.palette.text.primary};
   background-color: ${({ theme }) => theme.palette.gray.regular};

@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import MuiTooltip from "@material-ui/core/Tooltip";
-
-import { Text } from "..";
 import { TooltipDefaultProps, TooltipPropTypes } from "./props";
 
 const StyledTooltip = styled((props) => (
@@ -21,6 +19,12 @@ const StyledTooltip = styled((props) => (
   }
 `;
 
+const StyledP = styled.p`
+  font-size: 12px;
+  padding: ${({ theme }) => theme.spacing(1)};
+  margin: 0;
+`;
+
 export const Tooltip = ({
   children,
   content,
@@ -32,9 +36,7 @@ export const Tooltip = ({
     <StyledTooltip
       title={
         renderContent() || (
-          <Text fontStyle="italic" size="sm" {...contentProps}>
-            {content}
-          </Text>
+          <StyledP>{content}</StyledP>
         )
       }
       {...props}
