@@ -39,6 +39,14 @@ const colorMapper = (color, theme) => {
       color: theme.palette.gray.black,
     };
 
+  if (color === "black")
+    return {
+      colorHover: theme.palette.gray.black,
+      backgroundColorHover: "transparent",
+      borderColor: theme.palette.gray.black,
+      color: theme.palette.gray.black,
+    };
+
   return {
     backgroundColorHover: theme.palette.primary.light,
     borderColor: theme.palette.primary.main,
