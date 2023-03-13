@@ -7,8 +7,8 @@ const StyledButton = styled(ButtonBase)`
   && {
     ${({ colors }) => {
       return css`
-        border: 2px solid ${colors.borderColor};
-        color: ${colors.color};
+        border: 2px solid ${colors.borderColor} !important;
+        color: ${colors.color} !important;
         svg {
           color: ${colors.color};
         }
@@ -27,16 +27,8 @@ const colorMapper = (color, theme) => {
   if (color === "secondary")
     return {
       backgroundColorHover: theme.palette.gray.semiLight,
-      borderColor: theme.palette.gray.regular,
-      color: theme.palette.gray.dark,
-    };
-
-  if (color === "subtle")
-    return {
-      colorHover: theme.palette.gray.semiLight,
-      backgroundColorHover: theme.palette.gray.black,
-      borderColor: theme.palette.gray.black,
-      color: theme.palette.gray.black,
+      borderColor: theme.palette.black.main,
+      color: theme.palette.black.main,
     };
 
   return {
@@ -46,9 +38,9 @@ const colorMapper = (color, theme) => {
   };
 };
 
-export const OutlineButton = forwardRef(({ color, ...props }, ref) => {
+export const OutlineButton = forwardRef(({ color, secondary, ...props }, ref) => {
   const theme = useTheme();
-  const colors = colorMapper(color, theme);
+  const colors = colorMapper(secondary ? "secondary" : color, theme);
 
   return <StyledButton ref={ref} colors={colors} {...props} />;
 });

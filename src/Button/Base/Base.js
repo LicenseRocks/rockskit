@@ -1,19 +1,13 @@
 import React, { forwardRef } from "react";
 import styled, { css } from "styled-components";
 import MuiButtonBase from "@material-ui/core/ButtonBase";
-
 import { DISPLAY, DotsSpinner, Icon, SPACER } from "../..";
 import { ButtonBasePropTypes, ButtonBaseDefaultProps } from "./props";
 
 const StyledButton = styled(MuiButtonBase)`
   && {
     box-sizing: border-box;
-    text-transfrom: none !important;
-    border-radius: 24px;
-    ${({ noPadding, theme }) =>
-      !noPadding && `padding: ${theme.spacing(4, 4)};`}
-    min-width: 40px;
-    height: 40px;
+    border-radius: 50px;
     transition: all 100ms ease-in-out;
     width: ${({ block }) => (block ? "100%" : "initial")};
 
@@ -27,40 +21,89 @@ const StyledButton = styled(MuiButtonBase)`
       pointer-events: none;
     }
 
-    ${({ size, theme }) => {
+    .icon_wrapper {
+      display: grid;
+      place-items: center;
+    }
+    
+    .icon_wrapper.start_icon {
+      margin: ${({ content, theme }) => !!content ? theme.spacing(0, 2, 0, 0) : theme.spacing(0) };
+    }
+
+    .icon_wrapper.end_icon {
+      margin: ${({ content, theme }) => !!content ? theme.spacing(0, 0, 0, 2) : theme.spacing(0) };
+    }
+    
+    ${({ size, theme, content, oneIcon }) => {
+      if (oneIcon && !content) {
+        css`
+          && {
+            padding: ${theme.spacing(3, 3)} !important;
+            .icon_wrapper {
+              width: 20px;
+              height: 20px;
+              display: grid;
+              place-items: center;
+            }
+          }
+      `;
+      }
+
       if (size === "xs") {
         return css`
           font-size: ${theme.typography.button.fontSizeXs};
-          padding: ${theme.spacing(2, 4)};
-          height: 24px;
-          min-width: 24px;
-          border-radius: 12px;
+          padding: ${({ content }) => !(!!content) ? "6px" : "6px 8px" };
+
+          .icon_wrapper {
+            display: grid;
+            place-items: center;
+            width: 12px;
+            height: 12px; 
+          }
         `;
       }
 
       if (size === "sm") {
         return css`
           font-size: ${theme.typography.button.fontSizeSm};
-          padding: ${theme.spacing(2, 4)};
-          height: 32px;
-          min-width: 32px;
-          border-radius: 16px;
+          padding: ${({ content }) => !(!!content) ? "9px" : "9px 24px" };
+
+          .icon_wrapper {
+            display: grid;
+            place-items: center;
+            width: 14px;
+            height: 14px;
+          }
+        `;
+      }
+
+      if (size === "md") {
+        return css`
+          font-size: ${theme.typography.button.fontSizeMd};
+          padding: ${({ content }) => !(!!content) ? "10.5px" : "10.5px 16px" };
+
+          .icon_wrapper {
+            display: grid;
+            place-items: center;
+            width: 20px;
+            height: 20px;
+          }
         `;
       }
 
       if (size === "lg") {
         return css`
           font-size: ${theme.typography.button.fontSizeLg};
-          padding: ${theme.spacing(3, 6)};
-          height: 48px;
-          min-width: 48px;
-          border-radius: 24px;
+          padding: ${({ content }) => !(!!content) ? "14.5px" : "14.5px 24px" };
+
+          .icon_wrapper {
+            display: grid;
+            place-items: center;
+            width: 22px;
+            height: 22px;
+          }
         `;
       }
-
-      return css`
-        font-size: ${theme.typography.button.fontSizeMd};
-      `;
     }}
 
     ${(theme) => DISPLAY(theme)}
@@ -70,12 +113,12 @@ const StyledButton = styled(MuiButtonBase)`
 
 const getIconSize = (buttonSize) => {
   switch (buttonSize) {
-    case "xs":
-      return "sm";
-    case "sm":
+    case "lg":
+      return "lg";
+    case "md":
       return "md";
     default:
-      return "lg";
+      return "sm"
   }
 };
 
@@ -83,22 +126,23 @@ export const ButtonBase = forwardRef(
   (
     {
       colors,
+      color,
       content,
       children,
       loading,
-      endIcon,
       endIconPrefix,
       href,
       icon,
+      startIcon,
+      endIcon,
       iconProps,
       size,
-      startIcon,
       startIconPrefix,
       ...props
     },
     ref
   ) => {
-    const iconSize = getIconSize(size);
+    const iconSize = getIconSize(size, content, children);
 
     return (
       <StyledButton
@@ -106,6 +150,10 @@ export const ButtonBase = forwardRef(
         href={href}
         size={size}
         ref={ref}
+        icon={icon}
+        startIcon={startIcon}
+        endIcon={endIcon}
+        content={content}
         {...props}
       >
         {loading ? (
@@ -113,22 +161,35 @@ export const ButtonBase = forwardRef(
         ) : (
           <>
             {startIcon && (
-              <Icon
-                icon={startIcon}
-                prefix={startIconPrefix && startIconPrefix}
-                size={iconSize}
-                mr={2}
-              />
+              <div className="icon_wrapper start_icon">
+                <Icon
+                  color={color}
+                  icon={startIcon}
+                  prefix={startIconPrefix && startIconPrefix}
+                  size={iconSize}
+                />
+              </div>
             )}
-            {icon && <Icon icon={icon} size={iconSize} {...iconProps} />}
-            {content || children}
+            {icon &&
+              <div className="icon_wrapper">
+                <Icon
+                  color={color}
+                  icon={icon}
+                  size={iconSize}
+                  {...iconProps}
+                />
+              </div>
+            }
+            <span>{content || children}</span>
             {endIcon && (
-              <Icon
-                icon={endIcon}
-                prefix={endIconPrefix && endIconPrefix}
-                size={iconSize}
-                ml={2}
-              />
+              <div className="icon_wrapper end_icon">
+                <Icon
+                  color={color}
+                  icon={endIcon}
+                  prefix={endIconPrefix && endIconPrefix}
+                  size={iconSize}
+                />
+              </div>
             )}
           </>
         )}
