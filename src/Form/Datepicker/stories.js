@@ -2,13 +2,13 @@ import React from "react";
 import { boolean } from "@storybook/addon-knobs";
 import { useForm } from "react-hook-form";
 
-import { Button, FormError, FormDatepicker } from "../..";
+import { Button, FormDatepicker, FormError } from "../..";
 import { StoryWrapper } from "../../../.storybook/decorators";
 
 export default {
   title: "Form/Datepicker",
   component: FormDatepicker,
-  decorators: [StoryWrapper],
+  decorators: [StoryWrapper]
 };
 
 export const main = () => {
@@ -25,6 +25,7 @@ export const main = () => {
     isRequired: "This item is required",
     name: "datepicker",
     selectRange: boolean("Select Range", false),
+    startFromToday: true,
   };
 
   return (
