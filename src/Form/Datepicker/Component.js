@@ -38,6 +38,7 @@ export const FormDatepickerComponent = ({
   selectRange,
   submitText,
   value,
+  startFromToday
 }) => {
   const currentValue = {
     start: value?.start || value,
@@ -132,6 +133,7 @@ export const FormDatepickerComponent = ({
           to={to}
           onDayClick={handleDayClick}
           selectRange={selectRange}
+          startFromToday={startFromToday}
           {...datepickerProps}
         />
         <BottomSection>
