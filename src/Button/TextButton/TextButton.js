@@ -8,6 +8,7 @@ const StyledButton = styled(ButtonBase)`
     ${({ colors }) => {
       return css`
         color: ${colors.color};
+        border: 2px solid transparent;
         svg {
           color: ${colors.color};
         }
@@ -19,7 +20,7 @@ const StyledButton = styled(ButtonBase)`
 const colorMapper = (color, theme) => {
   if (color === "secondary")
     return {
-      color: theme.palette.gray.dark,
+      color: theme.palette.black.main,
     };
 
   if (color === "subtle")
@@ -27,16 +28,21 @@ const colorMapper = (color, theme) => {
       color: theme.palette.gray.dark,
     };
 
+  if (color === "red")
+    return {
+      color: theme.palette.red.dark,
+    };
+
   return {
     color: theme.palette.primary.main,
   };
 };
 
-export const TextButton = forwardRef(({ color, ...props }, ref) => {
+export const TextButton = forwardRef(({ color, secondary, red,...props }, ref) => {
   const theme = useTheme();
-  const colors = colorMapper(color, theme);
+  const colors = colorMapper(secondary ? "secondary" : red ? "red" : color, theme);
 
-  return <StyledButton ref={ref} colors={colors} {...props} />;
+  return <StyledButton color={color} ref={ref} colors={colors} {...props} />;
 });
 
 TextButton.propTypes = ButtonBasePropTypes;

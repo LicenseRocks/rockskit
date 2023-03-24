@@ -15,6 +15,7 @@ var proRegularSvgIcons = require('@fortawesome/pro-regular-svg-icons');
 var proSolidSvgIcons = require('@fortawesome/pro-solid-svg-icons');
 var freeRegularSvgIcons = require('@fortawesome/free-regular-svg-icons');
 var MuiButtonBase = require('@material-ui/core/ButtonBase');
+var reactFontawesome = require('@fortawesome/react-fontawesome');
 var RCL = require('react-content-loader');
 var reactCollapse = require('react-collapse');
 var DayPicker = require('react-day-picker');
@@ -25,7 +26,6 @@ var ClickAwayListener = require('@material-ui/core/ClickAwayListener');
 var MenuItem = require('@material-ui/core/MenuItem');
 var QRCode = require('qrcode.react');
 var Grid = require('@material-ui/core/Grid');
-var reactFontawesome = require('@fortawesome/react-fontawesome');
 var reactHookForm = require('react-hook-form');
 var MuiPopover = require('@material-ui/core/Popover');
 var copy = require('copy-to-clipboard');
@@ -257,9 +257,9 @@ var KIT_FONTS = {
 };
 
 var KIT_ICON_SIZES = {
-  lg: 20,
-  md: 16,
-  sm: 12
+  lg: 19,
+  md: 15,
+  sm: 11
 };
 
 var KIT_TYPOGRAPHY = function KIT_TYPOGRAPHY(theme) {
@@ -713,34 +713,58 @@ var ButtonBaseDefaultProps = {
   size: "md"
 };
 
-var _excluded$1K = ["colors", "content", "children", "loading", "endIcon", "endIconPrefix", "href", "icon", "iconProps", "size", "startIcon", "startIconPrefix"];
+var _excluded$1K = ["colors", "color", "content", "children", "loading", "endIconPrefix", "href", "icon", "startIcon", "endIcon", "iconProps", "size", "startIconPrefix", "fullWidth"];
 var StyledButton$6 = styled__default["default"](MuiButtonBase__default["default"]).withConfig({
   displayName: "Base__StyledButton",
   componentId: "sc-1vgypdg-0"
-})(["&&{box-sizing:border-box;text-transfrom:none !important;border-radius:24px;", " min-width:40px;height:40px;transition:all 100ms ease-in-out;width:", ";:hover{opacity:0.7;}:disabled{opacity:0.3;cursor:not-allowed;pointer-events:none;}", " ", " ", "}"], function (_ref) {
-  var noPadding = _ref.noPadding,
-      theme = _ref.theme;
-  return !noPadding && "padding: " + theme.spacing(4, 4) + ";";
-}, function (_ref2) {
-  var block = _ref2.block;
+})(["&&{box-sizing:border-box;border-radius:50px;transition:all 100ms ease-in-out;width:", ";:hover{opacity:0.7;}:disabled{opacity:0.3;cursor:not-allowed;pointer-events:none;}.icon_wrapper{display:grid;place-items:center;}.icon_wrapper.start_icon{margin:", ";}.icon_wrapper.end_icon{margin:", ";}", " ", " ", "}"], function (_ref) {
+  var block = _ref.block;
   return block ? "100%" : "initial";
+}, function (_ref2) {
+  var content = _ref2.content,
+      theme = _ref2.theme;
+  return !!content ? theme.spacing(0, 2, 0, 0) : theme.spacing(0);
 }, function (_ref3) {
-  var size = _ref3.size,
+  var content = _ref3.content,
       theme = _ref3.theme;
+  return !!content ? theme.spacing(0, 0, 0, 2) : theme.spacing(0);
+}, function (_ref4) {
+  var size = _ref4.size,
+      theme = _ref4.theme,
+      content = _ref4.content,
+      oneIcon = _ref4.oneIcon;
+
+  if (oneIcon && !content) {
+    styled.css(["&&{padding:", " !important;.icon_wrapper{width:20px;height:20px;display:grid;place-items:center;}}"], theme.spacing(3, 3));
+  }
 
   if (size === "xs") {
-    return styled.css(["font-size:", ";padding:", ";height:24px;min-width:24px;border-radius:12px;"], theme.typography.button.fontSizeXs, theme.spacing(2, 4));
+    return styled.css(["font-size:", ";padding:", ";.icon_wrapper{display:grid;place-items:center;width:12px;height:12px;}"], theme.typography.button.fontSizeXs, function (_ref5) {
+      var content = _ref5.content;
+      return !!!content ? "5px" : "5px 7px";
+    });
   }
 
   if (size === "sm") {
-    return styled.css(["font-size:", ";padding:", ";height:32px;min-width:32px;border-radius:16px;"], theme.typography.button.fontSizeSm, theme.spacing(2, 4));
+    return styled.css(["font-size:", ";padding:", ";.icon_wrapper{display:grid;place-items:center;width:14px;height:14px;}"], theme.typography.button.fontSizeSm, function (_ref6) {
+      var content = _ref6.content;
+      return !!!content ? "8px" : "8px 23px";
+    });
+  }
+
+  if (size === "md") {
+    return styled.css(["font-size:", ";padding:", ";.icon_wrapper{display:grid;place-items:center;width:20px;height:20px;}"], theme.typography.button.fontSizeMd, function (_ref7) {
+      var content = _ref7.content;
+      return !!!content ? "9.5px" : "9.5px 15px";
+    });
   }
 
   if (size === "lg") {
-    return styled.css(["font-size:", ";padding:", ";height:48px;min-width:48px;border-radius:24px;"], theme.typography.button.fontSizeLg, theme.spacing(3, 6));
+    return styled.css(["font-size:", ";padding:", ";.icon_wrapper{display:grid;place-items:center;width:22px;height:22px;}"], theme.typography.button.fontSizeLg, function (_ref8) {
+      var content = _ref8.content;
+      return !!!content ? "13.5px" : "13.5px 23px";
+    });
   }
-
-  return styled.css(["font-size:", ";"], theme.typography.button.fontSizeMd);
 }, function (theme) {
   return DISPLAY(theme);
 }, function (theme) {
@@ -749,75 +773,84 @@ var StyledButton$6 = styled__default["default"](MuiButtonBase__default["default"
 
 var getIconSize = function getIconSize(buttonSize) {
   switch (buttonSize) {
-    case "xs":
-      return "sm";
+    case "lg":
+      return "lg";
 
-    case "sm":
+    case "md":
       return "md";
 
     default:
-      return "lg";
+      return "sm";
   }
 };
 
-var ButtonBase = /*#__PURE__*/React.forwardRef(function (_ref4, ref) {
-  var colors = _ref4.colors,
-      content = _ref4.content,
-      children = _ref4.children,
-      loading = _ref4.loading,
-      endIcon = _ref4.endIcon,
-      endIconPrefix = _ref4.endIconPrefix,
-      href = _ref4.href,
-      icon = _ref4.icon,
-      iconProps = _ref4.iconProps,
-      size = _ref4.size,
-      startIcon = _ref4.startIcon,
-      startIconPrefix = _ref4.startIconPrefix,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$1K);
+var ButtonBase = /*#__PURE__*/React.forwardRef(function (_ref9, ref) {
+  var colors = _ref9.colors,
+      color = _ref9.color,
+      content = _ref9.content,
+      children = _ref9.children,
+      loading = _ref9.loading,
+      endIconPrefix = _ref9.endIconPrefix,
+      href = _ref9.href,
+      icon = _ref9.icon,
+      startIcon = _ref9.startIcon,
+      endIcon = _ref9.endIcon,
+      iconProps = _ref9.iconProps,
+      size = _ref9.size,
+      startIconPrefix = _ref9.startIconPrefix;
+      _ref9.fullWidth;
+      var props = _objectWithoutPropertiesLoose(_ref9, _excluded$1K);
 
   var iconSize = getIconSize(size);
   return /*#__PURE__*/React__default["default"].createElement(StyledButton$6, _extends({
     component: href ? "a" : "button",
     href: href,
     size: size,
-    ref: ref
+    ref: ref,
+    icon: icon,
+    startIcon: startIcon,
+    endIcon: endIcon,
+    content: content
   }, props), loading ? /*#__PURE__*/React__default["default"].createElement(DotsSpinner, {
     color: colors == null ? void 0 : colors.color
-  }) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, startIcon && /*#__PURE__*/React__default["default"].createElement(Icon, {
+  }) : /*#__PURE__*/React__default["default"].createElement(React__default["default"].Fragment, null, startIcon && /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "icon_wrapper start_icon"
+  }, /*#__PURE__*/React__default["default"].createElement(Icon, {
+    color: color,
     icon: startIcon,
     prefix: startIconPrefix && startIconPrefix,
-    size: iconSize,
-    mr: 2
-  }), icon && /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
+    size: iconSize
+  })), icon && /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "icon_wrapper"
+  }, /*#__PURE__*/React__default["default"].createElement(Icon, _extends({
+    color: color,
     icon: icon,
     size: iconSize
-  }, iconProps)), content || children, endIcon && /*#__PURE__*/React__default["default"].createElement(Icon, {
+  }, iconProps))), /*#__PURE__*/React__default["default"].createElement("span", null, content || children), endIcon && /*#__PURE__*/React__default["default"].createElement("div", {
+    className: "icon_wrapper end_icon"
+  }, /*#__PURE__*/React__default["default"].createElement(Icon, {
+    color: color,
     icon: endIcon,
     prefix: endIconPrefix && endIconPrefix,
-    size: iconSize,
-    ml: 2
-  })));
+    size: iconSize
+  }))));
 });
 ButtonBase.propTypes = ButtonBasePropTypes;
 ButtonBase.defaultProps = ButtonBaseDefaultProps;
 
-var _excluded$1J = ["color"];
+var _excluded$1J = ["color", "secondary"];
 var StyledButton$5 = styled__default["default"](ButtonBase).withConfig({
   displayName: "Button__StyledButton",
   componentId: "sc-rmizea-0"
 })(["&&{", "}"], function (_ref) {
   var colors = _ref.colors;
-  return styled.css(["background-color:", ";color:", ";svg{color:", ";}"], colors.backgroundColor, colors.color, colors.color);
+  return styled.css(["background-color:", ";color:", ";border:2px solid ", ";svg{color:", ";}"], colors.backgroundColor, colors.color, colors.backgroundColor, colors.color);
 });
 
 var colorMapper$2 = function colorMapper(color, theme) {
-  if (color === "black") return {
-    backgroundColor: theme.palette.black.main,
-    color: theme.palette.common.white
-  };
   if (color === "secondary") return {
-    backgroundColor: theme.palette.gray.dark,
-    color: theme.palette.common.white
+    backgroundColor: theme.palette.gray.regular,
+    color: theme.palette.black.main
   };
   if (color === "subtle") return {
     backgroundColor: theme.palette.gray.regular,
@@ -831,10 +864,11 @@ var colorMapper$2 = function colorMapper(color, theme) {
 
 var Button$1 = /*#__PURE__*/React.forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
+      secondary = _ref2.secondary,
       props = _objectWithoutPropertiesLoose(_ref2, _excluded$1J);
 
   var theme = styled.useTheme();
-  var colors = colorMapper$2(color, theme);
+  var colors = colorMapper$2(secondary ? "secondary" : color, theme);
   return /*#__PURE__*/React__default["default"].createElement(StyledButton$5, _extends({
     ref: ref,
     colors: colors
@@ -842,26 +876,20 @@ var Button$1 = /*#__PURE__*/React.forwardRef(function (_ref2, ref) {
 });
 Button$1.propTypes = ButtonBasePropTypes;
 
-var _excluded$1I = ["color"];
+var _excluded$1I = ["color", "secondary"];
 var StyledButton$4 = styled__default["default"](ButtonBase).withConfig({
   displayName: "OutlineButton__StyledButton",
   componentId: "sc-c22pyk-0"
 })(["&&{", "}"], function (_ref) {
   var colors = _ref.colors;
-  return styled.css(["border:2px solid ", ";color:", ";svg{color:", ";}:hover{background-color:", ";color:", ";opacity:1;}"], colors.borderColor, colors.color, colors.color, colors.backgroundColorHover, colors.colorHover);
+  return styled.css(["border:2px solid ", " !important;color:", " !important;svg{color:", ";}:hover{background-color:", ";color:", ";opacity:1;}"], colors.borderColor, colors.color, colors.color, colors.backgroundColorHover, colors.colorHover);
 });
 
 var colorMapper$1 = function colorMapper(color, theme) {
   if (color === "secondary") return {
     backgroundColorHover: theme.palette.gray.semiLight,
-    borderColor: theme.palette.gray.regular,
-    color: theme.palette.gray.dark
-  };
-  if (color === "subtle") return {
-    colorHover: theme.palette.gray.semiLight,
-    backgroundColorHover: theme.palette.gray.black,
-    borderColor: theme.palette.gray.black,
-    color: theme.palette.gray.black
+    borderColor: theme.palette.black.main,
+    color: theme.palette.black.main
   };
   return {
     backgroundColorHover: theme.palette.primary.light,
@@ -872,10 +900,11 @@ var colorMapper$1 = function colorMapper(color, theme) {
 
 var OutlineButton = /*#__PURE__*/React.forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
+      secondary = _ref2.secondary,
       props = _objectWithoutPropertiesLoose(_ref2, _excluded$1I);
 
   var theme = styled.useTheme();
-  var colors = colorMapper$1(color, theme);
+  var colors = colorMapper$1(secondary ? "secondary" : color, theme);
   return /*#__PURE__*/React__default["default"].createElement(StyledButton$4, _extends({
     ref: ref,
     colors: colors
@@ -883,21 +912,24 @@ var OutlineButton = /*#__PURE__*/React.forwardRef(function (_ref2, ref) {
 });
 OutlineButton.propTypes = ButtonBasePropTypes;
 
-var _excluded$1H = ["color"];
+var _excluded$1H = ["color", "secondary", "red"];
 var StyledButton$3 = styled__default["default"](ButtonBase).withConfig({
   displayName: "TextButton__StyledButton",
   componentId: "sc-rbrc68-0"
 })(["&&{", "}"], function (_ref) {
   var colors = _ref.colors;
-  return styled.css(["color:", ";svg{color:", ";}"], colors.color, colors.color);
+  return styled.css(["color:", ";border:2px solid transparent;svg{color:", ";}"], colors.color, colors.color);
 });
 
 var colorMapper = function colorMapper(color, theme) {
   if (color === "secondary") return {
-    color: theme.palette.gray.dark
+    color: theme.palette.black.main
   };
   if (color === "subtle") return {
     color: theme.palette.gray.dark
+  };
+  if (color === "red") return {
+    color: theme.palette.red.dark
   };
   return {
     color: theme.palette.primary.main
@@ -906,18 +938,169 @@ var colorMapper = function colorMapper(color, theme) {
 
 var TextButton = /*#__PURE__*/React.forwardRef(function (_ref2, ref) {
   var color = _ref2.color,
+      secondary = _ref2.secondary,
+      red = _ref2.red,
       props = _objectWithoutPropertiesLoose(_ref2, _excluded$1H);
 
   var theme = styled.useTheme();
-  var colors = colorMapper(color, theme);
+  var colors = colorMapper(secondary ? "secondary" : red ? "red" : color, theme);
   return /*#__PURE__*/React__default["default"].createElement(StyledButton$3, _extends({
+    color: color,
     ref: ref,
     colors: colors
   }, props));
 });
 TextButton.propTypes = ButtonBasePropTypes;
 
-var _excluded$1G = ["onClick", "title", "type"];
+var _excluded$1G = ["icon", "prefix", "size"],
+    _excluded2$3 = ["className", "color", "onClick", "rounded", "squared", "prefix"];
+var Rounded = styled__default["default"].div.withConfig({
+  displayName: "Icon__Rounded",
+  componentId: "sc-naquj8-0"
+})(["", " width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border-radius:100%;box-sizing:border-box;position:relative;", " ", " ", " ", ""], function (_ref) {
+  var color = _ref.color,
+      theme = _ref.theme;
+  return styled.css(["border:solid 2px ", ";background-color:", ";"], theme.palette.gray.regular, theme.palette[color].light);
+}, function (_ref2) {
+  var onClick = _ref2.onClick;
+  return onClick && styled.css(["cursor:pointer;transition:all 0.1s ease-in-out;:hover{opacity:0.7;}"]);
+}, function (theme) {
+  return COLOR(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+}, function (theme) {
+  return SPACER(theme);
+});
+var Squared = styled__default["default"].div.withConfig({
+  displayName: "Icon__Squared",
+  componentId: "sc-naquj8-1"
+})(["", " width:40px;height:40px;background-color:transparent;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;box-sizing:border-box;position:relative;", " ", " ", " ", ""], function (_ref3) {
+  var color = _ref3.color,
+      theme = _ref3.theme;
+  return styled.css(["border:solid 1px ", ";"], theme.palette[color].light);
+}, function (_ref4) {
+  var onClick = _ref4.onClick;
+  return onClick && styled.css(["cursor:pointer;transition:all 0.1s ease-in-out;:hover{opacity:0.7;}"]);
+}, function (theme) {
+  return COLOR(theme);
+}, function (theme) {
+  return DISPLAY(theme);
+}, function (theme) {
+  return SPACER(theme);
+});
+var StyledIcon$8 = styled__default["default"](function (_ref5) {
+  var icon = _ref5.icon,
+      prefix = _ref5.prefix;
+      _ref5.size;
+      var props = _objectWithoutPropertiesLoose(_ref5, _excluded$1G);
+
+  return /*#__PURE__*/React__default["default"].createElement(reactFontawesome.FontAwesomeIcon, _extends({
+    icon: [prefix, icon]
+  }, props));
+}).withConfig({
+  displayName: "Icon__StyledIcon",
+  componentId: "sc-naquj8-2"
+})(["font-size:", "px;", " ", " ", " ", ";"], function (_ref6) {
+  var size = _ref6.size;
+  return KIT_ICON_SIZES[size];
+}, function (_ref7) {
+  var color = _ref7.color,
+      theme = _ref7.theme;
+  if (color === "input") return "color: " + theme.palette.gray.regular + ";";
+  return "color: " + theme.palette[color].main + ";";
+}, function (_ref8) {
+  var onClick = _ref8.onClick;
+  return onClick && styled.css(["cursor:pointer;transition:all 0.1s ease-in-out;:hover{opacity:0.7;}"]);
+}, function (_ref9) {
+  var disabled = _ref9.disabled;
+  return disabled && styled.css(["cursor:not-allowed;pointer-events:none;opacity:0.3;"]);
+}, function (_ref10) {
+  var simple = _ref10.simple;
+  return simple && styled.css(["", " ", " ", ""], function (theme) {
+    return COLOR(theme);
+  }, function (theme) {
+    return DISPLAY(theme);
+  }, function (theme) {
+    return SPACER(theme);
+  });
+});
+var Icon = function Icon(_ref11) {
+  var className = _ref11.className,
+      color = _ref11.color,
+      onClick = _ref11.onClick,
+      rounded = _ref11.rounded,
+      squared = _ref11.squared,
+      prefix = _ref11.prefix,
+      props = _objectWithoutPropertiesLoose(_ref11, _excluded2$3);
+
+  var theme = styled.useTheme();
+
+  var defaultProps = _extends({
+    color: color,
+    prefix: prefix || theme.defaultIconSet,
+    rounded: rounded,
+    squared: squared,
+    simple: !rounded && !squared
+  }, props);
+
+  var Wrapper = null;
+  if (rounded) Wrapper = Rounded;
+  if (squared) Wrapper = Squared;
+  return Wrapper ? /*#__PURE__*/React__default["default"].createElement(Wrapper, _extends({
+    className: className,
+    color: color,
+    onClick: onClick
+  }, props), /*#__PURE__*/React__default["default"].createElement(StyledIcon$8, defaultProps)) : /*#__PURE__*/React__default["default"].createElement(StyledIcon$8, _extends({
+    className: className,
+    onClick: onClick
+  }, defaultProps));
+};
+Icon.propTypes = IconPropTypes;
+Icon.defaultProps = IconDefaultProps;
+
+var DeleteLine = styled__default["default"].div.withConfig({
+  displayName: "DeleteButton__DeleteLine",
+  componentId: "sc-13vbnel-0"
+})(["display:inline-flex;align-items:center;cursor:pointer;&:hover{opacity:0.7;button{opacity:0.7;}}"]);
+var IconWrapper$2 = styled__default["default"].div.withConfig({
+  displayName: "DeleteButton__IconWrapper",
+  componentId: "sc-13vbnel-1"
+})(["width:40px;height:40px;display:grid;place-items:center;border-radius:100%;border:2px solid ", ";margin-right:", ";svg{width:14px !important;height:14px !important;color:", ";}"], function (_ref) {
+  var theme = _ref.theme;
+  return theme.palette.error.main;
+}, function (_ref2) {
+  var theme = _ref2.theme;
+  return theme.spacing(2);
+}, function (_ref3) {
+  var theme = _ref3.theme;
+  return theme.palette.error.main;
+});
+var StyledDeleteButton = styled__default["default"](TextButton).withConfig({
+  displayName: "DeleteButton__StyledDeleteButton",
+  componentId: "sc-13vbnel-2"
+})(["color:", " !important;padding:0 !important;font-size:inherit !important;"], function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.palette.error.main;
+});
+var DeleteButton = function DeleteButton(_ref5) {
+  var handleClick = _ref5.handleClick,
+      content = _ref5.content;
+  return /*#__PURE__*/React__default["default"].createElement(DeleteLine, {
+    onClick: handleClick
+  }, /*#__PURE__*/React__default["default"].createElement(IconWrapper$2, null, /*#__PURE__*/React__default["default"].createElement(Icon, {
+    color: "error",
+    icon: "trash",
+    prefix: "far",
+    size: "sm"
+  })), /*#__PURE__*/React__default["default"].createElement(StyledDeleteButton, {
+    pl: 0,
+    content: content,
+    size: "md",
+    fontWeight: "normal"
+  }));
+};
+
+var _excluded$1F = ["onClick", "title", "type"];
 var StyledOutlineButton = styled__default["default"](OutlineButton).attrs(function () {
   return {
     size: "small"
@@ -932,7 +1115,7 @@ var ItemActionButton = function ItemActionButton(_ref) {
       title = _ref$button.title,
       _ref$button$type = _ref$button.type,
       type = _ref$button$type === void 0 ? "normal" : _ref$button$type,
-      button = _objectWithoutPropertiesLoose(_ref$button, _excluded$1G);
+      button = _objectWithoutPropertiesLoose(_ref$button, _excluded$1F);
 
   var handleClick = function handleClick(e) {
     e.stopPropagation();
@@ -956,7 +1139,7 @@ ItemActionButton.propTypes = {
   }).isRequired
 };
 
-var _excluded$1F = ["badge", "badgeColor", "icon", "iconSize", "link", "linkSize", "linkText", "mainText", "mainTextSize", "skip", "text", "textSize"];
+var _excluded$1E = ["badge", "badgeColor", "icon", "iconSize", "link", "linkSize", "linkText", "mainText", "mainTextSize", "skip", "text", "textSize"];
 var Section = styled__default["default"](core.Grid).attrs(function (_ref) {
   var md = _ref.md,
       xs = _ref.xs;
@@ -1000,7 +1183,7 @@ var ItemContent = function ItemContent(_ref5) {
       var skip = _ref5$item.skip,
       text = _ref5$item.text;
       _ref5$item.textSize;
-      var item = _objectWithoutPropertiesLoose(_ref5$item, _excluded$1F);
+      var item = _objectWithoutPropertiesLoose(_ref5$item, _excluded$1E);
 
   return /*#__PURE__*/React__default["default"].createElement(Section, item, skip && "", icon && /*#__PURE__*/React__default["default"].createElement(Icon, {
     dInline: true,
@@ -1144,112 +1327,6 @@ AdvancedLineItem.defaultProps = {
   link: null,
   secondaryActionButton: null
 };
-
-var _excluded$1E = ["icon", "prefix", "size"],
-    _excluded2$3 = ["className", "color", "onClick", "rounded", "squared", "prefix"];
-var Rounded = styled__default["default"].div.withConfig({
-  displayName: "Icon__Rounded",
-  componentId: "sc-naquj8-0"
-})(["", " width:32px;height:32px;display:inline-flex;align-items:center;justify-content:center;border-radius:100%;box-sizing:border-box;position:relative;", " ", " ", " ", ""], function (_ref) {
-  var color = _ref.color,
-      theme = _ref.theme;
-  return styled.css(["border:solid 2px ", ";background-color:", ";"], theme.palette.gray.regular, theme.palette[color].light);
-}, function (_ref2) {
-  var onClick = _ref2.onClick;
-  return onClick && styled.css(["cursor:pointer;transition:all 0.1s ease-in-out;:hover{opacity:0.7;}"]);
-}, function (theme) {
-  return COLOR(theme);
-}, function (theme) {
-  return DISPLAY(theme);
-}, function (theme) {
-  return SPACER(theme);
-});
-var Squared = styled__default["default"].div.withConfig({
-  displayName: "Icon__Squared",
-  componentId: "sc-naquj8-1"
-})(["", " width:40px;height:40px;background-color:transparent;display:inline-flex;align-items:center;justify-content:center;border-radius:8px;box-sizing:border-box;position:relative;", " ", " ", " ", ""], function (_ref3) {
-  var color = _ref3.color,
-      theme = _ref3.theme;
-  return styled.css(["border:solid 1px ", ";"], theme.palette[color].light);
-}, function (_ref4) {
-  var onClick = _ref4.onClick;
-  return onClick && styled.css(["cursor:pointer;transition:all 0.1s ease-in-out;:hover{opacity:0.7;}"]);
-}, function (theme) {
-  return COLOR(theme);
-}, function (theme) {
-  return DISPLAY(theme);
-}, function (theme) {
-  return SPACER(theme);
-});
-var StyledIcon$8 = styled__default["default"](function (_ref5) {
-  var icon = _ref5.icon,
-      prefix = _ref5.prefix;
-      _ref5.size;
-      var props = _objectWithoutPropertiesLoose(_ref5, _excluded$1E);
-
-  return /*#__PURE__*/React__default["default"].createElement(reactFontawesome.FontAwesomeIcon, _extends({
-    icon: [prefix, icon]
-  }, props));
-}).withConfig({
-  displayName: "Icon__StyledIcon",
-  componentId: "sc-naquj8-2"
-})(["font-size:", "px;", " ", " ", " ", ";"], function (_ref6) {
-  var size = _ref6.size;
-  return KIT_ICON_SIZES[size];
-}, function (_ref7) {
-  var color = _ref7.color,
-      theme = _ref7.theme;
-  if (color === "input") return "color: " + theme.palette.gray.regular + ";";
-  return "color: " + theme.palette[color].main + ";";
-}, function (_ref8) {
-  var onClick = _ref8.onClick;
-  return onClick && styled.css(["cursor:pointer;transition:all 0.1s ease-in-out;:hover{opacity:0.7;}"]);
-}, function (_ref9) {
-  var disabled = _ref9.disabled;
-  return disabled && styled.css(["cursor:not-allowed;pointer-events:none;opacity:0.3;"]);
-}, function (_ref10) {
-  var simple = _ref10.simple;
-  return simple && styled.css(["", " ", " ", ""], function (theme) {
-    return COLOR(theme);
-  }, function (theme) {
-    return DISPLAY(theme);
-  }, function (theme) {
-    return SPACER(theme);
-  });
-});
-var Icon = function Icon(_ref11) {
-  var className = _ref11.className,
-      color = _ref11.color,
-      onClick = _ref11.onClick,
-      rounded = _ref11.rounded,
-      squared = _ref11.squared,
-      prefix = _ref11.prefix,
-      props = _objectWithoutPropertiesLoose(_ref11, _excluded2$3);
-
-  var theme = styled.useTheme();
-
-  var defaultProps = _extends({
-    color: color,
-    prefix: prefix || theme.defaultIconSet,
-    rounded: rounded,
-    squared: squared,
-    simple: !rounded && !squared
-  }, props);
-
-  var Wrapper = null;
-  if (rounded) Wrapper = Rounded;
-  if (squared) Wrapper = Squared;
-  return Wrapper ? /*#__PURE__*/React__default["default"].createElement(Wrapper, _extends({
-    className: className,
-    color: color,
-    onClick: onClick
-  }, props), /*#__PURE__*/React__default["default"].createElement(StyledIcon$8, defaultProps)) : /*#__PURE__*/React__default["default"].createElement(StyledIcon$8, _extends({
-    className: className,
-    onClick: onClick
-  }, defaultProps));
-};
-Icon.propTypes = IconPropTypes;
-Icon.defaultProps = IconDefaultProps;
 
 var AlertPropTypes = _extends({
   content: PropTypes__default["default"].node,
@@ -2754,7 +2831,7 @@ var DatepickerDefaultProps = {
   to: null
 };
 
-var _excluded$1p = ["from", "selectRange", "to"];
+var _excluded$1p = ["from", "selectRange", "to", "startFromToday"];
 var Container$e = styled__default["default"].div.withConfig({
   displayName: "Datepicker__Container",
   componentId: "sc-1s1s47f-0"
@@ -2787,12 +2864,17 @@ var Datepicker = function Datepicker(_ref9) {
   var from = _ref9.from,
       selectRange = _ref9.selectRange,
       to = _ref9.to,
+      startFromToday = _ref9.startFromToday,
       props = _objectWithoutPropertiesLoose(_ref9, _excluded$1p);
 
+  var today = new Date();
   return /*#__PURE__*/React__default["default"].createElement(Container$e, {
     selectRange: selectRange
   }, /*#__PURE__*/React__default["default"].createElement(DayPicker__default["default"], _extends({
     className: "Selectable",
+    disabledDays: startFromToday ? {
+      before: today
+    } : null,
     initialMonth: from,
     selectedDays: [from].concat(selectRange ? [{
       from: from,
@@ -3497,7 +3579,8 @@ var FormDatepickerComponent = function FormDatepickerComponent(_ref6) {
       placeholder = _ref6.placeholder,
       selectRange = _ref6.selectRange,
       submitText = _ref6.submitText,
-      value = _ref6.value;
+      value = _ref6.value,
+      startFromToday = _ref6.startFromToday;
   var currentValue = {
     start: (value == null ? void 0 : value.start) || value,
     end: (value == null ? void 0 : value.end) || null
@@ -3588,7 +3671,8 @@ var FormDatepickerComponent = function FormDatepickerComponent(_ref6) {
     from: from,
     to: to,
     onDayClick: handleDayClick,
-    selectRange: selectRange
+    selectRange: selectRange,
+    startFromToday: startFromToday
   }, datepickerProps)), /*#__PURE__*/React__default["default"].createElement(BottomSection$1, null, /*#__PURE__*/React__default["default"].createElement(TextButton, {
     content: cancelText,
     onClick: handleClosePopover,
@@ -11964,6 +12048,7 @@ exports.DISPLAY = DISPLAY;
 exports.DISPLAY_PROP_TYPES = DISPLAY_PROP_TYPES;
 exports.DashboardLayout = DashboardLayout;
 exports.Datepicker = Datepicker;
+exports.DeleteButton = DeleteButton;
 exports.DetailsTable = DetailsTable;
 exports.Divider = Divider;
 exports.DotsSpinner = DotsSpinner;

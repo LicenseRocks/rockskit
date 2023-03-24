@@ -9,6 +9,7 @@ const StyledButton = styled(ButtonBase)`
       return css`
         background-color: ${colors.backgroundColor};
         color: ${colors.color};
+        border: 2px solid ${colors.backgroundColor};
         svg {
           color: ${colors.color};
         }
@@ -18,16 +19,10 @@ const StyledButton = styled(ButtonBase)`
 `;
 
 const colorMapper = (color, theme) => {
-  if (color === "black")
-    return {
-      backgroundColor: theme.palette.black.main,
-      color: theme.palette.common.white,
-    };
-
   if (color === "secondary")
     return {
-      backgroundColor: theme.palette.gray.dark,
-      color: theme.palette.common.white,
+      backgroundColor: theme.palette.gray.regular,
+      color: theme.palette.black.main,
     };
 
   if (color === "subtle")
@@ -42,9 +37,9 @@ const colorMapper = (color, theme) => {
   };
 };
 
-export const Button = forwardRef(({ color, ...props }, ref) => {
+export const Button = forwardRef(({ color, secondary,...props }, ref) => {
   const theme = useTheme();
-  const colors = colorMapper(color, theme);
+  const colors = colorMapper(secondary ? "secondary" : color, theme);
 
   return <StyledButton ref={ref} colors={colors} {...props} />;
 });
