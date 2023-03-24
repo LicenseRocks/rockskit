@@ -5,7 +5,7 @@ export const Row = styled.tr`
   background-color: ${({ theme }) => theme.palette.common.white};
 
   &:not(:last-child) {
-    border-bottom: 2px solid ${({ theme }) => theme.palette.gray.regular};
+    border-bottom: 2px solid ${({ theme, blackBorders }) => blackBorders ? theme.palette.gray.black : theme.palette.gray.regular};
   }
 
   ${({ hasData, theme }) =>

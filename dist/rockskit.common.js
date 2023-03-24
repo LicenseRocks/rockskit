@@ -844,8 +844,6 @@ var StyledButton$5 = styled__default["default"](ButtonBase).withConfig({
   componentId: "sc-rmizea-0"
 })(["&&{", "}"], function (_ref) {
   var colors = _ref.colors;
-      _ref.theme;
-  console.log("🦊 colors.color: ", colors.color);
   return styled.css(["background-color:", ";color:", ";border:2px solid ", ";svg{color:", ";}"], colors.backgroundColor, colors.color, colors.backgroundColor, colors.color);
 });
 
@@ -6814,7 +6812,7 @@ var StyledMessage = styled__default["default"].div.withConfig({
 var StyledCollapseButton = styled__default["default"](CollapseButton).withConfig({
   displayName: "Item__StyledCollapseButton",
   componentId: "sc-1mr01kl-4"
-})(["width:33px !important;height:33px !important;padding:", ";color:", ";background-color:", ";border-radius:0px 8px 8px 0px;", "{padding:", ";}"], function (_ref11) {
+})(["width:17px !important;height:17px !important;padding:", ";color:", ";background-color:", ";border-radius:0px 8px 8px 0px;", "{padding:", ";}"], function (_ref11) {
   var theme = _ref11.theme;
   return theme.spacing(2);
 }, function (_ref12) {
@@ -10832,8 +10830,9 @@ var Row = styled__default["default"].tr.withConfig({
   var theme = _ref2.theme;
   return theme.palette.common.white;
 }, function (_ref3) {
-  var theme = _ref3.theme;
-  return theme.palette.gray.regular;
+  var theme = _ref3.theme,
+      blackBorders = _ref3.blackBorders;
+  return blackBorders ? theme.palette.gray.black : theme.palette.gray.regular;
 }, function (_ref4) {
   var hasData = _ref4.hasData,
       theme = _ref4.theme;
@@ -10894,11 +10893,13 @@ var Rows = function Rows(_ref4) {
   var columns = _ref4.columns,
       rows = _ref4.rows,
       rowsBottomBorderSm = _ref4.rowsBottomBorderSm,
-      rowsSize = _ref4.rowsSize;
+      rowsSize = _ref4.rowsSize,
+      blackBorders = _ref4.blackBorders;
   return rows.map(function (row) {
     return /*#__PURE__*/React__default["default"].createElement(Row, {
       hasData: rows.length > 0,
-      size: rowsSize
+      size: rowsSize,
+      blackBorders: blackBorders
     }, Object.keys(row).map(function (td) {
       var col = columns.find(function (c) {
         return c.key === td;
@@ -10925,15 +10926,18 @@ var StyledThead = styled__default["default"].thead.withConfig({
   var hasData = _ref.hasData,
       theme = _ref.theme;
   return hasData && styled.css(["tr th{&:first-child{padding-left:", ";}&:last-child{padding-right:", ";}}border-bottom:2px solid ", ";", "{border:none;clip:rect(0 0 0 0);height:1px;margin:-1px;overflow:hidden;padding:0;position:absolute;width:1px;}"], theme.spacing(6), theme.spacing(6), function (_ref2) {
-    var theme = _ref2.theme;
-    return theme.palette.gray.regular;
+    var theme = _ref2.theme,
+        blackBorders = _ref2.blackBorders;
+    return blackBorders ? theme.palette.gray.black : theme.palette.gray.regular;
   }, theme.breakpoints.down("sm"));
 });
 var Heading = function Heading(_ref3) {
   var columns = _ref3.columns,
-      hasData = _ref3.hasData;
+      hasData = _ref3.hasData,
+      blackBorders = _ref3.blackBorders;
   return columns.length > 0 && /*#__PURE__*/React__default["default"].createElement(StyledThead, {
-    hasData: hasData
+    hasData: hasData,
+    blackBorders: blackBorders
   }, /*#__PURE__*/React__default["default"].createElement(Row, {
     size: "sm",
     hasData: hasData
@@ -10977,7 +10981,7 @@ NoData.propTypes = {
   columnsCount: PropTypes__default["default"].number.isRequired
 };
 
-var _excluded$6 = ["columns", "rows", "noDataProps", "rowsBottomBorderSm", "rowsSize"];
+var _excluded$6 = ["columns", "rows", "noDataProps", "rowsBottomBorderSm", "rowsSize", "blackBorders"];
 var StyledTable = styled__default["default"].table.withConfig({
   displayName: "Table__StyledTable",
   componentId: "sc-1dprpyf-0"
@@ -11000,6 +11004,7 @@ var Table = function Table(_ref3) {
       noDataProps = _ref3.noDataProps,
       rowsBottomBorderSm = _ref3.rowsBottomBorderSm,
       rowsSize = _ref3.rowsSize,
+      blackBorders = _ref3.blackBorders,
       props = _objectWithoutPropertiesLoose(_ref3, _excluded$6);
 
   var hasData = rows.length > 0;
@@ -11007,14 +11012,16 @@ var Table = function Table(_ref3) {
     hasData: hasData
   }, props), /*#__PURE__*/React__default["default"].createElement(Heading, {
     columns: columns,
-    hasData: hasData
+    hasData: hasData,
+    blackBorders: blackBorders
   }), /*#__PURE__*/React__default["default"].createElement(StyledTbody, {
     hasData: hasData
   }, rows.length > 0 ? /*#__PURE__*/React__default["default"].createElement(Rows, {
     columns: columns,
     rows: rows,
     rowsBottomBorderSm: rowsBottomBorderSm,
-    rowsSize: rowsSize
+    rowsSize: rowsSize,
+    blackBorders: blackBorders
   }) : /*#__PURE__*/React__default["default"].createElement(NoData, _extends({
     columnsCount: columns.length
   }, noDataProps))));
@@ -11243,18 +11250,22 @@ var StyledTooltip = styled__default["default"](function (props) {
   var theme = _ref3.theme;
   return theme.palette.gray.dark;
 });
-var Tooltip = function Tooltip(_ref4) {
-  var children = _ref4.children,
-      content = _ref4.content,
-      contentProps = _ref4.contentProps,
-      renderContent = _ref4.renderContent,
-      props = _objectWithoutPropertiesLoose(_ref4, _excluded$4);
+var StyledP = styled__default["default"].p.withConfig({
+  displayName: "Tooltip__StyledP",
+  componentId: "sc-1qj0z7d-1"
+})(["font-size:12px;padding:", ";margin:0;"], function (_ref4) {
+  var theme = _ref4.theme;
+  return theme.spacing(1);
+});
+var Tooltip = function Tooltip(_ref5) {
+  var children = _ref5.children,
+      content = _ref5.content;
+      _ref5.contentProps;
+      var renderContent = _ref5.renderContent,
+      props = _objectWithoutPropertiesLoose(_ref5, _excluded$4);
 
   return /*#__PURE__*/React__default["default"].createElement(StyledTooltip, _extends({
-    title: renderContent() || /*#__PURE__*/React__default["default"].createElement(Text, _extends({
-      fontStyle: "italic",
-      size: "sm"
-    }, contentProps), content)
+    title: renderContent() || /*#__PURE__*/React__default["default"].createElement(StyledP, null, content)
   }, props), /*#__PURE__*/React__default["default"].createElement("span", null, children));
 };
 Tooltip.propTypes = TooltipPropTypes;

@@ -37,6 +37,7 @@ export default {
 
 export const main = () => {
   const defaultProps = {
+    blackBorders: true,
     columns: [
       {
         hiddenSm: true,
@@ -45,7 +46,6 @@ export const main = () => {
         type: "icon",
       },
       {
-        hiddenLabelSm: true,
         key: "license",
         label: "License",
       },
