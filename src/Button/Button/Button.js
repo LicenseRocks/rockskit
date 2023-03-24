@@ -9,6 +9,7 @@ const StyledButton = styled(ButtonBase)`
       return css`
         background-color: ${colors.backgroundColor};
         color: ${colors.color};
+        border: 2px solid ${colors.backgroundColor};
         svg {
           color: ${colors.color};
         }

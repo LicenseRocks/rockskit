@@ -3,13 +3,25 @@ import { select, boolean, text } from "@storybook/addon-knobs";
 import styled from "styled-components";
 
 import { StoryWrapper } from "../../.storybook/decorators";
-import { Button, H3, OutlineButton, TextButton, ButtonBase } from "..";
+import { Button, H3, OutlineButton, TextButton, ButtonBase, DeleteButton } from "..";
 import MuiButtonBase from "@material-ui/core/ButtonBase";
 
 export default {
   title: "Button",
   decorators: [StoryWrapper],
 };
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: ${({ column }) => column ? "column" : "row" };
+  gap: ${({ column }) => column ? "unset" : "2rem" };
+`;
+
+const FullWidthWrapper = styled.div`
+  width: 300px;
+  border: 1px solid purple;
+  border-radius: 16px;
+`;
 
 const BaseComponent = forwardRef(({ Component, title, ...props }, ref) => {
   return (
@@ -50,7 +62,7 @@ const StyledMuiButtonBase = styled.div`
 
 export const main = () => {
   const defaultProps = {
-    color: select("Color", ["primary", "secondary"], "primary"),
+    color: select("Color", ["primary", "secondary", "red"], "primary"),
     secondary: boolean("Secondary", false),
     disabled: boolean("Disabled", false),
     loading: boolean("Loading", false),
@@ -59,29 +71,57 @@ export const main = () => {
     startIconPrefix: text("Start icon prefix", "fa"),
     endIcon: text("End icon", "arrow-right"),
     endIconPrefix: text("End icon prefix", "fa"),
-    content: text("Button text (content)", "Submit")
+    content: text("Button text (content)", "Submit"),
+    column: boolean("Display in column", false),
   };
+
 
   return (
     <>
-      <p>Button</p>
-      <BaseComponent
-        Component={Button}
-        {...defaultProps}
-      />
+      <Container column={defaultProps.column}>
+        <div>
+          <p>Button</p>
+          <BaseComponent
+            Component={Button}
+            {...defaultProps}
+          />
+        </div>
 
-      <p>OutlineButton</p>
-      <BaseComponent
-        Component={OutlineButton}
-        {...defaultProps}
-      />
+        <div>
+          <p>OutlineButton</p>
+          <BaseComponent
+            Component={OutlineButton}
+            {...defaultProps}
+          />
+        </div>
+        <div>
+          <p>TextButton</p>
+          <BaseComponent
+            Component={TextButton}
+            {...defaultProps}
+          />
+        </div>
 
-      <p>TextButton</p>
-      <BaseComponent
-        Component={TextButton}
-        {...defaultProps}
-      />
+        <div>
+          <p>TextButtonCircleIcon</p>
+          <BaseComponent
+            content="Delete"
+            Component={DeleteButton}
+            {...defaultProps}
+          />
+        </div>
 
+      </Container>
+      <Container>
+        <FullWidthWrapper>
+          <p>Button (full width)</p>
+          <BaseComponent
+            Component={Button}
+            block
+            {...defaultProps}
+          />
+        </FullWidthWrapper>
+      </Container>
     </>
   );
 };

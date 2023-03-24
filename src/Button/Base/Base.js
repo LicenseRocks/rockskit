@@ -52,7 +52,7 @@ const StyledButton = styled(MuiButtonBase)`
       if (size === "xs") {
         return css`
           font-size: ${theme.typography.button.fontSizeXs};
-          padding: ${({ content }) => !(!!content) ? "6px" : "6px 8px" };
+          padding: ${({ content }) => !(!!content) ? "5px" : "5px 7px" };
 
           .icon_wrapper {
             display: grid;
@@ -66,7 +66,7 @@ const StyledButton = styled(MuiButtonBase)`
       if (size === "sm") {
         return css`
           font-size: ${theme.typography.button.fontSizeSm};
-          padding: ${({ content }) => !(!!content) ? "9px" : "9px 24px" };
+          padding: ${({ content }) => !(!!content) ? "8px" : "8px 23px" };
 
           .icon_wrapper {
             display: grid;
@@ -80,7 +80,7 @@ const StyledButton = styled(MuiButtonBase)`
       if (size === "md") {
         return css`
           font-size: ${theme.typography.button.fontSizeMd};
-          padding: ${({ content }) => !(!!content) ? "10.5px" : "10.5px 16px" };
+          padding: ${({ content }) => !(!!content) ? "9.5px" : "9.5px 15px" };
 
           .icon_wrapper {
             display: grid;
@@ -94,7 +94,7 @@ const StyledButton = styled(MuiButtonBase)`
       if (size === "lg") {
         return css`
           font-size: ${theme.typography.button.fontSizeLg};
-          padding: ${({ content }) => !(!!content) ? "14.5px" : "14.5px 24px" };
+          padding: ${({ content }) => !(!!content) ? "13.5px" : "13.5px 23px" };
 
           .icon_wrapper {
             display: grid;
@@ -138,6 +138,7 @@ export const ButtonBase = forwardRef(
       iconProps,
       size,
       startIconPrefix,
+      fullWidth,
       ...props
     },
     ref
