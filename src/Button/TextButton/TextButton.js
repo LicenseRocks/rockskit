@@ -19,7 +19,7 @@ const StyledButton = styled(ButtonBase)`
 const colorMapper = (color, theme) => {
   if (color === "secondary")
     return {
-      color: theme.palette.gray.dark,
+      color: theme.palette.black.main,
     };
 
   if (color === "subtle")
@@ -32,11 +32,11 @@ const colorMapper = (color, theme) => {
   };
 };
 
-export const TextButton = forwardRef(({ color, ...props }, ref) => {
+export const TextButton = forwardRef(({ color, secondary,...props }, ref) => {
   const theme = useTheme();
-  const colors = colorMapper(color, theme);
+  const colors = colorMapper(secondary ? "secondary" : color, theme);
 
-  return <StyledButton ref={ref} colors={colors} {...props} />;
+  return <StyledButton color={color} ref={ref} colors={colors} {...props} />;
 });
 
 TextButton.propTypes = ButtonBasePropTypes;

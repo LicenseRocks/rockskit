@@ -50,31 +50,38 @@ const StyledMuiButtonBase = styled.div`
 
 export const main = () => {
   const defaultProps = {
-    color: select("Color", ["primary", "secondary", "subtle"], "primary"),
+    color: select("Color", ["primary", "secondary"], "primary"),
+    secondary: boolean("Secondary", false),
     disabled: boolean("Disabled", false),
     loading: boolean("Loading", false),
-    endIcon: text("End icon", "arrow-left"),
-    endIconPrefix: text("End icon prefix", "fa"),
     size: select("Size", ["xs", "sm", "md", "lg"], "md"),
-    startIcon: text("Start icon", "file-arrow-up"),
-    startIconPrefix: text("Start icon prefix", "far"),
+    startIcon: text("Start icon", "arrow-left"),
+    startIconPrefix: text("Start icon prefix", "fa"),
+    endIcon: text("End icon", "arrow-right"),
+    endIconPrefix: text("End icon prefix", "fa"),
+    content: text("Button text (content)", "Submit")
   };
 
   return (
     <>
-      <BaseComponent Component={Button} title="Button" {...defaultProps} />
+      <p>Button</p>
+      <BaseComponent
+        Component={Button}
+        {...defaultProps}
+      />
 
+      <p>OutlineButton</p>
       <BaseComponent
         Component={OutlineButton}
-        title="Outline Button"
         {...defaultProps}
       />
 
+      <p>TextButton</p>
       <BaseComponent
         Component={TextButton}
-        title="Text Button"
         {...defaultProps}
       />
+
     </>
   );
 };
